@@ -1,0 +1,620 @@
+html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diálogo Día 1 — Español → Inglés</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root{
+    --bg: #14171F;
+    --bg-panel: #1B1F2A;
+    --bg-panel-2: #21283A;
+    --es: #E8A33D;
+    --es-dim: #6b562c;
+    --en: #4FB6E8;
+    --en-dim: #29506b;
+    --ink: #F1EFEA;
+    --muted: #8891A3;
+    --ok: #6FCF97;
+    --warn: #E86A5C;
+    --border: #2A3040;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    min-height:100vh;
+    padding: 32px 20px 60px;
+  }
+
+  .wrap{max-width: 920px; margin: 0 auto;}
+
+  header{margin-bottom: 28px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--en);}
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: 34px;
+    margin: 6px 0 8px;
+    letter-spacing: -0.01em;
+  }
+  h1 .es{color:var(--es);}
+  h1 .en{color:var(--en);}
+  .sub{color:var(--muted); font-size:15px; max-width:560px; line-height:1.5;}
+
+  .progress{
+    display:flex; gap:6px; margin: 22px 0 0;
+  }
+  .progress .seg{
+    flex:1; height:4px; border-radius:2px; background: var(--border);
+    transition: background .3s;
+  }
+  .progress .seg.done{background: var(--en);}
+  .progress .seg.now{background: var(--es);}
+
+  .layout{
+    display:grid;
+    grid-template-columns: 1fr 260px;
+    gap: 20px;
+    margin-top: 26px;
+  }
+  @media (max-width: 720px){ .layout{grid-template-columns: 1fr;} }
+
+  .panel{
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+  }
+
+  .speaker-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .line{
+    font-family:'Fraunces', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    font-weight: 400;
+    min-height: 90px;
+  }
+  .line .seg{
+    transition: color .15s, text-shadow .15s;
+    color: var(--muted);
+  }
+  .line .seg.es{color: var(--es-dim);}
+  .line .seg.en{color: var(--en-dim);}
+  .line .seg.active.es{color: var(--es); text-shadow: 0 0 22px rgba(232,163,61,.35);}
+  .line .seg.active.en{color: var(--en); text-shadow: 0 0 22px rgba(79,182,232,.35);}
+  .line .seg.spoken.es{color: var(--es);}
+  .line .seg.spoken.en{color: var(--en);}
+
+  .controls{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap;}
+  button{
+    font-family:'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-panel-2);
+    color: var(--ink);
+    padding: 11px 18px;
+    cursor:pointer;
+    display:flex; align-items:center; gap:8px;
+    transition: transform .12s, border-color .12s;
+  }
+  button:hover{border-color: var(--en); transform: translateY(-1px);}
+  button:active{transform: translateY(0);}
+  button:disabled{opacity:.35; cursor:not-allowed; transform:none;}
+  button.primary{background: var(--en); color:#0c1420; border-color: var(--en);}
+  button.mic{background: var(--warn); color:#0c1420; border-color: var(--warn);}
+  button.mic.listening{animation: pulse 1.1s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,106,92,.5);} 70%{box-shadow:0 0 0 12px rgba(232,106,92,0);} 100%{box-shadow:0 0 0 0 rgba(232,106,92,0);}}
+
+  .type-row{display:flex; gap:8px; margin-top:14px;}
+  .type-row input{
+    flex:1;
+    background: var(--bg-panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 14px;
+    color: var(--ink);
+    font-size:14px;
+    font-family:'Inter',sans-serif;
+  }
+  .type-row input:focus{outline:none; border-color: var(--en);}
+
+  .feedback{
+    margin-top:16px;
+    font-size:14px;
+    padding: 12px 14px;
+    border-radius:10px;
+    display:none;
+  }
+  .feedback.show{display:block;}
+  .feedback.ok{background: rgba(111,207,151,.1); color: var(--ok); border:1px solid rgba(111,207,151,.3);}
+  .feedback.retry{background: rgba(232,106,92,.1); color: var(--warn); border:1px solid rgba(232,106,92,.3);}
+
+  /* Sidebar */
+  .side h3{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color: var(--muted); margin: 0 0 14px;
+  }
+  .word-card{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding: 9px 0; border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    opacity:0; transform: translateY(6px);
+    animation: rise .4s forwards;
+  }
+  @keyframes rise{to{opacity:1; transform:none;}}
+  .word-card b{color: var(--en); font-family:'Fraunces',serif; font-size:17px;}
+  .word-card span{color: var(--muted);}
+  .side .empty{color: var(--muted); font-size:13px; line-height:1.6;}
+  .side .note{
+    margin-top:18px; padding-top:16px; border-top:1px solid var(--border);
+    font-size: 12.5px; color: var(--muted); line-height:1.6;
+  }
+
+  .transcript{
+    margin-top: 22px;
+  }
+  .transcript h3{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color: var(--muted); margin: 0 0 12px;
+  }
+  .t-line{font-size: 14px; line-height:1.7; margin-bottom:6px;}
+  .t-line .who{color: var(--muted); font-family:'JetBrains Mono',monospace; font-size:11px; margin-right:8px;}
+  .t-line.app{color: #c9cdd8;}
+  .t-line.user{color: var(--ok);}
+
+  .done-screen{display:none; text-align:center; padding: 30px 10px 6px;}
+  .done-screen.show{display:block;}
+  .done-screen .big{font-family:'Fraunces',serif; font-size:22px; margin-bottom:10px;}
+  .done-screen p{color:var(--muted); font-size:14px; max-width:460px; margin: 0 auto 4px;}
+
+  .gate{
+    position: fixed; inset: 0; background: var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    z-index: 50; text-align:center; padding: 24px;
+  }
+  .gate.hidden{display:none;}
+  .gate-card{max-width: 420px;}
+  .gate-card .icon{font-size: 40px; margin-bottom: 14px;}
+  .gate-card h2{font-family:'Fraunces',serif; font-size:24px; margin: 0 0 10px;}
+  .gate-card p{color: var(--muted); font-size: 14px; line-height:1.6; margin-bottom: 22px;}
+  .gate-card button{margin: 0 auto;}
+  .gate-status{margin-top:14px; font-size:13px; color: var(--warn); min-height: 18px;}
+
+  .pron-tag{
+    display:inline-block; margin-left:8px; font-family:'JetBrains Mono',monospace;
+    font-size:11px; padding:2px 8px; border-radius:999px; vertical-align:middle;
+  }
+  .pron-tag.high{background:rgba(111,207,151,.15); color:var(--ok);}
+  .pron-tag.low{background:rgba(232,106,92,.15); color:var(--warn);}
+  .mic-status{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    margin-top: 12px;
+  }
+  .mic-status .dot2{width:7px;height:7px;border-radius:50%; background: var(--muted);}
+  .mic-status.on{color: var(--ok); border-color: rgba(111,207,151,.3);}
+  .mic-status.on .dot2{background: var(--ok);}
+  .mic-status.off{color: var(--warn); border-color: rgba(232,106,92,.3);}
+  .mic-status.off .dot2{background: var(--warn);}
+  .mic-status.listening{color: var(--warn); border-color: rgba(232,106,92,.4); animation: pulse 1.1s infinite;}
+  .mic-status.listening .dot2{background: var(--warn); animation: pulse 1.1s infinite;}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <div class="icon">🎙</div>
+    <h2>Activemos tu micrófono</h2>
+    <p>Lo necesitamos para escuchar tu pronunciación real mientras practicás. El navegador te va a pedir permiso — aceptalo para que el diálogo funcione hablado de verdad.</p>
+    <button class="primary" id="gateBtn">Activar micrófono y empezar</button>
+    <div class="gate-status" id="gateStatus"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span> Método de inmersión progresiva · Prototipo</div>
+    <h1><span class="es">Día 1</span> — <span class="en">Diálogo hablado</span></h1>
+    <p class="sub">La app habla en voz alta, alternando español e inglés. Vos escuchás, leés el texto resaltado, y respondés hablando o escribiendo. Cada palabra nueva en inglés queda guardada para repasar mañana.</p>
+    <div class="mic-status off" id="micStatus"><span class="dot2"></span><span id="micStatusText">Micrófono: inactivo</span></div>
+    <div class="progress" id="progress"></div>
+  </header>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="speaker-tag" id="speakerTag">TU TUTOR</div>
+      <div class="line" id="line"></div>
+
+      <div class="controls" id="appControls">
+        <button class="primary" id="playBtn">▶ Escuchar</button>
+        <button id="replayBtn">↺ Repetir</button>
+      </div>
+
+      <div class="controls" id="userControls" style="display:none;">
+        <button class="mic" id="micBtn">🎙 Hablar mi respuesta</button>
+        <button id="skipBtn">Prefiero escribir</button>
+      </div>
+
+      <div class="type-row" id="typeRow" style="display:none;">
+        <input type="text" id="typeInput" placeholder="Escribí tu respuesta acá...">
+        <button class="primary" id="sendBtn">Enviar</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <div class="controls" id="nextControls" style="display:none;">
+        <button class="primary" id="nextBtn">Continuar →</button>
+      </div>
+
+      <div class="done-screen" id="doneScreen">
+        <div class="big">🎉 Terminaste el Día 1</div>
+        <p>Aprendiste <b id="doneCount">0</b> palabras nuevas practicándolas habladas, no solo leídas.</p>
+        <p>Mañana el Día 2 empieza repasando estas mismas palabras antes de sumar las nuevas — así es como quedan en memoria de verdad.</p>
+      </div>
+    </div>
+
+    <div class="side">
+      <h3>Palabras de hoy</h3>
+      <div id="wordList"><div class="empty">Todavía no aparece ninguna. Van a ir sumándose a medida que avanza el diálogo.</div></div>
+      <div class="note">Repaso espaciado: estas palabras vuelven a aparecer en los Días 2, 4 y 8 antes de sumar vocabulario nuevo.</div>
+    </div>
+  </div>
+
+  <div class="transcript panel">
+    <h3>Transcripción de la conversación</h3>
+    <div id="transcript"></div>
+  </div>
+
+</div>
+
+<script>
+// ---------- Guion del Día 1 ----------
+const script = [
+  {
+    speaker:'app',
+    segs:[{t:'¡Hola! Bienvenido a tu práctica de hoy. ', lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?', lang:'es'}],
+    expects:{type:'free'}
+  },
+  {
+    speaker:'app',
+    segs:[{t:'Qué bueno. Te enseño la primera palabra de hoy: ', lang:'es'},{t:'hello', lang:'en'},{t:'. Se dice así, ', lang:'es'},{t:'hello', lang:'en'},{t:', y significa "hola". Repetila en voz alta.', lang:'es'}],
+    newWord:{en:'hello', es:'hola'},
+    expects:{type:'word', target:'hello'}
+  },
+  {
+    speaker:'app',
+    segs:[{t:'Muy bien. Ahora otra palabra: ', lang:'es'},{t:'day', lang:'en'},{t:'. Es "día". Decímela: ', lang:'es'},{t:'day', lang:'en'}],
+    newWord:{en:'day', es:'día'},
+    expects:{type:'word', target:'day'}
+  },
+  {
+    speaker:'app',
+    segs:[{t:'Perfecto. Juntemos las dos: decime ', lang:'es'},{t:'hello', lang:'en'},{t:', ', lang:'es'},{t:'good', lang:'en'},{t:' ', lang:'es'},{t:'day', lang:'en'},{t:'. ', lang:'es'},{t:'Good', lang:'en'},{t:' significa "bueno". Repetí la frase completa.', lang:'es'}],
+    newWord:{en:'good', es:'bueno / buen'},
+    expects:{type:'phrase', target:'hello good day'}
+  },
+  {
+    speaker:'app',
+    segs:[{t:'Excelente. Última palabra de hoy: ', lang:'es'},{t:'please', lang:'en'},{t:'. Significa "por favor". Repetila.', lang:'es'}],
+    newWord:{en:'please', es:'por favor'},
+    expects:{type:'word', target:'please'}
+  },
+  {
+    speaker:'app',
+    segs:[{t:'Cerremos con una frase completa usando todo lo que aprendiste hoy: ', lang:'es'},{t:'hello, good day, please', lang:'en'},{t:'. Repetila entera, despacio.', lang:'es'}],
+    expects:{type:'phrase', target:'hello good day please'}
+  },
+  {
+    speaker:'app',
+    segs:[{t:'¡Así se hace! Terminaste el Día 1. ', lang:'es'},{t:'Mañana repasamos estas cuatro palabras antes de sumar las nuevas.', lang:'es'}],
+    expects:{type:'end'}
+  }
+];
+
+let idx = 0;
+let learnedWords = [];
+let micGranted = false;
+
+const gate = document.getElementById('gate');
+const gateBtn = document.getElementById('gateBtn');
+const gateStatus = document.getElementById('gateStatus');
+
+gateBtn.addEventListener('click', async ()=>{
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    gateStatus.textContent = 'Tu navegador no soporta micrófono aquí. Vas a poder escribir tus respuestas igual.';
+    micGranted = false;
+    setTimeout(()=>{ gate.classList.add('hidden'); }, 1400);
+    return;
+  }
+  gateStatus.textContent = 'Pidiendo permiso...';
+  try{
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    stream.getTracks().forEach(t=>t.stop());
+    micGranted = true;
+    gateStatus.textContent = '✓ Micrófono activado.';
+    setMicStatus('on', 'Micrófono: activo');
+    setTimeout(()=>{ gate.classList.add('hidden'); }, 500);
+  }catch(err){
+    micGranted = false;
+    gateStatus.textContent = 'No se concedió el permiso. Podés seguir escribiendo tus respuestas sin problema.';
+    setMicStatus('off', 'Micrófono: sin permiso (usá texto)');
+    setTimeout(()=>{ gate.classList.add('hidden'); }, 1800);
+  }
+});
+
+function setMicStatus(cls, text){
+  const el = document.getElementById('micStatus');
+  const t = document.getElementById('micStatusText');
+  el.className = 'mic-status ' + cls;
+  t.textContent = text;
+}
+
+const lineEl = document.getElementById('line');
+const playBtn = document.getElementById('playBtn');
+const replayBtn = document.getElementById('replayBtn');
+const appControls = document.getElementById('appControls');
+const userControls = document.getElementById('userControls');
+const micBtn = document.getElementById('micBtn');
+const skipBtn = document.getElementById('skipBtn');
+const typeRow = document.getElementById('typeRow');
+const typeInput = document.getElementById('typeInput');
+const sendBtn = document.getElementById('sendBtn');
+const feedback = document.getElementById('feedback');
+const nextControls = document.getElementById('nextControls');
+const nextBtn = document.getElementById('nextBtn');
+const wordListEl = document.getElementById('wordList');
+const transcriptEl = document.getElementById('transcript');
+const progressEl = document.getElementById('progress');
+const doneScreen = document.getElementById('doneScreen');
+const doneCount = document.getElementById('doneCount');
+const speakerTag = document.getElementById('speakerTag');
+
+function buildProgress(){
+  progressEl.innerHTML = '';
+  script.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className = 'seg' + (i < idx ? ' done' : i === idx ? ' now' : '');
+    progressEl.appendChild(d);
+  });
+}
+
+function renderLine(turn){
+  lineEl.innerHTML = '';
+  turn.segs.forEach((seg, i)=>{
+    const span = document.createElement('span');
+    span.className = 'seg ' + seg.lang;
+    span.textContent = seg.t;
+    span.dataset.i = i;
+    lineEl.appendChild(span);
+  });
+}
+
+function addTranscript(who, text, cls){
+  const div = document.createElement('div');
+  div.className = 't-line ' + cls;
+  div.innerHTML = '<span class="who">'+who+'</span>' + text;
+  transcriptEl.appendChild(div);
+  transcriptEl.scrollTop = transcriptEl.scrollHeight;
+}
+
+function addWord(w){
+  const empty = wordListEl.querySelector('.empty');
+  if(empty) empty.remove();
+  const card = document.createElement('div');
+  card.className = 'word-card';
+  card.innerHTML = '<b>'+w.en+'</b><span>'+w.es+'</span>';
+  wordListEl.appendChild(card);
+  learnedWords.push(w);
+}
+
+let voicesReady = false;
+function ensureVoices(){
+  return new Promise(resolve=>{
+    let voices = speechSynthesis.getVoices();
+    if(voices.length){ resolve(voices); return; }
+    speechSynthesis.onvoiceschanged = () => resolve(speechSynthesis.getVoices());
+  });
+}
+
+function pickVoice(voices, lang){
+  return voices.find(v=>v.lang && v.lang.toLowerCase().startsWith(lang)) || null;
+}
+
+async function speakTurn(turn){
+  playBtn.disabled = true;
+  replayBtn.disabled = true;
+  const voices = await ensureVoices();
+  const spans = [...lineEl.querySelectorAll('.seg')];
+  spans.forEach(s=>{ s.classList.remove('active','spoken'); });
+
+  for(let i=0;i<turn.segs.length;i++){
+    const seg = turn.segs[i];
+    const span = spans[i];
+    await new Promise(resolve=>{
+      const u = new SpeechSynthesisUtterance(seg.t);
+      u.lang = seg.lang === 'en' ? 'en-US' : 'es-CO';
+      const v = pickVoice(voices, seg.lang === 'en' ? 'en' : 'es');
+      if(v) u.voice = v;
+      u.rate = 0.95;
+      u.onstart = ()=>{ span.classList.add('active'); };
+      u.onend = ()=>{ span.classList.remove('active'); span.classList.add('spoken'); resolve(); };
+      u.onerror = ()=> resolve();
+      speechSynthesis.speak(u);
+    });
+  }
+  playBtn.disabled = false;
+  replayBtn.disabled = false;
+}
+
+let recognition = null;
+let micSupported = false;
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+if(SR){
+  micSupported = true;
+  recognition = new SR();
+  recognition.lang = 'es-CO';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+}
+
+function normalize(s){
+  return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z\s]/g,'').trim();
+}
+
+function evaluate(turn, said){
+  const target = normalize(turn.expects.target || '');
+  const norm = normalize(said);
+  if(turn.expects.type === 'free') return true;
+  if(!target) return true;
+  if(turn.expects.type === 'word') return norm.includes(target);
+  const words = target.split(' ');
+  return words.every(w=>norm.includes(w));
+}
+
+function handleAnswer(said, confidence){
+  if(confidence === undefined) confidence = null;
+  const turn = script[idx];
+  const pronTag = (confidence !== null && confidence !== undefined)
+    ? '<span class="pron-tag '+(confidence >= 0.7 ? 'high' : 'low')+'">pronunciación '+Math.round(confidence*100)+'%</span>'
+    : '';
+  addTranscript('VOS', said + pronTag, 'user');
+  const ok = evaluate(turn, said);
+  feedback.classList.add('show');
+  if(ok && (confidence === null || confidence >= 0.7)){
+    feedback.className = 'feedback show ok';
+    feedback.textContent = '✓ Muy bien. Se entendió claro — quedó registrado.';
+  } else if(ok){
+    feedback.className = 'feedback show retry';
+    feedback.textContent = 'Dijiste la palabra correcta, pero sonó poco clara. Repetila una vez más marcando bien cada sonido.';
+  } else {
+    feedback.className = 'feedback show retry';
+    feedback.textContent = 'Casi — probá repetirla una vez más antes de seguir (no es obligatorio, podés continuar igual).';
+  }
+  userControls.style.display = 'none';
+  typeRow.style.display = 'none';
+  nextControls.style.display = 'flex';
+}
+
+micBtn.addEventListener('click', ()=>{
+  if(!micSupported || !micGranted){
+    typeRow.style.display = 'flex';
+    typeInput.focus();
+    return;
+  }
+  micBtn.classList.add('listening');
+  micBtn.textContent = '🎙 Escuchando...';
+  setMicStatus('listening', 'Micrófono: escuchando ahora');
+  try{ recognition.start(); }catch(e){}
+  recognition.onresult = (e)=>{
+    const result = e.results[0][0];
+    const said = result.transcript;
+    const confidence = (typeof result.confidence === 'number' && result.confidence > 0) ? result.confidence : null;
+    micBtn.classList.remove('listening');
+    micBtn.textContent = '🎙 Hablar mi respuesta';
+    setMicStatus('on', 'Micrófono: activo');
+    handleAnswer(said, confidence);
+  };
+  recognition.onerror = (e)=>{
+    micBtn.classList.remove('listening');
+    micBtn.textContent = '🎙 Hablar mi respuesta';
+    setMicStatus('on', 'Micrófono: activo');
+    feedback.classList.add('show','retry');
+    if(e.error === 'not-allowed' || e.error === 'service-not-allowed'){
+      feedback.textContent = 'El navegador bloqueó el micrófono. Revisá el ícono de permisos en la barra de direcciones, o escribí tu respuesta.';
+    } else {
+      feedback.textContent = 'No pude escucharte bien. Probá de nuevo o escribí tu respuesta.';
+    }
+    typeRow.style.display = 'flex';
+  };
+});
+
+skipBtn.addEventListener('click', ()=>{
+  typeRow.style.display = 'flex';
+  typeInput.focus();
+});
+
+sendBtn.addEventListener('click', submitTyped);
+typeInput.addEventListener('keydown', e=>{ if(e.key==='Enter') submitTyped(); });
+function submitTyped(){
+  const val = typeInput.value.trim();
+  if(!val) return;
+  typeInput.value = '';
+  handleAnswer(val);
+}
+
+playBtn.addEventListener('click', ()=>{
+  const turn = script[idx];
+  const fullText = turn.segs.map(s=>s.t).join('');
+  addTranscript('TUTOR', fullText, 'app');
+  speakTurn(turn).then(()=>{
+    if(turn.newWord) addWord(turn.newWord);
+    if(turn.expects.type === 'end'){
+      appControls.style.display = 'none';
+      doneScreen.classList.add('show');
+      doneCount.textContent = learnedWords.length;
+      return;
+    }
+    appControls.style.display = 'none';
+    userControls.style.display = 'flex';
+    feedback.classList.remove('show');
+  });
+});
+
+replayBtn.addEventListener('click', ()=>{
+  speakTurn(script[idx]);
+});
+
+nextBtn.addEventListener('click', ()=>{
+  idx++;
+  loadTurn();
+});
+
+function loadTurn(){
+  buildProgress();
+  const turn = script[idx];
+  renderLine(turn);
+  appControls.style.display = 'flex';
+  userControls.style.display = 'none';
+  typeRow.style.display = 'none';
+  nextControls.style.display = 'none';
+  feedback.classList.remove('show');
+  playBtn.disabled = false;
+}
+
+loadTurn();
+</script>
+</body>
+</html>
