@@ -234,6 +234,7 @@
         <div class="line" id="line"></div>
         <div class="hint" id="hint"></div>
         <button class="ghost" id="replayWordBtn" style="display:none; margin-top:10px;">🔊 Escuchar de nuevo</button>
+        <button class="ghost" id="slowWordBtn" style="display:none; margin-top:10px;">🐢 Escuchar despacio</button>
 
         <div class="controls" id="appControls">
           <button class="primary" id="playBtn">▶ Escuchar</button>
@@ -1019,7 +1020,16 @@ function startDay(dayNum){
   document.getElementById('doneScreen').classList.remove('show');
   document.getElementById('home').style.display='none';
   document.getElementById('session').style.display='block';
-  if(!micGranted){ document.getElementById('gate').classList.add('show'); } else { loadTurn(); }
+  if(micGranted){ loadTurn(); return; }
+  if(localStorage.getItem('mic_ever_granted')==='1' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+      stream.getTracks().forEach(t=>t.stop());
+      micGranted=true; setMicStatus('on','Micrófono: activo');
+      loadTurn();
+    }).catch(()=>{ document.getElementById('gate').classList.add('show'); });
+    return;
+  }
+  document.getElementById('gate').classList.add('show');
 }
 
 // ================= Permiso de micrófono =================
@@ -1035,6 +1045,7 @@ gateBtn.addEventListener('click', async ()=>{
     const stream=await navigator.mediaDevices.getUserMedia({audio:true});
     stream.getTracks().forEach(t=>t.stop());
     micGranted=true; gateStatus.textContent='✓ Micrófono activado.';
+    localStorage.setItem('mic_ever_granted','1');
     setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); loadTurn();},500);
   }catch(err){
     micGranted=false; gateStatus.textContent='No se concedió el permiso. Podés escribir tus respuestas.';
@@ -1044,7 +1055,7 @@ gateBtn.addEventListener('click', async ()=>{
 function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=document.getElementById('micStatusText'); el.className='mic-status '+cls; t.textContent=text;}
 
 // ================= Referencias DOM =================
-const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn');
+const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn');
 const playBtn=document.getElementById('playBtn'), replayBtn=document.getElementById('replayBtn');
 const appControls=document.getElementById('appControls'), userControls=document.getElementById('userControls');
 const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById('skipBtn');
@@ -1077,7 +1088,8 @@ function addWordCard(w, isWeak){const empty=wordListEl.querySelector('.empty');i
 // ================= Voz =================
 function ensureVoices(){return new Promise(resolve=>{let voices=speechSynthesis.getVoices();if(voices.length){resolve(voices);return;}speechSynthesis.onvoiceschanged=()=>resolve(speechSynthesis.getVoices());});}
 function pickVoice(voices,lang){return voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith(lang))||null;}
-async function speakSegs(segs, targetContainer){
+async function speakSegs(segs, targetContainer, rate){
+  rate = rate || 0.95;
   const voices=await ensureVoices();
   setSegs(targetContainer, segs);
   const spans=[...targetContainer.querySelectorAll('.seg')];
@@ -1088,7 +1100,7 @@ async function speakSegs(segs, targetContainer){
       const u=new SpeechSynthesisUtterance(seg.t);
       u.lang=seg.lang==='en'?'en-US':'es-CO';
       const v=pickVoice(voices,seg.lang==='en'?'en':'es'); if(v)u.voice=v;
-      u.rate=0.95;
+      u.rate=rate;
       u.onstart=()=>span.classList.add('active');
       u.onend=()=>{span.classList.remove('active');span.classList.add('spoken');resolve();};
       u.onerror=()=>resolve();
@@ -1113,7 +1125,7 @@ function loadTurn(){
   if(turn.kind==='end'){ startEvaluation(); return; }
   crossTag.style.display = turn.crossDay ? 'block' : 'none';
   crossTag.textContent = turn.crossDay ? '🔁 REPASO DE UN DÍA ANTERIOR' : '';
-  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none';
+  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
   illusEl.textContent=turn.emoji||'💬';
@@ -1164,7 +1176,9 @@ function runWordChallenge(){
     playBtn.disabled=false; replayBtn.disabled=false;
     appControls.style.display='none'; userControls.style.display='flex';
     replayWordBtn.style.display='inline-flex';
+    slowWordBtn.style.display='inline-flex';
     replayWordBtn.onclick=async ()=>{ replayWordBtn.disabled=true; await speakSegs(segs, lineEl); replayWordBtn.disabled=false; };
+    slowWordBtn.onclick=async ()=>{ slowWordBtn.disabled=true; await speakSegs(segs, lineEl, 0.5); slowWordBtn.disabled=false; };
   };
   replayBtn.onclick=async ()=>{ await speakSegs(segs, lineEl); };
   micBtn.onclick=()=>startListening(res=>handleSpokenResult(w,res));
@@ -1191,7 +1205,7 @@ function handleSpokenResult(w, res){
 function goToWriteStep(w, wasLowConfidence){
   modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
   speakerLabel.textContent = evalMode ? 'EVALUACIÓN' : 'AHORA ESCRIBILA';
-  illusEl.textContent='✏️'; replayWordBtn.style.display='none';
+  illusEl.textContent='✏️'; replayWordBtn.style.display='none'; slowWordBtn.style.display='none';
   setSegs(lineEl, [{t:'¿Cómo se escribe "'+w.es+'" en inglés?',lang:'es'}]);
   hintEl.textContent='Pista: empieza con "'+w.en[0].toUpperCase()+'"';
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
