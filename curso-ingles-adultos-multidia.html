@@ -147,6 +147,13 @@
   .review-banner{background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.35); color:var(--en); font-size:13px; padding:10px 14px; border-radius:10px; margin-bottom:16px; display:none; align-items:center; justify-content:space-between; gap:10px;}
   .review-banner.show{display:flex;}
   .cross-tag{font-size:11px; color:var(--es); font-family:'JetBrains Mono',monospace; margin-bottom:8px;}
+  .peek-box{
+    margin-top:10px; padding:14px 18px; border-radius:10px;
+    background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.4);
+    font-family:'Fraunces',serif; font-size:22px; color:var(--en); text-align:center;
+    animation: peekfade 3s ease-in-out forwards;
+  }
+  @keyframes peekfade{0%{opacity:0;transform:scale(.95);}10%{opacity:1;transform:scale(1);}80%{opacity:1;}100%{opacity:0;}}
 </style>
 </head>
 <body>
@@ -248,6 +255,8 @@
           <input type="text" id="typeInput" placeholder="Escribí tu respuesta acá...">
           <button class="primary" id="sendBtn">Enviar</button>
         </div>
+        <button class="ghost" id="peekBtn" style="display:none; margin-top:10px;">👁 Ver la palabra 3 segundos</button>
+        <div class="peek-box" id="peekBox" style="display:none;"></div>
         <div class="feedback" id="feedback"></div>
         <div class="controls" id="nextControls" style="display:none;">
           <button class="primary" id="nextBtn">Continuar →</button>
@@ -986,6 +995,219 @@ const curriculum = [
       {en:'see you in unit four', es:'nos vemos en la unidad cuatro', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', emoji:'➡️'}
     ]
+  },
+  {
+    day:37, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Pedir en el restaurante / Programar una reunión',
+    words:[
+      {en:'to order', es:'pedir', emoji:'📝'},
+      {en:'I would like', es:'quisiera', emoji:'🙋'},
+      {en:'appetizer', es:'entrada', emoji:'🥟'},
+      {en:'main course', es:'plato principal', emoji:'🍛'},
+      {en:'dessert', es:'postre', emoji:'🍰'},
+      {en:'spicy', es:'picante', emoji:'🌶️'},
+      {en:'sweet', es:'dulce', emoji:'🍯'},
+      {en:'salty', es:'salado', emoji:'🧂'},
+      {en:'tasty', es:'sabroso', emoji:'😋'},
+      {en:'to schedule a meeting', es:'programar una reunión', emoji:'📅'},
+      {en:'agenda', es:'agenda', emoji:'📋'},
+      {en:'attendees', es:'asistentes', emoji:'👥'},
+      {en:'conference room', es:'sala de reuniones', emoji:'🏢'},
+      {en:'to book', es:'reservar', emoji:'📌'},
+      {en:'time slot', es:'horario disponible', emoji:'🕐'}
+    ]
+  },
+  {
+    day:38, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Sabores y preferencias / Confirmar asistencia',
+    words:[
+      {en:'I like', es:'me gusta', emoji:'👍'},
+      {en:"I don't like", es:'no me gusta', emoji:'👎'},
+      {en:'I love', es:'me encanta', emoji:'😍'},
+      {en:'favorite', es:'favorito', emoji:'⭐'},
+      {en:'to prefer', es:'preferir', emoji:'🤔'},
+      {en:'taste', es:'sabor', emoji:'👅'},
+      {en:'to try (food)', es:'probar', emoji:'🍴'},
+      {en:'I am allergic to', es:'soy alérgico a', emoji:'⚠️'},
+      {en:'to confirm attendance', es:'confirmar asistencia', emoji:'✅'},
+      {en:"I'll be there", es:'ahí estaré', emoji:'🙋'},
+      {en:"I can't attend", es:'no puedo asistir', emoji:'❌'},
+      {en:'schedule conflict', es:'conflicto de horario', emoji:'⚠️'},
+      {en:'invite', es:'invitación', emoji:'✉️'},
+      {en:'to accept', es:'aceptar', emoji:'✅'},
+      {en:'to decline', es:'rechazar', emoji:'❌'}
+    ]
+  },
+  {
+    day:39, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'En el restaurante / Agenda y temas a tratar',
+    words:[
+      {en:'split the bill', es:'dividir la cuenta', emoji:'🧾'},
+      {en:'tip', es:'propina', emoji:'💵'},
+      {en:'reservation for', es:'reserva para', emoji:'📅'},
+      {en:'take out', es:'para llevar', emoji:'🥡'},
+      {en:'dine in', es:'para comer aquí', emoji:'🍽️'},
+      {en:'topic', es:'tema', emoji:'📌'},
+      {en:'agenda item', es:'punto de la agenda', emoji:'📋'},
+      {en:'to discuss', es:'discutir', emoji:'🗣️'},
+      {en:'action item', es:'tarea a realizar', emoji:'✅'},
+      {en:'next steps', es:'próximos pasos', emoji:'➡️'},
+      {en:'follow up', es:'seguimiento', emoji:'🔁'},
+      {en:'meeting minutes', es:'acta de la reunión', emoji:'📝'},
+      {en:'to summarize', es:'resumir', emoji:'📄'},
+      {en:'wrap up', es:'concluir', emoji:'🏁'}
+    ]
+  },
+  {
+    day:40, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Cocinar en casa / Preparar una presentación',
+    words:[
+      {en:'to cook', es:'cocinar', emoji:'👨‍🍳'},
+      {en:'recipe', es:'receta', emoji:'📖'},
+      {en:'ingredient', es:'ingrediente', emoji:'🥕'},
+      {en:'to boil', es:'hervir', emoji:'♨️'},
+      {en:'to fry', es:'freír', emoji:'🍳'},
+      {en:'to bake', es:'hornear', emoji:'🍞'},
+      {en:'to cut', es:'cortar', emoji:'🔪'},
+      {en:'oven', es:'horno', emoji:'🔥'},
+      {en:'stove', es:'estufa', emoji:'🔥'},
+      {en:'slide', es:'diapositiva', emoji:'🖥️'},
+      {en:'presentation', es:'presentación', emoji:'📊'},
+      {en:'to prepare', es:'preparar', emoji:'📋'},
+      {en:'handout', es:'material impreso', emoji:'📄'},
+      {en:'to rehearse', es:'ensayar', emoji:'🎭'}
+    ]
+  },
+  {
+    day:41, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Bebidas / Videollamada y reunión virtual',
+    words:[
+      {en:'juice', es:'jugo', emoji:'🧃'},
+      {en:'soda', es:'gaseosa', emoji:'🥤'},
+      {en:'tea', es:'té', emoji:'🍵'},
+      {en:'beer', es:'cerveza', emoji:'🍺'},
+      {en:'wine', es:'vino', emoji:'🍷'},
+      {en:'video call', es:'videollamada', emoji:'📹'},
+      {en:'link', es:'enlace', emoji:'🔗'},
+      {en:'camera on', es:'cámara encendida', emoji:'📷'},
+      {en:'to mute', es:'silenciar', emoji:'🔇'},
+      {en:'screen share', es:'compartir pantalla', emoji:'🖥️'},
+      {en:'can you hear me', es:'me escuchás', emoji:'🔊'},
+      {en:'connection', es:'conexión', emoji:'📶'},
+      {en:'to sign in', es:'iniciar sesión', emoji:'🔑'},
+      {en:'to sign off', es:'cerrar sesión', emoji:'🚪'}
+    ]
+  },
+  {
+    day:42, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Comidas del día / Reunión de seguimiento',
+    words:[
+      {en:'eggs', es:'huevos', emoji:'🥚'},
+      {en:'toast', es:'tostada', emoji:'🍞'},
+      {en:'cereal', es:'cereal', emoji:'🥣'},
+      {en:'sandwich', es:'sándwich', emoji:'🥪'},
+      {en:'snack', es:'merienda', emoji:'🍿'},
+      {en:'to skip a meal', es:'saltarse una comida', emoji:'⏭️'},
+      {en:'follow-up meeting', es:'reunión de seguimiento', emoji:'🔁'},
+      {en:'status update', es:'actualización de estado', emoji:'📊'},
+      {en:'progress', es:'progreso', emoji:'📈'},
+      {en:'pending', es:'pendiente', emoji:'⏳'},
+      {en:'on track', es:'bien encaminado', emoji:'✅'},
+      {en:'behind schedule', es:'atrasado del cronograma', emoji:'⚠️'},
+      {en:'milestone', es:'hito', emoji:'🚩'}
+    ]
+  },
+  {
+    day:43, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso liviano de la semana 7',
+    words:[
+      {en:'can you repeat that', es:'podés repetir eso', emoji:'🔁'},
+      {en:'what do you mean', es:'qué querés decir', emoji:'❓'},
+      {en:'I see', es:'ya veo', emoji:'👀'},
+      {en:'got it', es:'entendido', emoji:'✅'},
+      {en:'no worries', es:'no hay problema', emoji:'🙂'},
+      {en:'same here', es:'lo mismo digo', emoji:'🤝'},
+      {en:'either way', es:'de cualquier forma', emoji:'🔀'},
+      {en:'in that case', es:'en ese caso', emoji:'💭'},
+      {en:'just in case', es:'por si acaso', emoji:'🛡️'},
+      {en:'as needed', es:'según se necesite', emoji:'📌'},
+      {en:'anyway', es:'de todos modos', emoji:'➡️'}
+    ]
+  },
+  {
+    day:44, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Alergias e intolerancias / Notas y minutas',
+    words:[
+      {en:'allergy', es:'alergia', emoji:'⚠️'},
+      {en:'gluten-free', es:'sin gluten', emoji:'🚫🌾'},
+      {en:'lactose intolerant', es:'intolerante a la lactosa', emoji:'🥛🚫'},
+      {en:'nuts', es:'frutos secos', emoji:'🥜'},
+      {en:'shellfish', es:'mariscos', emoji:'🦐'},
+      {en:'to avoid', es:'evitar', emoji:'🚫'},
+      {en:'safe to eat', es:'seguro para comer', emoji:'✅'},
+      {en:'to take notes', es:'tomar notas', emoji:'📝'},
+      {en:'minutes of the meeting', es:'minuta de la reunión', emoji:'📄'},
+      {en:'decision', es:'decisión', emoji:'⚖️'},
+      {en:'responsible person', es:'persona responsable', emoji:'🙋'},
+      {en:'attachment', es:'archivo adjunto', emoji:'📎'}
+    ]
+  },
+  {
+    day:45, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Postres y dulces / Cerrar reunión y próximos pasos',
+    words:[
+      {en:'cake', es:'torta', emoji:'🍰'},
+      {en:'cookie', es:'galleta', emoji:'🍪'},
+      {en:'ice cream', es:'helado', emoji:'🍦'},
+      {en:'chocolate', es:'chocolate', emoji:'🍫'},
+      {en:'candy', es:'dulce', emoji:'🍬'},
+      {en:'sweet tooth', es:'goloso', emoji:'😋'},
+      {en:'in conclusion', es:'en conclusión', emoji:'🏁'},
+      {en:'thank you all', es:'gracias a todos', emoji:'🙏'},
+      {en:'before we finish', es:'antes de terminar', emoji:'⏳'},
+      {en:'any questions', es:'alguna pregunta', emoji:'❓'},
+      {en:'same time next week', es:'misma hora la próxima semana', emoji:'📅'},
+      {en:'action plan', es:'plan de acción', emoji:'📋'}
+    ]
+  },
+  {
+    day:46, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Ir de compras / Reunión con proveedores',
+    words:[
+      {en:'supermarket', es:'supermercado', emoji:'🛒'},
+      {en:'shopping list', es:'lista de compras', emoji:'📝'},
+      {en:'aisle', es:'pasillo', emoji:'🏬'},
+      {en:'basket', es:'canasta', emoji:'🧺'},
+      {en:'cashier', es:'cajero', emoji:'🧑‍💼'},
+      {en:'checkout', es:'caja', emoji:'🛒'},
+      {en:'fresh', es:'fresco', emoji:'🥬'},
+      {en:'frozen', es:'congelado', emoji:'🧊'},
+      {en:'supplier meeting', es:'reunión con proveedor', emoji:'🤝'},
+      {en:'sample', es:'muestra', emoji:'📦'},
+      {en:'catalog', es:'catálogo', emoji:'📖'},
+      {en:'terms and conditions', es:'términos y condiciones', emoji:'📃'},
+      {en:'partnership', es:'alianza', emoji:'🤝'}
+    ]
+  },
+  {
+    day:47, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Cantidades de comida / Presupuesto y recursos',
+    words:[
+      {en:'a little', es:'un poco', emoji:'🤏'},
+      {en:'a lot', es:'mucho', emoji:'📈'},
+      {en:'enough', es:'suficiente', emoji:'✅'},
+      {en:'too much', es:'demasiado', emoji:'⚠️'},
+      {en:'some', es:'algo', emoji:'➕'},
+      {en:'none', es:'nada', emoji:'0️⃣'},
+      {en:'extra', es:'extra', emoji:'➕'},
+      {en:'resources', es:'recursos', emoji:'🧰'},
+      {en:'budget approval', es:'aprobación de presupuesto', emoji:'✅'},
+      {en:'to allocate', es:'asignar', emoji:'📊'},
+      {en:'to cut costs', es:'reducir costos', emoji:'✂️'},
+      {en:'investment', es:'inversión', emoji:'📈'}
+    ]
+  },
+  {
+    day:48, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso y cierre de la Unidad 4',
+    words:[
+      {en:'unit four', es:'unidad cuatro', emoji:'4️⃣'},
+      {en:'one third done', es:'un tercio hecho', emoji:'📊'},
+      {en:'keep learning', es:'seguí aprendiendo', emoji:'📚'},
+      {en:'great effort', es:'gran esfuerzo', emoji:'💪'},
+      {en:"you're on track", es:'vas bien encaminado', emoji:'✅'},
+      {en:'final review', es:'repaso final', emoji:'🔁'},
+      {en:'see you in unit five', es:'nos vemos en la unidad cinco', emoji:'➡️'},
+      {en:'next unit', es:'próxima unidad', emoji:'➡️'}
+    ]
   }
 
 ];
@@ -1200,12 +1422,36 @@ const introTemplates = [
 ];
 const comboIntro = [{t:'Ahora repitamos juntas, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
 const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
+const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
+// Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
+// sin explicar la regla — el alumno las adquiere por exposición repetida, como un chico.
+const contrastBank = [
+  { a:{en:'I have lived here for 10 years.', es:'vivo acá desde hace 10 años (todavía es así)'}, b:{en:'I lived here for 10 years.', es:'viví acá 10 años (ya no)'} },
+  { a:{en:"I'm going to call him.", es:'voy a llamarlo (plan ya decidido)'}, b:{en:'I will call him.', es:'lo voy a llamar (decisión del momento)'} },
+  { a:{en:'I used to smoke.', es:'antes fumaba (ya no)'}, b:{en:'I smoked yesterday.', es:'fumé ayer (un momento puntual)'} },
+  { a:{en:'I have some money.', es:'tengo algo de dinero'}, b:{en:"I don't have any money.", es:'no tengo nada de dinero'} },
+  { a:{en:"She's taller than him.", es:'ella es más alta que él'}, b:{en:"She's the tallest in the class.", es:'ella es la más alta de la clase'} },
+  { a:{en:'I must finish this today.', es:'tengo que terminar esto hoy (urgencia propia)'}, b:{en:'I have to finish this today.', es:'tengo que terminar esto hoy (obligación normal)'} },
+  { a:{en:'Can I help you?', es:'te puedo ayudar (directo)'}, b:{en:'Could I help you?', es:'podría ayudarte (más formal)'} },
+  { a:{en:"I'm meeting him tomorrow.", es:'me reúno con él mañana (ya está organizado)'}, b:{en:'I will meet him tomorrow.', es:'me voy a reunir con él mañana (más espontáneo)'} },
+  { a:{en:"I've never been to Mexico.", es:'nunca estuve en México (experiencia de vida)'}, b:{en:"I didn't go to Mexico last year.", es:'no fui a México el año pasado (momento específico)'} },
+  { a:{en:'There is a book on the table.', es:'hay un libro en la mesa'}, b:{en:'There are books on the table.', es:'hay libros en la mesa'} },
+  { a:{en:'He is working right now.', es:'él está trabajando ahora mismo'}, b:{en:'He works here.', es:'él trabaja acá (siempre, de costumbre)'} },
+  { a:{en:'If I have time, I will call you.', es:'si tengo tiempo, te llamo (posible)'}, b:{en:'If I had time, I would call you.', es:'si tuviera tiempo, te llamaría (poco probable)'} },
+  { a:{en:'This is my house.', es:'esta es mi casa (todavía)'}, b:{en:'This was my house.', es:'esta era mi casa (ya no)'} },
+  { a:{en:'I already finished.', es:'ya terminé (con énfasis)'}, b:{en:'I just finished.', es:'recién terminé (hace un momento)'} },
+  { a:{en:'A few people came.', es:'vino alguna gente (algunos, positivo)'}, b:{en:'Few people came.', es:'vino poca gente (casi nadie)'} }
+];
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
-function buildScript(bank, crossDayWords){
+function buildScript(bank, crossDayWords, dayNumber, theme){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
+  }
+  if(dayNumber >= 3){
+    const pair = contrastBank[(dayNumber-3) % contrastBank.length];
+    scr.push({ kind:'sequence', segs:contrastIntro, emoji:'🔬', words:[pair.a, pair.b], contrastPair:true });
   }
   let recent = [];
   bank.forEach((w,i)=>{
@@ -1221,6 +1467,7 @@ function buildScript(bank, crossDayWords){
       scr.push({ kind:'sequence', segs:reviewIntro, emoji:'🔁', words:[w1,w2] });
     }
   });
+  scr.push({ kind:'task', theme:theme });
   scr.push({ kind:'end' });
   return scr;
 }
@@ -1230,7 +1477,7 @@ function startDay(dayNum){
   if(!currentDay) return;
   wordBank = currentDay.words;
   const crossWords = getCrossDayReviewWords(dayNum, 6);
-  script = buildScript(wordBank, crossWords);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
   document.getElementById('dayBadge').textContent = 'Día '+dayNum+' · '+currentDay.theme;
   document.getElementById('wordList').innerHTML = '<div class="empty">Todavía no aparece ninguna.</div>';
@@ -1273,7 +1520,7 @@ gateBtn.addEventListener('click', async ()=>{
 function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=document.getElementById('micStatusText'); el.className='mic-status '+cls; t.textContent=text;}
 
 // ================= Referencias DOM =================
-const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn');
+const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn'), peekBtn=document.getElementById('peekBtn'), peekBox=document.getElementById('peekBox');
 const playBtn=document.getElementById('playBtn'), replayBtn=document.getElementById('replayBtn');
 const appControls=document.getElementById('appControls'), userControls=document.getElementById('userControls');
 const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById('skipBtn');
@@ -1341,9 +1588,14 @@ function loadTurn(){
   const turn=script[idx];
   reviewBanner.classList.remove('show');
   if(turn.kind==='end'){ startEvaluation(); return; }
-  crossTag.style.display = turn.crossDay ? 'block' : 'none';
-  crossTag.textContent = turn.crossDay ? '🔁 REPASO DE UN DÍA ANTERIOR' : '';
-  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none';
+  if(turn.kind==='task' && !turn.segs){
+    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
+    turn.emoji = '🎯';
+  }
+  if(turn.crossDay){ crossTag.style.display='block'; crossTag.textContent='🔁 REPASO DE UN DÍA ANTERIOR'; }
+  else if(turn.contrastPair){ crossTag.style.display='block'; crossTag.textContent='🔬 PATRÓN DEL IDIOMA'; }
+  else { crossTag.style.display='none'; }
+  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
   illusEl.textContent=turn.emoji||'💬';
@@ -1364,6 +1616,28 @@ function afterIntro(turn){
     micBtn.onclick=()=>startListening(res=>{ addTranscript('VOS', res.said, 'user'); nextControls.style.display='flex'; userControls.style.display='none'; });
     skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.focus();};
     sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; addTranscript('VOS', typeInput.value.trim(), 'user'); typeInput.value=''; typeRow.style.display='none'; nextControls.style.display='flex'; };
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
+  if(turn.kind==='task'){
+    speakerLabel.textContent='TAREA LIVIANA';
+    let spokenDone=false;
+    userControls.style.display='flex';
+    micBtn.onclick=()=>startListening(res=>{
+      addTranscript('VOS (hablado)', res.said, 'user');
+      spokenDone=true;
+      userControls.style.display='none';
+      typeRow.style.display='flex'; typeInput.placeholder='Ahora escribí esa misma frase...'; typeInput.focus();
+      feedback.classList.add('show','ok'); feedback.textContent='¡Buenísimo! Ahora escribila.';
+    });
+    skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí tu frase acá...'; typeInput.focus();};
+    sendBtn.onclick=()=>{
+      if(!typeInput.value.trim())return;
+      addTranscript('VOS (escrito)', typeInput.value.trim(), 'user');
+      typeInput.value=''; typeRow.style.display='none';
+      feedback.classList.add('show','ok'); feedback.textContent='✓ Excelente. Esto es usar el idioma de verdad, no solo repetirlo.';
+      nextControls.style.display='flex';
+    };
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
   }
@@ -1441,10 +1715,23 @@ function goToWriteStep(w, wasLowConfidence){
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show');
   typeRow.style.display='flex'; typeInput.placeholder='Escribí la palabra en inglés...'; typeInput.value=''; typeInput.focus();
+  peekBtn.style.display='inline-flex'; peekBox.style.display='none';
   let weak = wasLowConfidence;
   let attempts = 0;
+  let peeked = false;
+  peekBtn.onclick=()=>{
+    peeked = true;
+    peekBox.textContent = w.en;
+    peekBox.style.display='block';
+    peekBox.style.animation='none';
+    void peekBox.offsetWidth; // reinicia la animación si se toca varias veces seguidas
+    peekBox.style.animation='peekfade 3s ease-in-out forwards';
+    setTimeout(()=>{ peekBox.style.display='none'; }, 3000);
+  };
   function finalize(){
     typeRow.style.display='none';
+    peekBtn.style.display='none'; peekBox.style.display='none';
+    if(peeked) weak = true;
     if(!learnedWordsHas(w)) { learnedWords.push(w); addWordCard(w, weak); }
     if(weak && !weakWordsHas(w)) weakWords.push(w);
     nextControls.style.display='flex';
