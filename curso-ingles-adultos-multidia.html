@@ -1863,31 +1863,46 @@ function startDay(dayNum){
   const crossWords = getCrossDayReviewWords(dayNum, 6);
   script = buildScript(wordBank, crossWords, dayNum, currentDay.theme);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
+  const prog = loadProgress();
+  alreadyCompletedView = !!(prog[dayNum] && prog[dayNum].completed);
   document.getElementById('dayBadge').textContent = 'Día '+dayNum+' · '+currentDay.theme;
   document.getElementById('wordList').innerHTML = '<div class="empty">Todavía no aparece ninguna.</div>';
   document.getElementById('transcript').innerHTML='';
   document.getElementById('doneScreen').classList.remove('show');
   document.getElementById('home').style.display='none';
   document.getElementById('session').style.display='block';
-  if(micGranted){ loadTurn(); return; }
+  if(micGranted){ enterDayContent(); return; }
   if(localStorage.getItem('mic_ever_granted')==='1' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
     navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
       stream.getTracks().forEach(t=>t.stop());
       micGranted=true; setMicStatus('on','Micrófono: activo');
-      loadTurn();
+      enterDayContent();
     }).catch(()=>{ document.getElementById('gate').classList.add('show'); });
     return;
   }
   document.getElementById('gate').classList.add('show');
 }
+function enterDayContent(){
+  if(alreadyCompletedView){ showCompletedOverview(); } else { loadTurn(); }
+}
+function showCompletedOverview(){
+  idx = script.length;
+  buildProgress();
+  reviewBanner.classList.remove('show');
+  speakerLabel.textContent='LECCIÓN COMPLETADA'; modeChip.style.display='none'; crossTag.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show'); hintEl.textContent='';
+  illusEl.textContent='✅';
+  setSegs(lineEl, [{t:'Esta lección ya está completada. Tocá cualquier punto de la barra de arriba para repasarlo — no hace falta rehacer la lección entera.',lang:'es'}]);
+}
 
 // ================= Permiso de micrófono =================
-let micGranted=false;
+let micGranted=false, alreadyCompletedView=false;
 const gate=document.getElementById('gate'), gateBtn=document.getElementById('gateBtn'), gateStatus=document.getElementById('gateStatus');
 gateBtn.addEventListener('click', async ()=>{
   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
     gateStatus.textContent='Tu navegador no soporta micrófono aquí. Podés escribir tus respuestas.';
-    micGranted=false; setTimeout(()=>{gate.classList.remove('show'); loadTurn();},1400); return;
+    micGranted=false; setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1400); return;
   }
   gateStatus.textContent='Pidiendo permiso...';
   try{
@@ -1895,10 +1910,10 @@ gateBtn.addEventListener('click', async ()=>{
     stream.getTracks().forEach(t=>t.stop());
     micGranted=true; gateStatus.textContent='✓ Micrófono activado.';
     localStorage.setItem('mic_ever_granted','1');
-    setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); loadTurn();},500);
+    setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},500);
   }catch(err){
     micGranted=false; gateStatus.textContent='No se concedió el permiso. Podés escribir tus respuestas.';
-    setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); loadTurn();},1800);
+    setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1800);
   }
 });
 function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=document.getElementById('micStatusText'); el.className='mic-status '+cls; t.textContent=text;}
@@ -2244,7 +2259,8 @@ backToLessonBtn.addEventListener('click', ()=>{
   if(resumeSnapshot){
     idx=resumeSnapshot.idx; wqIndex=resumeSnapshot.wqIndex; wordQueue=resumeSnapshot.wordQueue; evalMode=resumeSnapshot.evalMode;
     if(script[idx] && script[idx].kind!=='end' && wordQueue.length){ runWordChallenge(); } else { loadTurn(); }
-  } else { loadTurn(); }
+  } else if(alreadyCompletedView){ showCompletedOverview(); }
+  else { loadTurn(); }
 });
 
 // ================= Arranque =================
