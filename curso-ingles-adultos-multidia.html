@@ -2246,6 +2246,14 @@ function enterReview(i){
   resumeSnapshot={idx, wqIndex, wordQueue:wordQueue.slice(), evalMode};
   reviewBanner.classList.add('show');
   const turn=script[i];
+  if(turn.kind==='task' && !turn.segs){
+    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
+    turn.emoji = '🎯';
+  }
+  if(turn.kind==='end' && !turn.segs){
+    turn.segs = [{t:'Este es el cierre de la lección: acá se hace la evaluación final con todo el vocabulario del día. No hay nada más para repasar en este punto — elegí otro segmento de la barra.',lang:'es'}];
+    turn.emoji = '🏁';
+  }
   speakerLabel.textContent='REPASO'; modeChip.style.display='none';
   illusEl.textContent=turn.emoji||'💬';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
