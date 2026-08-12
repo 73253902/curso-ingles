@@ -193,6 +193,8 @@
       <span>🛠 Modo administrador activo — todos los días están desbloqueados.</span>
       <input type="number" id="adminDayInput" min="1" placeholder="N° de día" style="width:90px;">
       <button class="primary" id="adminGoBtn">Ir al día</button>
+      <button class="primary" id="adminCompleteBtn">✅ Marcar como completado (sin jugar)</button>
+      <button class="primary" id="adminCompleteAllBtn">✅✅ Completar TODOS los días cargados</button>
       <span class="reset-link" id="exitAdminLink" style="margin:0;">Salir del modo admin</span>
     </div>
     <div id="unitsContainer"></div>
@@ -1626,6 +1628,29 @@ document.getElementById('adminGoBtn').addEventListener('click', ()=>{
   if(!exists){ alert('Ese día todavía no tiene contenido cargado (hay '+curriculum.length+' días disponibles por ahora).'); return; }
   startDay(n);
 });
+document.getElementById('adminCompleteBtn').addEventListener('click', ()=>{
+  const n = parseInt(document.getElementById('adminDayInput').value, 10);
+  const day = curriculum.find(d=>d.day===n);
+  if(!day){ alert('Ese día todavía no tiene contenido cargado (hay '+curriculum.length+' días disponibles por ahora).'); return; }
+  saveDayResult(n, {
+    completed:true, date:new Date().toISOString(),
+    learnedWords: day.words, weakWords: [],
+    score:{good:day.words.length, total:day.words.length, pct:100}
+  });
+  renderHome();
+  alert('Día '+n+' marcado como completado (sin jugar). Ya podés entrar a revisarlo o seguir al siguiente.');
+});
+document.getElementById('adminCompleteAllBtn').addEventListener('click', ()=>{
+  curriculum.forEach(day=>{
+    saveDayResult(day.day, {
+      completed:true, date:new Date().toISOString(),
+      learnedWords: day.words, weakWords: [],
+      score:{good:day.words.length, total:day.words.length, pct:100}
+    });
+  });
+  renderHome();
+  alert('Los '+curriculum.length+' días cargados quedaron marcados como completados. Ahora podés entrar a cualquiera libremente para revisarlo.');
+});
 
 // ================================================================
 // PANTALLA DE INICIO: dibujar el selector de días
@@ -2016,7 +2041,7 @@ function runWordChallenge(){
   spokenAttempts = 0;
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'PRACTICÁ ESTA PALABRA';
-  hintEl.textContent='';
+  hintEl.textContent='Significa: "'+w.es+'"';
   const segs=[{t:w.en,lang:'en'}];
   illusEl.textContent='💬';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
