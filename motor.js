@@ -1,0 +1,899 @@
+// ================================================================
+// CURRÍCULO — cada entrada es un día. Por ahora solo existe el Día 1;
+// los siguientes días se suman acá mismo en lotes (misma estructura).
+// ================================================================
+// El currículo completo se arma juntando cada archivo de unidad (unidad1.js ... unidad6.js).
+// Para sumar una unidad nueva: crear unidadN.js con el mismo formato, sumar su <script src>
+// en el HTML, y agregar ...curriculumUnidadN acá abajo.
+const curriculum = [
+  ...curriculumUnidad1,
+  ...curriculumUnidad2,
+  ...curriculumUnidad3,
+  ...curriculumUnidad4,
+  ...curriculumUnidad5,
+  ...curriculumUnidad6
+];
+const TOTAL_DAYS = 180; // el mapa completo; el resto de los días se muestran "próximamente" hasta que se agreguen
+
+// ================================================================
+// MEMORIA DE PROGRESO (persiste en este navegador entre sesiones)
+// ================================================================
+const STORAGE_KEY = 'curso_ingles_progreso_v1';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; } }
+function saveProgress(all){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); }catch(e){} }
+function saveDayResult(dayNum, data){
+  const all = loadProgress();
+  all[dayNum] = data;
+  saveProgress(all);
+}
+function getCompletedDays(){
+  const all = loadProgress();
+  return Object.keys(all).filter(k=>all[k].completed).map(Number);
+}
+function getCrossDayReviewWords(excludeDay, limit){
+  const all = loadProgress();
+  let pool=[];
+  Object.keys(all).forEach(k=>{
+    if(Number(k)===excludeDay) return;
+    const d=all[k];
+    if(d.weakWords) pool = pool.concat(d.weakWords);
+  });
+  // de-duplicar por 'en'
+  const seen=new Set(); const out=[];
+  pool.reverse().forEach(w=>{ if(!seen.has(w.en)){ seen.add(w.en); out.push(w); } });
+  return out.slice(0, limit||6);
+}
+
+function getMeta(){ const all=loadProgress(); return all._meta || {placementDone:false, unlockedThrough:1}; }
+function saveMeta(meta){ const all=loadProgress(); all._meta=meta; saveProgress(all); }
+
+// ================================================================
+// MODO ADMINISTRADOR — acceso directo a cualquier día durante la construcción
+// Para activarlo: abrir la URL agregando ?admin=robinson2026 al final, una sola vez.
+// El navegador lo recuerda después; para desactivarlo, tocar "Salir del modo admin".
+// ================================================================
+const ADMIN_PASSCODE = 'robinson2026';
+const ADMIN_KEY = 'curso_ingles_admin_v1';
+(function checkAdminUrl(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('admin') === ADMIN_PASSCODE){ localStorage.setItem(ADMIN_KEY, '1'); }
+})();
+function isAdmin(){ return localStorage.getItem(ADMIN_KEY) === '1'; }
+document.getElementById('exitAdminLink').addEventListener('click', ()=>{
+  localStorage.removeItem(ADMIN_KEY);
+  renderHome();
+});
+document.getElementById('adminGoBtn').addEventListener('click', ()=>{
+  const n = parseInt(document.getElementById('adminDayInput').value, 10);
+  const exists = curriculum.some(d=>d.day===n);
+  if(!exists){ alert('Ese día todavía no tiene contenido cargado (hay '+curriculum.length+' días disponibles por ahora).'); return; }
+  startDay(n);
+});
+document.getElementById('adminCompleteBtn').addEventListener('click', ()=>{
+  const n = parseInt(document.getElementById('adminDayInput').value, 10);
+  const day = curriculum.find(d=>d.day===n);
+  if(!day){ alert('Ese día todavía no tiene contenido cargado (hay '+curriculum.length+' días disponibles por ahora).'); return; }
+  saveDayResult(n, {
+    completed:true, date:new Date().toISOString(),
+    learnedWords: day.words, weakWords: [],
+    score:{good:day.words.length, total:day.words.length, pct:100}
+  });
+  renderHome();
+  alert('Día '+n+' marcado como completado (sin jugar). Ya podés entrar a revisarlo o seguir al siguiente.');
+});
+document.getElementById('adminCompleteAllBtn').addEventListener('click', ()=>{
+  curriculum.forEach(day=>{
+    saveDayResult(day.day, {
+      completed:true, date:new Date().toISOString(),
+      learnedWords: day.words, weakWords: [],
+      score:{good:day.words.length, total:day.words.length, pct:100}
+    });
+  });
+  renderHome();
+  alert('Los '+curriculum.length+' días cargados quedaron marcados como completados. Ahora podés entrar a cualquiera libremente para revisarlo.');
+});
+
+// ================================================================
+// PANTALLA DE INICIO: dibujar el selector de días
+// ================================================================
+function renderHome(){
+  const progress = loadProgress();
+  const meta = getMeta();
+  const completed = getCompletedDays();
+  const admin = isAdmin();
+
+  document.getElementById('placementCard').style.display = (meta.placementDone || admin) ? 'none' : 'flex';
+  document.getElementById('adminBox').style.display = admin ? 'flex' : 'none';
+
+  document.getElementById('progressSummary').innerHTML =
+    '<div>Días completados: <b>'+completed.length+' / '+TOTAL_DAYS+'</b></div>' +
+    '<div>Palabras aprendidas: <b>'+completed.reduce((sum,d)=>sum+((progress[d].learnedWords||[]).length),0)+'</b></div>';
+
+  const container = document.getElementById('unitsContainer');
+  container.innerHTML='';
+  const byUnit = {};
+  curriculum.forEach(d=>{ (byUnit[d.unit] = byUnit[d.unit]||[]).push(d); });
+
+  Object.keys(byUnit).forEach(unitKey=>{
+    const days = byUnit[unitKey];
+    const block = document.createElement('div'); block.className='unit-block';
+    block.innerHTML = '<div class="unit-title">'+days[0].unitTitle+' <span class="themes">— '+days[0].theme+'</span></div>';
+    const grid = document.createElement('div'); grid.className='day-grid';
+    days.forEach(d=>{
+      const card=document.createElement('div');
+      const isDone = progress[d.day] && progress[d.day].completed;
+      const unlockedByPlacement = d.day <= (meta.unlockedThrough||1);
+      const isLocked = !admin && d.day>1 && !unlockedByPlacement && !(progress[d.day-1] && progress[d.day-1].completed) && !isDone;
+      card.className='day-card '+(isDone?'done':isLocked?'locked':'available');
+      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':isLocked?'🔒':'▶️')+'</div>';
+      if(!isLocked){ card.addEventListener('click', ()=>startDay(d.day)); }
+      grid.appendChild(card);
+    });
+    block.appendChild(grid);
+    container.appendChild(block);
+  });
+
+  if(curriculum.length < TOTAL_DAYS){
+    const soon=document.createElement('div'); soon.className='unit-block';
+    soon.innerHTML = '<div class="unit-title">Próximos días</div><p style="color:var(--muted); font-size:13px;">Los Días '+(curriculum.length+1)+' a '+TOTAL_DAYS+' se van sumando por lotes de 2 semanas a medida que avanzamos.</p>';
+    container.appendChild(soon);
+  }
+}
+document.getElementById('skipPlacementBtn').addEventListener('click', ()=>{
+  saveMeta({placementDone:true, unlockedThrough:1});
+  renderHome();
+});
+document.getElementById('startPlacementBtn').addEventListener('click', startPlacementTest);
+
+// ================================================================
+// EVALUACIÓN DE NIVEL INICIAL
+// ================================================================
+let placementSample=[], placementIdx=0, placementCorrect=0;
+function startPlacementTest(){
+  placementSample = curriculum.map(d=>({day:d.day, word:d.words[0]}));
+  placementIdx=0; placementCorrect=0;
+  document.getElementById('home').style.display='none';
+  document.getElementById('placementTest').style.display='block';
+  document.getElementById('placementResult').style.display='none';
+  renderPlacementQuestion();
+}
+function renderPlacementQuestion(){
+  const el=document.getElementById('placementProgress'); el.innerHTML='';
+  placementSample.forEach((_,i)=>{ const d=document.createElement('div'); d.className='seg'+(i<placementIdx?' done':i===placementIdx?' now':''); el.appendChild(d); });
+  const item=placementSample[placementIdx];
+  document.getElementById('placementWord').textContent = item.word.en;
+  document.getElementById('placementInput').value='';
+  document.getElementById('placementInput').focus();
+  document.getElementById('placementFeedback').classList.remove('show');
+}
+document.getElementById('placementSubmitBtn').addEventListener('click', submitPlacementAnswer);
+document.getElementById('placementInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submitPlacementAnswer(); });
+function submitPlacementAnswer(){
+  const typed = document.getElementById('placementInput').value.trim();
+  if(!typed) return;
+  const item=placementSample[placementIdx];
+  const norm = s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+  const ok = norm(typed).includes(norm(item.word.es)) || norm(item.word.es).includes(norm(typed));
+  const fb=document.getElementById('placementFeedback'); fb.classList.add('show');
+  if(ok){ fb.className='feedback show ok'; fb.textContent='✓ Correcto.'; placementCorrect++; }
+  else{ fb.className='feedback show retry'; fb.textContent='Era "'+item.word.es+'". Seguimos.'; }
+  setTimeout(()=>{
+    placementIdx++;
+    if(placementIdx>=placementSample.length){ finishPlacementTest(); } else { renderPlacementQuestion(); }
+  }, 700);
+}
+function finishPlacementTest(){
+  const total=placementSample.length;
+  const ratio = placementCorrect/total;
+  let recommendedDay = Math.round(ratio*curriculum.length)+1;
+  recommendedDay = Math.max(1, Math.min(curriculum.length, recommendedDay));
+  document.getElementById('placementWord').textContent='🏁';
+  document.getElementById('placementHint').textContent='';
+  document.querySelector('#placementTest .type-row').style.display='none';
+  document.getElementById('placementFeedback').classList.remove('show');
+  const resultEl=document.getElementById('placementResult');
+  resultEl.style.display='flex';
+  document.getElementById('placementResultText').textContent =
+    'Acertaste '+placementCorrect+' de '+total+'. Te recomendamos empezar en el Día '+recommendedDay+' — los días anteriores quedan desbloqueados igual, por si querés repasarlos primero.';
+  document.getElementById('goToRecommendedBtn').onclick=()=>{
+    saveMeta({placementDone:true, unlockedThrough:recommendedDay});
+    document.getElementById('placementTest').style.display='none';
+    document.querySelector('#placementTest .type-row').style.display='flex';
+    startDay(recommendedDay);
+  };
+  document.getElementById('startDay1InsteadBtn').onclick=()=>{
+    saveMeta({placementDone:true, unlockedThrough:recommendedDay});
+    document.getElementById('placementTest').style.display='none';
+    document.querySelector('#placementTest .type-row').style.display='flex';
+    startDay(1);
+  };
+}
+let resetArmed=false;
+document.getElementById('resetLink').addEventListener('click', ()=>{
+  const el=document.getElementById('resetLink');
+  if(!resetArmed){
+    resetArmed=true;
+    el.textContent='¿Seguro? Tocá de nuevo para confirmar';
+    el.style.color='var(--warn)';
+    setTimeout(()=>{ resetArmed=false; el.textContent='Borrar todo mi progreso guardado'; el.style.color=''; }, 4000);
+    return;
+  }
+  localStorage.removeItem(STORAGE_KEY);
+  resetArmed=false;
+  el.textContent='✓ Progreso borrado';
+  el.style.color='var(--ok)';
+  setTimeout(()=>{ el.textContent='Borrar todo mi progreso guardado'; el.style.color=''; }, 1500);
+  renderHome();
+});
+document.getElementById('homeBtn').addEventListener('click', ()=>{ showHome(); });
+document.getElementById('backHomeBtn').addEventListener('click', ()=>{ showHome(); });
+function showHome(){
+  document.getElementById('home').style.display='block';
+  document.getElementById('session').style.display='none';
+  speechSynthesis.cancel();
+  renderHome();
+}
+
+// ================================================================
+// ARRANCAR UN DÍA
+// ================================================================
+let currentDay=null, wordBank=[], script=[];
+
+const introTemplates = [
+  w => [{t:'Aprendamos algo nuevo: ',lang:'es'},{t:w.en,lang:'en'},{t:'. Significa "'+w.es+'".',lang:'es'}],
+  w => [{t:'Ahora una palabra útil: ',lang:'es'},{t:w.en,lang:'en'},{t:', que significa "'+w.es+'".',lang:'es'}],
+  w => [{t:'Sumemos: ',lang:'es'},{t:w.en,lang:'en'},{t:'. En español es "'+w.es+'".',lang:'es'}],
+  w => [{t:'Una más: ',lang:'es'},{t:w.en,lang:'en'},{t:' — "'+w.es+'" en español.',lang:'es'}]
+];
+const comboIntro = [{t:'Ahora repitamos juntas, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
+const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
+const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
+// Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
+// sin explicar la regla — el alumno las adquiere por exposición repetida, como un chico.
+const contrastBank = [
+  { a:{en:'I have lived here for 10 years.', es:'vivo acá desde hace 10 años (todavía es así)'}, b:{en:'I lived here for 10 years.', es:'viví acá 10 años (ya no)'} },
+  { a:{en:"I'm going to call him.", es:'voy a llamarlo (plan ya decidido)'}, b:{en:'I will call him.', es:'lo voy a llamar (decisión del momento)'} },
+  { a:{en:'I used to smoke.', es:'antes fumaba (ya no)'}, b:{en:'I smoked yesterday.', es:'fumé ayer (un momento puntual)'} },
+  { a:{en:'I have some money.', es:'tengo algo de dinero'}, b:{en:"I don't have any money.", es:'no tengo nada de dinero'} },
+  { a:{en:"She's taller than him.", es:'ella es más alta que él'}, b:{en:"She's the tallest in the class.", es:'ella es la más alta de la clase'} },
+  { a:{en:'I must finish this today.', es:'tengo que terminar esto hoy (urgencia propia)'}, b:{en:'I have to finish this today.', es:'tengo que terminar esto hoy (obligación normal)'} },
+  { a:{en:'Can I help you?', es:'te puedo ayudar (directo)'}, b:{en:'Could I help you?', es:'podría ayudarte (más formal)'} },
+  { a:{en:"I'm meeting him tomorrow.", es:'me reúno con él mañana (ya está organizado)'}, b:{en:'I will meet him tomorrow.', es:'me voy a reunir con él mañana (más espontáneo)'} },
+  { a:{en:"I've never been to Mexico.", es:'nunca estuve en México (experiencia de vida)'}, b:{en:"I didn't go to Mexico last year.", es:'no fui a México el año pasado (momento específico)'} },
+  { a:{en:'There is a book on the table.', es:'hay un libro en la mesa'}, b:{en:'There are books on the table.', es:'hay libros en la mesa'} },
+  { a:{en:'He is working right now.', es:'él está trabajando ahora mismo'}, b:{en:'He works here.', es:'él trabaja acá (siempre, de costumbre)'} },
+  { a:{en:'If I have time, I will call you.', es:'si tengo tiempo, te llamo (posible)'}, b:{en:'If I had time, I would call you.', es:'si tuviera tiempo, te llamaría (poco probable)'} },
+  { a:{en:'This is my house.', es:'esta es mi casa (todavía)'}, b:{en:'This was my house.', es:'esta era mi casa (ya no)'} },
+  { a:{en:'I already finished.', es:'ya terminé (con énfasis)'}, b:{en:'I just finished.', es:'recién terminé (hace un momento)'} },
+  { a:{en:'A few people came.', es:'vino alguna gente (algunos, positivo)'}, b:{en:'Few people came.', es:'vino poca gente (casi nadie)'} }
+];
+// Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
+const weeklyStories = {
+  6: [
+    {en:'Good morning! My name is Captain Thunder, and I work at the floating dragon company.', es:'¡Buenos días! Me llamo Capitán Trueno, y trabajo en la empresa flotante de dragones.'},
+    {en:'Welcome, tiny human! Come in and have a seat on this giant mushroom.', es:'¡Bienvenido, humanito! Pasá y tomá asiento en este hongo gigante.'},
+    {en:'We are from the Kingdom of Clouds, and we sell magic potions to a thousand customers.', es:'Somos del Reino de las Nubes, y vendemos pociones mágicas a mil clientes.'},
+    {en:'My flying wife is the sales manager, and my fire-breathing son works in logistics.', es:'Mi esposa voladora es la gerente de ventas, y mi hijo que respira fuego trabaja en logística.'},
+    {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitás para este pedido? ¿Diez cajas, o toda una docena?'},
+    {en:"Are you available on Monday, in the year 3000? Let's schedule an appointment!", es:'¿Estás disponible el lunes, en el año 3000? ¡Agendemos una cita!'},
+    {en:'Thank you, and see you soon in the clouds. Goodbye!', es:'Gracias, y nos vemos pronto en las nubes. ¡Adiós!'}
+  ],
+  12: [
+    {en:"How are you doing today, brave hero? I'm great, thanks!", es:'¿Cómo te va hoy, valiente héroe? ¡Estoy genial, gracias!'},
+    {en:"How's the dragon business? Everything is amazing, as always.", es:'¿Cómo va el negocio de dragones? Todo increíble, como siempre.'},
+    {en:'Thanks for calling through the crystal ball. It was a pleasure talking to you, wizard.', es:'Gracias por llamar a través de la bola de cristal. Fue un placer hablar con vos, mago.'},
+    {en:'I have a question: what is the price of the treasure, and do you have stock of magic beans?', es:'Tengo una pregunta: ¿cuál es el precio del tesoro, y tenés stock de frijoles mágicos?'},
+    {en:'We need a castle in blue, gigantic size, and unbreakable material!', es:'¡Necesitamos un castillo en azul, tamaño gigante, y material irrompible!'},
+    {en:'Well done, hero! You finished the first legendary unit. Congratulations!', es:'¡Bien hecho, héroe! Terminaste la primera unidad legendaria. ¡Felicitaciones!'}
+  ],
+  18: [
+    {en:'Welcome to my floating house — the kitchen is inside a volcano!', es:'¡Bienvenido a mi casa flotante — la cocina está dentro de un volcán!'},
+    {en:'I wake up when the sun explodes, and I go to work by teleporting.', es:'Me despierto cuando el sol explota, y voy al trabajo teletransportándome.'},
+    {en:'My robot can walk across oceans, write with lasers, and fix anything instantly.', es:'Mi robot puede caminar por océanos, escribir con láseres, y arreglar cualquier cosa al instante.'},
+    {en:'In my magic toolbox, a hammer can crack open the moon!', es:'En mi caja de herramientas mágica, ¡un martillo puede partir la luna!'},
+    {en:'My pet dragon and I share the same values: honesty, respect, and teamwork.', es:'Mi dragón mascota y yo compartimos los mismos valores: honestidad, respeto y trabajo en equipo.'},
+    {en:'Our loyal customer, the thousand-year-old turtle, always returns and recommends us to the whole ocean!', es:'Nuestra clienta fiel, la tortuga de mil años, ¡siempre vuelve y nos recomienda a todo el océano!'}
+  ],
+  24: [
+    {en:'By the way, this castle feast has a mountain of rice and an ocean of meat!', es:'A propósito, ¡este banquete del castillo tiene una montaña de arroz y un océano de carne!'},
+    {en:'The cleaning robot can wash an entire ocean and count a million stars before breakfast.', es:'El robot de limpieza puede lavar un océano entero y contar un millón de estrellas antes del desayuno.'},
+    {en:"Even dragons need vacation — I'm traveling to a floating island this weekend!", es:'¡Hasta los dragones necesitan vacaciones — viajo a una isla flotante este fin de semana!'},
+    {en:"This dragon egg is cheaper, but let's compare every option before we negotiate the deal.", es:'Este huevo de dragón es más barato, pero comparemos cada opción antes de negociar el trato.'},
+    {en:"Well done, brave hero! You remember everything from Unit Two. Congratulations, you're halfway there!", es:'¡Bien hecho, valiente héroe! Te acordás de todo de la Unidad Dos. ¡Felicitaciones, vas a mitad de camino!'}
+  ],
+  30: [
+    {en:'Our budget was twenty gold coins, but the flying castle final price was approximately one thousand!', es:'Nuestro presupuesto era veinte monedas de oro, ¡pero el precio final del castillo volador fue aproximadamente mil!'},
+    {en:'The grand total, with tax and shipping cost, was bigger than a hundred dragons!', es:'¡El total general, con impuesto y costo de envío, fue más grande que cien dragones!'},
+    {en:'What time is it? Half past the dragon hour — the delivery arrives within 24 hours, even at midnight!', es:'¿Qué hora es? Media hora después de la hora del dragón — ¡la entrega llega dentro de 24 horas, hasta a medianoche!'},
+    {en:'In the morning, it was early; by night, it was delayed by a black hole, but still, the estimated arrival came true.', es:'De mañana, era temprano; para la noche, se retrasó por un agujero negro, pero aun así, la llegada estimada se cumplió.'},
+    {en:'In January, we agreed on payment terms — an upfront payment, then installments, until the due date, paid in full!', es:'En enero, acordamos las condiciones de pago — un pago por adelantado, luego cuotas, hasta la fecha de vencimiento, ¡pagado en su totalidad!'}
+  ],
+  36: [
+    {en:'That works! I agree with the dragon, but that does not work for the wizard.', es:'¡Eso funciona! Estoy de acuerdo con el dragón, pero eso no funciona para el mago.'},
+    {en:'The first place went to a flying whale, and our best seller has a waiting list of thirty thousand dragons!', es:'El primer lugar fue para una ballena voladora, ¡y nuestro más vendido tiene una lista de espera de treinta mil dragones!'},
+    {en:'Do you accept bank transfer, or only ancient magic checks? Here is your change — a star coin!', es:'¿Aceptan transferencia bancaria, o solo cheques mágicos antiguos? Acá tu vuelto — ¡una moneda de estrella!'},
+    {en:'I want to buy in bulk, wholesale, for the lowest price — this is my final offer, deal closed!', es:'Quiero comprar al por mayor, para el precio más bajo — ¡esta es mi oferta final, trato cerrado!'},
+    {en:'This dragon egg weighs a hundred kilograms, and the castle height reaches the clouds!', es:'Este huevo de dragón pesa cien kilogramos, ¡y la altura del castillo llega hasta las nubes!'},
+    {en:'Well earned, champion — strong progress! See you in unit four!', es:'¡Bien merecido, campeón — buen progreso! ¡Nos vemos en la unidad cuatro!'}
+  ],
+  42: [
+    {en:'I would like to order the roasted volcano appetizer — the meeting starts in a floating conference room!', es:'Quisiera pedir la entrada de volcán asado — ¡la reunión empieza en una sala de reuniones flotante!'},
+    {en:'I love dragon eggs, but I am allergic to flying broccoli — please confirm attendance!', es:'Me encantan los huevos de dragón, pero soy alérgico al brócoli volador — ¡confirmá tu asistencia!'},
+    {en:"Let's split the bill, take meeting minutes, and follow up before the castle disappears.", es:'Dividamos la cuenta, tomemos la minuta, y hagamos seguimiento antes de que el castillo desaparezca.'},
+    {en:"The dragon's secret recipe needs boiling lava and a magic oven — prepare the presentation slides too!", es:'La receta secreta del dragón necesita lava hirviendo y un horno mágico — ¡preparemos también las diapositivas de la presentación!'},
+    {en:"Camera on, mute your roar, and let's screen share the treasure map on our video call!", es:'Cámara encendida, silenciá tu rugido, ¡y compartamos pantalla con el mapa del tesoro en la videollamada!'},
+    {en:'For breakfast, a thousand eggs — and in our follow-up meeting, the milestone is finally on track!', es:'De desayuno, mil huevos — ¡y en nuestra reunión de seguimiento, el hito por fin va bien encaminado!'}
+  ],
+  48: [
+    {en:"Can you repeat that? Got it, no worries — either way, let's continue!", es:'¿Podés repetir eso? Entendido, no hay problema — de cualquier forma, ¡sigamos!'},
+    {en:"The wizard's potions are gluten-free, and the responsible person took notes for the minutes.", es:'Las pociones del mago son sin gluten, y la persona responsable tomó notas para la minuta.'},
+    {en:'The giant baked a cake as tall as a castle — in conclusion, here is our action plan!', es:'El gigante horneó una torta tan alta como un castillo — ¡en conclusión, acá está nuestro plan de acción!'},
+    {en:'At the giant supermarket, we had a supplier meeting with fresh dragon fruit and a magic catalog.', es:'En el supermercado gigante, tuvimos una reunión con el proveedor con fruta de dragón fresca y un catálogo mágico.'},
+    {en:'A little water, a lot of gold — we got budget approval for the biggest investment yet!', es:'Un poco de agua, mucho oro — ¡conseguimos la aprobación de presupuesto para la inversión más grande hasta ahora!'},
+    {en:'One third of the journey is done — keep learning, hero, see you in unit five!', es:'Un tercio del viaje está hecho — ¡seguí aprendiendo, héroe, nos vemos en la unidad cinco!'}
+  ]
+};
+const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escuchá cada frase, repetila, y escribila — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
+const weeklyStoryIntro = [{t:'Antes de terminar, una historia más larga con todo lo que repasaste esta semana de estudio.',lang:'es'}];
+const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
+
+function buildScript(bank, crossDayWords, dayNumber, theme, dayStory){
+  const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
+  if(crossDayWords && crossDayWords.length){
+    scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
+  }
+  if(dayNumber >= 3){
+    const pair = contrastBank[(dayNumber-3) % contrastBank.length];
+    scr.push({ kind:'sequence', segs:contrastIntro, emoji:'🔬', words:[pair.a, pair.b], contrastPair:true });
+  }
+  let recent = [];
+  bank.forEach((w,i)=>{
+    const tmpl = introTemplates[i % introTemplates.length];
+    scr.push({ kind:'single', segs:tmpl(w), emoji:w.emoji, newWord:w });
+    recent.push(w);
+    if(recent.length >= 6){
+      scr.push({ kind:'sequence', segs:comboIntro, emoji:'🎯', words:recent.slice() });
+      recent = [];
+    }
+    if((i+1) % 8 === 0 && i+1 < bank.length){
+      const w1 = bank[Math.max(0,i-6)], w2 = bank[Math.max(0,i-2)];
+      scr.push({ kind:'sequence', segs:reviewIntro, emoji:'🔁', words:[w1,w2] });
+    }
+  });
+  if(dayStory && dayStory.length){
+    scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true });
+  }
+  if(weeklyStories[dayNumber]){
+    scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true });
+  }
+  scr.push({ kind:'task', theme:theme });
+  scr.push({ kind:'end' });
+  return scr;
+}
+
+function startDay(dayNum){
+  currentDay = curriculum.find(d=>d.day===dayNum);
+  if(!currentDay) return;
+  wordBank = currentDay.words;
+  const crossWords = getCrossDayReviewWords(dayNum, 6);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story);
+  idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
+  const prog = loadProgress();
+  alreadyCompletedView = !!(prog[dayNum] && prog[dayNum].completed);
+  document.getElementById('dayBadge').textContent = 'Día '+dayNum+' · '+currentDay.theme;
+  document.getElementById('wordList').innerHTML = '<div class="empty">Todavía no aparece ninguna.</div>';
+  document.getElementById('transcript').innerHTML='';
+  document.getElementById('doneScreen').classList.remove('show');
+  document.getElementById('home').style.display='none';
+  document.getElementById('session').style.display='block';
+  if(micGranted){ enterDayContent(); return; }
+  if(localStorage.getItem('mic_ever_granted')==='1' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+      stream.getTracks().forEach(t=>t.stop());
+      micGranted=true; setMicStatus('on','Micrófono: activo');
+      enterDayContent();
+    }).catch(()=>{ document.getElementById('gate').classList.add('show'); });
+    return;
+  }
+  document.getElementById('gate').classList.add('show');
+}
+function enterDayContent(){
+  loadTurn();
+}
+
+// ================= Permiso de micrófono =================
+let micGranted=false, alreadyCompletedView=false;
+const gate=document.getElementById('gate'), gateBtn=document.getElementById('gateBtn'), gateStatus=document.getElementById('gateStatus');
+gateBtn.addEventListener('click', async ()=>{
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
+    gateStatus.textContent='Tu navegador no soporta micrófono aquí. Podés escribir tus respuestas.';
+    micGranted=false; setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1400); return;
+  }
+  gateStatus.textContent='Pidiendo permiso...';
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    stream.getTracks().forEach(t=>t.stop());
+    micGranted=true; gateStatus.textContent='✓ Micrófono activado.';
+    localStorage.setItem('mic_ever_granted','1');
+    setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},500);
+  }catch(err){
+    micGranted=false; gateStatus.textContent='No se concedió el permiso. Podés escribir tus respuestas.';
+    setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1800);
+  }
+});
+function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=document.getElementById('micStatusText'); el.className='mic-status '+cls; t.textContent=text;}
+
+// ================= Referencias DOM =================
+const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn'), peekBtn=document.getElementById('peekBtn'), peekBox=document.getElementById('peekBox'), finishTalkingBtn=document.getElementById('finishTalkingBtn'), recordBtn=document.getElementById('recordBtn'), recordPlayback=document.getElementById('recordPlayback'), reRecordBtn=document.getElementById('reRecordBtn');
+const playBtn=document.getElementById('playBtn'), replayBtn=document.getElementById('replayBtn');
+const appControls=document.getElementById('appControls'), userControls=document.getElementById('userControls');
+const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById('skipBtn');
+const typeRow=document.getElementById('typeRow'), typeInput=document.getElementById('typeInput'), sendBtn=document.getElementById('sendBtn');
+const feedback=document.getElementById('feedback'), nextControls=document.getElementById('nextControls'), nextBtn=document.getElementById('nextBtn');
+const wordListEl=document.getElementById('wordList'), transcriptEl=document.getElementById('transcript'), progressEl=document.getElementById('progress');
+const doneScreen=document.getElementById('doneScreen'), doneCount=document.getElementById('doneCount'), scoreText=document.getElementById('scoreText');
+const weakList=document.getElementById('weakList'), weakItems=document.getElementById('weakItems');
+const modeChip=document.getElementById('modeChip'), speakerLabel=document.getElementById('speakerLabel'), crossTag=document.getElementById('crossTag');
+const reviewBanner=document.getElementById('reviewBanner'), backToLessonBtn=document.getElementById('backToLessonBtn');
+
+let idx=0, learnedWords=[], weakWords=[], wordQueue=[], wqIndex=0, evalMode=false, reviewing=false, resumeSnapshot=null, spokenAttempts=0, currentTurnIsStory=false;
+
+function buildProgress(){
+  progressEl.innerHTML='';
+  script.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='seg'+(i<idx?' done':i===idx?' now':'');
+    if(alreadyCompletedView || i<idx){ d.className+=' done'; d.addEventListener('click',()=>jumpToTurn(i)); }
+    progressEl.appendChild(d);
+  });
+}
+function jumpToTurn(i){
+  reviewBanner.classList.remove('show'); reviewing=false; resumeSnapshot=null;
+  idx = i;
+  loadTurn();
+}
+function setSegs(container, segs){
+  container.innerHTML='';
+  segs.forEach((seg)=>{const span=document.createElement('span');span.className='seg '+seg.lang;span.textContent=seg.t;container.appendChild(span);});
+}
+function addTranscript(who,text,cls){const div=document.createElement('div');div.className='t-line '+cls;div.innerHTML='<span class="who">'+who+'</span>'+text;transcriptEl.appendChild(div);transcriptEl.scrollTop=transcriptEl.scrollHeight;}
+function addWordCard(w, isWeak){const empty=wordListEl.querySelector('.empty');if(empty)empty.remove();const card=document.createElement('div');card.className='word-card'+(isWeak?' weak':'');card.innerHTML='<b>'+w.en+'</b><span>'+w.es+'</span>';wordListEl.appendChild(card);}
+
+// ================= Voz =================
+function ensureVoices(){return new Promise(resolve=>{let voices=speechSynthesis.getVoices();if(voices.length){resolve(voices);return;}speechSynthesis.onvoiceschanged=()=>resolve(speechSynthesis.getVoices());});}
+function pickVoice(voices,lang){return voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith(lang))||null;}
+async function speakSegs(segs, targetContainer, rate){
+  rate = rate || 0.95;
+  const voices=await ensureVoices();
+  setSegs(targetContainer, segs);
+  const spans=[...targetContainer.querySelectorAll('.seg')];
+  illusEl.classList.add('talking');
+  for(let i=0;i<segs.length;i++){
+    const seg=segs[i], span=spans[i];
+    await new Promise(resolve=>{
+      const u=new SpeechSynthesisUtterance(seg.t);
+      u.lang=seg.lang==='en'?'en-US':'es-CO';
+      const v=pickVoice(voices,seg.lang==='en'?'en':'es'); if(v)u.voice=v;
+      u.rate=rate;
+      u.onstart=()=>span.classList.add('active');
+      u.onend=()=>{span.classList.remove('active');span.classList.add('spoken');resolve();};
+      u.onerror=()=>resolve();
+      speechSynthesis.speak(u);
+    });
+  }
+  illusEl.classList.remove('talking');
+}
+
+// ================= Reconocimiento de voz =================
+let recognition=null, micSupported=false;
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SR){micSupported=true;recognition=new SR();recognition.lang='es-CO';recognition.interimResults=false;recognition.maxAlternatives=1;}
+function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z\s]/g,'').replace(/\s+/g,' ').trim();}
+function saidMatches(target, said){const t=normalize(target), s=normalize(said); if(!t) return true; return t.split(' ').every(w=>s.includes(w));}
+
+// ================= Motor principal =================
+function loadTurn(){
+  buildProgress();
+  const turn=script[idx];
+  reviewBanner.classList.remove('show');
+  if(turn.kind==='end'){ startEvaluation(); return; }
+  if(turn.kind==='task' && !turn.segs){
+    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
+    turn.emoji = '🎯';
+  }
+  if(turn.crossDay){ crossTag.style.display='block'; crossTag.textContent='🔁 REPASO DE UN DÍA ANTERIOR'; }
+  else if(turn.contrastPair){ crossTag.style.display='block'; crossTag.textContent='🔬 PATRÓN DEL IDIOMA'; }
+  else if(turn.isStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
+  else { crossTag.style.display='none'; }
+  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
+  appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show'); playBtn.disabled=false;
+  illusEl.textContent=turn.emoji||'💬';
+  setSegs(lineEl, turn.segs);
+  playBtn.onclick=async ()=>{
+    playBtn.disabled=true; replayBtn.disabled=true;
+    addTranscript('TUTOR', turn.segs.map(s=>s.t).join(''), 'app');
+    await speakSegs(turn.segs, lineEl);
+    playBtn.disabled=false; replayBtn.disabled=false;
+    afterIntro(turn);
+  };
+  replayBtn.onclick=async ()=>{ await speakSegs(turn.segs, lineEl); };
+}
+function afterIntro(turn){
+  appControls.style.display='none';
+  if(turn.kind==='free'){
+    userControls.style.display='flex';
+    micBtn.onclick=()=>startListening(res=>{ addTranscript('VOS', res.said, 'user'); nextControls.style.display='flex'; userControls.style.display='none'; });
+    skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.focus();};
+    sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; addTranscript('VOS', typeInput.value.trim(), 'user'); typeInput.value=''; typeRow.style.display='none'; nextControls.style.display='flex'; };
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
+  if(turn.kind==='task'){
+    speakerLabel.textContent='TAREA LIVIANA';
+    let spokenDone=false;
+    userControls.style.display='flex';
+    micBtn.onclick=()=>startListening(res=>{
+      addTranscript('VOS (hablado)', res.said, 'user');
+      spokenDone=true;
+      userControls.style.display='none';
+      typeRow.style.display='flex'; typeInput.placeholder='Ahora escribí esa misma frase...'; typeInput.focus();
+      feedback.classList.add('show','ok'); feedback.textContent='¡Buenísimo! Ahora escribila.';
+    });
+    skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí tu frase acá...'; typeInput.focus();};
+    sendBtn.onclick=()=>{
+      if(!typeInput.value.trim())return;
+      addTranscript('VOS (escrito)', typeInput.value.trim(), 'user');
+      typeInput.value=''; typeRow.style.display='none';
+      feedback.classList.add('show','ok'); feedback.textContent='✓ Excelente. Esto es usar el idioma de verdad, no solo repetirlo.';
+      nextControls.style.display='flex';
+    };
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
+  wordQueue = turn.kind==='single' ? [turn.newWord] : turn.words.slice();
+  wqIndex=0; evalMode=false;
+  currentTurnIsStory = !!turn.isStory;
+  runWordChallenge();
+}
+
+function runWordChallenge(){
+  if(wqIndex >= wordQueue.length){
+    if(evalMode){ finishEvaluation(); return; }
+    nextControls.style.display='flex';
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
+  const w = wordQueue[wqIndex];
+  spokenAttempts = 0;
+  modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
+  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
+  hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="pron-hint">· tocá cualquier palabra para reescucharla sola</span>' : '');
+  const segs = currentTurnIsStory ? w.en.split(' ').map(word=>({t:word, lang:'en'})) : [{t:w.en,lang:'en'}];
+  illusEl.textContent='💬';
+  appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show'); playBtn.disabled=false;
+  setSegs(lineEl, segs);
+  if(currentTurnIsStory) attachWordClicks(lineEl, segs);
+  playBtn.onclick=async ()=>{
+    playBtn.disabled=true; replayBtn.disabled=true;
+    await speakSegs(segs, lineEl);
+    if(currentTurnIsStory) attachWordClicks(lineEl, segs);
+    playBtn.disabled=false; replayBtn.disabled=false;
+    appControls.style.display='none'; userControls.style.display='flex';
+    replayWordBtn.style.display='inline-flex';
+    slowWordBtn.style.display='inline-flex';
+    recordBtn.style.display='inline-flex';
+    replayWordBtn.onclick=async ()=>{ replayWordBtn.disabled=true; await speakSegs(segs, lineEl); if(currentTurnIsStory) attachWordClicks(lineEl, segs); replayWordBtn.disabled=false; };
+    slowWordBtn.onclick=async ()=>{ slowWordBtn.disabled=true; await speakSegs(segs, lineEl, 0.5); if(currentTurnIsStory) attachWordClicks(lineEl, segs); slowWordBtn.disabled=false; };
+  };
+  replayBtn.onclick=async ()=>{ await speakSegs(segs, lineEl); if(currentTurnIsStory) attachWordClicks(lineEl, segs); };
+  micBtn.onclick=()=>startListening(res=>handleSpokenResult(w,res), {longForm:currentTurnIsStory});
+  skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus();};
+  sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; const said=typeInput.value.trim(); typeInput.value=''; typeRow.style.display='none'; handleSpokenResult(w,{said,confidence:null}); };
+}
+let wordSelectStart = null;
+function attachWordClicks(container, segs){
+  const spans=[...container.querySelectorAll('.seg')];
+  wordSelectStart = null;
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  spans.forEach((span,i)=>{
+    span.style.cursor='pointer';
+    span.title='Tocá una palabra para escucharla sola. Tocá otra palabra después para escuchar toda la frase entre las dos.';
+    span.onclick=(e)=>{
+      e.stopPropagation();
+      if(wordSelectStart===null){
+        spans.forEach(s=>s.classList.remove('selected'));
+        wordSelectStart = i;
+        span.classList.add('selecting');
+        speechSynthesis.cancel();
+        const u=new SpeechSynthesisUtterance(segs[i].t);
+        u.lang='en-US'; u.rate=0.9;
+        speechSynthesis.speak(u);
+      } else {
+        const a=Math.min(wordSelectStart,i), b=Math.max(wordSelectStart,i);
+        spans.forEach(s=>s.classList.remove('selecting'));
+        spans.forEach((s,idx)=>{ if(idx>=a && idx<=b) s.classList.add('selected'); else s.classList.remove('selected'); });
+        const phrase = segs.slice(a,b+1).map(s=>s.t).join(' ');
+        playSelectedPhrase(phrase);
+        wordSelectStart = null;
+      }
+    };
+  });
+}
+function playSelectedPhrase(phrase){
+  const panel=document.getElementById('phraseSelectionPanel');
+  const textEl=document.getElementById('phraseSelectionText');
+  const replayBtn2=document.getElementById('replaySelectionBtn');
+  const clearBtn=document.getElementById('clearSelectionBtn');
+  panel.style.display='flex';
+  textEl.textContent='"'+phrase+'"';
+  const speak=()=>{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(phrase); u.lang='en-US'; u.rate=0.9; speechSynthesis.speak(u); };
+  speak();
+  replayBtn2.onclick=speak;
+  clearBtn.onclick=()=>{
+    panel.style.display='none';
+    [...lineEl.querySelectorAll('.seg')].forEach(s=>s.classList.remove('selected','selecting'));
+    wordSelectStart=null;
+  };
+}
+function handleSpokenResult(w, res){
+  spokenAttempts++;
+  const ok = saidMatches(w.en, res.said);
+  const pronTag = (res.confidence!==null) ? '<span class="pron-tag '+(res.confidence>=0.92?'high':'low')+'">pronunciación '+Math.round(res.confidence*100)+'%</span>' : '';
+  addTranscript('VOS', res.said+pronTag, 'user');
+  feedback.classList.add('show');
+  userControls.style.display='none'; typeRow.style.display='none';
+  const passedClear = ok && (res.confidence===null || res.confidence>=0.92);
+  if(passedClear){
+    feedback.className='feedback show ok'; feedback.textContent='✓ Muy bien, se entendió claro (92%+). Ahora escribila.';
+    goToWriteStep(w, false);
+    return;
+  }
+  if(spokenAttempts>=2){
+    feedback.className='feedback show retry';
+    feedback.textContent = ok
+      ? 'No llegamos al 92% de claridad, pero la palabra estuvo bien. Sigamos — quedó anotada para repasar.'
+      : 'No pasa nada, sigamos — quedó anotada para repasar más adelante.';
+    goToWriteStep(w, true);
+    return;
+  }
+  if(ok){
+    feedback.className='feedback show retry'; feedback.textContent='Dijiste bien la palabra, pero sonó poco clara (necesitás 92%). Repetila una vez más.';
+  } else {
+    feedback.className='feedback show retry'; feedback.textContent='Casi — probá repetirla de nuevo, vos podés.';
+  }
+  userControls.style.display='flex';
+}
+function goToWriteStep(w, wasLowConfidence){
+  modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
+  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRIBILA';
+  illusEl.textContent='✏️'; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
+  setSegs(lineEl, [{t:'¿Cómo se escribe "'+w.es+'" en inglés?',lang:'es'}]);
+  hintEl.textContent='Pista: empieza con "'+w.en[0].toUpperCase()+'"';
+  appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show');
+  typeRow.style.display='flex'; typeInput.placeholder='Escribí la palabra en inglés...'; typeInput.value=''; typeInput.focus();
+  peekBtn.style.display='inline-flex'; peekBox.style.display='none';
+  let weak = wasLowConfidence;
+  let attempts = 0;
+  let peeked = false;
+  peekBtn.onclick=()=>{
+    peeked = true;
+    peekBox.textContent = w.en;
+    peekBox.style.display='block';
+    peekBox.style.animation='none';
+    void peekBox.offsetWidth; // reinicia la animación si se toca varias veces seguidas
+    peekBox.style.animation='peekfade 3s ease-in-out forwards';
+    setTimeout(()=>{ peekBox.style.display='none'; }, 3000);
+  };
+  function finalize(){
+    typeRow.style.display='none';
+    peekBtn.style.display='none'; peekBox.style.display='none';
+    if(peeked) weak = true;
+    if(!learnedWordsHas(w)) { learnedWords.push(w); addWordCard(w, weak); }
+    if(weak && !weakWordsHas(w)) weakWords.push(w);
+    nextControls.style.display='flex';
+    nextBtn.textContent = evalMode ? 'Continuar →' : 'Continuar →';
+    nextBtn.onclick=()=>{ wqIndex++; runWordChallenge(); };
+  }
+  sendBtn.onclick=()=>{
+    const typed=typeInput.value.trim(); if(!typed) return;
+    attempts++;
+    const correct = normalize(typed)===normalize(w.en);
+    addTranscript('VOS (escrito)', typed, 'user');
+    feedback.classList.add('show');
+    if(correct){
+      feedback.className='feedback show ok'; feedback.textContent='✓ ¡Perfecto! Bien escrito.';
+      finalize();
+    } else {
+      weak = true;
+      feedback.className='feedback show retry';
+      feedback.textContent = attempts>=2
+        ? 'Se escribe "'+w.en+'". Quedó anotada para repasar.'
+        : 'No es así todavía. Fijate bien y probá de nuevo, o tocá "Ver respuesta" si preferís seguir.';
+      typeInput.value=''; typeInput.focus();
+      nextControls.style.display='flex';
+      nextBtn.textContent='Ver respuesta y continuar';
+      nextBtn.onclick=()=>{ finalize(); };
+      if(attempts>=2){ finalize(); }
+    }
+  };
+}
+function learnedWordsHas(w){ return learnedWords.some(x=>x.en===w.en); }
+function weakWordsHas(w){ return weakWords.some(x=>x.en===w.en); }
+
+// ================= Autograbación: el alumno se graba, se escucha y regraba las veces que quiera =================
+let recMediaRecorder=null, recChunks=[], recStream=null, recIsRecording=false;
+recordBtn.addEventListener('click', async ()=>{
+  if(recIsRecording){
+    if(recMediaRecorder && recMediaRecorder.state!=='inactive') recMediaRecorder.stop();
+    return;
+  }
+  try{
+    if(!recStream){ recStream = await navigator.mediaDevices.getUserMedia({audio:true}); }
+  }catch(e){
+    alert('No se pudo acceder al micrófono para grabar tu voz.');
+    return;
+  }
+  recChunks=[];
+  recMediaRecorder = new MediaRecorder(recStream);
+  recMediaRecorder.ondataavailable = (e)=>{ if(e.data && e.data.size>0) recChunks.push(e.data); };
+  recMediaRecorder.onstop = ()=>{
+    recIsRecording=false;
+    recordBtn.textContent='🎙️ Grabar mi voz y escuchar';
+    const blob = new Blob(recChunks, {type: recMediaRecorder.mimeType || 'audio/webm'});
+    const url = URL.createObjectURL(blob);
+    recordPlayback.src = url;
+    recordPlayback.style.display='block';
+    reRecordBtn.style.display='inline-flex';
+    recordBtn.style.display='none';
+  };
+  recMediaRecorder.start();
+  recIsRecording=true;
+  recordBtn.textContent='⏹ Detener mi grabación';
+});
+reRecordBtn.addEventListener('click', ()=>{
+  recordPlayback.style.display='none'; recordPlayback.removeAttribute('src');
+  reRecordBtn.style.display='none';
+  recordBtn.style.display='inline-flex'; recordBtn.textContent='🎙️ Grabar mi voz y escuchar';
+});
+function resetRecordingPanel(){
+  recordBtn.style.display='none'; recordBtn.textContent='🎙️ Grabar mi voz y escuchar';
+  recordPlayback.style.display='none'; recordPlayback.removeAttribute('src');
+  reRecordBtn.style.display='none';
+}
+
+function startListening(onResult, opts){
+  opts = opts || {};
+  if(!micSupported||!micGranted){ typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus(); return; }
+  micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
+  recognition.continuous = !!opts.longForm;
+  let collected = [];
+  if(opts.longForm){
+    micBtn.textContent = '🎙 Escuchando... (tocá "Terminé" cuando acabes)';
+    finishTalkingBtn.style.display='inline-flex';
+    finishTalkingBtn.onclick = ()=>{ try{ recognition.stop(); }catch(e){} };
+  } else {
+    micBtn.textContent = '🎙 Escuchando...';
+  }
+  try{ recognition.start(); }catch(e){}
+  recognition.onresult=(e)=>{
+    if(opts.longForm){
+      for(let i=e.resultIndex; i<e.results.length; i++){
+        if(e.results[i].isFinal){ collected.push(e.results[i][0].transcript); }
+      }
+      return;
+    }
+    const result=e.results[0][0];
+    const confidence=(typeof result.confidence==='number'&&result.confidence>0)?result.confidence:null;
+    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+    onResult({said:result.transcript, confidence});
+  };
+  recognition.onend=()=>{
+    if(!opts.longForm) return;
+    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+    finishTalkingBtn.style.display='none';
+    const said = collected.join(' ').trim();
+    onResult({said: said || '(no se detectó audio, probá de nuevo)', confidence:null});
+  };
+  recognition.onerror=(e)=>{
+    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+    finishTalkingBtn.style.display='none';
+    feedback.classList.add('show','retry');
+    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisá permisos o escribí tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
+    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+  };
+}
+
+// ================= Evaluación final =================
+function startEvaluation(){
+  speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
+  illusEl.textContent='💬';
+  setSegs(lineEl, [{t:'¡Ya casi terminamos! Cerremos con un diálogo: te voy a preguntar por cada cosa que aprendiste hoy — la decís y la escribís, como en una charla real.',lang:'es'}]);
+  hintEl.textContent='Para aprobar la lección necesitás al menos 92% correcto.';
+  nextControls.style.display='flex';
+  nextBtn.textContent='Empezar el diálogo';
+  nextBtn.onclick=()=>{
+    nextBtn.textContent='Continuar →';
+    wordQueue = learnedWords.slice(); wqIndex=0; evalMode=true;
+    runWordChallenge();
+  };
+}
+function finishEvaluation(){
+  const total = learnedWords.length;
+  const scorePct = total ? Math.round(((total-weakWords.length)/total)*100) : 100;
+  if(scorePct < 92 && weakWords.length>0){
+    showRetryGate(scorePct);
+    return;
+  }
+  completeDay(scorePct);
+}
+function showRetryGate(scorePct){
+  speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
+  illusEl.textContent='🔁';
+  setSegs(lineEl, [{t:'Sacaste '+scorePct+'%. Para aprobar esta lección necesitás al menos 92%. Repasemos, una por una, las '+weakWords.length+' que te costaron, y seguimos.',lang:'es'}]);
+  hintEl.textContent='';
+  nextControls.style.display='flex';
+  nextBtn.textContent='Repasar y reintentar';
+  nextBtn.onclick=()=>{
+    wordQueue = weakWords.slice();
+    weakWords = [];
+    wqIndex=0; evalMode=true;
+    runWordChallenge();
+  };
+}
+function completeDay(scorePct){
+  const total = learnedWords.length;
+  const good = total - weakWords.length;
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  doneScreen.classList.add('show');
+  doneCount.textContent = total;
+  scoreText.textContent = '✅ Aprobado con '+scorePct+'% ('+good+' / '+total+' — mínimo 92%)';
+  if(weakWords.length>0){
+    weakList.style.display='block'; weakItems.innerHTML='';
+    weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; weakItems.appendChild(div); });
+  } else { weakList.style.display='none'; }
+
+  saveDayResult(currentDay.day, {
+    completed:true, date:new Date().toISOString(),
+    learnedWords: learnedWords, weakWords: weakWords,
+    score:{good, total, pct:scorePct}
+  });
+}
+
+// ================= Modo repaso (dentro de la misma sesión) =================
+function enterReview(i){
+  if(reviewing) return;
+  reviewing=true;
+  resumeSnapshot={idx, wqIndex, wordQueue:wordQueue.slice(), evalMode};
+  reviewBanner.classList.add('show');
+  const turn=script[i];
+  if(turn.kind==='task' && !turn.segs){
+    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
+    turn.emoji = '🎯';
+  }
+  if(turn.kind==='end' && !turn.segs){
+    turn.segs = [{t:'Este es el cierre de la lección: acá se hace la evaluación final con todo el vocabulario del día. No hay nada más para repasar en este punto — elegí otro segmento de la barra.',lang:'es'}];
+    turn.emoji = '🏁';
+  }
+  speakerLabel.textContent='REPASO'; modeChip.style.display='none';
+  illusEl.textContent=turn.emoji||'💬';
+  appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  setSegs(lineEl, turn.segs);
+  hintEl.textContent = turn.kind==='single' ? ('Palabra: '+turn.newWord.en+' — '+turn.newWord.es) : (turn.kind==='sequence' ? ('Palabras: '+turn.words.map(w=>w.en).join(', ')) : '');
+  playBtn.onclick=async ()=>{ await speakSegs(turn.segs, lineEl); };
+  replayBtn.onclick=async ()=>{ await speakSegs(turn.segs, lineEl); };
+}
+backToLessonBtn.addEventListener('click', ()=>{
+  reviewing=false; reviewBanner.classList.remove('show');
+  if(resumeSnapshot){
+    idx=resumeSnapshot.idx; wqIndex=resumeSnapshot.wqIndex; wordQueue=resumeSnapshot.wordQueue; evalMode=resumeSnapshot.evalMode;
+    if(script[idx] && script[idx].kind!=='end' && wordQueue.length){ runWordChallenge(); } else { loadTurn(); }
+  } else { loadTurn(); }
+});
+
+// ================= Arranque =================
+showHome();
