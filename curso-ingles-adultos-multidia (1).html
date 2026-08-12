@@ -147,6 +147,13 @@
   .review-banner{background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.35); color:var(--en); font-size:13px; padding:10px 14px; border-radius:10px; margin-bottom:16px; display:none; align-items:center; justify-content:space-between; gap:10px;}
   .review-banner.show{display:flex;}
   .cross-tag{font-size:11px; color:var(--es); font-family:'JetBrains Mono',monospace; margin-bottom:8px;}
+  .peek-box{
+    margin-top:10px; padding:14px 18px; border-radius:10px;
+    background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.4);
+    font-family:'Fraunces',serif; font-size:22px; color:var(--en); text-align:center;
+    animation: peekfade 3s ease-in-out forwards;
+  }
+  @keyframes peekfade{0%{opacity:0;transform:scale(.95);}10%{opacity:1;transform:scale(1);}80%{opacity:1;}100%{opacity:0;}}
 </style>
 </head>
 <body>
@@ -186,6 +193,8 @@
       <span>🛠 Modo administrador activo — todos los días están desbloqueados.</span>
       <input type="number" id="adminDayInput" min="1" placeholder="N° de día" style="width:90px;">
       <button class="primary" id="adminGoBtn">Ir al día</button>
+      <button class="primary" id="adminCompleteBtn">✅ Marcar como completado (sin jugar)</button>
+      <button class="primary" id="adminCompleteAllBtn">✅✅ Completar TODOS los días cargados</button>
       <span class="reset-link" id="exitAdminLink" style="margin:0;">Salir del modo admin</span>
     </div>
     <div id="unitsContainer"></div>
@@ -248,6 +257,8 @@
           <input type="text" id="typeInput" placeholder="Escribí tu respuesta acá...">
           <button class="primary" id="sendBtn">Enviar</button>
         </div>
+        <button class="ghost" id="peekBtn" style="display:none; margin-top:10px;">👁 Ver la palabra 3 segundos</button>
+        <div class="peek-box" id="peekBox" style="display:none;"></div>
         <div class="feedback" id="feedback"></div>
         <div class="controls" id="nextControls" style="display:none;">
           <button class="primary" id="nextBtn">Continuar →</button>
@@ -768,6 +779,796 @@ const curriculum = [
       {en:'halfway there', es:'vamos a mitad de camino', emoji:'🏁'},
       {en:'next unit', es:'próxima unidad', emoji:'➡️'}
     ]
+  },
+  {
+    day:25, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Números 11-20 / Precios y presupuestos',
+    words:[
+      {en:'eleven', es:'once', emoji:'1️⃣'},
+      {en:'twelve', es:'doce', emoji:'1️⃣'},
+      {en:'thirteen', es:'trece', emoji:'1️⃣'},
+      {en:'fourteen', es:'catorce', emoji:'1️⃣'},
+      {en:'fifteen', es:'quince', emoji:'1️⃣'},
+      {en:'sixteen', es:'dieciséis', emoji:'1️⃣'},
+      {en:'seventeen', es:'diecisiete', emoji:'1️⃣'},
+      {en:'eighteen', es:'dieciocho', emoji:'1️⃣'},
+      {en:'nineteen', es:'diecinueve', emoji:'1️⃣'},
+      {en:'twenty', es:'veinte', emoji:'2️⃣'},
+      {en:'budget', es:'presupuesto', emoji:'💰'},
+      {en:'to cost', es:'costar', emoji:'💲'},
+      {en:'expensive', es:'caro', emoji:'💸'},
+      {en:'cheap', es:'barato', emoji:'🪙'},
+      {en:'approximately', es:'aproximadamente', emoji:'≈'},
+      {en:'final price', es:'precio final', emoji:'🏷️'}
+    ]
+  },
+  {
+    day:26, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Números redondos / Cotizaciones y totales',
+    words:[
+      {en:'thirty', es:'treinta', emoji:'3️⃣'},
+      {en:'forty', es:'cuarenta', emoji:'4️⃣'},
+      {en:'fifty', es:'cincuenta', emoji:'5️⃣'},
+      {en:'sixty', es:'sesenta', emoji:'6️⃣'},
+      {en:'seventy', es:'setenta', emoji:'7️⃣'},
+      {en:'eighty', es:'ochenta', emoji:'8️⃣'},
+      {en:'ninety', es:'noventa', emoji:'9️⃣'},
+      {en:'hundred', es:'cien', emoji:'💯'},
+      {en:'thousand', es:'mil', emoji:'🔢'},
+      {en:'quote', es:'cotización', emoji:'📄'},
+      {en:'subtotal', es:'subtotal', emoji:'➕'},
+      {en:'tax', es:'impuesto', emoji:'🧾'},
+      {en:'shipping cost', es:'costo de envío', emoji:'🚚'},
+      {en:'grand total', es:'total general', emoji:'💰'},
+      {en:'to add up', es:'sumar', emoji:'➕'}
+    ]
+  },
+  {
+    day:27, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'La hora / Horarios de entrega',
+    words:[
+      {en:"what time is it", es:'qué hora es', emoji:'🕐'},
+      {en:"o'clock", es:'en punto', emoji:'🕐'},
+      {en:'half past', es:'y media', emoji:'🕜'},
+      {en:'quarter past', es:'y cuarto', emoji:'🕒'},
+      {en:'quarter to', es:'menos cuarto', emoji:'🕓'},
+      {en:'hour', es:'hora', emoji:'⏰'},
+      {en:'minute', es:'minuto', emoji:'⏱️'},
+      {en:'delivery time', es:'horario de entrega', emoji:'🚚'},
+      {en:'business hours', es:'horario de atención', emoji:'🏢'},
+      {en:'it opens', es:'abre', emoji:'🔓'},
+      {en:'it closes', es:'cierra', emoji:'🔒'},
+      {en:'within 24 hours', es:'dentro de 24 horas', emoji:'⏳'},
+      {en:'same day', es:'mismo día', emoji:'📆'},
+      {en:'next day', es:'día siguiente', emoji:'⏭️'}
+    ]
+  },
+  {
+    day:28, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Más sobre la hora / Puntualidad en entregas',
+    words:[
+      {en:'in the morning', es:'de la mañana', emoji:'🌅'},
+      {en:'in the afternoon', es:'de la tarde', emoji:'🌇'},
+      {en:'in the evening', es:'de la noche', emoji:'🌆'},
+      {en:'at night', es:'a la noche', emoji:'🌙'},
+      {en:'early', es:'temprano', emoji:'⏰'},
+      {en:'late', es:'tarde', emoji:'⏰'},
+      {en:'delayed', es:'retrasado', emoji:'⚠️'},
+      {en:'around (time)', es:'alrededor de', emoji:'🕐'},
+      {en:'before', es:'antes', emoji:'⏮️'},
+      {en:'after', es:'después', emoji:'⏭️'},
+      {en:'as soon as possible', es:'lo antes posible', emoji:'⚡'},
+      {en:'estimated arrival', es:'llegada estimada', emoji:'🚛'},
+      {en:'tracking number', es:'número de rastreo', emoji:'🔍'}
+    ]
+  },
+  {
+    day:29, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Meses del año / Fechas de vencimiento',
+    words:[
+      {en:'January', es:'enero', emoji:'📅'},
+      {en:'February', es:'febrero', emoji:'📅'},
+      {en:'March', es:'marzo', emoji:'📅'},
+      {en:'April', es:'abril', emoji:'📅'},
+      {en:'May', es:'mayo', emoji:'📅'},
+      {en:'June', es:'junio', emoji:'📅'},
+      {en:'July', es:'julio', emoji:'📅'},
+      {en:'August', es:'agosto', emoji:'📅'},
+      {en:'September', es:'septiembre', emoji:'📅'},
+      {en:'October', es:'octubre', emoji:'📅'},
+      {en:'November', es:'noviembre', emoji:'📅'},
+      {en:'December', es:'diciembre', emoji:'📅'},
+      {en:'due date', es:'fecha de vencimiento', emoji:'⏳'},
+      {en:'overdue', es:'vencido', emoji:'⚠️'}
+    ]
+  },
+  {
+    day:30, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Fechas / Plazos de pago',
+    words:[
+      {en:"what's the date", es:'qué fecha es', emoji:'📅'},
+      {en:"today's date", es:'la fecha de hoy', emoji:'📆'},
+      {en:'year', es:'año', emoji:'🗓️'},
+      {en:'month', es:'mes', emoji:'📅'},
+      {en:'payment terms', es:'condiciones de pago', emoji:'📃'},
+      {en:'net 30', es:'a 30 días', emoji:'📆'},
+      {en:'upfront payment', es:'pago por adelantado', emoji:'💵'},
+      {en:'installment', es:'cuota', emoji:'🧾'},
+      {en:'balance due', es:'saldo pendiente', emoji:'⚠️'},
+      {en:'paid in full', es:'pagado en su totalidad', emoji:'✅'},
+      {en:'extension', es:'prórroga', emoji:'⏳'},
+      {en:'grace period', es:'período de gracia', emoji:'🕊️'}
+    ]
+  },
+  {
+    day:31, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Repaso liviano de la semana 5',
+    words:[
+      {en:'let me see', es:'déjame ver', emoji:'👀'},
+      {en:'hold on', es:'esperá', emoji:'✋'},
+      {en:'give me a second', es:'dame un segundo', emoji:'⏱️'},
+      {en:'that works', es:'eso funciona', emoji:'✅'},
+      {en:"that doesn't work", es:'eso no funciona', emoji:'❌'},
+      {en:'makes sense', es:'tiene sentido', emoji:'💡'},
+      {en:'I agree', es:'estoy de acuerdo', emoji:'🤝'},
+      {en:'I disagree', es:'no estoy de acuerdo', emoji:'🙅'},
+      {en:'maybe', es:'tal vez', emoji:'🤷'},
+      {en:'definitely', es:'definitivamente', emoji:'💯'},
+      {en:'probably', es:'probablemente', emoji:'🤔'}
+    ]
+  },
+  {
+    day:32, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Números ordinales / Ranking y prioridad',
+    words:[
+      {en:'first', es:'primero', emoji:'🥇'},
+      {en:'second', es:'segundo', emoji:'🥈'},
+      {en:'third', es:'tercero', emoji:'🥉'},
+      {en:'fourth', es:'cuarto', emoji:'4️⃣'},
+      {en:'fifth', es:'quinto', emoji:'5️⃣'},
+      {en:'next', es:'siguiente', emoji:'➡️'},
+      {en:'last', es:'último', emoji:'🔚'},
+      {en:'priority', es:'prioridad', emoji:'⭐'},
+      {en:'urgent', es:'urgente', emoji:'🚨'},
+      {en:'top priority', es:'máxima prioridad', emoji:'🔝'},
+      {en:'ranking', es:'clasificación', emoji:'📊'},
+      {en:'best seller', es:'más vendido', emoji:'🏆'},
+      {en:'preferred supplier', es:'proveedor preferido', emoji:'🤝'},
+      {en:'waiting list', es:'lista de espera', emoji:'📋'}
+    ]
+  },
+  {
+    day:33, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Dinero y monedas / Formas de pago',
+    words:[
+      {en:'money', es:'dinero', emoji:'💵'},
+      {en:'cash', es:'efectivo', emoji:'💵'},
+      {en:'bank transfer', es:'transferencia bancaria', emoji:'🏦'},
+      {en:'credit card', es:'tarjeta de crédito', emoji:'💳'},
+      {en:'debit card', es:'tarjeta de débito', emoji:'💳'},
+      {en:'check', es:'cheque', emoji:'🧾'},
+      {en:'receipt', es:'recibo', emoji:'🧾'},
+      {en:'change (money)', es:'vuelto', emoji:'🪙'},
+      {en:'currency', es:'moneda', emoji:'💱'},
+      {en:'exchange rate', es:'tipo de cambio', emoji:'💱'},
+      {en:'to pay', es:'pagar', emoji:'💸'},
+      {en:'to charge', es:'cobrar', emoji:'💰'},
+      {en:'refund', es:'reembolso', emoji:'↩️'},
+      {en:'wire transfer', es:'transferencia electrónica', emoji:'💻'}
+    ]
+  },
+  {
+    day:34, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Comprar y vender / Negociar precio y condiciones',
+    words:[
+      {en:'to buy', es:'comprar', emoji:'🛒'},
+      {en:'to sell', es:'vender', emoji:'🏷️'},
+      {en:'to purchase', es:'adquirir', emoji:'🛍️'},
+      {en:'lowest price', es:'precio más bajo', emoji:'⬇️'},
+      {en:'bulk order', es:'pedido al por mayor', emoji:'📦'},
+      {en:'wholesale', es:'al por mayor', emoji:'🏭'},
+      {en:'retail', es:'al por menor', emoji:'🏬'},
+      {en:'margin', es:'margen', emoji:'📊'},
+      {en:'profit', es:'ganancia', emoji:'📈'},
+      {en:'loss', es:'pérdida', emoji:'📉'},
+      {en:'break even', es:'punto de equilibrio', emoji:'⚖️'},
+      {en:'final offer', es:'oferta final', emoji:'🤝'},
+      {en:'deal closed', es:'trato cerrado', emoji:'✅'}
+    ]
+  },
+  {
+    day:35, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Medidas y cantidades / Unidades de medida',
+    words:[
+      {en:'kilogram', es:'kilogramo', emoji:'⚖️'},
+      {en:'gram', es:'gramo', emoji:'⚖️'},
+      {en:'liter', es:'litro', emoji:'🧴'},
+      {en:'meter', es:'metro', emoji:'📏'},
+      {en:'centimeter', es:'centímetro', emoji:'📏'},
+      {en:'inch', es:'pulgada', emoji:'📏'},
+      {en:'pound', es:'libra', emoji:'⚖️'},
+      {en:'weight', es:'peso', emoji:'⚖️'},
+      {en:'length', es:'longitud', emoji:'📏'},
+      {en:'width', es:'ancho', emoji:'↔️'},
+      {en:'height', es:'altura', emoji:'↕️'},
+      {en:'volume', es:'volumen', emoji:'📦'},
+      {en:'pack', es:'paquete', emoji:'📦'},
+      {en:'pallet', es:'tarima', emoji:'🪵'}
+    ]
+  },
+  {
+    day:36, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Repaso y cierre de la Unidad 3',
+    words:[
+      {en:'unit three', es:'unidad tres', emoji:'3️⃣'},
+      {en:'strong progress', es:'buen progreso', emoji:'📈'},
+      {en:'review time', es:'hora de repasar', emoji:'🔁'},
+      {en:'final challenge', es:'desafío final', emoji:'🏆'},
+      {en:'well earned', es:'bien merecido', emoji:'🎖️'},
+      {en:'proud of you', es:'orgulloso de vos', emoji:'😊'},
+      {en:'see you in unit four', es:'nos vemos en la unidad cuatro', emoji:'➡️'},
+      {en:'next unit', es:'próxima unidad', emoji:'➡️'}
+    ]
+  },
+  {
+    day:37, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Pedir en el restaurante / Programar una reunión',
+    words:[
+      {en:'to order', es:'pedir', emoji:'📝'},
+      {en:'I would like', es:'quisiera', emoji:'🙋'},
+      {en:'appetizer', es:'entrada', emoji:'🥟'},
+      {en:'main course', es:'plato principal', emoji:'🍛'},
+      {en:'dessert', es:'postre', emoji:'🍰'},
+      {en:'spicy', es:'picante', emoji:'🌶️'},
+      {en:'sweet', es:'dulce', emoji:'🍯'},
+      {en:'salty', es:'salado', emoji:'🧂'},
+      {en:'tasty', es:'sabroso', emoji:'😋'},
+      {en:'to schedule a meeting', es:'programar una reunión', emoji:'📅'},
+      {en:'agenda', es:'agenda', emoji:'📋'},
+      {en:'attendees', es:'asistentes', emoji:'👥'},
+      {en:'conference room', es:'sala de reuniones', emoji:'🏢'},
+      {en:'to book', es:'reservar', emoji:'📌'},
+      {en:'time slot', es:'horario disponible', emoji:'🕐'}
+    ]
+  },
+  {
+    day:38, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Sabores y preferencias / Confirmar asistencia',
+    words:[
+      {en:'I like', es:'me gusta', emoji:'👍'},
+      {en:"I don't like", es:'no me gusta', emoji:'👎'},
+      {en:'I love', es:'me encanta', emoji:'😍'},
+      {en:'favorite', es:'favorito', emoji:'⭐'},
+      {en:'to prefer', es:'preferir', emoji:'🤔'},
+      {en:'taste', es:'sabor', emoji:'👅'},
+      {en:'to try (food)', es:'probar', emoji:'🍴'},
+      {en:'I am allergic to', es:'soy alérgico a', emoji:'⚠️'},
+      {en:'to confirm attendance', es:'confirmar asistencia', emoji:'✅'},
+      {en:"I'll be there", es:'ahí estaré', emoji:'🙋'},
+      {en:"I can't attend", es:'no puedo asistir', emoji:'❌'},
+      {en:'schedule conflict', es:'conflicto de horario', emoji:'⚠️'},
+      {en:'invite', es:'invitación', emoji:'✉️'},
+      {en:'to accept', es:'aceptar', emoji:'✅'},
+      {en:'to decline', es:'rechazar', emoji:'❌'}
+    ]
+  },
+  {
+    day:39, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'En el restaurante / Agenda y temas a tratar',
+    words:[
+      {en:'split the bill', es:'dividir la cuenta', emoji:'🧾'},
+      {en:'tip', es:'propina', emoji:'💵'},
+      {en:'reservation for', es:'reserva para', emoji:'📅'},
+      {en:'take out', es:'para llevar', emoji:'🥡'},
+      {en:'dine in', es:'para comer aquí', emoji:'🍽️'},
+      {en:'topic', es:'tema', emoji:'📌'},
+      {en:'agenda item', es:'punto de la agenda', emoji:'📋'},
+      {en:'to discuss', es:'discutir', emoji:'🗣️'},
+      {en:'action item', es:'tarea a realizar', emoji:'✅'},
+      {en:'next steps', es:'próximos pasos', emoji:'➡️'},
+      {en:'follow up', es:'seguimiento', emoji:'🔁'},
+      {en:'meeting minutes', es:'acta de la reunión', emoji:'📝'},
+      {en:'to summarize', es:'resumir', emoji:'📄'},
+      {en:'wrap up', es:'concluir', emoji:'🏁'}
+    ]
+  },
+  {
+    day:40, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Cocinar en casa / Preparar una presentación',
+    words:[
+      {en:'to cook', es:'cocinar', emoji:'👨‍🍳'},
+      {en:'recipe', es:'receta', emoji:'📖'},
+      {en:'ingredient', es:'ingrediente', emoji:'🥕'},
+      {en:'to boil', es:'hervir', emoji:'♨️'},
+      {en:'to fry', es:'freír', emoji:'🍳'},
+      {en:'to bake', es:'hornear', emoji:'🍞'},
+      {en:'to cut', es:'cortar', emoji:'🔪'},
+      {en:'oven', es:'horno', emoji:'🔥'},
+      {en:'stove', es:'estufa', emoji:'🔥'},
+      {en:'slide', es:'diapositiva', emoji:'🖥️'},
+      {en:'presentation', es:'presentación', emoji:'📊'},
+      {en:'to prepare', es:'preparar', emoji:'📋'},
+      {en:'handout', es:'material impreso', emoji:'📄'},
+      {en:'to rehearse', es:'ensayar', emoji:'🎭'}
+    ]
+  },
+  {
+    day:41, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Bebidas / Videollamada y reunión virtual',
+    words:[
+      {en:'juice', es:'jugo', emoji:'🧃'},
+      {en:'soda', es:'gaseosa', emoji:'🥤'},
+      {en:'tea', es:'té', emoji:'🍵'},
+      {en:'beer', es:'cerveza', emoji:'🍺'},
+      {en:'wine', es:'vino', emoji:'🍷'},
+      {en:'video call', es:'videollamada', emoji:'📹'},
+      {en:'link', es:'enlace', emoji:'🔗'},
+      {en:'camera on', es:'cámara encendida', emoji:'📷'},
+      {en:'to mute', es:'silenciar', emoji:'🔇'},
+      {en:'screen share', es:'compartir pantalla', emoji:'🖥️'},
+      {en:'can you hear me', es:'me escuchás', emoji:'🔊'},
+      {en:'connection', es:'conexión', emoji:'📶'},
+      {en:'to sign in', es:'iniciar sesión', emoji:'🔑'},
+      {en:'to sign off', es:'cerrar sesión', emoji:'🚪'}
+    ]
+  },
+  {
+    day:42, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Comidas del día / Reunión de seguimiento',
+    words:[
+      {en:'eggs', es:'huevos', emoji:'🥚'},
+      {en:'toast', es:'tostada', emoji:'🍞'},
+      {en:'cereal', es:'cereal', emoji:'🥣'},
+      {en:'sandwich', es:'sándwich', emoji:'🥪'},
+      {en:'snack', es:'merienda', emoji:'🍿'},
+      {en:'to skip a meal', es:'saltarse una comida', emoji:'⏭️'},
+      {en:'follow-up meeting', es:'reunión de seguimiento', emoji:'🔁'},
+      {en:'status update', es:'actualización de estado', emoji:'📊'},
+      {en:'progress', es:'progreso', emoji:'📈'},
+      {en:'pending', es:'pendiente', emoji:'⏳'},
+      {en:'on track', es:'bien encaminado', emoji:'✅'},
+      {en:'behind schedule', es:'atrasado del cronograma', emoji:'⚠️'},
+      {en:'milestone', es:'hito', emoji:'🚩'}
+    ]
+  },
+  {
+    day:43, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso liviano de la semana 7',
+    words:[
+      {en:'can you repeat that', es:'podés repetir eso', emoji:'🔁'},
+      {en:'what do you mean', es:'qué querés decir', emoji:'❓'},
+      {en:'I see', es:'ya veo', emoji:'👀'},
+      {en:'got it', es:'entendido', emoji:'✅'},
+      {en:'no worries', es:'no hay problema', emoji:'🙂'},
+      {en:'same here', es:'lo mismo digo', emoji:'🤝'},
+      {en:'either way', es:'de cualquier forma', emoji:'🔀'},
+      {en:'in that case', es:'en ese caso', emoji:'💭'},
+      {en:'just in case', es:'por si acaso', emoji:'🛡️'},
+      {en:'as needed', es:'según se necesite', emoji:'📌'},
+      {en:'anyway', es:'de todos modos', emoji:'➡️'}
+    ]
+  },
+  {
+    day:44, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Alergias e intolerancias / Notas y minutas',
+    words:[
+      {en:'allergy', es:'alergia', emoji:'⚠️'},
+      {en:'gluten-free', es:'sin gluten', emoji:'🚫🌾'},
+      {en:'lactose intolerant', es:'intolerante a la lactosa', emoji:'🥛🚫'},
+      {en:'nuts', es:'frutos secos', emoji:'🥜'},
+      {en:'shellfish', es:'mariscos', emoji:'🦐'},
+      {en:'to avoid', es:'evitar', emoji:'🚫'},
+      {en:'safe to eat', es:'seguro para comer', emoji:'✅'},
+      {en:'to take notes', es:'tomar notas', emoji:'📝'},
+      {en:'minutes of the meeting', es:'minuta de la reunión', emoji:'📄'},
+      {en:'decision', es:'decisión', emoji:'⚖️'},
+      {en:'responsible person', es:'persona responsable', emoji:'🙋'},
+      {en:'attachment', es:'archivo adjunto', emoji:'📎'}
+    ]
+  },
+  {
+    day:45, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Postres y dulces / Cerrar reunión y próximos pasos',
+    words:[
+      {en:'cake', es:'torta', emoji:'🍰'},
+      {en:'cookie', es:'galleta', emoji:'🍪'},
+      {en:'ice cream', es:'helado', emoji:'🍦'},
+      {en:'chocolate', es:'chocolate', emoji:'🍫'},
+      {en:'candy', es:'dulce', emoji:'🍬'},
+      {en:'sweet tooth', es:'goloso', emoji:'😋'},
+      {en:'in conclusion', es:'en conclusión', emoji:'🏁'},
+      {en:'thank you all', es:'gracias a todos', emoji:'🙏'},
+      {en:'before we finish', es:'antes de terminar', emoji:'⏳'},
+      {en:'any questions', es:'alguna pregunta', emoji:'❓'},
+      {en:'same time next week', es:'misma hora la próxima semana', emoji:'📅'},
+      {en:'action plan', es:'plan de acción', emoji:'📋'}
+    ]
+  },
+  {
+    day:46, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Ir de compras / Reunión con proveedores',
+    words:[
+      {en:'supermarket', es:'supermercado', emoji:'🛒'},
+      {en:'shopping list', es:'lista de compras', emoji:'📝'},
+      {en:'aisle', es:'pasillo', emoji:'🏬'},
+      {en:'basket', es:'canasta', emoji:'🧺'},
+      {en:'cashier', es:'cajero', emoji:'🧑‍💼'},
+      {en:'checkout', es:'caja', emoji:'🛒'},
+      {en:'fresh', es:'fresco', emoji:'🥬'},
+      {en:'frozen', es:'congelado', emoji:'🧊'},
+      {en:'supplier meeting', es:'reunión con proveedor', emoji:'🤝'},
+      {en:'sample', es:'muestra', emoji:'📦'},
+      {en:'catalog', es:'catálogo', emoji:'📖'},
+      {en:'terms and conditions', es:'términos y condiciones', emoji:'📃'},
+      {en:'partnership', es:'alianza', emoji:'🤝'}
+    ]
+  },
+  {
+    day:47, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Cantidades de comida / Presupuesto y recursos',
+    words:[
+      {en:'a little', es:'un poco', emoji:'🤏'},
+      {en:'a lot', es:'mucho', emoji:'📈'},
+      {en:'enough', es:'suficiente', emoji:'✅'},
+      {en:'too much', es:'demasiado', emoji:'⚠️'},
+      {en:'some', es:'algo', emoji:'➕'},
+      {en:'none', es:'nada', emoji:'0️⃣'},
+      {en:'extra', es:'extra', emoji:'➕'},
+      {en:'resources', es:'recursos', emoji:'🧰'},
+      {en:'budget approval', es:'aprobación de presupuesto', emoji:'✅'},
+      {en:'to allocate', es:'asignar', emoji:'📊'},
+      {en:'to cut costs', es:'reducir costos', emoji:'✂️'},
+      {en:'investment', es:'inversión', emoji:'📈'}
+    ]
+  },
+  {
+    day:48, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso y cierre de la Unidad 4',
+    words:[
+      {en:'unit four', es:'unidad cuatro', emoji:'4️⃣'},
+      {en:'one third done', es:'un tercio hecho', emoji:'📊'},
+      {en:'keep learning', es:'seguí aprendiendo', emoji:'📚'},
+      {en:'great effort', es:'gran esfuerzo', emoji:'💪'},
+      {en:"you're on track", es:'vas bien encaminado', emoji:'✅'},
+      {en:'final review', es:'repaso final', emoji:'🔁'},
+      {en:'see you in unit five', es:'nos vemos en la unidad cinco', emoji:'➡️'},
+      {en:'next unit', es:'próxima unidad', emoji:'➡️'}
+    ]
+  },
+  {
+    day:49, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'De compras en la tienda / Enviar una cotización formal',
+    words:[
+      {en:'to try on', es:'probarse', emoji:'👕'},
+      {en:'size (clothing)', es:'talla', emoji:'📏'},
+      {en:'fitting room', es:'probador', emoji:'🚪'},
+      {en:'does it fit', es:'te queda bien', emoji:'✅'},
+      {en:'too big', es:'muy grande', emoji:'📈'},
+      {en:'too small', es:'muy chico', emoji:'📉'},
+      {en:'store', es:'tienda', emoji:'🏬'},
+      {en:'sales assistant', es:'vendedor', emoji:'🧑‍💼'},
+      {en:'formal quote', es:'cotización formal', emoji:'📄'},
+      {en:'attached', es:'adjunto', emoji:'📎'},
+      {en:'proposal', es:'propuesta', emoji:'📋'},
+      {en:'valid until', es:'válido hasta', emoji:'⏳'}
+    ]
+  },
+  {
+    day:50, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Regatear y descuentos / Negociar términos de la cotización',
+    words:[
+      {en:'to bargain', es:'regatear', emoji:'🤝'},
+      {en:'can you lower the price', es:'podés bajar el precio', emoji:'💲'},
+      {en:'best offer', es:'mejor oferta', emoji:'🏷️'},
+      {en:'sale', es:'oferta', emoji:'🏷️'},
+      {en:'clearance', es:'liquidación', emoji:'📉'},
+      {en:'percentage off', es:'porcentaje de descuento', emoji:'%'},
+      {en:'to negotiate terms', es:'negociar términos', emoji:'💬'},
+      {en:'counteroffer', es:'contraoferta', emoji:'🔁'},
+      {en:'flexible', es:'flexible', emoji:'🤸'},
+      {en:'fixed price', es:'precio fijo', emoji:'📌'},
+      {en:'minimum order', es:'pedido mínimo', emoji:'📦'}
+    ]
+  },
+  {
+    day:51, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Devoluciones y cambios / Emitir una factura',
+    words:[
+      {en:'to return (item)', es:'devolver', emoji:'↩️'},
+      {en:'exchange', es:'cambio', emoji:'🔄'},
+      {en:'refund policy', es:'política de reembolso', emoji:'📃'},
+      {en:'defective', es:'defectuoso', emoji:'⚠️'},
+      {en:'broken', es:'roto', emoji:'💔'},
+      {en:'proof of purchase', es:'comprobante de compra', emoji:'🧾'},
+      {en:'to issue an invoice', es:'emitir una factura', emoji:'🧾'},
+      {en:'invoice number', es:'número de factura', emoji:'#️⃣'},
+      {en:'billing address', es:'dirección de facturación', emoji:'🏠'},
+      {en:'tax ID', es:'identificación fiscal', emoji:'🆔'},
+      {en:'due upon receipt', es:'a pagar al recibir', emoji:'💵'}
+    ]
+  },
+  {
+    day:52, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Garantías / Condiciones de la factura',
+    words:[
+      {en:'warranty', es:'garantía', emoji:'🛡️'},
+      {en:'covered', es:'cubierto', emoji:'✅'},
+      {en:'not covered', es:'no cubierto', emoji:'❌'},
+      {en:'repair', es:'reparación', emoji:'🔧'},
+      {en:'replacement', es:'reemplazo', emoji:'🔁'},
+      {en:'withholding tax', es:'retención', emoji:'📉'},
+      {en:'VAT', es:'IVA', emoji:'🧾'},
+      {en:'terms of sale', es:'condiciones de venta', emoji:'📃'},
+      {en:'late fee', es:'recargo por mora', emoji:'⚠️'},
+      {en:'net amount', es:'monto neto', emoji:'💰'}
+    ]
+  },
+  {
+    day:53, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Tarjetas y efectivo / Registrar un pago',
+    words:[
+      {en:'swipe the card', es:'deslizar la tarjeta', emoji:'💳'},
+      {en:'insert the card', es:'insertar la tarjeta', emoji:'💳'},
+      {en:'enter your PIN', es:'ingresá tu clave', emoji:'🔢'},
+      {en:'contactless', es:'sin contacto', emoji:'📶'},
+      {en:'cash only', es:'solo efectivo', emoji:'💵'},
+      {en:'do you accept cards', es:'aceptan tarjetas', emoji:'❓'},
+      {en:'to record a payment', es:'registrar un pago', emoji:'📝'},
+      {en:'payment received', es:'pago recibido', emoji:'✅'},
+      {en:'partial payment', es:'pago parcial', emoji:'➗'},
+      {en:'transaction ID', es:'número de transacción', emoji:'#️⃣'}
+    ]
+  },
+  {
+    day:54, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Compras online / Pago a distancia',
+    words:[
+      {en:'online store', es:'tienda en línea', emoji:'💻'},
+      {en:'shopping cart', es:'carrito de compras', emoji:'🛒'},
+      {en:'add to cart', es:'agregar al carrito', emoji:'➕'},
+      {en:'shipping address', es:'dirección de envío', emoji:'📍'},
+      {en:'card number', es:'número de tarjeta', emoji:'💳'},
+      {en:'security code', es:'código de seguridad', emoji:'🔒'},
+      {en:'remote payment', es:'pago a distancia', emoji:'📲'},
+      {en:'secure payment', es:'pago seguro', emoji:'🔐'}
+    ]
+  },
+  {
+    day:55, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Repaso liviano de la semana 9',
+    words:[
+      {en:'as far as I know', es:'que yo sepa', emoji:'🤔'},
+      {en:'to be honest', es:'para ser honesto', emoji:'💬'},
+      {en:'on the other hand', es:'por otro lado', emoji:'🔄'},
+      {en:'in other words', es:'en otras palabras', emoji:'📝'},
+      {en:'not yet', es:'todavía no', emoji:'⏳'},
+      {en:'from now on', es:'de ahora en adelante', emoji:'➡️'},
+      {en:'once again', es:'una vez más', emoji:'🔁'},
+      {en:'little by little', es:'poco a poco', emoji:'🐢'}
+    ]
+  },
+  {
+    day:56, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Ropa y talles / Recordatorio de pago pendiente',
+    words:[
+      {en:'shirt', es:'camisa', emoji:'👕'},
+      {en:'pants', es:'pantalón', emoji:'👖'},
+      {en:'jacket', es:'chaqueta', emoji:'🧥'},
+      {en:'dress', es:'vestido', emoji:'👗'},
+      {en:'medium', es:'mediano', emoji:'📏'},
+      {en:'large', es:'grande', emoji:'📏'},
+      {en:'payment reminder', es:'recordatorio de pago', emoji:'⏰'},
+      {en:'outstanding balance', es:'saldo pendiente', emoji:'⚠️'},
+      {en:'kindly remind', es:'recordarle amablemente', emoji:'🙏'},
+      {en:'as agreed', es:'según lo acordado', emoji:'🤝'}
+    ]
+  },
+  {
+    day:57, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Calzado y accesorios / Aprobar una cotización',
+    words:[
+      {en:'shoes', es:'zapatos', emoji:'👟'},
+      {en:'boots', es:'botas', emoji:'🥾'},
+      {en:'belt', es:'cinturón', emoji:'👔'},
+      {en:'hat', es:'sombrero', emoji:'👒'},
+      {en:'bag (accessory)', es:'bolso', emoji:'👜'},
+      {en:'to approve a quote', es:'aprobar una cotización', emoji:'✅'},
+      {en:'approved', es:'aprobado', emoji:'✅'},
+      {en:'pending approval', es:'pendiente de aprobación', emoji:'⏳'},
+      {en:'go ahead', es:'adelante', emoji:'➡️'},
+      {en:'sign off on', es:'dar el visto bueno', emoji:'✍️'}
+    ]
+  },
+  {
+    day:58, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Comparar precios / Comparar cotizaciones de proveedores',
+    words:[
+      {en:'price comparison', es:'comparación de precios', emoji:'⚖️'},
+      {en:'cheapest', es:'el más barato', emoji:'⬇️'},
+      {en:'most expensive', es:'el más caro', emoji:'⬆️'},
+      {en:'worth it', es:'vale la pena', emoji:'👍'},
+      {en:'bargain (noun)', es:'ganga', emoji:'🤑'},
+      {en:'shop around', es:'comparar en varias tiendas', emoji:'🔍'},
+      {en:'supplier comparison', es:'comparación de proveedores', emoji:'📊'},
+      {en:'lead time', es:'tiempo de entrega', emoji:'⏳'},
+      {en:'best value', es:'mejor relación calidad-precio', emoji:'💎'},
+      {en:'final decision', es:'decisión final', emoji:'✅'}
+    ]
+  },
+  {
+    day:59, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Reclamos por productos defectuosos / Disputa de factura',
+    words:[
+      {en:'to complain', es:'quejarse', emoji:'😠'},
+      {en:"this doesn't work", es:'esto no funciona', emoji:'⚠️'},
+      {en:'I want a refund', es:'quiero un reembolso', emoji:'💵'},
+      {en:'faulty product', es:'producto defectuoso', emoji:'⚠️'},
+      {en:'customer service', es:'servicio al cliente', emoji:'🎧'},
+      {en:'to dispute a charge', es:'disputar un cargo', emoji:'⚖️'},
+      {en:'billing error', es:'error de facturación', emoji:'❌'},
+      {en:'to resolve', es:'resolver', emoji:'✅'},
+      {en:'apology', es:'disculpa', emoji:'🙏'},
+      {en:'case number', es:'número de caso', emoji:'#️⃣'}
+    ]
+  },
+  {
+    day:60, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Repaso y cierre de la Unidad 5',
+    words:[
+      {en:'unit five', es:'unidad cinco', emoji:'5️⃣'},
+      {en:'steady progress', es:'progreso constante', emoji:'📈'},
+      {en:"don't give up", es:'no te rindas', emoji:'💪'},
+      {en:'almost at unit six', es:'casi en la unidad seis', emoji:'➡️'},
+      {en:'next unit', es:'próxima unidad', emoji:'➡️'}
+    ]
+  },
+  {
+    day:61, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Pedir direcciones / Coordinar un envío',
+    words:[
+      {en:'excuse me', es:'disculpe', emoji:'🙋'},
+      {en:'where is', es:'dónde está', emoji:'❓'},
+      {en:'how do I get to', es:'cómo llego a', emoji:'🗺️'},
+      {en:'turn left', es:'doblá a la izquierda', emoji:'⬅️'},
+      {en:'turn right', es:'doblá a la derecha', emoji:'➡️'},
+      {en:'go straight', es:'seguí derecho', emoji:'⬆️'},
+      {en:"it's near", es:'está cerca', emoji:'📍'},
+      {en:"it's far", es:'está lejos', emoji:'📍'},
+      {en:'block', es:'cuadra', emoji:'🏙️'},
+      {en:'corner', es:'esquina', emoji:'📐'},
+      {en:'to coordinate a shipment', es:'coordinar un envío', emoji:'🚚'},
+      {en:'pickup', es:'recogida', emoji:'📦'},
+      {en:'carrier', es:'transportista', emoji:'🚛'}
+    ]
+  },
+  {
+    day:62, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Dar direcciones / Rastrear un pedido',
+    words:[
+      {en:'straight ahead', es:'derecho adelante', emoji:'⬆️'},
+      {en:'across from', es:'enfrente de', emoji:'↔️'},
+      {en:'next to', es:'al lado de', emoji:'➡️'},
+      {en:'between', es:'entre', emoji:'↔️'},
+      {en:'behind', es:'detrás de', emoji:'⬅️'},
+      {en:'traffic light', es:'semáforo', emoji:'🚦'},
+      {en:'crosswalk', es:'cruce peatonal', emoji:'🚶'},
+      {en:'to track an order', es:'rastrear un pedido', emoji:'🔍'},
+      {en:'tracking link', es:'enlace de rastreo', emoji:'🔗'},
+      {en:'in transit', es:'en tránsito', emoji:'🚚'},
+      {en:'out for delivery', es:'en reparto', emoji:'🚛'},
+      {en:'delivered', es:'entregado', emoji:'✅'}
+    ]
+  },
+  {
+    day:63, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Medios de transporte / Elegir transportista',
+    words:[
+      {en:'bus', es:'autobús', emoji:'🚌'},
+      {en:'taxi', es:'taxi', emoji:'🚕'},
+      {en:'train', es:'tren', emoji:'🚆'},
+      {en:'subway', es:'metro', emoji:'🚇'},
+      {en:'motorcycle', es:'moto', emoji:'🏍️'},
+      {en:'truck', es:'camión', emoji:'🚚'},
+      {en:'to choose a carrier', es:'elegir un transportista', emoji:'✅'},
+      {en:'shipping company', es:'empresa de transporte', emoji:'🏢'},
+      {en:'freight', es:'carga', emoji:'📦'},
+      {en:'rate', es:'tarifa', emoji:'💲'},
+      {en:'insurance', es:'seguro', emoji:'🛡️'}
+    ]
+  },
+  {
+    day:64, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'En el aeropuerto / Importación y exportación básica',
+    words:[
+      {en:'airport', es:'aeropuerto', emoji:'✈️'},
+      {en:'flight', es:'vuelo', emoji:'🛫'},
+      {en:'boarding pass', es:'pase de abordar', emoji:'🎫'},
+      {en:'luggage', es:'equipaje', emoji:'🧳'},
+      {en:'gate', es:'puerta de embarque', emoji:'🚪'},
+      {en:'customs', es:'aduana', emoji:'🛂'},
+      {en:'to import', es:'importar', emoji:'📥'},
+      {en:'to export', es:'exportar', emoji:'📤'},
+      {en:'tariff', es:'arancel', emoji:'💲'},
+      {en:'customs declaration', es:'declaración de aduana', emoji:'📃'},
+      {en:'country of origin', es:'país de origen', emoji:'🌍'}
+    ]
+  },
+  {
+    day:65, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'En la estación / Documentos de envío',
+    words:[
+      {en:'ticket', es:'boleto', emoji:'🎫'},
+      {en:'platform', es:'andén', emoji:'🚉'},
+      {en:'schedule', es:'horario', emoji:'🕐'},
+      {en:'delay', es:'demora', emoji:'⏳'},
+      {en:'departure', es:'salida', emoji:'🛫'},
+      {en:'arrival', es:'llegada', emoji:'🛬'},
+      {en:'shipping guide', es:'guía de envío', emoji:'📄'},
+      {en:'commercial invoice', es:'factura comercial', emoji:'🧾'},
+      {en:'packing list', es:'lista de empaque', emoji:'📋'},
+      {en:'customs broker', es:'agente aduanal', emoji:'🧑‍💼'}
+    ]
+  },
+  {
+    day:66, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Puntos de referencia / Zonas de reparto',
+    words:[
+      {en:'landmark', es:'punto de referencia', emoji:'📍'},
+      {en:'main street', es:'calle principal', emoji:'🛣️'},
+      {en:'avenue', es:'avenida', emoji:'🛣️'},
+      {en:'roundabout', es:'rotonda', emoji:'🔄'},
+      {en:'bridge', es:'puente', emoji:'🌉'},
+      {en:'district', es:'distrito', emoji:'🏘️'},
+      {en:'delivery zone', es:'zona de reparto', emoji:'🗺️'},
+      {en:'coverage area', es:'área de cobertura', emoji:'📍'},
+      {en:'route', es:'ruta', emoji:'🛣️'},
+      {en:'remote area', es:'zona alejada', emoji:'🏞️'},
+      {en:'same-day delivery', es:'entrega el mismo día', emoji:'⚡'}
+    ]
+  },
+  {
+    day:67, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Repaso liviano de la semana 11',
+    words:[
+      {en:'over there', es:'por allá', emoji:'👉'},
+      {en:'right here', es:'justo acá', emoji:'📍'},
+      {en:"you're close", es:'estás cerca', emoji:'🔥'},
+      {en:'you passed it', es:'ya lo pasaste', emoji:'↩️'},
+      {en:"it takes about", es:'tarda alrededor de', emoji:'⏱️'},
+      {en:'not far from here', es:'no muy lejos de acá', emoji:'📍'},
+      {en:'just around the corner', es:'a la vuelta de la esquina', emoji:'📐'},
+      {en:'follow the signs', es:'seguí las señales', emoji:'🪧'}
+    ]
+  },
+  {
+    day:68, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Tráfico y tiempo de viaje / Retrasos en la cadena de suministro',
+    words:[
+      {en:'traffic jam', es:'embotellamiento', emoji:'🚗'},
+      {en:'rush hour', es:'hora pico', emoji:'🕐'},
+      {en:'how long does it take', es:'cuánto tarda', emoji:'❓'},
+      {en:'shortcut', es:'atajo', emoji:'↪️'},
+      {en:'detour', es:'desvío', emoji:'↩️'},
+      {en:'supply chain', es:'cadena de suministro', emoji:'⛓️'},
+      {en:'delayed shipment', es:'envío retrasado', emoji:'⚠️'},
+      {en:'backorder', es:'pedido pendiente de stock', emoji:'📦'},
+      {en:'out of stock', es:'sin stock', emoji:'❌'},
+      {en:'bottleneck', es:'cuello de botella', emoji:'🍾'}
+    ]
+  },
+  {
+    day:69, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Alquilar un auto / Contratar un transportista',
+    words:[
+      {en:'to rent a car', es:'alquilar un auto', emoji:'🚗'},
+      {en:"driver's license", es:'licencia de conducir', emoji:'🪪'},
+      {en:'deposit', es:'depósito', emoji:'💵'},
+      {en:'full tank', es:'tanque lleno', emoji:'⛽'},
+      {en:'mileage', es:'kilometraje', emoji:'🔢'},
+      {en:'to hire a carrier', es:'contratar un transportista', emoji:'🤝'},
+      {en:'service agreement', es:'acuerdo de servicio', emoji:'📃'},
+      {en:'on-time delivery rate', es:'tasa de entregas a tiempo', emoji:'📊'},
+      {en:'capacity', es:'capacidad', emoji:'📦'},
+      {en:'fleet', es:'flota', emoji:'🚛'}
+    ]
+  },
+  {
+    day:70, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Señales comunes / Normas de manejo de mercancía',
+    words:[
+      {en:'stop sign', es:'señal de pare', emoji:'🛑'},
+      {en:'no entry', es:'prohibido el paso', emoji:'🚫'},
+      {en:'one way', es:'una vía', emoji:'➡️'},
+      {en:'speed limit', es:'límite de velocidad', emoji:'🚗'},
+      {en:'fragile', es:'frágil', emoji:'🔍'},
+      {en:'handle with care', es:'manejar con cuidado', emoji:'⚠️'},
+      {en:'this side up', es:'este lado hacia arriba', emoji:'⬆️'},
+      {en:'do not stack', es:'no apilar', emoji:'🚫'},
+      {en:'hazardous', es:'peligroso', emoji:'☣️'},
+      {en:'loading dock', es:'muelle de carga', emoji:'🏭'}
+    ]
+  },
+  {
+    day:71, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Direcciones en la ciudad / Rutas de distribución',
+    words:[
+      {en:'north', es:'norte', emoji:'⬆️'},
+      {en:'south', es:'sur', emoji:'⬇️'},
+      {en:'east', es:'este', emoji:'➡️'},
+      {en:'west', es:'oeste', emoji:'⬅️'},
+      {en:'downtown', es:'centro', emoji:'🏙️'},
+      {en:'outskirts', es:'las afueras', emoji:'🏞️'},
+      {en:'delivery route', es:'ruta de distribución', emoji:'🗺️'},
+      {en:'optimal route', es:'ruta óptima', emoji:'⭐'},
+      {en:'multiple stops', es:'múltiples paradas', emoji:'📍'},
+      {en:'dispatch', es:'despacho', emoji:'📤'}
+    ]
+  },
+  {
+    day:72, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Repaso y cierre de la Unidad 6',
+    words:[
+      {en:'unit six', es:'unidad seis', emoji:'6️⃣'},
+      {en:'great job so far', es:'muy buen trabajo hasta ahora', emoji:'👏'},
+      {en:'keep pushing', es:'seguí esforzándote', emoji:'💪'},
+      {en:"you're doing great", es:'lo estás haciendo genial', emoji:'🌟'},
+      {en:'more than a third', es:'más de un tercio', emoji:'📊'},
+      {en:'stay consistent', es:'mantené la constancia', emoji:'🔁'},
+      {en:'see you in unit seven', es:'nos vemos en la unidad siete', emoji:'➡️'},
+      {en:'next unit', es:'próxima unidad', emoji:'➡️'}
+    ]
   }
 
 ];
@@ -826,6 +1627,29 @@ document.getElementById('adminGoBtn').addEventListener('click', ()=>{
   const exists = curriculum.some(d=>d.day===n);
   if(!exists){ alert('Ese día todavía no tiene contenido cargado (hay '+curriculum.length+' días disponibles por ahora).'); return; }
   startDay(n);
+});
+document.getElementById('adminCompleteBtn').addEventListener('click', ()=>{
+  const n = parseInt(document.getElementById('adminDayInput').value, 10);
+  const day = curriculum.find(d=>d.day===n);
+  if(!day){ alert('Ese día todavía no tiene contenido cargado (hay '+curriculum.length+' días disponibles por ahora).'); return; }
+  saveDayResult(n, {
+    completed:true, date:new Date().toISOString(),
+    learnedWords: day.words, weakWords: [],
+    score:{good:day.words.length, total:day.words.length, pct:100}
+  });
+  renderHome();
+  alert('Día '+n+' marcado como completado (sin jugar). Ya podés entrar a revisarlo o seguir al siguiente.');
+});
+document.getElementById('adminCompleteAllBtn').addEventListener('click', ()=>{
+  curriculum.forEach(day=>{
+    saveDayResult(day.day, {
+      completed:true, date:new Date().toISOString(),
+      learnedWords: day.words, weakWords: [],
+      score:{good:day.words.length, total:day.words.length, pct:100}
+    });
+  });
+  renderHome();
+  alert('Los '+curriculum.length+' días cargados quedaron marcados como completados. Ahora podés entrar a cualquiera libremente para revisarlo.');
 });
 
 // ================================================================
@@ -982,12 +1806,36 @@ const introTemplates = [
 ];
 const comboIntro = [{t:'Ahora repitamos juntas, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
 const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
+const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
+// Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
+// sin explicar la regla — el alumno las adquiere por exposición repetida, como un chico.
+const contrastBank = [
+  { a:{en:'I have lived here for 10 years.', es:'vivo acá desde hace 10 años (todavía es así)'}, b:{en:'I lived here for 10 years.', es:'viví acá 10 años (ya no)'} },
+  { a:{en:"I'm going to call him.", es:'voy a llamarlo (plan ya decidido)'}, b:{en:'I will call him.', es:'lo voy a llamar (decisión del momento)'} },
+  { a:{en:'I used to smoke.', es:'antes fumaba (ya no)'}, b:{en:'I smoked yesterday.', es:'fumé ayer (un momento puntual)'} },
+  { a:{en:'I have some money.', es:'tengo algo de dinero'}, b:{en:"I don't have any money.", es:'no tengo nada de dinero'} },
+  { a:{en:"She's taller than him.", es:'ella es más alta que él'}, b:{en:"She's the tallest in the class.", es:'ella es la más alta de la clase'} },
+  { a:{en:'I must finish this today.', es:'tengo que terminar esto hoy (urgencia propia)'}, b:{en:'I have to finish this today.', es:'tengo que terminar esto hoy (obligación normal)'} },
+  { a:{en:'Can I help you?', es:'te puedo ayudar (directo)'}, b:{en:'Could I help you?', es:'podría ayudarte (más formal)'} },
+  { a:{en:"I'm meeting him tomorrow.", es:'me reúno con él mañana (ya está organizado)'}, b:{en:'I will meet him tomorrow.', es:'me voy a reunir con él mañana (más espontáneo)'} },
+  { a:{en:"I've never been to Mexico.", es:'nunca estuve en México (experiencia de vida)'}, b:{en:"I didn't go to Mexico last year.", es:'no fui a México el año pasado (momento específico)'} },
+  { a:{en:'There is a book on the table.', es:'hay un libro en la mesa'}, b:{en:'There are books on the table.', es:'hay libros en la mesa'} },
+  { a:{en:'He is working right now.', es:'él está trabajando ahora mismo'}, b:{en:'He works here.', es:'él trabaja acá (siempre, de costumbre)'} },
+  { a:{en:'If I have time, I will call you.', es:'si tengo tiempo, te llamo (posible)'}, b:{en:'If I had time, I would call you.', es:'si tuviera tiempo, te llamaría (poco probable)'} },
+  { a:{en:'This is my house.', es:'esta es mi casa (todavía)'}, b:{en:'This was my house.', es:'esta era mi casa (ya no)'} },
+  { a:{en:'I already finished.', es:'ya terminé (con énfasis)'}, b:{en:'I just finished.', es:'recién terminé (hace un momento)'} },
+  { a:{en:'A few people came.', es:'vino alguna gente (algunos, positivo)'}, b:{en:'Few people came.', es:'vino poca gente (casi nadie)'} }
+];
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
-function buildScript(bank, crossDayWords){
+function buildScript(bank, crossDayWords, dayNumber, theme){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
+  }
+  if(dayNumber >= 3){
+    const pair = contrastBank[(dayNumber-3) % contrastBank.length];
+    scr.push({ kind:'sequence', segs:contrastIntro, emoji:'🔬', words:[pair.a, pair.b], contrastPair:true });
   }
   let recent = [];
   bank.forEach((w,i)=>{
@@ -1003,6 +1851,7 @@ function buildScript(bank, crossDayWords){
       scr.push({ kind:'sequence', segs:reviewIntro, emoji:'🔁', words:[w1,w2] });
     }
   });
+  scr.push({ kind:'task', theme:theme });
   scr.push({ kind:'end' });
   return scr;
 }
@@ -1012,40 +1861,65 @@ function startDay(dayNum){
   if(!currentDay) return;
   wordBank = currentDay.words;
   const crossWords = getCrossDayReviewWords(dayNum, 6);
-  script = buildScript(wordBank, crossWords);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
+  const prog = loadProgress();
+  alreadyCompletedView = !!(prog[dayNum] && prog[dayNum].completed);
   document.getElementById('dayBadge').textContent = 'Día '+dayNum+' · '+currentDay.theme;
   document.getElementById('wordList').innerHTML = '<div class="empty">Todavía no aparece ninguna.</div>';
   document.getElementById('transcript').innerHTML='';
   document.getElementById('doneScreen').classList.remove('show');
   document.getElementById('home').style.display='none';
   document.getElementById('session').style.display='block';
-  if(!micGranted){ document.getElementById('gate').classList.add('show'); } else { loadTurn(); }
+  if(micGranted){ enterDayContent(); return; }
+  if(localStorage.getItem('mic_ever_granted')==='1' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+      stream.getTracks().forEach(t=>t.stop());
+      micGranted=true; setMicStatus('on','Micrófono: activo');
+      enterDayContent();
+    }).catch(()=>{ document.getElementById('gate').classList.add('show'); });
+    return;
+  }
+  document.getElementById('gate').classList.add('show');
+}
+function enterDayContent(){
+  if(alreadyCompletedView){ showCompletedOverview(); } else { loadTurn(); }
+}
+function showCompletedOverview(){
+  idx = script.length;
+  buildProgress();
+  reviewBanner.classList.remove('show');
+  speakerLabel.textContent='LECCIÓN COMPLETADA'; modeChip.style.display='none'; crossTag.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show'); hintEl.textContent='';
+  illusEl.textContent='✅';
+  setSegs(lineEl, [{t:'Esta lección ya está completada. Tocá cualquier punto de la barra de arriba para repasarlo — no hace falta rehacer la lección entera.',lang:'es'}]);
 }
 
 // ================= Permiso de micrófono =================
-let micGranted=false;
+let micGranted=false, alreadyCompletedView=false;
 const gate=document.getElementById('gate'), gateBtn=document.getElementById('gateBtn'), gateStatus=document.getElementById('gateStatus');
 gateBtn.addEventListener('click', async ()=>{
   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
     gateStatus.textContent='Tu navegador no soporta micrófono aquí. Podés escribir tus respuestas.';
-    micGranted=false; setTimeout(()=>{gate.classList.remove('show'); loadTurn();},1400); return;
+    micGranted=false; setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1400); return;
   }
   gateStatus.textContent='Pidiendo permiso...';
   try{
     const stream=await navigator.mediaDevices.getUserMedia({audio:true});
     stream.getTracks().forEach(t=>t.stop());
     micGranted=true; gateStatus.textContent='✓ Micrófono activado.';
-    setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); loadTurn();},500);
+    localStorage.setItem('mic_ever_granted','1');
+    setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},500);
   }catch(err){
     micGranted=false; gateStatus.textContent='No se concedió el permiso. Podés escribir tus respuestas.';
-    setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); loadTurn();},1800);
+    setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1800);
   }
 });
 function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=document.getElementById('micStatusText'); el.className='mic-status '+cls; t.textContent=text;}
 
 // ================= Referencias DOM =================
-const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn');
+const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn'), peekBtn=document.getElementById('peekBtn'), peekBox=document.getElementById('peekBox');
 const playBtn=document.getElementById('playBtn'), replayBtn=document.getElementById('replayBtn');
 const appControls=document.getElementById('appControls'), userControls=document.getElementById('userControls');
 const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById('skipBtn');
@@ -1057,7 +1931,7 @@ const weakList=document.getElementById('weakList'), weakItems=document.getElemen
 const modeChip=document.getElementById('modeChip'), speakerLabel=document.getElementById('speakerLabel'), crossTag=document.getElementById('crossTag');
 const reviewBanner=document.getElementById('reviewBanner'), backToLessonBtn=document.getElementById('backToLessonBtn');
 
-let idx=0, learnedWords=[], weakWords=[], wordQueue=[], wqIndex=0, evalMode=false, reviewing=false, resumeSnapshot=null;
+let idx=0, learnedWords=[], weakWords=[], wordQueue=[], wqIndex=0, evalMode=false, reviewing=false, resumeSnapshot=null, spokenAttempts=0;
 
 function buildProgress(){
   progressEl.innerHTML='';
@@ -1113,9 +1987,14 @@ function loadTurn(){
   const turn=script[idx];
   reviewBanner.classList.remove('show');
   if(turn.kind==='end'){ startEvaluation(); return; }
-  crossTag.style.display = turn.crossDay ? 'block' : 'none';
-  crossTag.textContent = turn.crossDay ? '🔁 REPASO DE UN DÍA ANTERIOR' : '';
-  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none';
+  if(turn.kind==='task' && !turn.segs){
+    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
+    turn.emoji = '🎯';
+  }
+  if(turn.crossDay){ crossTag.style.display='block'; crossTag.textContent='🔁 REPASO DE UN DÍA ANTERIOR'; }
+  else if(turn.contrastPair){ crossTag.style.display='block'; crossTag.textContent='🔬 PATRÓN DEL IDIOMA'; }
+  else { crossTag.style.display='none'; }
+  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
   illusEl.textContent=turn.emoji||'💬';
@@ -1139,6 +2018,28 @@ function afterIntro(turn){
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
   }
+  if(turn.kind==='task'){
+    speakerLabel.textContent='TAREA LIVIANA';
+    let spokenDone=false;
+    userControls.style.display='flex';
+    micBtn.onclick=()=>startListening(res=>{
+      addTranscript('VOS (hablado)', res.said, 'user');
+      spokenDone=true;
+      userControls.style.display='none';
+      typeRow.style.display='flex'; typeInput.placeholder='Ahora escribí esa misma frase...'; typeInput.focus();
+      feedback.classList.add('show','ok'); feedback.textContent='¡Buenísimo! Ahora escribila.';
+    });
+    skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí tu frase acá...'; typeInput.focus();};
+    sendBtn.onclick=()=>{
+      if(!typeInput.value.trim())return;
+      addTranscript('VOS (escrito)', typeInput.value.trim(), 'user');
+      typeInput.value=''; typeRow.style.display='none';
+      feedback.classList.add('show','ok'); feedback.textContent='✓ Excelente. Esto es usar el idioma de verdad, no solo repetirlo.';
+      nextControls.style.display='flex';
+    };
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
   wordQueue = turn.kind==='single' ? [turn.newWord] : turn.words.slice();
   wqIndex=0; evalMode=false;
   runWordChallenge();
@@ -1152,9 +2053,10 @@ function runWordChallenge(){
     return;
   }
   const w = wordQueue[wqIndex];
+  spokenAttempts = 0;
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
-  speakerLabel.textContent = evalMode ? 'EVALUACIÓN' : 'PRACTICÁ ESTA PALABRA';
-  hintEl.textContent='';
+  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'PRACTICÁ ESTA PALABRA';
+  hintEl.textContent='Significa: "'+w.es+'"';
   const segs=[{t:w.en,lang:'en'}];
   illusEl.textContent='💬';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
@@ -1176,35 +2078,59 @@ function runWordChallenge(){
   sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; const said=typeInput.value.trim(); typeInput.value=''; typeRow.style.display='none'; handleSpokenResult(w,{said,confidence:null}); };
 }
 function handleSpokenResult(w, res){
+  spokenAttempts++;
   const ok = saidMatches(w.en, res.said);
-  const pronTag = (res.confidence!==null) ? '<span class="pron-tag '+(res.confidence>=0.7?'high':'low')+'">pronunciación '+Math.round(res.confidence*100)+'%</span>' : '';
+  const pronTag = (res.confidence!==null) ? '<span class="pron-tag '+(res.confidence>=0.92?'high':'low')+'">pronunciación '+Math.round(res.confidence*100)+'%</span>' : '';
   addTranscript('VOS', res.said+pronTag, 'user');
   feedback.classList.add('show');
   userControls.style.display='none'; typeRow.style.display='none';
-  if(ok && (res.confidence===null || res.confidence>=0.7)){
-    feedback.className='feedback show ok'; feedback.textContent='✓ Muy bien, se entendió claro. Ahora escribila.';
-    goToWriteStep(w, res.confidence!==null && res.confidence<0.7);
-  } else if(ok){
-    feedback.className='feedback show retry'; feedback.textContent='Dijiste bien la palabra, pero sonó poco clara. Repetila una vez más.';
-    userControls.style.display='flex';
+  const passedClear = ok && (res.confidence===null || res.confidence>=0.92);
+  if(passedClear){
+    feedback.className='feedback show ok'; feedback.textContent='✓ Muy bien, se entendió claro (92%+). Ahora escribila.';
+    goToWriteStep(w, false);
+    return;
+  }
+  if(spokenAttempts>=2){
+    feedback.className='feedback show retry';
+    feedback.textContent = ok
+      ? 'No llegamos al 92% de claridad, pero la palabra estuvo bien. Sigamos — quedó anotada para repasar.'
+      : 'No pasa nada, sigamos — quedó anotada para repasar más adelante.';
+    goToWriteStep(w, true);
+    return;
+  }
+  if(ok){
+    feedback.className='feedback show retry'; feedback.textContent='Dijiste bien la palabra, pero sonó poco clara (necesitás 92%). Repetila una vez más.';
   } else {
     feedback.className='feedback show retry'; feedback.textContent='Casi — probá repetirla de nuevo, vos podés.';
-    userControls.style.display='flex';
   }
+  userControls.style.display='flex';
 }
 function goToWriteStep(w, wasLowConfidence){
   modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
-  speakerLabel.textContent = evalMode ? 'EVALUACIÓN' : 'AHORA ESCRIBILA';
+  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRIBILA';
   illusEl.textContent='✏️'; replayWordBtn.style.display='none'; slowWordBtn.style.display='none';
   setSegs(lineEl, [{t:'¿Cómo se escribe "'+w.es+'" en inglés?',lang:'es'}]);
   hintEl.textContent='Pista: empieza con "'+w.en[0].toUpperCase()+'"';
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show');
   typeRow.style.display='flex'; typeInput.placeholder='Escribí la palabra en inglés...'; typeInput.value=''; typeInput.focus();
+  peekBtn.style.display='inline-flex'; peekBox.style.display='none';
   let weak = wasLowConfidence;
   let attempts = 0;
+  let peeked = false;
+  peekBtn.onclick=()=>{
+    peeked = true;
+    peekBox.textContent = w.en;
+    peekBox.style.display='block';
+    peekBox.style.animation='none';
+    void peekBox.offsetWidth; // reinicia la animación si se toca varias veces seguidas
+    peekBox.style.animation='peekfade 3s ease-in-out forwards';
+    setTimeout(()=>{ peekBox.style.display='none'; }, 3000);
+  };
   function finalize(){
     typeRow.style.display='none';
+    peekBtn.style.display='none'; peekBox.style.display='none';
+    if(peeked) weak = true;
     if(!learnedWordsHas(w)) { learnedWords.push(w); addWordCard(w, weak); }
     if(weak && !weakWordsHas(w)) weakWords.push(w);
     nextControls.style.display='flex';
@@ -1257,13 +2183,13 @@ function startListening(onResult){
 
 // ================= Evaluación final =================
 function startEvaluation(){
-  speakerLabel.textContent='EVALUACIÓN FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
+  speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
-  illusEl.textContent='📝';
-  setSegs(lineEl, [{t:'¡Ya casi terminamos! Antes de cerrar, hagamos una evaluación rápida de todo lo que aprendiste hoy: '+learnedWords.length+' palabras, habladas y escritas.',lang:'es'}]);
-  hintEl.textContent='';
+  illusEl.textContent='💬';
+  setSegs(lineEl, [{t:'¡Ya casi terminamos! Cerremos con un diálogo: te voy a preguntar por cada cosa que aprendiste hoy — la decís y la escribís, como en una charla real.',lang:'es'}]);
+  hintEl.textContent='Para aprobar la lección necesitás al menos 92% correcto.';
   nextControls.style.display='flex';
-  nextBtn.textContent='Comenzar evaluación';
+  nextBtn.textContent='Empezar el diálogo';
   nextBtn.onclick=()=>{
     nextBtn.textContent='Continuar →';
     wordQueue = learnedWords.slice(); wqIndex=0; evalMode=true;
@@ -1272,13 +2198,36 @@ function startEvaluation(){
 }
 function finishEvaluation(){
   const total = learnedWords.length;
-  const weak = weakWords.length;
-  const good = total - weak;
+  const scorePct = total ? Math.round(((total-weakWords.length)/total)*100) : 100;
+  if(scorePct < 92 && weakWords.length>0){
+    showRetryGate(scorePct);
+    return;
+  }
+  completeDay(scorePct);
+}
+function showRetryGate(scorePct){
+  speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
+  illusEl.textContent='🔁';
+  setSegs(lineEl, [{t:'Sacaste '+scorePct+'%. Para aprobar esta lección necesitás al menos 92%. Repasemos, una por una, las '+weakWords.length+' que te costaron, y seguimos.',lang:'es'}]);
+  hintEl.textContent='';
+  nextControls.style.display='flex';
+  nextBtn.textContent='Repasar y reintentar';
+  nextBtn.onclick=()=>{
+    wordQueue = weakWords.slice();
+    weakWords = [];
+    wqIndex=0; evalMode=true;
+    runWordChallenge();
+  };
+}
+function completeDay(scorePct){
+  const total = learnedWords.length;
+  const good = total - weakWords.length;
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
   doneScreen.classList.add('show');
   doneCount.textContent = total;
-  scoreText.textContent = good+' / '+total+' bien la primera vez';
-  if(weak>0){
+  scoreText.textContent = '✅ Aprobado con '+scorePct+'% ('+good+' / '+total+' — mínimo 92%)';
+  if(weakWords.length>0){
     weakList.style.display='block'; weakItems.innerHTML='';
     weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; weakItems.appendChild(div); });
   } else { weakList.style.display='none'; }
@@ -1286,7 +2235,7 @@ function finishEvaluation(){
   saveDayResult(currentDay.day, {
     completed:true, date:new Date().toISOString(),
     learnedWords: learnedWords, weakWords: weakWords,
-    score:{good, total}
+    score:{good, total, pct:scorePct}
   });
 }
 
@@ -1297,6 +2246,14 @@ function enterReview(i){
   resumeSnapshot={idx, wqIndex, wordQueue:wordQueue.slice(), evalMode};
   reviewBanner.classList.add('show');
   const turn=script[i];
+  if(turn.kind==='task' && !turn.segs){
+    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
+    turn.emoji = '🎯';
+  }
+  if(turn.kind==='end' && !turn.segs){
+    turn.segs = [{t:'Este es el cierre de la lección: acá se hace la evaluación final con todo el vocabulario del día. No hay nada más para repasar en este punto — elegí otro segmento de la barra.',lang:'es'}];
+    turn.emoji = '🏁';
+  }
   speakerLabel.textContent='REPASO'; modeChip.style.display='none';
   illusEl.textContent=turn.emoji||'💬';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
@@ -1310,7 +2267,8 @@ backToLessonBtn.addEventListener('click', ()=>{
   if(resumeSnapshot){
     idx=resumeSnapshot.idx; wqIndex=resumeSnapshot.wqIndex; wordQueue=resumeSnapshot.wordQueue; evalMode=resumeSnapshot.evalMode;
     if(script[idx] && script[idx].kind!=='end' && wordQueue.length){ runWordChallenge(); } else { loadTurn(); }
-  } else { loadTurn(); }
+  } else if(alreadyCompletedView){ showCompletedOverview(); }
+  else { loadTurn(); }
 });
 
 // ================= Arranque =================
