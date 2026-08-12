@@ -1883,17 +1883,7 @@ function startDay(dayNum){
   document.getElementById('gate').classList.add('show');
 }
 function enterDayContent(){
-  if(alreadyCompletedView){ showCompletedOverview(); } else { loadTurn(); }
-}
-function showCompletedOverview(){
-  idx = script.length;
-  buildProgress();
-  reviewBanner.classList.remove('show');
-  speakerLabel.textContent='LECCIÓN COMPLETADA'; modeChip.style.display='none'; crossTag.style.display='none';
-  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
-  feedback.classList.remove('show'); hintEl.textContent='';
-  illusEl.textContent='✅';
-  setSegs(lineEl, [{t:'Esta lección ya está completada. Tocá cualquier punto de la barra de arriba para repasarlo — no hace falta rehacer la lección entera.',lang:'es'}]);
+  loadTurn();
 }
 
 // ================= Permiso de micrófono =================
@@ -1938,9 +1928,14 @@ function buildProgress(){
   script.forEach((_,i)=>{
     const d=document.createElement('div');
     d.className='seg'+(i<idx?' done':i===idx?' now':'');
-    if(i<idx){ d.addEventListener('click',()=>enterReview(i)); }
+    if(alreadyCompletedView || i<idx){ d.className+=' done'; d.addEventListener('click',()=>jumpToTurn(i)); }
     progressEl.appendChild(d);
   });
+}
+function jumpToTurn(i){
+  reviewBanner.classList.remove('show'); reviewing=false; resumeSnapshot=null;
+  idx = i;
+  loadTurn();
 }
 function setSegs(container, segs){
   container.innerHTML='';
@@ -2267,8 +2262,7 @@ backToLessonBtn.addEventListener('click', ()=>{
   if(resumeSnapshot){
     idx=resumeSnapshot.idx; wqIndex=resumeSnapshot.wqIndex; wordQueue=resumeSnapshot.wordQueue; evalMode=resumeSnapshot.evalMode;
     if(script[idx] && script[idx].kind!=='end' && wordQueue.length){ runWordChallenge(); } else { loadTurn(); }
-  } else if(alreadyCompletedView){ showCompletedOverview(); }
-  else { loadTurn(); }
+  } else { loadTurn(); }
 });
 
 // ================= Arranque =================
