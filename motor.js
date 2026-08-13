@@ -569,28 +569,41 @@ function runWordChallenge(){
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
   hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="pron-hint">· tocá cualquier palabra para reescucharla sola</span>' : '');
-  const segs = currentTurnIsStory ? w.en.split(' ').map(word=>({t:word, lang:'en'})) : [{t:w.en,lang:'en'}];
+  const segs = [{t:w.en,lang:'en'}]; // siempre una sola frase completa, para que la voz salga fluida
   illusEl.textContent='💬';
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
-  setSegs(lineEl, segs);
-  if(currentTurnIsStory) attachWordClicks(lineEl, segs);
+  if(currentTurnIsStory){ renderStoryLine(lineEl, w.en); } else { setSegs(lineEl, segs); }
   playBtn.onclick=async ()=>{
     playBtn.disabled=true; replayBtn.disabled=true;
     await speakSegs(segs, lineEl);
-    if(currentTurnIsStory) attachWordClicks(lineEl, segs);
+    if(currentTurnIsStory) renderStoryLine(lineEl, w.en);
     playBtn.disabled=false; replayBtn.disabled=false;
     appControls.style.display='none'; userControls.style.display='flex';
     replayWordBtn.style.display='inline-flex';
     slowWordBtn.style.display='inline-flex';
     recordBtn.style.display='inline-flex';
-    replayWordBtn.onclick=async ()=>{ replayWordBtn.disabled=true; await speakSegs(segs, lineEl); if(currentTurnIsStory) attachWordClicks(lineEl, segs); replayWordBtn.disabled=false; };
-    slowWordBtn.onclick=async ()=>{ slowWordBtn.disabled=true; await speakSegs(segs, lineEl, 0.5); if(currentTurnIsStory) attachWordClicks(lineEl, segs); slowWordBtn.disabled=false; };
+    replayWordBtn.onclick=async ()=>{ replayWordBtn.disabled=true; await speakSegs(segs, lineEl); if(currentTurnIsStory) renderStoryLine(lineEl, w.en); replayWordBtn.disabled=false; };
+    slowWordBtn.onclick=async ()=>{ slowWordBtn.disabled=true; await speakSegs(segs, lineEl, 0.5); if(currentTurnIsStory) renderStoryLine(lineEl, w.en); slowWordBtn.disabled=false; };
   };
-  replayBtn.onclick=async ()=>{ await speakSegs(segs, lineEl); if(currentTurnIsStory) attachWordClicks(lineEl, segs); };
+  replayBtn.onclick=async ()=>{ await speakSegs(segs, lineEl); if(currentTurnIsStory) renderStoryLine(lineEl, w.en); };
   micBtn.onclick=()=>startListening(res=>handleSpokenResult(w,res), {longForm:currentTurnIsStory});
   skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus();};
   sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; const said=typeInput.value.trim(); typeInput.value=''; typeRow.style.display='none'; handleSpokenResult(w,{said,confidence:null}); };
+}
+// Muestra la frase de la historia como palabras individuales, tocables, CON espacios correctos entre ellas.
+// Se usa solo para la visualización — la voz (speakSegs) siempre lee la frase completa de un tirón, fluida.
+function renderStoryLine(container, sentence){
+  container.innerHTML='';
+  const words = sentence.split(' ');
+  words.forEach((word,i)=>{
+    const span=document.createElement('span');
+    span.className='seg en';
+    span.textContent = word + (i<words.length-1 ? ' ' : '');
+    container.appendChild(span);
+  });
+  const wordSegs = words.map(word=>({t:word, lang:'en'}));
+  attachWordClicks(container, wordSegs);
 }
 let wordSelectStart = null;
 function attachWordClicks(container, segs){
@@ -764,6 +777,13 @@ function resetRecordingPanel(){
   reRecordBtn.style.display='none';
 }
 
+let micWatchdog = null;
+function clearMicWatchdog(){ if(micWatchdog){ clearTimeout(micWatchdog); micWatchdog=null; } }
+function releaseMicButton(){
+  micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+  finishTalkingBtn.style.display='none';
+  clearMicWatchdog();
+}
 function startListening(onResult, opts){
   opts = opts || {};
   if(!micSupported||!micGranted){ typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus(); return; }
@@ -777,7 +797,22 @@ function startListening(onResult, opts){
   } else {
     micBtn.textContent = '🎙 Escuchando...';
   }
-  try{ recognition.start(); }catch(e){}
+  clearMicWatchdog();
+  const watchdogMs = opts.longForm ? 45000 : 12000;
+  micWatchdog = setTimeout(()=>{
+    try{ recognition.abort(); }catch(e){}
+    releaseMicButton();
+    feedback.classList.add('show','retry');
+    feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Probá de nuevo, o escribí tu respuesta.';
+    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+  }, watchdogMs);
+  try{
+    recognition.start();
+  }catch(e){
+    // si ya estaba corriendo una sesión anterior colgada, la cortamos y reintentamos una vez
+    try{ recognition.abort(); }catch(e2){}
+    setTimeout(()=>{ try{ recognition.start(); }catch(e3){} }, 200);
+  }
   recognition.onresult=(e)=>{
     if(opts.longForm){
       for(let i=e.resultIndex; i<e.results.length; i++){
@@ -785,19 +820,22 @@ function startListening(onResult, opts){
       }
       return;
     }
+    clearMicWatchdog();
     const result=e.results[0][0];
     const confidence=(typeof result.confidence==='number'&&result.confidence>0)?result.confidence:null;
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     onResult({said:result.transcript, confidence});
   };
   recognition.onend=()=>{
-    if(!opts.longForm) return;
+    if(!opts.longForm){ clearMicWatchdog(); return; }
+    clearMicWatchdog();
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     finishTalkingBtn.style.display='none';
     const said = collected.join(' ').trim();
     onResult({said: said || '(no se detectó audio, probá de nuevo)', confidence:null});
   };
   recognition.onerror=(e)=>{
+    clearMicWatchdog();
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     finishTalkingBtn.style.display='none';
     feedback.classList.add('show','retry');
