@@ -3,6 +3,8 @@
 const curriculumUnidad1 = [
 {
     day:1, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Saludos y presentarte / Saludar clientes',
+    songJingle:'cancion-dia1-vocabulario.mp3',
+    songStory:'cancion-dia1-historia.mp3',
     words:[
       {en:'hello', es:'hola', pron:'jelóu', emoji:'👋'},
       {en:'good morning', es:'buenos días', pron:'gud mórnin', emoji:'🌅'},

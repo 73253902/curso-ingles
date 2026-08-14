@@ -108,11 +108,12 @@
   .line .seg.selecting{text-decoration:underline dashed; text-underline-offset:4px;}
   .line .seg.selected{background:rgba(79,182,232,.28); border-radius:5px; box-shadow:0 0 0 1px rgba(79,182,232,.5);}
   .phrase-selection-panel{
-    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    display:flex; flex-direction:column; align-items:flex-start; gap:10px;
     background:rgba(79,182,232,.1); border:1px solid rgba(79,182,232,.35);
-    border-radius:10px; padding:10px 14px; margin-top:10px; font-size:14px;
+    border-radius:10px; padding:14px 16px; margin-top:10px;
   }
-  #phraseSelectionText{color:var(--en); font-style:italic;}
+  .phrase-selection-panel .actions{display:flex; gap:10px; flex-wrap:wrap;}
+  #phraseSelectionText{color:var(--en); font-family:'Fraunces',serif; font-size:clamp(18px,4.5vw,25px); font-weight:400; line-height:1.5;}
   .controls{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap;}
   .type-row{display:flex; gap:8px; margin-top:14px;}
   .type-row input{flex:1; background:var(--bg-panel-2); border:1px solid var(--border); border-radius:10px; padding:11px 14px; color:var(--ink); font-size:15px; font-family:'Inter',sans-serif;}
@@ -158,6 +159,9 @@
   .review-banner{background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.35); color:var(--en); font-size:13px; padding:10px 14px; border-radius:10px; margin-bottom:16px; display:none; align-items:center; justify-content:space-between; gap:10px;}
   .review-banner.show{display:flex;}
   .cross-tag{font-size:11px; color:var(--es); font-family:'JetBrains Mono',monospace; margin-bottom:8px;}
+  .song-player{background:rgba(176,141,87,.12); border:1px solid rgba(176,141,87,.4); border-radius:10px; padding:12px 14px; margin-bottom:14px;}
+  .song-player span{font-size:14px; color:var(--en); font-weight:600;}
+  .song-player audio{height:36px;}
   .peek-box{
     margin-top:10px; padding:14px 18px; border-radius:10px;
     background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.4);
@@ -250,13 +254,19 @@
         </div>
         <div class="speaker-tag"><span id="speakerLabel">TU TUTOR</span><span class="mode-chip" id="modeChip" style="display:none;"></span></div>
         <div class="cross-tag" id="crossTag" style="display:none;"></div>
+        <div class="song-player" id="songPlayer" style="display:none;">
+          <span id="songPlayerLabel">🎶 Escuchá la canción completa</span>
+          <audio id="songAudio" controls style="width:100%; margin-top:8px;"></audio>
+        </div>
         <div class="illus" id="illus">🧑‍🤝‍🧑</div>
         <div class="line" id="line"></div>
         <div class="hint" id="hint"></div>
         <div class="phrase-selection-panel" id="phraseSelectionPanel" style="display:none;">
           <span id="phraseSelectionText"></span>
-          <button class="ghost" id="replaySelectionBtn">🔁 Repetir esta frase</button>
-          <button class="ghost" id="clearSelectionBtn">✖ Quitar selección</button>
+          <div class="actions">
+            <button class="ghost" id="replaySelectionBtn">🔁 Repetir esta frase</button>
+            <button class="ghost" id="clearSelectionBtn">✖ Quitar selección</button>
+          </div>
         </div>
         <button class="ghost" id="replayWordBtn" style="display:none; margin-top:10px;">🔊 Escuchar de nuevo</button>
         <button class="ghost" id="slowWordBtn" style="display:none; margin-top:10px;">🐢 Escuchar despacio</button>

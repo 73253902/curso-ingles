@@ -393,13 +393,13 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
     }
   });
   if(dayStory && dayStory.length){
-    scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true });
+    scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true, isDailyStory:true });
   }
   if(dayJingle && dayJingle.length){
     scr.push({ kind:'sequence', segs:jingleIntro, emoji:'🎵', words:dayJingle, isStory:true, isJingle:true });
   }
   if(weeklyStories[dayNumber]){
-    scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true });
+    scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true, isWeeklyStory:true });
   }
   scr.push({ kind:'task', theme:theme });
   scr.push({ kind:'end' });
@@ -557,8 +557,19 @@ function loadTurn(){
   if(turn.crossDay){ crossTag.style.display='block'; crossTag.textContent='🔁 REPASO DE UN DÍA ANTERIOR'; }
   else if(turn.contrastPair){ crossTag.style.display='block'; crossTag.textContent='🔬 PATRÓN DEL IDIOMA'; }
   else if(turn.isJingle){ crossTag.style.display='block'; crossTag.textContent='🎵 JINGLE DEL DÍA'; }
-  else if(turn.isStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
+  else if(turn.isDailyStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
+  else if(turn.isWeeklyStory){ crossTag.style.display='block'; crossTag.textContent='📚 HISTORIA DE LA SEMANA'; }
   else { crossTag.style.display='none'; }
+  const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio');
+  const songFile = turn.isJingle ? (currentDay && currentDay.songJingle) : (turn.isDailyStory ? (currentDay && currentDay.songStory) : null);
+  if(songFile){
+    songPlayer.style.display='block';
+    songPlayerLabel.textContent = turn.isJingle ? '🎶 Escuchá el jingle real, cantado' : '🎶 Escuchá la historia real, cantada';
+    if(songAudio.getAttribute('src') !== songFile){ songAudio.src = songFile; }
+  } else {
+    songPlayer.style.display='none';
+    songAudio.pause(); songAudio.removeAttribute('src'); songAudio.load();
+  }
   speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
   appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
