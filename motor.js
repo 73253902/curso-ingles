@@ -331,13 +331,45 @@ const weeklyStories = {
     {en:'At the giant supermarket, we had a supplier meeting with fresh dragon fruit and a magic catalog.', es:'En el supermercado gigante, tuvimos una reunión con el proveedor con fruta de dragón fresca y un catálogo mágico.'},
     {en:'A little water, a lot of gold — we got budget approval for the biggest investment yet!', es:'Un poco de agua, mucho oro — ¡conseguimos la aprobación de presupuesto para la inversión más grande hasta ahora!'},
     {en:'One third of the journey is done — keep learning, hero, see you in unit five!', es:'Un tercio del viaje está hecho — ¡seguí aprendiendo, héroe, nos vemos en la unidad cinco!'}
+  ],
+  54: [
+    {en:'Let me try on this magic armor — does it fit, or is it too big?', es:'Dejame probarme esta armadura mágica — ¿me queda bien, o es muy grande?', pron:'let mi trái on dis máyic ármor — das it fit, or is it tu big?'},
+    {en:"Can you lower the price, dragon? Let's bargain and negotiate terms!", es:'¿Podés bajar el precio, dragón? ¡Regateemos y negociemos los términos!', pron:'can iú lóuar de práis, drágon? lets bárguen and nigóushieit terms!'},
+    {en:'I want to return this broken dragon egg — please issue an invoice today.', es:'Quiero devolver este huevo de dragón roto — por favor emitan una factura hoy.', pron:'ái uánt tu ritérn dis bróuken drágon eg — plíis íshu an ínvois tudéi.'},
+    {en:'Is this covered by warranty, or is there a late fee?', es:'¿Esto está cubierto por la garantía, o hay un recargo por mora?', pron:'is dis cávard bái uáranti, or is dér a léit fíi?'},
+    {en:'Swipe the card, or pay cash only — the transaction ID is written in the stars.', es:'Deslizá la tarjeta, o pagá solo en efectivo — el número de transacción está escrito en las estrellas.', pron:'suáip de card, or péi cash óunli — de transácshon ái díi is ríten in de stars.'},
+    {en:'Add to cart, and enjoy this completely secure payment!', es:'Agregá al carrito, ¡y disfrutá este pago completamente seguro!', pron:'ad tu cart, and enyói dis camplítli sekiúr péiment!'}
+  ],
+  60: [
+    {en:'As far as I know, to be honest, this shirt is too small for a dragon!', es:'Que yo sepa, para ser honesto, ¡esta camisa es muy chica para un dragón!', pron:'as far as ái nóu, tu bi ánest, dis shert is tu smol for a drágon!'},
+    {en:'We need to approve a quote for new boots, and sign off on the paperwork.', es:'Necesitamos aprobar una cotización para botas nuevas, y dar el visto bueno al papeleo.', pron:'uí níid tu apruv a cuóut for niú búuts, and sáin of on de péiperuork.'},
+    {en:"Let's do a price comparison — which supplier has the best value?", es:'Hagamos una comparación de precios — ¿qué proveedor tiene la mejor relación calidad-precio?', pron:'lets du a práis campárison — uích sapláier jas de best váliu?'},
+    {en:'I want to complain — this doesn\'t work, please resolve it!', es:'Quiero quejarme — esto no funciona, ¡por favor resuélvanlo!', pron:'ái uánt tu compléin — dis dásent uork, plíis risálv it!'},
+    {en:"Steady progress, brave hero — don't give up, you're almost at unit six!", es:'Progreso constante, valiente héroe — ¡no te rindas, ya casi estás en la unidad seis!', pron:'stédi prágres, bréiv jírou — dont guiv ap, iór ólmoust at iúnit six!'}
+  ],
+  66: [
+    {en:'Excuse me, how do I get to the post office? Turn left at the volcano!', es:'Disculpe, ¿cómo llego al correo? ¡Doblá a la izquierda en el volcán!', pron:'exquiúsmi, jáu du ái guét tu de póust áfis? tern left at de valkéinou!'},
+    {en:"Let's track an order — it's in transit, and out for delivery!", es:'Rastreemos un pedido — ¡está en tránsito, y en reparto!', pron:'lets trak an órder — its in tránsit, and áut for delíveri!'},
+    {en:'Should we take the train, or choose a flying carrier instead?', es:'¿Tomamos el tren, o elegimos un transportista volador en su lugar?', pron:'shud uí téik de tréin, or chúus a fláing cárier instéd?'},
+    {en:'At the airport, customs asked about the country of origin.', es:'En el aeropuerto, la aduana preguntó sobre el país de origen.', pron:'at de érport, cástoms askt abáut de cántri of óriyin.'},
+    {en:'The shipping guide and the customs broker are both ready at the station.', es:'La guía de envío y el agente aduanal están listos en la estación.', pron:'de shíping gáid and de cástoms bróuker ar bóuz rédi at de stéishon.'},
+    {en:'Even the most remote landmark gets same-day delivery in our coverage area!', es:'¡Hasta el punto de referencia más alejado tiene entrega el mismo día en nuestra área de cobertura!', pron:'íven de móust rimóut lándmark guéts séim déi delíveri in áur cáverich éria!'}
+  ],
+  72: [
+    {en:"Just follow the signs — you can't miss it, even during rush hour!", es:'Solo seguí las señales — no te lo vas a perder, ¡ni siquiera en hora pico!', pron:'yast fálou de sáins — iú cant mis it, íven dúring rash áuar!'},
+    {en:'The supply chain is back on track — no more backorders!', es:'La cadena de suministro está de nuevo en marcha — ¡no más pedidos pendientes!', pron:'de sapláichéin is bak on trak — nóu mor bákorders!'},
+    {en:'I rented a car with a full tank, and hired the best carrier in the kingdom.', es:'Alquilé un auto con el tanque lleno, y contraté al mejor transportista del reino.', pron:'ái réntid a car uid a ful tank, and jáiard de best cárier in de kíngdom.'},
+    {en:'Fragile! Handle with care, and send it straight to the loading dock.', es:'¡Frágil! Manejar con cuidado, y enviarlo directo al muelle de carga.', pron:'fráyail! jándol uid quér, and send it stréit tu de lóuding dak.'},
+    {en:'Fly north or south, follow the optimal route, and dispatch to the whole kingdom!', es:'Volá al norte o al sur, seguí la ruta óptima, ¡y despachá a todo el reino!', pron:'flái norz or sáuz, fálou de áptimal rúut, and díspach tu de jóul kíngdom!'},
+    {en:'Great job so far — more than a third done. See you in the next unit!', es:'Muy buen trabajo hasta ahora — más de un tercio hecho. ¡Nos vemos en la próxima unidad!', pron:'gréit yab sóu far — mor dan a zerd dan. síi iú in de next iúnit!'}
   ]
 };
 const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escuchá cada frase, repetila, y escribila — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
 const weeklyStoryIntro = [{t:'Antes de terminar, una historia más larga con todo lo que repasaste esta semana de estudio.',lang:'es'}];
+const jingleIntro = [{t:'Para cerrar, un jinglecito pegajoso con lo de hoy — como una publicidad que se te queda en la cabeza. Escuchalo, repetilo, y si querés, grabate "cantándolo" a tu manera.',lang:'es'}];
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
-function buildScript(bank, crossDayWords, dayNumber, theme, dayStory){
+function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
@@ -363,6 +395,9 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory){
   if(dayStory && dayStory.length){
     scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true });
   }
+  if(dayJingle && dayJingle.length){
+    scr.push({ kind:'sequence', segs:jingleIntro, emoji:'🎵', words:dayJingle, isStory:true, isJingle:true });
+  }
   if(weeklyStories[dayNumber]){
     scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true });
   }
@@ -376,7 +411,7 @@ function startDay(dayNum){
   if(!currentDay) return;
   wordBank = currentDay.words;
   const crossWords = getCrossDayReviewWords(dayNum, 6);
-  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
   const prog = loadProgress();
   alreadyCompletedView = !!(prog[dayNum] && prog[dayNum].completed);
@@ -460,8 +495,26 @@ function addTranscript(who,text,cls){const div=document.createElement('div');div
 function addWordCard(w, isWeak){const empty=wordListEl.querySelector('.empty');if(empty)empty.remove();const card=document.createElement('div');card.className='word-card'+(isWeak?' weak':'');card.innerHTML='<b>'+w.en+'</b><span>'+w.es+'</span>';wordListEl.appendChild(card);}
 
 // ================= Voz =================
-function ensureVoices(){return new Promise(resolve=>{let voices=speechSynthesis.getVoices();if(voices.length){resolve(voices);return;}speechSynthesis.onvoiceschanged=()=>resolve(speechSynthesis.getVoices());});}
-function pickVoice(voices,lang){return voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith(lang))||null;}
+let cachedVoices = null;
+function ensureVoices(){
+  return new Promise(resolve=>{
+    let voices=speechSynthesis.getVoices();
+    if(voices.length){ cachedVoices=voices; resolve(voices); return; }
+    speechSynthesis.onvoiceschanged=()=>{ voices=speechSynthesis.getVoices(); cachedVoices=voices; resolve(voices); };
+  });
+}
+// Nombres de voces femeninas conocidas en los navegadores/sistemas más comunes (Chrome, Safari, Windows, Android).
+// Se busca primero acá; si ninguna coincide, se cae a cualquier voz del idioma pedido.
+const FEMALE_VOICE_HINTS = ['female','samantha','victoria','karen','moira','tessa','fiona','susan','zira','aria','jenny','sonia','emma','ava','allison','ava','salli','joanna','kimberly','kendra','ivy','paulina','mónica','monica','helena','sabina','lucia','elvira','google us english','google español','google uk english female'];
+function pickVoice(voices,lang){
+  const matches = voices.filter(v=>v.lang&&v.lang.toLowerCase().startsWith(lang));
+  if(!matches.length) return null;
+  const female = matches.find(v=>{
+    const n=(v.name||'').toLowerCase();
+    return FEMALE_VOICE_HINTS.some(hint=>n.includes(hint));
+  });
+  return female || matches[0];
+}
 async function speakSegs(segs, targetContainer, rate){
   rate = rate || 0.95;
   const voices=await ensureVoices();
@@ -503,6 +556,7 @@ function loadTurn(){
   }
   if(turn.crossDay){ crossTag.style.display='block'; crossTag.textContent='🔁 REPASO DE UN DÍA ANTERIOR'; }
   else if(turn.contrastPair){ crossTag.style.display='block'; crossTag.textContent='🔬 PATRÓN DEL IDIOMA'; }
+  else if(turn.isJingle){ crossTag.style.display='block'; crossTag.textContent='🎵 JINGLE DEL DÍA'; }
   else if(turn.isStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
   else { crossTag.style.display='none'; }
   speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
@@ -622,6 +676,7 @@ function attachWordClicks(container, segs){
         speechSynthesis.cancel();
         const u=new SpeechSynthesisUtterance(segs[i].t);
         u.lang='en-US'; u.rate=0.9;
+        if(cachedVoices){ const v=pickVoice(cachedVoices,'en'); if(v) u.voice=v; }
         speechSynthesis.speak(u);
       } else {
         const a=Math.min(wordSelectStart,i), b=Math.max(wordSelectStart,i);
@@ -641,7 +696,7 @@ function playSelectedPhrase(phrase){
   const clearBtn=document.getElementById('clearSelectionBtn');
   panel.style.display='flex';
   textEl.textContent='"'+phrase+'"';
-  const speak=()=>{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(phrase); u.lang='en-US'; u.rate=0.9; speechSynthesis.speak(u); };
+  const speak=()=>{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(phrase); u.lang='en-US'; u.rate=0.9; if(cachedVoices){ const v=pickVoice(cachedVoices,'en'); if(v) u.voice=v; } speechSynthesis.speak(u); };
   speak();
   replayBtn2.onclick=speak;
   clearBtn.onclick=()=>{
@@ -934,4 +989,5 @@ backToLessonBtn.addEventListener('click', ()=>{
 });
 
 // ================= Arranque =================
+ensureVoices();
 showHome();

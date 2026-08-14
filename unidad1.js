@@ -30,14 +30,20 @@ const curriculumUnidad1 = [
       {en:'see you', es:'nos vemos', pron:'síi iú', emoji:'🤝'}
     ],
     story:[
-      {en:'Hello! Good morning, dragon!' , es:'¡Hola! ¡Buenos días, dragón!'},
-      {en:'I need help right now — I have a meeting with a thousand robots today!', es:'¡Necesito ayuda ahora mismo — tengo una reunión con mil robots hoy!'},
-      {en:'Sorry, but first, where is the bathroom? A dragon this big needs a very big bathroom!', es:'Perdón, pero primero, ¿dónde está el baño? ¡Un dragón tan grande necesita un baño gigante!'},
-      {en:'Thank you! Now bring me an ocean of water and a mountain of coffee, please!', es:'¡Gracias! Ahora traeme un océano de agua y una montaña de café, por favor.'},
-      {en:'Yes! Is the news good or bad? I ate the email by mistake!', es:'¡Sí! ¿La noticia es buena o mala? ¡Me comí el correo por error!'},
-      {en:'No problem, we can talk later — tomorrow, or even next year!', es:'No hay problema, podemos hablar más tarde — mañana, o hasta el año que viene.'},
-      {en:'How much treasure do you want? A million gold coins?', es:'¿Cuánto tesoro querés? ¿Un millón de monedas de oro?'},
-      {en:'Good afternoon, tiny humans! Goodbye, and good night, my friends!', es:'¡Buenas tardes, humanitos! ¡Adiós, y buenas noches, amigos!'}
+      {en:'Hello! Good morning, dragon!' , es:'¡Hola! ¡Buenos días, dragón!', pron:'jelóu! gud mórnin, drágon!'},
+      {en:'I need help right now — I have a meeting with a thousand robots today!', es:'¡Necesito ayuda ahora mismo — tengo una reunión con mil robots hoy!', pron:'ái níid jelp ráit náu — ái jav a míiting uid a záusand róubots tudéi!'},
+      {en:'Sorry, but first, where is the bathroom? A dragon this big needs a very big bathroom!', es:'Perdón, pero primero, ¿dónde está el baño? ¡Un dragón tan grande necesita un baño gigante!', pron:'sórri, bat ferst, uér is de báazrum? a drágon dis big níids a véri big báazrum!'},
+      {en:'Thank you! Now bring me an ocean of water and a mountain of coffee, please!', es:'¡Gracias! Ahora traeme un océano de agua y una montaña de café, por favor.', pron:'zenk iú! náu bring mi an óushon of uáter and a máuntain of cófi, plíis!'},
+      {en:'Yes! Is the news good or bad? I ate the email by mistake!', es:'¡Sí! ¿La noticia es buena o mala? ¡Me comí el correo por error!', pron:'iés! is de niús gud or bad? ái éit de íimeil bái mistéik!'},
+      {en:'No problem, we can talk later — tomorrow, or even next year!', es:'No hay problema, podemos hablar más tarde — mañana, o hasta el año que viene.', pron:'nóu práblem, uí can tók léiter — tumórou, or íven next íar!'},
+      {en:'How much treasure do you want? A million gold coins?', es:'¿Cuánto tesoro querés? ¿Un millón de monedas de oro?', pron:'jáu mach tréshur du iú uánt? a mílion góuld cóins?'},
+      {en:'Good afternoon, tiny humans! Goodbye, and good night, my friends!', es:'¡Buenas tardes, humanitos! ¡Adiós, y buenas noches, amigos!', pron:'gud afternúun, táini jiúmans! gudbái, and gud náit, mái frends!'}
+    ],
+    jingle:[
+      {en:'Hello, hello, good morning too!', es:'¡Hola, hola, buenos días también!', pron:'jelóu, jelóu, gud mórnin tú!'},
+      {en:'Please and thank you, yes or no!', es:'Por favor y gracias, ¡sí o no!', pron:'plíis and zenk iú, iés or nóu!'},
+      {en:'Water, coffee, help me now!', es:'Agua, café, ¡ayudame ahora!', pron:'uáter, cófi, jelp mi náu!'},
+      {en:'Goodbye, goodbye, see you somehow!', es:'Adiós, adiós, ¡nos vemos de algún modo!', pron:'gudbái, gudbái, síi iú sámjáu!'}
     ]
   },
 {
@@ -63,14 +69,20 @@ const curriculumUnidad1 = [
       {en:'the pleasure is mine', es:'el placer es mío', pron:'de pléyer is máin', emoji:'😊'}
     ],
     story:[
-      {en:'Welcome to Earth! Come in, please!', es:'¡Bienvenido a la Tierra! ¡Pasá, por favor!'},
-      {en:"What's your name?", es:'¿Cómo te llamás?'},
-      {en:'My name is Zorblax, and I am from the planet Neptune!', es:'¡Me llamo Zorblax, y soy del planeta Neptuno!'},
-      {en:'Nice to meet you. Have a seat — if you can find a chair big enough!', es:'Mucho gusto. Tomá asiento — ¡si encontrás una silla suficientemente grande!'},
-      {en:'I work at the Interstellar Bank. I am the owner of a thousand galaxies!', es:'Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!'},
-      {en:'This is our team: five robots and a talking cat, our manager.', es:'Este es nuestro equipo: cinco robots y un gato parlante, nuestro gerente.'},
-      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:'Acá tenés mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!'},
-      {en:'The pleasure is mine, human.', es:'El placer es mío, humano.'}
+      {en:'Welcome to Earth! Come in, please!', es:'¡Bienvenido a la Tierra! ¡Pasá, por favor!', pron:'uélcam tu erz! cam in, plíis!'},
+      {en:"What's your name?", es:'¿Cómo te llamás?', pron:'uáts iór néim?'},
+      {en:'My name is Zorblax, and I am from the planet Neptune!', es:'¡Me llamo Zorblax, y soy del planeta Neptuno!', pron:'mái néim is Zorblax, and ái am fram de plánet Neptiún!'},
+      {en:'Nice to meet you. Have a seat — if you can find a chair big enough!', es:'Mucho gusto. Tomá asiento — ¡si encontrás una silla suficientemente grande!', pron:'náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!'},
+      {en:'I work at the Interstellar Bank. I am the owner of a thousand galaxies!', es:'Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!', pron:'ái uork at de ínterstelar bank. ái am de óuner of a záusand gálaxis!'},
+      {en:'This is our team: five robots and a talking cat, our manager.', es:'Este es nuestro equipo: cinco robots y un gato parlante, nuestro gerente.', pron:'dis is áur tíim: fáiv róubots and a tóking cat, áur mánayer.'},
+      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:'Acá tenés mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!', pron:'jíar is mái bísnes card — mái cóntact is a léiser bíim, and mái fóun námber jas fórti díyits!'},
+      {en:'The pleasure is mine, human.', es:'El placer es mío, humano.', pron:'de pléyer is máin, jiúman.'}
+    ],
+    jingle:[
+      {en:"My name is... what's your name?", es:'Me llamo... ¿cómo te llamás?', pron:'mái néim is... uáts iór néim?'},
+      {en:'Nice to meet you, come on in!', es:'Mucho gusto, ¡pasá!', pron:'náis tu míit iú, cam on in!'},
+      {en:'Welcome, welcome, have a seat!', es:'Bienvenido, bienvenido, ¡tomá asiento!', pron:'uélcam, uélcam, jav a síit!'},
+      {en:'The pleasure, the pleasure is mine, so sweet!', es:'El placer, el placer es mío, ¡qué dulce!', pron:'de pléyer, de pléyer is máin, sóu suíit!'}
     ]
   },
 {
@@ -95,12 +107,18 @@ const curriculumUnidad1 = [
       {en:'brand', es:'marca', emoji:'🔖'}
     ],
     story:[
-      {en:"What country and city do wizards come from? I'm from the Floating City, in the Kingdom of Clouds!", es:'¿De qué país y ciudad vienen los magos? ¡Soy de la Ciudad Flotante, en el Reino de las Nubes!'},
-      {en:"Our company name is Dragon's Brew, since the year one thousand!", es:'¡El nombre de nuestra empresa es Cerveza de Dragón, desde el año mil!'},
-      {en:'We sell flying products and we provide invisible services to a thousand customers.', es:'Vendemos productos voladores y ofrecemos servicios invisibles a mil clientes.'},
-      {en:'Our suppliers are giants who bring us the highest quality for the lowest price!', es:'Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo.'},
-      {en:'Today only: a magic discount, and free delivery by dragon, straight from our floating warehouse!', es:'¡Solo hoy: un descuento mágico, y entrega gratis en dragón, directo desde nuestra bodega flotante!'},
-      {en:'We are the most powerful brand in the entire market of ten thousand kingdoms!', es:'Somos la marca más poderosa en todo el mercado de diez mil reinos.'}
+      {en:"What country and city do wizards come from? I'm from the Floating City, in the Kingdom of Clouds!", es:'¿De qué país y ciudad vienen los magos? ¡Soy de la Ciudad Flotante, en el Reino de las Nubes!', pron:'uát cántri and síti du uísards cam fram? áim fram de flóuting síti, in de kíngdom of cláuds!'},
+      {en:"Our company name is Dragon's Brew, since the year one thousand!", es:'¡El nombre de nuestra empresa es Cerveza de Dragón, desde el año mil!', pron:'áur cámpani néim is drágons brú, sins de íar uán záusand!'},
+      {en:'We sell flying products and we provide invisible services to a thousand customers.', es:'Vendemos productos voladores y ofrecemos servicios invisibles a mil clientes.', pron:'uí sel fláing prádacts and uí prováid invísibol sérvises tu a záusand cástomers.'},
+      {en:'Our suppliers are giants who bring us the highest quality for the lowest price!', es:'Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo.', pron:'áur sapláiers ar yáiants jú bring as de jáiest cuáliti for de lóuest práis!'},
+      {en:'Today only: a magic discount, and free delivery by dragon, straight from our floating warehouse!', es:'¡Solo hoy: un descuento mágico, y entrega gratis en dragón, directo desde nuestra bodega flotante!', pron:'tudéi óunli: a máyic díscaunt, and fríi delíveri bái drágon, stréit fram áur flóuting uérjaus!'},
+      {en:'We are the most powerful brand in the entire market of ten thousand kingdoms!', es:'Somos la marca más poderosa en todo el mercado de diez mil reinos.', pron:'uí ar de móust páuerful brand in de entáier márket of ten záusand kíngdoms!'}
+    ],
+    jingle:[
+      {en:'We sell, we sell, quality and price!', es:'¡Vendemos, vendemos, calidad y precio!', pron:'uí sel, uí sel, cuáliti and práis!'},
+      {en:'Products and services, oh so nice!', es:'Productos y servicios, ¡qué lindo!', pron:'prádacts and sérvises, óu sóu náis!'},
+      {en:'Customers and suppliers, our brand is strong!', es:'Clientes y proveedores, ¡nuestra marca es fuerte!', pron:'cástomers and sapláiers, áur brand is strong!'},
+      {en:'Discount, delivery, come along!', es:'Descuento, entrega, ¡vení con nosotros!', pron:'díscaunt, delíveri, cam alóng!'}
     ]
   },
 {
@@ -125,11 +143,17 @@ const curriculumUnidad1 = [
       {en:'team leader', es:'líder de equipo', emoji:'🧭'}
     ],
     story:[
-      {en:'I am the owner of this superhero company!', es:'¡Soy el dueño de esta empresa de superhéroes!'},
-      {en:'My wife can fly, and my husband breathes fire — together we have five children who can read minds!', es:'Mi esposa puede volar, y mi esposo respira fuego — juntos tenemos cinco hijos que pueden leer mentes.'},
-      {en:'My brother is a giant robot in charge of sales, and my sister, an invisible ninja, works in accounting!', es:'Mi hermano es un robot gigante a cargo de ventas, y mi hermana, una ninja invisible, ¡trabaja en contabilidad!'},
-      {en:'Our team leader is a talking gorilla who manages the logistics department.', es:'Nuestro líder de equipo es un gorila parlante que maneja el departamento de logística.'},
-      {en:'Every boss, employee, and colleague here has a superpower!', es:'¡Todo jefe, empleado y colega acá tiene un superpoder!'}
+      {en:'I am the owner of this superhero company!', es:'¡Soy el dueño de esta empresa de superhéroes!', pron:'ái am de óuner of dis súperjírou cámpani!'},
+      {en:'My wife can fly, and my husband breathes fire — together we have five children who can read minds!', es:'Mi esposa puede volar, y mi esposo respira fuego — juntos tenemos cinco hijos que pueden leer mentes.', pron:'mái uáif can flái, and mái jásband bríizs fáiar — tugéder uí jav fáiv chíldren jú can ríid máinds!'},
+      {en:'My brother is a giant robot in charge of sales, and my sister, an invisible ninja, works in accounting!', es:'Mi hermano es un robot gigante a cargo de ventas, y mi hermana, una ninja invisible, ¡trabaja en contabilidad!', pron:'mái bráder is a yáiant róubot in charch of séils, and mái síster, an invísibol níncha, uorks in acáunting!'},
+      {en:'Our team leader is a talking gorilla who manages the logistics department.', es:'Nuestro líder de equipo es un gorila parlante que maneja el departamento de logística.', pron:'áur tíim líider is a tóking goríla jú mánayes de loyístics dipártment.'},
+      {en:'Every boss, employee, and colleague here has a superpower!', es:'¡Todo jefe, empleado y colega acá tiene un superpoder!', pron:'évri bos, emploí-i, and cólig jíar jas a súperpauer!'}
+    ],
+    jingle:[
+      {en:"Sales and logistics, my department's here!", es:'Ventas y logística, ¡mi departamento está acá!', pron:'séils and loyístics, mái dipártments jíar!'},
+      {en:'I am the owner, and my team is dear!', es:'Soy el dueño, ¡y mi equipo es querido!', pron:'ái am de óuner, and mái tíim is díar!'},
+      {en:'Boss and colleague, employee too!', es:'Jefe y colega, ¡empleado también!', pron:'bos and cólig, emploí-i tú!'},
+      {en:'Brother, sister, we work through and through!', es:'Hermano, hermana, ¡trabajamos de principio a fin!', pron:'bráder, síster, uí uork zrú and zrú!'}
     ]
   },
 {
@@ -155,11 +179,17 @@ const curriculumUnidad1 = [
       {en:'invoice', es:'factura', emoji:'🧾'}
     ],
     story:[
-      {en:'How many dragon eggs do we have? One, two, three... a hundred?', es:'¿Cuántos huevos de dragón tenemos? ¿Uno, dos, tres... cien?'},
-      {en:'We have four, five, six, seven, eight, nine, and ten boxes exploding with magic eggs!', es:'Tenemos cuatro, cinco, seis, siete, ocho, nueve, y diez cajas explotando de huevos mágicos.'},
-      {en:'A dozen eggs just hatched into flying elephants!', es:'¡Una docena de huevos acaba de nacer en elefantes voladores!'},
-      {en:"What's the total quantity? A million, I think!", es:'¿Cuál es la cantidad total? ¡Un millón, creo!'},
-      {en:"Send the invoice to the moon — that's where this order is going!", es:'¡Enviá la factura a la luna — ahí es donde va este pedido!'}
+      {en:'How many dragon eggs do we have? One, two, three... a hundred?', es:'¿Cuántos huevos de dragón tenemos? ¿Uno, dos, tres... cien?', pron:'jáu méni drágon egs du uí jav? uán, tú, zríi... a jándred?'},
+      {en:'We have four, five, six, seven, eight, nine, and ten boxes exploding with magic eggs!', es:'Tenemos cuatro, cinco, seis, siete, ocho, nueve, y diez cajas explotando de huevos mágicos.', pron:'uí jav fóar, fáiv, six, séven, éit, náin, and ten báxes explóuding uid máyic egs!'},
+      {en:'A dozen eggs just hatched into flying elephants!', es:'¡Una docena de huevos acaba de nacer en elefantes voladores!', pron:'a dázen egs yast jácht íntu fláing élefants!'},
+      {en:"What's the total quantity? A million, I think!", es:'¿Cuál es la cantidad total? ¡Un millón, creo!', pron:'uáts de tóutal cuántiti? a mílion, ái zink!'},
+      {en:"Send the invoice to the moon — that's where this order is going!", es:'¡Enviá la factura a la luna — ahí es donde va este pedido!', pron:'send de ínvois tu de múun — dats uér dis órder is góing!'}
+    ],
+    jingle:[
+      {en:'One, two, three, how many boxes?', es:'Uno, dos, tres, ¿cuántas cajas?', pron:'uán, tú, zríi, jáu méni báxes?'},
+      {en:'Four, five, six, a dozen of roses!', es:'Cuatro, cinco, seis, ¡una docena de rosas!', pron:'fóar, fáiv, six, a dázen of róuses!'},
+      {en:"Seven, eight, nine, ten, what's the total?", es:'Siete, ocho, nueve, diez, ¿cuál es el total?', pron:'séven, éit, náin, ten, uáts de tóutal?'},
+      {en:"Order and invoice, that's my quota!", es:'Pedido y factura, ¡esa es mi cuota!', pron:'órder and ínvois, dats mái cuóuta!'}
     ]
   },
 {
@@ -184,11 +214,17 @@ const curriculumUnidad1 = [
       {en:'deadline', es:'fecha límite', pron:'dédlain', emoji:'⏳'}
     ],
     story:[
-      {en:"Are you available on Monday... in the year 3000?", es:'¿Estás disponible el lunes... en el año 3000?'},
-      {en:"I'm busy this whole week, traveling through Tuesday, Wednesday, and Thursday at the same time!", es:'¡Estoy ocupado toda esta semana, viajando por martes, miércoles y jueves al mismo tiempo!'},
-      {en:"Let's schedule an appointment and confirm it on a calendar made of stars.", es:'Agendemos una cita y confirmémosla en un calendario hecho de estrellas.'},
-      {en:'If dinosaurs need to reschedule, that is fine too!', es:'¡Si los dinosaurios necesitan reprogramar, también está bien!'},
-      {en:"The deadline is Friday... or was it a thousand years ago? Let's be on time anyway!", es:'La fecha límite es el viernes... ¿o fue hace mil años? ¡Seamos puntuales de todos modos!'}
+      {en:"Are you available on Monday... in the year 3000?", es:'¿Estás disponible el lunes... en el año 3000?', pron:'ar iú avéilabol on mándei... in de íar zríi záusand?'},
+      {en:"I'm busy this whole week, traveling through Tuesday, Wednesday, and Thursday at the same time!", es:'¡Estoy ocupado toda esta semana, viajando por martes, miércoles y jueves al mismo tiempo!', pron:'áim bísi dis jóul uíik, trávaling zrú tiúsdei, uénsdei, and zérsdei at de séim táim!'},
+      {en:"Let's schedule an appointment and confirm it on a calendar made of stars.", es:'Agendemos una cita y confirmémosla en un calendario hecho de estrellas.', pron:'lets squéyul an apóintment and conférm it on a cálendar méid of stars.'},
+      {en:'If dinosaurs need to reschedule, that is fine too!', es:'¡Si los dinosaurios necesitan reprogramar, también está bien!', pron:'if dáinosors níid tu risquéyul, dat is fáin tú!'},
+      {en:"The deadline is Friday... or was it a thousand years ago? Let's be on time anyway!", es:'La fecha límite es el viernes... ¿o fue hace mil años? ¡Seamos puntuales de todos modos!', pron:'de dédlain is fráidei... or uás it a záusand íars agóu? lets bi on táim éniuei!'}
+    ],
+    jingle:[
+      {en:'Monday, Tuesday, are you free?', es:'Lunes, martes, ¿estás libre?', pron:'mándei, tiúsdei, ar iú fríi?'},
+      {en:'Wednesday, Thursday, wait for me!', es:'Miércoles, jueves, ¡esperame!', pron:'uénsdei, zérsdei, uéit for mi!'},
+      {en:'Friday, Saturday, Sunday too!', es:'Viernes, sábado, ¡domingo también!', pron:'fráidei, sáterdei, sándei tú!'},
+      {en:"Confirm the deadline, on time, it's true!", es:'Confirmá la fecha límite, ¡a tiempo, es verdad!', pron:'conférm de dédlain, on táim, its trú!'}
     ]
   },
 {
@@ -208,11 +244,17 @@ const curriculumUnidad1 = [
       {en:'see you Monday', es:'nos vemos el lunes', pron:'síi iú mándei', emoji:'👋'}
     ],
     story:[
-      {en:'How are you doing today, giant blue elephant?', es:'¿Cómo te va hoy, elefante azul gigante?'},
-      {en:"I'm fine, thanks. And you, purple monkey?", es:'Estoy bien, gracias. ¿Y vos, mono morado?'},
-      {en:"Of course! No problem, let's fly to the moon right now!", es:'¡Por supuesto! No hay problema, ¡volemos a la luna ahora mismo!'},
-      {en:'One moment — I forgot my magic hat!', es:'¡Un momento — me olvidé mi sombrero mágico!'},
-      {en:'Have a good day, take care, and see you Monday on Mars!', es:'¡Que tengas buen día, cuidate, y nos vemos el lunes en Marte!'}
+      {en:'How are you doing today, giant blue elephant?', es:'¿Cómo te va hoy, elefante azul gigante?', pron:'jáu ar iú dúing tudéi, yáiant blú élefant?'},
+      {en:"I'm fine, thanks. And you, purple monkey?", es:'Estoy bien, gracias. ¿Y vos, mono morado?', pron:'áim fáin, zenks. and iú, pérpol mánki?'},
+      {en:"Of course! No problem, let's fly to the moon right now!", es:'¡Por supuesto! No hay problema, ¡volemos a la luna ahora mismo!', pron:'of córs! nóu práblem, lets flái tu de múun ráit náu!'},
+      {en:'One moment — I forgot my magic hat!', es:'¡Un momento — me olvidé mi sombrero mágico!', pron:'uán móument — ái forgát mái máyic jat!'},
+      {en:'Have a good day, take care, and see you Monday on Mars!', es:'¡Que tengas buen día, cuidate, y nos vemos el lunes en Marte!', pron:'jav a gud déi, téik quér, and síi iú mándei on Mars!'}
+    ],
+    jingle:[
+      {en:"How are you doing? I'm fine, thanks!", es:'¿Cómo te va? ¡Estoy bien, gracias!', pron:'jáu ar iú dúing? áim fáin, zenks!'},
+      {en:"No problem, of course, let's go!", es:'No hay problema, por supuesto, ¡vamos!', pron:'nóu práblem, of córs, lets góu!'},
+      {en:"One moment, right now, don't be slow!", es:'Un momento, ahora mismo, ¡no seas lento!', pron:'uán móument, ráit náu, dont bi slóu!'},
+      {en:'Take care, take care, see you Monday, oh!', es:'Cuidate, cuidate, ¡nos vemos el lunes, oh!', pron:'téik quér, téik quér, síi iú mándei, óu!'}
     ]
   },
 {
@@ -232,12 +274,18 @@ const curriculumUnidad1 = [
       {en:'as always', es:'como siempre', pron:'as ólueis', emoji:'🔁'}
     ],
     story:[
-      {en:"How's business today, Robot King?", es:'¿Cómo va el negocio hoy, Rey Robot?'},
-      {en:"I'm great, thanks! We sold ten thousand rockets!", es:'¡Estoy genial, gracias! ¡Vendimos diez mil cohetes!'},
-      {en:'Is everything ok in the volcano factory?', es:'¿Todo bien en la fábrica del volcán?'},
-      {en:'So-so, but I understand — volcanoes are unpredictable!', es:'Más o menos, ¡pero entiendo — los volcanes son impredecibles!'},
-      {en:'Glad to hear that. Sounds good!', es:'¡Qué bueno escuchar eso. Suena bien!'},
-      {en:'Exactly! Let me check right away, as always, my metal friend.', es:'¡Exactamente! Déjame revisar enseguida, como siempre, mi amigo de metal.'}
+      {en:"How's business today, Robot King?", es:'¿Cómo va el negocio hoy, Rey Robot?', pron:'jáus bísnes tudéi, róubot kíng?'},
+      {en:"I'm great, thanks! We sold ten thousand rockets!", es:'¡Estoy genial, gracias! ¡Vendimos diez mil cohetes!', pron:'áim gréit, zenks! uí sóuld ten záusand ráckets!'},
+      {en:'Is everything ok in the volcano factory?', es:'¿Todo bien en la fábrica del volcán?', pron:'is évrizin oquéi in de valkéinou fáctori?'},
+      {en:'So-so, but I understand — volcanoes are unpredictable!', es:'Más o menos, ¡pero entiendo — los volcanes son impredecibles!', pron:'sóu sóu, bat ái anderstánd — valkéinous ar anpridíctabol!'},
+      {en:'Glad to hear that. Sounds good!', es:'¡Qué bueno escuchar eso. Suena bien!', pron:'glad tu jíar dat. sáunds gud!'},
+      {en:'Exactly! Let me check right away, as always, my metal friend.', es:'¡Exactamente! Déjame revisar enseguida, como siempre, mi amigo de metal.', pron:'exáctli! let mi chek ráit auéi, as ólueis, mái métal frend.'}
+    ],
+    jingle:[
+      {en:"I'm great, I'm great, how's business today?", es:'Estoy genial, estoy genial, ¿cómo va el negocio hoy?', pron:'áim gréit, áim gréit, jáus bísnes tudéi?'},
+      {en:'Sounds good, perfect, exactly, hey!', es:'Suena bien, perfecto, exactamente, ¡ey!', pron:'sáunds gud, pérfect, exáctli, jéi!'},
+      {en:'Let me check right away, as always I say!', es:'Déjame revisar enseguida, ¡como siempre digo!', pron:'let mi chek ráit auéi, as ólueis ái séi!'},
+      {en:"Glad to hear that, everything's ok!", es:'Qué bueno escuchar eso, ¡todo está bien!', pron:'glad tu jíar dat, évrizins oquéi!'}
     ]
   },
 {
@@ -257,11 +305,17 @@ const curriculumUnidad1 = [
       {en:'until next time', es:'hasta la próxima', pron:'antíl next táim', emoji:'🔜'}
     ],
     story:[
-      {en:'Thanks for calling through the crystal ball, and thanks for your time, great wizard!', es:'¡Gracias por llamar a través de la bola de cristal, y gracias por tu tiempo, gran mago!'},
-      {en:"It was a pleasure. Let's stay in touch across a thousand dimensions.", es:'Fue un placer. Mantengamos el contacto a través de mil dimensiones.'},
-      {en:"I'll email you a flying letter, and I'll call you back with a thunderstorm!", es:'¡Te voy a enviar una carta voladora, y te devuelvo la llamada con una tormenta de truenos!'},
-      {en:'See you soon, or see you next week, whichever comes first through time!', es:'¡Nos vemos pronto, o nos vemos la próxima semana, lo que llegue primero a través del tiempo!'},
-      {en:'Best regards, looking forward to it. Until next time, brave traveler!', es:'Saludos cordiales, con muchas ganas de eso. ¡Hasta la próxima, valiente viajero!'}
+      {en:'Thanks for calling through the crystal ball, and thanks for your time, great wizard!', es:'¡Gracias por llamar a través de la bola de cristal, y gracias por tu tiempo, gran mago!', pron:'zenks for cóling zrú de crístal bol, and zenks for iór táim, gréit uísard!'},
+      {en:"It was a pleasure. Let's stay in touch across a thousand dimensions.", es:'Fue un placer. Mantengamos el contacto a través de mil dimensiones.', pron:'it uas a pléyer. lets stéi in tach acrós a záusand diménshons.'},
+      {en:"I'll email you a flying letter, and I'll call you back with a thunderstorm!", es:'¡Te voy a enviar una carta voladora, y te devuelvo la llamada con una tormenta de truenos!', pron:'áil íimeil iú a fláing léter, and áil col iú bak uid a zánderstorm!'},
+      {en:'See you soon, or see you next week, whichever comes first through time!', es:'¡Nos vemos pronto, o nos vemos la próxima semana, lo que llegue primero a través del tiempo!', pron:'síi iú súun, or síi iú next uíik, uíchever cams ferst zrú táim!'},
+      {en:'Best regards, looking forward to it. Until next time, brave traveler!', es:'Saludos cordiales, con muchas ganas de eso. ¡Hasta la próxima, valiente viajero!', pron:'best rigárds, lúking fóruard tu it. antíl next táim, bréiv trávaler!'}
+    ],
+    jingle:[
+      {en:'See you soon, see you next week!', es:'Nos vemos pronto, ¡nos vemos la próxima semana!', pron:'síi iú súun, síi iú next uíik!'},
+      {en:"Thanks for calling, it's you I seek!", es:'Gracias por llamar, ¡a vos busco!', pron:'zenks for cóling, its iú ái síik!'},
+      {en:"I'll email you, I'll call you back!", es:'Te escribo un correo, ¡te devuelvo la llamada!', pron:'áil íimeil iú, áil col iú bak!'},
+      {en:'Best regards, until next time, on track!', es:'Saludos, ¡hasta la próxima, en marcha!', pron:'best rigárds, antíl next táim, on trak!'}
     ]
   },
 {
@@ -283,10 +337,16 @@ const curriculumUnidad1 = [
       {en:'can you explain', es:'podés explicar', emoji:'🗣️'}
     ],
     story:[
-      {en:'I have a question, dragon: what, who, where, when, why, and how did the treasure disappear?', es:'Tengo una pregunta, dragón: ¿qué, quién, dónde, cuándo, por qué y cómo desapareció el tesoro?'},
-      {en:'Which one is ready — the gold coins or the diamond eggs? And when will the pirates arrive?', es:'¿Cuál está listo — las monedas de oro o los huevos de diamante? ¿Y cuándo llegan los piratas?'},
-      {en:"Do you have stock of magic beans, and what's the price for a thousand?", es:'¿Tenés stock de frijoles mágicos, y cuál es el precio por mil?'},
-      {en:'Can you help me, robot detective? Can you explain this mystery?', es:'¿Me podés ayudar, robot detective? ¿Podés explicar este misterio?'}
+      {en:'I have a question, dragon: what, who, where, when, why, and how did the treasure disappear?', es:'Tengo una pregunta, dragón: ¿qué, quién, dónde, cuándo, por qué y cómo desapareció el tesoro?', pron:'ái jav a cuéstion, drágon: uát, jú, uér, uén, uái, and jáu did de tréshur disapír?'},
+      {en:'Which one is ready — the gold coins or the diamond eggs? And when will the pirates arrive?', es:'¿Cuál está listo — las monedas de oro o los huevos de diamante? ¿Y cuándo llegan los piratas?', pron:'uích uán is rédi — de góuld cóins or de dáiamond egs? and uén uíl de páirats aráiv?'},
+      {en:"Do you have stock of magic beans, and what's the price for a thousand?", es:'¿Tenés stock de frijoles mágicos, y cuál es el precio por mil?', pron:'du iú jav stak of máyic bíins, and uáts de práis for a záusand?'},
+      {en:'Can you help me, robot detective? Can you explain this mystery?', es:'¿Me podés ayudar, robot detective? ¿Podés explicar este misterio?', pron:'can iú jelp mi, róubot ditéctiv? can iú expléin dis místeri?'}
+    ],
+    jingle:[
+      {en:'What, who, where, when, why, how?', es:'¿Qué, quién, dónde, cuándo, por qué, cómo?', pron:'uát, jú, uér, uén, uái, jáu?'},
+      {en:'Which one is ready right now?', es:'¿Cuál está listo ahora mismo?', pron:'uích uán is rédi ráit náu?'},
+      {en:"What's the price, do you have stock?", es:'¿Cuál es el precio, tienen stock?', pron:'uáts de práis, du iú jav stak?'},
+      {en:'Can you help, explain, unlock?', es:'¿Podés ayudar, explicar, desbloquear?', pron:'can iú jelp, expléin, anlák?'}
     ]
   },
 {
@@ -310,10 +370,16 @@ const curriculumUnidad1 = [
       {en:'durable', es:'duradero', pron:'diúrabol', emoji:'🛡️'}
     ],
     story:[
-      {en:'Do you want your castle in red, blue, green, or yellow, dragon?', es:'¿Querés tu castillo en rojo, azul, verde, o amarillo, dragón?'},
-      {en:'We also have black and white castles, in a size as big as a mountain or as small as a pebble!', es:'También tenemos castillos negros y blancos, ¡en un tamaño tan grande como una montaña o tan pequeño como una piedrita!'},
-      {en:'This new castle material is stronger than a thousand elephants and it will last forever!', es:'¡Este nuevo material de castillo es más fuerte que mil elefantes y va a durar para siempre!'},
-      {en:"It's incredibly heavy because it's made of solid metal, not paper-thin plastic!", es:'Es increíblemente pesado porque está hecho de metal sólido, ¡no de plástico delgado como el papel!'}
+      {en:'Do you want your castle in red, blue, green, or yellow, dragon?', es:'¿Querés tu castillo en rojo, azul, verde, o amarillo, dragón?', pron:'du iú uánt iór cásol in red, blú, gríin, or iélou, drágon?'},
+      {en:'We also have black and white castles, in a size as big as a mountain or as small as a pebble!', es:'También tenemos castillos negros y blancos, ¡en un tamaño tan grande como una montaña o tan pequeño como una piedrita!', pron:'uí ólsou jav blak and uáit cásols, in a sáis as big as a máuntain or as smol as a pébol!'},
+      {en:'This new castle material is stronger than a thousand elephants and it will last forever!', es:'¡Este nuevo material de castillo es más fuerte que mil elefantes y va a durar para siempre!', pron:'dis niú cásol matírial is strónger dan a záusand élefants and it uíl last foréver!'},
+      {en:"It's incredibly heavy because it's made of solid metal, not paper-thin plastic!", es:'Es increíblemente pesado porque está hecho de metal sólido, ¡no de plástico delgado como el papel!', pron:'its incrédibli jévi bicós its méid of sálid métal, nat péiper zin plástic!'}
+    ],
+    jingle:[
+      {en:'Red and blue, green and yellow!', es:'Rojo y azul, ¡verde y amarillo!', pron:'red and blú, gríin and iélou!'},
+      {en:'Black and white, big and mellow!', es:'Negro y blanco, grande y suave.', pron:'blak and uáit, big and mélou!'},
+      {en:'New and strong, heavy in size!', es:'Nuevo y fuerte, ¡pesado en tamaño!', pron:'niú and strong, jévi in sáis!'},
+      {en:'Metal, plastic, durable, wise!', es:'Metal, plástico, ¡duradero y sabio!', pron:'métal, plástic, diúrabol, uáis!'}
     ]
   },
 {
@@ -331,11 +397,17 @@ const curriculumUnidad1 = [
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
-      {en:"Let's begin the final spell! And now, let's finish this magical quest!", es:'¡Empecemos el hechizo final! Y ahora, ¡terminemos esta misión mágica!'},
-      {en:'Well done, brave hero, great job — you defeated the vocabulary dragon and you did it!', es:'¡Bien hecho, valiente héroe, muy buen trabajo — venciste al dragón del vocabulario y lo lograste!'},
-      {en:"Practice makes perfect, so keep going on your legendary journey!", es:'La práctica hace al maestro, ¡así que seguí en tu viaje legendario!'},
-      {en:"We're almost done with this level. Congratulations on finishing Unit 1, Champion!", es:'Ya casi terminamos este nivel. ¡Felicitaciones por terminar la Unidad 1, campeón!'},
-      {en:'See you in the next unit, where even bigger adventures await!', es:'¡Nos vemos en la próxima unidad, donde te esperan aventuras aún más grandes!'}
+      {en:"Let's begin the final spell! And now, let's finish this magical quest!", es:'¡Empecemos el hechizo final! Y ahora, ¡terminemos esta misión mágica!', pron:'lets bigín de fáinal spel! and náu, lets fínish dis máyical cuést!'},
+      {en:'Well done, brave hero, great job — you defeated the vocabulary dragon and you did it!', es:'¡Bien hecho, valiente héroe, muy buen trabajo — venciste al dragón del vocabulario y lo lograste!', pron:'uél dan, bréiv jírou, gréit yab — iú difíited de vocábiuleri drágon and iú did it!'},
+      {en:"Practice makes perfect, so keep going on your legendary journey!", es:'La práctica hace al maestro, ¡así que seguí en tu viaje legendario!', pron:'práctis méiks pérfect, sóu kíip góing on iór léyendari yérni!'},
+      {en:"We're almost done with this level. Congratulations on finishing Unit 1, Champion!", es:'Ya casi terminamos este nivel. ¡Felicitaciones por terminar la Unidad 1, campeón!', pron:'uír ólmoust dan uid dis lével. congrachuléishons on fínishing iúnit uán, chámpion!'},
+      {en:'See you in the next unit, where even bigger adventures await!', es:'¡Nos vemos en la próxima unidad, donde te esperan aventuras aún más grandes!', pron:'síi iú in de next iúnit, uér íven bíguer advénchurs auéit!'}
+    ],
+    jingle:[
+      {en:"Let's begin, let's finish strong!", es:'Empecemos, ¡terminemos fuerte!', pron:'lets bigín, lets fínish strong!'},
+      {en:'Well done, great job, sing along!', es:'Bien hecho, muy buen trabajo, ¡cantá conmigo!', pron:'uél dan, gréit yab, sing alóng!'},
+      {en:'Practice makes perfect, keep on going!', es:'La práctica hace al maestro, ¡seguí adelante!', pron:'práctis méiks pérfect, kíip on góing!'},
+      {en:"Congratulations, next unit's showing!", es:'Felicitaciones, ¡la próxima unidad está por venir!', pron:'congrachuléishons, next iúnits shóuing!'}
     ]
   }
 ];
