@@ -22,10 +22,16 @@ const curriculumUnidad3 = [
       {en:'final price', es:'precio final', pron:'fáinal práis', emoji:'🏷️'}
     ],
     story:[
-      {en:'The dragon market has eleven floating shops, twelve flying carts, and thirteen giant coin piles!', es:'El mercado del dragón tiene once tiendas flotantes, doce carritos voladores, ¡y trece pilas gigantes de monedas!'},
-      {en:'Our budget today is fourteen mountains of gold, fifteen rivers of silver, and sixteen, seventeen, eighteen, nineteen, twenty treasure chests!', es:'Nuestro presupuesto de hoy es catorce montañas de oro, quince ríos de plata, ¡y dieciséis, diecisiete, dieciocho, diecinueve, veinte cofres del tesoro!'},
-      {en:'How much does a flying castle cost? It is expensive, but that tiny dragon egg is cheap!', es:'¿Cuánto cuesta un castillo volador? Es caro, ¡pero ese huevito de dragón es barato!'},
-      {en:'Approximately, the final price is one million stars.', es:'Aproximadamente, el precio final es un millón de estrellas.'}
+      {en:'The dragon market has eleven floating shops, twelve flying carts, and thirteen giant coin piles!', es:'El mercado del dragón tiene once tiendas flotantes, doce carritos voladores, ¡y trece pilas gigantes de monedas!', pron:'de drágon márket jas iléven flóuting shaps, tuélv fláing carts, and zértiin yáiant cóin páils!'},
+      {en:'Our budget today is fourteen mountains of gold, fifteen rivers of silver, and sixteen, seventeen, eighteen, nineteen, twenty treasure chests!', es:'Nuestro presupuesto de hoy es catorce montañas de oro, quince ríos de plata, ¡y dieciséis, diecisiete, dieciocho, diecinueve, veinte cofres del tesoro!', pron:'áur báchet tudéi is fórtiin máuntains of góuld, fíftiin rívers of sílver, and síxtiin, séventiin, éitiin, náintiin, tuénti tréshur chests!'},
+      {en:'How much does a flying castle cost? It is expensive, but that tiny dragon egg is cheap!', es:'¿Cuánto cuesta un castillo volador? Es caro, ¡pero ese huevito de dragón es barato!', pron:'jáu mach das a fláing cásol cost? it is expénsiv, bat dat táini drágon eg is chíip!'},
+      {en:'Approximately, the final price is one million stars.', es:'Aproximadamente, el precio final es un millón de estrellas.', pron:'apráximetli, de fáinal práis is uán mílion stars.'}
+    ],
+    jingle:[
+      {en:'Eleven, twelve, thirteen too!', es:'Once, doce, ¡trece también!', pron:'iléven, tuélv, zértiin tú!'},
+      {en:'Fourteen, fifteen, sixteen, who?', es:'Catorce, quince, dieciséis, ¿quién?', pron:'fórtiin, fíftiin, síxtiin, jú!'},
+      {en:'Budget, cost, expensive, cheap!', es:'Presupuesto, costar, caro, ¡barato!', pron:'báchet, cost, expénsiv, chíip!'},
+      {en:'Final price, approximately steep!', es:'Precio final, aproximadamente alto.', pron:'fáinal práis, apráximetli stíip!'}
     ]
   },
 {
@@ -48,10 +54,16 @@ const curriculumUnidad3 = [
       {en:'to add up', es:'sumar', pron:'tu ad ap', emoji:'➕'}
     ],
     story:[
-      {en:'There are thirty dragons, forty wizards, fifty robots, sixty giants, seventy fairies, eighty ghosts, ninety aliens, and a hundred talking cats at the market!', es:'¡Hay treinta dragones, cuarenta magos, cincuenta robots, sesenta gigantes, setenta hadas, ochenta fantasmas, noventa alienígenas, y cien gatos parlantes en el mercado!'},
-      {en:'A thousand golden coins is our quote for the flying castle.', es:'Mil monedas de oro es nuestra cotización por el castillo volador.'},
-      {en:'The subtotal is huge, plus a magic tax, plus the shipping cost by dragon.', es:'El subtotal es enorme, más un impuesto mágico, más el costo de envío en dragón.'},
-      {en:"Let's add it all up: the grand total is bigger than the moon!", es:'Sumemos todo: ¡el total general es más grande que la luna!'}
+      {en:'There are thirty dragons, forty wizards, fifty robots, sixty giants, seventy fairies, eighty ghosts, ninety aliens, and a hundred talking cats at the market!', es:'¡Hay treinta dragones, cuarenta magos, cincuenta robots, sesenta gigantes, setenta hadas, ochenta fantasmas, noventa alienígenas, y cien gatos parlantes en el mercado!', pron:'dér ar zérti drágons, fórti uísards, fífti róubots, síxti yáiants, séventi féris, éiti góusts, náinti éiliens, and a jándred tóking cats at de márket!'},
+      {en:'A thousand golden coins is our quote for the flying castle.', es:'Mil monedas de oro es nuestra cotización por el castillo volador.', pron:'a záusand góulden cóins is áur cuóut for de fláing cásol.'},
+      {en:'The subtotal is huge, plus a magic tax, plus the shipping cost by dragon.', es:'El subtotal es enorme, más un impuesto mágico, más el costo de envío en dragón.', pron:'de sabtóutal is jiúch, plas a máyic tax, plas de shíping cost bái drágon.'},
+      {en:"Let's add it all up: the grand total is bigger than the moon!", es:'Sumemos todo: ¡el total general es más grande que la luna!', pron:'lets ad it ol ap: de grand tóutal is bíguer dan de múun!'}
+    ],
+    jingle:[
+      {en:'Thirty, forty, fifty, hundred!', es:'Treinta, cuarenta, cincuenta, ¡cien!', pron:'zérti, fórti, fífti, jándred!'},
+      {en:"A thousand quotes, that's not blundered!", es:'Mil cotizaciones, ¡eso no está mal!', pron:'a záusand cuóuts, dats nat blándard!'},
+      {en:'Subtotal, tax, and shipping cost!', es:'Subtotal, impuesto, y costo de envío.', pron:'sabtóutal, tax, and shíping cost!'},
+      {en:"Add it up, grand total, don't get lost!", es:'Sumalo, total general, ¡no te pierdas!', pron:'ad it ap, grand tóutal, dont guét lost!'}
     ]
   },
 {
@@ -73,11 +85,17 @@ const curriculumUnidad3 = [
       {en:'next day', es:'día siguiente', pron:'next déi', emoji:'⏭️'}
     ],
     story:[
-      {en:'What time is it in the Kingdom of Clouds? It is midnight o clock, forever!', es:'¿Qué hora es en el Reino de las Nubes? ¡Es medianoche en punto, para siempre!'},
-      {en:'At half past the dragon hour, or a quarter past the star hour, magic happens.', es:'A la media hora del dragón, o al cuarto de la hora de las estrellas, pasa la magia.'},
-      {en:'The delivery time is one blink, and our business hours never close!', es:'¡El horario de entrega es un parpadeo, y nuestro horario de atención nunca cierra!'},
-      {en:'This shop opens when the volcano erupts and closes when the moon disappears.', es:'Esta tienda abre cuando el volcán hace erupción y cierra cuando la luna desaparece.'},
-      {en:'Your dragon egg arrives within 24 hours — actually, the same day, or maybe the next day, through a wormhole!', es:'Tu huevo de dragón llega dentro de 24 horas — en realidad, el mismo día, ¡o tal vez al día siguiente, a través de un agujero de gusano!'}
+      {en:'What time is it in the Kingdom of Clouds? It is midnight o clock, forever!', es:'¿Qué hora es en el Reino de las Nubes? ¡Es medianoche en punto, para siempre!', pron:'uát táim is it in de kíngdom of cláuds? it is mídnait oclák, foréver!'},
+      {en:'At half past the dragon hour, or a quarter past the star hour, magic happens.', es:'A la media hora del dragón, o al cuarto de la hora de las estrellas, pasa la magia.', pron:'at jaf past de drágon áuar, or a cuárter past de star áuar, máyic jápens.'},
+      {en:'The delivery time is one blink, and our business hours never close!', es:'¡El horario de entrega es un parpadeo, y nuestro horario de atención nunca cierra!', pron:'de delíveri táim is uán blink, and áur bísnes áuars néver clóus!'},
+      {en:'This shop opens when the volcano erupts and closes when the moon disappears.', es:'Esta tienda abre cuando el volcán hace erupción y cierra cuando la luna desaparece.', pron:'dis shap óupens uén de valkéinou irápts and clóuses uén de múun disapírs.'},
+      {en:'Your dragon egg arrives within 24 hours — actually, the same day, or maybe the next day, through a wormhole!', es:'Tu huevo de dragón llega dentro de 24 horas — en realidad, el mismo día, ¡o tal vez al día siguiente, a través de un agujero de gusano!', pron:'iór drágon eg aráivs uidín tuenti fóar áuars — ákchuali, de séim déi, or méibi de next déi, zrú a uérmjoul!'}
+    ],
+    jingle:[
+      {en:"What time is it? O'clock, my friend!", es:'¿Qué hora es? En punto, ¡mi amigo!', pron:"uát táim is it? oclák, mái frend!"},
+      {en:'Half past, quarter past, till the end!', es:'Y media, y cuarto, ¡hasta el final!', pron:'jaf past, cuárter past, til de end!'},
+      {en:'Business hours, it opens and closes!', es:'Horario de atención, abre y cierra.', pron:'bísnes áuars, it óupens and clóuses!'},
+      {en:'Within 24 hours, same day, who knows?', es:'Dentro de 24 horas, mismo día, ¡quién sabe!', pron:'uidín tuenti fóar áuars, séim déi, jú nóus!'}
     ]
   },
 {
@@ -98,10 +116,16 @@ const curriculumUnidad3 = [
       {en:'tracking number', es:'número de rastreo', pron:'tráking námber', emoji:'🔍'}
     ],
     story:[
-      {en:'In the morning, dragons breathe fire; in the afternoon, they nap on clouds; in the evening, they fly to the stars; at night, they turn invisible.', es:'De mañana, los dragones respiran fuego; de tarde, duermen la siesta en las nubes; de noche, vuelan a las estrellas; a la noche, se vuelven invisibles.'},
-      {en:'The package is never early or late — it teleports, delayed only by a black hole!', es:'¡El paquete nunca llega temprano ni tarde — se teletransporta, retrasado solo por un agujero negro!'},
-      {en:'Around midnight, before the storm, and after the eclipse, it arrives, as soon as possible.', es:'Alrededor de medianoche, antes de la tormenta, y después del eclipse, llega, lo antes posible.'},
-      {en:'The estimated arrival and tracking number are written in stardust.', es:'La llegada estimada y el número de rastreo están escritos en polvo de estrellas.'}
+      {en:'In the morning, dragons breathe fire; in the afternoon, they nap on clouds; in the evening, they fly to the stars; at night, they turn invisible.', es:'De mañana, los dragones respiran fuego; de tarde, duermen la siesta en las nubes; de noche, vuelan a las estrellas; a la noche, se vuelven invisibles.', pron:'in de mórning, drágons bríiz fáiar; in de afternúun, déi nap on cláuds; in de ívning, déi flái tu de stars; at náit, déi tern invísibol.'},
+      {en:'The package is never early or late — it teleports, delayed only by a black hole!', es:'¡El paquete nunca llega temprano ni tarde — se teletransporta, retrasado solo por un agujero negro!', pron:'de páckich is néver érli or léit — it télipórts, diléid óunli bái a blak jóul!'},
+      {en:'Around midnight, before the storm, and after the eclipse, it arrives, as soon as possible.', es:'Alrededor de medianoche, antes de la tormenta, y después del eclipse, llega, lo antes posible.', pron:'aráund mídnait, bifór de storm, and áfter de iclíps, it aráivs, as súun as pásibol.'},
+      {en:'The estimated arrival and tracking number are written in stardust.', es:'La llegada estimada y el número de rastreo están escritos en polvo de estrellas.', pron:'de éstimeited aráival and tráking námber arríten in stárdast.'}
+    ],
+    jingle:[
+      {en:'Morning, afternoon, evening, night!', es:'Mañana, tarde, noche, ¡anochecer!', pron:'mórning, afternúun, ívning, náit!'},
+      {en:'Early or late, hold on tight!', es:'Temprano o tarde, ¡agarrate fuerte!', pron:'érli or léit, jóuld on táit!'},
+      {en:'Before and after, around the bend!', es:'Antes y después, alrededor de la curva.', pron:'bifór and áfter, aráund de bend!'},
+      {en:'As soon as possible, tracking to the end!', es:'Lo antes posible, ¡rastreo hasta el final!', pron:'as súun as pásibol, tráking tu de end!'}
     ]
   },
 {
@@ -123,9 +147,15 @@ const curriculumUnidad3 = [
       {en:'overdue', es:'vencido', pron:'overdiú', emoji:'⚠️'}
     ],
     story:[
-      {en:'In January, dragons hatch; in February, wizards fly; in March, giants dance; in April, robots sing.', es:'En enero, nacen los dragones; en febrero, vuelan los magos; en marzo, bailan los gigantes; en abril, cantan los robots.'},
-      {en:'In May, June, and July, the castle floats higher; in August, September, and October, it spins backward!', es:'En mayo, junio y julio, el castillo flota más alto; ¡en agosto, septiembre y octubre, gira al revés!'},
-      {en:'In November and December, the treasure\'s due date arrives — if it is overdue, the dragon gets very, very hungry!', es:'En noviembre y diciembre, llega la fecha de vencimiento del tesoro — ¡si está vencido, el dragón se pone muy, muy hambriento!'}
+      {en:'In January, dragons hatch; in February, wizards fly; in March, giants dance; in April, robots sing.', es:'En enero, nacen los dragones; en febrero, vuelan los magos; en marzo, bailan los gigantes; en abril, cantan los robots.', pron:'in yánueri, drágons jach; in fébrueri, uísards flái; in march, yáiants dans; in éiprol, róubots sing.'},
+      {en:'In May, June, and July, the castle floats higher; in August, September, and October, it spins backward!', es:'En mayo, junio y julio, el castillo flota más alto; ¡en agosto, septiembre y octubre, gira al revés!', pron:'in méi, yúun, and yulái, de cásol flóuts jáier; in ógost, septémber, and octóuber, it spins bákuard!'},
+      {en:'In November and December, the treasure\'s due date arrives — if it is overdue, the dragon gets very, very hungry!', es:'En noviembre y diciembre, llega la fecha de vencimiento del tesoro — ¡si está vencido, el dragón se pone muy, muy hambriento!', pron:'in novémber and disémber, de tréshurs diú déit aráivs — if it is overdiú, de drágon guéts véri, véri jángri!'}
+    ],
+    jingle:[
+      {en:'January, February, March, and May!', es:'Enero, febrero, marzo, ¡y mayo!', pron:'yánueri, fébrueri, march, and méi!'},
+      {en:'June, July, August, hip hooray!', es:'Junio, julio, agosto, ¡hurra!', pron:'yúun, yulái, ógost, jip juréi!'},
+      {en:'September, October, November too!', es:'Septiembre, octubre, ¡noviembre también!', pron:'septémber, octóuber, novémber tú!'},
+      {en:'December, due date, overdue!', es:'Diciembre, fecha de vencimiento, ¡vencido!', pron:'disémber, diú déit, overdiú!'}
     ]
   },
 {
@@ -145,10 +175,16 @@ const curriculumUnidad3 = [
       {en:'grace period', es:'período de gracia', pron:'gréis píriod', emoji:'🕊️'}
     ],
     story:[
-      {en:"What's the date today? Today's date is written in the stars, in the year of the flying dragons!", es:'¿Qué fecha es hoy? ¡La fecha de hoy está escrita en las estrellas, en el año de los dragones voladores!'},
-      {en:'This magic month, and this legendary year, we agree on payment terms: net 30 dragon days.', es:'Este mes mágico, y este año legendario, acordamos condiciones de pago: a 30 días de dragón.'},
-      {en:'An upfront payment of one golden egg, then an installment every full moon, until the balance due is paid in full!', es:'¡Un pago por adelantado de un huevo dorado, luego una cuota en cada luna llena, hasta que el saldo pendiente esté pagado en su totalidad!'},
-      {en:'If the dragon needs more time, we grant an extension — a grace period of one thousand years!', es:'Si el dragón necesita más tiempo, le damos una prórroga — ¡un período de gracia de mil años!'}
+      {en:"What's the date today? Today's date is written in the stars, in the year of the flying dragons!", es:'¿Qué fecha es hoy? ¡La fecha de hoy está escrita en las estrellas, en el año de los dragones voladores!', pron:'uáts de déit tudéi? tudéis déit is ríten in de stars, in de íar of de fláing drágons!'},
+      {en:'This magic month, and this legendary year, we agree on payment terms: net 30 dragon days.', es:'Este mes mágico, y este año legendario, acordamos condiciones de pago: a 30 días de dragón.', pron:'dis máyic manz, and dis léyendari íar, uí agríi on péiment terms: net zérti drágon déis.'},
+      {en:'An upfront payment of one golden egg, then an installment every full moon, until the balance due is paid in full!', es:'¡Un pago por adelantado de un huevo dorado, luego una cuota en cada luna llena, hasta que el saldo pendiente esté pagado en su totalidad!', pron:'an apfrónt péiment of uán góulden eg, den an instólment évri ful múun, antíl de bálans diú is péid in ful!'},
+      {en:'If the dragon needs more time, we grant an extension — a grace period of one thousand years!', es:'Si el dragón necesita más tiempo, le damos una prórroga — ¡un período de gracia de mil años!', pron:'if de drágon níids mor táim, uí grant an exténshon — a gréis píriod of uán záusand íars!'}
+    ],
+    jingle:[
+      {en:"What's the date? Today's the day!", es:'¿Qué fecha es? ¡Hoy es el día!', pron:'uáts de déit? tudéis de déi!'},
+      {en:'Year and month, come what may!', es:'Año y mes, ¡pase lo que pase!', pron:'íar and manz, cam uát méi!'},
+      {en:'Payment terms, net 30, upfront!', es:'Condiciones de pago, a 30 días, ¡por adelantado!', pron:'péiment terms, net zérti, apfrónt!'},
+      {en:"Balance due, paid in full, that's what I want!", es:'Saldo pendiente, pagado en su totalidad, ¡eso quiero!', pron:'bálans diú, péid in ful, dats uát ái uánt!'}
     ]
   },
 {
@@ -167,9 +203,15 @@ const curriculumUnidad3 = [
       {en:'probably', es:'probablemente', pron:'prábabli', emoji:'🤔'}
     ],
     story:[
-      {en:'Let me see... hold on, give me a second, dragon!', es:'Déjame ver... esperá, dame un segundo, ¡dragón!'},
-      {en:'That works! But that does not work — it makes sense to a wizard, though.', es:'¡Eso funciona! Pero eso no funciona — aunque tiene sentido para un mago.'},
-      {en:'I agree with the giant, but I disagree with the robot. Maybe, definitely, probably — who knows!', es:'Estoy de acuerdo con el gigante, pero no estoy de acuerdo con el robot. Tal vez, definitivamente, probablemente — ¡quién sabe!'}
+      {en:'Let me see... hold on, give me a second, dragon!', es:'Déjame ver... esperá, dame un segundo, ¡dragón!', pron:'let mi síi... jóuld on, guiv mi a sécond, drágon!'},
+      {en:'That works! But that does not work — it makes sense to a wizard, though.', es:'¡Eso funciona! Pero eso no funciona — aunque tiene sentido para un mago.', pron:'dat uorks! bat dat das nat uork — it méiks sens tu a uísard, dóu.'},
+      {en:'I agree with the giant, but I disagree with the robot. Maybe, definitely, probably — who knows!', es:'Estoy de acuerdo con el gigante, pero no estoy de acuerdo con el robot. Tal vez, definitivamente, probablemente — ¡quién sabe!', pron:'ái agríi uid de yáiant, bat ái disagríi uid de róubot. méibi, défenitli, prábabli — jú nóus!'}
+    ],
+    jingle:[
+      {en:'Let me see, hold on, give me a sec!', es:'Déjame ver, esperá, ¡dame un segundo!', pron:'let mi síi, jóuld on, guiv mi a sek!'},
+      {en:"That works, or maybe that's a wreck!", es:'Eso funciona, o tal vez ¡es un desastre!', pron:'dat uorks, or méibi dats a rek!'},
+      {en:'I agree, I disagree, makes sense to me!', es:'Estoy de acuerdo, no estoy de acuerdo, ¡tiene sentido para mí!', pron:'ái agríi, ái disagríi, méiks sens tu mi!'},
+      {en:"Maybe, definitely, probably we'll see!", es:'Tal vez, definitivamente, probablemente ¡veremos!', pron:'méibi, défenitli, prábabli uíl síi!'}
     ]
   },
 {
@@ -191,10 +233,16 @@ const curriculumUnidad3 = [
       {en:'waiting list', es:'lista de espera', pron:'uéiting list', emoji:'📋'}
     ],
     story:[
-      {en:'The first dragon won the race, the second was a flying whale, and the third, a giant snail!', es:'¡El primer dragón ganó la carrera, el segundo fue una ballena voladora, y el tercero, un caracol gigante!'},
-      {en:'The fourth and fifth place went to invisible ninjas. Who is next? Who is last?', es:'El cuarto y quinto lugar fueron para ninjas invisibles. ¿Quién sigue? ¿Quién es el último?'},
-      {en:'This order is top priority — urgent, urgent, urgent! Check the ranking of our best seller!', es:'¡Este pedido es máxima prioridad — urgente, urgente, urgente! ¡Revisá la clasificación de nuestro más vendido!'},
-      {en:'Our preferred supplier is a thousand-year-old wizard, and the waiting list has thirty thousand dragons!', es:'Nuestro proveedor preferido es un mago de mil años, ¡y la lista de espera tiene treinta mil dragones!'}
+      {en:'The first dragon won the race, the second was a flying whale, and the third, a giant snail!', es:'¡El primer dragón ganó la carrera, el segundo fue una ballena voladora, y el tercero, un caracol gigante!', pron:'de ferst drágon uán de réis, de sécond uas a fláing uéil, and de zerd, a yáiant snéil!'},
+      {en:'The fourth and fifth place went to invisible ninjas. Who is next? Who is last?', es:'El cuarto y quinto lugar fueron para ninjas invisibles. ¿Quién sigue? ¿Quién es el último?', pron:'de forz and fifz pléis uént tu invísibol ninchas. jú is next? jú is last?'},
+      {en:'This order is top priority — urgent, urgent, urgent! Check the ranking of our best seller!', es:'¡Este pedido es máxima prioridad — urgente, urgente, urgente! ¡Revisá la clasificación de nuestro más vendido!', pron:'dis órder is tap praióriti — érchent, érchent, érchent! chek de ránking of áur best séler!'},
+      {en:'Our preferred supplier is a thousand-year-old wizard, and the waiting list has thirty thousand dragons!', es:'Nuestro proveedor preferido es un mago de mil años, ¡y la lista de espera tiene treinta mil dragones!', pron:'áur priférd sapláier is a záusand íar óuld uísard, and de uéiting list jas zérti záusand drágons!'}
+    ],
+    jingle:[
+      {en:'First, second, third in line!', es:'Primero, segundo, tercero en la fila.', pron:'ferst, sécond, zerd in láin!'},
+      {en:'Fourth and fifth, all so fine!', es:'Cuarto y quinto, ¡todos tan bien!', pron:'forz and fifz, ol sóu fáin!'},
+      {en:'Top priority, urgent today!', es:'Máxima prioridad, ¡urgente hoy!', pron:'tap praióriti, érchent tudéi!'},
+      {en:'Best seller, waiting list, hooray!', es:'Más vendido, lista de espera, ¡hurra!', pron:'best séler, uéiting list, juréi!'}
     ]
   },
 {
@@ -216,11 +264,17 @@ const curriculumUnidad3 = [
       {en:'wire transfer', es:'transferencia electrónica', pron:'uáier tránsfer', emoji:'💻'}
     ],
     story:[
-      {en:'Dragons do not carry money — they hoard mountains of cash instead!', es:'¡Los dragones no llevan dinero — en cambio, acumulan montañas de efectivo!'},
-      {en:'Do you accept bank transfer, credit card, debit card, or only ancient magic checks?', es:'¿Aceptan transferencia bancaria, tarjeta de crédito, tarjeta de débito, o solo cheques mágicos antiguos?'},
-      {en:'Here is your receipt, and here is your change — one shiny star coin!', es:'Acá tenés tu recibo, ¡y acá tu vuelto — una moneda de estrella brillante!'},
-      {en:'The currency exchange rate between dragon gold and wizard silver changes every full moon.', es:'El tipo de cambio entre el oro de dragón y la plata de mago cambia con cada luna llena.'},
-      {en:'To pay, to charge, or to request a refund — the flying bank handles it all by wire transfer!', es:'¡Pagar, cobrar, o pedir un reembolso — el banco volador se encarga de todo por transferencia electrónica!'}
+      {en:'Dragons do not carry money — they hoard mountains of cash instead!', es:'¡Los dragones no llevan dinero — en cambio, acumulan montañas de efectivo!', pron:'drágons du nat cári máni — déi jord máuntains of cash instéd!'},
+      {en:'Do you accept bank transfer, credit card, debit card, or only ancient magic checks?', es:'¿Aceptan transferencia bancaria, tarjeta de crédito, tarjeta de débito, o solo cheques mágicos antiguos?', pron:'du iú axépt bank tránsfer, crédit card, débit card, or óunli éinshent máyic cheks?'},
+      {en:'Here is your receipt, and here is your change — one shiny star coin!', es:'Acá tenés tu recibo, ¡y acá tu vuelto — una moneda de estrella brillante!', pron:'jíar is iór risíit, and jíar is iór chéinch — uán sháini star cóin!'},
+      {en:'The currency exchange rate between dragon gold and wizard silver changes every full moon.', es:'El tipo de cambio entre el oro de dragón y la plata de mago cambia con cada luna llena.', pron:'de kárensi exchéinch réit bituín drágon góuld and uísard sílver chéinches évri ful múun.'},
+      {en:'To pay, to charge, or to request a refund — the flying bank handles it all by wire transfer!', es:'¡Pagar, cobrar, o pedir un reembolso — el banco volador se encarga de todo por transferencia electrónica!', pron:'tu péi, tu charch, or tu rikuést a rífand — de fláing bank jándols it ol bái uáier tránsfer!'}
+    ],
+    jingle:[
+      {en:'Money, cash, bank transfer too!', es:'Dinero, efectivo, ¡transferencia también!', pron:'máni, cash, bank tránsfer tú!'},
+      {en:"Credit card, debit card, it's true!", es:'Tarjeta de crédito, tarjeta de débito, ¡es verdad!', pron:'crédit card, débit card, its trú!'},
+      {en:'Check, receipt, and my change!', es:'Cheque, recibo, ¡y mi vuelto!', pron:'chek, risíit, and mái chéinch!'},
+      {en:"To pay, to charge, refund's the range!", es:'Pagar, cobrar, ¡reembolso es el rango!', pron:'tu péi, tu charch, rífands de réinch!'}
     ]
   },
 {
@@ -241,10 +295,16 @@ const curriculumUnidad3 = [
       {en:'deal closed', es:'trato cerrado', pron:'díil clóusd', emoji:'✅'}
     ],
     story:[
-      {en:'I want to buy a thousand dragon eggs, and you want to sell a million!', es:'¡Quiero comprar mil huevos de dragón, y vos querés vender un millón!'},
-      {en:"Let's purchase in bulk — a bulk order gets the lowest price, wholesale, not retail!", es:'¡Compremos al por mayor — un pedido al por mayor consigue el precio más bajo, mayorista, no minorista!'},
-      {en:'Our margin is huge, our profit is a mountain of gold, and our loss is zero — we always win!', es:'Nuestro margen es enorme, nuestra ganancia es una montaña de oro, ¡y nuestra pérdida es cero — siempre ganamos!'},
-      {en:'This is my final offer, dragon — deal closed!', es:'Esta es mi oferta final, dragón — ¡trato cerrado!'}
+      {en:'I want to buy a thousand dragon eggs, and you want to sell a million!', es:'¡Quiero comprar mil huevos de dragón, y vos querés vender un millón!', pron:'ái uánt tu bái a záusand drágon egs, and iú uánt tu sel a mílion!'},
+      {en:"Let's purchase in bulk — a bulk order gets the lowest price, wholesale, not retail!", es:'¡Compremos al por mayor — un pedido al por mayor consigue el precio más bajo, mayorista, no minorista!', pron:'lets pérchas in balk — a balk órder guéts de lóuest práis, jóulseil, nat ríiteil!'},
+      {en:'Our margin is huge, our profit is a mountain of gold, and our loss is zero — we always win!', es:'Nuestro margen es enorme, nuestra ganancia es una montaña de oro, ¡y nuestra pérdida es cero — siempre ganamos!', pron:'áur márchin is jiúch, áur práfit is a máuntain of góuld, and áur los is zírou — uí ólueis uín!'},
+      {en:'This is my final offer, dragon — deal closed!', es:'Esta es mi oferta final, dragón — ¡trato cerrado!', pron:'dis is mái fáinal áfer, drágon — díil clóusd!'}
+    ],
+    jingle:[
+      {en:'To buy, to sell, to purchase too!', es:'Comprar, vender, ¡adquirir también!', pron:'tu bái, tu sel, tu pérchas tú!'},
+      {en:'Lowest price, wholesale for you!', es:'Precio más bajo, ¡al por mayor para vos!', pron:'lóuest práis, jóulseil for iú!'},
+      {en:'Margin, profit, never a loss!', es:'Margen, ganancia, ¡nunca una pérdida!', pron:'márchin, práfit, néver a los!'},
+      {en:"Final offer, deal closed, I'm the boss!", es:'Oferta final, trato cerrado, ¡soy el jefe!', pron:'fáinal áfer, díil clóusd, áim de bos!'}
     ]
   },
 {
@@ -266,11 +326,17 @@ const curriculumUnidad3 = [
       {en:'pallet', es:'tarima', pron:'pálet', emoji:'🪵'}
     ],
     story:[
-      {en:'This dragon egg weighs a hundred kilograms, but that tiny one is only one gram!', es:'¡Este huevo de dragón pesa cien kilogramos, pero ese pequeñito pesa solo un gramo!'},
-      {en:"The wizard's potion needs a thousand liters of moonlight, poured across a meter of stardust!", es:'¡La poción del mago necesita mil litros de luz de luna, vertida a lo largo de un metro de polvo de estrellas!'},
-      {en:'Every centimeter and every inch of this castle is made of solid gold.', es:'Cada centímetro y cada pulgada de este castillo está hecho de oro sólido.'},
-      {en:'The giant\'s weight is impossible to measure, but his length, width, and height reach the clouds!', es:'¡El peso del gigante es imposible de medir, pero su longitud, ancho y altura llegan hasta las nubes!'},
-      {en:'We need one pack of dragon scales, and an entire pallet of magic feathers!', es:'Necesitamos un paquete de escamas de dragón, ¡y una tarima entera de plumas mágicas!'}
+      {en:'This dragon egg weighs a hundred kilograms, but that tiny one is only one gram!', es:'¡Este huevo de dragón pesa cien kilogramos, pero ese pequeñito pesa solo un gramo!', pron:'dis drágon eg uéis a jándred kílograms, bat dat táini uán is óunli uán gram!'},
+      {en:"The wizard's potion needs a thousand liters of moonlight, poured across a meter of stardust!", es:'¡La poción del mago necesita mil litros de luz de luna, vertida a lo largo de un metro de polvo de estrellas!', pron:'de uísards póushon níids a záusand líiters of múunlait, pórd acrós a míiter of stárdast!'},
+      {en:'Every centimeter and every inch of this castle is made of solid gold.', es:'Cada centímetro y cada pulgada de este castillo está hecho de oro sólido.', pron:'évri séntimiter and évri inch of dis cásol is méid of sálid góuld.'},
+      {en:'The giant\'s weight is impossible to measure, but his length, width, and height reach the clouds!', es:'¡El peso del gigante es imposible de medir, pero su longitud, ancho y altura llegan hasta las nubes!', pron:'de yáiants uéit is impásibol tu méshur, bat jis lenz, uídz, and jáit ríich de cláuds!'},
+      {en:'We need one pack of dragon scales, and an entire pallet of magic feathers!', es:'Necesitamos un paquete de escamas de dragón, ¡y una tarima entera de plumas mágicas!', pron:'uí níid uán pak of drágon skéils, and an entáier pálet of máyic féders!'}
+    ],
+    jingle:[
+      {en:'Kilogram, gram, liter too!', es:'Kilogramo, gramo, ¡litro también!', pron:'kílogram, gram, líiter tú!'},
+      {en:"Meter, centimeter, inch, it's true!", es:'Metro, centímetro, pulgada, ¡es verdad!', pron:'míiter, séntimiter, inch, its trú!'},
+      {en:'Weight and length, width and height!', es:'Peso y longitud, ancho y altura.', pron:'uéit and lenz, uídz and jáit!'},
+      {en:'Pack and pallet, feeling light!', es:'Paquete y tarima, ¡sintiéndome liviano!', pron:'pak and pálet, fíiling láit!'}
     ]
   },
 {
@@ -286,10 +352,16 @@ const curriculumUnidad3 = [
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
-      {en:"Welcome to unit three's final challenge, brave hero — strong progress so far!", es:'Bienvenido al desafío final de la unidad tres, valiente héroe — ¡buen progreso hasta ahora!'},
-      {en:'It is review time! Are you ready for one more legendary test?', es:'¡Es hora de repasar! ¿Estás listo para una prueba legendaria más?'},
-      {en:'Well earned, champion — I am so proud of you!', es:'Bien merecido, campeón — ¡estoy muy orgulloso de vos!'},
-      {en:'See you in unit four, where new dragons and greater treasures await!', es:'¡Nos vemos en la unidad cuatro, donde te esperan nuevos dragones y tesoros más grandes!'}
+      {en:"Welcome to unit three's final challenge, brave hero — strong progress so far!", es:'Bienvenido al desafío final de la unidad tres, valiente héroe — ¡buen progreso hasta ahora!', pron:'uélcam tu iúnit zríis fáinal chálench, bréiv jírou — strong prágres sóu far!'},
+      {en:'It is review time! Are you ready for one more legendary test?', es:'¡Es hora de repasar! ¿Estás listo para una prueba legendaria más?', pron:'it is riviú táim! ar iú rédi for uán mor léyendari test?'},
+      {en:'Well earned, champion — I am so proud of you!', es:'Bien merecido, campeón — ¡estoy muy orgulloso de vos!', pron:'uél érnd, chámpion — ái am sóu práud of iú!'},
+      {en:'See you in unit four, where new dragons and greater treasures await!', es:'¡Nos vemos en la unidad cuatro, donde te esperan nuevos dragones y tesoros más grandes!', pron:'síi iú in iúnit fóar, uér niú drágons and gréiter tréshurs auéit!'}
+    ],
+    jingle:[
+      {en:'Unit three, strong progress today!', es:'Unidad tres, ¡buen progreso hoy!', pron:'iúnit zríi, strong prágres tudéi!'},
+      {en:'Review time, final challenge, hooray!', es:'Hora de repasar, desafío final, ¡hurra!', pron:'riviú táim, fáinal chálench, juréi!'},
+      {en:'Well earned, proud of you, my friend!', es:'Bien merecido, orgulloso de vos, ¡mi amigo!', pron:'uél érnd, práud of iú, mái frend!'},
+      {en:'See you in unit four, till we meet again!', es:'Nos vemos en la unidad cuatro, ¡hasta que nos volvamos a encontrar!', pron:'síi iú in iúnit fóar, til uí míit aguén!'}
     ]
   }
 ];
