@@ -162,6 +162,16 @@
   .song-player{background:rgba(176,141,87,.12); border:1px solid rgba(176,141,87,.4); border-radius:10px; padding:12px 14px; margin-bottom:14px;}
   .song-player span{font-size:14px; color:var(--en); font-weight:600;}
   .song-player audio{height:36px;}
+  .song-lyrics{margin-top:14px; max-height:340px; overflow-y:auto; padding-right:4px;}
+  .song-lyrics .lyric-line{padding:8px 10px; border-radius:8px; margin-bottom:6px; transition:background .2s;}
+  .song-lyrics .lyric-line.current{background:rgba(176,141,87,.22);}
+  .song-lyrics .lyric-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
+  .song-lyrics .lyric-es{font-size:13px; color:var(--es); margin-top:2px;}
+  .task-example-box{background:rgba(79,182,232,.08); border:1px dashed rgba(79,182,232,.4); border-radius:10px; padding:12px 16px; margin:10px 0 16px;}
+  .task-example-title{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;}
+  .task-example-content .ex-line{margin-bottom:8px;}
+  .task-example-content .ex-en{color:var(--en); font-family:'Fraunces',serif; font-size:17px;}
+  .task-example-content .ex-es{color:var(--es); font-size:13px; margin-top:2px;}
   .peek-box{
     margin-top:10px; padding:14px 18px; border-radius:10px;
     background:rgba(79,182,232,.12); border:1px solid rgba(79,182,232,.4);
@@ -257,10 +267,15 @@
         <div class="song-player" id="songPlayer" style="display:none;">
           <span id="songPlayerLabel">🎶 Escuchá la canción completa</span>
           <audio id="songAudio" controls style="width:100%; margin-top:8px;"></audio>
+          <div class="song-lyrics" id="songLyrics"></div>
         </div>
         <div class="illus" id="illus">🧑‍🤝‍🧑</div>
         <div class="line" id="line"></div>
         <div class="hint" id="hint"></div>
+        <div class="task-example-box" id="taskExampleBox" style="display:none;">
+          <div class="task-example-title">💡 Así se combinan, mirá el ejemplo:</div>
+          <div id="taskExampleContent"></div>
+        </div>
         <div class="phrase-selection-panel" id="phraseSelectionPanel" style="display:none;">
           <span id="phraseSelectionText"></span>
           <div class="actions">

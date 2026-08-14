@@ -50,6 +50,8 @@ const curriculumUnidad1 = [
   },
 {
     day:2, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Presentarte / Presentarte a un cliente',
+    songJingle:'cancion-dia2-vocabulario.mp3',
+    songStory:'cancion-dia2-historia.mp3',
     words:[
       {en:'my name is', es:'me llamo', pron:'mai néim is', emoji:'🙋'},
       {en:"what's your name", es:'cómo te llamas', pron:'uáts iór néim', emoji:'❓'},

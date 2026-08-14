@@ -267,6 +267,26 @@ const contrastBank = [
   { a:{en:'I already finished.', es:'ya terminé (con énfasis)'}, b:{en:'I just finished.', es:'recién terminé (hace un momento)'} },
   { a:{en:'A few people came.', es:'vino alguna gente (algunos, positivo)'}, b:{en:'Few people came.', es:'vino poca gente (casi nadie)'} }
 ];
+// Rephrasing: una frase simple y su versión más elegante, mismo significado —
+// se adquiere por exposición repetida, igual que los pares de contraste.
+const rephraseIntro = [{t:'Ahora un "rephrasing": la misma idea, dicha de una forma más elegante. Escuchá primero la versión simple, después la versión más pulida — repetí y escribí las dos.',lang:'es'}];
+const rephraseBank = [
+  { simple:{en:'I like it.', es:'me gusta (simple)'}, elegant:{en:'I really appreciate it.', es:'lo aprecio mucho (más elegante)'} },
+  { simple:{en:'Can you help me?', es:'¿me podés ayudar? (simple)'}, elegant:{en:'Would you be able to assist me?', es:'¿serías capaz de asistirme? (más formal)'} },
+  { simple:{en:"I don't know.", es:'no sé (simple)'}, elegant:{en:"I'm not entirely sure.", es:'no estoy del todo seguro (más suave)'} },
+  { simple:{en:"It's expensive.", es:'es caro (simple)'}, elegant:{en:"It's quite costly.", es:'resulta bastante costoso (más elegante)'} },
+  { simple:{en:'I want to buy this.', es:'quiero comprar esto (simple)'}, elegant:{en:"I'd like to purchase this.", es:'me gustaría adquirir esto (más formal)'} },
+  { simple:{en:'Call me later.', es:'llamame después (simple)'}, elegant:{en:'Please give me a call at your convenience.', es:'por favor llamame cuando te sea posible (más cortés)'} },
+  { simple:{en:"That's a good idea.", es:'es una buena idea (simple)'}, elegant:{en:'That sounds like an excellent idea.', es:'suena como una excelente idea (más entusiasta)'} },
+  { simple:{en:'I need more time.', es:'necesito más tiempo (simple)'}, elegant:{en:'I could use a bit more time, if possible.', es:'me vendría bien un poco más de tiempo, si es posible (más suave)'} },
+  { simple:{en:'Send me the file.', es:'mandame el archivo (simple)'}, elegant:{en:'Could you please send over the file?', es:'¿podrías enviarme el archivo, por favor? (más cortés)'} },
+  { simple:{en:"It's not working.", es:'no funciona (simple)'}, elegant:{en:"It doesn't seem to be working properly.", es:'parece que no está funcionando bien (más matizado)'} },
+  { simple:{en:"I'm busy today.", es:'estoy ocupado hoy (simple)'}, elegant:{en:'I have a full schedule today.', es:'tengo la agenda completa hoy (más profesional)'} },
+  { simple:{en:'Thanks for your help.', es:'gracias por tu ayuda (simple)'}, elegant:{en:'I really appreciate your assistance.', es:'aprecio mucho tu asistencia (más formal)'} },
+  { simple:{en:'I agree.', es:'estoy de acuerdo (simple)'}, elegant:{en:'I completely agree with that.', es:'estoy completamente de acuerdo con eso (más enfático)'} },
+  { simple:{en:'Sorry, I was late.', es:'perdón, llegué tarde (simple)'}, elegant:{en:'I apologize for the delay.', es:'me disculpo por la demora (más formal)'} },
+  { simple:{en:'This is a problem.', es:'esto es un problema (simple)'}, elegant:{en:'This presents a bit of a challenge.', es:'esto presenta un pequeño desafío (más diplomático)'} }
+];
 // Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
 const weeklyStories = {
   6: [
@@ -367,6 +387,19 @@ const weeklyStories = {
 const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escuchá cada frase, repetila, y escribila — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
 const weeklyStoryIntro = [{t:'Antes de terminar, una historia más larga con todo lo que repasaste esta semana de estudio.',lang:'es'}];
 const jingleIntro = [{t:'Para cerrar, un jinglecito pegajoso con lo de hoy — como una publicidad que se te queda en la cabeza. Escuchalo, repetilo, y si querés, grabate "cantándolo" a tu manera.',lang:'es'}];
+const milestoneIntro = [{t:'¡Llegaste a un hito! Antes de cerrar este bloque de 24 días, un repaso más exigente — combinando lo que aprendiste en todo este mes de estudio, no solo hoy.',lang:'es'}];
+// Toma una palabra representativa de cada uno de los 24 días del bloque que termina en dayNumber, para el examen de hito.
+function sampleMilestoneWords(dayNumber){
+  const startDay = dayNumber - 23;
+  const days = curriculum.filter(d=>d.day>=startDay && d.day<=dayNumber);
+  const sample = [];
+  days.forEach(d=>{
+    if(d.words && d.words.length){
+      sample.push(d.words[Math.floor(d.words.length/2)]);
+    }
+  });
+  return sample;
+}
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
 function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle){
@@ -377,6 +410,10 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
   if(dayNumber >= 3){
     const pair = contrastBank[(dayNumber-3) % contrastBank.length];
     scr.push({ kind:'sequence', segs:contrastIntro, emoji:'🔬', words:[pair.a, pair.b], contrastPair:true });
+  }
+  if(dayNumber >= 5){
+    const rp = rephraseBank[(dayNumber-5) % rephraseBank.length];
+    scr.push({ kind:'sequence', segs:rephraseIntro, emoji:'✨', words:[rp.simple, rp.elegant], isRephrase:true });
   }
   let recent = [];
   bank.forEach((w,i)=>{
@@ -394,6 +431,8 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
   });
   if(dayStory && dayStory.length){
     scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true, isDailyStory:true });
+    const dictLine = dayStory[dayStory.length-1];
+    scr.push({ kind:'dictation', dictEn:dictLine.en, dictEs:dictLine.es });
   }
   if(dayJingle && dayJingle.length){
     scr.push({ kind:'sequence', segs:jingleIntro, emoji:'🎵', words:dayJingle, isStory:true, isJingle:true });
@@ -401,7 +440,14 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
   if(weeklyStories[dayNumber]){
     scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true, isWeeklyStory:true });
   }
-  scr.push({ kind:'task', theme:theme });
+  scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [] });
+  if(dayNumber % 24 === 0){
+    const milestoneWords = sampleMilestoneWords(dayNumber);
+    if(milestoneWords.length){
+      scr.push({ kind:'sequence', segs:milestoneIntro, emoji:'🏆', words:milestoneWords, isMilestone:true });
+      scr.push({ kind:'task', theme:'hito', isMilestoneTask:true });
+    }
+  }
   scr.push({ kind:'end' });
   return scr;
 }
@@ -550,28 +596,46 @@ function loadTurn(){
   const turn=script[idx];
   reviewBanner.classList.remove('show');
   if(turn.kind==='end'){ startEvaluation(); return; }
+  if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='task' && !turn.segs){
-    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
-    turn.emoji = '🎯';
+    if(turn.isMilestoneTask){
+      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
+      turn.emoji = '🏆';
+    } else {
+      turn.segs = [{t:'Ahora te toca a vos: mirá el ejemplo de abajo, y después armá tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
+      turn.emoji = '🎯';
+    }
   }
   if(turn.crossDay){ crossTag.style.display='block'; crossTag.textContent='🔁 REPASO DE UN DÍA ANTERIOR'; }
   else if(turn.contrastPair){ crossTag.style.display='block'; crossTag.textContent='🔬 PATRÓN DEL IDIOMA'; }
+  else if(turn.isRephrase){ crossTag.style.display='block'; crossTag.textContent='✨ DICHO DE FORMA MÁS ELEGANTE'; }
   else if(turn.isJingle){ crossTag.style.display='block'; crossTag.textContent='🎵 JINGLE DEL DÍA'; }
   else if(turn.isDailyStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
   else if(turn.isWeeklyStory){ crossTag.style.display='block'; crossTag.textContent='📚 HISTORIA DE LA SEMANA'; }
+  else if(turn.isMilestone){ crossTag.style.display='block'; crossTag.textContent='🏆 EXAMEN DE HITO — 24 DÍAS'; }
   else { crossTag.style.display='none'; }
-  const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio');
+  const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio'), songLyrics=document.getElementById('songLyrics');
   const songFile = turn.isJingle ? (currentDay && currentDay.songJingle) : (turn.isDailyStory ? (currentDay && currentDay.songStory) : null);
   if(songFile){
     songPlayer.style.display='block';
-    songPlayerLabel.textContent = turn.isJingle ? '🎶 Escuchá el jingle real, cantado' : '🎶 Escuchá la historia real, cantada';
+    songPlayerLabel.textContent = turn.isJingle ? '🎶 Escuchá el jingle real, cantado — seguí la letra' : '🎶 Escuchá la historia real, cantada — seguí la letra';
     if(songAudio.getAttribute('src') !== songFile){ songAudio.src = songFile; }
+    const lyricLines = turn.words || [];
+    songLyrics.innerHTML = lyricLines.map((l,i)=>
+      '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+l.en+'</div><div class="lyric-es">'+l.es+'</div></div>'
+    ).join('');
+    songAudio.ontimeupdate = ()=>{
+      if(!songAudio.duration || !lyricLines.length) return;
+      const activeIdx = Math.min(lyricLines.length-1, Math.floor((songAudio.currentTime/songAudio.duration)*lyricLines.length));
+      songLyrics.querySelectorAll('.lyric-line').forEach((el,i)=>{ el.classList.toggle('current', i===activeIdx); });
+    };
   } else {
     songPlayer.style.display='none';
     songAudio.pause(); songAudio.removeAttribute('src'); songAudio.load();
+    songLyrics.innerHTML='';
   }
-  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
-  appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
+  speakerLabel.textContent='TU TUTOR'; modeChip.style.display='none'; hintEl.textContent=''; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; document.getElementById('taskExampleBox').style.display='none'; wordSelectStart=null;
+  appControls.style.display='flex'; playBtn.style.display=''; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
   illusEl.textContent=turn.emoji||'💬';
   setSegs(lineEl, turn.segs);
@@ -595,7 +659,16 @@ function afterIntro(turn){
     return;
   }
   if(turn.kind==='task'){
-    speakerLabel.textContent='TAREA LIVIANA';
+    speakerLabel.textContent = turn.isMilestoneTask ? 'DESAFÍO DE HITO' : 'TAREA LIVIANA';
+    const exBox=document.getElementById('taskExampleBox'), exContent=document.getElementById('taskExampleContent');
+    if(turn.exampleLines && turn.exampleLines.length){
+      exContent.innerHTML = turn.exampleLines.map(l=>
+        '<div class="ex-line"><div class="ex-en">"'+l.en+'"</div><div class="ex-es">'+l.es+'</div></div>'
+      ).join('');
+      exBox.style.display='block';
+    } else {
+      exBox.style.display='none';
+    }
     let spokenDone=false;
     userControls.style.display='flex';
     micBtn.onclick=()=>startListening(res=>{
@@ -622,6 +695,55 @@ function afterIntro(turn){
   runWordChallenge();
 }
 
+// ================= Dictado: se escucha, sin ver el texto, y se escribe a ciegas =================
+async function speakHidden(text){
+  await ensureVoices();
+  return new Promise(resolve=>{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US';
+    if(cachedVoices){ const v=pickVoice(cachedVoices,'en'); if(v) u.voice=v; }
+    u.onend=()=>resolve(); u.onerror=()=>resolve();
+    speechSynthesis.speak(u);
+  });
+}
+function runDictation(turn){
+  crossTag.style.display='block'; crossTag.textContent='🎧 DICTADO — ESCRIBÍ LO QUE ESCUCHÁS';
+  speakerLabel.textContent='DICTADO'; modeChip.style.display='none';
+  document.getElementById('taskExampleBox').style.display='none';
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  document.getElementById('songPlayer').style.display='none';
+  peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
+  illusEl.textContent='🎧';
+  hintEl.textContent='No hay pista visual esta vez — escuchá con atención, las veces que necesites, y escribí exactamente lo que entendiste.';
+  lineEl.innerHTML=''; lineEl.textContent='🔒 El texto está oculto hasta que respondas.';
+  appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí en inglés lo que escuchaste...'; typeInput.focus();
+  playBtn.style.display='none';
+  let listenBtn = document.getElementById('dictListenBtn');
+  if(!listenBtn){
+    listenBtn = document.createElement('button');
+    listenBtn.className='mic'; listenBtn.id='dictListenBtn';
+    typeRow.parentNode.insertBefore(listenBtn, typeRow);
+  }
+  listenBtn.textContent='🔊 Escuchar la frase';
+  listenBtn.style.display='inline-flex';
+  listenBtn.onclick=async ()=>{ listenBtn.disabled=true; await speakHidden(turn.dictEn); listenBtn.disabled=false; };
+  sendBtn.onclick=()=>{
+    const said = typeInput.value.trim();
+    if(!said) return;
+    addTranscript('VOS (dictado)', said, 'user');
+    const correct = normalize(said)===normalize(turn.dictEn);
+    typeRow.style.display='none'; listenBtn.style.display='none';
+    lineEl.innerHTML=''; setSegs(lineEl, [{t:turn.dictEn, lang:'en'}]);
+    hintEl.textContent='Significa: "'+turn.dictEs+'"';
+    feedback.classList.add('show', correct?'ok':'retry');
+    feedback.textContent = correct ? '✓ ¡Perfecto, coincide exactamente!' : '✗ No coincidió del todo — mirá arriba cómo era realmente, y compará con lo que escribiste.';
+    nextControls.style.display='flex';
+  };
+  nextBtn.onclick=()=>{ idx++; loadTurn(); };
+}
+
 function runWordChallenge(){
   if(wqIndex >= wordQueue.length){
     if(evalMode){ finishEvaluation(); return; }
@@ -636,7 +758,7 @@ function runWordChallenge(){
   hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="pron-hint">· tocá cualquier palabra para reescucharla sola</span>' : '');
   const segs = [{t:w.en,lang:'en'}]; // siempre una sola frase completa, para que la voz salga fluida
   illusEl.textContent='💬';
-  appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
+  appControls.style.display='flex'; playBtn.style.display=''; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show'); playBtn.disabled=false;
   if(currentTurnIsStory){ renderStoryLine(lineEl, w.en); } else { setSegs(lineEl, segs); }
   playBtn.onclick=async ()=>{
@@ -976,8 +1098,13 @@ function enterReview(i){
   reviewBanner.classList.add('show');
   const turn=script[i];
   if(turn.kind==='task' && !turn.segs){
-    turn.segs = [{t:'Antes de cerrar, un pequeño desafío real: usá al menos una palabra de hoy en una frase tuya, pensando en esta situación de la lección: "'+(turn.theme||'lo que aprendiste hoy')+'". Contámela como si la estuvieras usando de verdad — hablada, y después escrita.',lang:'es'}];
-    turn.emoji = '🎯';
+    if(turn.isMilestoneTask){
+      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
+      turn.emoji = '🏆';
+    } else {
+      turn.segs = [{t:'Ahora te toca a vos: mirá el ejemplo de abajo, y después armá tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
+      turn.emoji = '🎯';
+    }
   }
   if(turn.kind==='end' && !turn.segs){
     turn.segs = [{t:'Este es el cierre de la lección: acá se hace la evaluación final con todo el vocabulario del día. No hay nada más para repasar en este punto — elegí otro segmento de la barra.',lang:'es'}];
@@ -985,7 +1112,7 @@ function enterReview(i){
   }
   speakerLabel.textContent='REPASO'; modeChip.style.display='none';
   illusEl.textContent=turn.emoji||'💬';
-  appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  appControls.style.display='flex'; playBtn.style.display=''; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
   setSegs(lineEl, turn.segs);
   hintEl.textContent = turn.kind==='single' ? ('Palabra: '+turn.newWord.en+' — '+turn.newWord.es) : (turn.kind==='sequence' ? ('Palabras: '+turn.words.map(w=>w.en).join(', ')) : '');
   playBtn.onclick=async ()=>{ await speakSegs(turn.segs, lineEl); };
