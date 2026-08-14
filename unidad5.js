@@ -16,6 +16,19 @@ const curriculumUnidad5 = [
       {en:'attached', es:'adjunto', pron:'atácht', emoji:'📎'},
       {en:'proposal', es:'propuesta', pron:'propóusal', emoji:'📋'},
       {en:'valid until', es:'válido hasta', pron:'válid antíl', emoji:'⏳'}
+    ],
+    story:[
+      {en:'Let me try on this magic armor — does it fit, or is it too big?', es:'Dejame probarme esta armadura mágica — ¿me queda bien, o es muy grande?', pron:'let mi trái on dis máyic ármor — das it fit, or is it tu big?'},
+      {en:"It's too small! Do you have a bigger size, sales assistant?", es:'¡Es muy chica! ¿Tenés una talla más grande, vendedor?', pron:'its tu smol! du iú jav a bíguer sáis, séils asístant?'},
+      {en:'Welcome to the Dragon Store, the best shop in the kingdom!', es:'¡Bienvenido a la Tienda del Dragón, la mejor tienda del reino!', pron:'uélcam tu de drágon stóar, de best shap in de kíngdom!'},
+      {en:'Here is your formal quote, attached to this magic scroll.', es:'Acá tenés tu cotización formal, adjunta en este pergamino mágico.', pron:'jíar is iór fórmal cuóut, atácht tu dis máyic scról.'},
+      {en:'This proposal is valid until the next full moon!', es:'¡Esta propuesta es válida hasta la próxima luna llena!', pron:'dis propóusal is válid antíl de next ful múun!'}
+    ],
+    jingle:[
+      {en:'Try it on, does it fit?', es:'Probátelo, ¿te queda bien?', pron:'trái it on, das it fit?'},
+      {en:"Too big, too small, that's it!", es:'Muy grande, muy chico, ¡eso es!', pron:'tu big, tu smol, dats it!'},
+      {en:'Store, sales assistant, help today!', es:'Tienda, vendedor, ¡ayuda hoy!', pron:'stóar, séils asístant, jelp tudéi!'},
+      {en:'Formal quote, proposal, valid till May!', es:'Cotización formal, propuesta, ¡válida hasta mayo!', pron:'fórmal cuóut, propóusal, válid til méi!'}
     ]
   },
 {
@@ -32,6 +45,19 @@ const curriculumUnidad5 = [
       {en:'flexible', es:'flexible', pron:'fléxibol', emoji:'🤸'},
       {en:'fixed price', es:'precio fijo', pron:'fixt práis', emoji:'📌'},
       {en:'minimum order', es:'pedido mínimo', pron:'mínimum órder', emoji:'📦'}
+    ],
+    story:[
+      {en:"Can you lower the price, dragon? Let's bargain!", es:'¿Podés bajar el precio, dragón? ¡Regateemos!', pron:'can iú lóuar de práis, drágon? lets bárguen!'},
+      {en:'This is my best offer — a magic sale, with clearance on old treasure!', es:'Esta es mi mejor oferta — una oferta mágica, ¡con liquidación de tesoro viejo!', pron:'dis is mái best áfer — a máyic séil, uid clírens on óuld tréshur!'},
+      {en:'Fifty percent off, or I fly away with my gold!', es:'Cincuenta por ciento de descuento, ¡o me voy volando con mi oro!', pron:'fífti persént of, or ái flái auéi uid mái góuld!'},
+      {en:"Let's negotiate terms — here is my counteroffer, flexible dragon!", es:'Negociemos los términos — acá está mi contraoferta, ¡dragón flexible!', pron:'lets nigóushieit terms — jíar is mái cáunteráfer, fléxibol drágon!'},
+      {en:'Fine, a fixed price it is — but only for a minimum order of a hundred eggs!', es:'Bueno, precio fijo entonces — ¡pero solo para un pedido mínimo de cien huevos!', pron:'fáin, a fixt práis it is — bat óunli for a mínimum órder of a jándred egs!'}
+    ],
+    jingle:[
+      {en:'Let\'s bargain, lower the price!', es:'Regateemos, ¡bajá el precio!', pron:'lets bárguen, lóuar de práis!'},
+      {en:'Best offer, clearance, so nice!', es:'Mejor oferta, liquidación, ¡qué lindo!', pron:'best áfer, clírens, sóu náis!'},
+      {en:'Negotiate terms, counteroffer too!', es:'Negociá los términos, ¡contraoferta también!', pron:'nigóushieit terms, cáunteráfer tú!'},
+      {en:'Flexible, fixed price, minimum for you!', es:'Flexible, precio fijo, ¡mínimo para vos!', pron:'fléxibol, fixt práis, mínimum for iú!'}
     ]
   },
 {
@@ -48,6 +74,19 @@ const curriculumUnidad5 = [
       {en:'billing address', es:'dirección de facturación', pron:'bíling adrés', emoji:'🏠'},
       {en:'tax ID', es:'identificación fiscal', pron:'tax ái díi', emoji:'🆔'},
       {en:'due upon receipt', es:'a pagar al recibir', pron:'diú apán risíit', emoji:'💵'}
+    ],
+    story:[
+      {en:"I want to return this broken dragon egg — it's defective!", es:'Quiero devolver este huevo de dragón roto — ¡está defectuoso!', pron:'ái uánt tu ritérn dis bróuken drágon eg — its diféctiv!'},
+      {en:'Here is my proof of purchase — can I exchange it for a new one?', es:'Acá está mi comprobante de compra — ¿puedo cambiarlo por uno nuevo?', pron:'jíar is mái prúuf of pérchas — can ái exchéinch it for a niú uán?'},
+      {en:'According to our refund policy, the wizard will issue an invoice today.', es:'Según nuestra política de reembolso, el mago va a emitir una factura hoy.', pron:'acórding tu áur rífand pálisi, de uísard uíl íshu an ínvois tudéi.'},
+      {en:'The invoice number and billing address are written on a floating scroll.', es:'El número de factura y la dirección de facturación están escritos en un pergamino flotante.', pron:'de ínvois námber and bíling adrés ar ríten on a flóuting scról.'},
+      {en:"Payment is due upon receipt — dragons don't wait!", es:'El pago se debe hacer al recibir — ¡los dragones no esperan!', pron:'péiment is diú apán risíit — drágons dont uéit!'}
+    ],
+    jingle:[
+      {en:'Return it, exchange it too!', es:'Devolvelo, ¡cambialo también!', pron:'ritérn it, exchéinch it tú!'},
+      {en:"Defective, broken, that won't do!", es:'Defectuoso, roto, ¡eso no sirve!', pron:'diféctiv, bróuken, dat uónt du!'},
+      {en:'Proof of purchase, invoice today!', es:'Comprobante de compra, ¡factura hoy!', pron:'prúuf of pérchas, ínvois tudéi!'},
+      {en:'Billing address, due right away!', es:'Dirección de facturación, ¡a pagar enseguida!', pron:'bíling adrés, diú ráit auéi!'}
     ]
   },
 {
@@ -63,6 +102,19 @@ const curriculumUnidad5 = [
       {en:'terms of sale', es:'condiciones de venta', pron:'terms of séil', emoji:'📃'},
       {en:'late fee', es:'recargo por mora', pron:'léit fíi', emoji:'⚠️'},
       {en:'net amount', es:'monto neto', pron:'net amáunt', emoji:'💰'}
+    ],
+    story:[
+      {en:'Is this magic sword covered by warranty, or not covered?', es:'¿Esta espada mágica está cubierta por la garantía, o no está cubierta?', pron:'is dis máyic sord cávard bái uáranti, or nat cávard?'},
+      {en:"If it breaks, we offer free repair, or a full replacement!", es:'Si se rompe, ofrecemos reparación gratis, ¡o un reemplazo completo!', pron:'if it bréiks, uí áfer fríi ripér, or a ful ripléisment!'},
+      {en:'The withholding tax and VAT are already included in the terms of sale.', es:'La retención y el IVA ya están incluidos en las condiciones de venta.', pron:'de uidjólding tax and vi éi tíi ar olrédi inclúded in de terms of séil.'},
+      {en:"Pay late, and there's a dragon-sized late fee!", es:'¡Pagá tarde, y hay un recargo por mora del tamaño de un dragón!', pron:'péi léit, and ders a drágon sáisd léit fíi!'},
+      {en:'The net amount is one thousand gold coins, no more, no less.', es:'El monto neto es mil monedas de oro, ni más ni menos.', pron:'de net amáunt is uán záusand góuld cóins, nóu mor, nóu les.'}
+    ],
+    jingle:[
+      {en:"Warranty, covered, that's the rule!", es:'Garantía, cubierto, ¡esa es la regla!', pron:'uáranti, cávard, dats de rúul!'},
+      {en:'Repair, replacement, keep it cool!', es:'Reparación, reemplazo, ¡tranquilo!', pron:'ripér, ripléisment, kíip it cúul!'},
+      {en:'Withholding tax, VAT, terms of sale!', es:'Retención, IVA, ¡condiciones de venta!', pron:'uidjólding tax, vi éi tíi, terms of séil!'},
+      {en:"Late fee, net amount, don't fail!", es:'Recargo por mora, monto neto, ¡no falles!', pron:'léit fíi, net amáunt, dont féil!'}
     ]
   },
 {
@@ -78,6 +130,19 @@ const curriculumUnidad5 = [
       {en:'payment received', es:'pago recibido', pron:'péiment risívd', emoji:'✅'},
       {en:'partial payment', es:'pago parcial', pron:'párshal péiment', emoji:'➗'},
       {en:'transaction ID', es:'número de transacción', pron:'transácshon ái díi', emoji:'#️⃣'}
+    ],
+    story:[
+      {en:'Swipe the card, or insert the card — the dragon accepts both!', es:'Deslizá la tarjeta, o insertá la tarjeta — ¡el dragón acepta las dos!', pron:'suáip de card, or insért de card — de drágon axépts bóuz!'},
+      {en:'Enter your PIN — or just wave your magic wand, contactless!', es:'Ingresá tu clave — ¡o simplemente agitá tu varita mágica, sin contacto!', pron:'énter iór pin — or yast uéiv iór máyic uánd, cántactles!'},
+      {en:"Sorry, cash only today — the card machine turned into a frog!", es:'Perdón, solo efectivo hoy — ¡la máquina de tarjetas se convirtió en sapo!', pron:'sórri, cash óunli tudéi — de card mashín ternd íntu a frag!'},
+      {en:"I'll record a payment the moment it's received!", es:'¡Voy a registrar el pago en el momento en que se reciba!', pron:'áil ricórd a péiment de móument its risívd!'},
+      {en:'A partial payment now, and the transaction ID will be written in the stars.', es:'Un pago parcial ahora, y el número de transacción va a quedar escrito en las estrellas.', pron:'a párshal péiment náu, and de transácshon ái díi uíl bi ríten in de stars.'}
+    ],
+    jingle:[
+      {en:'Swipe the card, insert it too!', es:'Deslizá la tarjeta, ¡insertala también!', pron:'suáip de card, insért it tú!'},
+      {en:'Enter your PIN, contactless, true!', es:'Ingresá tu clave, sin contacto, ¡es verdad!', pron:'énter iór pin, cántactles, trú!'},
+      {en:'Cash only, record the pay!', es:'Solo efectivo, ¡registrá el pago!', pron:'cash óunli, ricórd de péi!'},
+      {en:'Partial payment, transaction today!', es:'Pago parcial, ¡transacción hoy!', pron:'párshal péiment, transácshon tudéi!'}
     ]
   },
 {
@@ -91,6 +156,18 @@ const curriculumUnidad5 = [
       {en:'security code', es:'código de seguridad', pron:'sekiúriti cóud', emoji:'🔒'},
       {en:'remote payment', es:'pago a distancia', pron:'rimóut péiment', emoji:'📲'},
       {en:'secure payment', es:'pago seguro', pron:'sekiúr péiment', emoji:'🔐'}
+    ],
+    story:[
+      {en:'Welcome to the online store — everything floats straight into your shopping cart!', es:'Bienvenido a la tienda en línea — ¡todo flota directo a tu carrito de compras!', pron:'uélcam tu de anláin stóar — évrizin flóuts stréit íntu iór sháping cart!'},
+      {en:'Add to cart the flying castle, and type your shipping address in the clouds.', es:'Agregá al carrito el castillo volador, y escribí tu dirección de envío en las nubes.', pron:'ad tu cart de fláing cásol, and táip iór shíping adrés in de cláuds.'},
+      {en:'Enter your card number and security code, dragon.', es:'Ingresá tu número de tarjeta y código de seguridad, dragón.', pron:'énter iór card námber and sekiúriti cóud, drágon.'},
+      {en:"This is a remote payment, but it's completely secure payment, I promise!", es:'Este es un pago a distancia, ¡pero es un pago completamente seguro, lo prometo!', pron:'dis is a rimóut péiment, bat its camplítli sekiúr péiment, ái prámis!'}
+    ],
+    jingle:[
+      {en:'Online store, shopping cart too!', es:'Tienda en línea, ¡carrito también!', pron:'anláin stóar, sháping cart tú!'},
+      {en:'Add to cart, shipping address, true!', es:'Agregá al carrito, dirección de envío, ¡es verdad!', pron:'ad tu cart, shíping adrés, trú!'},
+      {en:'Card number, security code, quick!', es:'Número de tarjeta, código de seguridad, ¡rápido!', pron:'card námber, sekiúriti cóud, cuík!'},
+      {en:'Remote payment, secure, no trick!', es:'Pago a distancia, seguro, ¡sin trampa!', pron:'rimóut péiment, sekiúr, nóu trik!'}
     ]
   },
 {
@@ -104,6 +181,17 @@ const curriculumUnidad5 = [
       {en:'from now on', es:'de ahora en adelante', pron:'fram náu on', emoji:'➡️'},
       {en:'once again', es:'una vez más', pron:'uáns aguén', emoji:'🔁'},
       {en:'little by little', es:'poco a poco', pron:'lítol bái lítol', emoji:'🐢'}
+    ],
+    story:[
+      {en:'As far as I know, to be honest, dragons never lie.', es:'Que yo sepa, para ser honesto, los dragones nunca mienten.', pron:'as far as ái nóu, tu bi ánest, drágons néver lái.'},
+      {en:'On the other hand, in other words, this castle is not for sale yet.', es:'Por otro lado, en otras palabras, este castillo todavía no está en venta.', pron:'on de áder jand, in áder uords, dis cásol is nat for séil iét.'},
+      {en:'Not yet, but from now on, once again, little by little, we will build a bigger one.', es:'Todavía no, pero de ahora en adelante, una vez más, poco a poco, vamos a construir uno más grande.', pron:'nat iét, bat fram náu on, uáns aguén, lítol bái lítol, uí uíl bild a bíguer uán.'}
+    ],
+    jingle:[
+      {en:'As far as I know, to be honest!', es:'Que yo sepa, ¡para ser honesto!', pron:'as far as ái nóu, tu bi ánest!'},
+      {en:"On the other hand, that's the promise!", es:'Por otro lado, ¡esa es la promesa!', pron:'on de áder jand, dats de prámis!'},
+      {en:"Not yet, from now on, we'll see!", es:'Todavía no, de ahora en adelante, ¡ya veremos!', pron:'nat iét, fram náu on, uíl síi!'},
+      {en:'Once again, little by little, so free!', es:'Una vez más, poco a poco, ¡tan libre!', pron:'uáns aguén, lítol bái lítol, sóu fríi!'}
     ]
   },
 {
@@ -119,6 +207,18 @@ const curriculumUnidad5 = [
       {en:'outstanding balance', es:'saldo pendiente', pron:'áutstanding bálans', emoji:'⚠️'},
       {en:'kindly remind', es:'recordarle amablemente', pron:'káindli rimáind', emoji:'🙏'},
       {en:'as agreed', es:'según lo acordado', pron:'as agríid', emoji:'🤝'}
+    ],
+    story:[
+      {en:'The giant needs a shirt, pants, and a jacket — all in extra, extra large!', es:'El gigante necesita camisa, pantalón, y chaqueta — ¡todo en extra, extra grande!', pron:'de yáiant níids shert, pants, and a yáket — ol in éxtra, éxtra larch!'},
+      {en:'The dress comes in medium or large — but never in dragon size!', es:'El vestido viene en mediano o grande — ¡pero nunca en talla dragón!', pron:'de dres cams in mídium or larch — bat néver in drágon sáis!'},
+      {en:'This is a payment reminder — your outstanding balance is one dragon egg!', es:'Este es un recordatorio de pago — ¡tu saldo pendiente es un huevo de dragón!', pron:'dis is a péiment rimáinder — iór áutstanding bálans is uán drágon eg!'},
+      {en:'We kindly remind you, as agreed, to pay before the moon disappears!', es:'Te recordamos amablemente, según lo acordado, ¡pagar antes de que la luna desaparezca!', pron:'uí káindli rimáind iú, as agríid, tu péi bifór de múun disapírs!'}
+    ],
+    jingle:[
+      {en:'Shirt and pants, jacket too!', es:'Camisa y pantalón, ¡chaqueta también!', pron:'shert and pants, yáket tú!'},
+      {en:'Dress in medium, large for you!', es:'Vestido en mediano, ¡grande para vos!', pron:'dres in mídium, larch for iú!'},
+      {en:'Payment reminder, balance due!', es:'Recordatorio de pago, ¡saldo pendiente!', pron:'péiment rimáinder, bálans diú!'},
+      {en:"Kindly remind, as agreed, it's true!", es:'Recordá amablemente, según lo acordado, ¡es verdad!', pron:'káindli rimáind, as agríid, its trú!'}
     ]
   },
 {
@@ -134,6 +234,18 @@ const curriculumUnidad5 = [
       {en:'pending approval', es:'pendiente de aprobación', pron:'péndin apruvol', emoji:'⏳'},
       {en:'go ahead', es:'adelante', pron:'góu ajéd', emoji:'➡️'},
       {en:'sign off on', es:'dar el visto bueno', pron:'sáin of on', emoji:'✍️'}
+    ],
+    story:[
+      {en:'The giant needs new shoes, boots, a belt, and a magic hat!', es:'¡El gigante necesita zapatos nuevos, botas, un cinturón, y un sombrero mágico!', pron:'de yáiant níids niú shúus, búuts, a belt, and a máyic jat!'},
+      {en:'Do not forget the bag — it must carry a thousand gold coins!', es:'¡No te olvides del bolso — debe cargar mil monedas de oro!', pron:'du nat forguét de bag — it mast cári a záusand góuld cóins!'},
+      {en:'The wizard needs to approve a quote before the boots can fly.', es:'El mago necesita aprobar una cotización antes de que las botas puedan volar.', pron:'de uísard níids tu apruv a cuóut bifór de búuts can flái.'},
+      {en:"It's approved! Go ahead, and sign off on the magic paperwork!", es:'¡Está aprobado! Adelante, ¡y dale el visto bueno al papeleo mágico!', pron:'its apruvd! góu ajéd, and sáin of on de máyic péiperuork!'}
+    ],
+    jingle:[
+      {en:'Shoes and boots, belt and hat!', es:'Zapatos y botas, ¡cinturón y sombrero!', pron:'shúus and búuts, belt and jat!'},
+      {en:'Bag to carry, imagine that!', es:'Bolso para llevar, ¡imaginate eso!', pron:'bag tu cári, imáchin dat!'},
+      {en:'Approve the quote, pending review!', es:'Aprobá la cotización, ¡revisión pendiente!', pron:'apruv de cuóut, péndin riviú!'},
+      {en:'Go ahead, sign off, nothing to lose!', es:'Adelante, dale el visto bueno, ¡nada que perder!', pron:'góu ajéd, sáin of, názing tu lúus!'}
     ]
   },
 {
@@ -149,6 +261,19 @@ const curriculumUnidad5 = [
       {en:'lead time', es:'tiempo de entrega', pron:'líid táim', emoji:'⏳'},
       {en:'best value', es:'mejor relación calidad-precio', pron:'best váliu', emoji:'💎'},
       {en:'final decision', es:'decisión final', pron:'fáinal disíshon', emoji:'✅'}
+    ],
+    story:[
+      {en:"Let's do a price comparison — which dragon egg is the cheapest?", es:'Hagamos una comparación de precios — ¿cuál huevo de dragón es el más barato?', pron:'lets du a práis campárison — uích drágon eg is de chíipest?'},
+      {en:'That one is the most expensive, but is it worth it?', es:'Ese es el más caro, ¿pero vale la pena?', pron:'dat uán is de móust expénsiv, bat is it uérz it?'},
+      {en:"Let's shop around and do a supplier comparison first!", es:'¡Comparemos en varias tiendas y hagamos primero una comparación de proveedores!', pron:'lets shap aráund and du a sapláier campárison ferst!'},
+      {en:'The lead time is short, and this is the best value in the whole kingdom!', es:'El tiempo de entrega es corto, ¡y esta es la mejor relación calidad-precio en todo el reino!', pron:'de líid táim is short, and dis is de best váliu in de jóul kíngdom!'},
+      {en:"My final decision: I'll buy from the giant wizard!", es:'Mi decisión final: ¡le voy a comprar al mago gigante!', pron:'mái fáinal disíshon: áil bái fram de yáiant uísard!'}
+    ],
+    jingle:[
+      {en:'Price comparison, cheapest too!', es:'Comparación de precios, ¡el más barato también!', pron:'práis campárison, chíipest tú!'},
+      {en:'Most expensive, worth it, true!', es:'El más caro, ¿vale la pena? ¡Es verdad!', pron:'móust expénsiv, uérz it, trú!'},
+      {en:'Shop around, lead time so fast!', es:'Comparar tiendas, ¡tiempo de entrega tan rápido!', pron:'shap aráund, líid táim sóu fast!'},
+      {en:'Best value, final decision at last!', es:'Mejor relación calidad-precio, ¡decisión final por fin!', pron:'best váliu, fáinal disíshon at last!'}
     ]
   },
 {
@@ -164,6 +289,19 @@ const curriculumUnidad5 = [
       {en:'to resolve', es:'resolver', pron:'tu risálv', emoji:'✅'},
       {en:'apology', es:'disculpa', pron:'apáloyi', emoji:'🙏'},
       {en:'case number', es:'número de caso', pron:'kéis námber', emoji:'#️⃣'}
+    ],
+    story:[
+      {en:'I need to complain — this doesn\'t work, my dragon egg is cold!', es:'Necesito quejarme — esto no funciona, ¡mi huevo de dragón está frío!', pron:'ái níid tu compléin — dis dásent uork, mái drágon eg is cóuld!'},
+      {en:'I want a refund for this faulty product!', es:'¡Quiero un reembolso por este producto defectuoso!', pron:'ái uánt a rífand for dis fólti prádact!'},
+      {en:'Please contact customer service to dispute a charge.', es:'Por favor contactá al servicio al cliente para disputar un cargo.', pron:'plíis cántact cástomer sérvis tu dispiút a charch.'},
+      {en:'There was a billing error, but we will resolve it right away!', es:'Hubo un error de facturación, ¡pero lo vamos a resolver enseguida!', pron:'dér uas a bíling érror, bat uí uíl risálv it ráit auéi!'},
+      {en:'Please accept our apology, and here is your case number.', es:'Por favor aceptá nuestras disculpas, y acá está tu número de caso.', pron:'plíis axépt áur apáloyi, and jíar is iór kéis námber.'}
+    ],
+    jingle:[
+      {en:"I complain, this doesn't work!", es:'Me quejo, ¡esto no funciona!', pron:'ái compléin, dis dásent uork!'},
+      {en:"I want a refund, don't be a jerk!", es:'Quiero un reembolso, ¡no seas grosero!', pron:'ái uánt a rífand, dont bi a yerk!'},
+      {en:'Customer service, dispute the charge!', es:'Servicio al cliente, ¡disputá el cargo!', pron:'cástomer sérvis, dispiút de charch!'},
+      {en:'Resolve it, apology at large!', es:'Resolvelo, ¡disculpa grande!', pron:'risálv it, apáloyi at larch!'}
     ]
   },
 {
@@ -174,6 +312,17 @@ const curriculumUnidad5 = [
       {en:"don't give up", es:'no te rindas', pron:'dont guiv ap', emoji:'💪'},
       {en:'almost at unit six', es:'casi en la unidad seis', pron:'ólmoust at iúnit six', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
+    ],
+    story:[
+      {en:"Welcome to unit five's closing chapter — steady progress, brave hero!", es:'Bienvenido al capítulo de cierre de la unidad cinco — ¡progreso constante, valiente héroe!', pron:'uélcam tu iúnit fáivs clóusing cháptar — stédi prágres, bréiv jírou!'},
+      {en:"Don't give up, you are almost at unit six!", es:'¡No te rindas, ya casi estás en la unidad seis!', pron:'dont guiv ap, iú ar ólmoust at iúnit six!'},
+      {en:'See you in the next unit, dragon trader!', es:'¡Nos vemos en la próxima unidad, comerciante de dragones!', pron:'síi iú in de next iúnit, drágon tréider!'}
+    ],
+    jingle:[
+      {en:'Unit five, steady progress today!', es:'Unidad cinco, ¡progreso constante hoy!', pron:'iúnit fáiv, stédi prágres tudéi!'},
+      {en:'Don\'t give up, find your way!', es:'No te rindas, ¡encontrá tu camino!', pron:'dont guiv ap, fáind iór uéi!'},
+      {en:'Almost at unit six, so near!', es:'Casi en la unidad seis, ¡tan cerca!', pron:'ólmoust at iúnit six, sóu níar!'},
+      {en:'Next unit, hold your cheer!', es:'Próxima unidad, ¡guardá tu alegría!', pron:'next iúnit, jóuld iór chíar!'}
     ]
   }
 ];

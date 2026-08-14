@@ -21,11 +21,17 @@ const curriculumUnidad4 = [
       {en:'time slot', es:'horario disponible', pron:'táim slat', emoji:'🕐'}
     ],
     story:[
-      {en:'I would like to order the roasted volcano appetizer, please!', es:'¡Quisiera pedir la entrada de volcán asado, por favor!'},
-      {en:'For the main course, bring me a whole dragon-shaped cake, and for dessert, a cloud of sugar!', es:'¡De plato principal, traeme una torta con forma de dragón entera, y de postre, una nube de azúcar!'},
-      {en:"Is it spicy, sweet, or salty? All three at once — it's magically tasty!", es:'¿Es picante, dulce, o salado? ¡Los tres a la vez — es mágicamente sabroso!'},
-      {en:"Let's schedule a meeting with all the kingdom's attendees in the crystal conference room.", es:'Agendemos una reunión con todos los asistentes del reino en la sala de reuniones de cristal.'},
-      {en:'Please book the only time slot when the two moons align — check the agenda!', es:'Por favor reservá el único horario en que las dos lunas se alinean — ¡revisá la agenda!'}
+      {en:'I would like to order the roasted volcano appetizer, please!', es:'¡Quisiera pedir la entrada de volcán asado, por favor!', pron:'ái uud láik tu órder de róusted valkéinou ápetaiser, plíis!'},
+      {en:'For the main course, bring me a whole dragon-shaped cake, and for dessert, a cloud of sugar!', es:'¡De plato principal, traeme una torta con forma de dragón entera, y de postre, una nube de azúcar!', pron:'for de méin cors, bring mi a jóul drágon shéipt quéik, and for disért, a cláud of shúgar!'},
+      {en:"Is it spicy, sweet, or salty? All three at once — it's magically tasty!", es:'¿Es picante, dulce, o salado? ¡Los tres a la vez — es mágicamente sabroso!', pron:'is it spáisi, suíit, or sólti? ol zríi at uáns — its máyicali téisti!'},
+      {en:"Let's schedule a meeting with all the kingdom's attendees in the crystal conference room.", es:'Agendemos una reunión con todos los asistentes del reino en la sala de reuniones de cristal.', pron:'lets squéyul a míiting uid ol de kíngdoms atendíis in de crístal cánferens rúum.'},
+      {en:'Please book the only time slot when the two moons align — check the agenda!', es:'Por favor reservá el único horario en que las dos lunas se alinean — ¡revisá la agenda!', pron:'plíis buk de óunli táim slat uén de tú múuns aláin — chek de ayénda!'}
+    ],
+    jingle:[
+      {en:'I would like to order, please!', es:'Quisiera pedir, ¡por favor!', pron:'ái uud láik tu órder, plíis!'},
+      {en:'Appetizer, main course, dessert with ease!', es:'Entrada, plato principal, ¡postre con facilidad!', pron:'ápetaiser, méin cors, disért uid íis!'},
+      {en:'Spicy, sweet, salty, tasty too!', es:'Picante, dulce, salado, ¡sabroso también!', pron:'spáisi, suíit, sólti, téisti tú!'},
+      {en:'Schedule a meeting, book the room for you!', es:'Programá una reunión, ¡reservá la sala para vos!', pron:'squéyul a míiting, buk de rúum for iú!'}
     ]
   },
 {
@@ -48,11 +54,17 @@ const curriculumUnidad4 = [
       {en:'to decline', es:'rechazar', pron:'tu dicláin', emoji:'❌'}
     ],
     story:[
-      {en:'I love dragon eggs, but I do not like flying broccoli!', es:'¡Me encantan los huevos de dragón, pero no me gusta el brócoli volador!'},
-      {en:"What's your favorite taste? I prefer to try everything, even lava soup!", es:'¿Cuál es tu sabor favorito? ¡Prefiero probar de todo, hasta la sopa de lava!'},
-      {en:'I am allergic to moonlight, so please confirm attendance before the eclipse!', es:'¡Soy alérgico a la luz de la luna, así que confirmá tu asistencia antes del eclipse!'},
-      {en:"I'll be there, unless there's a schedule conflict with a thousand-year nap!", es:'¡Ahí estaré, a menos que haya un conflicto de horario con una siesta de mil años!'},
-      {en:'I cannot attend if the invite arrives by falling star — please accept or decline before it burns up!', es:'No puedo asistir si la invitación llega en una estrella fugaz — ¡aceptá o rechazá antes de que se queme!'}
+      {en:'I love dragon eggs, but I do not like flying broccoli!', es:'¡Me encantan los huevos de dragón, pero no me gusta el brócoli volador!', pron:'ái lav drágon egs, bat ái du nat láik fláing brácoli!'},
+      {en:"What's your favorite taste? I prefer to try everything, even lava soup!", es:'¿Cuál es tu sabor favorito? ¡Prefiero probar de todo, hasta la sopa de lava!', pron:'uáts iór féivorit téist? ái prifér tu trái évrizin, íven láva súup!'},
+      {en:'I am allergic to moonlight, so please confirm attendance before the eclipse!', es:'¡Soy alérgico a la luz de la luna, así que confirmá tu asistencia antes del eclipse!', pron:'ái am alérchic tu múunlait, sóu plíis confírm aténdans bifór de iclíps!'},
+      {en:"I'll be there, unless there's a schedule conflict with a thousand-year nap!", es:'¡Ahí estaré, a menos que haya un conflicto de horario con una siesta de mil años!', pron:'áil bi dér, anlés ders a squéyul cánflict uid a záusand íar nap!'},
+      {en:'I cannot attend if the invite arrives by falling star — please accept or decline before it burns up!', es:'No puedo asistir si la invitación llega en una estrella fugaz — ¡aceptá o rechazá antes de que se queme!', pron:'ái cánat aténd if de inváit aráivs bái fóling star — plíis axépt or dicláin bifór it bérns ap!'}
+    ],
+    jingle:[
+      {en:'I like it, I love it, my favorite too!', es:'Me gusta, me encanta, ¡mi favorito también!', pron:'ái láik it, ái lav it, mái féivorit tú!'},
+      {en:'I prefer to try, taste something new!', es:'Prefiero probar, ¡algo nuevo!', pron:'ái prifér tu trái, téist sámzing niú!'},
+      {en:"I'll be there, confirm attendance soon!", es:'Ahí estaré, ¡confirmo asistencia pronto!', pron:'áil bi dér, confírm aténdans súun!'},
+      {en:'Accept or decline, under the moon!', es:'Aceptar o rechazar, ¡bajo la luna!', pron:'axépt or dicláin, ánder de múun!'}
     ]
   },
 {
@@ -74,11 +86,17 @@ const curriculumUnidad4 = [
       {en:'wrap up', es:'concluir', pron:'rap ap', emoji:'🏁'}
     ],
     story:[
-      {en:'Let\'s split the bill — a giant leaves the biggest tip in history, a whole mountain of gold!', es:'Dividamos la cuenta — ¡un gigante deja la propina más grande de la historia, una montaña entera de oro!'},
-      {en:'Do you want a reservation for two dragons, take out, or dine in on a cloud?', es:'¿Querés una reserva para dos dragones, para llevar, o comer en una nube?'},
-      {en:"Today's agenda item: how to discuss with a talking volcano.", es:'El punto de la agenda de hoy: cómo discutir con un volcán parlante.'},
-      {en:'The action item and next steps: follow up with the wizard council, and take meeting minutes on a floating scroll.', es:'La tarea a realizar y los próximos pasos: hacer seguimiento con el consejo de magos, y tomar minuta en un pergamino flotante.'},
-      {en:"Let's summarize and wrap up before the castle disappears!", es:'¡Resumamos y cerremos antes de que el castillo desaparezca!'}
+      {en:'Let\'s split the bill — a giant leaves the biggest tip in history, a whole mountain of gold!', es:'Dividamos la cuenta — ¡un gigante deja la propina más grande de la historia, una montaña entera de oro!', pron:'lets split de bil — a yáiant líivs de bíguest tip in jístori, a jóul máuntain of góuld!'},
+      {en:'Do you want a reservation for two dragons, take out, or dine in on a cloud?', es:'¿Querés una reserva para dos dragones, para llevar, o comer en una nube?', pron:'du iú uánt a reservéishon for tú drágons, téik áut, or dáin in on a cláud?'},
+      {en:"Today's agenda item: how to discuss with a talking volcano.", es:'El punto de la agenda de hoy: cómo discutir con un volcán parlante.', pron:'tudéis ayénda áitem: jáu tu discás uid a tóking valkéinou.'},
+      {en:'The action item and next steps: follow up with the wizard council, and take meeting minutes on a floating scroll.', es:'La tarea a realizar y los próximos pasos: hacer seguimiento con el consejo de magos, y tomar minuta en un pergamino flotante.', pron:'de ákshon áitem and next steps: fálou ap uid de uísard cáunsol, and téik míiting mínits on a flóuting scról.'},
+      {en:"Let's summarize and wrap up before the castle disappears!", es:'¡Resumamos y cerremos antes de que el castillo desaparezca!', pron:'lets sámaráis and rap ap bifór de cásol disapírs!'}
+    ],
+    jingle:[
+      {en:'Split the bill, leave a tip!', es:'Dividí la cuenta, ¡dejá propina!', pron:'split de bil, líiv a tip!'},
+      {en:'Reservation, take out, dine in, sip!', es:'Reserva, para llevar, comer aquí, ¡un sorbo!', pron:'reservéishon, téik áut, dáin in, sip!'},
+      {en:'Topic, agenda item, discuss it well!', es:'Tema, punto de la agenda, ¡discutilo bien!', pron:'tápic, ayénda áitem, discás it uél!'},
+      {en:'Follow up, minutes, wrap up, farewell!', es:'Seguimiento, minuta, cerrar, ¡adiós!', pron:'fálou ap, mínits, rap ap, féruel!'}
     ]
   },
 {
@@ -100,11 +118,17 @@ const curriculumUnidad4 = [
       {en:'to rehearse', es:'ensayar', pron:'tu rijérs', emoji:'🎭'}
     ],
     story:[
-      {en:'The dragon loves to cook — its favorite recipe needs lava, stars, and one secret ingredient!', es:'Al dragón le encanta cocinar — ¡su receta favorita necesita lava, estrellas, y un ingrediente secreto!'},
-      {en:'First, boil an ocean; then fry a thunderbolt; then bake it in a volcano oven for a thousand years!', es:'Primero, herví un océano; después, freí un rayo; después, horneálo en un horno de volcán por mil años.'},
-      {en:'Cut the giant mushroom on the magic stove, carefully!', es:'¡Cortá el hongo gigante en la estufa mágica, con cuidado!'},
-      {en:'Now prepare the slides for your presentation — one slide made of gold, one handout made of clouds.', es:'Ahora preparé las diapositivas de tu presentación — una diapositiva hecha de oro, un material impreso hecho de nubes.'},
-      {en:'Rehearse it in front of a thousand dragons before the real show!', es:'¡Ensayalo frente a mil dragones antes del show real!'}
+      {en:'The dragon loves to cook — its favorite recipe needs lava, stars, and one secret ingredient!', es:'Al dragón le encanta cocinar — ¡su receta favorita necesita lava, estrellas, y un ingrediente secreto!', pron:'de drágon lavs tu cuk — its féivorit résipi níids láva, stars, and uán sícret ingrídient!'},
+      {en:'First, boil an ocean; then fry a thunderbolt; then bake it in a volcano oven for a thousand years!', es:'Primero, herví un océano; después, freí un rayo; después, horneálo en un horno de volcán por mil años.', pron:'ferst, bóil an óushon; den frái a zánderbóult; den béik it in a valkéinou áven for a záusand íars!'},
+      {en:'Cut the giant mushroom on the magic stove, carefully!', es:'¡Cortá el hongo gigante en la estufa mágica, con cuidado!', pron:'cat de yáiant máshrum on de máyic stóuv, kérfuli!'},
+      {en:'Now prepare the slides for your presentation — one slide made of gold, one handout made of clouds.', es:'Ahora preparé las diapositivas de tu presentación — una diapositiva hecha de oro, un material impreso hecho de nubes.', pron:'náu pripér de sláids for iór presentéishon — uán sláid méid of góuld, uán jándaut méid of cláuds.'},
+      {en:'Rehearse it in front of a thousand dragons before the real show!', es:'¡Ensayalo frente a mil dragones antes del show real!', pron:'rijérs it in frant of a záusand drágons bifór de ríil shóu!'}
+    ],
+    jingle:[
+      {en:'To cook, a recipe, ingredient too!', es:'Cocinar, una receta, ¡ingrediente también!', pron:'tu cuk, a résipi, ingrídient tú!'},
+      {en:'Boil and fry, bake it through!', es:'Hervir y freír, ¡hornealo bien!', pron:'bóil and frái, béik it zrú!'},
+      {en:'Cut on the stove, slide by slide!', es:'Cortá en la estufa, ¡diapositiva por diapositiva!', pron:'cat on de stóuv, sláid bái sláid!'},
+      {en:'Prepare, rehearse, presentation with pride!', es:'Preparar, ensayar, ¡presentación con orgullo!', pron:'pripér, rijérs, presentéishon uid práid!'}
     ]
   },
 {
@@ -126,11 +150,17 @@ const curriculumUnidad4 = [
       {en:'to sign off', es:'cerrar sesión', pron:'tu sáin of', emoji:'🚪'}
     ],
     story:[
-      {en:'The wizard drinks moon juice, dragon soda, star tea, giant beer, and enchanted wine, all at once!', es:'¡El mago bebe jugo de luna, gaseosa de dragón, té de estrellas, cerveza de gigante, y vino encantado, todo a la vez!'},
-      {en:"Let's start the video call — click the magic link!", es:'¡Empecemos la videollamada — hacé clic en el enlace mágico!'},
-      {en:'Camera on! But please mute your dragon roar.', es:'¡Cámara encendida! Pero por favor silenciá tu rugido de dragón.'},
-      {en:'Can you hear me through the storm? Let\'s screen share the treasure map.', es:'¿Me escuchás a través de la tormenta? Compartamos pantalla con el mapa del tesoro.'},
-      {en:'The connection is weak on the moon — sign in again, and do not forget to sign off before the eclipse!', es:'La conexión es débil en la luna — ¡iniciá sesión de nuevo, y no te olvides de cerrar sesión antes del eclipse!'}
+      {en:'The wizard drinks moon juice, dragon soda, star tea, giant beer, and enchanted wine, all at once!', es:'¡El mago bebe jugo de luna, gaseosa de dragón, té de estrellas, cerveza de gigante, y vino encantado, todo a la vez!', pron:'de uísard drinks múun yúus, drágon sóuda, star tíi, yáiant bíar, and enchánted uáin, ol at uáns!'},
+      {en:"Let's start the video call — click the magic link!", es:'¡Empecemos la videollamada — hacé clic en el enlace mágico!', pron:'lets start de vídio col — clik de máyic link!'},
+      {en:'Camera on! But please mute your dragon roar.', es:'¡Cámara encendida! Pero por favor silenciá tu rugido de dragón.', pron:'cámera on! bat plíis miút iór drágon rór.'},
+      {en:'Can you hear me through the storm? Let\'s screen share the treasure map.', es:'¿Me escuchás a través de la tormenta? Compartamos pantalla con el mapa del tesoro.', pron:'can iú jíar mi zrú de storm? lets scríin shér de tréshur map.'},
+      {en:'The connection is weak on the moon — sign in again, and do not forget to sign off before the eclipse!', es:'La conexión es débil en la luna — ¡iniciá sesión de nuevo, y no te olvides de cerrar sesión antes del eclipse!', pron:'de conécshon is uík on de múun — sáin in aguén, and du nat forguét tu sáin of bifór de iclíps!'}
+    ],
+    jingle:[
+      {en:'Juice and soda, tea and beer!', es:'Jugo y gaseosa, ¡té y cerveza!', pron:'yúus and sóuda, tíi and bíar!'},
+      {en:'Wine and video call, loud and clear!', es:'Vino y videollamada, ¡fuerte y claro!', pron:'uáin and vídio col, láud and clíar!'},
+      {en:'Camera on, mute, screen share fast!', es:'Cámara encendida, silenciar, ¡compartir pantalla rápido!', pron:'cámera on, miút, scríin shér fast!'},
+      {en:'Sign in, sign off, connection to last!', es:'Iniciar sesión, cerrar sesión, ¡conexión que dure!', pron:'sáin in, sáin of, conécshon tu last!'}
     ]
   },
 {
@@ -151,11 +181,17 @@ const curriculumUnidad4 = [
       {en:'milestone', es:'hito', pron:'máilstoun', emoji:'🚩'}
     ],
     story:[
-      {en:'For breakfast, the giant eats a thousand eggs, a mountain of toast, and an ocean of cereal!', es:'¡De desayuno, el gigante come mil huevos, una montaña de tostadas, y un océano de cereal!'},
-      {en:'A dragon sandwich, and a snack of stardust — never skip a meal, or you turn invisible!', es:'¡Un sándwich de dragón, y una merienda de polvo de estrellas — nunca te saltees una comida, o te volvés invisible!'},
-      {en:"Let's have our follow-up meeting for a status update on the flying castle project.", es:'Tengamos nuestra reunión de seguimiento para una actualización de estado del proyecto del castillo volador.'},
-      {en:'Progress is huge, but one task is still pending!', es:'¡El progreso es enorme, pero una tarea todavía está pendiente!'},
-      {en:'Are we on track, or behind schedule on the treasure milestone?', es:'¿Vamos bien encaminados, o atrasados en el hito del tesoro?'}
+      {en:'For breakfast, the giant eats a thousand eggs, a mountain of toast, and an ocean of cereal!', es:'¡De desayuno, el gigante come mil huevos, una montaña de tostadas, y un océano de cereal!', pron:'for brékfast, de yáiant íits a záusand egs, a máuntain of tóust, and an óushon of síarial!'},
+      {en:'A dragon sandwich, and a snack of stardust — never skip a meal, or you turn invisible!', es:'¡Un sándwich de dragón, y una merienda de polvo de estrellas — nunca te saltees una comida, o te volvés invisible!', pron:'a drágon sánduich, and a snak of stárdast — néver skip a míil, or iú tern invísibol!'},
+      {en:"Let's have our follow-up meeting for a status update on the flying castle project.", es:'Tengamos nuestra reunión de seguimiento para una actualización de estado del proyecto del castillo volador.', pron:'lets jav áur fálou ap míiting for a státos apdéit on de fláing cásol práchect.'},
+      {en:'Progress is huge, but one task is still pending!', es:'¡El progreso es enorme, pero una tarea todavía está pendiente!', pron:'prágres is jiúch, bat uán task is stil péndin!'},
+      {en:'Are we on track, or behind schedule on the treasure milestone?', es:'¿Vamos bien encaminados, o atrasados en el hito del tesoro?', pron:'ar uí on trak, or bijáind squéyul on de tréshur máilstoun?'}
+    ],
+    jingle:[
+      {en:'Eggs and toast, cereal too!', es:'Huevos y tostadas, ¡cereal también!', pron:'egs and tóust, síarial tú!'},
+      {en:"Sandwich, snack, don't skip, it's true!", es:'Sándwich, merienda, ¡no te lo saltees, es verdad!', pron:'sánduich, snak, dont skip, its trú!'},
+      {en:"Follow-up meeting, status update fast!", es:'Reunión de seguimiento, ¡actualización de estado rápido!', pron:'fálou ap míiting, státos apdéit fast!'},
+      {en:'On track, pending, milestone at last!', es:'Bien encaminado, pendiente, ¡hito por fin!', pron:'on trak, péndin, máilstoun at last!'}
     ]
   },
 {
@@ -174,9 +210,15 @@ const curriculumUnidad4 = [
       {en:'anyway', es:'de todos modos', pron:'éniuei', emoji:'➡️'}
     ],
     story:[
-      {en:"Can you repeat that, giant? What do you mean by 'a mountain of gold'?", es:'¿Podés repetir eso, gigante? ¿Qué querés decir con "una montaña de oro"?'},
-      {en:'I see! Got it — no worries, dragon, same here!', es:'¡Ya veo! Entendido — no hay problema, dragón, ¡lo mismo digo!'},
-      {en:"Either way, in that case, just in case, do as needed — anyway, let's fly!", es:'De cualquier forma, en ese caso, por si acaso, hacé lo que se necesite — de todos modos, ¡volemos!'}
+      {en:"Can you repeat that, giant? What do you mean by 'a mountain of gold'?", es:'¿Podés repetir eso, gigante? ¿Qué querés decir con "una montaña de oro"?', pron:'can iú ripít dat, yáiant? uát du iú míin bái "a máuntain of góuld"?'},
+      {en:'I see! Got it — no worries, dragon, same here!', es:'¡Ya veo! Entendido — no hay problema, dragón, ¡lo mismo digo!', pron:'ái síi! gát it — nóu uéris, drágon, séim jíar!'},
+      {en:"Either way, in that case, just in case, do as needed — anyway, let's fly!", es:'De cualquier forma, en ese caso, por si acaso, hacé lo que se necesite — de todos modos, ¡volemos!', pron:'íder uéi, in dat kéis, yast in kéis, du as níided — éniuei, lets flái!'}
+    ],
+    jingle:[
+      {en:'Can you repeat that? What do you mean?', es:'¿Podés repetir eso? ¿Qué querés decir?', pron:'can iú ripít dat? uát du iú míin?'},
+      {en:'I see, got it, on the scene!', es:'Ya veo, entendido, ¡en la escena!', pron:'ái síi, gát it, on de síin!'},
+      {en:'No worries, same here, either way!', es:'No hay problema, lo mismo digo, ¡de cualquier forma!', pron:'nóu uéris, séim jíar, íder uéi!'},
+      {en:'Just in case, as needed, anyway!', es:'Por si acaso, según se necesite, ¡de todos modos!', pron:'yast in kéis, as níided, éniuei!'}
     ]
   },
 {
@@ -196,10 +238,16 @@ const curriculumUnidad4 = [
       {en:'attachment', es:'archivo adjunto', pron:'atáchment', emoji:'📎'}
     ],
     story:[
-      {en:'The wizard has an allergy to gluten spells, so his potions are always gluten-free!', es:'¡El mago tiene alergia a los hechizos con gluten, así que sus pociones siempre son sin gluten!'},
-      {en:'He is lactose intolerant too, and avoids magic nuts and enchanted shellfish!', es:'¡También es intolerante a la lactosa, y evita frutos secos mágicos y mariscos encantados!'},
-      {en:'Is this potion safe to eat? Take notes for the minutes of the meeting!', es:'¿Esta poción es segura para comer? ¡Tomá notas para la minuta de la reunión!'},
-      {en:'The final decision is made — the responsible person will send the attachment by dragon mail.', es:'La decisión final está tomada — la persona responsable va a enviar el archivo adjunto por correo de dragón.'}
+      {en:'The wizard has an allergy to gluten spells, so his potions are always gluten-free!', es:'¡El mago tiene alergia a los hechizos con gluten, así que sus pociones siempre son sin gluten!', pron:'de uísard jas an álerchi tu glúten spels, sóu jis póushons ar ólueis glúten fríi!'},
+      {en:'He is lactose intolerant too, and avoids magic nuts and enchanted shellfish!', es:'¡También es intolerante a la lactosa, y evita frutos secos mágicos y mariscos encantados!', pron:'ji is láctous intálerant tú, and avóids máyic nats and enchánted shélfish!'},
+      {en:'Is this potion safe to eat? Take notes for the minutes of the meeting!', es:'¿Esta poción es segura para comer? ¡Tomá notas para la minuta de la reunión!', pron:'is dis póushon séif tu íit? téik nóuts for de mínits of de míiting!'},
+      {en:'The final decision is made — the responsible person will send the attachment by dragon mail.', es:'La decisión final está tomada — la persona responsable va a enviar el archivo adjunto por correo de dragón.', pron:'de fáinal disíshon is méid — de rispánsibol pérson uíl send de atáchment bái drágon méil.'}
+    ],
+    jingle:[
+      {en:"Allergy, gluten-free, that's the key!", es:'Alergia, sin gluten, ¡esa es la clave!', pron:'álerchi, glúten fríi, dats de kíi!'},
+      {en:'Lactose, nuts, shellfish, let it be!', es:'Lactosa, frutos secos, mariscos, ¡que así sea!', pron:'láctous, nats, shélfish, let it bi!'},
+      {en:'Safe to eat, take notes with care!', es:'Seguro para comer, tomá notas con cuidado.', pron:'séif tu íit, téik nóuts uid quér!'},
+      {en:"Decision, attachment, we're aware!", es:'Decisión, archivo adjunto, ¡estamos al tanto!', pron:'disíshon, atáchment, uír auér!'}
     ]
   },
 {
@@ -219,10 +267,16 @@ const curriculumUnidad4 = [
       {en:'action plan', es:'plan de acción', pron:'ákshon plan', emoji:'📋'}
     ],
     story:[
-      {en:'The giant baked a cake as tall as a castle, with a cookie for every star, and ice cream made of clouds!', es:'¡El gigante horneó una torta tan alta como un castillo, con una galleta por cada estrella, y helado hecho de nubes!'},
-      {en:'Chocolate volcanoes and candy dragons — what a sweet tooth this kingdom has!', es:'Volcanes de chocolate y dragones de caramelo — ¡qué golosos son en este reino!'},
-      {en:'In conclusion, thank you all, brave heroes, before we finish this legendary feast!', es:'En conclusión, gracias a todos, valientes héroes, ¡antes de terminar este banquete legendario!'},
-      {en:'Any questions? Same time next week, and here is our action plan!', es:'¿Alguna pregunta? Misma hora la próxima semana, ¡y acá está nuestro plan de acción!'}
+      {en:'The giant baked a cake as tall as a castle, with a cookie for every star, and ice cream made of clouds!', es:'¡El gigante horneó una torta tan alta como un castillo, con una galleta por cada estrella, y helado hecho de nubes!', pron:'de yáiant béikt a quéik as tol as a cásol, uid a cúki for évri star, and áis críim méid of cláuds!'},
+      {en:'Chocolate volcanoes and candy dragons — what a sweet tooth this kingdom has!', es:'Volcanes de chocolate y dragones de caramelo — ¡qué golosos son en este reino!', pron:'chóclet valkéinous and kándi drágons — uát a suíit túuz dis kíngdom jas!'},
+      {en:'In conclusion, thank you all, brave heroes, before we finish this legendary feast!', es:'En conclusión, gracias a todos, valientes héroes, ¡antes de terminar este banquete legendario!', pron:'in canclúshon, zenk iú ol, bréiv jírous, bifór uí fínish dis léyendari fíist!'},
+      {en:'Any questions? Same time next week, and here is our action plan!', es:'¿Alguna pregunta? Misma hora la próxima semana, ¡y acá está nuestro plan de acción!', pron:'éni cuéstions? séim táim next uíik, and jíar is áur ákshon plan!'}
+    ],
+    jingle:[
+      {en:'Cake and cookie, ice cream too!', es:'Torta y galleta, ¡helado también!', pron:'quéik and cúki, áis críim tú!'},
+      {en:"Chocolate, candy, sweet tooth, it's true!", es:'Chocolate, dulce, goloso, ¡es verdad!', pron:'chóclet, kándi, suíit túuz, its trú!'},
+      {en:"In conclusion, thank you all, we're done!", es:'En conclusión, gracias a todos, ¡terminamos!', pron:'in canclúshon, zenk iú ol, uír dan!'},
+      {en:'Any questions? Next week, same time, hon!', es:'¿Alguna pregunta? Próxima semana, misma hora, ¡amigo!', pron:'éni cuéstions? next uíik, séim táim, jan!'}
     ]
   },
 {
@@ -243,11 +297,17 @@ const curriculumUnidad4 = [
       {en:'partnership', es:'alianza', pron:'pártnership', emoji:'🤝'}
     ],
     story:[
-      {en:'The giant supermarket has a shopping list a mile long, with a hundred aisles of magic food!', es:'¡El supermercado gigante tiene una lista de compras de una milla de largo, con cien pasillos de comida mágica!'},
-      {en:'My basket floats, the cashier is a friendly robot, and the checkout counts stars instead of coins!', es:'Mi canasta flota, el cajero es un robot amigable, y la caja cuenta estrellas en vez de monedas.'},
-      {en:'Is the dragon fruit fresh, or is it frozen in time?', es:'¿La fruta de dragón está fresca, o está congelada en el tiempo?'},
-      {en:'Let\'s have a supplier meeting — bring samples, the catalog of a thousand potions, and the terms and conditions!', es:'Tengamos una reunión con el proveedor — ¡traé muestras, el catálogo de mil pociones, y los términos y condiciones!'},
-      {en:'This partnership will last a thousand years!', es:'¡Esta alianza va a durar mil años!'}
+      {en:'The giant supermarket has a shopping list a mile long, with a hundred aisles of magic food!', es:'¡El supermercado gigante tiene una lista de compras de una milla de largo, con cien pasillos de comida mágica!', pron:'de yáiant súpermarket jas a sháping list a máil long, uid a jándred áils of máyic fúud!'},
+      {en:'My basket floats, the cashier is a friendly robot, and the checkout counts stars instead of coins!', es:'Mi canasta flota, el cajero es un robot amigable, y la caja cuenta estrellas en vez de monedas.', pron:'mái básket flóuts, de cashír is a fréndli róubot, and de chékaut cáunts stars instéd of cóins!'},
+      {en:'Is the dragon fruit fresh, or is it frozen in time?', es:'¿La fruta de dragón está fresca, o está congelada en el tiempo?', pron:'is de drágon frúut fresh, or is it fróusen in táim?'},
+      {en:'Let\'s have a supplier meeting — bring samples, the catalog of a thousand potions, and the terms and conditions!', es:'Tengamos una reunión con el proveedor — ¡traé muestras, el catálogo de mil pociones, y los términos y condiciones!', pron:'lets jav a sapláier míiting — bring sámpols, de cátalog of a záusand póushons, and de terms and condíshons!'},
+      {en:'This partnership will last a thousand years!', es:'¡Esta alianza va a durar mil años!', pron:'dis pártnership uíl last a záusand íars!'}
+    ],
+    jingle:[
+      {en:'Supermarket, shopping list, aisle so wide!', es:'Supermercado, lista de compras, ¡pasillo tan ancho!', pron:'súpermarket, sháping list, áil sóu uáid!'},
+      {en:'Basket, cashier, checkout with pride!', es:'Canasta, cajero, ¡caja con orgullo!', pron:'básket, cashír, chékaut uid práid!'},
+      {en:"Fresh and frozen, supplier meeting's near!", es:'Fresco y congelado, ¡la reunión con proveedor está cerca!', pron:'fresh and fróusen, sapláier míitings níar!'},
+      {en:'Sample, catalog, partnership sincere!', es:'Muestra, catálogo, ¡alianza sincera!', pron:'sámpol, cátalog, pártnership sinsíar!'}
     ]
   },
 {
@@ -267,10 +327,16 @@ const curriculumUnidad4 = [
       {en:'investment', es:'inversión', pron:'invéstment', emoji:'📈'}
     ],
     story:[
-      {en:'The dragon wants a little water, but a lot of gold — is that enough, or too much?', es:'El dragón quiere un poco de agua, pero mucho oro — ¿es suficiente, o demasiado?'},
-      {en:'Some treasure here, none over there, and extra dragon eggs for everyone!', es:'¡Algo de tesoro acá, nada allá, y huevos de dragón extra para todos!'},
-      {en:'Our resources are unlimited, but we still need budget approval from the council of wizards!', es:'¡Nuestros recursos son ilimitados, pero igual necesitamos aprobación de presupuesto del consejo de magos!'},
-      {en:'Let\'s allocate a mountain of gold, cut costs on invisible cloaks, and make the biggest investment in dragon history!', es:'Asignemos una montaña de oro, reduzcamos costos en capas invisibles, ¡y hagamos la inversión más grande en la historia de los dragones!'}
+      {en:'The dragon wants a little water, but a lot of gold — is that enough, or too much?', es:'El dragón quiere un poco de agua, pero mucho oro — ¿es suficiente, o demasiado?', pron:'de drágon uánts a lítol uáter, bat a lat of góuld — is dat ináf, or tu mach?'},
+      {en:'Some treasure here, none over there, and extra dragon eggs for everyone!', es:'¡Algo de tesoro acá, nada allá, y huevos de dragón extra para todos!', pron:'sam tréshur jíar, nan óuver dér, and éxtra drágon egs for évriuán!'},
+      {en:'Our resources are unlimited, but we still need budget approval from the council of wizards!', es:'¡Nuestros recursos son ilimitados, pero igual necesitamos aprobación de presupuesto del consejo de magos!', pron:'áur rísorses ar anlímited, bat uí stil níid báchet apruvol fram de cáunsol of uísards!'},
+      {en:'Let\'s allocate a mountain of gold, cut costs on invisible cloaks, and make the biggest investment in dragon history!', es:'Asignemos una montaña de oro, reduzcamos costos en capas invisibles, ¡y hagamos la inversión más grande en la historia de los dragones!', pron:'lets álokeit a máuntain of góuld, cat costs on invísibol clóuks, and méik de bíguest invéstment in drágon jístori!'}
+    ],
+    jingle:[
+      {en:'A little, a lot, enough for me!', es:'Un poco, mucho, ¡suficiente para mí!', pron:'a lítol, a lat, ináf for mi!'},
+      {en:'Too much, some, none, we shall see!', es:'Demasiado, algo, nada, ¡ya veremos!', pron:'tu mach, sam, nan, uí shal síi!'},
+      {en:'Extra resources, budget approval fast!', es:'Recursos extra, ¡aprobación de presupuesto rápido!', pron:'éxtra rísorses, báchet apruvol fast!'},
+      {en:'Allocate, cut costs, investment to last!', es:'Asignar, reducir costos, ¡inversión que dure!', pron:'álokeit, cat costs, invéstment tu last!'}
     ]
   },
 {
@@ -286,10 +352,16 @@ const curriculumUnidad4 = [
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
-      {en:"Welcome to unit four's review — one third of this legendary journey is done!", es:'Bienvenido al repaso de la unidad cuatro — ¡un tercio de este viaje legendario está hecho!'},
-      {en:'Keep learning, hero, with great effort — you are always on track!', es:'¡Seguí aprendiendo, héroe, con gran esfuerzo — siempre vas bien encaminado!'},
-      {en:'This is your final review of the kitchen, the meetings, and a thousand magic feasts.', es:'Este es tu repaso final de la cocina, las reuniones, y mil banquetes mágicos.'},
-      {en:'See you in unit five, where even greater treasures await!', es:'¡Nos vemos en la unidad cinco, donde te esperan tesoros aún más grandes!'}
+      {en:"Welcome to unit four's review — one third of this legendary journey is done!", es:'Bienvenido al repaso de la unidad cuatro — ¡un tercio de este viaje legendario está hecho!', pron:'uélcam tu iúnit fóars riviú — uán zerd of dis léyendari yérni is dan!'},
+      {en:'Keep learning, hero, with great effort — you are always on track!', es:'¡Seguí aprendiendo, héroe, con gran esfuerzo — siempre vas bien encaminado!', pron:'kíip lérning, jírou, uid gréit éfort — iú ar ólueis on trak!'},
+      {en:'This is your final review of the kitchen, the meetings, and a thousand magic feasts.', es:'Este es tu repaso final de la cocina, las reuniones, y mil banquetes mágicos.', pron:'dis is iór fáinal riviú of de quítchen, de míitings, and a záusand máyic fíists.'},
+      {en:'See you in unit five, where even greater treasures await!', es:'¡Nos vemos en la unidad cinco, donde te esperan tesoros aún más grandes!', pron:'síi iú in iúnit fáiv, uér íven gréiter tréshurs auéit!'}
+    ],
+    jingle:[
+      {en:'Unit four, one third done today!', es:'Unidad cuatro, ¡un tercio hecho hoy!', pron:'iúnit fóar, uán zerd dan tudéi!'},
+      {en:'Keep learning, great effort, hooray!', es:'Seguí aprendiendo, gran esfuerzo, ¡hurra!', pron:'kíip lérning, gréit éfort, juréi!'},
+      {en:"You're on track, final review, my friend!", es:'Vas bien encaminado, repaso final, ¡mi amigo!', pron:'iór on trak, fáinal riviú, mái frend!'},
+      {en:'See you in unit five, till we meet again!', es:'Nos vemos en la unidad cinco, ¡hasta que nos volvamos a encontrar!', pron:'síi iú in iúnit fáiv, til uí míit aguén!'}
     ]
   }
 ];
