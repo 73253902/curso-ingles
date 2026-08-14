@@ -5,6 +5,15 @@ const curriculumUnidad1 = [
     day:1, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Saludos y presentarte / Saludar clientes',
     songJingle:'cancion-dia1-vocabulario.mp3',
     songStory:'cancion-dia1-historia.mp3',
+    songJingleLyrics:[
+      '¡Aprende inglés! ¡Fácil y genial! El vocabulario básico para hablar.',
+      'Hello es hola, Good morning buenos días, Good afternoon es buenas tardes en el día, Good night buenas noches... ¡vamos a cantar! Aprender inglés es fácil, ¡te va a encantar!',
+      'Please por favor, Thank you es gracias, Yes es un sí y el No se destaca. Sorry es perdón cuando algo pasa, y si tienes sed, Water en la casa.',
+      'Hello es hola, Good morning buenos días, Good afternoon es buenas tardes en el día, Good night buenas noches... ¡vamos a cantar! Aprender inglés es fácil, ¡te va a encantar!',
+      'Un Coffee es café, el Bathroom es baño, Help es ayuda cuando hay un engaño. Meeting reunión, Email correo, Today es hoy, ¡mañana es Tomorrow!',
+      'Now es ahora, Later más tarde, Good es bueno, ¡que el ritmo no pare! Bad es malo, How much cuánto cuesta, Goodbye adiós... ¡See you nos vemos en la fiesta!',
+      'Hello, Goodbye... ¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!'
+    ],
     words:[
       {en:'hello', es:'hola', pron:'jelóu', emoji:'👋'},
       {en:'good morning', es:'buenos días', pron:'gud mórnin', emoji:'🌅'},
@@ -52,6 +61,15 @@ const curriculumUnidad1 = [
     day:2, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Presentarte / Presentarte a un cliente',
     songJingle:'cancion-dia2-vocabulario.mp3',
     songStory:'cancion-dia2-historia.mp3',
+    songJingleLyrics:[
+      '¡Aprende inglés! ¡Fácil y genial! Día número dos, vamos a presentar.',
+      "My name is me llamo, What's your name? ¿quién eres tú? Nice to meet you mucho gusto, ¡qué gran actitud! Welcome bienvenido, Come in pasa ya... Aprender inglés es fácil, ¡te va a encantar!",
+      'I am from soy de un lugar especial, I work at trabajo en un sitio genial. El Manager es gerente, el Owner es el dueño, This is te presento a quien cumple su sueño.',
+      "My name is me llamo, What's your name? ¿quién eres tú? Nice to meet you mucho gusto, ¡qué gran actitud! Welcome bienvenido, Come in pasa ya... Aprender inglés es fácil, ¡te va a encantar!",
+      'Have a seat toma asiento, Our team nuestro equipo, con Contact y Phone number llamo a mi amigo. Address es dirección, Website sitio web, Business card la tarjeta que te entregaré.',
+      'Las frases de negocio ya te las sabrás, The pleasure is mine, ¡el placer me darás! Presentarte en inglés ahora es muy sencillo, ¡canta esta canción con mucho brillo!',
+      'Nice to meet you, Welcome... ¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!'
+    ],
     words:[
       {en:'my name is', es:'me llamo', pron:'mai néim is', emoji:'🙋'},
       {en:"what's your name", es:'cómo te llamas', pron:'uáts iór néim', emoji:'❓'},

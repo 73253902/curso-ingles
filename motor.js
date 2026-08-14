@@ -616,17 +616,27 @@ function loadTurn(){
   else { crossTag.style.display='none'; }
   const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio'), songLyrics=document.getElementById('songLyrics');
   const songFile = turn.isJingle ? (currentDay && currentDay.songJingle) : (turn.isDailyStory ? (currentDay && currentDay.songStory) : null);
+  const realLyrics = turn.isJingle ? (currentDay && currentDay.songJingleLyrics) : (turn.isDailyStory ? (currentDay && currentDay.songStoryLyrics) : null);
   if(songFile){
     songPlayer.style.display='block';
     songPlayerLabel.textContent = turn.isJingle ? '🎶 Escuchá el jingle real, cantado — seguí la letra' : '🎶 Escuchá la historia real, cantada — seguí la letra';
     if(songAudio.getAttribute('src') !== songFile){ songAudio.src = songFile; }
-    const lyricLines = turn.words || [];
-    songLyrics.innerHTML = lyricLines.map((l,i)=>
-      '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+l.en+'</div><div class="lyric-es">'+l.es+'</div></div>'
-    ).join('');
+    let lyricCount;
+    if(realLyrics && realLyrics.length){
+      lyricCount = realLyrics.length;
+      songLyrics.innerHTML = realLyrics.map((line,i)=>
+        '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+line+'</div></div>'
+      ).join('');
+    } else {
+      const lyricLines = turn.words || [];
+      lyricCount = lyricLines.length;
+      songLyrics.innerHTML = lyricLines.map((l,i)=>
+        '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+l.en+'</div><div class="lyric-es">'+l.es+'</div></div>'
+      ).join('');
+    }
     songAudio.ontimeupdate = ()=>{
-      if(!songAudio.duration || !lyricLines.length) return;
-      const activeIdx = Math.min(lyricLines.length-1, Math.floor((songAudio.currentTime/songAudio.duration)*lyricLines.length));
+      if(!songAudio.duration || !lyricCount) return;
+      const activeIdx = Math.min(lyricCount-1, Math.floor((songAudio.currentTime/songAudio.duration)*lyricCount));
       songLyrics.querySelectorAll('.lyric-line').forEach((el,i)=>{ el.classList.toggle('current', i===activeIdx); });
     };
   } else {

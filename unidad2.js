@@ -22,12 +22,18 @@ const curriculumUnidad2 = [
       {en:'roof', es:'techo', pron:'rúuf', emoji:'🏚️'}
     ],
     story:[
-      {en:'Welcome to my house — it floats above the clouds!', es:'¡Bienvenido a mi casa — flota sobre las nubes!'},
-      {en:'The kitchen is inside a volcano, and the living room has a pool full of stars.', es:'La cocina está dentro de un volcán, y la sala tiene una piscina llena de estrellas.'},
-      {en:'My bedroom has no roof — I sleep looking at the whole galaxy!', es:'Mi dormitorio no tiene techo — ¡duermo mirando toda la galaxia!'},
-      {en:'Go through the door, past the garden of singing flowers, to my office.', es:'Andá por la puerta, pasando el jardín de flores cantoras, hasta mi oficina.'},
-      {en:'My desk floats next to the window, with a computer made of crystal and a printer that prints rainbows!', es:'Mi escritorio flota al lado de la ventana, ¡con una computadora hecha de cristal y una impresora que imprime arcoíris!'},
-      {en:'The shelf holds a thousand magic keys, one for every table and chair in the kingdom.', es:'El estante tiene mil llaves mágicas, una para cada mesa y silla del reino.'}
+      {en:'Welcome to my house — it floats above the clouds!', es:'¡Bienvenido a mi casa — flota sobre las nubes!', pron:'uélcam tu mái jáus — it flóuts abáv de cláuds!'},
+      {en:'The kitchen is inside a volcano, and the living room has a pool full of stars.', es:'La cocina está dentro de un volcán, y la sala tiene una piscina llena de estrellas.', pron:'de quítchen is insáid a valkéinou, and de lívin rúum jas a púul ful of stars.'},
+      {en:'My bedroom has no roof — I sleep looking at the whole galaxy!', es:'Mi dormitorio no tiene techo — ¡duermo mirando toda la galaxia!', pron:'mái bédrum jas nóu rúuf — ái slíip lúking at de jóul gálaxi!'},
+      {en:'Go through the door, past the garden of singing flowers, to my office.', es:'Andá por la puerta, pasando el jardín de flores cantoras, hasta mi oficina.', pron:'góu zrú de dóar, past de gárden of sínging fláuers, tu mái áfis.'},
+      {en:'My desk floats next to the window, with a computer made of crystal and a printer that prints rainbows!', es:'Mi escritorio flota al lado de la ventana, ¡con una computadora hecha de cristal y una impresora que imprime arcoíris!', pron:'mái desk flóuts next tu de uíndou, uid a campiúter méid of crístal and a prínter dat prints réinbous!'},
+      {en:'The shelf holds a thousand magic keys, one for every table and chair in the kingdom.', es:'El estante tiene mil llaves mágicas, una para cada mesa y silla del reino.', pron:'de shelf jóulds a záusand máyic kíis, uán for évri téibol and chér in de kíngdom.'}
+    ],
+    jingle:[
+      {en:'House and kitchen, living room too!', es:'Casa y cocina, ¡sala también!', pron:'jáus and quítchen, lívin rúum tú!'},
+      {en:'Bedroom, garden, door and window!', es:'Dormitorio, jardín, ¡puerta y ventana!', pron:'bédrum, gárden, dóar and uíndou!'},
+      {en:'Table, chair, desk in my office!', es:'Mesa, silla, ¡escritorio en mi oficina!', pron:'téibol, chér, desk in mái áfis!'},
+      {en:'Computer, printer, key, and roof!', es:'Computadora, impresora, llave, ¡y techo!', pron:'campiúter, prínter, kíi, and rúuf!'}
     ]
   },
 {
@@ -50,12 +56,18 @@ const curriculumUnidad2 = [
       {en:'rest', es:'descansar', pron:'rest', emoji:'🛌'}
     ],
     story:[
-      {en:'I wake up when the sun explodes, and I get up before the rooster crows across three time zones!', es:'Me despierto cuando el sol explota, y me levanto antes de que el gallo cante en tres husos horarios.'},
-      {en:'For breakfast I eat a mountain, for lunch an ocean, and for dinner, the moon.', es:'De desayuno como una montaña, de almuerzo un océano, y de cena, la luna.'},
-      {en:'I go to work by teleporting, and I start work exactly at midnight.', es:'Voy al trabajo teletransportándome, y empiezo a trabajar exactamente a medianoche.'},
-      {en:'My shift lasts a hundred years, but I take one tiny break.', es:'Mi turno dura cien años, pero tomo un pequeño descanso.'},
-      {en:'No overtime, no day off — I am always punctual, even though I never get tired!', es:'Sin horas extra, sin día libre — ¡siempre soy puntual, aunque nunca me canso!'},
-      {en:'Finally, I finish work and rest inside a cloud.', es:'Finalmente, termino de trabajar y descanso dentro de una nube.'}
+      {en:'I wake up when the sun explodes, and I get up before the rooster crows across three time zones!', es:'Me despierto cuando el sol explota, y me levanto antes de que el gallo cante en tres husos horarios.', pron:'ái uéik ap uén de san explóuds, and ái guét ap bifór de rúuster cróus acrós zríi táim sóuns!'},
+      {en:'For breakfast I eat a mountain, for lunch an ocean, and for dinner, the moon.', es:'De desayuno como una montaña, de almuerzo un océano, y de cena, la luna.', pron:'for brékfast ái íit a máuntain, for lanch an óushon, and for díner, de múun.'},
+      {en:'I go to work by teleporting, and I start work exactly at midnight.', es:'Voy al trabajo teletransportándome, y empiezo a trabajar exactamente a medianoche.', pron:'ái góu tu uork bái télipórting, and ái start uork exáctli at mídnait.'},
+      {en:'My shift lasts a hundred years, but I take one tiny break.', es:'Mi turno dura cien años, pero tomo un pequeño descanso.', pron:'mái shift lasts a jándred íars, bat ái téik uán táini bréik.'},
+      {en:'No overtime, no day off — I am always punctual, even though I never get tired!', es:'Sin horas extra, sin día libre — ¡siempre soy puntual, aunque nunca me canso!', pron:'nóu óvertaim, nóu déi of — ái am ólueis pánchual, íven dóu ái néver guét táiard!'},
+      {en:'Finally, I finish work and rest inside a cloud.', es:'Finalmente, termino de trabajar y descanso dentro de una nube.', pron:'fáinali, ái fínish uork and rest insáid a cláud.'}
+    ],
+    jingle:[
+      {en:'Wake up, get up, breakfast time!', es:'¡Despertate, levantate, hora del desayuno!', pron:'uéik ap, guét ap, brékfast táim!'},
+      {en:'Lunch and dinner, day so fine!', es:'Almuerzo y cena, ¡qué buen día!', pron:'lanch and díner, déi sóu fáin!'},
+      {en:'Go to work, start, finish, break!', es:'Andá al trabajo, empezá, terminá, descanso.', pron:'góu tu uork, start, fínish, bréik!'},
+      {en:'Punctual, never tired, rest we take!', es:'Puntual, nunca cansado, ¡descansamos!', pron:'pánchual, néver táiard, rest uí téik!'}
     ]
   },
 {
@@ -78,12 +90,18 @@ const curriculumUnidad2 = [
       {en:'to deliver', es:'entregar', pron:'tu delíver', emoji:'📦'}
     ],
     story:[
-      {en:'The giant robot loves to eat lightning and drink liquid fire.', es:'Al robot gigante le encanta comer rayos y beber fuego líquido.'},
-      {en:'It can walk across oceans and drive a rocket with one metal finger.', es:'Puede caminar por océanos y manejar un cohete con un dedo de metal.'},
-      {en:'It talks to dolphins, writes with lasers, and reads minds like a book.', es:'Habla con delfines, escribe con láseres, y lee mentes como si fueran un libro.'},
-      {en:'It sends messages by shooting stars and receives replies from the moon.', es:'Envía mensajes disparando estrellas y recibe respuestas de la luna.'},
-      {en:'Every day, it organizes a thousand planets, checks every galaxy, and finishes before breakfast.', es:'Cada día, organiza mil planetas, revisa cada galaxia, y termina antes del desayuno.'},
-      {en:'If something breaks, it fixes it instantly and delivers the fix by dragon mail!', es:'¡Si algo se rompe, lo arregla al instante y entrega la solución por correo de dragón!'}
+      {en:'The giant robot loves to eat lightning and drink liquid fire.', es:'Al robot gigante le encanta comer rayos y beber fuego líquido.', pron:'de yáiant róubot lavs tu íit láitning and drink líquid fáiar.'},
+      {en:'It can walk across oceans and drive a rocket with one metal finger.', es:'Puede caminar por océanos y manejar un cohete con un dedo de metal.', pron:'it can uók acrós óushons and dráiv a rácket uid uán métal fínguer.'},
+      {en:'It talks to dolphins, writes with lasers, and reads minds like a book.', es:'Habla con delfines, escribe con láseres, y lee mentes como si fueran un libro.', pron:'it tóks tu dálfins, ráits uid léisers, and ríids máinds láik a buk.'},
+      {en:'It sends messages by shooting stars and receives replies from the moon.', es:'Envía mensajes disparando estrellas y recibe respuestas de la luna.', pron:'it sends mésaches bái shúuting stars and risívs rimpláis fram de múun.'},
+      {en:'Every day, it organizes a thousand planets, checks every galaxy, and finishes before breakfast.', es:'Cada día, organiza mil planetas, revisa cada galaxia, y termina antes del desayuno.', pron:'évri déi, it órganaises a záusand plánets, cheks évri gálaxi, and fínishes bifór brékfast.'},
+      {en:'If something breaks, it fixes it instantly and delivers the fix by dragon mail!', es:'¡Si algo se rompe, lo arregla al instante y entrega la solución por correo de dragón!', pron:'if sámzing bréiks, it fíxes it ínstantli and delívers de fix bái drágon méil!'}
+    ],
+    jingle:[
+      {en:'Eat and drink, walk and drive!', es:'Comer y beber, ¡caminar y manejar!', pron:'íit and drink, uók and dráiv!'},
+      {en:'Talk and write, read to thrive!', es:'Hablar y escribir, ¡leer para crecer!', pron:'tók and ráit, ríid tu zráiv!'},
+      {en:'Send, receive, call, organize!', es:'Enviar, recibir, llamar, ¡organizar!', pron:'send, risív, col, órganais!'},
+      {en:'Check and finish, fix and deliver, wise!', es:'Revisar y terminar, arreglar y entregar, ¡sabio!', pron:'chek and fínish, fix and delíver, uáis!'}
     ]
   },
 {
@@ -106,12 +124,18 @@ const curriculumUnidad2 = [
       {en:'cart', es:'carrito', pron:'cárt', emoji:'🛒'}
     ],
     story:[
-      {en:'In my magic toolbox, there is a hammer big enough to crack open the moon!', es:'En mi caja de herramientas mágica, ¡hay un martillo suficientemente grande para partir la luna!'},
-      {en:'The screwdriver spins so fast it opens portals, and the ladder reaches the top of the sky.', es:'El destornillador gira tan rápido que abre portales, y la escalera llega hasta la cima del cielo.'},
-      {en:'I paint entire castles with one drop, and my lamp lights up a whole galaxy.', es:'Pinto castillos enteros con una gota, y mi lámpara ilumina toda una galaxia.'},
-      {en:'The broom sweeps away storms, and the bucket holds an entire river.', es:'La escoba barre tormentas, y el balde contiene un río entero.'},
-      {en:'My magic pen writes on paper made of clouds; the stapler joins mountains together.', es:'Mi lapicera mágica escribe en papel hecho de nubes; la engrapadora une montañas.'},
-      {en:'The folder holds a thousand secrets, and the tape fixes broken planets. I carry it all in my flying cart!', es:'La carpeta guarda mil secretos, y la cinta arregla planetas rotos. ¡Llevo todo en mi carrito volador!'}
+      {en:'In my magic toolbox, there is a hammer big enough to crack open the moon!', es:'En mi caja de herramientas mágica, ¡hay un martillo suficientemente grande para partir la luna!', pron:'in mái máyic túulbax, dér is a jámer big ináf tu crak óupen de múun!'},
+      {en:'The screwdriver spins so fast it opens portals, and the ladder reaches the top of the sky.', es:'El destornillador gira tan rápido que abre portales, y la escalera llega hasta la cima del cielo.', pron:'de scrúdraiver spins sóu fast it óupens pórtals, and de láder ríiches de tap of de skái.'},
+      {en:'I paint entire castles with one drop, and my lamp lights up a whole galaxy.', es:'Pinto castillos enteros con una gota, y mi lámpara ilumina toda una galaxia.', pron:'ái péint entáier cásols uid uán drap, and mái lamp láits ap a jóul gálaxi.'},
+      {en:'The broom sweeps away storms, and the bucket holds an entire river.', es:'La escoba barre tormentas, y el balde contiene un río entero.', pron:'de brúm suíips auéi storms, and de báket jóulds an entáier ríver.'},
+      {en:'My magic pen writes on paper made of clouds; the stapler joins mountains together.', es:'Mi lapicera mágica escribe en papel hecho de nubes; la engrapadora une montañas.', pron:'mái máyic pen ráits on péiper méid of cláuds; de stéipler yóins máuntains tugéder.'},
+      {en:'The folder holds a thousand secrets, and the tape fixes broken planets. I carry it all in my flying cart!', es:'La carpeta guarda mil secretos, y la cinta arregla planetas rotos. ¡Llevo todo en mi carrito volador!', pron:'de fólder jóulds a záusand sícrets, and de téip fíxes bróuken plánets. ái cári it ol in mái fláing cart!'}
+    ],
+    jingle:[
+      {en:'Tool and hammer, screwdriver bright!', es:'Herramienta y martillo, ¡destornillador brillante!', pron:'túul and jámer, scrúdraiver bráit!'},
+      {en:'Ladder, paint, and lamp so light!', es:'Escalera, pintura, y lámpara tan liviana.', pron:'láder, péint, and lamp sóu láit!'},
+      {en:'Broom and bucket, pen and paper!', es:'Escoba y balde, ¡lapicera y papel!', pron:'brúm and báket, pen and péiper!'},
+      {en:'Stapler, folder, tape, scissors, cart!', es:'Engrapadora, carpeta, cinta, tijeras, ¡carrito!', pron:'stéipler, fólder, téip, sísors, cart!'}
     ]
   },
 {
@@ -133,11 +157,17 @@ const curriculumUnidad2 = [
       {en:'growth', es:'crecimiento', pron:'gróuz', emoji:'📈'}
     ],
     story:[
-      {en:'My pet is a baby dragon, and I also have a cat as big as a horse and a bird that breathes ice!', es:'Mi mascota es un dragoncito bebé, ¡y también tengo un gato tan grande como un caballo y un pájaro que respira hielo!'},
-      {en:'I feed them clouds of cotton candy every morning.', es:'Les doy de comer nubes de algodón de azúcar cada mañana.'},
-      {en:"Our company's values are honesty, respect, and teamwork — even between dragons and robots!", es:'Los valores de nuestra empresa son honestidad, respeto y trabajo en equipo — ¡hasta entre dragones y robots!'},
-      {en:'Our mission is to save every kingdom, and our vision is a universe full of trust and growth.', es:'Nuestra misión es salvar cada reino, y nuestra visión es un universo lleno de confianza y crecimiento.'},
-      {en:'Commitment is our superpower!', es:'¡El compromiso es nuestro superpoder!'}
+      {en:'My pet is a baby dragon, and I also have a cat as big as a horse and a bird that breathes ice!', es:'Mi mascota es un dragoncito bebé, ¡y también tengo un gato tan grande como un caballo y un pájaro que respira hielo!', pron:'mái pet is a béibi drágon, and ái ólsou jav a cat as big as a jors and a berd dat bríizs áis!'},
+      {en:'I feed them clouds of cotton candy every morning.', es:'Les doy de comer nubes de algodón de azúcar cada mañana.', pron:'ái fíid dem cláuds of cátan kándi évri mórning.'},
+      {en:"Our company's values are honesty, respect, and teamwork — even between dragons and robots!", es:'Los valores de nuestra empresa son honestidad, respeto y trabajo en equipo — ¡hasta entre dragones y robots!', pron:'áur cámpanis váliuus ar ánesti, rispéct, and tíimuork — íven bituín drágons and róubots!'},
+      {en:'Our mission is to save every kingdom, and our vision is a universe full of trust and growth.', es:'Nuestra misión es salvar cada reino, y nuestra visión es un universo lleno de confianza y crecimiento.', pron:'áur míshon is tu séiv évri kíngdom, and áur víyon is a iúnivers ful of trast and gróuz.'},
+      {en:'Commitment is our superpower!', es:'¡El compromiso es nuestro superpoder!', pron:'camítment is áur súperpauer!'}
+    ],
+    jingle:[
+      {en:'Pet and dog, cat and bird!', es:'Mascota y perro, ¡gato y pájaro!', pron:'pet and dog, cat and berd!'},
+      {en:"Feed them well, that's our word!", es:'Alimentalos bien, ¡esa es nuestra palabra!', pron:'fíid dem uél, dats áur uérd!'},
+      {en:'Values, mission, vision so true!', es:'Valores, misión, visión tan verdadera.', pron:'váliuus, míshon, víyon sóu trú!'},
+      {en:'Teamwork, honesty, trust, and growth too!', es:'Trabajo en equipo, honestidad, confianza, ¡y crecimiento también!', pron:'tíimuork, ánesti, trast, and gróuz tú!'}
     ]
   },
 {
@@ -161,11 +191,17 @@ const curriculumUnidad2 = [
       {en:'solution', es:'solución', pron:'salúshon', emoji:'💡'}
     ],
     story:[
-      {en:'My neighbor is a friendly giant who lives in the mountain next door.', es:'Mi vecino es un gigante amigable que vive en la montaña de al lado.'},
-      {en:'Our whole neighborhood is one big community of wizards, robots, and talking animals.', es:'Todo nuestro barrio es una gran comunidad de magos, robots y animales parlantes.'},
-      {en:'We have a loyal customer — a thousand-year-old turtle who always returns, a truly reliable regular customer!', es:'Tenemos una clienta fiel — ¡una tortuga de mil años que siempre vuelve, una clienta frecuente muy confiable!'},
-      {en:'She always recommends us with a referral to the whole ocean, and her loyalty and feedback keep us satisfied.', es:'Siempre nos recomienda con un referido a todo el océano, y su lealtad y sus comentarios nos mantienen satisfechos.'},
-      {en:"If there's ever a complaint, dragons always find a solution!", es:'¡Si alguna vez hay una queja, los dragones siempre encuentran una solución!'}
+      {en:'My neighbor is a friendly giant who lives in the mountain next door.', es:'Mi vecino es un gigante amigable que vive en la montaña de al lado.', pron:'mái néibor is a fréndli yáiant jú livs in de máuntain next dóar.'},
+      {en:'Our whole neighborhood is one big community of wizards, robots, and talking animals.', es:'Todo nuestro barrio es una gran comunidad de magos, robots y animales parlantes.', pron:'áur jóul néiborjud is uán big camiúniti of uísards, róubots, and tóking ánimals.'},
+      {en:'We have a loyal customer — a thousand-year-old turtle who always returns, a truly reliable regular customer!', es:'Tenemos una clienta fiel — ¡una tortuga de mil años que siempre vuelve, una clienta frecuente muy confiable!', pron:'uí jav a lóial cástomer — a záusand íar óuld tértol jú ólueis ritérns, a trúli riláiabol réguiular cástomer!'},
+      {en:'She always recommends us with a referral to the whole ocean, and her loyalty and feedback keep us satisfied.', es:'Siempre nos recomienda con un referido a todo el océano, y su lealtad y sus comentarios nos mantienen satisfechos.', pron:'shi ólueis recoménds as uid a riférral tu de jóul óushon, and jer lóialti and fíidbak kíip as sátisfaid.'},
+      {en:"If there's ever a complaint, dragons always find a solution!", es:'¡Si alguna vez hay una queja, los dragones siempre encuentran una solución!', pron:'if ders éver a compléint, drágons ólueis fáind a salúshon!'}
+    ],
+    jingle:[
+      {en:'Neighbor, neighborhood, community!', es:'Vecino, barrio, ¡comunidad!', pron:'néibor, néiborjud, camiúniti!'},
+      {en:"Friendly and loyal, that's the key!", es:'Amigable y fiel, ¡esa es la clave!', pron:'fréndli and lóial, dats de kíi!'},
+      {en:'Reliable, recommend, referral too!', es:'Confiable, recomendar, ¡referido también!', pron:'riláiabol, recomend, riférral tú!'},
+      {en:"Feedback, satisfied, solution's true!", es:'Comentarios, satisfecho, ¡la solución es verdadera!', pron:'fíidbak, sátisfaid, salúshons trú!'}
     ]
   },
 {
@@ -185,9 +221,15 @@ const curriculumUnidad2 = [
       {en:'already', es:'ya', pron:'olrédi', emoji:'✅'}
     ],
     story:[
-      {en:"By the way, actually, this castle is bigger than it looks!", es:'A propósito, en realidad, ¡este castillo es más grande de lo que parece!'},
-      {en:"For example, in general, dragons don't rush — as usual, don't worry, it's fine, no rush.", es:'Por ejemplo, en general, los dragones no se apuran — como siempre, no te preocupes, está bien, sin apuro.'},
-      {en:"Take your time — we're almost there, but still, the treasure hasn't arrived yet!", es:'Tomate tu tiempo — ya casi llegamos, pero todavía, ¡el tesoro no llegó!'}
+      {en:"By the way, actually, this castle is bigger than it looks!", es:'A propósito, en realidad, ¡este castillo es más grande de lo que parece!', pron:'bái de uéi, ákchuali, dis cásol is bíguer dan it luks!'},
+      {en:"For example, in general, dragons don't rush — as usual, don't worry, it's fine, no rush.", es:'Por ejemplo, en general, los dragones no se apuran — como siempre, no te preocupes, está bien, sin apuro.', pron:'for exámpol, in yéneral, drágons dont rash — as iúshual, dont uéri, its fáin, nóu rash.'},
+      {en:"Take your time — we're almost there, but still, the treasure hasn't arrived yet!", es:'Tomate tu tiempo — ya casi llegamos, pero todavía, ¡el tesoro no llegó!', pron:'téik iór táim — uír ólmoust dér, bat stil, de tréshur jásent aráivd iét!'}
+    ],
+    jingle:[
+      {en:'By the way, actually, for example!', es:'A propósito, en realidad, ¡por ejemplo!', pron:'bái de uéi, ákchuali, for exámpol!'},
+      {en:'In general, as usual, ample!', es:'En general, como siempre, ¡amplio!', pron:'in yéneral, as iúshual, ámpol!'},
+      {en:"Don't worry, it's fine, no rush!", es:'No te preocupes, está bien, ¡sin apuro!', pron:'dont uéri, its fáin, nóu rash!'},
+      {en:'Take your time, almost done, no rush!', es:'Tomate tu tiempo, casi terminado, ¡sin apuro!', pron:'téik iór táim, ólmoust dan, nóu rash!'}
     ]
   },
 {
@@ -211,12 +253,18 @@ const curriculumUnidad2 = [
       {en:'waiter', es:'mesero', pron:'uéiter', emoji:'🧑‍🍳'}
     ],
     story:[
-      {en:"The giant's table has a mountain of rice, a herd of chicken, and an ocean of meat!", es:'La mesa del gigante tiene una montaña de arroz, una manada de pollo, ¡y un océano de carne!'},
-      {en:'There are vegetables as tall as trees, fruit as big as planets, and bread that never ends.', es:'Hay verduras tan altas como árboles, fruta tan grande como planetas, y pan que nunca se termina.'},
-      {en:'Bring the soup in a lake, and the salad in a whole forest!', es:'¡Traé la sopa en un lago, y la ensalada en todo un bosque!'},
-      {en:"Let's have lunch! I'm hungry enough to eat a mountain — it's delicious!", es:'¡Almorcemos! Tengo tanta hambre que como una montaña — ¡está delicioso!'},
-      {en:'Waiter! A table for two giants, please, and the check — write it on a mountain, please!', es:'¡Mesero! Una mesa para dos gigantes, por favor, y la cuenta — ¡escribila en una montaña, por favor!'},
-      {en:'Where is the menu? I hope it has a thousand pages, with a reservation for the whole kingdom.', es:'¿Dónde está el menú? Espero que tenga mil páginas, con una reserva para todo el reino.'}
+      {en:"The giant's table has a mountain of rice, a herd of chicken, and an ocean of meat!", es:'La mesa del gigante tiene una montaña de arroz, una manada de pollo, ¡y un océano de carne!', pron:'de yáiants téibol jas a máuntain of ráis, a jerd of chíquen, and an óushon of míit!'},
+      {en:'There are vegetables as tall as trees, fruit as big as planets, and bread that never ends.', es:'Hay verduras tan altas como árboles, fruta tan grande como planetas, y pan que nunca se termina.', pron:'dér ar véchtabols as tol as tríis, frúut as big as plánets, and bred dat néver ends.'},
+      {en:'Bring the soup in a lake, and the salad in a whole forest!', es:'¡Traé la sopa en un lago, y la ensalada en todo un bosque!', pron:'bring de súup in a léik, and de sálad in a jóul fórest!'},
+      {en:"Let's have lunch! I'm hungry enough to eat a mountain — it's delicious!", es:'¡Almorcemos! Tengo tanta hambre que como una montaña — ¡está delicioso!', pron:'lets jav lanch! áim jángri ináf tu íit a máuntain — its dilíshos!'},
+      {en:'Waiter! A table for two giants, please, and the check — write it on a mountain, please!', es:'¡Mesero! Una mesa para dos gigantes, por favor, y la cuenta — ¡escribila en una montaña, por favor!', pron:'uéiter! a téibol for tú yáiants, plíis, and de chek — ráit it on a máuntain, plíis!'},
+      {en:'Where is the menu? I hope it has a thousand pages, with a reservation for the whole kingdom.', es:'¿Dónde está el menú? Espero que tenga mil páginas, con una reserva para todo el reino.', pron:'uér is de méniu? ái jóup it jas a záusand péiches, uid a reservéishon for de jóul kíngdom.'}
+    ],
+    jingle:[
+      {en:'Rice and chicken, meat so fine!', es:'Arroz y pollo, ¡carne tan buena!', pron:'ráis and chíquen, míit sóu fáin!'},
+      {en:'Vegetables, fruit, and bread that shine!', es:'Verduras, fruta, y pan que brilla.', pron:'véchtabols, frúut, and bred dat sháin!'},
+      {en:"Soup and salad, I'm so hungry!", es:'Sopa y ensalada, ¡tengo tanta hambre!', pron:'súup and sálad, áim sóu jángri!'},
+      {en:'Waiter, table for two, the check for me!', es:'Mesero, mesa para dos, ¡la cuenta para mí!', pron:'uéiter, téibol for tú, de chek for mi!'}
     ]
   },
 {
@@ -239,11 +287,17 @@ const curriculumUnidad2 = [
       {en:'to update', es:'actualizar', pron:'tu apdéit', emoji:'🔄'}
     ],
     story:[
-      {en:'The cleaning robot can clean an entire ocean in one second!', es:'¡El robot de limpieza puede limpiar un océano entero en un segundo!'},
-      {en:'It washes mountains, sweeps deserts, and keeps perfect order across a thousand galaxies.', es:'Lava montañas, barre desiertos, y mantiene un orden perfecto en mil galaxias.'},
-      {en:"No trash is too dirty, and nothing stays clean for long in a dragon's warehouse!", es:'¡Ninguna basura es demasiado sucia, y nada queda limpio por mucho tiempo en la bodega de un dragón!'},
-      {en:'It checks the inventory of a million stars in storage, labels each one, and counts them all before breakfast.', es:'Revisa el inventario de un millón de estrellas en el almacén, etiqueta cada una, y las cuenta todas antes del desayuno.'},
-      {en:'If one is missing or damaged, it demands a return and updates the list instantly!', es:'¡Si falta una o está dañada, exige una devolución y actualiza la lista al instante!'}
+      {en:'The cleaning robot can clean an entire ocean in one second!', es:'¡El robot de limpieza puede limpiar un océano entero en un segundo!', pron:'de clíining róubot can clíin an entáier óushon in uán sécond!'},
+      {en:'It washes mountains, sweeps deserts, and keeps perfect order across a thousand galaxies.', es:'Lava montañas, barre desiertos, y mantiene un orden perfecto en mil galaxias.', pron:'it uáshes máuntains, suíips désers, and kíips pérfect órder acrós a záusand gálaxis.'},
+      {en:"No trash is too dirty, and nothing stays clean for long in a dragon's warehouse!", es:'¡Ninguna basura es demasiado sucia, y nada queda limpio por mucho tiempo en la bodega de un dragón!', pron:'nóu trash is tu dérti, and názing stéis clíin for long in a drágons uérjaus!'},
+      {en:'It checks the inventory of a million stars in storage, labels each one, and counts them all before breakfast.', es:'Revisa el inventario de un millón de estrellas en el almacén, etiqueta cada una, y las cuenta todas antes del desayuno.', pron:'it cheks de ínventori of a mílion stars in stóridch, léibols íich uán, and cáunts dem ol bifór brékfast.'},
+      {en:'If one is missing or damaged, it demands a return and updates the list instantly!', es:'¡Si falta una o está dañada, exige una devolución y actualiza la lista al instante!', pron:'if uán is mísing or dámichd, it dimánds a ritérn and apdéits de list ínstantli!'}
+    ],
+    jingle:[
+      {en:'Clean and wash, sweep away!', es:'Limpiar y lavar, ¡barrer!', pron:'clíin and uásh, suíip auéi!'},
+      {en:"Order, no trash, dirty's not okay!", es:'Orden, sin basura, ¡sucio no está bien!', pron:'órder, nóu trash, dértis nat oquéi!'},
+      {en:'Inventory, storage, label with care!', es:'Inventario, almacenamiento, ¡etiquetar con cuidado!', pron:'ínventori, stóridch, léibol uid quér!'},
+      {en:'Count what\'s missing, damaged, and update there!', es:'Contá lo que falta, dañado, ¡y actualizá ahí!', pron:'cáunt uáts mísing, dámichd, and apdéit dér!'}
     ]
   },
 {
@@ -266,11 +320,17 @@ const curriculumUnidad2 = [
       {en:'next week', es:'próxima semana', pron:'next uíik', emoji:'➡️'}
     ],
     story:[
-      {en:'On the weekend, even dragons need to relax!', es:'¡El fin de semana, hasta los dragones necesitan relajarse!'},
-      {en:"I'm going on vacation to a floating island for the whole holiday, with unlimited free time!", es:'¡Me voy de vacaciones a una isla flotante todo el feriado, con tiempo libre ilimitado!'},
-      {en:'I love to travel by shooting star.', es:'Me encanta viajar en estrella fugaz.'},
-      {en:'If a dragon takes sick leave, another dragon must request permission to approve covering for me!', es:'¡Si un dragón toma licencia médica, otro dragón debe solicitar permiso para aprobar cubrirme!'},
-      {en:'I plan to enjoy every single moment before I return to work next week!', es:'¡Planeo disfrutar cada momento antes de volver al trabajo la próxima semana!'}
+      {en:'On the weekend, even dragons need to relax!', es:'¡El fin de semana, hasta los dragones necesitan relajarse!', pron:'on de uíikend, íven drágons níid tu riláx!'},
+      {en:"I'm going on vacation to a floating island for the whole holiday, with unlimited free time!", es:'¡Me voy de vacaciones a una isla flotante todo el feriado, con tiempo libre ilimitado!', pron:'áim góing on veiquéishon tu a flóuting áiland for de jóul jálidei, uid anlímited fríi táim!'},
+      {en:'I love to travel by shooting star.', es:'Me encanta viajar en estrella fugaz.', pron:'ái lav tu trável bái shúuting star.'},
+      {en:'If a dragon takes sick leave, another dragon must request permission to approve covering for me!', es:'¡Si un dragón toma licencia médica, otro dragón debe solicitar permiso para aprobar cubrirme!', pron:'if a drágon téiks sik líiv, anáder drágon mast rikuést permíshon tu apruv cávering for mi!'},
+      {en:'I plan to enjoy every single moment before I return to work next week!', es:'¡Planeo disfrutar cada momento antes de volver al trabajo la próxima semana!', pron:'ái plan tu enyói évri síngol móument bifór ái ritérn tu uork next uíik!'}
+    ],
+    jingle:[
+      {en:'Weekend, relax, vacation too!', es:'Fin de semana, relajarse, ¡vacaciones también!', pron:'uíikend, riláx, veiquéishon tú!'},
+      {en:'Holiday, free time, travel through!', es:'Feriado, tiempo libre, ¡viajar por ahí!', pron:'jálidei, fríi táim, trável zrú!'},
+      {en:'Request permission, approve it fast!', es:'Pedí permiso, ¡aprobalo rápido!', pron:'rikuést permíshon, apruv it fast!'},
+      {en:'Cover for me, plan and enjoy, at last!', es:'Cubrime, planeá y disfrutá, ¡por fin!', pron:'cáver for mi, plan and enyói, at last!'}
     ]
   },
 {
@@ -294,10 +354,16 @@ const curriculumUnidad2 = [
       {en:'agreement', es:'acuerdo', pron:'agríiment', emoji:'🤝'}
     ],
     story:[
-      {en:'This dragon egg is more expensive, but that one is cheaper — which is better?', es:'Este huevo de dragón es más caro, pero aquel es más barato — ¿cuál es mejor?'},
-      {en:"Actually, they're the same, though this treasure chest looks completely different!", es:'En realidad, son lo mismo, ¡aunque este cofre del tesoro se ve completamente diferente!'},
-      {en:'Let\'s compare every option before I choose and decide.', es:'Comparemos cada opción antes de que elija y decida.'},
-      {en:"The wizard's offer is the best deal — let's negotiate a magical contract and sign the agreement!", es:'¡La oferta del mago es el mejor trato — negociemos un contrato mágico y firmemos el acuerdo!'}
+      {en:'This dragon egg is more expensive, but that one is cheaper — which is better?', es:'Este huevo de dragón es más caro, pero aquel es más barato — ¿cuál es mejor?', pron:'dis drágon eg is mor expénsiv, bat dat uán is chíiper — uích is béter?'},
+      {en:"Actually, they're the same, though this treasure chest looks completely different!", es:'En realidad, son lo mismo, ¡aunque este cofre del tesoro se ve completamente diferente!', pron:'ákchuali, déir de séim, dóu dis tréshur chest luks camplítli díferent!'},
+      {en:'Let\'s compare every option before I choose and decide.', es:'Comparemos cada opción antes de que elija y decida.', pron:'lets campér évri ápshon bifór ái chúus and disáid.'},
+      {en:"The wizard's offer is the best deal — let's negotiate a magical contract and sign the agreement!", es:'¡La oferta del mago es el mejor trato — negociemos un contrato mágico y firmemos el acuerdo!', pron:'de uísards áfer is de best díil — lets nigóushieit a máyical cántract and sáin de agríiment!'}
+    ],
+    jingle:[
+      {en:'More expensive, cheaper too!', es:'Más caro, ¡más barato también!', pron:'mor expénsiv, chíiper tú!'},
+      {en:'Better, worse, the best for you!', es:'Mejor, peor, ¡el mejor para vos!', pron:'béter, uérs, de best for iú!'},
+      {en:'Compare, choose, decide with care!', es:'Comparar, elegir, ¡decidir con cuidado!', pron:'campér, chúus, disáid uid quér!'},
+      {en:"Negotiate the deal, contract's fair!", es:'Negociá el trato, ¡el contrato es justo!', pron:'nigóushieit de díil, cántracts fér!'}
     ]
   },
 {
@@ -315,10 +381,16 @@ const curriculumUnidad2 = [
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
-      {en:"Welcome to unit two's final review — what did you learn on this legendary journey?", es:'Bienvenido al repaso final de la unidad dos — ¿qué aprendiste en este viaje legendario?'},
-      {en:'I remember the dragon, the alien, and the flying castle! But I forgot the wizard\'s name...', es:'¡Me acuerdo del dragón, el alienígena, y el castillo volador! Pero se me olvidó el nombre del mago...'},
-      {en:"Let's practice one more time — you're improving every single day!", es:'Practiquemos una vez más — ¡estás mejorando cada día!'},
-      {en:'We are halfway there, brave hero. Get ready for the next unit!', es:'Vamos a mitad de camino, valiente héroe. ¡Prepárate para la próxima unidad!'}
+      {en:"Welcome to unit two's final review — what did you learn on this legendary journey?", es:'Bienvenido al repaso final de la unidad dos — ¿qué aprendiste en este viaje legendario?', pron:'uélcam tu iúnit túus fáinal riviú — uát did iú lern on dis léyendari yérni?'},
+      {en:'I remember the dragon, the alien, and the flying castle! But I forgot the wizard\'s name...', es:'¡Me acuerdo del dragón, el alienígena, y el castillo volador! Pero se me olvidó el nombre del mago...', pron:'ái rimémber de drágon, de éilien, and de fláing cásol! bat ái forgát de uísards néim...'},
+      {en:"Let's practice one more time — you're improving every single day!", es:'Practiquemos una vez más — ¡estás mejorando cada día!', pron:'lets práctis uán mor táim — iór imprúving évri síngol déi!'},
+      {en:'We are halfway there, brave hero. Get ready for the next unit!', es:'Vamos a mitad de camino, valiente héroe. ¡Prepárate para la próxima unidad!', pron:'uí ar jáfuei dér, bréiv jírou. guét rédi for de next iúnit!'}
+    ],
+    jingle:[
+      {en:'Unit two, review, what did you learn?', es:'Unidad dos, repaso, ¿qué aprendiste?', pron:'iúnit tú, riviú, uát did iú lern?'},
+      {en:"I remember, forgot, but I'll return!", es:'Me acuerdo, se me olvidó, ¡pero voy a volver!', pron:'ái rimémber, forgát, bat áil ritérn!'},
+      {en:"Let's practice one more time, improving fast!", es:'Practiquemos una vez más, ¡mejorando rápido!', pron:'lets práctis uán mor táim, imprúving fast!'},
+      {en:'Halfway there, next unit, having a blast!', es:'A mitad de camino, próxima unidad, ¡divirtiéndonos!', pron:'jáfuei dér, next iúnit, jáving a blast!'}
     ]
   }
 ];
