@@ -2,7 +2,7 @@
 // CURRÍCULO — cada entrada es un día. Por ahora solo existe el Día 1;
 // los siguientes días se suman acá mismo en lotes (misma estructura).
 // ================================================================
-// El currículo completo se arma juntando cada archivo de unidad (unidad1.js ... unidad6.js).
+// El currículo completo se arma juntando cada archivo de unidad (unidad1.js ... unidad7.js).
 // Para sumar una unidad nueva: crear unidadN.js con el mismo formato, sumar su <script src>
 // en el HTML, y agregar ...curriculumUnidadN acá abajo.
 const curriculum = [
@@ -11,7 +11,8 @@ const curriculum = [
   ...curriculumUnidad3,
   ...curriculumUnidad4,
   ...curriculumUnidad5,
-  ...curriculumUnidad6
+  ...curriculumUnidad6,
+  ...curriculumUnidad7
 ];
 const TOTAL_DAYS = 180; // el mapa completo; el resto de los días se muestran "próximamente" hasta que se agreguen
 
@@ -251,106 +252,106 @@ const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son
 // Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
 // sin explicar la regla — el alumno las adquiere por exposición repetida, como un chico.
 const contrastBank = [
-  { a:{en:'I have lived here for 10 years.', es:'vivo acá desde hace 10 años (todavía es así)'}, b:{en:'I lived here for 10 years.', es:'viví acá 10 años (ya no)'} },
-  { a:{en:"I'm going to call him.", es:'voy a llamarlo (plan ya decidido)'}, b:{en:'I will call him.', es:'lo voy a llamar (decisión del momento)'} },
-  { a:{en:'I used to smoke.', es:'antes fumaba (ya no)'}, b:{en:'I smoked yesterday.', es:'fumé ayer (un momento puntual)'} },
-  { a:{en:'I have some money.', es:'tengo algo de dinero'}, b:{en:"I don't have any money.", es:'no tengo nada de dinero'} },
-  { a:{en:"She's taller than him.", es:'ella es más alta que él'}, b:{en:"She's the tallest in the class.", es:'ella es la más alta de la clase'} },
-  { a:{en:'I must finish this today.', es:'tengo que terminar esto hoy (urgencia propia)'}, b:{en:'I have to finish this today.', es:'tengo que terminar esto hoy (obligación normal)'} },
-  { a:{en:'Can I help you?', es:'te puedo ayudar (directo)'}, b:{en:'Could I help you?', es:'podría ayudarte (más formal)'} },
-  { a:{en:"I'm meeting him tomorrow.", es:'me reúno con él mañana (ya está organizado)'}, b:{en:'I will meet him tomorrow.', es:'me voy a reunir con él mañana (más espontáneo)'} },
-  { a:{en:"I've never been to Mexico.", es:'nunca estuve en México (experiencia de vida)'}, b:{en:"I didn't go to Mexico last year.", es:'no fui a México el año pasado (momento específico)'} },
-  { a:{en:'There is a book on the table.', es:'hay un libro en la mesa'}, b:{en:'There are books on the table.', es:'hay libros en la mesa'} },
-  { a:{en:'He is working right now.', es:'él está trabajando ahora mismo'}, b:{en:'He works here.', es:'él trabaja acá (siempre, de costumbre)'} },
-  { a:{en:'If I have time, I will call you.', es:'si tengo tiempo, te llamo (posible)'}, b:{en:'If I had time, I would call you.', es:'si tuviera tiempo, te llamaría (poco probable)'} },
-  { a:{en:'This is my house.', es:'esta es mi casa (todavía)'}, b:{en:'This was my house.', es:'esta era mi casa (ya no)'} },
-  { a:{en:'I already finished.', es:'ya terminé (con énfasis)'}, b:{en:'I just finished.', es:'recién terminé (hace un momento)'} },
-  { a:{en:'A few people came.', es:'vino alguna gente (algunos, positivo)'}, b:{en:'Few people came.', es:'vino poca gente (casi nadie)'} }
+  { a:{en:'I have lived here for 10 years.', es:'vivo acá desde hace 10 años (todavía es así)', pron:'ái jav livd jíar for ten íars.'}, b:{en:'I lived here for 10 years.', es:'viví acá 10 años (ya no)', pron:'ái livd jíar for ten íars.'} },
+  { a:{en:"I'm going to call him.", es:'voy a llamarlo (plan ya decidido)', pron:'áim góing tu col jim.'}, b:{en:'I will call him.', es:'lo voy a llamar (decisión del momento)', pron:'ái uíl col jim.'} },
+  { a:{en:'I used to smoke.', es:'antes fumaba (ya no)', pron:'ái iúsd tu smóuk.'}, b:{en:'I smoked yesterday.', es:'fumé ayer (un momento puntual)', pron:'ái smóukt iésterdei.'} },
+  { a:{en:'I have some money.', es:'tengo algo de dinero', pron:'ái jav sam máni.'}, b:{en:"I don't have any money.", es:'no tengo nada de dinero', pron:"ái dont jav éni máni."} },
+  { a:{en:"She's taller than him.", es:'ella es más alta que él', pron:'shis tóler dan jim.'}, b:{en:"She's the tallest in the class.", es:'ella es la más alta de la clase', pron:'shis de tólest in de clas.'} },
+  { a:{en:'I must finish this today.', es:'tengo que terminar esto hoy (urgencia propia)', pron:'ái mast fínish dis tudéi.'}, b:{en:'I have to finish this today.', es:'tengo que terminar esto hoy (obligación normal)', pron:'ái jav tu fínish dis tudéi.'} },
+  { a:{en:'Can I help you?', es:'te puedo ayudar (directo)', pron:'can ái jelp iú?'}, b:{en:'Could I help you?', es:'podría ayudarte (más formal)', pron:'cud ái jelp iú?'} },
+  { a:{en:"I'm meeting him tomorrow.", es:'me reúno con él mañana (ya está organizado)', pron:'áim míiting jim tumórou.'}, b:{en:'I will meet him tomorrow.', es:'me voy a reunir con él mañana (más espontáneo)', pron:'ái uíl míit jim tumórou.'} },
+  { a:{en:"I've never been to Mexico.", es:'nunca estuve en México (experiencia de vida)', pron:'áiv néver bin tu Méxicou.'}, b:{en:"I didn't go to Mexico last year.", es:'no fui a México el año pasado (momento específico)', pron:"ái dídent góu tu Méxicou last íar."} },
+  { a:{en:'There is a book on the table.', es:'hay un libro en la mesa', pron:'dér is a buk on de téibol.'}, b:{en:'There are books on the table.', es:'hay libros en la mesa', pron:'dér ar buks on de téibol.'} },
+  { a:{en:'He is working right now.', es:'él está trabajando ahora mismo', pron:'ji is uórking ráit náu.'}, b:{en:'He works here.', es:'él trabaja acá (siempre, de costumbre)', pron:'ji uorks jíar.'} },
+  { a:{en:'If I have time, I will call you.', es:'si tengo tiempo, te llamo (posible)', pron:'if ái jav táim, ái uíl col iú.'}, b:{en:'If I had time, I would call you.', es:'si tuviera tiempo, te llamaría (poco probable)', pron:'if ái jad táim, ái uud col iú.'} },
+  { a:{en:'This is my house.', es:'esta es mi casa (todavía)', pron:'dis is mái jáus.'}, b:{en:'This was my house.', es:'esta era mi casa (ya no)', pron:'dis uas mái jáus.'} },
+  { a:{en:'I already finished.', es:'ya terminé (con énfasis)', pron:'ái olrédi fínisht.'}, b:{en:'I just finished.', es:'recién terminé (hace un momento)', pron:'ái yast fínisht.'} },
+  { a:{en:'A few people came.', es:'vino alguna gente (algunos, positivo)', pron:'a fiú pípol kéim.'}, b:{en:'Few people came.', es:'vino poca gente (casi nadie)', pron:'fiú pípol kéim.'} }
 ];
 // Rephrasing: una frase simple y su versión más elegante, mismo significado —
 // se adquiere por exposición repetida, igual que los pares de contraste.
 const rephraseIntro = [{t:'Ahora un "rephrasing": la misma idea, dicha de una forma más elegante. Escuchá primero la versión simple, después la versión más pulida — repetí y escribí las dos.',lang:'es'}];
 const rephraseBank = [
-  { simple:{en:'I like it.', es:'me gusta (simple)'}, elegant:{en:'I really appreciate it.', es:'lo aprecio mucho (más elegante)'} },
-  { simple:{en:'Can you help me?', es:'¿me podés ayudar? (simple)'}, elegant:{en:'Would you be able to assist me?', es:'¿serías capaz de asistirme? (más formal)'} },
-  { simple:{en:"I don't know.", es:'no sé (simple)'}, elegant:{en:"I'm not entirely sure.", es:'no estoy del todo seguro (más suave)'} },
-  { simple:{en:"It's expensive.", es:'es caro (simple)'}, elegant:{en:"It's quite costly.", es:'resulta bastante costoso (más elegante)'} },
-  { simple:{en:'I want to buy this.', es:'quiero comprar esto (simple)'}, elegant:{en:"I'd like to purchase this.", es:'me gustaría adquirir esto (más formal)'} },
-  { simple:{en:'Call me later.', es:'llamame después (simple)'}, elegant:{en:'Please give me a call at your convenience.', es:'por favor llamame cuando te sea posible (más cortés)'} },
-  { simple:{en:"That's a good idea.", es:'es una buena idea (simple)'}, elegant:{en:'That sounds like an excellent idea.', es:'suena como una excelente idea (más entusiasta)'} },
-  { simple:{en:'I need more time.', es:'necesito más tiempo (simple)'}, elegant:{en:'I could use a bit more time, if possible.', es:'me vendría bien un poco más de tiempo, si es posible (más suave)'} },
-  { simple:{en:'Send me the file.', es:'mandame el archivo (simple)'}, elegant:{en:'Could you please send over the file?', es:'¿podrías enviarme el archivo, por favor? (más cortés)'} },
-  { simple:{en:"It's not working.", es:'no funciona (simple)'}, elegant:{en:"It doesn't seem to be working properly.", es:'parece que no está funcionando bien (más matizado)'} },
-  { simple:{en:"I'm busy today.", es:'estoy ocupado hoy (simple)'}, elegant:{en:'I have a full schedule today.', es:'tengo la agenda completa hoy (más profesional)'} },
-  { simple:{en:'Thanks for your help.', es:'gracias por tu ayuda (simple)'}, elegant:{en:'I really appreciate your assistance.', es:'aprecio mucho tu asistencia (más formal)'} },
-  { simple:{en:'I agree.', es:'estoy de acuerdo (simple)'}, elegant:{en:'I completely agree with that.', es:'estoy completamente de acuerdo con eso (más enfático)'} },
-  { simple:{en:'Sorry, I was late.', es:'perdón, llegué tarde (simple)'}, elegant:{en:'I apologize for the delay.', es:'me disculpo por la demora (más formal)'} },
-  { simple:{en:'This is a problem.', es:'esto es un problema (simple)'}, elegant:{en:'This presents a bit of a challenge.', es:'esto presenta un pequeño desafío (más diplomático)'} }
+  { simple:{en:'I like it.', es:'me gusta (simple)', pron:'ái láik it.'}, elegant:{en:'I really appreciate it.', es:'lo aprecio mucho (más elegante)', pron:'ái ríili apríshieit it.'} },
+  { simple:{en:'Can you help me?', es:'¿me podés ayudar? (simple)', pron:'can iú jelp mi?'}, elegant:{en:'Would you be able to assist me?', es:'¿serías capaz de asistirme? (más formal)', pron:'uud iú bi éibol tu asíst mi?'} },
+  { simple:{en:"I don't know.", es:'no sé (simple)', pron:"ái dont nóu."}, elegant:{en:"I'm not entirely sure.", es:'no estoy del todo seguro (más suave)', pron:"áim nat entáierli shúr."} },
+  { simple:{en:"It's expensive.", es:'es caro (simple)', pron:"its expénsiv."}, elegant:{en:"It's quite costly.", es:'resulta bastante costoso (más elegante)', pron:"its cuáit cóstli."} },
+  { simple:{en:'I want to buy this.', es:'quiero comprar esto (simple)', pron:'ái uánt tu bái dis.'}, elegant:{en:"I'd like to purchase this.", es:'me gustaría adquirir esto (más formal)', pron:"áid láik tu pérchas dis."} },
+  { simple:{en:'Call me later.', es:'llamame después (simple)', pron:'col mi léiter.'}, elegant:{en:'Please give me a call at your convenience.', es:'por favor llamame cuando te sea posible (más cortés)', pron:'plíis guiv mi a col at iór canvíniens.'} },
+  { simple:{en:"That's a good idea.", es:'es una buena idea (simple)', pron:"dats a gud aidía."}, elegant:{en:'That sounds like an excellent idea.', es:'suena como una excelente idea (más entusiasta)', pron:'dat sáunds láik an éxcelent aidía.'} },
+  { simple:{en:'I need more time.', es:'necesito más tiempo (simple)', pron:'ái níid mor táim.'}, elegant:{en:'I could use a bit more time, if possible.', es:'me vendría bien un poco más de tiempo, si es posible (más suave)', pron:'ái cud iús a bit mor táim, if pásibol.'} },
+  { simple:{en:'Send me the file.', es:'mandame el archivo (simple)', pron:'send mi de fáil.'}, elegant:{en:'Could you please send over the file?', es:'¿podrías enviarme el archivo, por favor? (más cortés)', pron:'cud iú plíis send óuver de fáil?'} },
+  { simple:{en:"It's not working.", es:'no funciona (simple)', pron:"its nat uórking."}, elegant:{en:"It doesn't seem to be working properly.", es:'parece que no está funcionando bien (más matizado)', pron:"it dásent síim tu bi uórking próperli."} },
+  { simple:{en:"I'm busy today.", es:'estoy ocupado hoy (simple)', pron:"áim bísi tudéi."}, elegant:{en:'I have a full schedule today.', es:'tengo la agenda completa hoy (más profesional)', pron:'ái jav a ful squéyul tudéi.'} },
+  { simple:{en:'Thanks for your help.', es:'gracias por tu ayuda (simple)', pron:'zenks for iór jelp.'}, elegant:{en:'I really appreciate your assistance.', es:'aprecio mucho tu asistencia (más formal)', pron:'ái ríili apríshieit iór asístans.'} },
+  { simple:{en:'I agree.', es:'estoy de acuerdo (simple)', pron:'ái agríi.'}, elegant:{en:'I completely agree with that.', es:'estoy completamente de acuerdo con eso (más enfático)', pron:'ái camplítli agríi uid dat.'} },
+  { simple:{en:'Sorry, I was late.', es:'perdón, llegué tarde (simple)', pron:'sórri, ái uas léit.'}, elegant:{en:'I apologize for the delay.', es:'me disculpo por la demora (más formal)', pron:'ái apáloyáis for de diléi.'} },
+  { simple:{en:'This is a problem.', es:'esto es un problema (simple)', pron:'dis is a práblem.'}, elegant:{en:'This presents a bit of a challenge.', es:'esto presenta un pequeño desafío (más diplomático)', pron:'dis présents a bit of a chálench.'} }
 ];
 // Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
 const weeklyStories = {
   6: [
-    {en:'Good morning! My name is Captain Thunder, and I work at the floating dragon company.', es:'¡Buenos días! Me llamo Capitán Trueno, y trabajo en la empresa flotante de dragones.'},
-    {en:'Welcome, tiny human! Come in and have a seat on this giant mushroom.', es:'¡Bienvenido, humanito! Pasá y tomá asiento en este hongo gigante.'},
-    {en:'We are from the Kingdom of Clouds, and we sell magic potions to a thousand customers.', es:'Somos del Reino de las Nubes, y vendemos pociones mágicas a mil clientes.'},
-    {en:'My flying wife is the sales manager, and my fire-breathing son works in logistics.', es:'Mi esposa voladora es la gerente de ventas, y mi hijo que respira fuego trabaja en logística.'},
-    {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitás para este pedido? ¿Diez cajas, o toda una docena?'},
-    {en:"Are you available on Monday, in the year 3000? Let's schedule an appointment!", es:'¿Estás disponible el lunes, en el año 3000? ¡Agendemos una cita!'},
-    {en:'Thank you, and see you soon in the clouds. Goodbye!', es:'Gracias, y nos vemos pronto en las nubes. ¡Adiós!'}
+    {en:'Good morning! My name is Captain Thunder, and I work at the floating dragon company.', es:'¡Buenos días! Me llamo Capitán Trueno, y trabajo en la empresa flotante de dragones.', pron:'gud mórnin! mái néim is cáptin zánder, and ái uork at de flóuting drágon cámpani.'},
+    {en:'Welcome, tiny human! Come in and have a seat on this giant mushroom.', es:'¡Bienvenido, humanito! Pasá y tomá asiento en este hongo gigante.', pron:'uélcam, táini jiúman! cam in and jav a síit on dis yáiant máshrum.'},
+    {en:'We are from the Kingdom of Clouds, and we sell magic potions to a thousand customers.', es:'Somos del Reino de las Nubes, y vendemos pociones mágicas a mil clientes.', pron:'uí ar fram de kíngdom of cláuds, and uí sel máyic póushons tu a záusand cástomers.'},
+    {en:'My flying wife is the sales manager, and my fire-breathing son works in logistics.', es:'Mi esposa voladora es la gerente de ventas, y mi hijo que respira fuego trabaja en logística.', pron:'mái fláing uáif is de séils mánayer, and mái fáiar brízing san uorks in loyístics.'},
+    {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitás para este pedido? ¿Diez cajas, o toda una docena?', pron:'jáu méni drágon egs du iú níid for dis órder? ten báxes, or a jóul dázen?'},
+    {en:"Are you available on Monday, in the year 3000? Let's schedule an appointment!", es:'¿Estás disponible el lunes, en el año 3000? ¡Agendemos una cita!', pron:"ar iú avéilabol on mándei, in de íar zríi záusand? lets squéyul an apóintment!"},
+    {en:'Thank you, and see you soon in the clouds. Goodbye!', es:'Gracias, y nos vemos pronto en las nubes. ¡Adiós!', pron:'zenk iú, and síi iú súun in de cláuds. gudbái!'}
   ],
   12: [
-    {en:"How are you doing today, brave hero? I'm great, thanks!", es:'¿Cómo te va hoy, valiente héroe? ¡Estoy genial, gracias!'},
-    {en:"How's the dragon business? Everything is amazing, as always.", es:'¿Cómo va el negocio de dragones? Todo increíble, como siempre.'},
-    {en:'Thanks for calling through the crystal ball. It was a pleasure talking to you, wizard.', es:'Gracias por llamar a través de la bola de cristal. Fue un placer hablar con vos, mago.'},
-    {en:'I have a question: what is the price of the treasure, and do you have stock of magic beans?', es:'Tengo una pregunta: ¿cuál es el precio del tesoro, y tenés stock de frijoles mágicos?'},
-    {en:'We need a castle in blue, gigantic size, and unbreakable material!', es:'¡Necesitamos un castillo en azul, tamaño gigante, y material irrompible!'},
-    {en:'Well done, hero! You finished the first legendary unit. Congratulations!', es:'¡Bien hecho, héroe! Terminaste la primera unidad legendaria. ¡Felicitaciones!'}
+    {en:"How are you doing today, brave hero? I'm great, thanks!", es:'¿Cómo te va hoy, valiente héroe? ¡Estoy genial, gracias!', pron:"jáu ar iú dúing tudéi, bréiv jírou? áim gréit, zenks!"},
+    {en:"How's the dragon business? Everything is amazing, as always.", es:'¿Cómo va el negocio de dragones? Todo increíble, como siempre.', pron:"jáus de drágon bísnes? évrizin is améising, as ólueis."},
+    {en:'Thanks for calling through the crystal ball. It was a pleasure talking to you, wizard.', es:'Gracias por llamar a través de la bola de cristal. Fue un placer hablar con vos, mago.', pron:'zenks for cóling zrú de crístal bol. it uas a pléyer tóking tu iú, uísard.'},
+    {en:'I have a question: what is the price of the treasure, and do you have stock of magic beans?', es:'Tengo una pregunta: ¿cuál es el precio del tesoro, y tenés stock de frijoles mágicos?', pron:'ái jav a cuéstion: uát is de práis of de tréshur, and du iú jav stak of máyic bíins?'},
+    {en:'We need a castle in blue, gigantic size, and unbreakable material!', es:'¡Necesitamos un castillo en azul, tamaño gigante, y material irrompible!', pron:'uí níid a cásol in blú, yaigántic sáis, and anbréikabol matírial!'},
+    {en:'Well done, hero! You finished the first legendary unit. Congratulations!', es:'¡Bien hecho, héroe! Terminaste la primera unidad legendaria. ¡Felicitaciones!', pron:'uél dan, jírou! iú fínisht de ferst léyendari iúnit. congrachuléishons!'}
   ],
   18: [
-    {en:'Welcome to my floating house — the kitchen is inside a volcano!', es:'¡Bienvenido a mi casa flotante — la cocina está dentro de un volcán!'},
-    {en:'I wake up when the sun explodes, and I go to work by teleporting.', es:'Me despierto cuando el sol explota, y voy al trabajo teletransportándome.'},
-    {en:'My robot can walk across oceans, write with lasers, and fix anything instantly.', es:'Mi robot puede caminar por océanos, escribir con láseres, y arreglar cualquier cosa al instante.'},
-    {en:'In my magic toolbox, a hammer can crack open the moon!', es:'En mi caja de herramientas mágica, ¡un martillo puede partir la luna!'},
-    {en:'My pet dragon and I share the same values: honesty, respect, and teamwork.', es:'Mi dragón mascota y yo compartimos los mismos valores: honestidad, respeto y trabajo en equipo.'},
-    {en:'Our loyal customer, the thousand-year-old turtle, always returns and recommends us to the whole ocean!', es:'Nuestra clienta fiel, la tortuga de mil años, ¡siempre vuelve y nos recomienda a todo el océano!'}
+    {en:'Welcome to my floating house — the kitchen is inside a volcano!', es:'¡Bienvenido a mi casa flotante — la cocina está dentro de un volcán!', pron:'uélcam tu mái flóuting jáus — de quítchen is insáid a valkéinou!'},
+    {en:'I wake up when the sun explodes, and I go to work by teleporting.', es:'Me despierto cuando el sol explota, y voy al trabajo teletransportándome.', pron:'ái uéik ap uén de san explóuds, and ái góu tu uork bái télipórting.'},
+    {en:'My robot can walk across oceans, write with lasers, and fix anything instantly.', es:'Mi robot puede caminar por océanos, escribir con láseres, y arreglar cualquier cosa al instante.', pron:'mái róubot can uók acrós óushons, ráit uid léisers, and fix énizin ínstantli.'},
+    {en:'In my magic toolbox, a hammer can crack open the moon!', es:'En mi caja de herramientas mágica, ¡un martillo puede partir la luna!', pron:'in mái máyic túulbax, a jámer can crak óupen de múun!'},
+    {en:'My pet dragon and I share the same values: honesty, respect, and teamwork.', es:'Mi dragón mascota y yo compartimos los mismos valores: honestidad, respeto y trabajo en equipo.', pron:'mái pet drágon and ái shér de séim váliuus: ánesti, rispéct, and tíimuork.'},
+    {en:'Our loyal customer, the thousand-year-old turtle, always returns and recommends us to the whole ocean!', es:'Nuestra clienta fiel, la tortuga de mil años, ¡siempre vuelve y nos recomienda a todo el océano!', pron:'áur lóial cástomer, de záusand íar óuld tértol, ólueis ritérns and recoménds as tu de jóul óushon!'}
   ],
   24: [
-    {en:'By the way, this castle feast has a mountain of rice and an ocean of meat!', es:'A propósito, ¡este banquete del castillo tiene una montaña de arroz y un océano de carne!'},
-    {en:'The cleaning robot can wash an entire ocean and count a million stars before breakfast.', es:'El robot de limpieza puede lavar un océano entero y contar un millón de estrellas antes del desayuno.'},
-    {en:"Even dragons need vacation — I'm traveling to a floating island this weekend!", es:'¡Hasta los dragones necesitan vacaciones — viajo a una isla flotante este fin de semana!'},
-    {en:"This dragon egg is cheaper, but let's compare every option before we negotiate the deal.", es:'Este huevo de dragón es más barato, pero comparemos cada opción antes de negociar el trato.'},
-    {en:"Well done, brave hero! You remember everything from Unit Two. Congratulations, you're halfway there!", es:'¡Bien hecho, valiente héroe! Te acordás de todo de la Unidad Dos. ¡Felicitaciones, vas a mitad de camino!'}
+    {en:'By the way, this castle feast has a mountain of rice and an ocean of meat!', es:'A propósito, ¡este banquete del castillo tiene una montaña de arroz y un océano de carne!', pron:'bái de uéi, dis cásol fíist jas a máuntain of ráis and an óushon of míit!'},
+    {en:'The cleaning robot can wash an entire ocean and count a million stars before breakfast.', es:'El robot de limpieza puede lavar un océano entero y contar un millón de estrellas antes del desayuno.', pron:'de clíining róubot can uásh an entáier óushon and cáunt a mílion stars bifór brékfast.'},
+    {en:"Even dragons need vacation — I'm traveling to a floating island this weekend!", es:'¡Hasta los dragones necesitan vacaciones — viajo a una isla flotante este fin de semana!', pron:"íven drágons níid veiquéishon — áim tráveling tu a flóuting áiland dis uíikend!"},
+    {en:"This dragon egg is cheaper, but let's compare every option before we negotiate the deal.", es:'Este huevo de dragón es más barato, pero comparemos cada opción antes de negociar el trato.', pron:"dis drágon eg is chíiper, bat lets campér évri ápshon bifór uí nigóushieit de díil."},
+    {en:"Well done, brave hero! You remember everything from Unit Two. Congratulations, you're halfway there!", es:'¡Bien hecho, valiente héroe! Te acordás de todo de la Unidad Dos. ¡Felicitaciones, vas a mitad de camino!', pron:"uél dan, bréiv jírou! iú rimémber évrizin fram iúnit tú. congrachuléishons, iór jáfuei dér!"}
   ],
   30: [
-    {en:'Our budget was twenty gold coins, but the flying castle final price was approximately one thousand!', es:'Nuestro presupuesto era veinte monedas de oro, ¡pero el precio final del castillo volador fue aproximadamente mil!'},
-    {en:'The grand total, with tax and shipping cost, was bigger than a hundred dragons!', es:'¡El total general, con impuesto y costo de envío, fue más grande que cien dragones!'},
-    {en:'What time is it? Half past the dragon hour — the delivery arrives within 24 hours, even at midnight!', es:'¿Qué hora es? Media hora después de la hora del dragón — ¡la entrega llega dentro de 24 horas, hasta a medianoche!'},
-    {en:'In the morning, it was early; by night, it was delayed by a black hole, but still, the estimated arrival came true.', es:'De mañana, era temprano; para la noche, se retrasó por un agujero negro, pero aun así, la llegada estimada se cumplió.'},
-    {en:'In January, we agreed on payment terms — an upfront payment, then installments, until the due date, paid in full!', es:'En enero, acordamos las condiciones de pago — un pago por adelantado, luego cuotas, hasta la fecha de vencimiento, ¡pagado en su totalidad!'}
+    {en:'Our budget was twenty gold coins, but the flying castle final price was approximately one thousand!', es:'Nuestro presupuesto era veinte monedas de oro, ¡pero el precio final del castillo volador fue aproximadamente mil!', pron:'áur báchet uas tuénti góuld cóins, bat de fláing cásols fáinal práis uas apráximetli uán záusand!'},
+    {en:'The grand total, with tax and shipping cost, was bigger than a hundred dragons!', es:'¡El total general, con impuesto y costo de envío, fue más grande que cien dragones!', pron:'de grand tóutal, uid tax and shíping cost, uas bíguer dan a jándred drágons!'},
+    {en:'What time is it? Half past the dragon hour — the delivery arrives within 24 hours, even at midnight!', es:'¿Qué hora es? Media hora después de la hora del dragón — ¡la entrega llega dentro de 24 horas, hasta a medianoche!', pron:'uát táim is it? jaf past de drágon áuar — de delíveri aráivs uidín tuenti fóar áuars, íven at mídnait!'},
+    {en:'In the morning, it was early; by night, it was delayed by a black hole, but still, the estimated arrival came true.', es:'De mañana, era temprano; para la noche, se retrasó por un agujero negro, pero aun así, la llegada estimada se cumplió.', pron:'in de mórning, it uas érli; bái náit, it uas diléid bái a blak jóul, bat stil, de éstimeited aráival kéim trú.'},
+    {en:'In January, we agreed on payment terms — an upfront payment, then installments, until the due date, paid in full!', es:'En enero, acordamos las condiciones de pago — un pago por adelantado, luego cuotas, hasta la fecha de vencimiento, ¡pagado en su totalidad!', pron:'in yánueri, uí agríid on péiment terms — an apfrónt péiment, den instólments, antíl de diú déit, péid in ful!'}
   ],
   36: [
-    {en:'That works! I agree with the dragon, but that does not work for the wizard.', es:'¡Eso funciona! Estoy de acuerdo con el dragón, pero eso no funciona para el mago.'},
-    {en:'The first place went to a flying whale, and our best seller has a waiting list of thirty thousand dragons!', es:'El primer lugar fue para una ballena voladora, ¡y nuestro más vendido tiene una lista de espera de treinta mil dragones!'},
-    {en:'Do you accept bank transfer, or only ancient magic checks? Here is your change — a star coin!', es:'¿Aceptan transferencia bancaria, o solo cheques mágicos antiguos? Acá tu vuelto — ¡una moneda de estrella!'},
-    {en:'I want to buy in bulk, wholesale, for the lowest price — this is my final offer, deal closed!', es:'Quiero comprar al por mayor, para el precio más bajo — ¡esta es mi oferta final, trato cerrado!'},
-    {en:'This dragon egg weighs a hundred kilograms, and the castle height reaches the clouds!', es:'Este huevo de dragón pesa cien kilogramos, ¡y la altura del castillo llega hasta las nubes!'},
-    {en:'Well earned, champion — strong progress! See you in unit four!', es:'¡Bien merecido, campeón — buen progreso! ¡Nos vemos en la unidad cuatro!'}
+    {en:'That works! I agree with the dragon, but that does not work for the wizard.', es:'¡Eso funciona! Estoy de acuerdo con el dragón, pero eso no funciona para el mago.', pron:'dat uorks! ái agríi uid de drágon, bat dat das nat uork for de uísard.'},
+    {en:'The first place went to a flying whale, and our best seller has a waiting list of thirty thousand dragons!', es:'El primer lugar fue para una ballena voladora, ¡y nuestro más vendido tiene una lista de espera de treinta mil dragones!', pron:'de ferst pléis uént tu a fláing uéil, and áur best séler jas a uéiting list of zérti záusand drágons!'},
+    {en:'Do you accept bank transfer, or only ancient magic checks? Here is your change — a star coin!', es:'¿Aceptan transferencia bancaria, o solo cheques mágicos antiguos? Acá tu vuelto — ¡una moneda de estrella!', pron:'du iú axépt bank tránsfer, or óunli éinshent máyic cheks? jíar is iór chéinch — a star cóin!'},
+    {en:'I want to buy in bulk, wholesale, for the lowest price — this is my final offer, deal closed!', es:'Quiero comprar al por mayor, para el precio más bajo — ¡esta es mi oferta final, trato cerrado!', pron:'ái uánt tu bái in balk, jóulseil, for de lóuest práis — dis is mái fáinal áfer, díil clóusd!'},
+    {en:'This dragon egg weighs a hundred kilograms, and the castle height reaches the clouds!', es:'Este huevo de dragón pesa cien kilogramos, ¡y la altura del castillo llega hasta las nubes!', pron:'dis drágon eg uéis a jándred kílograms, and de cásol jáit ríiches de cláuds!'},
+    {en:'Well earned, champion — strong progress! See you in unit four!', es:'¡Bien merecido, campeón — buen progreso! ¡Nos vemos en la unidad cuatro!', pron:'uél érnd, chámpion — strong prágres! síi iú in iúnit fóar!'}
   ],
   42: [
-    {en:'I would like to order the roasted volcano appetizer — the meeting starts in a floating conference room!', es:'Quisiera pedir la entrada de volcán asado — ¡la reunión empieza en una sala de reuniones flotante!'},
-    {en:'I love dragon eggs, but I am allergic to flying broccoli — please confirm attendance!', es:'Me encantan los huevos de dragón, pero soy alérgico al brócoli volador — ¡confirmá tu asistencia!'},
-    {en:"Let's split the bill, take meeting minutes, and follow up before the castle disappears.", es:'Dividamos la cuenta, tomemos la minuta, y hagamos seguimiento antes de que el castillo desaparezca.'},
-    {en:"The dragon's secret recipe needs boiling lava and a magic oven — prepare the presentation slides too!", es:'La receta secreta del dragón necesita lava hirviendo y un horno mágico — ¡preparemos también las diapositivas de la presentación!'},
-    {en:"Camera on, mute your roar, and let's screen share the treasure map on our video call!", es:'Cámara encendida, silenciá tu rugido, ¡y compartamos pantalla con el mapa del tesoro en la videollamada!'},
-    {en:'For breakfast, a thousand eggs — and in our follow-up meeting, the milestone is finally on track!', es:'De desayuno, mil huevos — ¡y en nuestra reunión de seguimiento, el hito por fin va bien encaminado!'}
+    {en:'I would like to order the roasted volcano appetizer — the meeting starts in a floating conference room!', es:'Quisiera pedir la entrada de volcán asado — ¡la reunión empieza en una sala de reuniones flotante!', pron:'ái uud láik tu órder de róusted valkéinou ápetaiser — de míiting starts in a flóuting cánferens rúum!'},
+    {en:'I love dragon eggs, but I am allergic to flying broccoli — please confirm attendance!', es:'Me encantan los huevos de dragón, pero soy alérgico al brócoli volador — ¡confirmá tu asistencia!', pron:'ái lav drágon egs, bat ái am alérchic tu fláing brácoli — plíis confírm aténdans!'},
+    {en:"Let's split the bill, take meeting minutes, and follow up before the castle disappears.", es:'Dividamos la cuenta, tomemos la minuta, y hagamos seguimiento antes de que el castillo desaparezca.', pron:"lets split de bil, téik míiting mínits, and fálou ap bifór de cásol disapírs."},
+    {en:"The dragon's secret recipe needs boiling lava and a magic oven — prepare the presentation slides too!", es:'La receta secreta del dragón necesita lava hirviendo y un horno mágico — ¡preparemos también las diapositivas de la presentación!', pron:"de drágons sícret résipi níids bóiling láva and a máyic áven — pripér de presentéishon sláids tú!"},
+    {en:"Camera on, mute your roar, and let's screen share the treasure map on our video call!", es:'Cámara encendida, silenciá tu rugido, ¡y compartamos pantalla con el mapa del tesoro en la videollamada!', pron:"cámera on, miút iór rór, and lets scríin shér de tréshur map on áur vídio col!"},
+    {en:'For breakfast, a thousand eggs — and in our follow-up meeting, the milestone is finally on track!', es:'De desayuno, mil huevos — ¡y en nuestra reunión de seguimiento, el hito por fin va bien encaminado!', pron:'for brékfast, a záusand egs — and in áur fálou ap míiting, de máilstoun is fáinali on trak!'}
   ],
   48: [
-    {en:"Can you repeat that? Got it, no worries — either way, let's continue!", es:'¿Podés repetir eso? Entendido, no hay problema — de cualquier forma, ¡sigamos!'},
-    {en:"The wizard's potions are gluten-free, and the responsible person took notes for the minutes.", es:'Las pociones del mago son sin gluten, y la persona responsable tomó notas para la minuta.'},
-    {en:'The giant baked a cake as tall as a castle — in conclusion, here is our action plan!', es:'El gigante horneó una torta tan alta como un castillo — ¡en conclusión, acá está nuestro plan de acción!'},
-    {en:'At the giant supermarket, we had a supplier meeting with fresh dragon fruit and a magic catalog.', es:'En el supermercado gigante, tuvimos una reunión con el proveedor con fruta de dragón fresca y un catálogo mágico.'},
-    {en:'A little water, a lot of gold — we got budget approval for the biggest investment yet!', es:'Un poco de agua, mucho oro — ¡conseguimos la aprobación de presupuesto para la inversión más grande hasta ahora!'},
-    {en:'One third of the journey is done — keep learning, hero, see you in unit five!', es:'Un tercio del viaje está hecho — ¡seguí aprendiendo, héroe, nos vemos en la unidad cinco!'}
+    {en:"Can you repeat that? Got it, no worries — either way, let's continue!", es:'¿Podés repetir eso? Entendido, no hay problema — de cualquier forma, ¡sigamos!', pron:"can iú ripít dat? gát it, nóu uéris — íder uéi, lets cantíniu!"},
+    {en:"The wizard's potions are gluten-free, and the responsible person took notes for the minutes.", es:'Las pociones del mago son sin gluten, y la persona responsable tomó notas para la minuta.', pron:"de uísards póushons ar glúten fríi, and de rispánsibol pérson tuk nóuts for de mínits."},
+    {en:'The giant baked a cake as tall as a castle — in conclusion, here is our action plan!', es:'El gigante horneó una torta tan alta como un castillo — ¡en conclusión, acá está nuestro plan de acción!', pron:'de yáiant béikt a quéik as tol as a cásol — in canclúshon, jíar is áur ákshon plan!'},
+    {en:'At the giant supermarket, we had a supplier meeting with fresh dragon fruit and a magic catalog.', es:'En el supermercado gigante, tuvimos una reunión con el proveedor con fruta de dragón fresca y un catálogo mágico.', pron:'at de yáiant súpermarket, uí jad a sapláier míiting uid fresh drágon frúut and a máyic cátalog.'},
+    {en:'A little water, a lot of gold — we got budget approval for the biggest investment yet!', es:'Un poco de agua, mucho oro — ¡conseguimos la aprobación de presupuesto para la inversión más grande hasta ahora!', pron:'a lítol uáter, a lat of góuld — uí gat báchet apruvol for de bíguest invéstment iét!'},
+    {en:'One third of the journey is done — keep learning, hero, see you in unit five!', es:'Un tercio del viaje está hecho — ¡seguí aprendiendo, héroe, nos vemos en la unidad cinco!', pron:'uán zerd of de yérni is dan — kíip lérning, jírou, síi iú in iúnit fáiv!'}
   ],
   54: [
     {en:'Let me try on this magic armor — does it fit, or is it too big?', es:'Dejame probarme esta armadura mágica — ¿me queda bien, o es muy grande?', pron:'let mi trái on dis máyic ármor — das it fit, or is it tu big?'},
