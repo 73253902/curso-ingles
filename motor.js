@@ -457,6 +457,9 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
       scr.push({ kind:'task', theme:'hito', isMilestoneTask:true });
     }
   }
+  if(typeof practicasProgreso !== 'undefined' && practicasProgreso[dayNumber]){
+    scr.push({ kind:'practica', day:dayNumber, data:practicasProgreso[dayNumber] });
+  }
   scr.push({ kind:'end' });
   return scr;
 }
@@ -606,6 +609,7 @@ function loadTurn(){
   reviewBanner.classList.remove('show');
   if(turn.kind==='end'){ startEvaluation(); return; }
   if(turn.kind==='dictation'){ runDictation(turn); return; }
+  if(turn.kind==='practica'){ runPractica(turn); return; }
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
       turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
@@ -761,6 +765,163 @@ function runDictation(turn){
     nextControls.style.display='flex';
   };
   nextBtn.onclick=()=>{ idx++; loadTurn(); };
+}
+
+// ================= Práctica de Progreso (cada 14 días) =================
+const CONTRACTIONS_MAP = {
+  "i'm":"i am","you're":"you are","he's":"he is","she's":"she is","it's":"it is",
+  "we're":"we are","they're":"they are","isn't":"is not","aren't":"are not",
+  "don't":"do not","doesn't":"does not","didn't":"did not","can't":"cannot",
+  "won't":"will not","wouldn't":"would not","couldn't":"could not","shouldn't":"should not",
+  "haven't":"have not","hasn't":"has not","hadn't":"had not","i've":"i have",
+  "you've":"you have","we've":"we have","they've":"they have","i'll":"i will",
+  "you'll":"you will","we'll":"we will","they'll":"they will","he'll":"he will",
+  "she'll":"she will","that's":"that is","there's":"there is","what's":"what is",
+  "who's":"who is","let's":"let us","here's":"here is","how's":"how is",
+  "where's":"where is","when's":"when is","why's":"why is","everything's":"everything is",
+  "everyone's":"everyone is","everybody's":"everybody is","someone's":"someone is",
+  "somebody's":"somebody is","nothing's":"nothing is","that'd":"that would",
+  "i'd":"i would","you'd":"you would","he'd":"he would","she'd":"she would",
+  "we'd":"we would","they'd":"they would"
+};
+function expandContractions(s){
+  let out=s.toLowerCase();
+  for(const c in CONTRACTIONS_MAP){ out=out.split(c).join(CONTRACTIONS_MAP[c]); }
+  return out;
+}
+function practicaAnswerMatches(said, correct, flexible){
+  if(flexible){ return normalize(expandContractions(said))===normalize(expandContractions(correct)); }
+  return normalize(said)===normalize(correct);
+}
+function downloadPracticaSummary(turn, results, score, total, msg){
+  const rows = results.map((r,n)=>{
+    if(r.correct===null){
+      return '<div class="item"><b>#'+(n+1)+' — Pregunta:</b> '+r.prompt+'<br><i>Tu respuesta:</i> '+r.answer+'</div>';
+    }
+    const icon = r.correct ? '✅' : '❌';
+    return '<div class="item">'+icon+' <b>#'+(n+1)+':</b> '+r.prompt+'<br><i>Tu respuesta:</i> '+r.answer+(r.correct?'':'<br><i>Respuesta correcta:</i> '+r.correctAnswer)+'</div>';
+  }).join('');
+  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Práctica de Progreso — Día '+turn.day+'</title>'
+    +'<style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;color:#2b2b2b;padding:0 16px;}h1{color:#1F3A5F;}h2{color:#B08D57;font-weight:normal;}'
+    +'.item{margin-bottom:14px;padding:10px 14px;border-left:3px solid #B08D57;background:#F2EFE9;border-radius:4px;}'
+    +'.score{font-size:22px;font-weight:bold;color:#1F3A5F;}</style></head><body>'
+    +'<h1>El Dragón del Lenguaje</h1><h2>Práctica de Progreso — Día '+turn.day+'</h2>'
+    +'<p class="score">Resultado: '+score+' de '+total+'</p>'
+    +'<p>'+msg+'</p><hr>'+rows+'</body></html>';
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download='practica-dia'+turn.day+'.html';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+function runPractica(turn){
+  const data = turn.data;
+  const flexible = turn.day < 91;
+  const items = [];
+  data.palabras.forEach(p=>items.push({type:'palabra', es:p.es, en:p.en}));
+  data.preguntas.forEach(q=>items.push({type:'pregunta', question:q}));
+  data.frases.forEach(f=>items.push({type:'frase', es:f.es, en:f.en}));
+  let i=0;
+  const results=[];
+
+  crossTag.style.display='block'; crossTag.textContent='📘 PRÁCTICA DE PROGRESO — DÍA '+turn.day;
+  speakerLabel.textContent='PRÁCTICA DE PROGRESO'; modeChip.style.display='none';
+  document.getElementById('taskExampleBox').style.display='none';
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  document.getElementById('songPlayer').style.display='none';
+  peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
+  playBtn.style.display='none';
+
+  const repeatBtn0 = document.getElementById('practicaRepeatBtn');
+  const continueBtn0 = document.getElementById('practicaContinueBtn');
+  if(repeatBtn0) repeatBtn0.style.display='none';
+  if(continueBtn0) continueBtn0.style.display='none';
+
+  function showIntro(){
+    illusEl.textContent='📘';
+    lineEl.innerHTML=''; setSegs(lineEl,[{t:'Práctica de Progreso — Día '+turn.day, lang:'es'}]);
+    hintEl.textContent='35 ejercicios: 15 palabras, 10 preguntas abiertas, y 10 frases para traducir. La podés repetir todas las veces que quieras, cuando quieras.';
+    appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none';
+    nextControls.style.display='flex'; feedback.classList.remove('show');
+    nextBtn.textContent='Empezar →';
+    nextBtn.onclick=()=>{ showItem(); };
+  }
+
+  function showItem(){
+    if(i>=items.length){ showSummary(); return; }
+    const item=items[i];
+    appControls.style.display='none'; userControls.style.display='flex'; nextControls.style.display='none';
+    feedback.classList.remove('show'); typeRow.style.display='none';
+    illusEl.textContent = item.type==='pregunta' ? '❓' : '✍️';
+    lineEl.innerHTML='';
+    if(item.type==='palabra'){
+      setSegs(lineEl,[{t:item.es, lang:'es'}]);
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Traducí esta palabra o frase al inglés.';
+    } else if(item.type==='pregunta'){
+      setSegs(lineEl,[{t:item.question, lang:'en'}]);
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Respondé con tus propias palabras (esta parte no se califica).';
+    } else {
+      setSegs(lineEl,[{t:item.es, lang:'es'}]);
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Traducí esta frase completa al inglés.';
+    }
+    micBtn.onclick=()=>startListening(res=>{
+      addTranscript('VOS (hablado)', res.said, 'user');
+      userControls.style.display='none';
+      typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Ahora escribí tu respuesta...'; typeInput.focus();
+    });
+    skipBtn.onclick=()=>{ typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí tu respuesta acá...'; typeInput.focus(); };
+    sendBtn.onclick=()=>{
+      const said=typeInput.value.trim();
+      if(!said) return;
+      addTranscript('VOS (escrito)', said, 'user');
+      typeRow.style.display='none';
+      if(item.type==='pregunta'){
+        results.push({type:'pregunta', prompt:item.question, answer:said, correct:null});
+        feedback.classList.add('show','ok');
+        feedback.textContent='✓ Respuesta registrada — esta parte no se califica, es para practicar comprensión real.';
+      } else {
+        const target=item.en;
+        const isRight=practicaAnswerMatches(said, target, flexible);
+        results.push({type:item.type, prompt:item.es, answer:said, correct:isRight, correctAnswer:target});
+        lineEl.innerHTML=''; setSegs(lineEl,[{t:target, lang:'en'}]);
+        feedback.classList.add('show', isRight?'ok':'retry');
+        feedback.textContent = isRight ? '✓ ¡Correcto!' : '✗ La respuesta correcta era: "'+target+'"';
+      }
+      nextControls.style.display='flex';
+      nextBtn.textContent = (i+1<items.length) ? 'Siguiente →' : 'Ver resultado →';
+      nextBtn.onclick=()=>{ i++; showItem(); };
+    };
+  }
+
+  function showSummary(){
+    const graded=results.filter(r=>r.correct!==null);
+    const score=graded.filter(r=>r.correct).length;
+    const total=graded.length;
+    appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none';
+    illusEl.textContent='🏆';
+    lineEl.innerHTML=''; setSegs(lineEl,[{t:'Resultado: '+score+' de '+total, lang:'es'}]);
+    let msg;
+    if(score>=total*0.85) msg='¡Excelente progreso! Estás muy bien preparado para el examen de hito.';
+    else if(score>=total*0.57) msg='Vas por buen camino. Repasá especialmente lo que falló, y repetí esta práctica cuando quieras.';
+    else msg='Cada intento te acerca más — repasá con calma, y volvé a intentarlo las veces que necesites.';
+    if(turn.day===168) msg += ' Este fue tu último repaso antes del examen de hito — ¡confiá en todo lo que aprendiste!';
+    hintEl.textContent=msg+' Podés repetir esta práctica cuantas veces quieras.';
+    feedback.classList.remove('show');
+    nextControls.style.display='flex';
+    nextBtn.textContent='📥 Descargar mi práctica';
+    nextBtn.onclick=()=>{ downloadPracticaSummary(turn, results, score, total, msg); };
+    let repeatBtn=document.getElementById('practicaRepeatBtn');
+    if(!repeatBtn){ repeatBtn=document.createElement('button'); repeatBtn.className='ghost'; repeatBtn.id='practicaRepeatBtn'; nextControls.appendChild(repeatBtn); }
+    repeatBtn.textContent='🔁 Repetir esta práctica'; repeatBtn.style.display='inline-flex';
+    repeatBtn.onclick=()=>{ i=0; results.length=0; showIntro(); };
+    let continueBtn=document.getElementById('practicaContinueBtn');
+    if(!continueBtn){ continueBtn=document.createElement('button'); continueBtn.className='mic'; continueBtn.id='practicaContinueBtn'; nextControls.appendChild(continueBtn); }
+    continueBtn.textContent='Continuar la lección →'; continueBtn.style.display='inline-flex';
+    continueBtn.onclick=()=>{ repeatBtn.style.display='none'; continueBtn.style.display='none'; idx++; loadTurn(); };
+  }
+
+  showIntro();
 }
 
 function runWordChallenge(){
