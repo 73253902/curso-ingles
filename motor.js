@@ -857,19 +857,22 @@ function runPractica(turn){
     lineEl.innerHTML='';
     if(item.type==='palabra'){
       setSegs(lineEl,[{t:item.es, lang:'es'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Traducí esta palabra o frase al inglés.';
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Escuchá la pronunciación, y traducí esta palabra o frase al inglés.';
+      speakHidden(item.en);
     } else if(item.type==='pregunta'){
       setSegs(lineEl,[{t:item.question, lang:'en'}]);
       hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Respondé con tus propias palabras (esta parte no se califica).';
+      speakHidden(item.question);
     } else {
       setSegs(lineEl,[{t:item.es, lang:'es'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Traducí esta frase completa al inglés.';
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Escuchá la pronunciación, y traducí esta frase completa al inglés.';
+      speakHidden(item.en);
     }
     micBtn.onclick=()=>startListening(res=>{
       addTranscript('VOS (hablado)', res.said, 'user');
       userControls.style.display='none';
       typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Ahora escribí tu respuesta...'; typeInput.focus();
-    });
+    }, {longForm:true});
     skipBtn.onclick=()=>{ typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí tu respuesta acá...'; typeInput.focus(); };
     sendBtn.onclick=()=>{
       const said=typeInput.value.trim();
