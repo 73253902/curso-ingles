@@ -15,7 +15,10 @@ const curriculum = [
   ...curriculumUnidad7,
   ...curriculumUnidad8,
   ...curriculumUnidad9,
-  ...curriculumUnidad10
+  ...curriculumUnidad10,
+  ...curriculumUnidad11,
+  ...curriculumUnidad12,
+  ...curriculumUnidad13
 ];
 const TOTAL_DAYS = 180; // el mapa completo; el resto de los días se muestran "próximamente" hasta que se agreguen
 
