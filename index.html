@@ -100,6 +100,13 @@
   .dn-line .dn-en{color:var(--en); font-size:15px;}
   .dn-line .dn-es{color:var(--muted); font-size:13px; margin-top:2px;}
   .dn-section-label{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--es); margin:18px 0 6px;}
+  .dn-review-prompt{background:var(--bg-panel-2); border-radius:10px; padding:16px; font-size:17px; margin:14px 0;}
+  .dn-review-input-row{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+  .dn-review-input-row input{flex:1; min-width:200px; background:var(--bg-panel-2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:var(--ink); font-family:'Inter',sans-serif; font-size:14px;}
+  .dn-review-feedback{margin-top:14px; padding:12px 14px; border-radius:10px; font-size:14px; line-height:1.5;}
+  .dn-review-feedback.ok{background:rgba(111,207,151,.12); border:1px solid var(--ok); color:var(--ok);}
+  .dn-review-feedback.retry{background:rgba(232,106,92,.1); border:1px solid var(--warn); color:var(--warn);}
+  .dn-review-feedback.neutral{background:rgba(136,145,163,.1); border:1px solid var(--border); color:var(--muted);}
   .admin-box{
     display:flex; align-items:center; gap:10px; flex-wrap:wrap;
     background:rgba(232,163,61,.08); border:1px solid rgba(232,163,61,.4); border-radius:12px;
@@ -290,7 +297,25 @@
       <div class="dn-song-card">
         <h2 id="dnSongTitle"></h2>
         <div id="dnAudioBox"></div>
+        <button class="primary" id="dnReviewBtn" style="margin:14px 0;">✍️ Repasar esta semana (escrito)</button>
         <div id="dnLyricsBox" class="dn-lyrics"></div>
+      </div>
+    </div>
+    <div id="dnReviewView" style="display:none;">
+      <button class="ghost" id="dnBackFromReviewBtn">← Volver a la canción</button>
+      <div class="dn-song-card">
+        <h2 id="dnReviewTitle"></h2>
+        <p class="sub" id="dnReviewHint"></p>
+        <div id="dnReviewPrompt" class="dn-review-prompt"></div>
+        <button class="mic" id="dnReviewListenBtn">🔊 Escuchar pronunciación</button>
+        <div class="dn-review-input-row">
+          <input type="text" id="dnReviewInput" placeholder="Escribí tu respuesta en inglés...">
+          <button class="primary" id="dnReviewSendBtn">Enviar</button>
+        </div>
+        <div id="dnReviewFeedback" class="dn-review-feedback" style="display:none;"></div>
+        <div id="dnReviewNextRow" style="display:none;">
+          <button class="primary" id="dnReviewNextBtn">Siguiente →</button>
+        </div>
       </div>
     </div>
   </div>

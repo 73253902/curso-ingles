@@ -442,6 +442,7 @@ const dragonNativo = {
 // ================= Controlador de pantallas (independiente del motor principal) =================
 (function(){
   let currentFaseId = null;
+  let currentWeekNum = null;
 
   function el(id){ return document.getElementById(id); }
 
@@ -459,6 +460,7 @@ const dragonNativo = {
     el('dnFaseList').style.display = view==='fases' ? 'block' : 'none';
     el('dnWeekList').style.display = view==='semanas' ? 'block' : 'none';
     el('dnSongView').style.display = view==='cancion' ? 'block' : 'none';
+    el('dnReviewView').style.display = view==='repaso' ? 'block' : 'none';
   }
 
   function renderFaseList(){
@@ -503,6 +505,7 @@ const dragonNativo = {
   }
 
   function renderSong(faseId, weekNum){
+    currentFaseId = faseId; currentWeekNum = weekNum;
     const fase = dragonNativo.fases.find(f=>f.id===faseId);
     const semana = fase.semanas.find(s=>s.numero===weekNum);
     el('dnSongTitle').textContent = fase.nombre+' — Semana '+semana.numero;
@@ -515,15 +518,106 @@ const dragonNativo = {
     }
 
     let html = '';
-    html += seccionHTML('Pre-Coro', fase.fijas.precoro);
-    html += seccionHTML('Pedal', fase.fijas.pedal);
     html += seccionHTML('Estrofa 1 — '+semana.estrofa1.label, semana.estrofa1.lineas);
+    html += seccionHTML('Pedal', fase.fijas.pedal);
+    html += seccionHTML('Pre-Coro', fase.fijas.precoro);
     html += seccionHTML('Coro', fase.fijas.coro);
     html += seccionHTML('Estrofa 2 — '+semana.estrofa2.label, semana.estrofa2.lineas);
     if(semana.puente){ html += seccionHTML('Puente — '+semana.puente.label, semana.puente.lineas); }
+    html += seccionHTML('Pre-Coro', fase.fijas.precoro);
     html += seccionHTML('Coro', fase.fijas.coro);
     html += seccionHTML('Outro', semana.outroOverride || fase.fijas.outro);
     el('dnLyricsBox').innerHTML = html;
+  }
+
+  // ================= Repaso escrito (ventana móvil de las últimas 4 canciones) =================
+  function buildReviewPool(faseId, weekNum){
+    const fase = dragonNativo.fases.find(f=>f.id===faseId);
+    const startWeek = Math.max(1, weekNum-3);
+    const seen = new Set();
+    const pool = [];
+    for(let w=startWeek; w<=weekNum; w++){
+      const semana = fase.semanas.find(s=>s.numero===w);
+      if(!semana) continue;
+      const todas = []
+        .concat(fase.fijas.precoro, fase.fijas.pedal, semana.estrofa1.lineas, fase.fijas.coro,
+                semana.estrofa2.lineas, semana.puente ? semana.puente.lineas : [],
+                semana.outroOverride || fase.fijas.outro);
+      todas.forEach(l=>{
+        const key = l.en.toLowerCase();
+        if(!seen.has(key)){ seen.add(key); pool.push(l); }
+      });
+    }
+    return pool;
+  }
+
+  let reviewItems=[], reviewIdx=0, reviewOk=0, reviewGraded=0;
+
+  function openReview(){
+    const pool = buildReviewPool(currentFaseId, currentWeekNum);
+    reviewItems = pool.map((l,n)=>({ en:l.en, es:l.es, tipo: (n>0 && n%5===0) ? 'oracion' : 'traduccion' }));
+    reviewIdx=0; reviewOk=0; reviewGraded=0;
+    el('dnReviewTitle').textContent = 'Repaso escrito — hasta Semana '+currentWeekNum;
+    el('dnReviewHint').textContent = 'Frases de las últimas '+Math.min(4,currentWeekNum)+' canciones ('+reviewItems.length+' en total). Repetilo cuantas veces quieras.';
+    el('dnReviewNextBtn').onclick = ()=>{ reviewIdx++; showReviewItem(); };
+    showView('repaso');
+    showReviewItem();
+  }
+
+  function showReviewItem(){
+    if(reviewIdx>=reviewItems.length){ showReviewSummary(); return; }
+    const item = reviewItems[reviewIdx];
+    el('dnReviewInput').value='';
+    el('dnReviewFeedback').style.display='none';
+    el('dnReviewNextRow').style.display='none';
+    if(item.tipo==='oracion'){
+      el('dnReviewPrompt').innerHTML = 'Escribí una oración real usando esta frase: <br><b>"'+item.en+'"</b> <span style="color:var(--muted);font-size:13px;">('+item.es+')</span>';
+      el('dnReviewInput').placeholder='Escribí tu propia oración en inglés...';
+    } else {
+      el('dnReviewPrompt').innerHTML = '<div class="dn-en" style="font-size:19px;">'+item.es+'</div>';
+      el('dnReviewInput').placeholder='Traducí al inglés...';
+    }
+    el('dnReviewListenBtn').onclick = async ()=>{
+      el('dnReviewListenBtn').disabled=true;
+      await speakHidden(item.en);
+      el('dnReviewListenBtn').disabled=false;
+    };
+    el('dnReviewInput').focus();
+  }
+
+  function submitReviewAnswer(){
+    const said = el('dnReviewInput').value.trim();
+    if(!said) return;
+    const item = reviewItems[reviewIdx];
+    const box = el('dnReviewFeedback');
+    box.style.display='block';
+    if(item.tipo==='oracion'){
+      box.className='dn-review-feedback neutral';
+      box.textContent='✓ Registrado — esta parte no se califica, es para practicar el uso real. Frase de referencia: "'+item.en+'"';
+    } else {
+      const isRight = practicaAnswerMatches(said, item.en, true);
+      reviewGraded++; if(isRight) reviewOk++;
+      box.className='dn-review-feedback '+(isRight?'ok':'retry');
+      box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — la frase correcta era: ')+'"'+item.en+'"';
+    }
+    el('dnReviewNextRow').style.display='flex';
+    el('dnReviewNextBtn').textContent = (reviewIdx+1<reviewItems.length) ? 'Siguiente →' : 'Ver resultado →';
+  }
+
+  function showReviewSummary(){
+    el('dnReviewPrompt').innerHTML = '<b>Resultado: '+reviewOk+' de '+reviewGraded+'</b><br><span style="color:var(--muted);font-size:13px;">Podés repetir este repaso cuantas veces quieras.</span>';
+    el('dnReviewListenBtn').style.display='none';
+    el('dnReviewInput').style.display='none';
+    el('dnReviewSendBtn').style.display='none';
+    el('dnReviewFeedback').style.display='none';
+    el('dnReviewNextRow').style.display='flex';
+    el('dnReviewNextBtn').textContent='🔁 Repetir este repaso';
+    el('dnReviewNextBtn').onclick = ()=>{
+      el('dnReviewListenBtn').style.display='inline-flex';
+      el('dnReviewInput').style.display='';
+      el('dnReviewSendBtn').style.display='inline-flex';
+      openReview();
+    };
   }
 
   window.addEventListener('DOMContentLoaded', ()=>{
@@ -531,5 +625,9 @@ const dragonNativo = {
     el('dnBackBtn').onclick = closeModule;
     el('dnBackToFasesBtn').onclick = ()=>{ showView('fases'); renderFaseList(); };
     el('dnBackToWeeksBtn').onclick = ()=>{ showView('semanas'); renderWeekGrid(currentFaseId); };
+    el('dnReviewBtn').onclick = openReview;
+    el('dnBackFromReviewBtn').onclick = ()=>{ showView('cancion'); };
+    el('dnReviewSendBtn').onclick = submitReviewAnswer;
+    el('dnReviewInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submitReviewAnswer(); });
   });
 })();
