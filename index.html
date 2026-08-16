@@ -62,6 +62,44 @@
   .pc-text b{font-size:15px;}
   .pc-text p{margin:4px 0 0; color:var(--muted); font-size:13px; line-height:1.5;}
   .pc-actions{display:flex; gap:8px; flex-wrap:wrap;}
+  /* ===== El Dragón Nativo ===== */
+  .dn-entry-card{
+    display:flex; gap:16px; align-items:center; flex-wrap:wrap;
+    background:linear-gradient(135deg, rgba(232,163,61,.12), rgba(79,182,232,.08));
+    border:1px solid var(--es); border-radius:14px; padding:18px 20px; margin:24px 0;
+  }
+  .dn-entry-icon{font-size:32px;}
+  .dn-entry-text{flex:1; min-width:200px;}
+  .dn-entry-text b{font-size:15px; color:var(--es);}
+  .dn-entry-text p{margin:4px 0 0; color:var(--muted); font-size:13px; line-height:1.5;}
+  .dn-fase-card{
+    display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    background:var(--bg-panel); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:14px; cursor:pointer;
+    transition:border-color .12s;
+  }
+  .dn-fase-card:hover{border-color:var(--es);}
+  .dn-fase-num{font-size:26px; font-weight:800; color:var(--es); min-width:44px;}
+  .dn-fase-info{flex:1; min-width:180px;}
+  .dn-fase-info b{font-size:15px;}
+  .dn-fase-info p{margin:4px 0 0; color:var(--muted); font-size:13px;}
+  .dn-fase-progress{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
+  #dnWeekGrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:10px; margin-top:16px;}
+  .dn-week-btn{
+    background:var(--bg-panel-2); border:1px solid var(--border); border-radius:10px; padding:14px 10px;
+    text-align:center; cursor:pointer; font-size:13px; font-weight:600; display:flex; flex-direction:column; gap:4px;
+  }
+  .dn-week-btn:hover{border-color:var(--en);}
+  .dn-week-btn .wk-num{font-size:18px; color:var(--en);}
+  .dn-week-btn .wk-audio{font-size:11px; color:var(--muted);}
+  .dn-song-card{background:var(--bg-panel); border:1px solid var(--border); border-radius:14px; padding:20px; margin-top:16px;}
+  #dnAudioBox audio{width:100%; margin:12px 0;}
+  .dn-audio-pending{background:rgba(136,145,163,.1); border:1px dashed var(--muted); border-radius:10px; padding:14px; color:var(--muted); font-size:13px; text-align:center; margin:12px 0;}
+  .dn-lyrics{margin-top:12px;}
+  .dn-line{padding:10px 0; border-bottom:1px solid var(--border);}
+  .dn-line:last-child{border-bottom:none;}
+  .dn-line .dn-en{color:var(--en); font-size:15px;}
+  .dn-line .dn-es{color:var(--muted); font-size:13px; margin-top:2px;}
+  .dn-section-label{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--es); margin:18px 0 6px;}
   .admin-box{
     display:flex; align-items:center; gap:10px; flex-wrap:wrap;
     background:rgba(232,163,61,.08); border:1px solid rgba(232,163,61,.4); border-radius:12px;
@@ -223,7 +261,38 @@
       <span class="reset-link" id="exitAdminLink" style="margin:0;">Salir del modo admin</span>
     </div>
     <div id="unitsContainer"></div>
+    <div class="dn-entry-card" id="dnEntryCard">
+      <div class="dn-entry-icon">🐉</div>
+      <div class="dn-entry-text">
+        <b>El Dragón Nativo</b>
+        <p>480 frases cotidianas en canciones semanales, para hablar con soltura real — un módulo aparte, a tu propio ritmo.</p>
+      </div>
+      <button class="primary" id="dnEntryBtn">Entrar →</button>
+    </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
+  </div>
+
+  <!-- ===== EL DRAGÓN NATIVO — módulo aparte ===== -->
+  <div id="dragonNativo" style="display:none;">
+    <button class="ghost" id="dnBackBtn">← Volver al curso</button>
+    <header style="margin:20px 0;">
+      <div class="eyebrow"><span class="dot"></span> Módulo independiente · 480 frases · progreso libre</div>
+      <h1><span class="es">El Dragón</span> <span class="en">Nativo</span></h1>
+      <p class="sub" id="dnFaseSub">Elegí una fase para empezar. Cada fase tiene 30 canciones semanales, con coro fijo y repaso acumulativo.</p>
+    </header>
+    <div id="dnFaseList"></div>
+    <div id="dnWeekList" style="display:none;">
+      <button class="ghost" id="dnBackToFasesBtn">← Volver a las fases</button>
+      <div id="dnWeekGrid"></div>
+    </div>
+    <div id="dnSongView" style="display:none;">
+      <button class="ghost" id="dnBackToWeeksBtn">← Volver a las semanas</button>
+      <div class="dn-song-card">
+        <h2 id="dnSongTitle"></h2>
+        <div id="dnAudioBox"></div>
+        <div id="dnLyricsBox" class="dn-lyrics"></div>
+      </div>
+    </div>
   </div>
 
   <!-- ===== EVALUACIÓN DE NIVEL INICIAL ===== -->
@@ -355,6 +424,7 @@
 <script src="unidad14.js"></script>
 <script src="unidad15.js"></script>
 <script src="practicas.js"></script>
+<script src="dragonnativo.js"></script>
 <script src="motor.js"></script>
 </body>
 </html>

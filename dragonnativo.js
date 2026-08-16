@@ -40,7 +40,7 @@ const FASE1_SEMANAS = [
       {en:"Thank you for waiting, my friend!", es:"¡Gracias por esperar, amigo!"}
     ]}
   },
-  { numero:2, audio:null,
+  { numero:2, audio:"dn-fase1-semana2.mp3",
     estrofa1:{label:"Nuevas", lineas:[
       {en:"I'm not sure,", es:"No estoy seguro,"},
       {en:"but that's a good question,", es:"pero es buena pregunta,"},
