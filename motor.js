@@ -835,8 +835,10 @@ function runPractica(turn){
 
   const repeatBtn0 = document.getElementById('practicaRepeatBtn');
   const continueBtn0 = document.getElementById('practicaContinueBtn');
+  const listenBtn0 = document.getElementById('practicaListenBtn');
   if(repeatBtn0) repeatBtn0.style.display='none';
   if(continueBtn0) continueBtn0.style.display='none';
+  if(listenBtn0) listenBtn0.style.display='none';
 
   function showIntro(){
     illusEl.textContent='📘';
@@ -855,19 +857,29 @@ function runPractica(turn){
     feedback.classList.remove('show'); typeRow.style.display='none';
     illusEl.textContent = item.type==='pregunta' ? '❓' : '✍️';
     lineEl.innerHTML='';
+    let speakText;
     if(item.type==='palabra'){
       setSegs(lineEl,[{t:item.es, lang:'es'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Escuchá la pronunciación, y traducí esta palabra o frase al inglés.';
-      speakHidden(item.en);
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Tocá el botón si querés escuchar la pronunciación, y traducí esta palabra o frase al inglés.';
+      speakText = item.en;
     } else if(item.type==='pregunta'){
       setSegs(lineEl,[{t:item.question, lang:'en'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Respondé con tus propias palabras (esta parte no se califica).';
-      speakHidden(item.question);
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Tocá el botón si querés escuchar la pronunciación, y respondé con tus propias palabras (esta parte no se califica).';
+      speakText = item.question;
     } else {
       setSegs(lineEl,[{t:item.es, lang:'es'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Escuchá la pronunciación, y traducí esta frase completa al inglés.';
-      speakHidden(item.en);
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Tocá el botón si querés escuchar la pronunciación, y traducí esta frase completa al inglés.';
+      speakText = item.en;
     }
+    let listenBtn = document.getElementById('practicaListenBtn');
+    if(!listenBtn){
+      listenBtn = document.createElement('button');
+      listenBtn.className='mic'; listenBtn.id='practicaListenBtn';
+      userControls.parentNode.insertBefore(listenBtn, userControls);
+    }
+    listenBtn.textContent='🔊 Escuchar pronunciación';
+    listenBtn.style.display='inline-flex';
+    listenBtn.onclick=async ()=>{ listenBtn.disabled=true; await speakHidden(speakText); listenBtn.disabled=false; };
     micBtn.onclick=()=>startListening(res=>{
       addTranscript('VOS (hablado)', res.said, 'user');
       userControls.style.display='none';
@@ -902,6 +914,8 @@ function runPractica(turn){
     const score=graded.filter(r=>r.correct).length;
     const total=graded.length;
     appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none';
+    const listenBtnEnd = document.getElementById('practicaListenBtn');
+    if(listenBtnEnd) listenBtnEnd.style.display='none';
     illusEl.textContent='🏆';
     lineEl.innerHTML=''; setSegs(lineEl,[{t:'Resultado: '+score+' de '+total, lang:'es'}]);
     let msg;
