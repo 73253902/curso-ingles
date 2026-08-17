@@ -97,12 +97,10 @@ const curriculumUnidad1 = [
       {en:'Goodbye, and good night, my friends!', es:'¡Adiós, y buenas noches, amigos!', pron:'gudbái, and gud náit, mái frends!'}
     ],
     jingle:[
-      {en:'', es:'¡Aprende inglés! ¡Fácil y genial! El vocabulario básico para hablar.', pron:''},
       {en:'Hello', es:'es hola', pron:'jelóu'},
       {en:'Good morning', es:'buenos días', pron:'gud mórnin'},
       {en:'Good afternoon', es:'es buenas tardes en el día', pron:'gud afternún'},
       {en:'Good night', es:'buenas noches... ¡vamos a cantar!', pron:'gud náit'},
-      {en:'', es:'Aprender inglés es fácil, ¡te va a encantar!', pron:''},
       {en:'Please', es:'por favor', pron:'plíis'},
       {en:'Thank you', es:'es gracias', pron:'zenk iú'},
       {en:'Yes', es:'es un sí', pron:'iés'},
@@ -207,13 +205,11 @@ const curriculumUnidad1 = [
       {en:'The pleasure is mine, human.', es:'El placer es mío, humano.', pron:'de pléyer is máin, jiúman.'}
     ],
     jingle:[
-      {en:'', es:'¡Aprende inglés! ¡Fácil y genial! Día número dos, vamos a presentar.', pron:''},
       {en:'My name is', es:'me llamo', pron:'mai néim is'},
       {en:"What's your name?", es:'¿quién eres tú?', pron:'uáts iór néim?'},
       {en:'Nice to meet you', es:'mucho gusto, ¡qué gran actitud!', pron:'náis tu míit iú'},
       {en:'Welcome', es:'bienvenido', pron:'uélcam'},
       {en:'Come in', es:'pasa ya...', pron:'cam in'},
-      {en:'', es:'Aprender inglés es fácil, ¡te va a encantar!', pron:''},
       {en:'I am from', es:'soy de un lugar especial', pron:'ái am fram'},
       {en:'I work at', es:'trabajo en un sitio genial', pron:'ái uork at'},
       {en:'Manager', es:'es gerente', pron:'mánayer'},
@@ -226,9 +222,7 @@ const curriculumUnidad1 = [
       {en:'Address', es:'es dirección', pron:'adrés'},
       {en:'Website', es:'sitio web', pron:'uébsait'},
       {en:'Business card', es:'la tarjeta que te entregaré', pron:'bísnes card'},
-      {en:'', es:'Las frases de negocio ya te las sabrás,', pron:''},
       {en:'The pleasure is mine,', es:'¡el placer me darás!', pron:'de pléyer is máin,'},
-      {en:'', es:'Presentarte en inglés ahora es muy sencillo, ¡canta esta canción con mucho brillo!', pron:''},
       {en:'Nice to meet you, Welcome', es:'¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!', pron:'náis tu míit iú, uélcam'}
     ]
   },

@@ -607,6 +607,7 @@ function loadTurn(){
   buildProgress();
   const turn=script[idx];
   reviewBanner.classList.remove('show');
+  document.getElementById('taskExampleBox').style.display='none';
   if(turn.kind==='end'){ startEvaluation(); return; }
   if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='practica'){ runPractica(turn); return; }
@@ -956,6 +957,12 @@ function runWordChallenge(){
     return;
   }
   const w = wordQueue[wqIndex];
+  if(!w || !w.en || !w.en.trim()){
+    // Protección: una línea sin texto en inglés no se puede practicar — la salteamos sola.
+    wqIndex++;
+    runWordChallenge();
+    return;
+  }
   spokenAttempts = 0;
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
