@@ -120,8 +120,7 @@ const curriculumUnidad1 = [
       {en:'Bad', es:'es malo', pron:'baad'},
       {en:'How much', es:'cuánto cuesta', pron:'jáu mach'},
       {en:'Goodbye', es:'adiós...', pron:'gudbái'},
-      {en:'See you', es:'nos vemos en la fiesta!', pron:'síi iú'},
-      {en:'Hello, Goodbye', es:'¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!', pron:'jelóu, gudbái'}
+      {en:'See you', es:'nos vemos en la fiesta!', pron:'síi iú'}
     ]
   },
 {
@@ -222,8 +221,7 @@ const curriculumUnidad1 = [
       {en:'Address', es:'es dirección', pron:'adrés'},
       {en:'Website', es:'sitio web', pron:'uébsait'},
       {en:'Business card', es:'la tarjeta que te entregaré', pron:'bísnes card'},
-      {en:'The pleasure is mine,', es:'¡el placer me darás!', pron:'de pléyer is máin,'},
-      {en:'Nice to meet you, Welcome', es:'¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!', pron:'náis tu míit iú, uélcam'}
+      {en:'The pleasure is mine,', es:'¡el placer me darás!', pron:'de pléyer is máin,'}
     ]
   },
 {
