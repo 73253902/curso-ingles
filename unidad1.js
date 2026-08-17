@@ -39,6 +39,20 @@ const curriculumUnidad1 = [
       {en:"See you", es:"nos vemos en la fiesta!", pron:"síi iú"},
       {en:"Hello, Goodbye", es:"¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!", pron:"jelóu, gudbái"}
     ],
+    songStoryLyrics:[
+      {en:"Hello! Good morning, dragon!", es:"¡Hola! ¡Buenos días, dragón!", pron:"jelóu! gud mórnin, drágon!"},
+      {en:"I need help right now!", es:"¡Necesito ayuda ahora mismo —", pron:"ái níid jelp ráit náu!"},
+      {en:"I have a meeting with a thousand robots today!", es:"— tengo una reunión con mil robots hoy!", pron:"ái jav a míiting uid a záusand róubots tudéi!"},
+      {en:"Sorry, but first, where is the bathroom? A dragon this big needs a very big bathroom!", es:"Perdón, pero primero, ¿dónde está el baño? ¡Un dragón tan grande necesita un inmenso baño!", pron:"sórri, bat ferst, uér is de báazrum? a drágon dis big níids a véri big báazrum!"},
+      {en:"Thank you! Now bring me an ocean of water and a mountain of coffee, please!", es:"¡Gracias! Ahora tráeme un océano de agua y una montaña de café, por favor.", pron:"zenk iú! náu bring mi an óushon of uáter and a máuntain of cófi, plíis!"},
+      {en:"Yes! Is the news good or bad?", es:"¡Sí! ¿La noticia es buena o mala?", pron:"iés! is de niús gud or bad?"},
+      {en:"I ate the email by mistake!", es:"¡Me comí el correo por error!", pron:"ái éit de íimeil bái mistéik!"},
+      {en:"No problem, we can talk later —", es:"No hay problema, podemos hablar más tarde —", pron:"nóu práblem, uí can tók léiter —"},
+      {en:"tomorrow, or even next year!", es:"mañana, o hasta el año que viene.", pron:"tumórou, or íven next íar!"},
+      {en:"How much treasure do you want? A million gold coins?", es:"¿Cuánto tesoro querés? ¿Un millón de monedas de oro?", pron:"jáu mach tréshur du iú uánt? a mílion góuld cóins?"},
+      {en:"Good afternoon, tiny humans!", es:"¡Buenas tardes, humanitos!", pron:"gud afternúun, táini jiúmans!"},
+      {en:"Goodbye, and good night, my friends!", es:"¡Adiós, y buenas noches, amigos!", pron:"gudbái, and gud náit, mái frends!"}
+    ],
     words:[
       {en:'hello', es:'hola', pron:'jelóu', emoji:'👋'},
       {en:'good morning', es:'buenos días', pron:'gud mórnin', emoji:'🌅'},
@@ -68,8 +82,8 @@ const curriculumUnidad1 = [
     story:[
       {en:'Hello! Good morning, dragon!' , es:'¡Hola! ¡Buenos días, dragón!', pron:'jelóu! gud mórnin, drágon!'},
       {en:'I need help right now — I have a meeting with a thousand robots today!', es:'¡Necesito ayuda ahora mismo — tengo una reunión con mil robots hoy!', pron:'ái níid jelp ráit náu — ái jav a míiting uid a záusand róubots tudéi!'},
-      {en:'Sorry, but first, where is the bathroom? A dragon this big needs a very big bathroom!', es:'Perdón, pero primero, ¿dónde está el baño? ¡Un dragón tan grande necesita un baño gigante!', pron:'sórri, bat ferst, uér is de báazrum? a drágon dis big níids a véri big báazrum!'},
-      {en:'Thank you! Now bring me an ocean of water and a mountain of coffee, please!', es:'¡Gracias! Ahora traeme un océano de agua y una montaña de café, por favor.', pron:'zenk iú! náu bring mi an óushon of uáter and a máuntain of cófi, plíis!'},
+      {en:'Sorry, but first, where is the bathroom? A dragon this big needs a very big bathroom!', es:'Perdón, pero primero, ¿dónde está el baño? ¡Un dragón tan grande necesita un inmenso baño!', pron:'sórri, bat ferst, uér is de báazrum? a drágon dis big níids a véri big báazrum!'},
+      {en:'Thank you! Now bring me an ocean of water and a mountain of coffee, please!', es:'¡Gracias! Ahora tráeme un océano de agua y una montaña de café, por favor.', pron:'zenk iú! náu bring mi an óushon of uáter and a máuntain of cófi, plíis!'},
       {en:'Yes! Is the news good or bad? I ate the email by mistake!', es:'¡Sí! ¿La noticia es buena o mala? ¡Me comí el correo por error!', pron:'iés! is de niús gud or bad? ái éit de íimeil bái mistéik!'},
       {en:'No problem, we can talk later — tomorrow, or even next year!', es:'No hay problema, podemos hablar más tarde — mañana, o hasta el año que viene.', pron:'nóu práblem, uí can tók léiter — tumórou, or íven next íar!'},
       {en:'How much treasure do you want? A million gold coins?', es:'¿Cuánto tesoro querés? ¿Un millón de monedas de oro?', pron:'jáu mach tréshur du iú uánt? a mílion góuld cóins?'},
@@ -116,6 +130,16 @@ const curriculumUnidad1 = [
       {en:"The pleasure is mine,", es:"¡el placer me darás!", pron:"de pléyer is máin,"},
       {en:"", es:"Presentarte en inglés ahora es muy sencillo, ¡canta esta canción con mucho brillo!", pron:""},
       {en:"Nice to meet you, Welcome", es:"¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!", pron:"náis tu míit iú, uélcam"}
+    ],
+    songStoryLyrics:[
+      {en:"Welcome to Earth! Come in, please!", es:"¡Bienvenido a la Tierra! ¡Pasá, por favor!", pron:"uélcam tu erz! cam in, plíis!"},
+      {en:"What's your name?", es:"¿Cómo te llamás?", pron:"uáts iór néim?"},
+      {en:"My name is Zorblax, and I am from the planet Neptune!", es:"¡Me llamo Zorblax, y soy del planeta Neptuno!", pron:"mái néim is Zorblax, and ái am fram de plánet Neptiún!"},
+      {en:"Nice to meet you. Have a seat — if you can find a chair big enough!", es:"Mucho gusto. Tomá asiento — ¡si encontrás una silla suficientemente grande!", pron:"náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!"},
+      {en:"I work at the Interstellar Bank. I am the owner of a thousand galaxies!", es:"Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!", pron:"ái uork at de ínterstelar bank. ái am de óuner of a záusand gálaxis!"},
+      {en:"This is our team: five robots and a talking cat, our manager.", es:"Este es nuestro equipo: cinco robots y un gato parlante, nuestro gerente.", pron:"dis is áur tíim: fáiv róubots and a tóking cat, áur mánayer."},
+      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:"Acá tenés mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!", pron:"jíar is mái bísnes card — mái cóntact is a léiser bíim, and mái fóun námber jas fórti díyits!"},
+      {en:"The pleasure is mine, human.", es:"El placer es mío, humano.", pron:"de pléyer is máin, jiúman."}
     ],
     words:[
       {en:'my name is', es:'me llamo', pron:'mai néim is', emoji:'🙋'},
@@ -197,9 +221,9 @@ const curriculumUnidad1 = [
       {en:"What country and city do wizards come from? I'm from the Floating City, in the Kingdom of Clouds!", es:"¿De qué país y ciudad vienen los magos? ¡Soy de la Ciudad Flotante, en el Reino de las Nubes!", pron:"uát cántri and síti du uísards cam fram? áim fram de flóuting síti, in de kíngdom of cláuds!"},
       {en:"Our company name is Dragon's Brew, since the year one thousand!", es:"¡El nombre de nuestra empresa es Cerveza de Dragón, desde el año mil!", pron:"áur cámpani néim is drágons brú, sins de íar uán záusand!"},
       {en:"We sell flying products and we provide invisible services to a thousand customers.", es:"Vendemos productos voladores y ofrecemos servicios invisibles a mil clientes.", pron:"uí sel fláing prádacts and uí prováid invísibol sérvises tu a záusand cástomers."},
-      {en:"Our suppliers are giants who bring us the highest quality for the lowest price!", es:"Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo.", pron:"áur sapláiers ar yáiants jú bring as de jáiest cuáliti for de lóuest práis!"},
+      {en:"Our suppliers are giants who bring us the highest quality for the lowest price!", es:"Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo!", pron:"áur sapláiers ar yáiants jú bring as de jáiest cuáliti for de lóuest práis!"},
       {en:"Today only: a magic discount, and free delivery by dragon, straight from our floating warehouse!", es:"¡Solo hoy: un descuento mágico, y entrega gratis en dragón, directo desde nuestra bodega flotante!", pron:"tudéi óunli: a máyic díscaunt, and fríi delíveri bái drágon, stréit fram áur flóuting uérjaus!"},
-      {en:"We are the most powerful brand in the entire market of ten thousand kingdoms!", es:"Somos la marca más poderosa en todo el mercado de diez mil reinos.", pron:"uí ar de móust páuerful brand in de entáier márket of ten záusand kíngdoms!"},
+      {en:"We are the most powerful brand in the entire market of ten thousand kingdoms!", es:"Somos la marca más poderosa en todo el mercado de diez mil reinos!", pron:"uí ar de móust páuerful brand in de entáier márket of ten záusand kíngdoms!"},
       {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is ísi,"},
       {en:"You're going to love it!", es:"¡Te va a encantar!", pron:"iór góing tu lav it!"},
       {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
@@ -228,9 +252,9 @@ const curriculumUnidad1 = [
       {en:"What country and city do wizards come from? I'm from the Floating City, in the Kingdom of Clouds!", es:'¿De qué país y ciudad vienen los magos? ¡Soy de la Ciudad Flotante, en el Reino de las Nubes!', pron:'uát cántri and síti du uísards cam fram? áim fram de flóuting síti, in de kíngdom of cláuds!'},
       {en:"Our company name is Dragon's Brew, since the year one thousand!", es:'¡El nombre de nuestra empresa es Cerveza de Dragón, desde el año mil!', pron:'áur cámpani néim is drágons brú, sins de íar uán záusand!'},
       {en:'We sell flying products and we provide invisible services to a thousand customers.', es:'Vendemos productos voladores y ofrecemos servicios invisibles a mil clientes.', pron:'uí sel fláing prádacts and uí prováid invísibol sérvises tu a záusand cástomers.'},
-      {en:'Our suppliers are giants who bring us the highest quality for the lowest price!', es:'Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo.', pron:'áur sapláiers ar yáiants jú bring as de jáiest cuáliti for de lóuest práis!'},
+      {en:'Our suppliers are giants who bring us the highest quality for the lowest price!', es:'Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo!', pron:'áur sapláiers ar yáiants jú bring as de jáiest cuáliti for de lóuest práis!'},
       {en:'Today only: a magic discount, and free delivery by dragon, straight from our floating warehouse!', es:'¡Solo hoy: un descuento mágico, y entrega gratis en dragón, directo desde nuestra bodega flotante!', pron:'tudéi óunli: a máyic díscaunt, and fríi delíveri bái drágon, stréit fram áur flóuting uérjaus!'},
-      {en:'We are the most powerful brand in the entire market of ten thousand kingdoms!', es:'Somos la marca más poderosa en todo el mercado de diez mil reinos.', pron:'uí ar de móust páuerful brand in de entáier márket of ten záusand kíngdoms!'}
+      {en:'We are the most powerful brand in the entire market of ten thousand kingdoms!', es:'Somos la marca más poderosa en todo el mercado de diez mil reinos!', pron:'uí ar de móust páuerful brand in de entáier márket of ten záusand kíngdoms!'}
     ],
     jingle:[
       {en:'We sell, we sell, quality and price!', es:'¡Vendemos, vendemos, calidad y precio!', pron:'uí sel, uí sel, cuáliti and práis!'},
