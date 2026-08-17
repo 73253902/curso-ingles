@@ -525,6 +525,8 @@ const dragonNativo = {
     html += seccionHTML('Coro', fase.fijas.coro);
     html += seccionHTML('Estrofa 2 — '+semana.estrofa2.label, semana.estrofa2.lineas);
     if(semana.puente){ html += seccionHTML('Puente — '+semana.puente.label, semana.puente.lineas); }
+    html += seccionHTML('Pre-Coro', fase.fijas.precoro);
+    html += seccionHTML('Coro', fase.fijas.coro);
     html += seccionHTML('Outro', semana.outroOverride || fase.fijas.outro);
     el('dnLyricsBox').innerHTML = html;
   }
