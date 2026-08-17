@@ -637,15 +637,22 @@ function loadTurn(){
     let lyricCount;
     if(realLyrics && realLyrics.length){
       lyricCount = realLyrics.length;
-      songLyrics.innerHTML = realLyrics.map((line,i)=>
-        '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+line+'</div></div>'
-      ).join('');
+      songLyrics.innerHTML = realLyrics.map((line,i)=>{
+        if(typeof line === 'string'){
+          return '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+line+'</div></div>';
+        }
+        const enHTML = line.en ? '<div class="lyric-en">'+line.en+'</div>' : '';
+        const pronHTML = line.pron ? '<div class="lyric-pron">'+line.pron+'</div>' : '';
+        const esHTML = line.es ? '<div class="lyric-es">'+line.es+'</div>' : '';
+        return '<div class="lyric-line" data-i="'+i+'">'+enHTML+pronHTML+esHTML+'</div>';
+      }).join('');
     } else {
       const lyricLines = turn.words || [];
       lyricCount = lyricLines.length;
-      songLyrics.innerHTML = lyricLines.map((l,i)=>
-        '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+l.en+'</div><div class="lyric-es">'+l.es+'</div></div>'
-      ).join('');
+      songLyrics.innerHTML = lyricLines.map((l,i)=>{
+        const pronHTML = l.pron ? '<div class="lyric-pron">'+l.pron+'</div>' : '';
+        return '<div class="lyric-line" data-i="'+i+'"><div class="lyric-en">'+l.en+'</div>'+pronHTML+'<div class="lyric-es">'+l.es+'</div></div>';
+      }).join('');
     }
     songAudio.ontimeupdate = ()=>{
       if(!songAudio.duration || !lyricCount) return;

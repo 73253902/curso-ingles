@@ -496,8 +496,8 @@ const dragonNativo = {
   }
 
   function lineaHTML(l){
-    const pronHTML = l.pron ? ' <span class="pron-hint">· se pronuncia: "'+l.pron+'"</span>' : '';
-    return '<div class="dn-line"><div class="dn-en">'+l.en+pronHTML+'</div><div class="dn-es">'+l.es+'</div></div>';
+    const pronHTML = l.pron ? '<div class="dn-pron">'+l.pron+'</div>' : '';
+    return '<div class="dn-line"><div class="dn-en">'+l.en+'</div>'+pronHTML+'<div class="dn-es">'+l.es+'</div></div>';
   }
   function seccionHTML(label, lineas){
     let h = '<div class="dn-section-label">'+label+'</div>';
