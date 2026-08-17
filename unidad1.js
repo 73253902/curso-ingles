@@ -3,6 +3,9 @@
 const curriculumUnidad1 = [
 {
     day:1, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Saludos y presentarte / Saludar clientes',
+    structures:[
+      {id:'S001', pattern:"I need + [X]", examples:['I need help.','I need water.','I need coffee.'], function:'pedir algo que necesitás', stage:1}
+    ],
     songJingle:'cancion-dia1-vocabulario.mp3',
     songStory:'cancion-dia1-historia.mp3',
     songJingleLyrics:[
@@ -125,6 +128,11 @@ const curriculumUnidad1 = [
   },
 {
     day:2, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Presentarte / Presentarte a un cliente',
+    structures:[
+      {id:'S002', pattern:"My name is + [NAME]", examples:['My name is Robinson.','My name is Sarah.','My name is Zorblax.'], function:'presentarte', stage:1},
+      {id:'S003', pattern:"I am from + [PLACE]", examples:['I am from Colombia.','I am from Medellín.','I am from the planet Neptune.'], function:'decir de dónde sos', stage:1},
+      {id:'S004', pattern:"I work at + [PLACE]", examples:['I work at Dosting Toys.','I work at a bank.','I work at the Interstellar Bank.'], function:'decir dónde trabajás', stage:1}
+    ],
     songJingle:'cancion-dia2-vocabulario.mp3',
     songStory:'cancion-dia2-historia.mp3',
     songJingleLyrics:[
@@ -226,6 +234,10 @@ const curriculumUnidad1 = [
   },
 {
     day:3, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'De dónde eres / Presentar tu empresa',
+    structures:[
+      {id:'S005', pattern:"We sell + [X]", examples:['We sell toys.','We sell flying products.','We sell quality tools.'], function:'describir qué vende tu empresa', stage:1},
+      {id:'S006', pattern:"We provide + [X]", examples:['We provide services.','We provide invisible services.','We provide the best delivery.'], function:'describir qué ofrece tu empresa', stage:1}
+    ],
     songJingle:'cancion-dia3-vocabulario.mp3',
     songStory:'cancion-dia3-historia.mp3',
     songJingleLyrics:[
@@ -338,6 +350,10 @@ const curriculumUnidad1 = [
   },
 {
     day:4, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Familia básica / Tu rol en la empresa',
+    structures:[
+      {id:'S007', pattern:"I am the owner of + [X]", examples:['I am the owner of this company.','I am the owner of a small store.','I am the owner of a thousand galaxies.'], function:'decir que sos dueño de algo', stage:1},
+      {id:'S008', pattern:"I am in charge of + [X]", examples:['I am in charge of sales.','I am in charge of the team.','I am in charge of logistics.'], function:'decir que estás a cargo de algo', stage:1}
+    ],
     songJingle:'cancion-dia4-vocabulario.mp3',
     songStory:'cancion-dia4-historia.mp3',
     songJingleLyrics:[
