@@ -109,6 +109,24 @@ const curriculumUnidad1 = [
   },
 {
     day:3, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'De dónde eres / Presentar tu empresa',
+    songJingle:'cancion-dia3-vocabulario.mp3',
+    songStory:'cancion-dia3-historia.mp3',
+    songJingleLyrics:[
+      "Country es país, city es ciudad, Company name es el nombre de tu empresa en verdad. Since es desde, we sell es vendemos, We provide ofrecemos todo lo que hacemos. Products son productos, services servicios también, Customers son clientes que atendemos muy bien.",
+      "Learning English is easy, Aprender inglés es fácil, You're going to love it! ¡Te va a encantar!",
+      "Here we go, let's learn some more, Vamos allá, aprendamos más, Phrase by phrase, like never before, Frase por frase, como nunca antes.",
+      "Excuse me, Disculpe, Thank you so much, Muchas gracias, I don't understand, No entiendo, Could you help me, please? ¿Podría ayudarme, por favor?",
+      "Suppliers son proveedores de gran valor, Market es mercado con el mejor color. Quality es calidad, price es el precio ideal, Discount es descuento para una oferta especial. Delivery es la entrega, warehouse la bodega hoy, Brand es la marca que te dice quién soy.",
+      "Here we go, let's learn some more, Vamos allá, aprendamos más, Phrase by phrase, like never before, Frase por frase, como nunca antes.",
+      "Excuse me, Disculpe, Thank you so much, Muchas gracias, I don't understand, No entiendo, Could you help me, please? ¿Podría ayudarme, por favor?",
+      "See you next week, dragon friend, Nos vemos la próxima semana, amigo dragón, Keep practicing until the end, Seguí practicando hasta el final."
+    ],
+    songStoryLyrics:[
+      "What country and city do wizards come from? ¿De qué país y ciudad vienen los magos? I'm from the Floating City, in the Kingdom of Clouds! ¡Soy de la Ciudad Flotante, en el Reino de las Nubes! Our company name is Dragon's Brew, since the year one thousand! ¡El nombre de nuestra empresa es Cerveza de Dragón, desde el año mil!",
+      "We sell flying products and we provide invisible services to a thousand customers. Vendemos productos voladores y ofrecemos servicios invisibles a mil clientes. Our suppliers are giants who bring us the highest quality for the lowest price! ¡Nuestros proveedores son gigantes que nos traen la mejor calidad al precio más bajo! Today only: a magic discount, and free delivery by dragon, straight from our floating warehouse! ¡Solo hoy: un descuento mágico, y entrega gratis en dragón, directo desde nuestra bodega flotante! We are the most powerful brand in the entire market of ten thousand kingdoms! ¡Somos la marca más poderosa en todo el mercado de diez mil reinos!",
+      "Learning English is easy, Aprender inglés es fácil, You're going to love it! ¡Te va a encantar!",
+      "See you next week, dragon friend, Nos vemos la próxima semana, amigo dragón, Keep practicing until the end, Seguí practicando hasta el final."
+    ],
     words:[
       {en:'country', es:'país', pron:'cántri', emoji:'🌍'},
       {en:'city', es:'ciudad', pron:'síti', emoji:'🏙️'},
@@ -126,7 +144,7 @@ const curriculumUnidad1 = [
       {en:'discount', es:'descuento', pron:'díscaunt', emoji:'🏷️'},
       {en:'delivery', es:'entrega', pron:'delíveri', emoji:'🚛'},
       {en:'warehouse', es:'bodega', pron:'uérjaus', emoji:'🏭'},
-      {en:'brand', es:'marca', emoji:'🔖'}
+      {en:'brand', es:'marca', pron:'brand', emoji:'🔖'}
     ],
     story:[
       {en:"What country and city do wizards come from? I'm from the Floating City, in the Kingdom of Clouds!", es:'¿De qué país y ciudad vienen los magos? ¡Soy de la Ciudad Flotante, en el Reino de las Nubes!', pron:'uát cántri and síti du uísards cam fram? áim fram de flóuting síti, in de kíngdom of cláuds!'},
@@ -145,6 +163,24 @@ const curriculumUnidad1 = [
   },
 {
     day:4, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Familia básica / Tu rol en la empresa',
+    songJingle:'cancion-dia4-vocabulario.mp3',
+    songStory:'cancion-dia4-historia.mp3',
+    songJingleLyrics:[
+      "Wife es esposa, husband es esposo, Son es hijo, daughter es hija, ¡qué hermoso! Children son hijos, brother hermano, Sister hermana que me da la mano. I am the owner, soy el dueño aquí, I am in charge of, a cargo me sentí.",
+      "Learning English is easy, Aprender inglés es fácil, You're going to love it! ¡Te va a encantar!",
+      "Here we go, let's learn some more, Vamos allá, aprendamos más, Phrase by phrase, like never before, Frase por frase, como nunca antes.",
+      "Family and work, familia y trabajo hoy, In this great team, te digo quién soy. My boss and my colleagues working with pride, Con mi líder de equipo siempre a mi lado.",
+      "Department es departamento empresarial, Sales son ventas, logistics es logística vital. Accounting contabilidad, boss es el jefe hoy, Employee es empleado, colleague colega donde voy. Team leader es el líder de equipo en acción, ¡Aprende estas palabras con mucha pasión!",
+      "Here we go, let's learn some more, Vamos allá, aprendamos más, Phrase by phrase, like never before, Frase por frase, como nunca antes.",
+      "Family and work, familia y trabajo hoy, In this great team, te digo quién soy. My boss and my colleagues working with pride, Con mi líder de equipo siempre a mi lado.",
+      "See you next week, dragon friend, Nos vemos la próxima semana, amigo dragón, Keep practicing until the end, Seguí practicando hasta el final."
+    ],
+    songStoryLyrics:[
+      "I am the owner of this superhero company! ¡Soy el dueño de esta empresa de superhéroes! My wife can fly, and my husband breathes fire — together we have five children who can read minds! Mi esposa puede volar, y mi esposo respira fuego — juntos tenemos cinco hijos que pueden leer mentes. My brother is a giant robot in charge of sales, and my sister, an invisible ninja, works in accounting! Mi hermano es un robot gigante a cargo de ventas, y mi hermana, una ninja invisible, ¡trabaja en contabilidad!",
+      "Our team leader is a talking gorilla who manages the logistics department. Nuestro líder de equipo es un gorila parlante que maneja el departamento de logística. Every boss, employee, and colleague here has a superpower! ¡Todo jefe, empleado y colega acá tiene un superpoder!",
+      "Learning English is easy, Aprender inglés es fácil, You're going to love it! ¡Te va a encantar!",
+      "See you next week, dragon friend, Nos vemos la próxima semana, amigo dragón, Keep practicing until the end, Seguí practicando hasta el final."
+    ],
     words:[
       {en:'wife', es:'esposa', pron:'uáif', emoji:'👩'},
       {en:'husband', es:'esposo', pron:'jásband', emoji:'👨'},
@@ -162,7 +198,7 @@ const curriculumUnidad1 = [
       {en:'boss', es:'jefe', pron:'bos', emoji:'👔'},
       {en:'employee', es:'empleado', pron:'emploí-i', emoji:'🧑‍💼'},
       {en:'colleague', es:'colega', pron:'cólig', emoji:'🤝'},
-      {en:'team leader', es:'líder de equipo', emoji:'🧭'}
+      {en:'team leader', es:'líder de equipo', pron:'tíim líider', emoji:'🧭'}
     ],
     story:[
       {en:'I am the owner of this superhero company!', es:'¡Soy el dueño de esta empresa de superhéroes!', pron:'ái am de óuner of dis súperjírou cámpani!'},
@@ -198,7 +234,7 @@ const curriculumUnidad1 = [
       {en:'total', es:'total', pron:'tóutal', emoji:'➕'},
       {en:'quantity', es:'cantidad', pron:'cuántiti', emoji:'🔢'},
       {en:'order', es:'pedido', pron:'órder', emoji:'📝'},
-      {en:'invoice', es:'factura', emoji:'🧾'}
+      {en:'invoice', es:'factura', pron:'ínvois', emoji:'🧾'}
     ],
     story:[
       {en:'How many dragon eggs do we have? One, two, three... a hundred?', es:'¿Cuántos huevos de dragón tenemos? ¿Uno, dos, tres... cien?', pron:'jáu méni drágon egs du uí jav? uán, tú, zríi... a jándred?'},
@@ -356,7 +392,7 @@ const curriculumUnidad1 = [
       {en:"what's the price", es:'cuál es el precio', pron:'uáts de práis', emoji:'💲'},
       {en:'can you help me', es:'me podés ayudar', pron:'can iú jelp mi', emoji:'🙋'},
       {en:'I have a question', es:'tengo una pregunta', pron:'ái jav a cuéstion', emoji:'❓'},
-      {en:'can you explain', es:'podés explicar', emoji:'🗣️'}
+      {en:'can you explain', es:'podés explicar', pron:'can iú expléin', emoji:'🗣️'}
     ],
     story:[
       {en:'I have a question, dragon: what, who, where, when, why, and how did the treasure disappear?', es:'Tengo una pregunta, dragón: ¿qué, quién, dónde, cuándo, por qué y cómo desapareció el tesoro?', pron:'ái jav a cuéstion, drágon: uát, jú, uér, uén, uái, and jáu did de tréshur disapír?'},
