@@ -1179,32 +1179,14 @@ function releaseMicButton(){
 function startListening(onResult, opts){
   opts = opts || {};
   if(!micSupported||!micGranted){ typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus(); return; }
-  micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
+  // Desconectamos cualquier manejador de una llamada anterior ANTES de tocar nada más,
+  // así un abort() de una sesión vieja no dispara callbacks viejos sobre el estado nuevo.
+  recognition.onresult=null; recognition.onend=null; recognition.onerror=null;
+  try{ recognition.abort(); }catch(e){}
   recognition.continuous = !!opts.longForm;
   let collected = [];
-  if(opts.longForm){
-    micBtn.textContent = '🎙 Escuchando... (tocá "Terminé" cuando acabes)';
-    finishTalkingBtn.style.display='inline-flex';
-    finishTalkingBtn.onclick = ()=>{ try{ recognition.stop(); }catch(e){} };
-  } else {
-    micBtn.textContent = '🎙 Escuchando...';
-  }
-  clearMicWatchdog();
-  const watchdogMs = opts.longForm ? 45000 : 12000;
-  micWatchdog = setTimeout(()=>{
-    try{ recognition.abort(); }catch(e){}
-    releaseMicButton();
-    feedback.classList.add('show','retry');
-    feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Probá de nuevo, o escribí tu respuesta.';
-    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
-  }, watchdogMs);
-  try{
-    recognition.start();
-  }catch(e){
-    // si ya estaba corriendo una sesión anterior colgada, la cortamos y reintentamos una vez
-    try{ recognition.abort(); }catch(e2){}
-    setTimeout(()=>{ try{ recognition.start(); }catch(e3){} }, 200);
-  }
+  let started = false;
+  // Asignamos los manejadores de ESTA llamada antes de intentar arrancar.
   recognition.onresult=(e)=>{
     if(opts.longForm){
       for(let i=e.resultIndex; i<e.results.length; i++){
@@ -1239,6 +1221,41 @@ function startListening(onResult, opts){
     feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisá permisos o escribí tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
     typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
   };
+  // Recién ahora tocamos la interfaz y arrancamos de verdad.
+  micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
+  if(opts.longForm){
+    micBtn.textContent = '🎙 Escuchando... (tocá "Terminé" cuando acabes)';
+    finishTalkingBtn.style.display='inline-flex';
+    finishTalkingBtn.onclick = ()=>{ try{ recognition.stop(); }catch(e){} };
+  } else {
+    micBtn.textContent = '🎙 Escuchando...';
+  }
+  clearMicWatchdog();
+  const watchdogMs = opts.longForm ? 45000 : 12000;
+  micWatchdog = setTimeout(()=>{
+    try{ recognition.abort(); }catch(e){}
+    releaseMicButton();
+    feedback.classList.add('show','retry');
+    feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Probá de nuevo, o escribí tu respuesta.';
+    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+  }, watchdogMs);
+  function tryStart(attemptsLeft){
+    try{
+      recognition.start();
+      started = true;
+    }catch(e){
+      if(attemptsLeft > 0){
+        setTimeout(()=>tryStart(attemptsLeft-1), 300);
+      } else {
+        clearMicWatchdog();
+        releaseMicButton();
+        feedback.classList.add('show','retry');
+        feedback.textContent = 'No pude activar el micrófono. Probá de nuevo, o escribí tu respuesta.';
+        typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+      }
+    }
+  }
+  tryStart(2);
 }
 
 // ================= Evaluación final =================
