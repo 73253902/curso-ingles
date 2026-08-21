@@ -930,6 +930,13 @@ function runReadAlong(turn){
 
   const readAlongPlayer=document.getElementById('readAlongPlayer'), readAlongBox=document.getElementById('readAlongBox');
   const playBtn2=document.getElementById('readAlongPlayBtn'), stopBtn2=document.getElementById('readAlongStopBtn');
+  if(!readAlongPlayer || !readAlongBox || !playBtn2 || !stopBtn2){
+    hintEl.textContent='⚠️ Falta actualizar index.html — subí la versión más reciente junto con motor.js.';
+    nextControls.style.display='flex';
+    nextBtn.textContent='Continuar →';
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
   readAlongPlayer.style.display='block';
   readAlongBox.innerHTML = turn.lines.map((l,i)=>
     '<div class="ra-line" data-i="'+i+'"><div class="ra-en" id="raEn'+i+'"></div><div class="ra-es">'+l.es+'</div></div>'

@@ -212,6 +212,10 @@
   .song-lyrics{margin-top:14px; max-height:340px; overflow-y:auto; padding-right:4px;}
   .song-lyrics .lyric-line{padding:8px 10px; border-radius:8px; margin-bottom:6px; transition:background .2s;}
   .song-lyrics .lyric-line.current{background:rgba(176,141,87,.22);}
+  .song-lyrics .ra-line{padding:8px 10px; border-radius:8px; margin-bottom:6px; transition:background .2s;}
+  .song-lyrics .ra-line.current{background:rgba(176,141,87,.22);}
+  .song-lyrics .ra-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
+  .song-lyrics .ra-es{font-size:13px; color:var(--es); margin-top:2px;}
   .song-lyrics .lyric-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
   .song-lyrics .lyric-es{font-size:13px; color:var(--es); margin-top:2px;}
   .song-lyrics .lyric-pron{font-size:13px; font-style:italic; color:var(--en); opacity:.75; margin-top:2px;}
@@ -371,6 +375,14 @@
           <span id="songPlayerLabel">🎶 Escuchá la canción completa</span>
           <audio id="songAudio" controls style="width:100%; margin-top:8px;"></audio>
           <div class="song-lyrics" id="songLyrics"></div>
+        </div>
+        <div class="song-player" id="readAlongPlayer" style="display:none;">
+          <span>📖 Solo lectura — escuchá y seguí el texto, sin ejercicios</span>
+          <div style="display:flex; gap:8px; margin-top:8px;">
+            <button class="mic" id="readAlongPlayBtn">▶ Escuchar la historia completa</button>
+            <button class="ghost" id="readAlongStopBtn">⏹ Detener</button>
+          </div>
+          <div class="song-lyrics" id="readAlongBox"></div>
         </div>
         <div class="illus" id="illus">🧑‍🤝‍🧑</div>
         <div class="line" id="line"></div>
