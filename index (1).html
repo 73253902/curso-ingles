@@ -94,12 +94,20 @@
   .dn-song-card{background:var(--bg-panel); border:1px solid var(--border); border-radius:14px; padding:20px; margin-top:16px;}
   #dnAudioBox audio{width:100%; margin:12px 0;}
   .dn-audio-pending{background:rgba(136,145,163,.1); border:1px dashed var(--muted); border-radius:10px; padding:14px; color:var(--muted); font-size:13px; text-align:center; margin:12px 0;}
-  .dn-lyrics{margin-top:12px;}
+  .dn-lyrics{margin-top:12px; max-height:340px; overflow-y:auto; padding-right:4px;}
   .dn-line{padding:10px 0; border-bottom:1px solid var(--border);}
   .dn-line:last-child{border-bottom:none;}
   .dn-line .dn-en{color:var(--en); font-size:15px;}
   .dn-line .dn-es{color:var(--muted); font-size:13px; margin-top:2px;}
+  .dn-line .dn-pron{font-size:13px; font-style:italic; color:var(--en); opacity:.75; margin-top:2px;}
   .dn-section-label{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--es); margin:18px 0 6px;}
+  .dn-review-prompt{background:var(--bg-panel-2); border-radius:10px; padding:16px; font-size:17px; margin:14px 0;}
+  .dn-review-input-row{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+  .dn-review-input-row input{flex:1; min-width:200px; background:var(--bg-panel-2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:var(--ink); font-family:'Inter',sans-serif; font-size:14px;}
+  .dn-review-feedback{margin-top:14px; padding:12px 14px; border-radius:10px; font-size:14px; line-height:1.5;}
+  .dn-review-feedback.ok{background:rgba(111,207,151,.12); border:1px solid var(--ok); color:var(--ok);}
+  .dn-review-feedback.retry{background:rgba(232,106,92,.1); border:1px solid var(--warn); color:var(--warn);}
+  .dn-review-feedback.neutral{background:rgba(136,145,163,.1); border:1px solid var(--border); color:var(--muted);}
   .admin-box{
     display:flex; align-items:center; gap:10px; flex-wrap:wrap;
     background:rgba(232,163,61,.08); border:1px solid rgba(232,163,61,.4); border-radius:12px;
@@ -109,7 +117,8 @@
 
   /* ===== Sesión (motor de diálogo) ===== */
   #session{display:none;}
-  .session-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .session-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;}
+  .resume-banner{display:flex; justify-content:space-between; align-items:center; gap:10px; background:rgba(79,182,232,.1); border:1px solid var(--en); border-radius:10px; padding:10px 14px; margin-bottom:14px; font-size:13px;}
   .mic-status{display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:12px; padding:5px 12px; border-radius:999px; border:1px solid var(--border); margin:12px 0 0;}
   .mic-status .dot2{width:7px;height:7px;border-radius:50%; background:var(--muted);}
   .mic-status.on{color:var(--ok); border-color:rgba(111,207,151,.3);} .mic-status.on .dot2{background:var(--ok);}
@@ -203,8 +212,13 @@
   .song-lyrics{margin-top:14px; max-height:340px; overflow-y:auto; padding-right:4px;}
   .song-lyrics .lyric-line{padding:8px 10px; border-radius:8px; margin-bottom:6px; transition:background .2s;}
   .song-lyrics .lyric-line.current{background:rgba(176,141,87,.22);}
+  .song-lyrics .ra-line{padding:8px 10px; border-radius:8px; margin-bottom:6px; transition:background .2s;}
+  .song-lyrics .ra-line.current{background:rgba(176,141,87,.22);}
+  .song-lyrics .ra-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
+  .song-lyrics .ra-es{font-size:13px; color:var(--es); margin-top:2px;}
   .song-lyrics .lyric-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
   .song-lyrics .lyric-es{font-size:13px; color:var(--es); margin-top:2px;}
+  .song-lyrics .lyric-pron{font-size:13px; font-style:italic; color:var(--en); opacity:.75; margin-top:2px;}
   .task-example-box{background:rgba(79,182,232,.08); border:1px dashed rgba(79,182,232,.4); border-radius:10px; padding:12px 16px; margin:10px 0 16px;}
   .task-example-title{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;}
   .task-example-content .ex-line{margin-bottom:8px;}
@@ -290,7 +304,25 @@
       <div class="dn-song-card">
         <h2 id="dnSongTitle"></h2>
         <div id="dnAudioBox"></div>
+        <button class="primary" id="dnReviewBtn" style="margin:14px 0;">✍️ Repasar esta semana (escrito)</button>
         <div id="dnLyricsBox" class="dn-lyrics"></div>
+      </div>
+    </div>
+    <div id="dnReviewView" style="display:none;">
+      <button class="ghost" id="dnBackFromReviewBtn">← Volver a la canción</button>
+      <div class="dn-song-card">
+        <h2 id="dnReviewTitle"></h2>
+        <p class="sub" id="dnReviewHint"></p>
+        <div id="dnReviewPrompt" class="dn-review-prompt"></div>
+        <button class="mic" id="dnReviewListenBtn">🔊 Escuchar pronunciación</button>
+        <div class="dn-review-input-row">
+          <input type="text" id="dnReviewInput" placeholder="Escribí tu respuesta en inglés...">
+          <button class="primary" id="dnReviewSendBtn">Enviar</button>
+        </div>
+        <div id="dnReviewFeedback" class="dn-review-feedback" style="display:none;"></div>
+        <div id="dnReviewNextRow" style="display:none;">
+          <button class="primary" id="dnReviewNextBtn">Siguiente →</button>
+        </div>
       </div>
     </div>
   </div>
@@ -320,6 +352,12 @@
     <div class="session-top">
       <button class="ghost" id="homeBtn">← Menú de días</button>
       <div class="badge" id="dayBadge"></div>
+      <button class="ghost" id="saveProgressBtn" title="Guardá tu avance para poder continuar más tarde">💾 Guardar mi avance</button>
+      <div class="badge" id="liveScoreBadge" style="border-color:var(--ok); color:var(--ok);">✓ 0%</div>
+    </div>
+    <div class="resume-banner" id="resumeBanner" style="display:none;">
+      <span id="resumeBannerText"></span>
+      <button class="ghost" id="restartDayBtn">Empezar de nuevo</button>
     </div>
     <div class="mic-status off" id="micStatus"><span class="dot2"></span><span id="micStatusText">Micrófono: inactivo</span></div>
     <div class="progress" id="progress"></div>
@@ -337,6 +375,14 @@
           <span id="songPlayerLabel">🎶 Escuchá la canción completa</span>
           <audio id="songAudio" controls style="width:100%; margin-top:8px;"></audio>
           <div class="song-lyrics" id="songLyrics"></div>
+        </div>
+        <div class="song-player" id="readAlongPlayer" style="display:none;">
+          <span>📖 Solo lectura — escuchá y seguí el texto, sin ejercicios</span>
+          <div style="display:flex; gap:8px; margin-top:8px;">
+            <button class="mic" id="readAlongPlayBtn">▶ Escuchar la historia completa</button>
+            <button class="ghost" id="readAlongStopBtn">⏹ Detener</button>
+          </div>
+          <div class="song-lyrics" id="readAlongBox"></div>
         </div>
         <div class="illus" id="illus">🧑‍🤝‍🧑</div>
         <div class="line" id="line"></div>
@@ -391,6 +437,19 @@
           <p style="margin-top:14px;">Ese repaso va a aparecer automáticamente al comenzar tu próximo día.</p>
           <div class="controls" style="justify-content:center; margin-top:18px;">
             <button class="primary" id="backHomeBtn">Volver al menú de días</button>
+          </div>
+        </div>
+
+        <div class="done-screen" id="retryScreen">
+          <div class="big">🔁 Ya casi llegás</div>
+          <div class="score" id="retryScoreText" style="color:var(--warn);"></div>
+          <p>Todavía no alcanzaste el 92% necesario para avanzar al próximo día — pero está cerca. Repasemos juntos, una por una, las palabras y frases que te costaron un poco más.</p>
+          <div class="weak-list" id="retryWeakList">
+            <h4>Para repasar ahora</h4>
+            <div id="retryWeakItems"></div>
+          </div>
+          <div class="controls" style="justify-content:center; margin-top:18px;">
+            <button class="primary" id="retryBtn">Repasar y reintentar</button>
           </div>
         </div>
       </div>

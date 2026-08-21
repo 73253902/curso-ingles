@@ -309,6 +309,21 @@ const rephraseBank = [
   { simple:{en:'This is a problem.', es:'esto es un problema (simple)', pron:'dis is a práblem.'}, elegant:{en:'This presents a bit of a challenge.', es:'esto presenta un pequeño desafío (más diplomático)', pron:'dis présents a bit of a chálench.'} }
 ];
 // Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
+// Lecturas de repaso de cierre de unidad — SOLO escuchar y leer, sin ejercicios de hablar/escribir.
+const unitReviewStories = {
+  12: [
+    {en:'Good morning! Today, our dragon friend opens the doors of his shop in the Floating City.', es:'¡Buenos días! Hoy, nuestro amigo dragón abre las puertas de su tienda en la Ciudad Flotante.', pron:'gud mórnin! tudéi, áur drágon frend óupens de dors of jis shap in de flóuting síti.'},
+    {en:'Welcome! Come in! My name is Blaze, and I am from the Floating City.', es:'¡Bienvenido! ¡Pasá! Me llamo Blaze, y soy de la Ciudad Flotante.', pron:'uélcam! cam in! mái néim is Bléis, and ái am fram de flóuting síti.'},
+    {en:'I am the owner of this store, and I work at it with my whole family.', es:'Soy el dueño de esta tienda, y trabajo en ella con toda mi familia.', pron:'ái am de óuner of dis stor, and ái uork at it uid mái jóul fámili.'},
+    {en:'We have ten boxes and five units in stock. We sell magical toys, and we provide the best service in the kingdom!', es:'Tenemos diez cajas y cinco unidades en stock. ¡Vendemos juguetes mágicos, y ofrecemos el mejor servicio del reino!', pron:'uí jav ten báxes and fáiv iúnits in stak. uí sel máyical tóis, and uí prováid de best sérvis in de kíngdom!'},
+    {en:"I'm busy today, but business is great! I am available on Friday if you need a meeting.", es:'Estoy ocupado hoy, ¡pero el negocio va muy bien! Estoy disponible el viernes si necesitás una reunión.', pron:"áim bísi tudéi, bat bísnes is gréit! ái am avéilabol on fráidei if iú níid a míiting."},
+    {en:'Can you help me choose a color? I can show you all of them! It is red, or it is blue and made of metal — it is big, strong, and durable.', es:'¿Me podés ayudar a elegir un color? ¡Te puedo mostrar todos! Es rojo, o es azul y está hecho de metal — es grande, fuerte, y durable.', pron:'can iú jelp mi chúus a cálor? ái can shóu iú ol of dem! it is red, or it is blú and méid of métal — it is big, strong, and diúrabol.'},
+    {en:"Let's confirm the order! I will call you back on Monday to confirm everything.", es:'¡Confirmemos el pedido! Te voy a devolver la llamada el lunes para confirmar todo.', pron:"lets canférm de órder! ái uil col iú bak on mándei tu canférm évrizin."},
+    {en:'Thanks for your time. It was a pleasure. See you soon!', es:'Gracias por tu tiempo. Fue un placer. ¡Nos vemos pronto!', pron:'zenks for iór táim. it uas a pléyer. síi iú súun!'},
+    {en:"Well done, everyone! Great job today. Let's finish for today — you did it!", es:'¡Bien hecho, todos! Gran trabajo hoy. Terminemos por hoy — ¡lo lograste!', pron:"uél dan, évriuan! gréit chab tudéi. lets fínish for tudéi — iú did it!"},
+    {en:'Practice makes perfect, and tomorrow, a new day begins. Congratulations, brave dragon — you finished Unit One!', es:'La práctica hace al maestro, y mañana, empieza un nuevo día. Felicitaciones, valiente dragón — ¡terminaste la Unidad Uno!', pron:'práctis méiks pérfect, and tumórou, a niú déi bigíns. congrachuléishons, bréiv drágon — iú fínisht iúnit uán!'}
+  ]
+};
 const weeklyStories = {
   6: [
     {en:'Good morning! My name is Captain Thunder, and I work at the floating dragon company.', es:'¡Buenos días! Me llamo Capitán Trueno, y trabajo en la empresa flotante de dragones.', pron:'gud mórnin! mái néim is cáptin zánder, and ái uork at de flóuting drágon cámpani.'},
@@ -318,14 +333,6 @@ const weeklyStories = {
     {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitás para este pedido? ¿Diez cajas, o toda una docena?', pron:'jáu méni drágon egs du iú níid for dis órder? ten báxes, or a jóul dázen?'},
     {en:"Are you available on Monday, in the year 3000? Let's schedule an appointment!", es:'¿Estás disponible el lunes, en el año 3000? ¡Agendemos una cita!', pron:"ar iú avéilabol on mándei, in de íar zríi záusand? lets squéyul an apóintment!"},
     {en:'Thank you, and see you soon in the clouds. Goodbye!', es:'Gracias, y nos vemos pronto en las nubes. ¡Adiós!', pron:'zenk iú, and síi iú súun in de cláuds. gudbái!'}
-  ],
-  12: [
-    {en:"How are you doing today, brave hero? I'm great, thanks!", es:'¿Cómo te va hoy, valiente héroe? ¡Estoy genial, gracias!', pron:"jáu ar iú dúing tudéi, bréiv jírou? áim gréit, zenks!"},
-    {en:"How's the dragon business? Everything is amazing, as always.", es:'¿Cómo va el negocio de dragones? Todo increíble, como siempre.', pron:"jáus de drágon bísnes? évrizin is améising, as ólueis."},
-    {en:'Thanks for calling through the crystal ball. It was a pleasure talking to you, wizard.', es:'Gracias por llamar a través de la bola de cristal. Fue un placer hablar con vos, mago.', pron:'zenks for cóling zrú de crístal bol. it uas a pléyer tóking tu iú, uísard.'},
-    {en:'I have a question: what is the price of the treasure, and do you have stock of magic beans?', es:'Tengo una pregunta: ¿cuál es el precio del tesoro, y tenés stock de frijoles mágicos?', pron:'ái jav a cuéstion: uát is de práis of de tréshur, and du iú jav stak of máyic bíins?'},
-    {en:'We need a castle in blue, gigantic size, and unbreakable material!', es:'¡Necesitamos un castillo en azul, tamaño gigante, y material irrompible!', pron:'uí níid a cásol in blú, yaigántic sáis, and anbréikabol matírial!'},
-    {en:'Well done, hero! You finished the first legendary unit. Congratulations!', es:'¡Bien hecho, héroe! Terminaste la primera unidad legendaria. ¡Felicitaciones!', pron:'uél dan, jírou! iú fínisht de ferst léyendari iúnit. congrachuléishons!'}
   ],
   18: [
     {en:'Welcome to my floating house — the kitchen is inside a volcano!', es:'¡Bienvenido a mi casa flotante — la cocina está dentro de un volcán!', pron:'uélcam tu mái flóuting jáus — de quítchen is insáid a valkéinou!'},
@@ -472,6 +479,9 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle,
   }
   if(weeklyStories[dayNumber]){
     scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true, isWeeklyStory:true });
+  }
+  if(unitReviewStories[dayNumber]){
+    scr.push({ kind:'readAlong', lines:unitReviewStories[dayNumber] });
   }
   scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [], dayStructures: dayStructures||[] });
   if(dayNumber % 24 === 0){
@@ -700,6 +710,7 @@ function loadTurn(){
   if(turn.kind==='end'){ startEvaluation(); return; }
   if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='practica'){ runPractica(turn); return; }
+  if(turn.kind==='readAlong'){ runReadAlong(turn); return; }
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
       turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
@@ -873,6 +884,61 @@ async function speakHidden(text){
     u.onend=()=>resolve(); u.onerror=()=>resolve();
     speechSynthesis.speak(u);
   });
+}
+function runReadAlong(turn){
+  hideStrayUI();
+  crossTag.style.display='block'; crossTag.textContent='📖 LECTURA DE REPASO — SOLO ESCUCHAR Y LEER';
+  speakerLabel.textContent='LECTURA DE REPASO'; modeChip.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  document.getElementById('songPlayer').style.display='none';
+
+  illusEl.textContent='📖';
+  lineEl.innerHTML=''; setSegs(lineEl,[{t:'Cerremos con una lectura completa de repaso — escuchá y seguí el texto, sin ejercicios.',lang:'es'}]);
+  hintEl.textContent='Encontrás acá las estructuras, palabras y frases que aprendiste en esta lección, todas juntas en una sola historia.';
+
+  const readAlongPlayer=document.getElementById('readAlongPlayer'), readAlongBox=document.getElementById('readAlongBox');
+  const playBtn2=document.getElementById('readAlongPlayBtn'), stopBtn2=document.getElementById('readAlongStopBtn');
+  readAlongPlayer.style.display='block';
+  readAlongBox.innerHTML = turn.lines.map((l,i)=>
+    '<div class="ra-line" data-i="'+i+'"><div class="ra-en" id="raEn'+i+'"></div><div class="ra-es">'+l.es+'</div></div>'
+  ).join('');
+  turn.lines.forEach((l,i)=>{ renderStoryLine(document.getElementById('raEn'+i), l.en); });
+
+  // Mismo panel de auto-grabación que ya usa el resto del curso — acá para grabarse leyendo la historia completa.
+  recordBtn.style.display='inline-flex'; recordBtn.textContent='🎙️ Grabarme leyendo esta historia';
+
+  let playing=false, cancelled=false;
+  playBtn2.textContent='▶ Escuchar la historia completa';
+  playBtn2.disabled=false;
+  playBtn2.onclick=async ()=>{
+    if(playing) return;
+    playing=true; cancelled=false;
+    playBtn2.textContent='⏸ Reproduciendo...'; playBtn2.disabled=true;
+    for(let i=0;i<turn.lines.length;i++){
+      if(cancelled) break;
+      readAlongBox.querySelectorAll('.ra-line').forEach((el,j)=>el.classList.toggle('current', j===i));
+      const current = readAlongBox.querySelector('[data-i="'+i+'"]');
+      if(current) current.scrollIntoView({behavior:'smooth', block:'center'});
+      await speakHidden(turn.lines[i].en);
+    }
+    readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
+    playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
+  };
+  stopBtn2.onclick=()=>{
+    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
+    readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
+  };
+
+  nextControls.style.display='flex';
+  nextBtn.textContent='Continuar →';
+  nextBtn.onclick=()=>{
+    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    readAlongPlayer.style.display='none';
+    idx++; loadTurn();
+  };
 }
 function runDictation(turn){
   crossTag.style.display='block'; crossTag.textContent='🎧 DICTADO — ESCRIBÍ LO QUE ESCUCHÁS';
