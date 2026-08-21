@@ -3,6 +3,20 @@
 const curriculumUnidad4 = [
 {
     day:37, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Pedir en el restaurante / Programar una reunión',
+    structures:[
+      {id:'S031', pattern:"I'll have the + [X]", examples:[
+        {en:"I'll have the pasta.", es:'Voy a pedir la pasta.', pron:'áil jav de pasta.'},
+        {en:"I'll have the soup.", es:'Voy a pedir la sopa.', pron:'áil jav de súup.'},
+        {en:"I'll have the chicken.", es:'Voy a pedir el pollo.', pron:'áil jav de chíken.'},
+        {en:"I'll have the dessert.", es:'Voy a pedir el postre.', pron:'áil jav de disért.'}
+      ], function:'pedir comida en un restaurante', stage:2,
+        transformations:{
+          negative:{en:"I won't have the pasta.", es:'No voy a pedir la pasta.'},
+          question:{en:'Will you have the pasta?', es:'¿Vas a pedir la pasta?'},
+          yesAnswer:{en:'Yes, I will.', es:'Sí.'},
+          noAnswer:{en:"No, I won't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to order', es:'pedir', pron:'tu órder', emoji:'📝'},
       {en:'I would like', es:'quisiera', pron:'ái uud láik', emoji:'🙋'},
@@ -36,6 +50,20 @@ const curriculumUnidad4 = [
   },
 {
     day:38, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Sabores y preferencias / Confirmar asistencia',
+    structures:[
+      {id:'S032', pattern:"I like + [X]", examples:[
+        {en:'I like spicy food.', es:'Me gusta la comida picante.', pron:'ái láik spáisi fúud.'},
+        {en:'I like sweet desserts.', es:'Me gustan los postres dulces.', pron:'ái láik suíit disérts.'},
+        {en:"I don't like salty food.", es:'No me gusta la comida salada.', pron:"ái dont láik sólti fúud."},
+        {en:'I love this restaurant.', es:'Me encanta este restaurante.', pron:'ái lav dis réstorant.'}
+      ], function:'decir tus gustos y preferencias', stage:2,
+        transformations:{
+          negative:{en:"I don't like spicy food.", es:'No me gusta la comida picante.'},
+          question:{en:'Do you like spicy food?', es:'¿Te gusta la comida picante?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí, me gusta.'},
+          noAnswer:{en:"No, I don't.", es:'No, no me gusta.'}
+        }}
+    ],
     words:[
       {en:'I like', es:'me gusta', pron:'ái láik', emoji:'👍'},
       {en:"I don't like", es:'no me gusta', pron:'ái dont láik', emoji:'👎'},
@@ -69,6 +97,14 @@ const curriculumUnidad4 = [
   },
 {
     day:39, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'En el restaurante / Agenda y temas a tratar',
+    structures:[
+      {id:'S033', pattern:"Let's discuss + [X]", examples:[
+        {en:"Let's discuss the agenda.", es:'Discutamos la agenda.', pron:"lets discás de áyenda."},
+        {en:"Let's discuss the next steps.", es:'Discutamos los próximos pasos.', pron:"lets discás de next steps."},
+        {en:"Let's discuss the budget.", es:'Discutamos el presupuesto.', pron:"lets discás de báyet."},
+        {en:"Let's discuss this topic later.", es:'Discutamos este tema más tarde.', pron:"lets discás dis tápic léiter."}
+      ], function:'invitar a hablar de un tema', stage:2}
+    ],
     words:[
       {en:'split the bill', es:'dividir la cuenta', pron:'split de bil', emoji:'🧾'},
       {en:'tip', es:'propina', pron:'tip', emoji:'💵'},
@@ -133,6 +169,20 @@ const curriculumUnidad4 = [
   },
 {
     day:41, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Bebidas / Videollamada y reunión virtual',
+    structures:[
+      {id:'S034', pattern:"I can + [VERB] + you", examples:[
+        {en:'I can hear you.', es:'Te escucho.', pron:'ái can jíar iú.'},
+        {en:'I can see you.', es:'Te veo.', pron:'ái can síi iú.'},
+        {en:'I can share my screen.', es:'Puedo compartir mi pantalla.', pron:'ái can shér mái scríin.'},
+        {en:'I can mute myself.', es:'Me puedo silenciar.', pron:'ái can miúut máiself.'}
+      ], function:'confirmar que estás en la videollamada', stage:2,
+        transformations:{
+          negative:{en:"I can't hear you.", es:'No te escucho.'},
+          question:{en:'Can you hear me?', es:'¿Me escuchás?'},
+          yesAnswer:{en:'Yes, I can.', es:'Sí, te escucho.'},
+          noAnswer:{en:"No, I can't.", es:'No, no te escucho.'}
+        }}
+    ],
     words:[
       {en:'juice', es:'jugo', pron:'yúus', emoji:'🧃'},
       {en:'soda', es:'gaseosa', pron:'sóuda', emoji:'🥤'},
@@ -165,6 +215,20 @@ const curriculumUnidad4 = [
   },
 {
     day:42, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Comidas del día / Reunión de seguimiento',
+    structures:[
+      {id:'S035', pattern:"We are + [STATUS]", examples:[
+        {en:'We are on track.', es:'Vamos bien encaminados.', pron:'uí ar on trak.'},
+        {en:'We are behind schedule.', es:'Vamos atrasados.', pron:'uí ar bijáind squédiul.'},
+        {en:'We are almost done.', es:'Ya casi terminamos.', pron:'uí ar ólmoust dan.'},
+        {en:'We are ready for the next step.', es:'Estamos listos para el próximo paso.', pron:'uí ar rédi for de next step.'}
+      ], function:'decir cómo va el progreso', stage:2,
+        transformations:{
+          negative:{en:'We are not on track.', es:'No vamos bien encaminados.'},
+          question:{en:'Are you on track?', es:'¿Van bien encaminados?'},
+          yesAnswer:{en:'Yes, we are.', es:'Sí.'},
+          noAnswer:{en:"No, we aren't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'eggs', es:'huevos', pron:'egs', emoji:'🥚'},
       {en:'toast', es:'tostada', pron:'tóust', emoji:'🍞'},
@@ -223,6 +287,20 @@ const curriculumUnidad4 = [
   },
 {
     day:44, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Alergias e intolerancias / Notas y minutas',
+    structures:[
+      {id:'S036', pattern:"I am allergic to + [X]", examples:[
+        {en:'I am allergic to nuts.', es:'Soy alérgico a los frutos secos.', pron:'ái am alérchic tu nats.'},
+        {en:'I am allergic to shellfish.', es:'Soy alérgico a los mariscos.', pron:'ái am alérchic tu shélfish.'},
+        {en:'I am not allergic to gluten.', es:'No soy alérgico al gluten.', pron:'ái am nat alérchic tu glúten.'},
+        {en:'I am lactose intolerant.', es:'Soy intolerante a la lactosa.', pron:'ái am láctous intálerant.'}
+      ], function:'avisar sobre alergias', stage:2,
+        transformations:{
+          negative:{en:'I am not allergic to nuts.', es:'No soy alérgico a los frutos secos.'},
+          question:{en:'Are you allergic to nuts?', es:'¿Sos alérgico a los frutos secos?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'allergy', es:'alergia', pron:'álerchi', emoji:'⚠️'},
       {en:'gluten-free', es:'sin gluten', pron:'glúten fríi', emoji:'🚫🌾'},
@@ -281,6 +359,20 @@ const curriculumUnidad4 = [
   },
 {
     day:46, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Ir de compras / Reunión con proveedores',
+    structures:[
+      {id:'S037', pattern:"I need to buy + [X]", examples:[
+        {en:'I need to buy groceries.', es:'Necesito comprar víveres.', pron:'ái níid tu bái gróuseris.'},
+        {en:'I need to buy office supplies.', es:'Necesito comprar insumos de oficina.', pron:'ái níid tu bái áfis sapláis.'},
+        {en:'I need to buy fresh vegetables.', es:'Necesito comprar verduras frescas.', pron:'ái níid tu bái fresh véchtabols.'},
+        {en:'I need to buy a new supplier.', es:'Necesito conseguir un nuevo proveedor.', pron:'ái níid tu bái a niú sapláier.'}
+      ], function:'decir qué necesitás comprar', stage:2,
+        transformations:{
+          negative:{en:"I don't need to buy groceries.", es:'No necesito comprar víveres.'},
+          question:{en:'Do you need to buy groceries?', es:'¿Necesitás comprar víveres?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'supermarket', es:'supermercado', pron:'súpermarket', emoji:'🛒'},
       {en:'shopping list', es:'lista de compras', pron:'sháping list', emoji:'📝'},
@@ -312,6 +404,20 @@ const curriculumUnidad4 = [
   },
 {
     day:47, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Cantidades de comida / Presupuesto y recursos',
+    structures:[
+      {id:'S038', pattern:"We have enough + [X]", examples:[
+        {en:'We have enough budget.', es:'Tenemos suficiente presupuesto.', pron:'uí jav ináf báyet.'},
+        {en:'We have enough time.', es:'Tenemos suficiente tiempo.', pron:'uí jav ináf táim.'},
+        {en:'We have enough resources.', es:'Tenemos suficientes recursos.', pron:'uí jav ináf risórses.'},
+        {en:'We have enough staff.', es:'Tenemos suficiente personal.', pron:'uí jav ináf staf.'}
+      ], function:'decir si tenés suficiente de algo', stage:2,
+        transformations:{
+          negative:{en:"We don't have enough budget.", es:'No tenemos suficiente presupuesto.'},
+          question:{en:'Do you have enough budget?', es:'¿Tienen suficiente presupuesto?'},
+          yesAnswer:{en:'Yes, we do.', es:'Sí.'},
+          noAnswer:{en:"No, we don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'a little', es:'un poco', pron:'a lítol', emoji:'🤏'},
       {en:'a lot', es:'mucho', pron:'a lat', emoji:'📈'},
