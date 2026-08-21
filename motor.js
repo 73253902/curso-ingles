@@ -236,6 +236,18 @@ document.getElementById('resetLink').addEventListener('click', ()=>{
 });
 document.getElementById('homeBtn').addEventListener('click', ()=>{ showHome(); });
 document.getElementById('backHomeBtn').addEventListener('click', ()=>{ showHome(); });
+document.getElementById('saveProgressBtn').addEventListener('click', ()=>{
+  const ok = saveMidProgress();
+  const btn = document.getElementById('saveProgressBtn');
+  const original = btn.textContent;
+  btn.textContent = ok ? '✓ Guardado' : '✗ No se pudo guardar';
+  setTimeout(()=>{ btn.textContent = original; }, 1800);
+});
+document.getElementById('restartDayBtn').addEventListener('click', ()=>{
+  if(!currentDay) return;
+  clearMidProgress(currentDay.day);
+  startDay(currentDay.day);
+});
 function showHome(){
   document.getElementById('home').style.display='block';
   document.getElementById('session').style.display='none';
@@ -411,7 +423,7 @@ function sampleMilestoneWords(dayNumber){
 }
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
-function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures){
+function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures, dayAuxiliary){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
@@ -442,6 +454,12 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle,
     dayStructures.forEach(s=>{
       const intro = [{t:'Hoy vamos a ver esta estructura, muy usada en el idioma y en la vida diaria: "'+s.pattern+'". Vas a poder combinarla con muchas palabras distintas, como en estos ejemplos:',lang:'es'}];
       scr.push({ kind:'sequence', segs:intro, emoji:'🧩', words:s.examples, isStructureIntro:true });
+    });
+  }
+  if(dayAuxiliary && dayAuxiliary.length){
+    dayAuxiliary.forEach(screen=>{
+      const intro = [{t:screen.intro,lang:'es'}];
+      scr.push({ kind:'sequence', segs:intro, emoji:'🧠', words:screen.examples, isAuxiliaryTeaching:true, screenTitle:screen.title });
     });
   }
   if(dayStory && dayStory.length){
@@ -475,7 +493,7 @@ function startDay(dayNum){
   if(!currentDay) return;
   wordBank = currentDay.words;
   const crossWords = getCrossDayReviewWords(dayNum, 6);
-  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle, currentDay.structures);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle, currentDay.structures, currentDay.auxiliaryTeaching);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
   updateLiveScore();
   const prog = loadProgress();
@@ -497,7 +515,38 @@ function startDay(dayNum){
   }
   document.getElementById('gate').classList.add('show');
 }
+function midKey(dayNum){ return 'curso_inprogress_day'+dayNum; }
+function saveMidProgress(){
+  if(!currentDay) return;
+  const data = { idx, learnedWords, weakWords, wordQueue, wqIndex, evalMode, savedAt:new Date().toISOString() };
+  try{ localStorage.setItem(midKey(currentDay.day), JSON.stringify(data)); return true; }catch(e){ return false; }
+}
+function loadMidProgress(dayNum){
+  try{ const raw = localStorage.getItem(midKey(dayNum)); return raw ? JSON.parse(raw) : null; }catch(e){ return null; }
+}
+function clearMidProgress(dayNum){
+  try{ localStorage.removeItem(midKey(dayNum)); }catch(e){}
+}
+function formatSavedAt(iso){
+  try{
+    const d = new Date(iso);
+    return d.toLocaleDateString('es-CO',{day:'numeric',month:'short'})+' a las '+d.toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
+  }catch(e){ return ''; }
+}
 function enterDayContent(){
+  const saved = loadMidProgress(currentDay.day);
+  const resumeBanner = document.getElementById('resumeBanner');
+  if(saved && saved.idx > 0 && saved.idx < script.length){
+    idx = saved.idx; learnedWords = saved.learnedWords||[]; weakWords = saved.weakWords||[];
+    wordQueue = saved.wordQueue||[]; wqIndex = saved.wqIndex||0; evalMode = !!saved.evalMode;
+    updateLiveScore();
+    document.getElementById('wordList').innerHTML='';
+    learnedWords.forEach(w=>{ const perfect = w.pronCredit===1 && w.writeCredit===1; addWordCard(w, !perfect); });
+    document.getElementById('resumeBannerText').textContent = '📍 Retomaste donde quedaste — guardado el '+formatSavedAt(saved.savedAt)+'.';
+    resumeBanner.style.display='flex';
+  } else {
+    resumeBanner.style.display='none';
+  }
   loadTurn();
 }
 
@@ -668,6 +717,7 @@ function loadTurn(){
   else if(turn.isWeeklyStory){ crossTag.style.display='block'; crossTag.textContent='📚 HISTORIA DE LA SEMANA'; }
   else if(turn.isMilestone){ crossTag.style.display='block'; crossTag.textContent='🏆 EXAMEN DE HITO — 24 DÍAS'; }
   else if(turn.isStructureIntro){ crossTag.style.display='block'; crossTag.textContent='🧩 ESTRUCTURA DEL DÍA — MUY USADA EN LA VIDA REAL'; }
+  else if(turn.isAuxiliaryTeaching){ crossTag.style.display='block'; crossTag.textContent='🧠 GRAMÁTICA CLAVE — '+turn.screenTitle.toUpperCase(); }
   else { crossTag.style.display='none'; }
   const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio'), songLyrics=document.getElementById('songLyrics');
   const songFile = turn.isJingle ? (currentDay && currentDay.songJingle) : (turn.isDailyStory ? (currentDay && currentDay.songStory) : null);
@@ -1433,6 +1483,7 @@ function completeDay(scorePct){
         learnedWords: learnedWords, weakWords: weakWords,
         score:{points:s.points, totalPoints:s.totalPoints, total:s.total, pct:scorePct, pronPct:s.pronPct, writePct:s.writePct}
       });
+      clearMidProgress(currentDay.day);
     }
   }catch(e){
     // Guardar el resultado no debe poder tumbar la pantalla de cierre, que ya se mostró arriba.

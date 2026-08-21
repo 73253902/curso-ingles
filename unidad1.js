@@ -18,6 +18,48 @@ const curriculumUnidad1 = [
           future:{en:'I will need help.', es:'Voy a necesitar ayuda.'}
         }}
     ],
+    auxiliaryTeaching:[
+      {
+        title:'El contraste',
+        intro:'Fijate en este contraste: cuando la frase tiene "am" (I am...), para decir "no" solo agregás "not". Pero cuando la frase tiene una acción (necesitar, trabajar, vender...), hace falta un ayudante: "don\'t". Mirá la diferencia:',
+        examples:[
+          {en:'I am happy.', es:'Estoy feliz.', pron:'ái am jápi.'},
+          {en:'I am not happy.', es:'No estoy feliz.', pron:'ái am nat jápi.'},
+          {en:'I need help.', es:'Necesito ayuda.', pron:'ái níid jelp.'},
+          {en:"I don't need help.", es:'No necesito ayuda.', pron:'ái dont níid jelp.'}
+        ]
+      },
+      {
+        title:'Negativa con I / you / we / they',
+        intro:'Practiquemos el ayudante "don\'t" con distintos protagonistas — se usa igual con I, you, we, they:',
+        examples:[
+          {en:"I don't need help.", es:'No necesito ayuda.', pron:'ái dont níid jelp.'},
+          {en:"You don't need help.", es:'Vos no necesitás ayuda.', pron:'iú dont níid jelp.'},
+          {en:"We don't need help.", es:'Nosotros no necesitamos ayuda.', pron:'uí dont níid jelp.'},
+          {en:"They don't need help.", es:'Ellos no necesitan ayuda.', pron:'déi dont níid jelp.'}
+        ]
+      },
+      {
+        title:'Negativa con he / she / it',
+        intro:'Ahora un cambio importante: cuando el protagonista es he, she, o it, el ayudante "don\'t" se convierte en "doesn\'t":',
+        examples:[
+          {en:"He doesn't need help.", es:'Él no necesita ayuda.', pron:'ji dásnt níid jelp.'},
+          {en:"She doesn't need help.", es:'Ella no necesita ayuda.', pron:'shi dásnt níid jelp.'},
+          {en:"It doesn't need help.", es:'Eso no necesita ayuda.', pron:'it dásnt níid jelp.'},
+          {en:"He doesn't need water.", es:'Él no necesita agua.', pron:'ji dásnt níid uáter.'}
+        ]
+      },
+      {
+        title:'La pregunta: Do / Does',
+        intro:'El mismo ayudante sirve para preguntar — solo que va al principio de la frase, sin "not". Con I/you/we/they usás "Do", y con he/she/it usás "Does":',
+        examples:[
+          {en:'Do you need help?', es:'¿Necesitás ayuda?', pron:'du iú níid jelp?'},
+          {en:'Do they need help?', es:'¿Ellos necesitan ayuda?', pron:'du déi níid jelp?'},
+          {en:'Does he need help?', es:'¿Él necesita ayuda?', pron:'das ji níid jelp?'},
+          {en:'Does she need help?', es:'¿Ella necesita ayuda?', pron:'das shi níid jelp?'}
+        ]
+      }
+    ],
     songJingle:'cancion-dia1-vocabulario.mp3',
     songStory:'cancion-dia1-historia.mp3',
     songJingleLyrics:[

@@ -117,7 +117,8 @@
 
   /* ===== Sesión (motor de diálogo) ===== */
   #session{display:none;}
-  .session-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .session-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;}
+  .resume-banner{display:flex; justify-content:space-between; align-items:center; gap:10px; background:rgba(79,182,232,.1); border:1px solid var(--en); border-radius:10px; padding:10px 14px; margin-bottom:14px; font-size:13px;}
   .mic-status{display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:12px; padding:5px 12px; border-radius:999px; border:1px solid var(--border); margin:12px 0 0;}
   .mic-status .dot2{width:7px;height:7px;border-radius:50%; background:var(--muted);}
   .mic-status.on{color:var(--ok); border-color:rgba(111,207,151,.3);} .mic-status.on .dot2{background:var(--ok);}
@@ -347,7 +348,12 @@
     <div class="session-top">
       <button class="ghost" id="homeBtn">← Menú de días</button>
       <div class="badge" id="dayBadge"></div>
+      <button class="ghost" id="saveProgressBtn" title="Guardá tu avance para poder continuar más tarde">💾 Guardar mi avance</button>
       <div class="badge" id="liveScoreBadge" style="border-color:var(--ok); color:var(--ok);">✓ 0%</div>
+    </div>
+    <div class="resume-banner" id="resumeBanner" style="display:none;">
+      <span id="resumeBannerText"></span>
+      <button class="ghost" id="restartDayBtn">Empezar de nuevo</button>
     </div>
     <div class="mic-status off" id="micStatus"><span class="dot2"></span><span id="micStatusText">Micrófono: inactivo</span></div>
     <div class="progress" id="progress"></div>
