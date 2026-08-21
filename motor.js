@@ -254,7 +254,7 @@ const introTemplates = [
   w => [{t:'Sumemos: ',lang:'es'},{t:w.en,lang:'en'},{t:'. En español es "'+w.es+'".',lang:'es'}],
   w => [{t:'Una más: ',lang:'es'},{t:w.en,lang:'en'},{t:' — "'+w.es+'" en español.',lang:'es'}]
 ];
-const comboIntro = [{t:'Ahora repitamos juntas, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
+const comboIntro = [{t:'Ahora repitamos juntos, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
 const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
 const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
 // Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
@@ -528,10 +528,13 @@ const wordListEl=document.getElementById('wordList'), transcriptEl=document.getE
 const liveScoreBadge=document.getElementById('liveScoreBadge');
 function computeScorePct(){
   const total = learnedWords.length;
-  let points = 0;
-  learnedWords.forEach(w=>{ points += (w.pronCredit||0) + (w.writeCredit||0); });
+  let pronPoints=0, writePoints=0;
+  learnedWords.forEach(w=>{ pronPoints += (w.pronCredit||0); writePoints += (w.writeCredit||0); });
+  const points = pronPoints + writePoints;
   const pct = total ? Math.round((points/(total*2))*100) : 0;
-  return { pct, points, totalPoints: total*2, total };
+  const pronPct = total ? Math.round((pronPoints/total)*100) : 0;
+  const writePct = total ? Math.round((writePoints/total)*100) : 0;
+  return { pct, points, totalPoints: total*2, total, pronPct, writePct };
 }
 function updateLiveScore(){
   const pct = computeScorePct().pct;
@@ -1342,10 +1345,6 @@ function startEvaluation(){
 }
 function finishEvaluation(){
   const scorePct = computeScorePct().pct;
-  if(scorePct < 92 && weakWords.length>0){
-    showRetryGate(scorePct);
-    return;
-  }
   completeDay(scorePct);
 }
 function showRetryGate(scorePct){
@@ -1369,7 +1368,7 @@ function completeDay(scorePct){
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
   doneScreen.classList.add('show');
   doneCount.textContent = s.total;
-  scoreText.textContent = '✅ Aprobado con '+scorePct+'% ('+s.points+' / '+s.totalPoints+' puntos — pronunciación + escritura, mínimo 92%)';
+  scoreText.innerHTML = 'Tu resultado de hoy: <b>'+scorePct+'%</b><br>🗣️ Pronunciación: '+s.pronPct+'% &nbsp;·&nbsp; ✏️ Escritura: '+s.writePct+'%';
   if(weakWords.length>0){
     weakList.style.display='block'; weakItems.innerHTML='';
     weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; weakItems.appendChild(div); });
@@ -1380,7 +1379,7 @@ function completeDay(scorePct){
       saveDayResult(currentDay.day, {
         completed:true, date:new Date().toISOString(),
         learnedWords: learnedWords, weakWords: weakWords,
-        score:{points:s.points, totalPoints:s.totalPoints, total:s.total, pct:scorePct}
+        score:{points:s.points, totalPoints:s.totalPoints, total:s.total, pct:scorePct, pronPct:s.pronPct, writePct:s.writePct}
       });
     }
   }catch(e){
