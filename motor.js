@@ -411,7 +411,7 @@ function sampleMilestoneWords(dayNumber){
 }
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
-function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle){
+function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
@@ -438,6 +438,12 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
       scr.push({ kind:'sequence', segs:reviewIntro, emoji:'🔁', words:[w1,w2] });
     }
   });
+  if(dayStructures && dayStructures.length){
+    dayStructures.forEach(s=>{
+      const intro = [{t:'Hoy vamos a ver esta estructura, muy usada en el idioma y en la vida diaria: "'+s.pattern+'". Vas a poder combinarla con muchas palabras distintas, como en estos ejemplos:',lang:'es'}];
+      scr.push({ kind:'sequence', segs:intro, emoji:'🧩', words:s.examples, isStructureIntro:true });
+    });
+  }
   if(dayStory && dayStory.length){
     scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true, isDailyStory:true });
     const dictLine = dayStory[dayStory.length-1];
@@ -449,7 +455,7 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
   if(weeklyStories[dayNumber]){
     scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true, isWeeklyStory:true });
   }
-  scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [] });
+  scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [], dayStructures: dayStructures||[] });
   if(dayNumber % 24 === 0){
     const milestoneWords = sampleMilestoneWords(dayNumber);
     if(milestoneWords.length){
@@ -469,7 +475,7 @@ function startDay(dayNum){
   if(!currentDay) return;
   wordBank = currentDay.words;
   const crossWords = getCrossDayReviewWords(dayNum, 6);
-  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle, currentDay.structures);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
   updateLiveScore();
   const prog = loadProgress();
@@ -661,6 +667,7 @@ function loadTurn(){
   else if(turn.isDailyStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
   else if(turn.isWeeklyStory){ crossTag.style.display='block'; crossTag.textContent='📚 HISTORIA DE LA SEMANA'; }
   else if(turn.isMilestone){ crossTag.style.display='block'; crossTag.textContent='🏆 EXAMEN DE HITO — 24 DÍAS'; }
+  else if(turn.isStructureIntro){ crossTag.style.display='block'; crossTag.textContent='🧩 ESTRUCTURA DEL DÍA — MUY USADA EN LA VIDA REAL'; }
   else { crossTag.style.display='none'; }
   const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio'), songLyrics=document.getElementById('songLyrics');
   const songFile = turn.isJingle ? (currentDay && currentDay.songJingle) : (turn.isDailyStory ? (currentDay && currentDay.songStory) : null);
@@ -750,6 +757,14 @@ function afterIntro(turn){
       typeInput.value=''; typeRow.style.display='none';
       feedback.classList.add('show','ok'); feedback.textContent='✓ Excelente. Esto es usar el idioma de verdad, no solo repetirlo.';
       nextControls.style.display='flex';
+      const items = buildTransformItems(turn.dayStructures);
+      if(items.length){
+        nextBtn.textContent='Practiquemos transformaciones →';
+        nextBtn.onclick=()=>{ runTransformDrills(items, 0, ()=>{ idx++; loadTurn(); }); };
+      } else {
+        nextBtn.textContent='Continuar →';
+        nextBtn.onclick=()=>{ idx++; loadTurn(); };
+      }
     };
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
@@ -758,6 +773,43 @@ function afterIntro(turn){
   wqIndex=0; evalMode=false;
   currentTurnIsStory = !!turn.isStory;
   runWordChallenge();
+}
+// ================= Transformaciones: negativa, pregunta, respuestas, futuro =================
+function buildTransformItems(structures){
+  const items = [];
+  (structures||[]).forEach(s=>{
+    if(!s.transformations) return;
+    const baseEx = s.examples[0].en || s.examples[0];
+    if(s.transformations.negative){
+      items.push({base:baseEx, askType:'negativa', target:s.transformations.negative.en, es:s.transformations.negative.es});
+    }
+    if(s.transformations.question){
+      items.push({base:baseEx, askType:'pregunta', target:s.transformations.question.en, es:s.transformations.question.es});
+    }
+  });
+  return items;
+}
+function runTransformDrills(items, i, onDone){
+  if(i>=items.length){ onDone(); return; }
+  const item = items[i];
+  speakerLabel.textContent='TRANSFORMÁ LA FRASE'; modeChip.style.display='none'; crossTag.style.display='block'; crossTag.textContent='🔄 PRACTICANDO CON LO DE HOY';
+  illusEl.textContent='🔄';
+  appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show');
+  setSegs(lineEl, [{t:'Frase base: "'+item.base+'"', lang:'en'}]);
+  hintEl.textContent='Ejercicio '+(i+1)+' de '+items.length+' — Escribila en forma '+item.askType+'.';
+  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí la frase transformada...'; typeInput.focus();
+  sendBtn.onclick=()=>{
+    const typed=typeInput.value.trim(); if(!typed) return;
+    const correct = normalize(typed)===normalize(item.target);
+    addTranscript('VOS (escrito)', typed, 'user');
+    typeRow.style.display='none';
+    feedback.classList.add('show', correct?'ok':'retry');
+    feedback.textContent = correct ? '✓ ¡Perfecto!' : '✗ Se escribe: "'+item.target+'"';
+    nextControls.style.display='flex';
+    nextBtn.textContent = (i+1<items.length) ? 'Siguiente →' : 'Continuar →';
+    nextBtn.onclick=()=>{ runTransformDrills(items, i+1, onDone); };
+  };
 }
 
 // ================= Dictado: se escucha, sin ver el texto, y se escribe a ciegas =================

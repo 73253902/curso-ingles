@@ -4,7 +4,19 @@ const curriculumUnidad1 = [
 {
     day:1, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Saludos y presentarte / Saludar clientes',
     structures:[
-      {id:'S001', pattern:"I need + [X]", examples:['I need help.','I need water.','I need coffee.'], function:'pedir algo que necesitás', stage:1}
+      {id:'S001', pattern:"I need + [X]", examples:[
+        {en:'I need help.', es:'Necesito ayuda.', pron:'ái níid jelp.'},
+        {en:'I need water.', es:'Necesito agua.', pron:'ái níid uáter.'},
+        {en:'I need coffee.', es:'Necesito café.', pron:'ái níid cófi.'},
+        {en:'I need money.', es:'Necesito dinero.', pron:'ái níid máni.'}
+      ], function:'pedir algo que necesitás', stage:1,
+        transformations:{
+          negative:{en:"I don't need help.", es:'No necesito ayuda.'},
+          question:{en:'Do you need help?', es:'¿Necesitás ayuda?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí, la necesito.'},
+          noAnswer:{en:"No, I don't.", es:'No, no la necesito.'},
+          future:{en:'I will need help.', es:'Voy a necesitar ayuda.'}
+        }}
     ],
     songJingle:'cancion-dia1-vocabulario.mp3',
     songStory:'cancion-dia1-historia.mp3',
@@ -126,9 +138,43 @@ const curriculumUnidad1 = [
 {
     day:2, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Presentarte / Presentarte a un cliente',
     structures:[
-      {id:'S002', pattern:"My name is + [NAME]", examples:['My name is Robinson.','My name is Sarah.','My name is Zorblax.'], function:'presentarte', stage:1},
-      {id:'S003', pattern:"I am from + [PLACE]", examples:['I am from Colombia.','I am from Medellín.','I am from the planet Neptune.'], function:'decir de dónde sos', stage:1},
-      {id:'S004', pattern:"I work at + [PLACE]", examples:['I work at Dosting Toys.','I work at a bank.','I work at the Interstellar Bank.'], function:'decir dónde trabajás', stage:1}
+      {id:'S002', pattern:"My name is + [NAME]", examples:[
+        {en:'My name is Robinson.', es:'Me llamo Robinson.', pron:'mai néim is Robinson.'},
+        {en:'My name is Sarah.', es:'Me llamo Sarah.', pron:'mai néim is Sara.'},
+        {en:'My name is Zorblax.', es:'Me llamo Zorblax.', pron:'mai néim is Zorblax.'},
+        {en:'My name is David.', es:'Me llamo David.', pron:'mai néim is Déivid.'}
+      ], function:'presentarte', stage:1,
+        transformations:{
+          negative:{en:'My name is not Robinson.', es:'Mi nombre no es Robinson.'},
+          question:{en:'Is your name Robinson?', es:'¿Tu nombre es Robinson?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, lo es.'},
+          noAnswer:{en:"No, it isn't.", es:'No, no lo es.'}
+        }},
+      {id:'S003', pattern:"I am from + [PLACE]", examples:[
+        {en:'I am from Colombia.', es:'Soy de Colombia.', pron:'ái am fram Colómbia.'},
+        {en:'I am from Medellín.', es:'Soy de Medellín.', pron:'ái am fram Medeyín.'},
+        {en:'I am from the planet Neptune.', es:'Soy del planeta Neptuno.', pron:'ái am fram de plánet Neptiún.'},
+        {en:'I am from Mexico.', es:'Soy de México.', pron:'ái am fram Méxicou.'}
+      ], function:'decir de dónde sos', stage:1,
+        transformations:{
+          negative:{en:'I am not from Colombia.', es:'No soy de Colombia.'},
+          question:{en:'Are you from Colombia?', es:'¿Sos de Colombia?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí, lo soy.'},
+          noAnswer:{en:"No, I'm not.", es:'No, no lo soy.'}
+        }},
+      {id:'S004', pattern:"I work at + [PLACE]", examples:[
+        {en:'I work at Dosting Toys.', es:'Trabajo en Dosting Toys.', pron:'ái uork at Dosting Tois.'},
+        {en:'I work at a bank.', es:'Trabajo en un banco.', pron:'ái uork at a bank.'},
+        {en:'I work at the Interstellar Bank.', es:'Trabajo en el Banco Interestelar.', pron:'ái uork at de ínterstelar bank.'},
+        {en:'I work at a hospital.', es:'Trabajo en un hospital.', pron:'ái uork at a jáspital.'}
+      ], function:'decir dónde trabajás', stage:1,
+        transformations:{
+          negative:{en:"I don't work at Dosting Toys.", es:'No trabajo en Dosting Toys.'},
+          question:{en:'Do you work at Dosting Toys?', es:'¿Trabajás en Dosting Toys?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí, trabajo ahí.'},
+          noAnswer:{en:"No, I don't.", es:'No, no trabajo ahí.'},
+          future:{en:'I will work at Dosting Toys.', es:'Voy a trabajar en Dosting Toys.'}
+        }}
     ],
     songJingle:'cancion-dia2-vocabulario.mp3',
     songStory:'cancion-dia2-historia.mp3',
@@ -227,8 +273,32 @@ const curriculumUnidad1 = [
 {
     day:3, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'De dónde eres / Presentar tu empresa',
     structures:[
-      {id:'S005', pattern:"We sell + [X]", examples:['We sell toys.','We sell flying products.','We sell quality tools.'], function:'describir qué vende tu empresa', stage:1},
-      {id:'S006', pattern:"We provide + [X]", examples:['We provide services.','We provide invisible services.','We provide the best delivery.'], function:'describir qué ofrece tu empresa', stage:1}
+      {id:'S005', pattern:"We sell + [X]", examples:[
+        {en:'We sell toys.', es:'Vendemos juguetes.', pron:'uí sel tóis.'},
+        {en:'We sell flying products.', es:'Vendemos productos voladores.', pron:'uí sel fláing prádacts.'},
+        {en:'We sell quality tools.', es:'Vendemos herramientas de calidad.', pron:'uí sel cuáliti túuls.'},
+        {en:'We sell books.', es:'Vendemos libros.', pron:'uí sel búks.'}
+      ], function:'describir qué vende tu empresa', stage:1,
+        transformations:{
+          negative:{en:"We don't sell toys.", es:'No vendemos juguetes.'},
+          question:{en:'Do you sell toys?', es:'¿Venden juguetes?'},
+          yesAnswer:{en:'Yes, we do.', es:'Sí, los vendemos.'},
+          noAnswer:{en:"No, we don't.", es:'No, no los vendemos.'},
+          future:{en:'We will sell toys.', es:'Vamos a vender juguetes.'}
+        }},
+      {id:'S006', pattern:"We provide + [X]", examples:[
+        {en:'We provide services.', es:'Ofrecemos servicios.', pron:'uí prováid sérvises.'},
+        {en:'We provide invisible services.', es:'Ofrecemos servicios invisibles.', pron:'uí prováid invísibol sérvises.'},
+        {en:'We provide the best delivery.', es:'Ofrecemos la mejor entrega.', pron:'uí prováid de best delíveri.'},
+        {en:'We provide support.', es:'Ofrecemos soporte.', pron:'uí prováid sapórt.'}
+      ], function:'describir qué ofrece tu empresa', stage:1,
+        transformations:{
+          negative:{en:"We don't provide services.", es:'No ofrecemos servicios.'},
+          question:{en:'Do you provide services?', es:'¿Ofrecen servicios?'},
+          yesAnswer:{en:'Yes, we do.', es:'Sí, los ofrecemos.'},
+          noAnswer:{en:"No, we don't.", es:'No, no los ofrecemos.'},
+          future:{en:'We will provide services.', es:'Vamos a ofrecer servicios.'}
+        }}
     ],
     songJingle:'cancion-dia3-vocabulario.mp3',
     songStory:'cancion-dia3-historia.mp3',
@@ -343,8 +413,32 @@ const curriculumUnidad1 = [
 {
     day:4, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Familia básica / Tu rol en la empresa',
     structures:[
-      {id:'S007', pattern:"I am the owner of + [X]", examples:['I am the owner of this company.','I am the owner of a small store.','I am the owner of a thousand galaxies.'], function:'decir que sos dueño de algo', stage:1},
-      {id:'S008', pattern:"I am in charge of + [X]", examples:['I am in charge of sales.','I am in charge of the team.','I am in charge of logistics.'], function:'decir que estás a cargo de algo', stage:1}
+      {id:'S007', pattern:"I am the owner of + [X]", examples:[
+        {en:'I am the owner of this company.', es:'Soy el dueño de esta empresa.', pron:'ái am de óuner of dis cámpani.'},
+        {en:'I am the owner of a small store.', es:'Soy el dueño de una tienda pequeña.', pron:'ái am de óuner of a smol stor.'},
+        {en:'I am the owner of a thousand galaxies.', es:'Soy el dueño de mil galaxias.', pron:'ái am de óuner of a záusand gálaxis.'},
+        {en:'I am the owner of a restaurant.', es:'Soy el dueño de un restaurante.', pron:'ái am de óuner of a réstorant.'}
+      ], function:'decir que sos dueño de algo', stage:1,
+        transformations:{
+          negative:{en:'I am not the owner of this company.', es:'No soy el dueño de esta empresa.'},
+          question:{en:'Are you the owner of this company?', es:'¿Sos el dueño de esta empresa?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí, lo soy.'},
+          noAnswer:{en:"No, I'm not.", es:'No, no lo soy.'},
+          future:{en:'I will be the owner of this company.', es:'Voy a ser el dueño de esta empresa.'}
+        }},
+      {id:'S008', pattern:"I am in charge of + [X]", examples:[
+        {en:'I am in charge of sales.', es:'Estoy a cargo de ventas.', pron:'ái am in chárch of séils.'},
+        {en:'I am in charge of the team.', es:'Estoy a cargo del equipo.', pron:'ái am in chárch of de tíim.'},
+        {en:'I am in charge of logistics.', es:'Estoy a cargo de logística.', pron:'ái am in chárch of loyístics.'},
+        {en:'I am in charge of marketing.', es:'Estoy a cargo de marketing.', pron:'ái am in chárch of márketing.'}
+      ], function:'decir que estás a cargo de algo', stage:1,
+        transformations:{
+          negative:{en:'I am not in charge of sales.', es:'No estoy a cargo de ventas.'},
+          question:{en:'Are you in charge of sales?', es:'¿Estás a cargo de ventas?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí, lo estoy.'},
+          noAnswer:{en:"No, I'm not.", es:'No, no lo estoy.'},
+          future:{en:'I will be in charge of sales.', es:'Voy a estar a cargo de ventas.'}
+        }}
     ],
     songJingle:'cancion-dia4-vocabulario.mp3',
     songStory:'cancion-dia4-historia.mp3',
