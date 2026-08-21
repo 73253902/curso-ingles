@@ -471,6 +471,7 @@ function startDay(dayNum){
   const crossWords = getCrossDayReviewWords(dayNum, 6);
   script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
+  updateLiveScore();
   const prog = loadProgress();
   alreadyCompletedView = !!(prog[dayNum] && prog[dayNum].completed);
   document.getElementById('dayBadge').textContent = 'Día '+dayNum+' · '+currentDay.theme;
@@ -524,6 +525,16 @@ const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById(
 const typeRow=document.getElementById('typeRow'), typeInput=document.getElementById('typeInput'), sendBtn=document.getElementById('sendBtn');
 const feedback=document.getElementById('feedback'), nextControls=document.getElementById('nextControls'), nextBtn=document.getElementById('nextBtn');
 const wordListEl=document.getElementById('wordList'), transcriptEl=document.getElementById('transcript'), progressEl=document.getElementById('progress');
+const liveScoreBadge=document.getElementById('liveScoreBadge');
+function updateLiveScore(){
+  const total = learnedWords.length;
+  const good = total - weakWords.length;
+  const pct = total ? Math.round((good/total)*100) : 0;
+  liveScoreBadge.textContent = '✓ '+pct+'%';
+  if(total===0){ liveScoreBadge.style.borderColor='var(--muted)'; liveScoreBadge.style.color='var(--muted)'; }
+  else if(pct>=92){ liveScoreBadge.style.borderColor='var(--ok)'; liveScoreBadge.style.color='var(--ok)'; }
+  else { liveScoreBadge.style.borderColor='var(--warn)'; liveScoreBadge.style.color='var(--warn)'; }
+}
 const doneScreen=document.getElementById('doneScreen'), doneCount=document.getElementById('doneCount'), scoreText=document.getElementById('scoreText');
 const weakList=document.getElementById('weakList'), weakItems=document.getElementById('weakItems');
 const retryScreen=document.getElementById('retryScreen'), retryScoreText=document.getElementById('retryScoreText'), retryWeakItems=document.getElementById('retryWeakItems'), retryBtn=document.getElementById('retryBtn');
@@ -1116,6 +1127,7 @@ function goToWriteStep(w, wasLowConfidence){
     if(peeked) weak = true;
     if(!learnedWordsHas(w)) { learnedWords.push(w); addWordCard(w, weak); }
     if(weak && !weakWordsHas(w)) weakWords.push(w);
+    updateLiveScore();
     nextControls.style.display='flex';
     nextBtn.textContent = evalMode ? 'Continuar →' : 'Continuar →';
     nextBtn.onclick=()=>{ wqIndex++; runWordChallenge(); };
@@ -1289,6 +1301,14 @@ function startEvaluation(){
   nextBtn.onclick=()=>{
     nextBtn.textContent='Continuar →';
     wordQueue = learnedWords.slice(); wqIndex=0; evalMode=true;
+    if(wordQueue.length===0){
+      setSegs(lineEl, [{t:'Parece que todavía no completaste palabras hoy como para armar el diálogo. Volvé al mapa de días y hacé la lección completa desde el principio.',lang:'es'}]);
+      hintEl.textContent='';
+      nextControls.style.display='flex';
+      nextBtn.textContent='Entendido';
+      nextBtn.onclick=()=>{ idx++; loadTurn(); };
+      return;
+    }
     runWordChallenge();
   };
 }
@@ -1329,11 +1349,17 @@ function completeDay(scorePct){
     weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; weakItems.appendChild(div); });
   } else { weakList.style.display='none'; }
 
-  saveDayResult(currentDay.day, {
-    completed:true, date:new Date().toISOString(),
-    learnedWords: learnedWords, weakWords: weakWords,
-    score:{good, total, pct:scorePct}
-  });
+  try{
+    if(currentDay && typeof currentDay.day !== 'undefined'){
+      saveDayResult(currentDay.day, {
+        completed:true, date:new Date().toISOString(),
+        learnedWords: learnedWords, weakWords: weakWords,
+        score:{good, total, pct:scorePct}
+      });
+    }
+  }catch(e){
+    // Guardar el resultado no debe poder tumbar la pantalla de cierre, que ya se mostró arriba.
+  }
 }
 
 // ================= Modo repaso (dentro de la misma sesión) =================
