@@ -526,10 +526,16 @@ const typeRow=document.getElementById('typeRow'), typeInput=document.getElementB
 const feedback=document.getElementById('feedback'), nextControls=document.getElementById('nextControls'), nextBtn=document.getElementById('nextBtn');
 const wordListEl=document.getElementById('wordList'), transcriptEl=document.getElementById('transcript'), progressEl=document.getElementById('progress');
 const liveScoreBadge=document.getElementById('liveScoreBadge');
-function updateLiveScore(){
+function computeScorePct(){
   const total = learnedWords.length;
-  const good = total - weakWords.length;
-  const pct = total ? Math.round((good/total)*100) : 0;
+  let points = 0;
+  learnedWords.forEach(w=>{ points += (w.pronCredit||0) + (w.writeCredit||0); });
+  const pct = total ? Math.round((points/(total*2))*100) : 0;
+  return { pct, points, totalPoints: total*2, total };
+}
+function updateLiveScore(){
+  const pct = computeScorePct().pct;
+  const total = learnedWords.length;
   liveScoreBadge.textContent = '✓ '+pct+'%';
   if(total===0){ liveScoreBadge.style.borderColor='var(--muted)'; liveScoreBadge.style.color='var(--muted)'; }
   else if(pct>=92){ liveScoreBadge.style.borderColor='var(--ok)'; liveScoreBadge.style.color='var(--ok)'; }
@@ -1080,8 +1086,12 @@ function handleSpokenResult(w, res){
   userControls.style.display='none'; typeRow.style.display='none';
   const passedClear = ok && (res.confidence===null || res.confidence>=0.92);
   if(passedClear){
-    feedback.className='feedback show ok'; feedback.textContent='✓ Muy bien, se entendió claro (92%+). Ahora escribila.';
-    goToWriteStep(w, false);
+    const credit = spokenAttempts===1 ? 1 : 0.5;
+    feedback.className='feedback show ok';
+    feedback.textContent = spokenAttempts===1
+      ? '✓ Muy bien, se entendió claro (92%+). Ahora escribila.'
+      : '✓ Ahora sí se entendió claro. Ahora escribila.';
+    goToWriteStep(w, credit);
     return;
   }
   if(spokenAttempts>=2){
@@ -1089,7 +1099,7 @@ function handleSpokenResult(w, res){
     feedback.textContent = ok
       ? 'No llegamos al 92% de claridad, pero la palabra estuvo bien. Sigamos — quedó anotada para repasar.'
       : 'No pasa nada, sigamos — quedó anotada para repasar más adelante.';
-    goToWriteStep(w, true);
+    goToWriteStep(w, 0);
     return;
   }
   if(ok){
@@ -1099,7 +1109,7 @@ function handleSpokenResult(w, res){
   }
   userControls.style.display='flex';
 }
-function goToWriteStep(w, wasLowConfidence){
+function goToWriteStep(w, pronCredit){
   modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRIBILA';
   illusEl.textContent='✏️'; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
@@ -1109,7 +1119,7 @@ function goToWriteStep(w, wasLowConfidence){
   feedback.classList.remove('show');
   typeRow.style.display='flex'; typeInput.placeholder='Escribí la palabra en inglés...'; typeInput.value=''; typeInput.focus();
   peekBtn.style.display='inline-flex'; peekBox.style.display='none';
-  let weak = wasLowConfidence;
+  let writeCredit = 0;
   let attempts = 0;
   let peeked = false;
   peekBtn.onclick=()=>{
@@ -1124,9 +1134,14 @@ function goToWriteStep(w, wasLowConfidence){
   function finalize(){
     typeRow.style.display='none';
     peekBtn.style.display='none'; peekBox.style.display='none';
-    if(peeked) weak = true;
-    if(!learnedWordsHas(w)) { learnedWords.push(w); addWordCard(w, weak); }
-    if(weak && !weakWordsHas(w)) weakWords.push(w);
+    if(peeked) writeCredit = 0; // ver la pista no cuenta como haberla escrito de memoria
+    const perfect = pronCredit===1 && writeCredit===1;
+    if(!learnedWordsHas(w)){
+      const record = Object.assign({}, w, {pronCredit, writeCredit});
+      learnedWords.push(record);
+      addWordCard(w, !perfect);
+    }
+    if(!perfect && !weakWordsHas(w)) weakWords.push(w);
     updateLiveScore();
     nextControls.style.display='flex';
     nextBtn.textContent = evalMode ? 'Continuar →' : 'Continuar →';
@@ -1139,10 +1154,11 @@ function goToWriteStep(w, wasLowConfidence){
     addTranscript('VOS (escrito)', typed, 'user');
     feedback.classList.add('show');
     if(correct){
-      feedback.className='feedback show ok'; feedback.textContent='✓ ¡Perfecto! Bien escrito.';
+      writeCredit = attempts===1 ? 1 : 0.5;
+      feedback.className='feedback show ok';
+      feedback.textContent = attempts===1 ? '✓ ¡Perfecto! Bien escrito.' : '✓ ¡Bien! La escribiste bien en el segundo intento.';
       finalize();
     } else {
-      weak = true;
       feedback.className='feedback show retry';
       feedback.textContent = attempts>=2
         ? 'Se escribe "'+w.en+'". Quedó anotada para repasar.'
@@ -1150,8 +1166,8 @@ function goToWriteStep(w, wasLowConfidence){
       typeInput.value=''; typeInput.focus();
       nextControls.style.display='flex';
       nextBtn.textContent='Ver respuesta y continuar';
-      nextBtn.onclick=()=>{ finalize(); };
-      if(attempts>=2){ finalize(); }
+      nextBtn.onclick=()=>{ writeCredit=0; finalize(); };
+      if(attempts>=2){ writeCredit=0; finalize(); }
     }
   };
 }
@@ -1313,8 +1329,7 @@ function startEvaluation(){
   };
 }
 function finishEvaluation(){
-  const total = learnedWords.length;
-  const scorePct = total ? Math.round(((total-weakWords.length)/total)*100) : 100;
+  const scorePct = computeScorePct().pct;
   if(scorePct < 92 && weakWords.length>0){
     showRetryGate(scorePct);
     return;
@@ -1338,12 +1353,11 @@ function showRetryGate(scorePct){
   };
 }
 function completeDay(scorePct){
-  const total = learnedWords.length;
-  const good = total - weakWords.length;
+  const s = computeScorePct();
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
   doneScreen.classList.add('show');
-  doneCount.textContent = total;
-  scoreText.textContent = '✅ Aprobado con '+scorePct+'% ('+good+' / '+total+' — mínimo 92%)';
+  doneCount.textContent = s.total;
+  scoreText.textContent = '✅ Aprobado con '+scorePct+'% ('+s.points+' / '+s.totalPoints+' puntos — pronunciación + escritura, mínimo 92%)';
   if(weakWords.length>0){
     weakList.style.display='block'; weakItems.innerHTML='';
     weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; weakItems.appendChild(div); });
@@ -1354,7 +1368,7 @@ function completeDay(scorePct){
       saveDayResult(currentDay.day, {
         completed:true, date:new Date().toISOString(),
         learnedWords: learnedWords, weakWords: weakWords,
-        score:{good, total, pct:scorePct}
+        score:{points:s.points, totalPoints:s.totalPoints, total:s.total, pct:scorePct}
       });
     }
   }catch(e){
