@@ -607,6 +607,7 @@ function loadTurn(){
   buildProgress();
   const turn=script[idx];
   reviewBanner.classList.remove('show');
+  document.getElementById('taskExampleBox').style.display='none';
   if(turn.kind==='end'){ startEvaluation(); return; }
   if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='practica'){ runPractica(turn); return; }
@@ -956,6 +957,13 @@ function runWordChallenge(){
     return;
   }
   const w = wordQueue[wqIndex];
+  if(!w || !w.en || !w.en.trim()){
+    // Protección: una línea sin texto en inglés no se puede practicar — la salteamos sola.
+    wqIndex++;
+    runWordChallenge();
+    return;
+  }
+  document.getElementById('taskExampleBox').style.display='none';
   spokenAttempts = 0;
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
@@ -1179,9 +1187,50 @@ function releaseMicButton(){
 function startListening(onResult, opts){
   opts = opts || {};
   if(!micSupported||!micGranted){ typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus(); return; }
-  micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
+  // Desconectamos cualquier manejador de una llamada anterior ANTES de tocar nada más,
+  // así un abort() de una sesión vieja no dispara callbacks viejos sobre el estado nuevo.
+  recognition.onresult=null; recognition.onend=null; recognition.onerror=null;
+  try{ recognition.abort(); }catch(e){}
   recognition.continuous = !!opts.longForm;
   let collected = [];
+  let started = false;
+  // Asignamos los manejadores de ESTA llamada antes de intentar arrancar.
+  recognition.onresult=(e)=>{
+    if(opts.longForm){
+      for(let i=e.resultIndex; i<e.results.length; i++){
+        if(e.results[i].isFinal){ collected.push(e.results[i][0].transcript); }
+      }
+      return;
+    }
+    clearMicWatchdog();
+    const result=e.results[0][0];
+    const confidence=(typeof result.confidence==='number'&&result.confidence>0)?result.confidence:null;
+    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+    onResult({said:result.transcript, confidence});
+  };
+  recognition.onend=()=>{
+    clearMicWatchdog();
+    if(!opts.longForm){
+      if(micBtn.classList.contains('listening')){
+        micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+      }
+      return;
+    }
+    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+    finishTalkingBtn.style.display='none';
+    const said = collected.join(' ').trim();
+    onResult({said: said || '(no se detectó audio, probá de nuevo)', confidence:null});
+  };
+  recognition.onerror=(e)=>{
+    clearMicWatchdog();
+    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+    finishTalkingBtn.style.display='none';
+    feedback.classList.add('show','retry');
+    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisá permisos o escribí tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
+    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+  };
+  // Recién ahora tocamos la interfaz y arrancamos de verdad.
+  micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
   if(opts.longForm){
     micBtn.textContent = '🎙 Escuchando... (tocá "Terminé" cuando acabes)';
     finishTalkingBtn.style.display='inline-flex';
@@ -1198,46 +1247,28 @@ function startListening(onResult, opts){
     feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Probá de nuevo, o escribí tu respuesta.';
     typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
   }, watchdogMs);
-  try{
-    recognition.start();
-  }catch(e){
-    // si ya estaba corriendo una sesión anterior colgada, la cortamos y reintentamos una vez
-    try{ recognition.abort(); }catch(e2){}
-    setTimeout(()=>{ try{ recognition.start(); }catch(e3){} }, 200);
-  }
-  recognition.onresult=(e)=>{
-    if(opts.longForm){
-      for(let i=e.resultIndex; i<e.results.length; i++){
-        if(e.results[i].isFinal){ collected.push(e.results[i][0].transcript); }
+  function tryStart(attemptsLeft){
+    try{
+      recognition.start();
+      started = true;
+    }catch(e){
+      if(attemptsLeft > 0){
+        setTimeout(()=>tryStart(attemptsLeft-1), 300);
+      } else {
+        clearMicWatchdog();
+        releaseMicButton();
+        feedback.classList.add('show','retry');
+        feedback.textContent = 'No pude activar el micrófono. Probá de nuevo, o escribí tu respuesta.';
+        typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
       }
-      return;
     }
-    clearMicWatchdog();
-    const result=e.results[0][0];
-    const confidence=(typeof result.confidence==='number'&&result.confidence>0)?result.confidence:null;
-    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
-    onResult({said:result.transcript, confidence});
-  };
-  recognition.onend=()=>{
-    if(!opts.longForm){ clearMicWatchdog(); return; }
-    clearMicWatchdog();
-    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
-    finishTalkingBtn.style.display='none';
-    const said = collected.join(' ').trim();
-    onResult({said: said || '(no se detectó audio, probá de nuevo)', confidence:null});
-  };
-  recognition.onerror=(e)=>{
-    clearMicWatchdog();
-    micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
-    finishTalkingBtn.style.display='none';
-    feedback.classList.add('show','retry');
-    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisá permisos o escribí tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
-    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
-  };
+  }
+  tryStart(2);
 }
 
 // ================= Evaluación final =================
 function startEvaluation(){
+  document.getElementById('taskExampleBox').style.display='none';
   speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
   illusEl.textContent='💬';
