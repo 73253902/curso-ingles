@@ -3,6 +3,21 @@
 const curriculumUnidad3 = [
 {
     day:25, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Números 11-20 / Precios y presupuestos',
+    structures:[
+      {id:'S024', pattern:"It costs + [PRICE]", examples:[
+        {en:'It costs twenty dollars.', es:'Cuesta veinte dólares.', pron:'it casts tuénti dálars.'},
+        {en:'It costs fifteen pesos.', es:'Cuesta quince pesos.', pron:'it casts fiftíin pésos.'},
+        {en:'It costs approximately fifty dollars.', es:'Cuesta aproximadamente cincuenta dólares.', pron:'it casts apráximatli fífti dálars.'},
+        {en:'It costs a lot.', es:'Cuesta mucho.', pron:'it casts a lat.'}
+      ], function:'decir el precio de algo', stage:1,
+        transformations:{
+          negative:{en:"It doesn't cost twenty dollars.", es:'No cuesta veinte dólares.'},
+          question:{en:'Does it cost twenty dollars?', es:'¿Cuesta veinte dólares?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí, cuesta eso.'},
+          noAnswer:{en:"No, it doesn't.", es:'No, no cuesta eso.'},
+          future:{en:'It will cost twenty dollars.', es:'Va a costar veinte dólares.'}
+        }}
+    ],
     words:[
       {en:'eleven', es:'once', pron:'iléven', emoji:'1️⃣'},
       {en:'twelve', es:'doce', pron:'tuélv', emoji:'1️⃣'},
@@ -68,6 +83,20 @@ const curriculumUnidad3 = [
   },
 {
     day:27, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'La hora / Horarios de entrega',
+    structures:[
+      {id:'S025', pattern:"It opens/closes at + [TIME]", examples:[
+        {en:'It opens at nine.', es:'Abre a las nueve.', pron:'it óupens at náin.'},
+        {en:'It closes at six.', es:'Cierra a las seis.', pron:'it clóuses at siks.'},
+        {en:'It opens at half past eight.', es:'Abre a las ocho y media.', pron:'it óupens at jaf past éit.'},
+        {en:'It closes at quarter to five.', es:'Cierra a las cinco menos cuarto.', pron:'it clóuses at cuárter tu fáiv.'}
+      ], function:'decir horarios de apertura y cierre', stage:1,
+        transformations:{
+          negative:{en:"It doesn't open at nine.", es:'No abre a las nueve.'},
+          question:{en:'Does it open at nine?', es:'¿Abre a las nueve?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí, abre.'},
+          noAnswer:{en:"No, it doesn't.", es:'No, no abre.'}
+        }}
+    ],
     words:[
       {en:"what time is it", es:'qué hora es', pron:'uát táim is it', emoji:'🕐'},
       {en:"o'clock", es:'en punto', pron:'oclák', emoji:'🕐'},
@@ -130,6 +159,20 @@ const curriculumUnidad3 = [
   },
 {
     day:29, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Meses del año / Fechas de vencimiento',
+    structures:[
+      {id:'S026', pattern:"The due date is + [DATE]", examples:[
+        {en:'The due date is January fifth.', es:'La fecha de vencimiento es el cinco de enero.', pron:'de diú déit is chánuari fifz.'},
+        {en:'The due date is next Monday.', es:'La fecha de vencimiento es el próximo lunes.', pron:'de diú déit is next mándei.'},
+        {en:'The due date is March first.', es:'La fecha de vencimiento es el primero de marzo.', pron:'de diú déit is march ferst.'},
+        {en:'The due date is overdue.', es:'La fecha de vencimiento ya pasó.', pron:'de diú déit is óuverdiú.'}
+      ], function:'decir cuándo vence un pago', stage:1,
+        transformations:{
+          negative:{en:'The due date is not January fifth.', es:'La fecha de vencimiento no es el cinco de enero.'},
+          question:{en:'Is the due date January fifth?', es:'¿La fecha de vencimiento es el cinco de enero?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, lo es.'},
+          noAnswer:{en:"No, it isn't.", es:'No, no lo es.'}
+        }}
+    ],
     words:[
       {en:'January', es:'enero', pron:'yánueri', emoji:'📅'},
       {en:'February', es:'febrero', pron:'fébrueri', emoji:'📅'},
@@ -216,6 +259,20 @@ const curriculumUnidad3 = [
   },
 {
     day:32, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Números ordinales / Ranking y prioridad',
+    structures:[
+      {id:'S027', pattern:"This/That is + [X] — These/Those are + [X]", examples:[
+        {en:'This is the first option.', es:'Esta es la primera opción.', pron:'dis is de ferst ápshion.'},
+        {en:'That is the second option.', es:'Esa es la segunda opción.', pron:'dat is de sécond ápshion.'},
+        {en:'These are the top priorities.', es:'Estas son las prioridades principales.', pron:'díis ar de tap práiorities.'},
+        {en:'Those are the last items.', es:'Esos son los últimos artículos.', pron:'dóus ar de last áitems.'}
+      ], function:'señalar algo cerca o lejos, uno o varios', stage:1,
+        transformations:{
+          negative:{en:'This is not the first option.', es:'Esta no es la primera opción.'},
+          question:{en:'Is this the first option?', es:'¿Esta es la primera opción?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, lo es.'},
+          noAnswer:{en:"No, it isn't.", es:'No, no lo es.'}
+        }}
+    ],
     words:[
       {en:'first', es:'primero', pron:'ferst', emoji:'🥇'},
       {en:'second', es:'segundo', pron:'sécond', emoji:'🥈'},
@@ -247,6 +304,20 @@ const curriculumUnidad3 = [
   },
 {
     day:33, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Dinero y monedas / Formas de pago',
+    structures:[
+      {id:'S028', pattern:"I will pay by + [METHOD]", examples:[
+        {en:'I will pay by credit card.', es:'Voy a pagar con tarjeta de crédito.', pron:'ái uil péi bái crédit card.'},
+        {en:'I will pay by bank transfer.', es:'Voy a pagar por transferencia bancaria.', pron:'ái uil péi bái bank tránsfer.'},
+        {en:'I will pay in cash.', es:'Voy a pagar en efectivo.', pron:'ái uil péi in cash.'},
+        {en:'I will pay by check.', es:'Voy a pagar con cheque.', pron:'ái uil péi bái chek.'}
+      ], function:'decir cómo vas a pagar', stage:1,
+        transformations:{
+          negative:{en:"I won't pay by credit card.", es:'No voy a pagar con tarjeta de crédito.'},
+          question:{en:'Will you pay by credit card?', es:'¿Vas a pagar con tarjeta de crédito?'},
+          yesAnswer:{en:'Yes, I will.', es:'Sí, así voy a pagar.'},
+          noAnswer:{en:"No, I won't.", es:'No, no voy a pagar así.'}
+        }}
+    ],
     words:[
       {en:'money', es:'dinero', pron:'máni', emoji:'💵'},
       {en:'cash', es:'efectivo', pron:'cash', emoji:'💵'},
@@ -279,6 +350,20 @@ const curriculumUnidad3 = [
   },
 {
     day:34, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Comprar y vender / Negociar precio y condiciones',
+    structures:[
+      {id:'S029', pattern:"I need to negotiate + [X]", examples:[
+        {en:'I need to negotiate the price.', es:'Necesito negociar el precio.', pron:'ái níid tu negóushieit de práis.'},
+        {en:'I need to negotiate the terms.', es:'Necesito negociar las condiciones.', pron:'ái níid tu negóushieit de terms.'},
+        {en:'I need to negotiate a discount.', es:'Necesito negociar un descuento.', pron:'ái níid tu negóushieit a díscaunt.'},
+        {en:'I need to negotiate the deal.', es:'Necesito negociar el trato.', pron:'ái níid tu negóushieit de díil.'}
+      ], function:'pedir espacio para negociar', stage:1,
+        transformations:{
+          negative:{en:"I don't need to negotiate the price.", es:'No necesito negociar el precio.'},
+          question:{en:'Do you need to negotiate the price?', es:'¿Necesitás negociar el precio?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to buy', es:'comprar', pron:'tu bái', emoji:'🛒'},
       {en:'to sell', es:'vender', pron:'tu sel', emoji:'🏷️'},
@@ -309,6 +394,20 @@ const curriculumUnidad3 = [
   },
 {
     day:35, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Medidas y cantidades / Unidades de medida',
+    structures:[
+      {id:'S030', pattern:"It weighs + [NUMBER] + [UNIT]", examples:[
+        {en:'It weighs five kilograms.', es:'Pesa cinco kilogramos.', pron:'it uéis fáiv kílograms.'},
+        {en:'It weighs two pounds.', es:'Pesa dos libras.', pron:'it uéis tú páunds.'},
+        {en:'It weighs one ton.', es:'Pesa una tonelada.', pron:'it uéis uán tan.'},
+        {en:'It weighs almost nothing.', es:'Casi no pesa nada.', pron:'it uéis ólmoust názing.'}
+      ], function:'decir cuánto pesa algo', stage:1,
+        transformations:{
+          negative:{en:"It doesn't weigh five kilograms.", es:'No pesa cinco kilogramos.'},
+          question:{en:'Does it weigh five kilograms?', es:'¿Pesa cinco kilogramos?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí, pesa eso.'},
+          noAnswer:{en:"No, it doesn't.", es:'No, no pesa eso.'}
+        }}
+    ],
     words:[
       {en:'kilogram', es:'kilogramo', pron:'kílogram', emoji:'⚖️'},
       {en:'gram', es:'gramo', pron:'gram', emoji:'⚖️'},

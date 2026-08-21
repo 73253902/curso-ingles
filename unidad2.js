@@ -3,6 +3,20 @@
 const curriculumUnidad2 = [
 {
     day:13, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'La casa / Tu oficina y espacio de trabajo',
+    structures:[
+      {id:'S017', pattern:"There is a + [X]", examples:[
+        {en:'There is a desk in my office.', es:'Hay un escritorio en mi oficina.', pron:'der is a desk in mái áfis.'},
+        {en:'There is a computer on the table.', es:'Hay una computadora en la mesa.', pron:'der is a campiúter on de téibol.'},
+        {en:'There is a window in the kitchen.', es:'Hay una ventana en la cocina.', pron:'der is a uíndou in de kíchen.'},
+        {en:'There is a key in the drawer.', es:'Hay una llave en el cajón.', pron:'der is a kíi in de dróer.'}
+      ], function:'decir que algo existe en un lugar', stage:1,
+        transformations:{
+          negative:{en:"There isn't a desk in my office.", es:'No hay un escritorio en mi oficina.'},
+          question:{en:'Is there a desk in your office?', es:'¿Hay un escritorio en tu oficina?'},
+          yesAnswer:{en:'Yes, there is.', es:'Sí, lo hay.'},
+          noAnswer:{en:"No, there isn't.", es:'No, no lo hay.'}
+        }}
+    ],
     words:[
       {en:'house', es:'casa', pron:'jáus', emoji:'🏠'},
       {en:'kitchen', es:'cocina', pron:'quítchen', emoji:'🍳'},
@@ -38,6 +52,21 @@ const curriculumUnidad2 = [
   },
 {
     day:14, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Rutina diaria / Tu jornada laboral y horarios',
+    structures:[
+      {id:'S018', pattern:"I + [VERB] + at + [TIME]", examples:[
+        {en:'I wake up at seven.', es:'Me despierto a las siete.', pron:'ái uéik ap at séven.'},
+        {en:'I start work at eight.', es:'Empiezo a trabajar a las ocho.', pron:'ái start uork at éit.'},
+        {en:'I finish work at five.', es:'Termino de trabajar a las cinco.', pron:'ái fínish uork at fáiv.'},
+        {en:'I have lunch at noon.', es:'Almuerzo al mediodía.', pron:'ái jav lanch at núun.'}
+      ], function:'contar tu rutina y horarios', stage:1,
+        transformations:{
+          negative:{en:"I don't wake up at seven.", es:'No me despierto a las siete.'},
+          question:{en:'Do you wake up at seven?', es:'¿Te despertás a las siete?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'},
+          future:{en:'I will wake up at seven.', es:'Me voy a despertar a las siete.'}
+        }}
+    ],
     words:[
       {en:'wake up', es:'despertarse', pron:'uéik ap', emoji:'⏰'},
       {en:'get up', es:'levantarse', pron:'guét ap', emoji:'🧍'},
@@ -140,6 +169,33 @@ const curriculumUnidad2 = [
   },
 {
     day:17, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Mascotas y familia / Cultura de la empresa',
+    structures:[
+      {id:'S019', pattern:"I have a + [X]", examples:[
+        {en:'I have a dog.', es:'Tengo un perro.', pron:'ái jav a dog.'},
+        {en:'I have a cat.', es:'Tengo un gato.', pron:'ái jav a cat.'},
+        {en:'I have a bird.', es:'Tengo un pájaro.', pron:'ái jav a berd.'},
+        {en:'I have two pets.', es:'Tengo dos mascotas.', pron:'ái jav tú pets.'}
+      ], function:'decir qué tenés', stage:1,
+        transformations:{
+          negative:{en:"I don't have a dog.", es:'No tengo un perro.'},
+          question:{en:'Do you have a dog?', es:'¿Tenés un perro?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí, lo tengo.'},
+          noAnswer:{en:"No, I don't.", es:'No, no lo tengo.'},
+          future:{en:'I will have a dog.', es:'Voy a tener un perro.'}
+        }}
+    ],
+    auxiliaryTeaching:[
+      {
+        title:'Have se vuelve Has',
+        intro:'Ojo con esto: "have" es un verbo irregular. Con I, you, we, they se queda "have" — pero con he, she, it, cambia a "has". Es la misma trampa que ya viste con "do/does", pero un caso nuevo:',
+        examples:[
+          {en:'I have a dog.', es:'Tengo un perro.', pron:'ái jav a dog.'},
+          {en:'You have a dog.', es:'Vos tenés un perro.', pron:'iú jav a dog.'},
+          {en:'He has a dog.', es:'Él tiene un perro.', pron:'ji jas a dog.'},
+          {en:'She has a cat.', es:'Ella tiene un gato.', pron:'shi jas a cat.'}
+        ]
+      }
+    ],
     words:[
       {en:'pet', es:'mascota', pron:'pet', emoji:'🐾'},
       {en:'dog', es:'perro', pron:'dog', emoji:'🐶'},
@@ -172,6 +228,21 @@ const curriculumUnidad2 = [
   },
 {
     day:18, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Vecinos y comunidad / Clientes frecuentes',
+    structures:[
+      {id:'S020', pattern:"I recommend + [X]", examples:[
+        {en:'I recommend this product.', es:'Recomiendo este producto.', pron:'ái récomend dis prádact.'},
+        {en:'I recommend our service.', es:'Recomiendo nuestro servicio.', pron:'ái récomend áur sérvis.'},
+        {en:'I recommend this supplier.', es:'Recomiendo este proveedor.', pron:'ái récomend dis sapláier.'},
+        {en:'I recommend a solution.', es:'Recomiendo una solución.', pron:'ái récomend a solúshion.'}
+      ], function:'recomendar algo a un cliente', stage:1,
+        transformations:{
+          negative:{en:"I don't recommend this product.", es:'No recomiendo este producto.'},
+          question:{en:'Do you recommend this product?', es:'¿Recomendás este producto?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí, lo recomiendo.'},
+          noAnswer:{en:"No, I don't.", es:'No, no lo recomiendo.'},
+          future:{en:'I will recommend this product.', es:'Voy a recomendar este producto.'}
+        }}
+    ],
     words:[
       {en:'neighbor', es:'vecino', pron:'néibor', emoji:'🏘️'},
       {en:'neighborhood', es:'barrio', pron:'néiborjud', emoji:'🏘️'},
@@ -234,6 +305,19 @@ const curriculumUnidad2 = [
   },
 {
     day:20, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Cocina y comidas / Almuerzos de trabajo',
+    structures:[
+      {id:'S021', pattern:"I would like + [X]", examples:[
+        {en:'I would like the check, please.', es:'Quisiera la cuenta, por favor.', pron:'ái uud láik de chek, plíis.'},
+        {en:'I would like a table for two.', es:'Quisiera una mesa para dos.', pron:'ái uud láik a téibol for tú.'},
+        {en:'I would like some rice.', es:'Quisiera un poco de arroz.', pron:'ái uud láik sam ráis.'},
+        {en:'I would like to make a reservation.', es:'Quisiera hacer una reserva.', pron:'ái uud láik tu méik a reservéishon.'}
+      ], function:'pedir algo de forma educada', stage:1,
+        transformations:{
+          question:{en:'Would you like some rice?', es:'¿Querés un poco de arroz?'},
+          yesAnswer:{en:'Yes, I would.', es:'Sí, quisiera.'},
+          noAnswer:{en:'No, thank you.', es:'No, gracias.'}
+        }}
+    ],
     words:[
       {en:'rice', es:'arroz', pron:'ráis', emoji:'🍚'},
       {en:'chicken', es:'pollo', pron:'chíquen', emoji:'🍗'},
@@ -302,6 +386,20 @@ const curriculumUnidad2 = [
   },
 {
     day:22, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Fin de semana / Vacaciones y días libres',
+    structures:[
+      {id:'S022', pattern:"I can + [VERB]", examples:[
+        {en:'I can take a day off.', es:'Puedo tomarme un día libre.', pron:'ái can téik a déi of.'},
+        {en:'I can request vacation.', es:'Puedo pedir vacaciones.', pron:'ái can riquést vakéishion.'},
+        {en:'I can leave early.', es:'Puedo salir temprano.', pron:'ái can líiv érli.'},
+        {en:'I can have a break.', es:'Puedo tomar un descanso.', pron:'ái can jav a bréik.'}
+      ], function:'pedir permiso', stage:1,
+        transformations:{
+          negative:{en:"I can't take a day off.", es:'No puedo tomarme un día libre.'},
+          question:{en:'Can I take a day off?', es:'¿Puedo tomarme un día libre?'},
+          yesAnswer:{en:'Yes, you can.', es:'Sí, podés.'},
+          noAnswer:{en:"No, you can't.", es:'No, no podés.'}
+        }}
+    ],
     words:[
       {en:'weekend', es:'fin de semana', pron:'uíikend', emoji:'🎉'},
       {en:'to relax', es:'relajarse', pron:'tu riláx', emoji:'🧘'},
@@ -335,6 +433,20 @@ const curriculumUnidad2 = [
   },
 {
     day:23, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Comparar y elegir / Comparar proveedores y precios',
+    structures:[
+      {id:'S023', pattern:"This is + [COMPARATIVE] + than + [X]", examples:[
+        {en:'This is cheaper than that one.', es:'Este es más barato que ese.', pron:'dis is chíiper dan dat uán.'},
+        {en:'This is more expensive than the other.', es:'Este es más caro que el otro.', pron:'dis is mor expénsiv dan de áder.'},
+        {en:'This is better than before.', es:'Este es mejor que antes.', pron:'dis is béter dan bifór.'},
+        {en:'This is different than the last offer.', es:'Este es diferente a la última oferta.', pron:'dis is díferent dan de last áfer.'}
+      ], function:'comparar dos opciones', stage:1,
+        transformations:{
+          negative:{en:'This is not cheaper than that one.', es:'Este no es más barato que ese.'},
+          question:{en:'Is this cheaper than that one?', es:'¿Este es más barato que ese?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, lo es.'},
+          noAnswer:{en:"No, it isn't.", es:'No, no lo es.'}
+        }}
+    ],
     words:[
       {en:'more expensive', es:'más caro', pron:'mor expénsiv', emoji:'💰'},
       {en:'cheaper', es:'más barato', pron:'chíiper', emoji:'💸'},
