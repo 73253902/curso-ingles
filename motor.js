@@ -568,7 +568,13 @@ function setSegs(container, segs){
   segs.forEach((seg)=>{const span=document.createElement('span');span.className='seg '+seg.lang;span.textContent=seg.t;container.appendChild(span);});
 }
 function addTranscript(who,text,cls){const div=document.createElement('div');div.className='t-line '+cls;div.innerHTML='<span class="who">'+who+'</span>'+text;transcriptEl.appendChild(div);transcriptEl.scrollTop=transcriptEl.scrollHeight;}
-function addWordCard(w, isWeak){const empty=wordListEl.querySelector('.empty');if(empty)empty.remove();const card=document.createElement('div');card.className='word-card'+(isWeak?' weak':'');card.innerHTML='<b>'+w.en+'</b><span>'+w.es+'</span>';wordListEl.appendChild(card);}
+function addWordCard(w, isWeak){
+  const empty=wordListEl.querySelector('.empty'); if(empty) empty.remove();
+  let card = wordListEl.querySelector('[data-en="'+CSS.escape(w.en)+'"]');
+  if(!card){ card=document.createElement('div'); card.setAttribute('data-en', w.en); wordListEl.appendChild(card); }
+  card.className='word-card'+(isWeak?' weak':'');
+  card.innerHTML='<b>'+w.en+'</b><span>'+w.es+'</span>';
+}
 
 // ================= Voz =================
 let cachedVoices = null;
@@ -1135,13 +1141,19 @@ function goToWriteStep(w, pronCredit){
     typeRow.style.display='none';
     peekBtn.style.display='none'; peekBox.style.display='none';
     if(peeked) writeCredit = 0; // ver la pista no cuenta como haberla escrito de memoria
-    const perfect = pronCredit===1 && writeCredit===1;
-    if(!learnedWordsHas(w)){
-      const record = Object.assign({}, w, {pronCredit, writeCredit});
-      learnedWords.push(record);
-      addWordCard(w, !perfect);
+    const existing = learnedWords.find(x=>normalize(x.en)===normalize(w.en));
+    if(!existing){
+      learnedWords.push(Object.assign({}, w, {pronCredit, writeCredit}));
+    } else {
+      const newTotal = pronCredit + writeCredit;
+      const oldTotal = (existing.pronCredit||0) + (existing.writeCredit||0);
+      if(newTotal > oldTotal){ existing.pronCredit = pronCredit; existing.writeCredit = writeCredit; }
     }
-    if(!perfect && !weakWordsHas(w)) weakWords.push(w);
+    const rec = existing || learnedWords[learnedWords.length-1];
+    const finalPerfect = rec.pronCredit===1 && rec.writeCredit===1;
+    addWordCard(w, !finalPerfect);
+    if(finalPerfect){ weakWords = weakWords.filter(x=>normalize(x.en)!==normalize(w.en)); }
+    else if(!weakWordsHas(w)){ weakWords.push(w); }
     updateLiveScore();
     nextControls.style.display='flex';
     nextBtn.textContent = evalMode ? 'Continuar →' : 'Continuar →';
@@ -1171,8 +1183,8 @@ function goToWriteStep(w, pronCredit){
     }
   };
 }
-function learnedWordsHas(w){ return learnedWords.some(x=>x.en===w.en); }
-function weakWordsHas(w){ return weakWords.some(x=>x.en===w.en); }
+function learnedWordsHas(w){ return learnedWords.some(x=>normalize(x.en)===normalize(w.en)); }
+function weakWordsHas(w){ return weakWords.some(x=>normalize(x.en)===normalize(w.en)); }
 
 // ================= Autograbación: el alumno se graba, se escucha y regraba las veces que quiera =================
 let recMediaRecorder=null, recChunks=[], recStream=null, recIsRecording=false;
