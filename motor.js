@@ -526,6 +526,7 @@ const feedback=document.getElementById('feedback'), nextControls=document.getEle
 const wordListEl=document.getElementById('wordList'), transcriptEl=document.getElementById('transcript'), progressEl=document.getElementById('progress');
 const doneScreen=document.getElementById('doneScreen'), doneCount=document.getElementById('doneCount'), scoreText=document.getElementById('scoreText');
 const weakList=document.getElementById('weakList'), weakItems=document.getElementById('weakItems');
+const retryScreen=document.getElementById('retryScreen'), retryScoreText=document.getElementById('retryScoreText'), retryWeakItems=document.getElementById('retryWeakItems'), retryBtn=document.getElementById('retryBtn');
 const modeChip=document.getElementById('modeChip'), speakerLabel=document.getElementById('speakerLabel'), crossTag=document.getElementById('crossTag');
 const reviewBanner=document.getElementById('reviewBanner'), backToLessonBtn=document.getElementById('backToLessonBtn');
 
@@ -603,11 +604,18 @@ function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\
 function saidMatches(target, said){const t=normalize(target), s=normalize(said); if(!t) return true; return t.split(' ').every(w=>s.includes(w));}
 
 // ================= Motor principal =================
+function hideStrayUI(){
+  document.getElementById('taskExampleBox').style.display='none';
+  const dlb = document.getElementById('dictListenBtn');
+  if(dlb) dlb.style.display='none';
+  doneScreen.classList.remove('show');
+  retryScreen.classList.remove('show');
+}
 function loadTurn(){
   buildProgress();
   const turn=script[idx];
   reviewBanner.classList.remove('show');
-  document.getElementById('taskExampleBox').style.display='none';
+  hideStrayUI();
   if(turn.kind==='end'){ startEvaluation(); return; }
   if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='practica'){ runPractica(turn); return; }
@@ -964,6 +972,8 @@ function runWordChallenge(){
     return;
   }
   document.getElementById('taskExampleBox').style.display='none';
+  const dlb2 = document.getElementById('dictListenBtn');
+  if(dlb2) dlb2.style.display='none';
   spokenAttempts = 0;
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
@@ -1268,7 +1278,7 @@ function startListening(onResult, opts){
 
 // ================= Evaluación final =================
 function startEvaluation(){
-  document.getElementById('taskExampleBox').style.display='none';
+  hideStrayUI();
   speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
   illusEl.textContent='💬';
@@ -1292,14 +1302,15 @@ function finishEvaluation(){
   completeDay(scorePct);
 }
 function showRetryGate(scorePct){
-  speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none';
-  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
-  illusEl.textContent='🔁';
-  setSegs(lineEl, [{t:'Sacaste '+scorePct+'%. Para aprobar esta lección necesitás al menos 92%. Repasemos, una por una, las '+weakWords.length+' que te costaron, y seguimos.',lang:'es'}]);
-  hintEl.textContent='';
-  nextControls.style.display='flex';
-  nextBtn.textContent='Repasar y reintentar';
-  nextBtn.onclick=()=>{
+  hideStrayUI();
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  crossTag.style.display='none';
+  retryScreen.classList.add('show');
+  retryScoreText.textContent = 'Tu puntaje de hoy: '+scorePct+'% (mínimo para pasar: 92%)';
+  retryWeakItems.innerHTML='';
+  weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; retryWeakItems.appendChild(div); });
+  retryBtn.onclick=()=>{
+    retryScreen.classList.remove('show');
     wordQueue = weakWords.slice();
     weakWords = [];
     wqIndex=0; evalMode=true;
