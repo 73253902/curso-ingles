@@ -451,10 +451,10 @@ const curriculumUnidad3 = [
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
-      {en:"Welcome to unit three's final challenge, brave hero — strong progress so far!", es:'Bienvenido al desafío final de la unidad tres, valiente héroe — ¡buen progreso hasta ahora!', pron:'uélcam tu iúnit zríis fáinal chálench, bréiv jírou — strong prágres sóu far!'},
-      {en:'It is review time! Are you ready for one more legendary test?', es:'¡Es hora de repasar! ¿Estás listo para una prueba legendaria más?', pron:'it is riviú táim! ar iú rédi for uán mor léyendari test?'},
-      {en:'Well earned, champion — I am so proud of you!', es:'Bien merecido, campeón — ¡estoy muy orgulloso de vos!', pron:'uél érnd, chámpion — ái am sóu práud of iú!'},
-      {en:'See you in unit four, where new dragons and greater treasures await!', es:'¡Nos vemos en la unidad cuatro, donde te esperan nuevos dragones y tesoros más grandes!', pron:'síi iú in iúnit fóar, uér niú drágons and gréiter tréshurs auéit!'}
+      {en:"Welcome to unit three's final challenge! It costs a lot of effort, but your progress has been strong.", es:'¡Bienvenido al desafío final de la unidad tres! Cuesta mucho esfuerzo, pero tu progreso fue sólido.', pron:'uélcam tu iúnit zríis fáinal chálench! it casts a lat of éfort, bat iór prágres jas bíin strong.'},
+      {en:'It is review time! This is the first step of your final test today.', es:'¡Es hora de repasar! Este es el primer paso de tu prueba final de hoy.', pron:'it is riviú táim! dis is de ferst step of iór fáinal test tudéi.'},
+      {en:"Well earned, champion — I am so proud of you for everything you've learned!", es:'Bien merecido, campeón — ¡estoy muy orgulloso de vos por todo lo que aprendiste!', pron:"uél érnd, chámpion — ái am sóu práud of iú for évrizin iúv lernd!"},
+      {en:'See you in unit four — the next unit is ready and waiting for you!', es:'¡Nos vemos en la unidad cuatro — la próxima unidad está lista y te espera!', pron:'síi iú in iúnit fóar — de next iúnit is rédi and uéiting for iú!'}
     ],
     jingle:[
       {en:'Unit three, strong progress today!', es:'Unidad tres, ¡buen progreso hoy!', pron:'iúnit zríi, strong prágres tudéi!'},
