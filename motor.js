@@ -731,6 +731,8 @@ function hideStrayUI(){
   if(dlb) dlb.style.display='none';
   doneScreen.classList.remove('show');
   retryScreen.classList.remove('show');
+  const rap = document.getElementById('readAlongPlayer');
+  if(rap) rap.style.display='none';
 }
 function loadTurn(){
   buildProgress();

@@ -318,6 +318,18 @@ const curriculumUnidad3 = [
           noAnswer:{en:"No, I won't.", es:'No, no voy a pagar así.'}
         }}
     ],
+    auxiliaryTeaching:[
+      {
+        title:'Will para el futuro',
+        intro:'"Will" es fácil: a diferencia de "do/does" o "have/has", no cambia según quién habla — I will, you will, he will, she will, siempre igual. Solo agregás "will" antes del verbo:',
+        examples:[
+          {en:'I will call you.', es:'Te voy a llamar.', pron:'ái uil col iú.'},
+          {en:'She will call you.', es:'Ella te va a llamar.', pron:'shi uil col iú.'},
+          {en:"I won't call you.", es:'No te voy a llamar.', pron:"ái uóunt col iú."},
+          {en:'Will you call me?', es:'¿Me vas a llamar?', pron:'uil iú col mi?'}
+        ]
+      }
+    ],
     words:[
       {en:'money', es:'dinero', pron:'máni', emoji:'💵'},
       {en:'cash', es:'efectivo', pron:'cash', emoji:'💵'},
