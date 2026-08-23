@@ -352,6 +352,16 @@ const unitReviewStories = {
     {en:'"I am allergic to shellfish, by the way," he adds, laughing, "so no seafood at the next lunch meeting!"', es:'"Soy alérgico a los mariscos, por cierto", agrega, riéndose, "¡así que nada de mariscos en el próximo almuerzo de trabajo!"', pron:"ái am alérchic tu shélfish, bái de uéi, ji ads, láfing, sóu nóu síifúud at de next lanch míiting!"},
     {en:'"I need to buy office supplies today," Blaze remembers. "We have enough budget for that this month."', es:'"Necesito comprar insumos de oficina hoy", recuerda Blaze. "Tenemos suficiente presupuesto para eso este mes."', pron:"ái níid tu bái áfis sapláis tudéi, Bléis rimémbers. uí jav ináf báyet for dat dis manz."},
     {en:"One third done, dragon! Great effort — you're on track. See you in Unit Five!", es:'¡Un tercio del camino, dragón! Gran esfuerzo — vas bien encaminado. ¡Nos vemos en la Unidad Cinco!', pron:"uán zerd dan, drágon! gréit éfort — iór on trak. síi iú in iúnit fáiv!"}
+  ],
+  60: [
+    {en:'Back at the shop, a customer needs to get a refund for a broken toy.', es:'De vuelta en la tienda, un cliente necesita obtener un reembolso por un juguete roto.', pron:'bak at de shap, a cástomer níids tu guét a rífand for a bróuken tói.'},
+    {en:'"This is covered by the warranty," Blaze explains. "We accept cards, cash, or even partial payment."', es:'"Esto está cubierto por la garantía", explica Blaze. "Aceptamos tarjetas, efectivo, o hasta pago parcial."', pron:'dis is cávard bái de uáranti, Bléis explains. uí accépt cards, cash, or íven párshial péiment.'},
+    {en:'Online, another customer needs to enter her shipping address before checkout.', es:'En línea, otra clienta necesita ingresar su dirección de envío antes de pagar.', pron:'ánlain, anáder cástomer níids tu énter jer shíping adrés bifór chékaut.'},
+    {en:'"This shirt is too big for me," says a third customer. "Let\'s find a smaller size!" Blaze smiles.', es:'"Esta camisa me queda muy grande", dice un tercer cliente. "¡Busquemos un talle más chico!", sonríe Blaze.', pron:"dis shert is tú big for mi, séis a zerd cástomer. lets fáind a smóler sáis! Bléis smáils."},
+    {en:'The supplier calls: "I approve this quote," he says. "It is worth it — steady progress for both of us!"', es:'El proveedor llama: "Apruebo esta cotización", dice. "¡Vale la pena — progreso constante para los dos!"', pron:'de sapláier cols: ái aprúuv dis cuóut, ji séis. it is uérz it — stédi prágres for bóuz of as!'},
+    {en:'One unhappy customer says, "I want a refund for this faulty product!" Blaze listens carefully and helps.', es:'Un cliente insatisfecho dice, "¡Quiero un reembolso por este producto defectuoso!" Blaze escucha con atención y ayuda.', pron:'uán anjápi cástomer séis, ái uánt a rífand for dis fólti prádact! Bléis lísens kérfuli and jelps.'},
+    {en:"Unit five, done! Don't give up — you're almost at unit six.", es:'¡Unidad cinco, lista! No te rindas — ya casi llegás a la unidad seis.', pron:"iúnit fáiv, dan! dont guiv ap — iór ólmoust at iúnit siks."},
+    {en:'Steady progress, brave dragon. See you in the next unit!', es:'Progreso constante, valiente dragón. ¡Nos vemos en la próxima unidad!', pron:'stédi prágres, bréiv drágon. síi iú in de next iúnit!'}
   ]
 };
 const weeklyStories = {

@@ -62,6 +62,32 @@ const curriculumUnidad5 = [
   },
 {
     day:51, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Devoluciones y cambios / Emitir una factura',
+    structures:[
+      {id:'S039', pattern:"I need to get + [X]", examples:[
+        {en:'I need to get a refund.', es:'Necesito obtener un reembolso.', pron:'ái níid tu guét a rífand.'},
+        {en:'I need to get an exchange.', es:'Necesito hacer un cambio.', pron:'ái níid tu guét an exchéinch.'},
+        {en:'I need to get a receipt.', es:'Necesito conseguir un recibo.', pron:'ái níid tu guét a risíit.'},
+        {en:'I need to get help with this.', es:'Necesito conseguir ayuda con esto.', pron:'ái níid tu guét jelp uid dis.'}
+      ], function:'pedir algo que necesitás obtener', stage:2,
+        transformations:{
+          negative:{en:"I don't need to get a refund.", es:'No necesito obtener un reembolso.'},
+          question:{en:'Can I get a refund?', es:'¿Puedo obtener un reembolso?'},
+          yesAnswer:{en:'Yes, you can.', es:'Sí, podés.'},
+          noAnswer:{en:"No, you can't.", es:'No, no podés.'}
+        }}
+    ],
+    auxiliaryTeaching:[
+      {
+        title:'Get: un verbo con muchos significados',
+        intro:'"Get" es uno de los verbos más usados en inglés — y cambia de significado según el contexto. No hay una sola traducción, hay que aprenderlo por situación. Mirá estos 4 usos distintos:',
+        examples:[
+          {en:'I get a discount.', es:'Obtengo un descuento. (conseguir)', pron:'ái guét a díscaunt.'},
+          {en:'I get tired.', es:'Me pongo cansado. (ponerse / volverse)', pron:'ái guét táiard.'},
+          {en:'I get to the store at nine.', es:'Llego a la tienda a las nueve. (llegar)', pron:'ái guét tu de stor at náin.'},
+          {en:'I get an email every day.', es:'Recibo un correo todos los días. (recibir)', pron:'ái guét an íimeil évri déi.'}
+        ]
+      }
+    ],
     words:[
       {en:'to return (item)', es:'devolver', pron:'tu ritérn', emoji:'↩️'},
       {en:'exchange', es:'cambio', pron:'exchéinch', emoji:'🔄'},
@@ -91,6 +117,20 @@ const curriculumUnidad5 = [
   },
 {
     day:52, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Garantías / Condiciones de la factura',
+    structures:[
+      {id:'S040', pattern:"This is covered by + [X]", examples:[
+        {en:'This is covered by the warranty.', es:'Esto está cubierto por la garantía.', pron:'dis is cávard bái de uáranti.'},
+        {en:'This is not covered by insurance.', es:'Esto no está cubierto por el seguro.', pron:'dis is nat cávard bái inshúrans.'},
+        {en:'This is covered by our policy.', es:'Esto está cubierto por nuestra política.', pron:'dis is cávard bái áur pálisi.'},
+        {en:'This is covered for one year.', es:'Esto está cubierto por un año.', pron:'dis is cávard for uán íar.'}
+      ], function:'decir qué cubre una garantía', stage:2,
+        transformations:{
+          negative:{en:'This is not covered by the warranty.', es:'Esto no está cubierto por la garantía.'},
+          question:{en:'Is this covered by the warranty?', es:'¿Esto está cubierto por la garantía?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'warranty', es:'garantía', pron:'uáranti', emoji:'🛡️'},
       {en:'covered', es:'cubierto', pron:'cávard', emoji:'✅'},
@@ -119,6 +159,20 @@ const curriculumUnidad5 = [
   },
 {
     day:53, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Tarjetas y efectivo / Registrar un pago',
+    structures:[
+      {id:'S041', pattern:"We accept + [X]", examples:[
+        {en:'We accept cards.', es:'Aceptamos tarjetas.', pron:'uí accépt cards.'},
+        {en:'We accept cash.', es:'Aceptamos efectivo.', pron:'uí accépt cash.'},
+        {en:"We don't accept checks.", es:'No aceptamos cheques.', pron:"uí dont accépt cheks."},
+        {en:'We accept partial payment.', es:'Aceptamos pago parcial.', pron:'uí accépt párshial péiment.'}
+      ], function:'decir qué formas de pago acepta tu negocio', stage:2,
+        transformations:{
+          negative:{en:"We don't accept checks.", es:'No aceptamos cheques.'},
+          question:{en:'Do you accept cards?', es:'¿Aceptan tarjetas?'},
+          yesAnswer:{en:'Yes, we do.', es:'Sí.'},
+          noAnswer:{en:"No, we don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'swipe the card', es:'deslizar la tarjeta', pron:'suáip de card', emoji:'💳'},
       {en:'insert the card', es:'insertar la tarjeta', pron:'insért de card', emoji:'💳'},
@@ -147,6 +201,20 @@ const curriculumUnidad5 = [
   },
 {
     day:54, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Compras online / Pago a distancia',
+    structures:[
+      {id:'S042', pattern:"I need to enter my + [X]", examples:[
+        {en:'I need to enter my card number.', es:'Necesito ingresar mi número de tarjeta.', pron:'ái níid tu énter mái card námber.'},
+        {en:'I need to enter my security code.', es:'Necesito ingresar mi código de seguridad.', pron:'ái níid tu énter mái sekiúriti kóud.'},
+        {en:'I need to enter my shipping address.', es:'Necesito ingresar mi dirección de envío.', pron:'ái níid tu énter mái shíping adrés.'},
+        {en:'I need to enter my payment details.', es:'Necesito ingresar mis datos de pago.', pron:'ái níid tu énter mái péiment díteils.'}
+      ], function:'decir qué datos tenés que ingresar', stage:2,
+        transformations:{
+          negative:{en:"I don't need to enter my card number.", es:'No necesito ingresar mi número de tarjeta.'},
+          question:{en:'Do you need to enter your card number?', es:'¿Necesitás ingresar tu número de tarjeta?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'online store', es:'tienda en línea', pron:'anláin stóar', emoji:'💻'},
       {en:'shopping cart', es:'carrito de compras', pron:'sháping cart', emoji:'🛒'},
@@ -196,6 +264,20 @@ const curriculumUnidad5 = [
   },
 {
     day:56, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Ropa y talles / Recordatorio de pago pendiente',
+    structures:[
+      {id:'S043', pattern:"This is too + [ADJECTIVE]", examples:[
+        {en:'This shirt is too big.', es:'Esta camisa es muy grande.', pron:'dis shert is tú big.'},
+        {en:'These pants are too small.', es:'Estos pantalones son muy chicos.', pron:'díis pants ar tú smol.'},
+        {en:'This jacket is too tight.', es:'Esta chaqueta es muy ajustada.', pron:'dis yáket is tú táit.'},
+        {en:'This dress is too long.', es:'Este vestido es muy largo.', pron:'dis dres is tú long.'}
+      ], function:'describir un talle que no queda bien', stage:2,
+        transformations:{
+          negative:{en:'This shirt is not too big.', es:'Esta camisa no es muy grande.'},
+          question:{en:'Is this shirt too big?', es:'¿Esta camisa es muy grande?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'shirt', es:'camisa', pron:'shert', emoji:'👕'},
       {en:'pants', es:'pantalón', pron:'pants', emoji:'👖'},
@@ -223,6 +305,20 @@ const curriculumUnidad5 = [
   },
 {
     day:57, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Calzado y accesorios / Aprobar una cotización',
+    structures:[
+      {id:'S044', pattern:"I approve + [X]", examples:[
+        {en:'I approve this quote.', es:'Apruebo esta cotización.', pron:'ái aprúuv dis cuóut.'},
+        {en:'I approve the budget.', es:'Apruebo el presupuesto.', pron:'ái aprúuv de báyet.'},
+        {en:'I approve the terms.', es:'Apruebo las condiciones.', pron:'ái aprúuv de terms.'},
+        {en:'I approve the final decision.', es:'Apruebo la decisión final.', pron:'ái aprúuv de fáinal dicíshion.'}
+      ], function:'aprobar algo formalmente', stage:2,
+        transformations:{
+          negative:{en:"I don't approve this quote.", es:'No apruebo esta cotización.'},
+          question:{en:'Do you approve this quote?', es:'¿Aprobás esta cotización?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'shoes', es:'zapatos', pron:'shúus', emoji:'👟'},
       {en:'boots', es:'botas', pron:'búuts', emoji:'🥾'},
@@ -250,6 +346,20 @@ const curriculumUnidad5 = [
   },
 {
     day:58, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Comparar precios / Comparar cotizaciones de proveedores',
+    structures:[
+      {id:'S045', pattern:"It is worth it", examples:[
+        {en:'It is worth it.', es:'Vale la pena.', pron:'it is uérz it.'},
+        {en:"It is not worth it.", es:'No vale la pena.', pron:"it is nat uérz it."},
+        {en:'This is the best value.', es:'Esta es la mejor opción de valor.', pron:'dis is de best váliu.'},
+        {en:'This is the cheapest option.', es:'Esta es la opción más barata.', pron:'dis is de chíipest ápshion.'}
+      ], function:'decir si algo vale la pena', stage:2,
+        transformations:{
+          negative:{en:"It is not worth it.", es:'No vale la pena.'},
+          question:{en:'Is it worth it?', es:'¿Vale la pena?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'price comparison', es:'comparación de precios', pron:'práis campárison', emoji:'⚖️'},
       {en:'cheapest', es:'el más barato', pron:'chíipest', emoji:'⬇️'},
@@ -278,6 +388,20 @@ const curriculumUnidad5 = [
   },
 {
     day:59, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Reclamos por productos defectuosos / Disputa de factura',
+    structures:[
+      {id:'S046', pattern:"I want + [X]", examples:[
+        {en:'I want a refund.', es:'Quiero un reembolso.', pron:'ái uánt a rífand.'},
+        {en:'I want an explanation.', es:'Quiero una explicación.', pron:'ái uánt an explanéishion.'},
+        {en:'I want to speak to a manager.', es:'Quiero hablar con un gerente.', pron:'ái uánt tu spíik tu a mánayer.'},
+        {en:'I want this resolved quickly.', es:'Quiero que esto se resuelva rápido.', pron:'ái uánt dis risólvd cuíkli.'}
+      ], function:'reclamar algo con firmeza', stage:2,
+        transformations:{
+          negative:{en:"I don't want a refund.", es:'No quiero un reembolso.'},
+          question:{en:'Do you want a refund?', es:'¿Querés un reembolso?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to complain', es:'quejarse', pron:'tu compléin', emoji:'😠'},
       {en:"this doesn't work", es:'esto no funciona', pron:'dis dásent uork', emoji:'⚠️'},
