@@ -236,6 +236,18 @@ document.getElementById('resetLink').addEventListener('click', ()=>{
 });
 document.getElementById('homeBtn').addEventListener('click', ()=>{ showHome(); });
 document.getElementById('backHomeBtn').addEventListener('click', ()=>{ showHome(); });
+document.getElementById('saveProgressBtn').addEventListener('click', ()=>{
+  const ok = saveMidProgress();
+  const btn = document.getElementById('saveProgressBtn');
+  const original = btn.textContent;
+  btn.textContent = ok ? '✓ Guardado' : '✗ No se pudo guardar';
+  setTimeout(()=>{ btn.textContent = original; }, 1800);
+});
+document.getElementById('restartDayBtn').addEventListener('click', ()=>{
+  if(!currentDay) return;
+  clearMidProgress(currentDay.day);
+  startDay(currentDay.day);
+});
 function showHome(){
   document.getElementById('home').style.display='block';
   document.getElementById('session').style.display='none';
@@ -254,7 +266,7 @@ const introTemplates = [
   w => [{t:'Sumemos: ',lang:'es'},{t:w.en,lang:'en'},{t:'. En español es "'+w.es+'".',lang:'es'}],
   w => [{t:'Una más: ',lang:'es'},{t:w.en,lang:'en'},{t:' — "'+w.es+'" en español.',lang:'es'}]
 ];
-const comboIntro = [{t:'Ahora repitamos juntas, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
+const comboIntro = [{t:'Ahora repitamos juntos, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
 const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
 const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
 // Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
@@ -297,6 +309,81 @@ const rephraseBank = [
   { simple:{en:'This is a problem.', es:'esto es un problema (simple)', pron:'dis is a práblem.'}, elegant:{en:'This presents a bit of a challenge.', es:'esto presenta un pequeño desafío (más diplomático)', pron:'dis présents a bit of a chálench.'} }
 ];
 // Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
+// Lecturas de repaso de cierre de unidad — SOLO escuchar y leer, sin ejercicios de hablar/escribir.
+const unitReviewStories = {
+  12: [
+    {en:'Good morning! Today, our dragon friend opens the doors of his shop in the Floating City.', es:'¡Buenos días! Hoy, nuestro amigo dragón abre las puertas de su tienda en la Ciudad Flotante.', pron:'gud mórnin! tudéi, áur drágon frend óupens de dors of jis shap in de flóuting síti.'},
+    {en:'Welcome! Come in! My name is Blaze, and I am from the Floating City.', es:'¡Bienvenido! ¡Pasá! Me llamo Blaze, y soy de la Ciudad Flotante.', pron:'uélcam! cam in! mái néim is Bléis, and ái am fram de flóuting síti.'},
+    {en:'I am the owner of this store, and I work at it with my whole family.', es:'Soy el dueño de esta tienda, y trabajo en ella con toda mi familia.', pron:'ái am de óuner of dis stor, and ái uork at it uid mái jóul fámili.'},
+    {en:'We have ten boxes and five units in stock. We sell magical toys, and we provide the best service in the kingdom!', es:'Tenemos diez cajas y cinco unidades en stock. ¡Vendemos juguetes mágicos, y ofrecemos el mejor servicio del reino!', pron:'uí jav ten báxes and fáiv iúnits in stak. uí sel máyical tóis, and uí prováid de best sérvis in de kíngdom!'},
+    {en:"I'm busy today, but business is great! I am available on Friday if you need a meeting.", es:'Estoy ocupado hoy, ¡pero el negocio va muy bien! Estoy disponible el viernes si necesitás una reunión.', pron:"áim bísi tudéi, bat bísnes is gréit! ái am avéilabol on fráidei if iú níid a míiting."},
+    {en:'Can you help me choose a color? I can show you all of them! It is red, or it is blue and made of metal — it is big, strong, and durable.', es:'¿Me podés ayudar a elegir un color? ¡Te puedo mostrar todos! Es rojo, o es azul y está hecho de metal — es grande, fuerte, y durable.', pron:'can iú jelp mi chúus a cálor? ái can shóu iú ol of dem! it is red, or it is blú and méid of métal — it is big, strong, and diúrabol.'},
+    {en:"Let's confirm the order! I will call you back on Monday to confirm everything.", es:'¡Confirmemos el pedido! Te voy a devolver la llamada el lunes para confirmar todo.', pron:"lets canférm de órder! ái uil col iú bak on mándei tu canférm évrizin."},
+    {en:'Thanks for your time. It was a pleasure. See you soon!', es:'Gracias por tu tiempo. Fue un placer. ¡Nos vemos pronto!', pron:'zenks for iór táim. it uas a pléyer. síi iú súun!'},
+    {en:"Well done, everyone! Great job today. Let's finish for today — you did it!", es:'¡Bien hecho, todos! Gran trabajo hoy. Terminemos por hoy — ¡lo lograste!', pron:"uél dan, évriuan! gréit chab tudéi. lets fínish for tudéi — iú did it!"},
+    {en:'Practice makes perfect, and tomorrow, a new day begins. Congratulations, brave dragon — you finished Unit One!', es:'La práctica hace al maestro, y mañana, empieza un nuevo día. Felicitaciones, valiente dragón — ¡terminaste la Unidad Uno!', pron:'práctis méiks pérfect, and tumórou, a niú déi bigíns. congrachuléishons, bréiv drágon — iú fínisht iúnit uán!'}
+  ],
+  24: [
+    {en:'Blaze wakes up at seven and starts work at eight — a new day in his growing shop.', es:'Blaze se despierta a las siete y empieza a trabajar a las ocho — un nuevo día en su tienda que crece.', pron:'Bléis uéiks ap at séven and starts uork at éit — a niú déi in jis gróuing shap.'},
+    {en:'There is a computer on his desk, and there is a window with a view of the whole kingdom.', es:'Hay una computadora en su escritorio, y hay una ventana con vista a todo el reino.', pron:'der is a campiúter on jis desk, and der is a uíndou uid a viú of de jóul kíngdom.'},
+    {en:'"I have a dog," says Blaze, "and my dog helps me organize the shop every morning!"', es:'"Tengo un perro", dice Blaze, "¡y mi perro me ayuda a organizar la tienda todas las mañanas!"', pron:'ái jav a dog, séis Bléis, and mái dog jelps mi órganáis de shap évri mórnin!'},
+    {en:'A loyal customer walks in. "I recommend your shop to everyone," she says. "I would like to order more toys, please."', es:'Entra una clienta fiel. "Recomiendo tu tienda a todo el mundo", dice. "Quisiera pedir más juguetes, por favor."', pron:'a lóial cástomer uóks in. ái récomend iór shap tu évriuan, shi séis. ái uud láik tu órder mor tóis, plíis.'},
+    {en:'"This is cheaper than the other shop, and better too!" she laughs. Blaze smiles proudly.', es:'"¡Este es más barato que la otra tienda, y también mejor!", se ríe. Blaze sonríe orgulloso.', pron:'dis is chíiper dan de áder shap, and béter tú! shi lafs. Bléis smáils práudli.'},
+    {en:'"Can I take a day off tomorrow?" asks Blaze\'s wife. "Of course you can!" he replies.', es:'"¿Puedo tomarme un día libre mañana?", pregunta la esposa de Blaze. "¡Claro que podés!", responde.', pron:"can ái téik a déi of tumórou? asks Bléis uáifs. of cors iú can! ji riplái."},
+    {en:'Halfway there! What did you learn in Unit Two? Let\'s practice one more time.', es:'¡Vamos a la mitad! ¿Qué aprendiste en la Unidad Dos? Practiquemos una vez más.', pron:"jaf-uéi der! uát did iú lern in iúnit tú? lets práctis uán mor táim."},
+    {en:"You're improving every single day. Congratulations, brave dragon — the next unit is waiting for you!", es:'Estás mejorando cada día. Felicitaciones, valiente dragón — ¡la próxima unidad te está esperando!', pron:"iór improúving évri síngol déi. congrachuléishons, bréiv drágon — de next iúnit is uéiting for iú!"}
+  ],
+  36: [
+    {en:'Blaze checks the price list. "It costs twenty dollars," he tells a new customer.', es:'Blaze revisa la lista de precios. "Cuesta veinte dólares", le dice a un cliente nuevo.', pron:'Bléis cheks de práis list. it casts tuénti dálars, ji tels a niú cástomer.'},
+    {en:'"What time does the shop open?" asks the customer. "It opens at nine, and it closes at six," Blaze answers.', es:'"¿A qué hora abre la tienda?", pregunta el cliente. "Abre a las nueve, y cierra a las seis", responde Blaze.', pron:'uát táim das de shap óupen? asks de cástomer. it óupens at náin, and it clóuses at siks, Bléis ánsers.'},
+    {en:'"The due date is January fifth," Blaze writes on the invoice, "so please don\'t forget!"', es:'"La fecha de vencimiento es el cinco de enero", escribe Blaze en la factura, "¡así que por favor no te olvides!"', pron:"de diú déit is chánuari fifz, Bléis ráits on de ínvois, sóu plíis dont forguét!"},
+    {en:'"This is the first option, and that is the second one," Blaze explains, showing two boxes.', es:'"Esta es la primera opción, y esa es la segunda", explica Blaze, mostrando dos cajas.', pron:'dis is de ferst ápshion, and dat is de sécond uán, Bléis explains, shóuing tú báxes.'},
+    {en:'"I will pay by credit card," says the customer. "Perfect!" Blaze smiles.', es:'"Voy a pagar con tarjeta de crédito", dice el cliente. "¡Perfecto!", sonríe Blaze.', pron:'ái uil péi bái crédit card, séis de cástomer. pérfect! Bléis smáils.'},
+    {en:'"I need to negotiate the price a little," the customer adds. "It weighs ten kilograms, after all!"', es:'"Necesito negociar el precio un poco", agrega el cliente. "¡Pesa diez kilogramos, después de todo!"', pron:'ái níid tu negóushieit de práis a lítol, de cástomer ads. it uéis ten kílograms, áfter ol!'},
+    {en:'Blaze laughs. "Deal! This has been strong progress for both of us."', es:'Blaze se ríe. "¡Trato hecho! Esto ha sido un gran progreso para los dos."', pron:'Bléis lafs. díil! dis jas bíin strong prógres for bóuz of as.'},
+    {en:"Well earned, dragon — you're proud of this final challenge. See you in Unit Four!", es:'Bien merecido, dragón — estás orgulloso de este desafío final. ¡Nos vemos en la Unidad Cuatro!', pron:"uél érnd, drágon — iór práud of dis fáinal chálench. síi iú in iúnit for!"}
+  ],
+  48: [
+    {en:"At the restaurant, Blaze looks at the menu. \"I'll have the pasta,\" he says.", es:'En el restaurante, Blaze mira el menú. "Voy a pedir la pasta", dice.', pron:"at de réstorant, Bléis luks at de méniu. áil jav de pasta, ji séis."},
+    {en:'"I like spicy food," he tells the waiter, "but I don\'t like it too salty."', es:'"Me gusta la comida picante", le dice al mesero, "pero no me gusta muy salada."', pron:"ái láik spáisi fúud, ji tels de uéiter, bat ái dont láik it tú sólti."},
+    {en:'After lunch, back at the office: "Let\'s discuss the agenda for today\'s meeting," Blaze says.', es:'Después del almuerzo, de vuelta en la oficina: "Discutamos la agenda de la reunión de hoy", dice Blaze.', pron:"áfter lanch, bak at de áfis: lets discás de áyenda for tudéis míiting, Bléis séis."},
+    {en:'On the video call, his supplier asks, "Can you hear me?" "Yes, I can hear you perfectly," Blaze replies.', es:'En la videollamada, su proveedor pregunta, "¿Me escuchás?" "Sí, te escucho perfecto", responde Blaze.', pron:"on de vídiou col, jis sapláier asks, can iú jíar mi? iés, ái can jíar iú pérfectli, Bléis riplís."},
+    {en:'"We are on track with this order," Blaze reports, checking his notes.', es:'"Vamos bien encaminados con este pedido", informa Blaze, revisando sus notas.', pron:"uí ar on trak uid dis órder, Bléis ripórts, chéking jis nóuts."},
+    {en:'"I am allergic to shellfish, by the way," he adds, laughing, "so no seafood at the next lunch meeting!"', es:'"Soy alérgico a los mariscos, por cierto", agrega, riéndose, "¡así que nada de mariscos en el próximo almuerzo de trabajo!"', pron:"ái am alérchic tu shélfish, bái de uéi, ji ads, láfing, sóu nóu síifúud at de next lanch míiting!"},
+    {en:'"I need to buy office supplies today," Blaze remembers. "We have enough budget for that this month."', es:'"Necesito comprar insumos de oficina hoy", recuerda Blaze. "Tenemos suficiente presupuesto para eso este mes."', pron:"ái níid tu bái áfis sapláis tudéi, Bléis rimémbers. uí jav ináf báyet for dat dis manz."},
+    {en:"One third done, dragon! Great effort — you're on track. See you in Unit Five!", es:'¡Un tercio del camino, dragón! Gran esfuerzo — vas bien encaminado. ¡Nos vemos en la Unidad Cinco!', pron:"uán zerd dan, drágon! gréit éfort — iór on trak. síi iú in iúnit fáiv!"}
+  ],
+  60: [
+    {en:'Back at the shop, a customer needs to get a refund for a broken toy.', es:'De vuelta en la tienda, un cliente necesita obtener un reembolso por un juguete roto.', pron:'bak at de shap, a cástomer níids tu guét a rífand for a bróuken tói.'},
+    {en:'"This is covered by the warranty," Blaze explains. "We accept cards, cash, or even partial payment."', es:'"Esto está cubierto por la garantía", explica Blaze. "Aceptamos tarjetas, efectivo, o hasta pago parcial."', pron:'dis is cávard bái de uáranti, Bléis explains. uí accépt cards, cash, or íven párshial péiment.'},
+    {en:'Online, another customer needs to enter her shipping address before checkout.', es:'En línea, otra clienta necesita ingresar su dirección de envío antes de pagar.', pron:'ánlain, anáder cástomer níids tu énter jer shíping adrés bifór chékaut.'},
+    {en:'"This shirt is too big for me," says a third customer. "Let\'s find a smaller size!" Blaze smiles.', es:'"Esta camisa me queda muy grande", dice un tercer cliente. "¡Busquemos un talle más chico!", sonríe Blaze.', pron:"dis shert is tú big for mi, séis a zerd cástomer. lets fáind a smóler sáis! Bléis smáils."},
+    {en:'The supplier calls: "I approve this quote," he says. "It is worth it — steady progress for both of us!"', es:'El proveedor llama: "Apruebo esta cotización", dice. "¡Vale la pena — progreso constante para los dos!"', pron:'de sapláier cols: ái aprúuv dis cuóut, ji séis. it is uérz it — stédi prágres for bóuz of as!'},
+    {en:'One unhappy customer says, "I want a refund for this faulty product!" Blaze listens carefully and helps.', es:'Un cliente insatisfecho dice, "¡Quiero un reembolso por este producto defectuoso!" Blaze escucha con atención y ayuda.', pron:'uán anjápi cástomer séis, ái uánt a rífand for dis fólti prádact! Bléis lísens kérfuli and jelps.'},
+    {en:"Unit five, done! Don't give up — you're almost at unit six.", es:'¡Unidad cinco, lista! No te rindas — ya casi llegás a la unidad seis.', pron:"iúnit fáiv, dan! dont guiv ap — iór ólmoust at iúnit siks."},
+    {en:'Steady progress, brave dragon. See you in the next unit!', es:'Progreso constante, valiente dragón. ¡Nos vemos en la próxima unidad!', pron:'stédi prágres, bréiv drágon. síi iú in de next iúnit!'}
+  ],
+  72: [
+    {en:'Blaze needs to get to the warehouse early — a big shipment is arriving today.', es:'Blaze necesita llegar temprano al depósito — hoy llega un envío grande.', pron:'Bléis níids tu guét tu de uérjaus érli — a big shípment is aráiving tudéi.'},
+    {en:'"It\'s next to the main road," he tells the new driver, "right across from the gas station."', es:'"Está al lado del camino principal", le dice al conductor nuevo, "justo enfrente de la estación de servicio."', pron:'its next tu de méin róud, ji tels de niú dráiver, ráit acrós fram de gas stéishion.'},
+    {en:'"I will choose this carrier for the next shipment," Blaze decides, checking the rates.', es:'"Voy a elegir este transportista para el próximo envío", decide Blaze, revisando las tarifas.', pron:'ái uil chúus dis cárier for de next shípment, Bléis dicáids, chéking de réits.'},
+    {en:'At customs, "I need to declare this item," he says, showing the invoice. "I have the shipping guide too."', es:'En la aduana, "necesito declarar este artículo", dice, mostrando la factura. "También tengo la guía de envío."', pron:'at cástams, ái níid tu diclér dis áitem, ji séis, shóuing de ínvois. ái jav de shíping gáid tú.'},
+    {en:'"The shipment is delayed," warns his assistant. "There\'s a traffic jam on the main route."', es:'"El envío está retrasado", advierte su asistente. "Hay un embotellamiento en la ruta principal."', pron:'de shípment is diléid, uórns jis asístant. ders a tráfic yam on de méin rúut.'},
+    {en:'"I want to hire a bigger fleet," Blaze says. "This package is fragile — handle it with care!"', es:'"Quiero contratar una flota más grande", dice Blaze. "¡Este paquete es frágil — manejalo con cuidado!"', pron:'ái uánt tu jáier a bígger flíit, Bléis séis. dis pákech is fráyail — jándol it uid ker!'},
+    {en:"Unit six, done! Keep pushing — you're doing great, more than a third of the way there.", es:'¡Unidad seis, lista! Seguí adelante — lo estás haciendo genial, ya llevás más de un tercio del camino.', pron:"iúnit siks, dan! kíip púshing — iór dúing gréit, mor dan a zerd of de uéi der."},
+    {en:'Stay consistent, brave dragon. See you in unit seven!', es:'Mantené la constancia, valiente dragón. ¡Nos vemos en la unidad siete!', pron:'stéi cansístent, bréiv drágon. síi iú in iúnit séven!'}
+  ],
+  84: [
+    {en:'Blaze arrives at the hotel for a business trip. "I have a reservation for two nights," he tells the receptionist.', es:'Blaze llega al hotel para un viaje de negocios. "Tengo una reserva para dos noches", le dice a la recepcionista.', pron:'Bléis aráivs at de hóutel for a bísnes trip. ái jav a reservéishion for tú náits, ji tels de risépshionist.'},
+    {en:'"I need more towels in my room, please," he adds, tired from the flight.', es:'"Necesito más toallas en mi habitación, por favor", agrega, cansado del vuelo.', pron:'ái níid mor táuels in mái rúum, plíis, ji ads, táierd fram de fláit.'},
+    {en:'The next morning, "I have a headache," Blaze says. "It is very cold outside too."', es:'A la mañana siguiente, "tengo dolor de cabeza", dice Blaze. "También hace mucho frío afuera."', pron:'de next mórning, ái jav a jédeik, Bléis séis. it is véri cóuld áutsáid tú.'},
+    {en:'Back online, "I need to download this software before the meeting," he remembers.', es:'De vuelta en línea, "necesito descargar este software antes de la reunión", recuerda.', pron:'bak ánlain, ái níid tu dáunlóud dis sáftuer bifór de míiting, ji rimémbers.'},
+    {en:'"I can log in now," he says with relief, joining the video call just in time.', es:'"Ya puedo iniciar sesión", dice aliviado, uniéndose a la videollamada justo a tiempo.', pron:'ái can log in náu, ji séis uid rilíif, chóining de vídiou col yast in táim.'},
+    {en:'"This post about our new toys is getting a lot of likes!" his daughter shows him, smiling.', es:'"¡Esta publicación sobre nuestros juguetes nuevos está consiguiendo muchos likes!", le muestra su hija, sonriendo.', pron:'dis póust abáut áur niú tóis is guéting a lat of láiks! jis dóter shóus jim, smáiling.'},
+    {en:'Later, a technical problem appears — but "this is working now," Blaze confirms, relieved.', es:'Más tarde, aparece un problema técnico — pero "esto ya está funcionando", confirma Blaze, aliviado.', pron:'léiter, a técnical práblem apírs — bat dis is uérking náu, Bléis canférms, rilíivd.'},
+    {en:"Unit seven, done — almost half done! Well done, dragon. See you in unit eight!", es:'¡Unidad siete, lista — casi a la mitad! Bien hecho, dragón. ¡Nos vemos en la unidad ocho!', pron:"iúnit séven, dan — ólmoust jaf dan! uél dan, drágon. síi iú in iúnit éit!"}
+  ]
+};
 const weeklyStories = {
   6: [
     {en:'Good morning! My name is Captain Thunder, and I work at the floating dragon company.', es:'¡Buenos días! Me llamo Capitán Trueno, y trabajo en la empresa flotante de dragones.', pron:'gud mórnin! mái néim is cáptin zánder, and ái uork at de flóuting drágon cámpani.'},
@@ -306,14 +393,6 @@ const weeklyStories = {
     {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitás para este pedido? ¿Diez cajas, o toda una docena?', pron:'jáu méni drágon egs du iú níid for dis órder? ten báxes, or a jóul dázen?'},
     {en:"Are you available on Monday, in the year 3000? Let's schedule an appointment!", es:'¿Estás disponible el lunes, en el año 3000? ¡Agendemos una cita!', pron:"ar iú avéilabol on mándei, in de íar zríi záusand? lets squéyul an apóintment!"},
     {en:'Thank you, and see you soon in the clouds. Goodbye!', es:'Gracias, y nos vemos pronto en las nubes. ¡Adiós!', pron:'zenk iú, and síi iú súun in de cláuds. gudbái!'}
-  ],
-  12: [
-    {en:"How are you doing today, brave hero? I'm great, thanks!", es:'¿Cómo te va hoy, valiente héroe? ¡Estoy genial, gracias!', pron:"jáu ar iú dúing tudéi, bréiv jírou? áim gréit, zenks!"},
-    {en:"How's the dragon business? Everything is amazing, as always.", es:'¿Cómo va el negocio de dragones? Todo increíble, como siempre.', pron:"jáus de drágon bísnes? évrizin is améising, as ólueis."},
-    {en:'Thanks for calling through the crystal ball. It was a pleasure talking to you, wizard.', es:'Gracias por llamar a través de la bola de cristal. Fue un placer hablar con vos, mago.', pron:'zenks for cóling zrú de crístal bol. it uas a pléyer tóking tu iú, uísard.'},
-    {en:'I have a question: what is the price of the treasure, and do you have stock of magic beans?', es:'Tengo una pregunta: ¿cuál es el precio del tesoro, y tenés stock de frijoles mágicos?', pron:'ái jav a cuéstion: uát is de práis of de tréshur, and du iú jav stak of máyic bíins?'},
-    {en:'We need a castle in blue, gigantic size, and unbreakable material!', es:'¡Necesitamos un castillo en azul, tamaño gigante, y material irrompible!', pron:'uí níid a cásol in blú, yaigántic sáis, and anbréikabol matírial!'},
-    {en:'Well done, hero! You finished the first legendary unit. Congratulations!', es:'¡Bien hecho, héroe! Terminaste la primera unidad legendaria. ¡Felicitaciones!', pron:'uél dan, jírou! iú fínisht de ferst léyendari iúnit. congrachuléishons!'}
   ],
   18: [
     {en:'Welcome to my floating house — the kitchen is inside a volcano!', es:'¡Bienvenido a mi casa flotante — la cocina está dentro de un volcán!', pron:'uélcam tu mái flóuting jáus — de quítchen is insáid a valkéinou!'},
@@ -411,7 +490,7 @@ function sampleMilestoneWords(dayNumber){
 }
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
 
-function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle){
+function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures, dayAuxiliary){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
@@ -438,6 +517,18 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
       scr.push({ kind:'sequence', segs:reviewIntro, emoji:'🔁', words:[w1,w2] });
     }
   });
+  if(dayStructures && dayStructures.length){
+    dayStructures.forEach(s=>{
+      const intro = [{t:'Hoy vamos a ver esta estructura, muy usada en el idioma y en la vida diaria: "'+s.pattern+'". Vas a poder combinarla con muchas palabras distintas, como en estos ejemplos:',lang:'es'}];
+      scr.push({ kind:'sequence', segs:intro, emoji:'🧩', words:s.examples, isStructureIntro:true });
+    });
+  }
+  if(dayAuxiliary && dayAuxiliary.length){
+    dayAuxiliary.forEach(screen=>{
+      const intro = [{t:screen.intro,lang:'es'}];
+      scr.push({ kind:'sequence', segs:intro, emoji:'🧠', words:screen.examples, isAuxiliaryTeaching:true, screenTitle:screen.title });
+    });
+  }
   if(dayStory && dayStory.length){
     scr.push({ kind:'sequence', segs:storyIntro, emoji:'📖', words:dayStory, isStory:true, isDailyStory:true });
     const dictLine = dayStory[dayStory.length-1];
@@ -449,7 +540,10 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle)
   if(weeklyStories[dayNumber]){
     scr.push({ kind:'sequence', segs:weeklyStoryIntro, emoji:'📚', words:weeklyStories[dayNumber], isStory:true, isWeeklyStory:true });
   }
-  scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [] });
+  if(unitReviewStories[dayNumber]){
+    scr.push({ kind:'readAlong', lines:unitReviewStories[dayNumber] });
+  }
+  scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [], dayStructures: dayStructures||[] });
   if(dayNumber % 24 === 0){
     const milestoneWords = sampleMilestoneWords(dayNumber);
     if(milestoneWords.length){
@@ -469,8 +563,9 @@ function startDay(dayNum){
   if(!currentDay) return;
   wordBank = currentDay.words;
   const crossWords = getCrossDayReviewWords(dayNum, 6);
-  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle);
+  script = buildScript(wordBank, crossWords, dayNum, currentDay.theme, currentDay.story, currentDay.jingle, currentDay.structures, currentDay.auxiliaryTeaching);
   idx=0; learnedWords=[]; weakWords=[]; wordQueue=[]; wqIndex=0; evalMode=false; reviewing=false; resumeSnapshot=null;
+  updateLiveScore();
   const prog = loadProgress();
   alreadyCompletedView = !!(prog[dayNum] && prog[dayNum].completed);
   document.getElementById('dayBadge').textContent = 'Día '+dayNum+' · '+currentDay.theme;
@@ -490,7 +585,38 @@ function startDay(dayNum){
   }
   document.getElementById('gate').classList.add('show');
 }
+function midKey(dayNum){ return 'curso_inprogress_day'+dayNum; }
+function saveMidProgress(){
+  if(!currentDay) return;
+  const data = { idx, learnedWords, weakWords, wordQueue, wqIndex, evalMode, savedAt:new Date().toISOString() };
+  try{ localStorage.setItem(midKey(currentDay.day), JSON.stringify(data)); return true; }catch(e){ return false; }
+}
+function loadMidProgress(dayNum){
+  try{ const raw = localStorage.getItem(midKey(dayNum)); return raw ? JSON.parse(raw) : null; }catch(e){ return null; }
+}
+function clearMidProgress(dayNum){
+  try{ localStorage.removeItem(midKey(dayNum)); }catch(e){}
+}
+function formatSavedAt(iso){
+  try{
+    const d = new Date(iso);
+    return d.toLocaleDateString('es-CO',{day:'numeric',month:'short'})+' a las '+d.toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
+  }catch(e){ return ''; }
+}
 function enterDayContent(){
+  const saved = loadMidProgress(currentDay.day);
+  const resumeBanner = document.getElementById('resumeBanner');
+  if(saved && saved.idx > 0 && saved.idx < script.length){
+    idx = saved.idx; learnedWords = saved.learnedWords||[]; weakWords = saved.weakWords||[];
+    wordQueue = saved.wordQueue||[]; wqIndex = saved.wqIndex||0; evalMode = !!saved.evalMode;
+    updateLiveScore();
+    document.getElementById('wordList').innerHTML='';
+    learnedWords.forEach(w=>{ const perfect = w.pronCredit===1 && w.writeCredit===1; addWordCard(w, !perfect); });
+    document.getElementById('resumeBannerText').textContent = '📍 Retomaste donde quedaste — guardado el '+formatSavedAt(saved.savedAt)+'.';
+    resumeBanner.style.display='flex';
+  } else {
+    resumeBanner.style.display='none';
+  }
   loadTurn();
 }
 
@@ -524,8 +650,28 @@ const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById(
 const typeRow=document.getElementById('typeRow'), typeInput=document.getElementById('typeInput'), sendBtn=document.getElementById('sendBtn');
 const feedback=document.getElementById('feedback'), nextControls=document.getElementById('nextControls'), nextBtn=document.getElementById('nextBtn');
 const wordListEl=document.getElementById('wordList'), transcriptEl=document.getElementById('transcript'), progressEl=document.getElementById('progress');
+const liveScoreBadge=document.getElementById('liveScoreBadge');
+function computeScorePct(){
+  const total = learnedWords.length;
+  let pronPoints=0, writePoints=0;
+  learnedWords.forEach(w=>{ pronPoints += (w.pronCredit||0); writePoints += (w.writeCredit||0); });
+  const points = pronPoints + writePoints;
+  const pct = total ? Math.round((points/(total*2))*100) : 0;
+  const pronPct = total ? Math.round((pronPoints/total)*100) : 0;
+  const writePct = total ? Math.round((writePoints/total)*100) : 0;
+  return { pct, points, totalPoints: total*2, total, pronPct, writePct };
+}
+function updateLiveScore(){
+  const pct = computeScorePct().pct;
+  const total = learnedWords.length;
+  liveScoreBadge.textContent = '✓ '+pct+'%';
+  if(total===0){ liveScoreBadge.style.borderColor='var(--muted)'; liveScoreBadge.style.color='var(--muted)'; }
+  else if(pct>=92){ liveScoreBadge.style.borderColor='var(--ok)'; liveScoreBadge.style.color='var(--ok)'; }
+  else { liveScoreBadge.style.borderColor='var(--warn)'; liveScoreBadge.style.color='var(--warn)'; }
+}
 const doneScreen=document.getElementById('doneScreen'), doneCount=document.getElementById('doneCount'), scoreText=document.getElementById('scoreText');
 const weakList=document.getElementById('weakList'), weakItems=document.getElementById('weakItems');
+const retryScreen=document.getElementById('retryScreen'), retryScoreText=document.getElementById('retryScoreText'), retryWeakItems=document.getElementById('retryWeakItems'), retryBtn=document.getElementById('retryBtn');
 const modeChip=document.getElementById('modeChip'), speakerLabel=document.getElementById('speakerLabel'), crossTag=document.getElementById('crossTag');
 const reviewBanner=document.getElementById('reviewBanner'), backToLessonBtn=document.getElementById('backToLessonBtn');
 
@@ -550,7 +696,13 @@ function setSegs(container, segs){
   segs.forEach((seg)=>{const span=document.createElement('span');span.className='seg '+seg.lang;span.textContent=seg.t;container.appendChild(span);});
 }
 function addTranscript(who,text,cls){const div=document.createElement('div');div.className='t-line '+cls;div.innerHTML='<span class="who">'+who+'</span>'+text;transcriptEl.appendChild(div);transcriptEl.scrollTop=transcriptEl.scrollHeight;}
-function addWordCard(w, isWeak){const empty=wordListEl.querySelector('.empty');if(empty)empty.remove();const card=document.createElement('div');card.className='word-card'+(isWeak?' weak':'');card.innerHTML='<b>'+w.en+'</b><span>'+w.es+'</span>';wordListEl.appendChild(card);}
+function addWordCard(w, isWeak){
+  const empty=wordListEl.querySelector('.empty'); if(empty) empty.remove();
+  let card = wordListEl.querySelector('[data-en="'+CSS.escape(w.en)+'"]');
+  if(!card){ card=document.createElement('div'); card.setAttribute('data-en', w.en); wordListEl.appendChild(card); }
+  card.className='word-card'+(isWeak?' weak':'');
+  card.innerHTML='<b>'+w.en+'</b><span>'+w.es+'</span>';
+}
 
 // ================= Voz =================
 let cachedVoices = null;
@@ -603,14 +755,24 @@ function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\
 function saidMatches(target, said){const t=normalize(target), s=normalize(said); if(!t) return true; return t.split(' ').every(w=>s.includes(w));}
 
 // ================= Motor principal =================
+function hideStrayUI(){
+  document.getElementById('taskExampleBox').style.display='none';
+  const dlb = document.getElementById('dictListenBtn');
+  if(dlb) dlb.style.display='none';
+  doneScreen.classList.remove('show');
+  retryScreen.classList.remove('show');
+  const rap = document.getElementById('readAlongPlayer');
+  if(rap) rap.style.display='none';
+}
 function loadTurn(){
   buildProgress();
   const turn=script[idx];
   reviewBanner.classList.remove('show');
-  document.getElementById('taskExampleBox').style.display='none';
+  hideStrayUI();
   if(turn.kind==='end'){ startEvaluation(); return; }
   if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='practica'){ runPractica(turn); return; }
+  if(turn.kind==='readAlong'){ runReadAlong(turn); return; }
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
       turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
@@ -627,6 +789,8 @@ function loadTurn(){
   else if(turn.isDailyStory){ crossTag.style.display='block'; crossTag.textContent='📖 HISTORIA — TODO EN CONTEXTO'; }
   else if(turn.isWeeklyStory){ crossTag.style.display='block'; crossTag.textContent='📚 HISTORIA DE LA SEMANA'; }
   else if(turn.isMilestone){ crossTag.style.display='block'; crossTag.textContent='🏆 EXAMEN DE HITO — 24 DÍAS'; }
+  else if(turn.isStructureIntro){ crossTag.style.display='block'; crossTag.textContent='🧩 ESTRUCTURA DEL DÍA — MUY USADA EN LA VIDA REAL'; }
+  else if(turn.isAuxiliaryTeaching){ crossTag.style.display='block'; crossTag.textContent='🧠 GRAMÁTICA CLAVE — '+turn.screenTitle.toUpperCase(); }
   else { crossTag.style.display='none'; }
   const songPlayer=document.getElementById('songPlayer'), songPlayerLabel=document.getElementById('songPlayerLabel'), songAudio=document.getElementById('songAudio'), songLyrics=document.getElementById('songLyrics');
   const songFile = turn.isJingle ? (currentDay && currentDay.songJingle) : (turn.isDailyStory ? (currentDay && currentDay.songStory) : null);
@@ -716,6 +880,14 @@ function afterIntro(turn){
       typeInput.value=''; typeRow.style.display='none';
       feedback.classList.add('show','ok'); feedback.textContent='✓ Excelente. Esto es usar el idioma de verdad, no solo repetirlo.';
       nextControls.style.display='flex';
+      const items = buildTransformItems(turn.dayStructures);
+      if(items.length){
+        nextBtn.textContent='Practiquemos transformaciones →';
+        nextBtn.onclick=()=>{ runTransformDrills(items, 0, ()=>{ idx++; loadTurn(); }); };
+      } else {
+        nextBtn.textContent='Continuar →';
+        nextBtn.onclick=()=>{ idx++; loadTurn(); };
+      }
     };
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
@@ -724,6 +896,43 @@ function afterIntro(turn){
   wqIndex=0; evalMode=false;
   currentTurnIsStory = !!turn.isStory;
   runWordChallenge();
+}
+// ================= Transformaciones: negativa, pregunta, respuestas, futuro =================
+function buildTransformItems(structures){
+  const items = [];
+  (structures||[]).forEach(s=>{
+    if(!s.transformations) return;
+    const baseEx = s.examples[0].en || s.examples[0];
+    if(s.transformations.negative){
+      items.push({base:baseEx, askType:'negativa', target:s.transformations.negative.en, es:s.transformations.negative.es});
+    }
+    if(s.transformations.question){
+      items.push({base:baseEx, askType:'pregunta', target:s.transformations.question.en, es:s.transformations.question.es});
+    }
+  });
+  return items;
+}
+function runTransformDrills(items, i, onDone){
+  if(i>=items.length){ onDone(); return; }
+  const item = items[i];
+  speakerLabel.textContent='TRANSFORMÁ LA FRASE'; modeChip.style.display='none'; crossTag.style.display='block'; crossTag.textContent='🔄 PRACTICANDO CON LO DE HOY';
+  illusEl.textContent='🔄';
+  appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
+  feedback.classList.remove('show');
+  setSegs(lineEl, [{t:'Frase base: "'+item.base+'"', lang:'en'}]);
+  hintEl.textContent='Ejercicio '+(i+1)+' de '+items.length+' — Escribila en forma '+item.askType+'.';
+  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí la frase transformada...'; typeInput.focus();
+  sendBtn.onclick=()=>{
+    const typed=typeInput.value.trim(); if(!typed) return;
+    const correct = normalize(typed)===normalize(item.target);
+    addTranscript('VOS (escrito)', typed, 'user');
+    typeRow.style.display='none';
+    feedback.classList.add('show', correct?'ok':'retry');
+    feedback.textContent = correct ? '✓ ¡Perfecto!' : '✗ Se escribe: "'+item.target+'"';
+    nextControls.style.display='flex';
+    nextBtn.textContent = (i+1<items.length) ? 'Siguiente →' : 'Continuar →';
+    nextBtn.onclick=()=>{ runTransformDrills(items, i+1, onDone); };
+  };
 }
 
 // ================= Dictado: se escucha, sin ver el texto, y se escribe a ciegas =================
@@ -737,6 +946,68 @@ async function speakHidden(text){
     u.onend=()=>resolve(); u.onerror=()=>resolve();
     speechSynthesis.speak(u);
   });
+}
+function runReadAlong(turn){
+  hideStrayUI();
+  crossTag.style.display='block'; crossTag.textContent='📖 LECTURA DE REPASO — SOLO ESCUCHAR Y LEER';
+  speakerLabel.textContent='LECTURA DE REPASO'; modeChip.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  document.getElementById('songPlayer').style.display='none';
+
+  illusEl.textContent='📖';
+  lineEl.innerHTML=''; setSegs(lineEl,[{t:'Cerremos con una lectura completa de repaso — escuchá y seguí el texto, sin ejercicios.',lang:'es'}]);
+  hintEl.textContent='Encontrás acá las estructuras, palabras y frases que aprendiste en esta lección, todas juntas en una sola historia.';
+
+  const readAlongPlayer=document.getElementById('readAlongPlayer'), readAlongBox=document.getElementById('readAlongBox');
+  const playBtn2=document.getElementById('readAlongPlayBtn'), stopBtn2=document.getElementById('readAlongStopBtn');
+  if(!readAlongPlayer || !readAlongBox || !playBtn2 || !stopBtn2){
+    hintEl.textContent='⚠️ Falta actualizar index.html — subí la versión más reciente junto con motor.js.';
+    nextControls.style.display='flex';
+    nextBtn.textContent='Continuar →';
+    nextBtn.onclick=()=>{ idx++; loadTurn(); };
+    return;
+  }
+  readAlongPlayer.style.display='block';
+  readAlongBox.innerHTML = turn.lines.map((l,i)=>
+    '<div class="ra-line" data-i="'+i+'"><div class="ra-en" id="raEn'+i+'"></div><div class="ra-es">'+l.es+'</div></div>'
+  ).join('');
+  turn.lines.forEach((l,i)=>{ renderStoryLine(document.getElementById('raEn'+i), l.en); });
+
+  // Mismo panel de auto-grabación que ya usa el resto del curso — acá para grabarse leyendo la historia completa.
+  recordBtn.style.display='inline-flex'; recordBtn.textContent='🎙️ Grabarme leyendo esta historia';
+
+  let playing=false, cancelled=false;
+  playBtn2.textContent='▶ Escuchar la historia completa';
+  playBtn2.disabled=false;
+  playBtn2.onclick=async ()=>{
+    if(playing) return;
+    playing=true; cancelled=false;
+    playBtn2.textContent='⏸ Reproduciendo...'; playBtn2.disabled=true;
+    for(let i=0;i<turn.lines.length;i++){
+      if(cancelled) break;
+      readAlongBox.querySelectorAll('.ra-line').forEach((el,j)=>el.classList.toggle('current', j===i));
+      const current = readAlongBox.querySelector('[data-i="'+i+'"]');
+      if(current) current.scrollIntoView({behavior:'smooth', block:'center'});
+      await speakHidden(turn.lines[i].en);
+    }
+    readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
+    playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
+  };
+  stopBtn2.onclick=()=>{
+    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
+    readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
+  };
+
+  nextControls.style.display='flex';
+  nextBtn.textContent='Continuar →';
+  nextBtn.onclick=()=>{
+    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    readAlongPlayer.style.display='none';
+    idx++; loadTurn();
+  };
 }
 function runDictation(turn){
   crossTag.style.display='block'; crossTag.textContent='🎧 DICTADO — ESCRIBÍ LO QUE ESCUCHÁS';
@@ -963,6 +1234,9 @@ function runWordChallenge(){
     runWordChallenge();
     return;
   }
+  document.getElementById('taskExampleBox').style.display='none';
+  const dlb2 = document.getElementById('dictListenBtn');
+  if(dlb2) dlb2.style.display='none';
   spokenAttempts = 0;
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
@@ -1058,8 +1332,12 @@ function handleSpokenResult(w, res){
   userControls.style.display='none'; typeRow.style.display='none';
   const passedClear = ok && (res.confidence===null || res.confidence>=0.92);
   if(passedClear){
-    feedback.className='feedback show ok'; feedback.textContent='✓ Muy bien, se entendió claro (92%+). Ahora escribila.';
-    goToWriteStep(w, false);
+    const credit = spokenAttempts===1 ? 1 : 0.5;
+    feedback.className='feedback show ok';
+    feedback.textContent = spokenAttempts===1
+      ? '✓ Muy bien, se entendió claro (92%+). Ahora escribila.'
+      : '✓ Ahora sí se entendió claro. Ahora escribila.';
+    goToWriteStep(w, credit);
     return;
   }
   if(spokenAttempts>=2){
@@ -1067,7 +1345,7 @@ function handleSpokenResult(w, res){
     feedback.textContent = ok
       ? 'No llegamos al 92% de claridad, pero la palabra estuvo bien. Sigamos — quedó anotada para repasar.'
       : 'No pasa nada, sigamos — quedó anotada para repasar más adelante.';
-    goToWriteStep(w, true);
+    goToWriteStep(w, 0);
     return;
   }
   if(ok){
@@ -1077,7 +1355,7 @@ function handleSpokenResult(w, res){
   }
   userControls.style.display='flex';
 }
-function goToWriteStep(w, wasLowConfidence){
+function goToWriteStep(w, pronCredit){
   modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRIBILA';
   illusEl.textContent='✏️'; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
@@ -1087,7 +1365,7 @@ function goToWriteStep(w, wasLowConfidence){
   feedback.classList.remove('show');
   typeRow.style.display='flex'; typeInput.placeholder='Escribí la palabra en inglés...'; typeInput.value=''; typeInput.focus();
   peekBtn.style.display='inline-flex'; peekBox.style.display='none';
-  let weak = wasLowConfidence;
+  let writeCredit = 0;
   let attempts = 0;
   let peeked = false;
   peekBtn.onclick=()=>{
@@ -1102,9 +1380,21 @@ function goToWriteStep(w, wasLowConfidence){
   function finalize(){
     typeRow.style.display='none';
     peekBtn.style.display='none'; peekBox.style.display='none';
-    if(peeked) weak = true;
-    if(!learnedWordsHas(w)) { learnedWords.push(w); addWordCard(w, weak); }
-    if(weak && !weakWordsHas(w)) weakWords.push(w);
+    if(peeked) writeCredit = 0; // ver la pista no cuenta como haberla escrito de memoria
+    const existing = learnedWords.find(x=>normalize(x.en)===normalize(w.en));
+    if(!existing){
+      learnedWords.push(Object.assign({}, w, {pronCredit, writeCredit}));
+    } else {
+      const newTotal = pronCredit + writeCredit;
+      const oldTotal = (existing.pronCredit||0) + (existing.writeCredit||0);
+      if(newTotal > oldTotal){ existing.pronCredit = pronCredit; existing.writeCredit = writeCredit; }
+    }
+    const rec = existing || learnedWords[learnedWords.length-1];
+    const finalPerfect = rec.pronCredit===1 && rec.writeCredit===1;
+    addWordCard(w, !finalPerfect);
+    if(finalPerfect){ weakWords = weakWords.filter(x=>normalize(x.en)!==normalize(w.en)); }
+    else if(!weakWordsHas(w)){ weakWords.push(w); }
+    updateLiveScore();
     nextControls.style.display='flex';
     nextBtn.textContent = evalMode ? 'Continuar →' : 'Continuar →';
     nextBtn.onclick=()=>{ wqIndex++; runWordChallenge(); };
@@ -1116,10 +1406,11 @@ function goToWriteStep(w, wasLowConfidence){
     addTranscript('VOS (escrito)', typed, 'user');
     feedback.classList.add('show');
     if(correct){
-      feedback.className='feedback show ok'; feedback.textContent='✓ ¡Perfecto! Bien escrito.';
+      writeCredit = attempts===1 ? 1 : 0.5;
+      feedback.className='feedback show ok';
+      feedback.textContent = attempts===1 ? '✓ ¡Perfecto! Bien escrito.' : '✓ ¡Bien! La escribiste bien en el segundo intento.';
       finalize();
     } else {
-      weak = true;
       feedback.className='feedback show retry';
       feedback.textContent = attempts>=2
         ? 'Se escribe "'+w.en+'". Quedó anotada para repasar.'
@@ -1127,13 +1418,13 @@ function goToWriteStep(w, wasLowConfidence){
       typeInput.value=''; typeInput.focus();
       nextControls.style.display='flex';
       nextBtn.textContent='Ver respuesta y continuar';
-      nextBtn.onclick=()=>{ finalize(); };
-      if(attempts>=2){ finalize(); }
+      nextBtn.onclick=()=>{ writeCredit=0; finalize(); };
+      if(attempts>=2){ writeCredit=0; finalize(); }
     }
   };
 }
-function learnedWordsHas(w){ return learnedWords.some(x=>x.en===w.en); }
-function weakWordsHas(w){ return weakWords.some(x=>x.en===w.en); }
+function learnedWordsHas(w){ return learnedWords.some(x=>normalize(x.en)===normalize(w.en)); }
+function weakWordsHas(w){ return weakWords.some(x=>normalize(x.en)===normalize(w.en)); }
 
 // ================= Autograbación: el alumno se graba, se escucha y regraba las veces que quiera =================
 let recMediaRecorder=null, recChunks=[], recStream=null, recIsRecording=false;
@@ -1267,6 +1558,7 @@ function startListening(onResult, opts){
 
 // ================= Evaluación final =================
 function startEvaluation(){
+  hideStrayUI();
   speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
   illusEl.textContent='💬';
@@ -1277,27 +1569,31 @@ function startEvaluation(){
   nextBtn.onclick=()=>{
     nextBtn.textContent='Continuar →';
     wordQueue = learnedWords.slice(); wqIndex=0; evalMode=true;
+    if(wordQueue.length===0){
+      setSegs(lineEl, [{t:'Parece que todavía no completaste palabras hoy como para armar el diálogo. Volvé al mapa de días y hacé la lección completa desde el principio.',lang:'es'}]);
+      hintEl.textContent='';
+      nextControls.style.display='flex';
+      nextBtn.textContent='Entendido';
+      nextBtn.onclick=()=>{ idx++; loadTurn(); };
+      return;
+    }
     runWordChallenge();
   };
 }
 function finishEvaluation(){
-  const total = learnedWords.length;
-  const scorePct = total ? Math.round(((total-weakWords.length)/total)*100) : 100;
-  if(scorePct < 92 && weakWords.length>0){
-    showRetryGate(scorePct);
-    return;
-  }
+  const scorePct = computeScorePct().pct;
   completeDay(scorePct);
 }
 function showRetryGate(scorePct){
-  speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none';
-  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
-  illusEl.textContent='🔁';
-  setSegs(lineEl, [{t:'Sacaste '+scorePct+'%. Para aprobar esta lección necesitás al menos 92%. Repasemos, una por una, las '+weakWords.length+' que te costaron, y seguimos.',lang:'es'}]);
-  hintEl.textContent='';
-  nextControls.style.display='flex';
-  nextBtn.textContent='Repasar y reintentar';
-  nextBtn.onclick=()=>{
+  hideStrayUI();
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  crossTag.style.display='none';
+  retryScreen.classList.add('show');
+  retryScoreText.textContent = 'Tu puntaje de hoy: '+scorePct+'% (mínimo para pasar: 92%)';
+  retryWeakItems.innerHTML='';
+  weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; retryWeakItems.appendChild(div); });
+  retryBtn.onclick=()=>{
+    retryScreen.classList.remove('show');
     wordQueue = weakWords.slice();
     weakWords = [];
     wqIndex=0; evalMode=true;
@@ -1305,22 +1601,28 @@ function showRetryGate(scorePct){
   };
 }
 function completeDay(scorePct){
-  const total = learnedWords.length;
-  const good = total - weakWords.length;
+  const s = computeScorePct();
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
   doneScreen.classList.add('show');
-  doneCount.textContent = total;
-  scoreText.textContent = '✅ Aprobado con '+scorePct+'% ('+good+' / '+total+' — mínimo 92%)';
+  doneCount.textContent = s.total;
+  scoreText.innerHTML = 'Tu resultado de hoy: <b>'+scorePct+'%</b><br>🗣️ Pronunciación: '+s.pronPct+'% &nbsp;·&nbsp; ✏️ Escritura: '+s.writePct+'%';
   if(weakWords.length>0){
     weakList.style.display='block'; weakItems.innerHTML='';
     weakWords.forEach(w=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML='<b>'+w.en+'</b> <span>— '+w.es+'</span>'; weakItems.appendChild(div); });
   } else { weakList.style.display='none'; }
 
-  saveDayResult(currentDay.day, {
-    completed:true, date:new Date().toISOString(),
-    learnedWords: learnedWords, weakWords: weakWords,
-    score:{good, total, pct:scorePct}
-  });
+  try{
+    if(currentDay && typeof currentDay.day !== 'undefined'){
+      saveDayResult(currentDay.day, {
+        completed:true, date:new Date().toISOString(),
+        learnedWords: learnedWords, weakWords: weakWords,
+        score:{points:s.points, totalPoints:s.totalPoints, total:s.total, pct:scorePct, pronPct:s.pronPct, writePct:s.writePct}
+      });
+      clearMidProgress(currentDay.day);
+    }
+  }catch(e){
+    // Guardar el resultado no debe poder tumbar la pantalla de cierre, que ya se mostró arriba.
+  }
 }
 
 // ================= Modo repaso (dentro de la misma sesión) =================

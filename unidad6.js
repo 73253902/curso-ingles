@@ -3,6 +3,18 @@
 const curriculumUnidad6 = [
 {
     day:61, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Pedir direcciones / Coordinar un envío',
+    structures:[
+      {id:'S047', pattern:"I need to get to + [PLACE]", examples:[
+        {en:'I need to get to the airport.', es:'Necesito llegar al aeropuerto.', pron:'ái níid tu guét tu de érport.'},
+        {en:'I need to get to the office.', es:'Necesito llegar a la oficina.', pron:'ái níid tu guét tu de áfis.'},
+        {en:'I need to get to downtown.', es:'Necesito llegar al centro.', pron:'ái níid tu guét tu dáuntaun.'},
+        {en:'I need to get to the warehouse.', es:'Necesito llegar al depósito.', pron:'ái níid tu guét tu de uérjaus.'}
+      ], function:'decir a dónde necesitás llegar', stage:2,
+        transformations:{
+          negative:{en:"I don't need to get to the airport.", es:'No necesito llegar al aeropuerto.'},
+          question:{en:'How do I get to the airport?', es:'¿Cómo llego al aeropuerto?'}
+        }}
+    ],
     words:[
       {en:'excuse me', es:'disculpe', pron:'exquiúsmi', emoji:'🙋'},
       {en:'where is', es:'dónde está', pron:'uér is', emoji:'❓'},
@@ -33,6 +45,20 @@ const curriculumUnidad6 = [
   },
 {
     day:62, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Dar direcciones / Rastrear un pedido',
+    structures:[
+      {id:'S048', pattern:"It's + [PREPOSITION] + [X]", examples:[
+        {en:"It's next to the bank.", es:'Está al lado del banco.', pron:"its next tu de bank."},
+        {en:"It's across from the store.", es:'Está enfrente de la tienda.', pron:"its acrós fram de stor."},
+        {en:"It's between the pharmacy and the bakery.", es:'Está entre la farmacia y la panadería.', pron:"its bituín de fármasi and de béikeri."},
+        {en:"It's behind the building.", es:'Está detrás del edificio.', pron:"its bijáind de bílding."}
+      ], function:'dar direcciones usando preposiciones', stage:2,
+        transformations:{
+          negative:{en:"It's not next to the bank.", es:'No está al lado del banco.'},
+          question:{en:'Is it next to the bank?', es:'¿Está al lado del banco?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'straight ahead', es:'derecho adelante', pron:'stréit ajéd', emoji:'⬆️'},
       {en:'across from', es:'enfrente de', pron:'acrós fram', emoji:'↔️'},
@@ -62,6 +88,20 @@ const curriculumUnidad6 = [
   },
 {
     day:63, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Medios de transporte / Elegir transportista',
+    structures:[
+      {id:'S049', pattern:"I will choose + [X]", examples:[
+        {en:'I will choose this carrier.', es:'Voy a elegir este transportista.', pron:'ái uil chúus dis cárier.'},
+        {en:'I will choose the fastest option.', es:'Voy a elegir la opción más rápida.', pron:'ái uil chúus de fástest ápshion.'},
+        {en:'I will choose the cheapest rate.', es:'Voy a elegir la tarifa más barata.', pron:'ái uil chúus de chíipest réit.'},
+        {en:'I will choose a different truck.', es:'Voy a elegir un camión distinto.', pron:'ái uil chúus a díferent trak.'}
+      ], function:'decir qué opción vas a elegir', stage:2,
+        transformations:{
+          negative:{en:"I won't choose this carrier.", es:'No voy a elegir este transportista.'},
+          question:{en:'Will you choose this carrier?', es:'¿Vas a elegir este transportista?'},
+          yesAnswer:{en:'Yes, I will.', es:'Sí.'},
+          noAnswer:{en:"No, I won't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'bus', es:'autobús', pron:'bas', emoji:'🚌'},
       {en:'taxi', es:'taxi', pron:'táxi', emoji:'🚕'},
@@ -90,6 +130,20 @@ const curriculumUnidad6 = [
   },
 {
     day:64, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'En el aeropuerto / Importación y exportación básica',
+    structures:[
+      {id:'S050', pattern:"I need to declare + [X]", examples:[
+        {en:'I need to declare this item.', es:'Necesito declarar este artículo.', pron:'ái níid tu diclér dis áitem.'},
+        {en:'I need to declare the value.', es:'Necesito declarar el valor.', pron:'ái níid tu diclér de váliu.'},
+        {en:"I don't need to declare anything.", es:'No necesito declarar nada.', pron:"ái dont níid tu diclér énizin."},
+        {en:'I need to declare the country of origin.', es:'Necesito declarar el país de origen.', pron:'ái níid tu diclér de cántri of óriyin.'}
+      ], function:'declarar algo en aduana', stage:2,
+        transformations:{
+          negative:{en:"I don't need to declare this item.", es:'No necesito declarar este artículo.'},
+          question:{en:'Do you need to declare this item?', es:'¿Necesitás declarar este artículo?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'airport', es:'aeropuerto', pron:'érport', emoji:'✈️'},
       {en:'flight', es:'vuelo', pron:'fláit', emoji:'🛫'},
@@ -118,6 +172,20 @@ const curriculumUnidad6 = [
   },
 {
     day:65, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'En la estación / Documentos de envío',
+    structures:[
+      {id:'S051', pattern:"I have the + [DOCUMENT]", examples:[
+        {en:'I have the shipping guide.', es:'Tengo la guía de envío.', pron:'ái jav de shíping gáid.'},
+        {en:'I have the commercial invoice.', es:'Tengo la factura comercial.', pron:'ái jav de camérshial ínvois.'},
+        {en:'I have the packing list.', es:'Tengo la lista de empaque.', pron:'ái jav de páking list.'},
+        {en:"I don't have the customs documents yet.", es:'Todavía no tengo los documentos de aduana.', pron:"ái dont jav de cástams dákiuments iét."}
+      ], function:'decir qué documentos tenés', stage:2,
+        transformations:{
+          negative:{en:"I don't have the shipping guide.", es:'No tengo la guía de envío.'},
+          question:{en:'Do you have the shipping guide?', es:'¿Tenés la guía de envío?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'ticket', es:'boleto', pron:'tíket', emoji:'🎫'},
       {en:'platform', es:'andén', pron:'plátform', emoji:'🚉'},
@@ -197,6 +265,20 @@ const curriculumUnidad6 = [
   },
 {
     day:68, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Tráfico y tiempo de viaje / Retrasos en la cadena de suministro',
+    structures:[
+      {id:'S052', pattern:"The shipment is + [STATUS]", examples:[
+        {en:'The shipment is delayed.', es:'El envío está retrasado.', pron:'de shípment is diléid.'},
+        {en:'The delivery is on time.', es:'La entrega está a tiempo.', pron:'de delíveri is on táim.'},
+        {en:'This item is out of stock.', es:'Este artículo está agotado.', pron:'dis áitem is áut of stak.'},
+        {en:'This order is on backorder.', es:'Este pedido está pendiente de reposición.', pron:'dis órder is on bákorder.'}
+      ], function:'decir el estado de un envío', stage:2,
+        transformations:{
+          negative:{en:'The shipment is not delayed.', es:'El envío no está retrasado.'},
+          question:{en:'Is the shipment delayed?', es:'¿El envío está retrasado?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'traffic jam', es:'embotellamiento', pron:'tráfic yam', emoji:'🚗'},
       {en:'rush hour', es:'hora pico', pron:'rash áuar', emoji:'🕐'},
@@ -224,6 +306,20 @@ const curriculumUnidad6 = [
   },
 {
     day:69, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Alquilar un auto / Contratar un transportista',
+    structures:[
+      {id:'S053', pattern:"I want to hire + [X]", examples:[
+        {en:'I want to hire this carrier.', es:'Quiero contratar este transportista.', pron:'ái uánt tu jáier dis cárier.'},
+        {en:'I want to rent a car.', es:'Quiero alquilar un auto.', pron:'ái uánt tu rent a car.'},
+        {en:'I want to sign a service agreement.', es:'Quiero firmar un acuerdo de servicio.', pron:'ái uánt tu sáin a sérvis agríiment.'},
+        {en:'I want a driver with experience.', es:'Quiero un conductor con experiencia.', pron:'ái uánt a dráiver uid expíriens.'}
+      ], function:'decir a quién querés contratar', stage:2,
+        transformations:{
+          negative:{en:"I don't want to hire this carrier.", es:'No quiero contratar este transportista.'},
+          question:{en:'Do you want to hire this carrier?', es:'¿Querés contratar este transportista?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to rent a car', es:'alquilar un auto', pron:'tu rent a car', emoji:'🚗'},
       {en:"driver's license", es:'licencia de conducir', pron:'dráivers láisens', emoji:'🪪'},
@@ -251,6 +347,20 @@ const curriculumUnidad6 = [
   },
 {
     day:70, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Señales comunes / Normas de manejo de mercancía',
+    structures:[
+      {id:'S054', pattern:"This package is + [ADJECTIVE]", examples:[
+        {en:'This package is fragile.', es:'Este paquete es frágil.', pron:'dis pákech is fráyail.'},
+        {en:'This package is hazardous.', es:'Este paquete es peligroso.', pron:'dis pákech is jasárdas.'},
+        {en:'This package is heavy.', es:'Este paquete es pesado.', pron:'dis pákech is jévi.'},
+        {en:'This package is not fragile.', es:'Este paquete no es frágil.', pron:'dis pákech is nat fráyail.'}
+      ], function:'describir cómo manipular un paquete', stage:2,
+        transformations:{
+          negative:{en:'This package is not fragile.', es:'Este paquete no es frágil.'},
+          question:{en:'Is this package fragile?', es:'¿Este paquete es frágil?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'stop sign', es:'señal de pare', pron:'stap sáin', emoji:'🛑'},
       {en:'no entry', es:'prohibido el paso', pron:'nóu éntri', emoji:'🚫'},

@@ -3,6 +3,20 @@
 const curriculumUnidad7 = [
 {
     day:73, unit:7, unitTitle:'Unidad 7 · Semanas 13-14', theme:'En el hotel / Check-in de un viaje de negocios',
+    structures:[
+      {id:'S055', pattern:"I have a reservation for + [X]", examples:[
+        {en:'I have a reservation for tonight.', es:'Tengo una reserva para esta noche.', pron:'ái jav a reservéishion for tunáit.'},
+        {en:'I have a reservation for two nights.', es:'Tengo una reserva para dos noches.', pron:'ái jav a reservéishion for tú náits.'},
+        {en:'I have a reservation under my name.', es:'Tengo una reserva a mi nombre.', pron:'ái jav a reservéishion ánder mái néim.'},
+        {en:"I don't have a reservation yet.", es:'Todavía no tengo una reserva.', pron:"ái dont jav a reservéishion iét."}
+      ], function:'hacer el check-in en un hotel', stage:2,
+        transformations:{
+          negative:{en:"I don't have a reservation.", es:'No tengo una reserva.'},
+          question:{en:'Do you have a reservation?', es:'¿Tenés una reserva?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'hotel', es:'hotel', pron:'jóutel', emoji:'🏨'},
       {en:'reservation', es:'reserva', pron:'reservéishon', emoji:'📅'},
@@ -35,6 +49,20 @@ const curriculumUnidad7 = [
   },
 {
     day:74, unit:7, unitTitle:'Unidad 7 · Semanas 13-14', theme:'La habitación / Servicios del hotel',
+    structures:[
+      {id:'S056', pattern:"I need + [X] in my room", examples:[
+        {en:'I need more towels in my room.', es:'Necesito más toallas en mi habitación.', pron:'ái níid mor táuels in mái rúum.'},
+        {en:'I need the wifi password.', es:'Necesito la contraseña del wifi.', pron:'ái níid de uáifai pásuord.'},
+        {en:'I need room service.', es:'Necesito servicio a la habitación.', pron:'ái níid rúum sérvis.'},
+        {en:'I need extra pillows.', es:'Necesito almohadas extra.', pron:'ái níid éxtra pílous.'}
+      ], function:'pedir algo en el hotel', stage:2,
+        transformations:{
+          negative:{en:"I don't need more towels.", es:'No necesito más toallas.'},
+          question:{en:'Do you need more towels?', es:'¿Necesitás más toallas?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'bed', es:'cama', pron:'bed', emoji:'🛏️'},
       {en:'pillow', es:'almohada', pron:'pílou', emoji:'🛌'},
@@ -96,6 +124,20 @@ const curriculumUnidad7 = [
   },
 {
     day:76, unit:7, unitTitle:'Unidad 7 · Semanas 13-14', theme:'Farmacia y síntomas / Certificado médico para viajar',
+    structures:[
+      {id:'S057', pattern:"I have a + [SYMPTOM]", examples:[
+        {en:'I have a headache.', es:'Tengo dolor de cabeza.', pron:'ái jav a jédeik.'},
+        {en:'I have a stomachache.', es:'Tengo dolor de estómago.', pron:'ái jav a stámakeik.'},
+        {en:'I have a cough.', es:'Tengo tos.', pron:'ái jav a cof.'},
+        {en:"I don't have a fever.", es:'No tengo fiebre.', pron:"ái dont jav a fíver."}
+      ], function:'describir un síntoma', stage:2,
+        transformations:{
+          negative:{en:"I don't have a headache.", es:'No tengo dolor de cabeza.'},
+          question:{en:'Do you have a headache?', es:'¿Tenés dolor de cabeza?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'pharmacy', es:'farmacia', pron:'fármasi', emoji:'💊'},
       {en:'medicine', es:'medicina', pron:'médisin', emoji:'💊'},
@@ -126,6 +168,20 @@ const curriculumUnidad7 = [
   },
 {
     day:77, unit:7, unitTitle:'Unidad 7 · Semanas 13-14', theme:'Clima y estaciones / Planificar según el clima',
+    structures:[
+      {id:'S058', pattern:"It is + [WEATHER]", examples:[
+        {en:'It is sunny today.', es:'Está soleado hoy.', pron:'it is sáni tudéi.'},
+        {en:'It is raining.', es:'Está lloviendo.', pron:'it is réining.'},
+        {en:'It is very cold.', es:'Hace mucho frío.', pron:'it is véri cóuld.'},
+        {en:'It is windy.', es:'Hace viento.', pron:'it is uíndi.'}
+      ], function:'describir el clima', stage:2,
+        transformations:{
+          negative:{en:'It is not sunny today.', es:'No está soleado hoy.'},
+          question:{en:'Is it sunny today?', es:'¿Está soleado hoy?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'weather', es:'clima', pron:'uéder', emoji:'🌤️'},
       {en:'sunny', es:'soleado', pron:'sáni', emoji:'☀️'},
@@ -182,6 +238,20 @@ const curriculumUnidad7 = [
   },
 {
     day:79, unit:7, unitTitle:'Unidad 7 · Semanas 15-16', theme:'Tecnología básica / Herramientas de oficina digitales',
+    structures:[
+      {id:'S059', pattern:"I need to download + [X]", examples:[
+        {en:'I need to download this software.', es:'Necesito descargar este software.', pron:'ái níid tu dáunlóud dis sáftuer.'},
+        {en:'I need to install the app.', es:'Necesito instalar la aplicación.', pron:'ái níid tu instól de ap.'},
+        {en:'I need to save the file.', es:'Necesito guardar el archivo.', pron:'ái níid tu séiv de fáil.'},
+        {en:'I need to update my laptop.', es:'Necesito actualizar mi laptop.', pron:'ái níid tu apdéit mái láptap.'}
+      ], function:'decir qué necesitás hacer en la computadora', stage:2,
+        transformations:{
+          negative:{en:"I don't need to download this software.", es:'No necesito descargar este software.'},
+          question:{en:'Do you need to download this software?', es:'¿Necesitás descargar este software?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'laptop', es:'laptop', pron:'láptap', emoji:'💻'},
       {en:'mouse', es:'mouse', pron:'máus', emoji:'🖱️'},
@@ -212,6 +282,20 @@ const curriculumUnidad7 = [
   },
 {
     day:80, unit:7, unitTitle:'Unidad 7 · Semanas 15-16', theme:'Internet y wifi / Videoconferencias avanzadas',
+    structures:[
+      {id:'S060', pattern:"I can + [VERB]", examples:[
+        {en:'I can log in now.', es:'Ya puedo iniciar sesión.', pron:'ái can log in náu.'},
+        {en:'I can share my screen.', es:'Puedo compartir mi pantalla.', pron:'ái can shér mái scríin.'},
+        {en:"I can't connect to the wifi.", es:'No puedo conectarme al wifi.', pron:"ái cant canéct tu de uáifai."},
+        {en:'I can join the video conference.', es:'Puedo unirme a la videoconferencia.', pron:'ái can chóin de vídiou cánferens.'}
+      ], function:'decir qué podés o no podés hacer con la tecnología', stage:2,
+        transformations:{
+          negative:{en:"I can't log in.", es:'No puedo iniciar sesión.'},
+          question:{en:'Can you log in?', es:'¿Podés iniciar sesión?'},
+          yesAnswer:{en:'Yes, I can.', es:'Sí, puedo.'},
+          noAnswer:{en:"No, I can't.", es:'No, no puedo.'}
+        }}
+    ],
     words:[
       {en:'internet', es:'internet', pron:'ínternet', emoji:'🌐'},
       {en:'wifi', es:'wifi', pron:'uáifai', emoji:'📶'},
@@ -242,6 +326,20 @@ const curriculumUnidad7 = [
   },
 {
     day:81, unit:7, unitTitle:'Unidad 7 · Semanas 15-16', theme:'Redes sociales / Marketing digital básico',
+    structures:[
+      {id:'S061', pattern:"This is getting + [X]", examples:[
+        {en:'This post is getting a lot of likes.', es:'Esta publicación está consiguiendo muchos likes.', pron:'dis póust is guéting a lat of láiks.'},
+        {en:'This campaign is getting good results.', es:'Esta campaña está consiguiendo buenos resultados.', pron:'dis campéin is guéting gud risálts.'},
+        {en:'We are getting more followers.', es:'Estamos consiguiendo más seguidores.', pron:'uí ar guéting mor fálouers.'},
+        {en:'This ad is getting attention.', es:'Este anuncio está consiguiendo atención.', pron:'dis ad is guéting aténshion.'}
+      ], function:'decir que algo está creciendo o mejorando', stage:2,
+        transformations:{
+          negative:{en:'This post is not getting a lot of likes.', es:'Esta publicación no está consiguiendo muchos likes.'},
+          question:{en:'Is this post getting a lot of likes?', es:'¿Esta publicación está consiguiendo muchos likes?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'social media', es:'redes sociales', pron:'sóushal mídia', emoji:'📱'},
       {en:'post', es:'publicación', pron:'póust', emoji:'📝'},
@@ -301,6 +399,20 @@ const curriculumUnidad7 = [
   },
 {
     day:83, unit:7, unitTitle:'Unidad 7 · Semanas 15-16', theme:'Problemas técnicos / Soporte técnico',
+    structures:[
+      {id:'S062', pattern:"This is working", examples:[
+        {en:'This is working.', es:'Esto está funcionando.', pron:'dis is uérking.'},
+        {en:'My laptop is working now.', es:'Mi laptop está funcionando ahora.', pron:'mái láptap is uérking náu.'},
+        {en:'The wifi is working.', es:'El wifi está funcionando.', pron:'de uáifai is uérking.'},
+        {en:'The app is working fine.', es:'La aplicación está funcionando bien.', pron:'de ap is uérking fáin.'}
+      ], function:'decir si algo funciona o no', stage:2,
+        transformations:{
+          negative:{en:'This is not working.', es:'Esto no está funcionando.'},
+          question:{en:'Is this working?', es:'¿Esto está funcionando?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'technical problem', es:'problema técnico', pron:'técnical práblem', emoji:'⚠️'},
       {en:"it's not working", es:'no está funcionando', pron:'its nat uórking', emoji:'❌'},
