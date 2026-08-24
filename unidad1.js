@@ -589,6 +589,21 @@ const curriculumUnidad1 = [
   },
 {
     day:5, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Números 1-10 / Cantidades en pedidos',
+    structures:[
+      {id:'S009', pattern:"We have + [NUMBER] + [X]", examples:[
+        {en:'We have ten boxes.', es:'Tenemos diez cajas.', pron:'uí jav ten bákses.'},
+        {en:'We have five units.', es:'Tenemos cinco unidades.', pron:'uí jav fáiv iúnits.'},
+        {en:'We have two dozens.', es:'Tenemos dos docenas.', pron:'uí jav tú dázens.'},
+        {en:'We have three orders.', es:'Tenemos tres pedidos.', pron:'uí jav zríi órders.'}
+      ], function:'decir cuánto tenés en stock o en un pedido', stage:1,
+        transformations:{
+          negative:{en:"We don't have ten boxes.", es:'No tenemos diez cajas.'},
+          question:{en:'Do you have ten boxes?', es:'¿Tienen diez cajas?'},
+          yesAnswer:{en:'Yes, we do.', es:'Sí, las tenemos.'},
+          noAnswer:{en:"No, we don't.", es:'No, no las tenemos.'},
+          future:{en:'We will have ten boxes.', es:'Vamos a tener diez cajas.'}
+        }}
+    ],
     words:[
       {en:'one', es:'uno', pron:'uán', emoji:'1️⃣'},
       {en:'two', es:'dos', pron:'tú', emoji:'2️⃣'},
@@ -609,22 +624,127 @@ const curriculumUnidad1 = [
       {en:'order', es:'pedido', pron:'órder', emoji:'📝'},
       {en:'invoice', es:'factura', pron:'ínvois', emoji:'🧾'}
     ],
-    story:[
-      {en:'How many dragon eggs do we have? One, two, three... a hundred?', es:'¿Cuántos huevos de dragón tenemos? ¿Uno, dos, tres... cien?', pron:'jáu méni drágon egs du uí jav? uán, tú, zríi... a jándred?'},
-      {en:'We have four, five, six, seven, eight, nine, and ten boxes exploding with magic eggs!', es:'Tenemos cuatro, cinco, seis, siete, ocho, nueve, y diez cajas explotando de huevos mágicos.', pron:'uí jav fóar, fáiv, six, séven, éit, náin, and ten báxes explóuding uid máyic egs!'},
+    songJingle:'cancion-dia5-vocabulario.mp3',
+    songStory:'cancion-dia5-historia.mp3',
+    songJingleLyrics:[
+      {en:'', es:'Llegamos al almacén para empezar a contar...', pron:''},
+      {en:'One, two, three to start,', es:'uno, dos, tres para iniciar,', pron:'uán, tú, zríi tu start,'},
+      {en:'Four, five, six without stopping,', es:'cuatro, cinco, seis sin parar,', pron:'fóar, fáiv, six uidáut stáping,'},
+      {en:'Seven, eight, nine on arrival,', es:'siete, ocho, nueve al llegar,', pron:'séven, éit, náin on arráival,'},
+      {en:'Ten, the inventory is complete!', es:'diez, ¡el inventario completo está!', pron:'ten, de ínventori is camplíit!'},
+      {en:'How many?', es:'¿Cuántos hay en el lugar?', pron:'jáu méni?'},
+      {en:'Let me check the units,', es:'las unidades a revisar.', pron:'let mi chek de iúnits,'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'Looking at the stock,', es:'revisando las cajas al entrar...', pron:'lúking at de stak,'},
+      {en:'We have ten boxes.', es:'Tenemos diez cajas.', pron:'uí jav ten bákses.'},
+      {en:'We have five units.', es:'Tenemos cinco unidades.', pron:'uí jav fáiv iúnits.'},
+      {en:'We have two dozens.', es:'Tenemos dos docenas.', pron:'uí jav tú dázens.'},
+      {en:'We have three orders.', es:'Tenemos tres pedidos.', pron:'uí jav zríi órders.'},
+      {en:'Box, dozen,', es:'es caja, docena en la cuenta,', pron:'baks, dázen,'},
+      {en:'Quantity', es:'es cantidad que siempre aumenta.', pron:'cuántiti'},
+      {en:'Order, invoice,', es:'es pedido, la factura oficial,', pron:'órder, ínvois,'},
+      {en:'Total', es:'es el total, ¡el conteo es genial!', pron:'tóutal'},
+      {en:'Check the invoice,', es:'revisamos la factura al final...', pron:'chek de ínvois,'},
+      {en:'How many units?', es:'¿Cuántas unidades en total?', pron:'jáu méni iúnits?'},
+      {en:'Check the box and dozen,', es:'cuenta la caja y la docena,', pron:'chek de baks and dázen,'},
+      {en:'We have three orders,', es:'tenemos tres pedidos,', pron:'uí jav zríi órders,'},
+      {en:'', es:'la entrega vale la pena.', pron:''},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
+    ],
+    songStoryLyrics:[
+      {en:'How many dragon eggs do we have?', es:'¿Cuántos huevos de dragón tenemos?', pron:'jáu méni drágon egs du uí jav?'},
+      {en:'One, two, three... a hundred?', es:'¿Uno, dos, tres... cien?', pron:'uán, tú, zríi... a jándred?'},
+      {en:'We have four, five, six, seven, eight, nine,', es:'Tenemos cuatro, cinco, seis, siete, ocho, nueve,', pron:'uí jav fóar, fáiv, six, séven, éit, náin,'},
+      {en:'and ten boxes exploding with magic eggs!', es:'y diez cajas explotando de huevos mágicos.', pron:'and ten báxes explóuding uid máyic egs!'},
+      {en:'How many?', es:'¿Cuántos hay en el lugar?', pron:'jáu méni?'},
+      {en:'Let\'s check the units,', es:'las unidades a contar.', pron:'lets chek de iúnits,'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
       {en:'A dozen eggs just hatched into flying elephants!', es:'¡Una docena de huevos acaba de nacer en elefantes voladores!', pron:'a dázen egs yast jácht íntu fláing élefants!'},
-      {en:"What's the total quantity? A million, I think!", es:'¿Cuál es la cantidad total? ¡Un millón, creo!', pron:'uáts de tóutal cuántiti? a mílion, ái zink!'},
-      {en:"Send the invoice to the moon — that's where this order is going!", es:'¡Enviá la factura a la luna — ahí es donde va este pedido!', pron:'send de ínvois tu de múun — dats uér dis órder is góing!'}
+      {en:'What\'s the total quantity? A million, I think!', es:'¿Cuál es la cantidad total? ¡Un millón, creo!', pron:'uáts de tóutal cuántiti? a mílion, ái zink!'},
+      {en:'Box, dozen,', es:'es caja, docena en la cuenta,', pron:'baks, dázen,'},
+      {en:'Quantity', es:'es cantidad que siempre aumenta.', pron:'cuántiti'},
+      {en:'Order, invoice,', es:'es pedido, la factura oficial,', pron:'órder, ínvois,'},
+      {en:'Send the invoice to the moon,', es:'¡Enviá la factura a la luna,', pron:'send de ínvois tu de múun,'},
+      {en:'that\'s where this order is going!', es:'ahí es donde va este pedido!', pron:'dats uér dis órder is góing!'},
+      {en:'We have ten boxes,', es:'tenemos diez cajas aquí,', pron:'uí jav ten báxes,'},
+      {en:'We have two dozens,', es:'¡todo listo para ti!', pron:'uí jav tú dázens,'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
+    ],
+    story:[
+      {en:'How many dragon eggs do we have?', es:'¿Cuántos huevos de dragón tenemos?', pron:'jáu méni drágon egs du uí jav?'},
+      {en:'One, two, three... a hundred?', es:'¿Uno, dos, tres... cien?', pron:'uán, tú, zríi... a jándred?'},
+      {en:'We have four, five, six, seven, eight, nine,', es:'Tenemos cuatro, cinco, seis, siete, ocho, nueve,', pron:'uí jav fóar, fáiv, six, séven, éit, náin,'},
+      {en:'and ten boxes exploding with magic eggs!', es:'y diez cajas explotando de huevos mágicos.', pron:'and ten báxes explóuding uid máyic egs!'},
+      {en:'How many?', es:'¿Cuántos hay en el lugar?', pron:'jáu méni?'},
+      {en:'Let\'s check the units,', es:'las unidades a contar.', pron:'lets chek de iúnits,'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'A dozen eggs just hatched into flying elephants!', es:'¡Una docena de huevos acaba de nacer en elefantes voladores!', pron:'a dázen egs yast jácht íntu fláing élefants!'},
+      {en:'What\'s the total quantity? A million, I think!', es:'¿Cuál es la cantidad total? ¡Un millón, creo!', pron:'uáts de tóutal cuántiti? a mílion, ái zink!'},
+      {en:'Box, dozen,', es:'es caja, docena en la cuenta,', pron:'baks, dázen,'},
+      {en:'Quantity', es:'es cantidad que siempre aumenta.', pron:'cuántiti'},
+      {en:'Order, invoice,', es:'es pedido, la factura oficial,', pron:'órder, ínvois,'},
+      {en:'Send the invoice to the moon,', es:'¡Enviá la factura a la luna,', pron:'send de ínvois tu de múun,'},
+      {en:'that\'s where this order is going!', es:'ahí es donde va este pedido!', pron:'dats uér dis órder is góing!'},
+      {en:'We have ten boxes,', es:'tenemos diez cajas aquí,', pron:'uí jav ten báxes,'},
+      {en:'We have two dozens,', es:'¡todo listo para ti!', pron:'uí jav tú dázens,'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
     ],
     jingle:[
-      {en:'One, two, three, how many boxes?', es:'Uno, dos, tres, ¿cuántas cajas?', pron:'uán, tú, zríi, jáu méni báxes?'},
-      {en:'Four, five, six, a dozen of roses!', es:'Cuatro, cinco, seis, ¡una docena de rosas!', pron:'fóar, fáiv, six, a dázen of róuses!'},
-      {en:"Seven, eight, nine, ten, what's the total?", es:'Siete, ocho, nueve, diez, ¿cuál es el total?', pron:'séven, éit, náin, ten, uáts de tóutal?'},
-      {en:"Order and invoice, that's my quota!", es:'Pedido y factura, ¡esa es mi cuota!', pron:'órder and ínvois, dats mái cuóuta!'}
+      {en:'One, two, three to start,', es:'uno, dos, tres para iniciar,', pron:'uán, tú, zríi tu start,'},
+      {en:'Four, five, six without stopping,', es:'cuatro, cinco, seis sin parar,', pron:'fóar, fáiv, six uidáut stáping,'},
+      {en:'Seven, eight, nine on arrival,', es:'siete, ocho, nueve al llegar,', pron:'séven, éit, náin on arráival,'},
+      {en:'Ten, the inventory is complete!', es:'diez, ¡el inventario completo está!', pron:'ten, de ínventori is camplíit!'},
+      {en:'How many?', es:'¿Cuántos hay en el lugar?', pron:'jáu méni?'},
+      {en:'Let me check the units,', es:'las unidades a revisar.', pron:'let mi chek de iúnits,'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'Looking at the stock,', es:'revisando las cajas al entrar...', pron:'lúking at de stak,'},
+      {en:'We have ten boxes.', es:'Tenemos diez cajas.', pron:'uí jav ten bákses.'},
+      {en:'We have five units.', es:'Tenemos cinco unidades.', pron:'uí jav fáiv iúnits.'},
+      {en:'We have two dozens.', es:'Tenemos dos docenas.', pron:'uí jav tú dázens.'},
+      {en:'We have three orders.', es:'Tenemos tres pedidos.', pron:'uí jav zríi órders.'},
+      {en:'Box, dozen,', es:'es caja, docena en la cuenta,', pron:'baks, dázen,'},
+      {en:'Quantity', es:'es cantidad que siempre aumenta.', pron:'cuántiti'},
+      {en:'Order, invoice,', es:'es pedido, la factura oficial,', pron:'órder, ínvois,'},
+      {en:'Total', es:'es el total, ¡el conteo es genial!', pron:'tóutal'},
+      {en:'Check the invoice,', es:'revisamos la factura al final...', pron:'chek de ínvois,'},
+      {en:'How many units?', es:'¿Cuántas unidades en total?', pron:'jáu méni iúnits?'},
+      {en:'Check the box and dozen,', es:'cuenta la caja y la docena,', pron:'chek de baks and dázen,'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
     ]
   },
 {
     day:6, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Días de la semana / Agendar una reunión',
+    structures:[
+      {id:'S010', pattern:"I am available on + [DAY]", examples:[
+        {en:'I am available on Monday.', es:'Estoy disponible el lunes.', pron:'ái am avéilabol on Mándei.'},
+        {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},
+        {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+        {en:'I am available on Sunday.', es:'Estoy disponible el domingo.', pron:'ái am avéilabol on Sándei.'}
+      ], function:'decir cuándo estás disponible para una reunión', stage:1,
+        transformations:{
+          negative:{en:'I am not available on Monday.', es:'No estoy disponible el lunes.'},
+          question:{en:'Are you available on Monday?', es:'¿Estás disponible el lunes?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí, lo estoy.'},
+          noAnswer:{en:"No, I'm not.", es:'No, no lo estoy.'},
+          future:{en:'I will be available on Monday.', es:'Voy a estar disponible el lunes.'}
+        }}
+    ],
     words:[
       {en:'Monday', es:'lunes', pron:'mándei', emoji:'📅'},
       {en:'Tuesday', es:'martes', pron:'tiúsdei', emoji:'📅'},
@@ -644,22 +764,130 @@ const curriculumUnidad1 = [
       {en:'on time', es:'a tiempo', pron:'on táim', emoji:'⏱️'},
       {en:'deadline', es:'fecha límite', pron:'dédlain', emoji:'⏳'}
     ],
+    songJingle:'cancion-dia6-vocabulario.mp3',
+    songStory:'cancion-dia6-historia.mp3',
+    songJingleLyrics:[
+      {en:'', es:'Revisamos la agenda para organizar la semana...', pron:''},
+      {en:'Monday, Tuesday,', es:'lunes, martes, al iniciar,', pron:'mándei, tiúsdei,'},
+      {en:'Wednesday, Thursday,', es:'miércoles, jueves, para continuar,', pron:'uénsdei, zérsdei,'},
+      {en:'Friday, Saturday,', es:'viernes, sábado, para celebrar,', pron:'fráidei, sátersdei,'},
+      {en:'Sunday, the week is complete!', es:'domingo, ¡la semana completa está!', pron:'sándei, de uíik is camplíit!'},
+      {en:'Check the schedule on time,', es:'a tiempo sin dudar,', pron:'chek de squédiul on táim,'},
+      {en:'The deadline is coming,', es:'la fecha límite al llegar.', pron:'de díidláin is cáming,'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'Looking at the calendar,', es:'el dragón busca su cita especial...', pron:'lúking at de cálendar,'},
+      {en:'I am available on Monday.', es:'Estoy disponible el lunes.', pron:'ái am avéilabol on Mándei.'},
+      {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+      {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},
+      {en:'I am available on Sunday.', es:'Estoy disponible el domingo.', pron:'ái am avéilabol on Sándei.'},
+      {en:'Calendar, schedule,', es:'es calendario, el horario a seguir,', pron:'cálendar, squédiul,'},
+      {en:'Available', es:'es disponible para poder salir.', pron:'avéilabol'},
+      {en:'Busy, appointment,', es:'es ocupado, la cita formal,', pron:'bísi, apóintment,'},
+      {en:'On time', es:'es a tiempo, ¡este plan es genial!', pron:'on táim'},
+      {en:'Confirm the appointment,', es:'confirma la cita hoy,', pron:'canférm de apóintment,'},
+      {en:'Reschedule if you are busy,', es:'a reprogramar yo voy.', pron:'rischédiul if iú ar bísi,'},
+      {en:'The deadline is close,', es:'no dejes pasar el tiempo,', pron:'de díidláin is clóus,'},
+      {en:'On time and ready,', es:'¡cumplimos el compromiso al momento!', pron:'on táim and rédi,'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
+    ],
+    songStoryLyrics:[
+      {en:'Are you available on Monday... in the year 3000?', es:'¿Estás disponible el lunes... en el año 3000?', pron:'ar iú avéilabol on Mándei... in de íar zríi táuzand?'},
+      {en:'No, I am not available on Monday.', es:'No, no estoy disponible el lunes.', pron:'nóu, ái am nat avéilabol on Mándei.'},
+      {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+      {en:'I\'m busy this whole week, traveling through Tuesday,', es:'Estoy ocupado toda esta semana, viajando por martes,', pron:'áim bísi dis jóul uíik, trávoling zru Tiúsdei,'},
+      {en:'Wednesday and Thursday at the same time!', es:'¡miércoles y jueves al mismo tiempo!', pron:'Uénsdei and Zérsdei at de séim táim!'},
+      {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},
+      {en:'I am available on Sunday.', es:'Estoy disponible el domingo.', pron:'ái am avéilabol on Sándei.'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'Let\'s schedule an appointment', es:'Agendemos una cita', pron:'lets squédiul an apóintment'},
+      {en:'and confirm it on a calendar made of stars.', es:'y confirmémosla en un calendario hecho de estrellas.', pron:'and canférm it on a cálendar méid of stars.'},
+      {en:'Check the schedule, check the calendar,', es:'Revisa el horario, revisa el calendario,', pron:'chek de squédiul, chek de cálendar,'},
+      {en:'We need to confirm on time!', es:'¡Necesitamos confirmar a tiempo!', pron:'uí níid tu canférm on táim!'},
+      {en:'If dinosaurs need to reschedule, that is fine too!', es:'¡Si los dinosaurios necesitan reprogramar, también está bien!', pron:'if dáinosors níid tu rischédiul, dat is fáin tú!'},
+      {en:'If you are busy, we can reschedule the appointment.', es:'Si estás ocupado, podemos reprogramar la cita.', pron:'if iú ar bísi, uí can rischédiul de apóintment.'},
+      {en:'The deadline is Friday...', es:'La fecha límite es el viernes...', pron:'de díidláin is Fráidei...'},
+      {en:'or was it a thousand years ago?', es:'¿o fue hace mil años?', pron:'or uás it a záusand íars agóu?'},
+      {en:'Let\'s be on time anyway!', es:'¡Seamos puntuales de todos modos!', pron:'lets bi on táim éniuei!'},
+      {en:'We must meet the deadline and be on time!', es:'¡Debemos cumplir la fecha límite y estar a tiempo!', pron:'uí mast míit de díidláin and bi on táim!'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
+    ],
     story:[
-      {en:"Are you available on Monday... in the year 3000?", es:'¿Estás disponible el lunes... en el año 3000?', pron:'ar iú avéilabol on mándei... in de íar zríi záusand?'},
-      {en:"I'm busy this whole week, traveling through Tuesday, Wednesday, and Thursday at the same time!", es:'¡Estoy ocupado toda esta semana, viajando por martes, miércoles y jueves al mismo tiempo!', pron:'áim bísi dis jóul uíik, trávaling zrú tiúsdei, uénsdei, and zérsdei at de séim táim!'},
-      {en:"Let's schedule an appointment and confirm it on a calendar made of stars.", es:'Agendemos una cita y confirmémosla en un calendario hecho de estrellas.', pron:'lets squéyul an apóintment and conférm it on a cálendar méid of stars.'},
-      {en:'If dinosaurs need to reschedule, that is fine too!', es:'¡Si los dinosaurios necesitan reprogramar, también está bien!', pron:'if dáinosors níid tu risquéyul, dat is fáin tú!'},
-      {en:"The deadline is Friday... or was it a thousand years ago? Let's be on time anyway!", es:'La fecha límite es el viernes... ¿o fue hace mil años? ¡Seamos puntuales de todos modos!', pron:'de dédlain is fráidei... or uás it a záusand íars agóu? lets bi on táim éniuei!'}
+      {en:'Are you available on Monday... in the year 3000?', es:'¿Estás disponible el lunes... en el año 3000?', pron:'ar iú avéilabol on Mándei... in de íar zríi táuzand?'},
+      {en:'No, I am not available on Monday.', es:'No, no estoy disponible el lunes.', pron:'nóu, ái am nat avéilabol on Mándei.'},
+      {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+      {en:'I\'m busy this whole week, traveling through Tuesday,', es:'Estoy ocupado toda esta semana, viajando por martes,', pron:'áim bísi dis jóul uíik, trávoling zru Tiúsdei,'},
+      {en:'Wednesday and Thursday at the same time!', es:'¡miércoles y jueves al mismo tiempo!', pron:'Uénsdei and Zérsdei at de séim táim!'},
+      {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},
+      {en:'I am available on Sunday.', es:'Estoy disponible el domingo.', pron:'ái am avéilabol on Sándei.'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'Let\'s schedule an appointment', es:'Agendemos una cita', pron:'lets squédiul an apóintment'},
+      {en:'and confirm it on a calendar made of stars.', es:'y confirmémosla en un calendario hecho de estrellas.', pron:'and canférm it on a cálendar méid of stars.'},
+      {en:'Check the schedule, check the calendar,', es:'Revisa el horario, revisa el calendario,', pron:'chek de squédiul, chek de cálendar,'},
+      {en:'We need to confirm on time!', es:'¡Necesitamos confirmar a tiempo!', pron:'uí níid tu canférm on táim!'},
+      {en:'If dinosaurs need to reschedule, that is fine too!', es:'¡Si los dinosaurios necesitan reprogramar, también está bien!', pron:'if dáinosors níid tu rischédiul, dat is fáin tú!'},
+      {en:'If you are busy, we can reschedule the appointment.', es:'Si estás ocupado, podemos reprogramar la cita.', pron:'if iú ar bísi, uí can rischédiul de apóintment.'},
+      {en:'The deadline is Friday...', es:'La fecha límite es el viernes...', pron:'de díidláin is Fráidei...'},
+      {en:'or was it a thousand years ago?', es:'¿o fue hace mil años?', pron:'or uás it a záusand íars agóu?'},
+      {en:'Let\'s be on time anyway!', es:'¡Seamos puntuales de todos modos!', pron:'lets bi on táim éniuei!'},
+      {en:'We must meet the deadline and be on time!', es:'¡Debemos cumplir la fecha límite y estar a tiempo!', pron:'uí mast míit de díidláin and bi on táim!'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
     ],
     jingle:[
-      {en:'Monday, Tuesday, are you free?', es:'Lunes, martes, ¿estás libre?', pron:'mándei, tiúsdei, ar iú fríi?'},
-      {en:'Wednesday, Thursday, wait for me!', es:'Miércoles, jueves, ¡esperame!', pron:'uénsdei, zérsdei, uéit for mi!'},
-      {en:'Friday, Saturday, Sunday too!', es:'Viernes, sábado, ¡domingo también!', pron:'fráidei, sáterdei, sándei tú!'},
-      {en:"Confirm the deadline, on time, it's true!", es:'Confirmá la fecha límite, ¡a tiempo, es verdad!', pron:'conférm de dédlain, on táim, its trú!'}
+      {en:'Monday, Tuesday,', es:'lunes, martes, al iniciar,', pron:'mándei, tiúsdei,'},
+      {en:'Wednesday, Thursday,', es:'miércoles, jueves, para continuar,', pron:'uénsdei, zérsdei,'},
+      {en:'Friday, Saturday,', es:'viernes, sábado, para celebrar,', pron:'fráidei, sátersdei,'},
+      {en:'Sunday, the week is complete!', es:'domingo, ¡la semana completa está!', pron:'sándei, de uíik is camplíit!'},
+      {en:'Check the schedule on time,', es:'a tiempo sin dudar,', pron:'chek de squédiul on táim,'},
+      {en:'The deadline is coming,', es:'la fecha límite al llegar.', pron:'de díidláin is cáming,'},
+      {en:'Step by step you win,', es:'paso a paso avanzarás,', pron:'step bái step iú uín,'},
+      {en:'Speak it out loud,', es:'¡muy pronto lo hablarás!', pron:'spíik it áut láud,'},
+      {en:'Looking at the calendar,', es:'el dragón busca su cita especial...', pron:'lúking at de cálendar,'},
+      {en:'I am available on Monday.', es:'Estoy disponible el lunes.', pron:'ái am avéilabol on Mándei.'},
+      {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+      {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},
+      {en:'I am available on Sunday.', es:'Estoy disponible el domingo.', pron:'ái am avéilabol on Sándei.'},
+      {en:'Calendar, schedule,', es:'es calendario, el horario a seguir,', pron:'cálendar, squédiul,'},
+      {en:'Available', es:'es disponible para poder salir.', pron:'avéilabol'},
+      {en:'Busy, appointment,', es:'es ocupado, la cita formal,', pron:'bísi, apóintment,'},
+      {en:'On time', es:'es a tiempo, ¡este plan es genial!', pron:'on táim'},
+      {en:'Confirm the appointment,', es:'confirma la cita hoy,', pron:'canférm de apóintment,'},
+      {en:'Reschedule if you are busy,', es:'a reprogramar yo voy.', pron:'rischédiul if iú ar bísi,'},
+      {en:'The deadline is close,', es:'no dejes pasar el tiempo,', pron:'de díidláin is clóus,'},
+      {en:'On time and ready,', es:'¡cumplimos el compromiso al momento!', pron:'on táim and rédi,'},
+      {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
+      {en:'You\'re going to love it!', es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
+      {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
+      {en:'Keep practicing until the end.', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end.'}
     ]
   },
 {
     day:7, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Repaso liviano de la semana 1',
+    structures:[
+      {id:'S011', pattern:"I'm + [FEELING]", examples:[
+        {en:"I'm fine.", es:'Estoy bien.', pron:'áim fáin.'},
+        {en:"I'm busy.", es:'Estoy ocupado.', pron:'áim bísi.'},
+        {en:"I'm ready.", es:'Estoy listo.', pron:'áim rédi.'},
+        {en:"I'm tired.", es:'Estoy cansado.', pron:'áim táierd.'}
+      ], function:'decir cómo te sentís', stage:1,
+        transformations:{
+          negative:{en:"I'm not fine.", es:'No estoy bien.'},
+          question:{en:'Are you fine?', es:'¿Estás bien?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí, lo estoy.'},
+          noAnswer:{en:"No, I'm not.", es:'No, no lo estoy.'}
+        }}
+    ],
     words:[
       {en:'how are you doing', es:'cómo te va', pron:'jáu ar iú dúing', emoji:'🙂'},
       {en:"I'm fine, thanks", es:'estoy bien, gracias', pron:'áim fáin zenks', emoji:'😊'},
@@ -690,6 +918,20 @@ const curriculumUnidad1 = [
   },
 {
     day:8, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Cómo estás (variantes) / Preguntar cómo va el negocio',
+    structures:[
+      {id:'S012', pattern:"Business is + [ADJECTIVE]", examples:[
+        {en:'Business is good.', es:'El negocio va bien.', pron:'bísnes is gud.'},
+        {en:'Business is great.', es:'El negocio va muy bien.', pron:'bísnes is gréit.'},
+        {en:'Business is slow.', es:'El negocio va lento.', pron:'bísnes is slóu.'},
+        {en:'Business is perfect.', es:'El negocio va perfecto.', pron:'bísnes is pérfect.'}
+      ], function:'describir cómo va tu negocio', stage:1,
+        transformations:{
+          negative:{en:'Business is not good.', es:'El negocio no va bien.'},
+          question:{en:'Is business good?', es:'¿El negocio va bien?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, va bien.'},
+          noAnswer:{en:"No, it isn't.", es:'No, no va bien.'}
+        }}
+    ],
     words:[
       {en:"I'm great", es:'estoy genial', pron:'áim gréit', emoji:'😄'},
       {en:'so-so', es:'más o menos', pron:'sóu sóu', emoji:'😐'},
@@ -721,6 +963,20 @@ const curriculumUnidad1 = [
   },
 {
     day:9, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Despedidas variadas / Cerrar una llamada de negocios',
+    structures:[
+      {id:'S013', pattern:"I will + [VERB]", examples:[
+        {en:'I will call you back.', es:'Te voy a devolver la llamada.', pron:'ái uil col iú bak.'},
+        {en:'I will email you.', es:'Te voy a escribir un correo.', pron:'ái uil íimeil iú.'},
+        {en:'I will confirm it.', es:'Lo voy a confirmar.', pron:'ái uil canférm it.'},
+        {en:'I will stay in touch.', es:'Voy a mantenerme en contacto.', pron:'ái uil stéi in tach.'}
+      ], function:'prometer algo que vas a hacer', stage:1,
+        transformations:{
+          negative:{en:"I won't call you back.", es:'No te voy a devolver la llamada.'},
+          question:{en:'Will you call me back?', es:'¿Me vas a devolver la llamada?'},
+          yesAnswer:{en:'Yes, I will.', es:'Sí, lo voy a hacer.'},
+          noAnswer:{en:"No, I won't.", es:'No, no lo voy a hacer.'}
+        }}
+    ],
     words:[
       {en:'see you soon', es:'nos vemos pronto', pron:'síi iú súun', emoji:'👋'},
       {en:'see you next week', es:'nos vemos la próxima semana', pron:'síi iú next uíik', emoji:'📅'},
@@ -751,6 +1007,20 @@ const curriculumUnidad1 = [
   },
 {
     day:10, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Preguntas básicas / Preguntas de un cliente sobre el pedido',
+    structures:[
+      {id:'S014', pattern:"I can + [VERB]", examples:[
+        {en:'I can help you.', es:'Te puedo ayudar.', pron:'ái can jelp iú.'},
+        {en:'I can explain it.', es:'Lo puedo explicar.', pron:'ái can expléin it.'},
+        {en:'I can check the price.', es:'Puedo revisar el precio.', pron:'ái can chek de práis.'},
+        {en:'I can confirm the stock.', es:'Puedo confirmar el stock.', pron:'ái can canférm de stok.'}
+      ], function:'ofrecer ayuda o decir qué podés hacer', stage:1,
+        transformations:{
+          negative:{en:"I can't help you.", es:'No te puedo ayudar.'},
+          question:{en:'Can you help me?', es:'¿Me podés ayudar?'},
+          yesAnswer:{en:'Yes, I can.', es:'Sí, puedo.'},
+          noAnswer:{en:"No, I can't.", es:'No, no puedo.'}
+        }}
+    ],
     words:[
       {en:'what', es:'qué', pron:'uát', emoji:'❓'},
       {en:'who', es:'quién', pron:'jú', emoji:'❓'},
@@ -782,6 +1052,20 @@ const curriculumUnidad1 = [
   },
 {
     day:11, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Colores y objetos / Describir un producto',
+    structures:[
+      {id:'S015', pattern:"It is + [COLOR/ADJECTIVE]", examples:[
+        {en:'It is red.', es:'Es rojo.', pron:'it is red.'},
+        {en:'It is big and strong.', es:'Es grande y fuerte.', pron:'it is big and strong.'},
+        {en:'It is made of metal.', es:'Está hecho de metal.', pron:'it is méid of métal.'},
+        {en:'It is durable.', es:'Es durable.', pron:'it is diúrabol.'}
+      ], function:'describir un producto', stage:1,
+        transformations:{
+          negative:{en:'It is not red.', es:'No es rojo.'},
+          question:{en:'Is it red?', es:'¿Es rojo?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, lo es.'},
+          noAnswer:{en:"No, it isn't.", es:'No, no lo es.'}
+        }}
+    ],
     words:[
       {en:'red', es:'rojo', pron:'red', emoji:'🔴'},
       {en:'blue', es:'azul', pron:'blú', emoji:'🔵'},
@@ -815,6 +1099,14 @@ const curriculumUnidad1 = [
   },
 {
     day:12, unit:1, unitTitle:'Unidad 1 · Semanas 1-2', theme:'Repaso y cierre de la Unidad 1',
+    structures:[
+      {id:'S016', pattern:"Let's + [VERB]!", examples:[
+        {en:"Let's begin!", es:'¡Empecemos!', pron:'lets bigín!'},
+        {en:"Let's finish!", es:'¡Terminemos!', pron:'lets fínish!'},
+        {en:"Let's go!", es:'¡Vamos!', pron:'lets góu!'},
+        {en:"Let's practice!", es:'¡Practiquemos!', pron:'lets práctis!'}
+      ], function:'invitar a hacer algo juntos', stage:1}
+    ],
     words:[
       {en:"let's begin", es:'empecemos', pron:'lets bigín', emoji:'🚀'},
       {en:"let's finish", es:'terminemos', pron:'lets fínish', emoji:'🏁'},
