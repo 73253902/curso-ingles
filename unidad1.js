@@ -796,8 +796,8 @@ const curriculumUnidad1 = [
     ],
     songStoryLyrics:[
       {en:'Are you available on Monday... in the year 3000?', es:'¿Estás disponible el lunes... en el año 3000?', pron:'ar iú avéilabol on Mándei... in de íar zríi táuzand?'},
-      {en:'No, I am not available on Monday.', es:'No, no estoy disponible el lunes.', pron:'nóu, ái am nat avéilabol on Mándei.'},
-      {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+      {en:'No, I am not available on Monday.', es:'No estoy disponible el lunes.', pron:'nóu, ái am nat avéilabol on Mándei.'},
+      {en:'but I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'bat ái am avéilabol on Uénsdei.'},
       {en:'I\'m busy this whole week, traveling through Tuesday,', es:'Estoy ocupado toda esta semana, viajando por martes,', pron:'áim bísi dis jóul uíik, trávoling zru Tiúsdei,'},
       {en:'Wednesday and Thursday at the same time!', es:'¡miércoles y jueves al mismo tiempo!', pron:'Uénsdei and Zérsdei at de séim táim!'},
       {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},
@@ -821,8 +821,8 @@ const curriculumUnidad1 = [
     ],
     story:[
       {en:'Are you available on Monday... in the year 3000?', es:'¿Estás disponible el lunes... en el año 3000?', pron:'ar iú avéilabol on Mándei... in de íar zríi táuzand?'},
-      {en:'No, I am not available on Monday.', es:'No, no estoy disponible el lunes.', pron:'nóu, ái am nat avéilabol on Mándei.'},
-      {en:'I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'ái am avéilabol on Uénsdei.'},
+      {en:'No, I am not available on Monday.', es:'No estoy disponible el lunes.', pron:'nóu, ái am nat avéilabol on Mándei.'},
+      {en:'but I am available on Wednesday.', es:'Estoy disponible el miércoles.', pron:'bat ái am avéilabol on Uénsdei.'},
       {en:'I\'m busy this whole week, traveling through Tuesday,', es:'Estoy ocupado toda esta semana, viajando por martes,', pron:'áim bísi dis jóul uíik, trávoling zru Tiúsdei,'},
       {en:'Wednesday and Thursday at the same time!', es:'¡miércoles y jueves al mismo tiempo!', pron:'Uénsdei and Zérsdei at de séim táim!'},
       {en:'I am available on Friday.', es:'Estoy disponible el viernes.', pron:'ái am avéilabol on Fráidei.'},

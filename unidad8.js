@@ -3,6 +3,20 @@
 const curriculumUnidad8 = [
 {
     day:85, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Buscar trabajo / Entrevista de trabajo',
+    structures:[
+      {id:'S063', pattern:"I have experience in + [X]", examples:[
+        {en:'I have experience in sales.', es:'Tengo experiencia en ventas.', pron:'ái jav expírians in séils.'},
+        {en:'I have experience in management.', es:'Tengo experiencia en gestión.', pron:'ái jav expírians in mánechment.'},
+        {en:'I have five years of experience.', es:'Tengo cinco años de experiencia.', pron:'ái jav fáiv íars of expírians.'},
+        {en:"I don't have experience in this field yet.", es:'Todavía no tengo experiencia en este campo.', pron:"ái dont jav expírians in dis fíild iét."}
+      ], function:'hablar de tu experiencia en una entrevista', stage:2,
+        transformations:{
+          negative:{en:"I don't have experience in sales.", es:'No tengo experiencia en ventas.'},
+          question:{en:'Do you have experience in sales?', es:'¿Tenés experiencia en ventas?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'resume', es:'currículum', pron:'réziumei', emoji:'📄'},
       {en:'cover letter', es:'carta de presentación', pron:'cáver léter', emoji:'✉️'},
@@ -33,6 +47,20 @@ const curriculumUnidad8 = [
   },
 {
     day:86, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Preguntas de entrevista / Hablar de tu experiencia',
+    structures:[
+      {id:'S064', pattern:"I am responsible for + [X]", examples:[
+        {en:'I am responsible for the sales team.', es:'Soy responsable del equipo de ventas.', pron:'ái am rispánsibol for de séils tíim.'},
+        {en:'I am responsible for client relations.', es:'Soy responsable de las relaciones con clientes.', pron:'ái am rispánsibol for cláient riléishions.'},
+        {en:'I am responsible for the budget.', es:'Soy responsable del presupuesto.', pron:'ái am rispánsibol for de báyet.'},
+        {en:'I am not responsible for that department.', es:'No soy responsable de ese departamento.', pron:'ái am nat rispánsibol for dat dipártment.'}
+      ], function:'decir de qué sos responsable', stage:2,
+        transformations:{
+          negative:{en:'I am not responsible for the sales team.', es:'No soy responsable del equipo de ventas.'},
+          question:{en:'Are you responsible for the sales team?', es:'¿Sos responsable del equipo de ventas?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'previous experience', es:'experiencia previa', pron:'príivios expíriens', emoji:'📂'},
       {en:'responsibilities', es:'responsabilidades', pron:'rispansibílitis', emoji:'📋'},
@@ -61,6 +89,19 @@ const curriculumUnidad8 = [
   },
 {
     day:87, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Networking / Eventos de negocios',
+    structures:[
+      {id:'S065', pattern:"I would like to connect with + [X]", examples:[
+        {en:'I would like to connect with you.', es:'Me gustaría conectar con vos.', pron:'ái uud láik tu canéct uid iú.'},
+        {en:'I would like to exchange business cards.', es:'Me gustaría intercambiar tarjetas.', pron:'ái uud láik tu extchéinch bísnes cards.'},
+        {en:'I would like to follow up next week.', es:'Me gustaría hacer seguimiento la próxima semana.', pron:'ái uud láik tu fólou ap next uíik.'},
+        {en:'I would like to learn more about your company.', es:'Me gustaría saber más de tu empresa.', pron:'ái uud láik tu lern mor abáut iór cámpani.'}
+      ], function:'proponer conectar con alguien', stage:2,
+        transformations:{
+          question:{en:'Would you like to connect?', es:'¿Te gustaría conectar?'},
+          yesAnswer:{en:'Yes, I would.', es:'Sí, me gustaría.'},
+          noAnswer:{en:'No, thank you.', es:'No, gracias.'}
+        }}
+    ],
     words:[
       {en:'networking event', es:'evento de networking', pron:'nétuorking ivént', emoji:'🎪'},
       {en:'business card exchange', es:'intercambio de tarjetas', pron:'bísnes card exchéinch', emoji:'🪪'},
@@ -89,6 +130,20 @@ const curriculumUnidad8 = [
   },
 {
     day:88, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Presentaciones formales / Hablar en público',
+    structures:[
+      {id:'S066', pattern:"I am confident about + [X]", examples:[
+        {en:'I am confident about this presentation.', es:'Estoy seguro de esta presentación.', pron:'ái am cánfident abáut dis presentéishion.'},
+        {en:'I am nervous about the Q&A.', es:'Estoy nervioso por la sesión de preguntas.', pron:'ái am nérvas abáut de kiú and éi.'},
+        {en:'I am not confident about the numbers.', es:'No estoy seguro de los números.', pron:'ái am nat cánfident abáut de námbers.'},
+        {en:'I am ready for the audience.', es:'Estoy listo para el público.', pron:'ái am rédi for de ódiens.'}
+      ], function:'expresar cómo te sentís antes de presentar', stage:2,
+        transformations:{
+          negative:{en:'I am not confident about this presentation.', es:'No estoy seguro de esta presentación.'},
+          question:{en:'Are you confident about this presentation?', es:'¿Estás seguro de esta presentación?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'public speaking', es:'hablar en público', pron:'páblic spíiking', emoji:'🎤'},
       {en:'audience', es:'público', pron:'ódiens', emoji:'👥'},
@@ -117,6 +172,20 @@ const curriculumUnidad8 = [
   },
 {
     day:89, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Contratos básicos / Términos legales simples',
+    structures:[
+      {id:'S067', pattern:"I need to sign + [X]", examples:[
+        {en:'I need to sign the contract.', es:'Necesito firmar el contrato.', pron:'ái níid tu sáin de cántract.'},
+        {en:'I need to sign the agreement.', es:'Necesito firmar el acuerdo.', pron:'ái níid tu sáin de agríiment.'},
+        {en:'I need to review the terms first.', es:'Necesito revisar los términos primero.', pron:'ái níid tu riviú de terms ferst.'},
+        {en:"I don't need to sign anything yet.", es:'Todavía no necesito firmar nada.', pron:"ái dont níid tu sáin énizin iét."}
+      ], function:'hablar de firmar documentos', stage:2,
+        transformations:{
+          negative:{en:"I don't need to sign the contract.", es:'No necesito firmar el contrato.'},
+          question:{en:'Do you need to sign the contract?', es:'¿Necesitás firmar el contrato?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'contract', es:'contrato', pron:'cántract', emoji:'📜'},
       {en:'signature', es:'firma', pron:'sígnicher', emoji:'✍️'},
@@ -145,6 +214,20 @@ const curriculumUnidad8 = [
   },
 {
     day:90, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Cultura de oficina / Diferencias culturales',
+    structures:[
+      {id:'S068', pattern:"In my culture, we + [VERB]", examples:[
+        {en:'In my culture, we shake hands.', es:'En mi cultura, nos damos la mano.', pron:'in mái cálchur, uí shéik jands.'},
+        {en:'In my culture, we arrive on time.', es:'En mi cultura, llegamos a tiempo.', pron:'in mái cálchur, uí aráiv on táim.'},
+        {en:"In my culture, we don't do much small talk.", es:'En mi cultura, no hacemos mucha charla informal.', pron:"in mái cálchur, uí dont du mach smol tok."},
+        {en:'In my culture, feedback is direct.', es:'En mi cultura, la retroalimentación es directa.', pron:'in mái cálchur, fíidbak is dairéct.'}
+      ], function:'comparar costumbres de trabajo', stage:2,
+        transformations:{
+          negative:{en:"In my culture, we don't shake hands.", es:'En mi cultura, no nos damos la mano.'},
+          question:{en:'Do you shake hands in your culture?', es:'¿En tu cultura se dan la mano?'},
+          yesAnswer:{en:'Yes, we do.', es:'Sí.'},
+          noAnswer:{en:"No, we don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'office culture', es:'cultura de oficina', pron:'áfis cálcher', emoji:'🏢'},
       {en:'work-life balance', es:'equilibrio entre trabajo y vida', pron:'uork láif bálans', emoji:'⚖️'},
@@ -197,6 +280,20 @@ const curriculumUnidad8 = [
   },
 {
     day:92, unit:8, unitTitle:'Unidad 8 · Semanas 19-20', theme:'Bancos y finanzas avanzado',
+    structures:[
+      {id:'S069', pattern:"I want to invest in + [X]", examples:[
+        {en:'I want to invest in stocks.', es:'Quiero invertir en acciones.', pron:'ái uánt tu invést in staks.'},
+        {en:'I want to open a savings account.', es:'Quiero abrir una cuenta de ahorros.', pron:'ái uánt tu óupen a séivings acáunt.'},
+        {en:'I want to apply for a loan.', es:'Quiero solicitar un préstamo.', pron:'ái uánt tu aplái for a lóun.'},
+        {en:"I don't want to take financial risks.", es:'No quiero tomar riesgos financieros.', pron:"ái dont uánt tu téik fainánshial risks."}
+      ], function:'hablar de tus planes financieros', stage:2,
+        transformations:{
+          negative:{en:"I don't want to invest in stocks.", es:'No quiero invertir en acciones.'},
+          question:{en:'Do you want to invest in stocks?', es:'¿Querés invertir en acciones?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'loan', es:'préstamo', pron:'lóun', emoji:'💰'},
       {en:'interest rate', es:'tasa de interés', pron:'ínterest réit', emoji:'📈'},
@@ -253,6 +350,20 @@ const curriculumUnidad8 = [
   },
 {
     day:94, unit:8, unitTitle:'Unidad 8 · Semanas 19-20', theme:'Negociación avanzada',
+    structures:[
+      {id:'S070', pattern:"I am willing to + [VERB]", examples:[
+        {en:'I am willing to compromise.', es:'Estoy dispuesto a ceder.', pron:'ái am uíling tu cámpramais.'},
+        {en:'I am willing to negotiate the price.', es:'Estoy dispuesto a negociar el precio.', pron:'ái am uíling tu negóushieit de práis.'},
+        {en:'I am not willing to lower the price further.', es:'No estoy dispuesto a bajar más el precio.', pron:'ái am nat uíling tu lóuer de práis férder.'},
+        {en:'I am willing to meet you halfway.', es:'Estoy dispuesto a llegar a un punto medio.', pron:'ái am uíling tu míit iú jafuéi.'}
+      ], function:'expresar disposición a ceder en una negociación', stage:2,
+        transformations:{
+          negative:{en:'I am not willing to compromise.', es:'No estoy dispuesto a ceder.'},
+          question:{en:'Are you willing to compromise?', es:'¿Estás dispuesto a ceder?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to compromise', es:'ceder, llegar a un término medio', pron:'tu cámpromais', emoji:'🤝'},
       {en:'win-win situation', es:'situación en que todos ganan', pron:'uín uín sitiuéishon', emoji:'🏆'},
