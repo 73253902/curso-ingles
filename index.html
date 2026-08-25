@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso de Inglés — Jóvenes y Adultos · 180 días</title>
+<title>El Dragón del Lenguaje — Curso de Inglés · 180 días</title>
+<link rel="icon" type="image/png" href="logo-dragon.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
   :root{
@@ -34,23 +35,36 @@
 
   /* ===== Home / selector de días ===== */
   #home{margin-top:26px;}
-  .unit-block{margin-bottom:26px;}
-  .unit-title{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:flex; align-items:center; gap:8px;}
-  .unit-title .themes{color:var(--en);}
-  .day-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr)); gap:8px;}
+  .unit-chapter{
+    margin-bottom:22px; background:linear-gradient(135deg, color-mix(in srgb, var(--uc) 10%, var(--bg-panel)), var(--bg-panel));
+    border:1px solid var(--border); border-left:4px solid var(--uc); border-radius:14px; padding:18px 20px 20px;
+  }
+  .uc-head{display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;}
+  .uc-icon{font-size:34px; line-height:1; flex-shrink:0; filter:drop-shadow(0 0 8px color-mix(in srgb, var(--uc) 40%, transparent));}
+  .uc-titles{flex:1; min-width:0;}
+  .uc-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--uc); margin-bottom:4px;}
+  .uc-name{font-family:'Fraunces',serif; font-size:21px; color:var(--ink); line-height:1.2;}
+  .uc-desc{font-size:13px; color:var(--muted); margin-top:4px; line-height:1.4;}
+  .day-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:8px;}
   .day-card{
-    background:var(--bg-panel); border:1px solid var(--border); border-radius:12px;
-    padding:10px 6px; text-align:center; cursor:pointer; transition:transform .12s,border-color .12s;
+    background:var(--bg-panel-2); border:1px solid var(--border); border-radius:10px;
+    padding:10px 8px; text-align:center; cursor:pointer; transition:transform .12s,border-color .12s;
     font-family:'JetBrains Mono',monospace;
   }
-  .day-card:hover{transform:translateY(-2px); border-color:var(--en);}
-  .day-card .n{font-size:15px; font-weight:600; color:var(--ink);}
-  .day-card .st{font-size:16px; margin-top:4px;}
+  .day-card:hover{transform:translateY(-2px); border-color:var(--uc, var(--en));}
+  .day-card .n{font-size:14px; font-weight:600; color:var(--ink);}
+  .day-card .st{font-size:15px; margin-top:2px;}
+  .day-card .dt{font-family:'Inter',sans-serif; font-size:10px; color:var(--muted); margin-top:4px; line-height:1.25; min-height:2.4em; overflow:hidden;}
   .day-card.locked{opacity:.35; cursor:not-allowed;}
   .day-card.locked:hover{transform:none; border-color:var(--border);}
   .day-card.done{border-color:var(--ok);}
-  .day-card.available{border-color:var(--es);}
-  .progress-summary{display:flex; gap:18px; flex-wrap:wrap; margin:18px 0 30px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted);}
+  .day-card.available{border-color:var(--uc, var(--es));}
+  .syllabus-box{background:var(--bg-panel); border:1px solid var(--border); border-radius:14px; padding:18px 20px; margin-bottom:22px; max-height:520px; overflow-y:auto;}
+  .syl-unit{margin-bottom:18px; border-left:3px solid var(--uc); padding-left:12px;}
+  .syl-unit-head{font-family:'Fraunces',serif; font-size:16px; color:var(--ink); margin-bottom:6px;}
+  .syl-day{display:flex; gap:10px; font-size:13px; padding:3px 0; color:var(--muted);}
+  .syl-n{font-family:'JetBrains Mono',monospace; color:var(--uc); flex-shrink:0; width:52px;}
+  .progress-summary{display:flex; gap:18px; flex-wrap:wrap; margin:18px 0 20px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted);}
   .progress-summary b{color:var(--en);}
   .reset-link{font-size:12px; color:var(--muted); text-decoration:underline; cursor:pointer; margin-top:20px; display:inline-block;}
   .placement-card{
@@ -247,9 +261,10 @@
 
 <div class="wrap">
   <header>
-    <div class="eyebrow"><span class="dot"></span> Método de inmersión progresiva · Jóvenes y Adultos</div>
-    <h1><span class="es">Curso completo</span> — <span class="en">180 días</span></h1>
-    <p class="sub">6 días por semana, mezclando vida diaria y negocios. Tu progreso se guarda en este navegador — no hace falta anotarlo en ningún lado.</p>
+    <img src="logo-dragon.png" alt="El Dragón del Lenguaje" style="max-width:220px; width:100%; height:auto; display:block; margin:0 auto 8px;">
+    <div class="eyebrow" style="justify-content:center; text-align:center;"><span class="dot"></span> Método de inmersión progresiva · Jóvenes y Adultos</div>
+    <h1 style="font-size:20px; opacity:.75; margin-top:6px; text-align:center;"><span class="es">Curso completo</span> — <span class="en">180 días</span></h1>
+    <p class="sub" style="text-align:center;">6 días por semana, mezclando vida diaria y negocios. Tu progreso se guarda en este navegador — no hace falta anotarlo en ningún lado.</p>
   </header>
 
   <!-- ===== PANTALLA DE INICIO: selector de días ===== -->
@@ -266,6 +281,8 @@
       </div>
     </div>
     <div class="progress-summary" id="progressSummary"></div>
+    <button class="ghost" id="syllabusToggleBtn" style="width:100%; margin-bottom:18px;">📖 Ver el programa completo — las 15 unidades y sus 180 días</button>
+    <div id="syllabusBox" class="syllabus-box" style="display:none;"></div>
     <div class="admin-box" id="adminBox" style="display:none;">
       <span>🛠 Modo administrador activo — todos los días están desbloqueados.</span>
       <input type="number" id="adminDayInput" min="1" placeholder="N° de día" style="width:90px;">

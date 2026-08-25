@@ -125,8 +125,21 @@ function renderHome(){
 
   Object.keys(byUnit).forEach(unitKey=>{
     const days = byUnit[unitKey];
-    const block = document.createElement('div'); block.className='unit-block';
-    block.innerHTML = '<div class="unit-title">'+days[0].unitTitle+' <span class="themes">— '+days[0].theme+'</span></div>';
+    const um = unitMeta[unitKey] || {icon:'📘', color:'#8891A3', name:days[0].theme, desc:''};
+    const unitDone = days.every(d=>progress[d.day] && progress[d.day].completed);
+    const unitStarted = days.some(d=>progress[d.day] && progress[d.day].completed);
+
+    const block = document.createElement('div'); block.className='unit-chapter';
+    block.style.setProperty('--uc', um.color);
+    block.innerHTML =
+      '<div class="uc-head">'+
+        '<div class="uc-icon">'+um.icon+'</div>'+
+        '<div class="uc-titles">'+
+          '<div class="uc-eyebrow">Unidad '+unitKey+' · '+days[0].unitTitle.split('·')[1].trim()+(unitDone?' · completa ✅':'')+'</div>'+
+          '<div class="uc-name">'+um.name+'</div>'+
+          '<div class="uc-desc">'+um.desc+'</div>'+
+        '</div>'+
+      '</div>';
     const grid = document.createElement('div'); grid.className='day-grid';
     days.forEach(d=>{
       const card=document.createElement('div');
@@ -134,7 +147,8 @@ function renderHome(){
       const unlockedByPlacement = d.day <= (meta.unlockedThrough||1);
       const isLocked = !admin && d.day>1 && !unlockedByPlacement && !(progress[d.day-1] && progress[d.day-1].completed) && !isDone;
       card.className='day-card '+(isDone?'done':isLocked?'locked':'available');
-      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':isLocked?'🔒':'▶️')+'</div>';
+      card.title = d.theme;
+      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':isLocked?'🔒':'▶️')+'</div><div class="dt">'+d.theme.split('/')[0].trim()+'</div>';
       if(!isLocked){ card.addEventListener('click', ()=>startDay(d.day)); }
       grid.appendChild(card);
     });
@@ -143,11 +157,32 @@ function renderHome(){
   });
 
   if(curriculum.length < TOTAL_DAYS){
-    const soon=document.createElement('div'); soon.className='unit-block';
-    soon.innerHTML = '<div class="unit-title">Próximos días</div><p style="color:var(--muted); font-size:13px;">Los Días '+(curriculum.length+1)+' a '+TOTAL_DAYS+' se van sumando por lotes de 2 semanas a medida que avanzamos.</p>';
+    const soon=document.createElement('div'); soon.className='unit-chapter'; soon.style.setProperty('--uc', '#8891A3');
+    soon.innerHTML = '<div class="uc-head"><div class="uc-icon">🔜</div><div class="uc-titles"><div class="uc-eyebrow">Próximamente</div><div class="uc-name">Más unidades en camino</div><div class="uc-desc">Los Días '+(curriculum.length+1)+' a '+TOTAL_DAYS+' se van sumando por lotes de 2 semanas a medida que avanzamos.</div></div></div>';
     container.appendChild(soon);
   }
+
+  renderSyllabus();
 }
+function renderSyllabus(){
+  const box = document.getElementById('syllabusBox');
+  if(!box) return;
+  const byUnit = {};
+  curriculum.forEach(d=>{ (byUnit[d.unit] = byUnit[d.unit]||[]).push(d); });
+  box.innerHTML = Object.keys(byUnit).map(unitKey=>{
+    const days = byUnit[unitKey];
+    const um = unitMeta[unitKey] || {icon:'📘', color:'#8891A3', name:days[0].theme};
+    const rows = days.map(d=>'<div class="syl-day"><span class="syl-n">Día '+d.day+'</span><span class="syl-t">'+d.theme+'</span></div>').join('');
+    return '<div class="syl-unit" style="--uc:'+um.color+'"><div class="syl-unit-head">'+um.icon+' <b>Unidad '+unitKey+' — '+um.name+'</b></div>'+rows+'</div>';
+  }).join('');
+}
+document.getElementById('syllabusToggleBtn').addEventListener('click', ()=>{
+  const box = document.getElementById('syllabusBox');
+  const btn = document.getElementById('syllabusToggleBtn');
+  const showing = box.style.display !== 'none';
+  box.style.display = showing ? 'none' : 'block';
+  btn.textContent = showing ? '📖 Ver el programa completo — las 15 unidades y sus 180 días' : '📖 Ocultar el programa completo';
+});
 document.getElementById('skipPlacementBtn').addEventListener('click', ()=>{
   saveMeta({placementDone:true, unlockedThrough:1});
   renderHome();
@@ -310,6 +345,24 @@ const rephraseBank = [
 ];
 // Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
 // Lecturas de repaso de cierre de unidad — SOLO escuchar y leer, sin ejercicios de hablar/escribir.
+// Identidad visual de cada unidad — color, ícono y nombre corto, sintetizados de los temas reales de sus días.
+const unitMeta = {
+  1:{icon:'🌱', color:'#6FCF97', name:'Primeros pasos', desc:'Saludos, presentarte, tu empresa y lo básico para arrancar'},
+  2:{icon:'🏠', color:'#4FB6E8', name:'Tu día a día', desc:'Rutina, tu oficina, y la vida cotidiana en el trabajo'},
+  3:{icon:'💰', color:'#E8A33D', name:'Números y tiempo', desc:'Precios, horarios, fechas y todo lo que se mide'},
+  4:{icon:'🍽️', color:'#E8956A', name:'Comida y reuniones', desc:'Restaurantes, presentaciones y reuniones de trabajo'},
+  5:{icon:'🛍️', color:'#E86A5C', name:'Compras y facturas', desc:'Comprar, devolver, pagar, y reclamar cuando algo sale mal'},
+  6:{icon:'🚚', color:'#5B8DEF', name:'Rutas y envíos', desc:'Direcciones, transporte, aduana y logística'},
+  7:{icon:'✈️', color:'#4FD1E8', name:'Viajes y tecnología', desc:'Hoteles, clima, y herramientas digitales de oficina'},
+  8:{icon:'💼', color:'#A66FE8', name:'Tu carrera', desc:'Entrevistas, networking, contratos y negociación avanzada'},
+  9:{icon:'📊', color:'#6FCFAF', name:'Gestión y operaciones', desc:'Proyectos, calidad, crisis, ventas y comercio exterior'},
+  10:{icon:'🏥', color:'#4FB6C8', name:'Vida profesional', desc:'Salud, propiedades, seguros, y trámites del día a día'},
+  11:{icon:'🚀', color:'#C77DE8', name:'Estrategia de marca', desc:'Marketing, fusiones, comercio electrónico y startups'},
+  12:{icon:'🎪', color:'#E86AA8', name:'Industrias y eventos', desc:'Relaciones públicas, retail, turismo y energía'},
+  13:{icon:'🏗️', color:'#C99A5B', name:'Industrias especializadas', desc:'Construcción, automotriz, aviación, moda y más'},
+  14:{icon:'🌐', color:'#5BC9A0', name:'Sectores emergentes', desc:'Farmacéutica, videojuegos, trabajo remoto y sostenibilidad'},
+  15:{icon:'🎓', color:'#E8C33D', name:'La cima', desc:'Marca personal, el futuro del trabajo, y tu graduación'}
+};
 const unitReviewStories = {
   12: [
     {en:'Good morning! Today, our dragon friend opens the doors of his shop in the Floating City.', es:'¡Buenos días! Hoy, nuestro amigo dragón abre las puertas de su tienda en la Ciudad Flotante.', pron:'gud mórnin! tudéi, áur drágon frend óupens de dors of jis shap in de flóuting síti.'},
