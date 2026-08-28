@@ -40,7 +40,7 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Resume, cover letter too!', es:'Currículum, ¡carta de presentación también!', pron:'réziumei, cáver léter tú!'},
-      {en:"Job interview, I'm ready for you!", es:'Entrevista de trabajo, ¡estoy listo para vos!', pron:"yab ínterviu, áim rédi for iú!"},
+      {en:"Job interview, I'm ready for you!", es:'Entrevista de trabajo, ¡estoy listo para ti!', pron:"yab ínterviu, áim rédi for iú!"},
       {en:'Strengths and weaknesses, references clear!', es:'Fortalezas y debilidades, ¡referencias claras!', pron:'strenz and uíknesses, réferenses clíar!'},
       {en:'Job offer, candidate, welcome here!', es:'Oferta de trabajo, candidato, ¡bienvenido acá!', pron:'yab áfer, cándideit, uélcam jíar!'}
     ]
@@ -53,7 +53,7 @@ const curriculumUnidad8 = [
         {en:'I am responsible for client relations.', es:'Soy responsable de las relaciones con clientes.', pron:'ái am rispánsibol for cláient riléishions.'},
         {en:'I am responsible for the budget.', es:'Soy responsable del presupuesto.', pron:'ái am rispánsibol for de báyet.'},
         {en:'I am not responsible for that department.', es:'No soy responsable de ese departamento.', pron:'ái am nat rispánsibol for dat dipártment.'}
-      ], function:'decir de qué sos responsable', stage:2,
+      ], function:'decir de qué eres responsable', stage:2,
         transformations:{
           negative:{en:'I am not responsible for the sales team.', es:'No soy responsable del equipo de ventas.'},
           question:{en:'Are you responsible for the sales team?', es:'¿Sos responsable del equipo de ventas?'},
@@ -65,8 +65,8 @@ const curriculumUnidad8 = [
       {en:'previous experience', es:'experiencia previa', pron:'príivios expíriens', emoji:'📂'},
       {en:'responsibilities', es:'responsabilidades', pron:'rispansibílitis', emoji:'📋'},
       {en:'achievements', es:'logros', pron:'achíivments', emoji:'🏆'},
-      {en:'why do you want this job', es:'por qué querés este trabajo', pron:'uái du iú uánt dis yab', emoji:'❓'},
-      {en:'tell me about yourself', es:'contame sobre vos', pron:'tel mi abáut iorsélf', emoji:'🗣️'},
+      {en:'why do you want this job', es:'por qué quieres este trabajo', pron:'uái du iú uánt dis yab', emoji:'❓'},
+      {en:'tell me about yourself', es:'cuéntame sobre ti', pron:'tel mi abáut iorsélf', emoji:'🗣️'},
       {en:'team player', es:'trabaja bien en equipo', pron:'tíim pléyer', emoji:'🤝'},
       {en:'deadline-driven', es:'orientado a plazos', pron:'dédlain dríven', emoji:'⏰'},
       {en:'problem-solving', es:'resolución de problemas', pron:'práblem sálving', emoji:'🧩'},
@@ -74,15 +74,15 @@ const curriculumUnidad8 = [
       {en:'to negotiate salary', es:'negociar el salario', pron:'tu nigóushieit sálari', emoji:'💲'}
     ],
     story:[
-      {en:'Tell me about yourself, dragon — what is your previous experience?', es:'Contame sobre vos, dragón — ¿cuál es tu experiencia previa?', pron:'tel mi abáut iorsélf, drágon — uát is iór príivios expíriens?'},
+      {en:'Tell me about yourself, dragon — what is your previous experience?', es:'Cuéntame sobre ti, dragón — ¿cuál es tu experiencia previa?', pron:'tel mi abáut iorsélf, drágon — uát is iór príivios expíriens?'},
       {en:'My responsibilities included guarding treasure and my achievements include saving the kingdom twice!', es:'Mis responsabilidades incluían cuidar el tesoro y mis logros incluyen salvar el reino dos veces.', pron:'mái rispansibílitis inclúudid gárding tréshur and mái achíivments inclúud séiving de kíngdom tuáis!'},
-      {en:'Why do you want this job? Because I am a team player, and very deadline-driven!', es:'¿Por qué querés este trabajo? ¡Porque trabajo bien en equipo, y estoy muy orientado a plazos!', pron:'uái du iú uánt dis yab? bicós ái am a tíim pléyer, and véri dédlain dríven!'},
+      {en:'Why do you want this job? Because I am a team player, and very deadline-driven!', es:'¿Por qué quieres este trabajo? ¡Porque trabajo bien en equipo, y estoy muy orientado a plazos!', pron:'uái du iú uánt dis yab? bicós ái am a tíim pléyer, and véri dédlain dríven!'},
       {en:'I have excellent problem-solving and leadership skills — just ask the other dragons!', es:'¡Tengo excelentes habilidades de resolución de problemas y liderazgo — preguntale a los otros dragones!', pron:'ái jav éxcelent práblem sálving and líidership skils — yast ask de áder drágons!'},
       {en:"Now, let's negotiate salary — I only accept payment in gold!", es:'Ahora, negociemos el salario — ¡solo acepto pago en oro!', pron:"náu, lets nigóushieit sálari — ái óunli axépt péiment in góuld!"}
     ],
     jingle:[
       {en:'Previous experience, responsibilities too!', es:'Experiencia previa, ¡responsabilidades también!', pron:'príivios expíriens, rispansibílitis tú!'},
-      {en:"Achievements and team player, that's me and you!", es:'Logros y trabajo en equipo, ¡eso somos vos y yo!', pron:"achíivments and tíim pléyer, dats mi and iú!"},
+      {en:"Achievements and team player, that's me and you!", es:'Logros y trabajo en equipo, ¡eso somos tú y yo!', pron:"achíivments and tíim pléyer, dats mi and iú!"},
       {en:'Deadline-driven, problem-solving fast!', es:'Orientado a plazos, ¡resolución de problemas rápida!', pron:'dédlain dríven, práblem sálving fast!'},
       {en:'Leadership skills, negotiate at last!', es:'Habilidades de liderazgo, ¡negociá por fin!', pron:'líidership skils, nigóushieit at last!'}
     ]
@@ -91,7 +91,7 @@ const curriculumUnidad8 = [
     day:87, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Networking / Eventos de negocios',
     structures:[
       {id:'S065', pattern:"I would like to connect with + [X]", examples:[
-        {en:'I would like to connect with you.', es:'Me gustaría conectar con vos.', pron:'ái uud láik tu canéct uid iú.'},
+        {en:'I would like to connect with you.', es:'Me gustaría conectar contigo.', pron:'ái uud láik tu canéct uid iú.'},
         {en:'I would like to exchange business cards.', es:'Me gustaría intercambiar tarjetas.', pron:'ái uud láik tu extchéinch bísnes cards.'},
         {en:'I would like to follow up next week.', es:'Me gustaría hacer seguimiento la próxima semana.', pron:'ái uud láik tu fólou ap next uíik.'},
         {en:'I would like to learn more about your company.', es:'Me gustaría saber más de tu empresa.', pron:'ái uud láik tu lern mor abáut iór cámpani.'}
@@ -165,7 +165,7 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Public speaking, audience too!', es:'Hablar en público, ¡público también!', pron:'páblic spíiking, ódiens tú!'},
-      {en:'Opening statement, key points for you!', es:'Declaración de apertura, ¡puntos clave para vos!', pron:'óupening stéitment, kíi póints for iú!'},
+      {en:'Opening statement, key points for you!', es:'Declaración de apertura, ¡puntos clave para ti!', pron:'óupening stéitment, kíi póints for iú!'},
       {en:'Visual aids, engage them right!', es:'Ayudas visuales, ¡captalos bien!', pron:'víshual éids, ingéich dem ráit!'},
       {en:'Q&A, closing, confident and bright!', es:'Preguntas y respuestas, cierre, ¡seguro y brillante!', pron:'kiú and éi, clóusing, cánfident and bráit!'}
     ]
@@ -207,9 +207,9 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Contract, signature, terms too!', es:'Contrato, firma, ¡términos también!', pron:'cántract, sígnicher, terms tú!'},
-      {en:'Clause and conditions, all for you!', es:'Cláusula y condiciones, ¡todo para vos!', pron:'clos and candíshons, ol for iú!'},
+      {en:'Clause and conditions, all for you!', es:'Cláusula y condiciones, ¡todo para ti!', pron:'clos and candíshons, ol for iú!'},
       {en:'Legal advisor, confidential and true!', es:'Asesor legal, ¡confidencial y verdadero!', pron:'líigal advaisor, canfidénshal and trú!'},
-      {en:'Binding agreement, me and you!', es:'Acuerdo vinculante, ¡vos y yo!', pron:'báinding agríiment, mi and iú!'}
+      {en:'Binding agreement, me and you!', es:'Acuerdo vinculante, ¡tú y yo!', pron:'báinding agríiment, mi and iú!'}
     ]
   },
 {
@@ -249,7 +249,7 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Office culture, work-life balance true!', es:'Cultura de oficina, ¡equilibrio verdadero!', pron:'áfis cálcher, uork láif bálans trú!'},
-      {en:'Punctuality, dress code for you!', es:'Puntualidad, ¡código de vestimenta para vos!', pron:'panctualíti, dres cóud for iú!'},
+      {en:'Punctuality, dress code for you!', es:'Puntualidad, ¡código de vestimenta para ti!', pron:'panctualíti, dres cóud for iú!'},
       {en:'Small talk, direct, no hierarchy!', es:'Charla informal, directo, ¡sin jerarquía!', pron:'smol tok, diréct, nóu jáiararki!'},
       {en:'Remote work, flexible, fly free!', es:'Trabajo remoto, flexible, ¡volá libre!', pron:'rimóut uork, fléxibol, flái fríi!'}
     ]
@@ -315,7 +315,7 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Loan, interest rate, credit score too!', es:'Préstamo, tasa de interés, ¡puntaje también!', pron:'lóun, ínterest réit, crédit scóar tú!'},
-      {en:'Savings, checking, all for you!', es:'Ahorros, corriente, ¡todo para vos!', pron:'séivings, chéking, ol for iú!'},
+      {en:'Savings, checking, all for you!', es:'Ahorros, corriente, ¡todo para ti!', pron:'séivings, chéking, ol for iú!'},
       {en:'Transfer funds, advisor near!', es:'Transferí fondos, ¡asesor cerca!', pron:'tránsfer fands, advaisor níar!'},
       {en:'Invest, stock market, budget clear!', es:'Invertí, mercado de valores, ¡presupuesto claro!', pron:'invést, stak márket, báchet clíar!'}
     ]
@@ -343,7 +343,7 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Tax return, accountant too!', es:'Declaración de impuestos, ¡contador también!', pron:'tax ritérn, acáuntant tú!'},
-      {en:'Fiscal year, revenue for you!', es:'Año fiscal, ¡ingresos para vos!', pron:'físcal íar, révenu for iú!'},
+      {en:'Fiscal year, revenue for you!', es:'Año fiscal, ¡ingresos para ti!', pron:'físcal íar, révenu for iú!'},
       {en:'Expenses, profit margin, audit near!', es:'Gastos, margen de ganancia, ¡auditoría cerca!', pron:'expénses, práfit márchin, ódit níar!'},
       {en:'Receipt, deductible, file it clear!', es:'Recibo, deducible, ¡declaralo claro!', pron:'risíit, didáctibol, fáil it clíar!'}
     ]
@@ -384,7 +384,7 @@ const curriculumUnidad8 = [
     ],
     jingle:[
       {en:'Compromise, win-win too!', es:'Ceder, ¡ganar-ganar también!', pron:'cámpromais, uín uín tú!'},
-      {en:'Leverage, bottom line for you!', es:'Influencia, ¡resultado final para vos!', pron:'léverich, bátom láin for iú!'},
+      {en:'Leverage, bottom line for you!', es:'Influencia, ¡resultado final para ti!', pron:'léverich, bátom láin for iú!'},
       {en:'Concede, mutual benefit clear!', es:'Ceder, ¡beneficio mutuo claro!', pron:'cansíid, miúchual bénefit clíar!'},
       {en:'Negotiation table, agreement near!', es:'Mesa de negociación, ¡acuerdo cerca!', pron:'nigoushiéishon téibol, agríiment níar!'}
     ]

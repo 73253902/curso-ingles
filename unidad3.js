@@ -349,7 +349,7 @@ const curriculumUnidad3 = [
     story:[
       {en:'Dragons do not carry money — they hoard mountains of cash instead!', es:'¡Los dragones no llevan dinero — en cambio, acumulan montañas de efectivo!', pron:'drágons du nat cári máni — déi jord máuntains of cash instéd!'},
       {en:'Do you accept bank transfer, credit card, debit card, or only ancient magic checks?', es:'¿Aceptan transferencia bancaria, tarjeta de crédito, tarjeta de débito, o solo cheques mágicos antiguos?', pron:'du iú axépt bank tránsfer, crédit card, débit card, or óunli éinshent máyic cheks?'},
-      {en:'Here is your receipt, and here is your change — one shiny star coin!', es:'Acá tenés tu recibo, ¡y acá tu vuelto — una moneda de estrella brillante!', pron:'jíar is iór risíit, and jíar is iór chéinch — uán sháini star cóin!'},
+      {en:'Here is your receipt, and here is your change — one shiny star coin!', es:'Aquí tienes tu recibo, y aquí tu vuelto — ¡una moneda de estrella brillante!', pron:'jíar is iór risíit, and jíar is iór chéinch — uán sháini star cóin!'},
       {en:'The currency exchange rate between dragon gold and wizard silver changes every full moon.', es:'El tipo de cambio entre el oro de dragón y la plata de mago cambia con cada luna llena.', pron:'de kárensi exchéinch réit bituín drágon góuld and uísard sílver chéinches évri ful múun.'},
       {en:'To pay, to charge, or to request a refund — the flying bank handles it all by wire transfer!', es:'¡Pagar, cobrar, o pedir un reembolso — el banco volador se encarga de todo por transferencia electrónica!', pron:'tu péi, tu charch, or tu rikuést a rífand — de fláing bank jándols it ol bái uáier tránsfer!'}
     ],
@@ -392,14 +392,14 @@ const curriculumUnidad3 = [
       {en:'deal closed', es:'trato cerrado', pron:'díil clóusd', emoji:'✅'}
     ],
     story:[
-      {en:'I want to buy a thousand dragon eggs, and you want to sell a million!', es:'¡Quiero comprar mil huevos de dragón, y vos querés vender un millón!', pron:'ái uánt tu bái a záusand drágon egs, and iú uánt tu sel a mílion!'},
+      {en:'I want to buy a thousand dragon eggs, and you want to sell a million!', es:'¡Quiero comprar mil huevos de dragón, y tú quieres vender un millón!', pron:'ái uánt tu bái a záusand drágon egs, and iú uánt tu sel a mílion!'},
       {en:"Let's purchase in bulk — a bulk order gets the lowest price, wholesale, not retail!", es:'¡Compremos al por mayor — un pedido al por mayor consigue el precio más bajo, mayorista, no minorista!', pron:'lets pérchas in balk — a balk órder guéts de lóuest práis, jóulseil, nat ríiteil!'},
       {en:'Our margin is huge, our profit is a mountain of gold, and our loss is zero — we always win!', es:'Nuestro margen es enorme, nuestra ganancia es una montaña de oro, ¡y nuestra pérdida es cero — siempre ganamos!', pron:'áur márchin is jiúch, áur práfit is a máuntain of góuld, and áur los is zírou — uí ólueis uín!'},
       {en:'This is my final offer, dragon — deal closed!', es:'Esta es mi oferta final, dragón — ¡trato cerrado!', pron:'dis is mái fáinal áfer, drágon — díil clóusd!'}
     ],
     jingle:[
       {en:'To buy, to sell, to purchase too!', es:'Comprar, vender, ¡adquirir también!', pron:'tu bái, tu sel, tu pérchas tú!'},
-      {en:'Lowest price, wholesale for you!', es:'Precio más bajo, ¡al por mayor para vos!', pron:'lóuest práis, jóulseil for iú!'},
+      {en:'Lowest price, wholesale for you!', es:'Precio más bajo, ¡al por mayor para ti!', pron:'lóuest práis, jóulseil for iú!'},
       {en:'Margin, profit, never a loss!', es:'Margen, ganancia, ¡nunca una pérdida!', pron:'márchin, práfit, néver a los!'},
       {en:"Final offer, deal closed, I'm the boss!", es:'Oferta final, trato cerrado, ¡soy el jefe!', pron:'fáinal áfer, díil clóusd, áim de bos!'}
     ]
@@ -458,20 +458,20 @@ const curriculumUnidad3 = [
       {en:'review time', es:'hora de repasar', pron:'riviú táim', emoji:'🔁'},
       {en:'final challenge', es:'desafío final', pron:'fáinal chálench', emoji:'🏆'},
       {en:'well earned', es:'bien merecido', pron:'uél érnd', emoji:'🎖️'},
-      {en:'proud of you', es:'orgulloso de vos', pron:'práud of iú', emoji:'😊'},
+      {en:'proud of you', es:'orgulloso de ti', pron:'práud of iú', emoji:'😊'},
       {en:'see you in unit four', es:'nos vemos en la unidad cuatro', pron:'síi iú in iúnit fóar', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
       {en:"Welcome to unit three's final challenge! It costs a lot of effort, but your progress has been strong.", es:'¡Bienvenido al desafío final de la unidad tres! Cuesta mucho esfuerzo, pero tu progreso fue sólido.', pron:'uélcam tu iúnit zríis fáinal chálench! it casts a lat of éfort, bat iór prágres jas bíin strong.'},
       {en:'It is review time! This is the first step of your final test today.', es:'¡Es hora de repasar! Este es el primer paso de tu prueba final de hoy.', pron:'it is riviú táim! dis is de ferst step of iór fáinal test tudéi.'},
-      {en:"Well earned, champion — I am so proud of you for everything you've learned!", es:'Bien merecido, campeón — ¡estoy muy orgulloso de vos por todo lo que aprendiste!', pron:"uél érnd, chámpion — ái am sóu práud of iú for évrizin iúv lernd!"},
+      {en:"Well earned, champion — I am so proud of you for everything you've learned!", es:'Bien merecido, campeón — ¡estoy muy orgulloso de ti por todo lo que aprendiste!', pron:"uél érnd, chámpion — ái am sóu práud of iú for évrizin iúv lernd!"},
       {en:'See you in unit four — the next unit is ready and waiting for you!', es:'¡Nos vemos en la unidad cuatro — la próxima unidad está lista y te espera!', pron:'síi iú in iúnit fóar — de next iúnit is rédi and uéiting for iú!'}
     ],
     jingle:[
       {en:'Unit three, strong progress today!', es:'Unidad tres, ¡buen progreso hoy!', pron:'iúnit zríi, strong prágres tudéi!'},
       {en:'Review time, final challenge, hooray!', es:'Hora de repasar, desafío final, ¡hurra!', pron:'riviú táim, fáinal chálench, juréi!'},
-      {en:'Well earned, proud of you, my friend!', es:'Bien merecido, orgulloso de vos, ¡mi amigo!', pron:'uél érnd, práud of iú, mái frend!'},
+      {en:'Well earned, proud of you, my friend!', es:'Bien merecido, orgulloso de ti, ¡mi amigo!', pron:'uél érnd, práud of iú, mái frend!'},
       {en:'See you in unit four, till we meet again!', es:'Nos vemos en la unidad cuatro, ¡hasta que nos volvamos a encontrar!', pron:'síi iú in iúnit fóar, til uí míit aguén!'}
     ]
   }

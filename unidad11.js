@@ -20,11 +20,11 @@ const curriculumUnidad11 = [
       {en:"This dragon thinks outside the box — let's get the ball rolling on the new castle!", es:'¡Este dragón piensa fuera de lo convencional — pongamos en marcha el nuevo castillo!', pron:"dis drágon zinks áutsaid de bax — lets guét de bol róuling on de niú cásol!"},
       {en:"Are we on the same page? Let's not cut corners on this treasure map.", es:'¿Estamos en sintonía? No hagamos las cosas a medias con este mapa del tesoro.', pron:"ar uí on de séim péich? lets nat cat córners on dis tréshur map."},
       {en:"I'll go the extra mile, and keep you in the loop about the volcano project.", es:'Voy a esforzarme más de lo esperado, y te voy a mantener informado sobre el proyecto del volcán.', pron:"áil góu de éxtra máil, and kíip iú in de lúup abáut de valkéinou práchect."},
-      {en:"What do you bring to the table? Let's circle back to this next week.", es:'¿Qué aportás vos? Retomemos esto la próxima semana.', pron:"uát du iú bring tu de téibol? lets sércol bak tu dis next uíik."}
+      {en:"What do you bring to the table? Let's circle back to this next week.", es:'¿Qué aportas tú? Retomemos esto la próxima semana.', pron:"uát du iú bring tu de téibol? lets sércol bak tu dis next uíik."}
     ],
     jingle:[
       {en:'Touch base, follow through too!', es:'Ponete en contacto, ¡cumplí también!', pron:'tach béis, fálou zrú tú!'},
-      {en:'Think outside the box, for you!', es:'Pensá fuera de lo convencional, ¡para vos!', pron:'zink áutsaid de bax, for iú!'},
+      {en:'Think outside the box, for you!', es:'Piensa fuera de lo convencional, ¡para ti!', pron:'zink áutsaid de bax, for iú!'},
       {en:'Same page, no cutting corners, go the extra mile!', es:'En sintonía, sin atajos, ¡esforzate más!', pron:'séim péich, nóu cáting córners, góu de éxtra máil!'},
       {en:'Keep in the loop, bring it, circle back with style!', es:'Mantené informado, aportá, ¡retomá con estilo!', pron:'kíip in de lúup, bring it, sércol bak uid stáil!'}
     ]
@@ -52,7 +52,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Cultural sensitivity, etiquette too!', es:'Sensibilidad cultural, ¡etiqueta también!', pron:'cálchural sensitíviti, étiket tú!'},
-      {en:'Greeting customs, gift giving for you!', es:'Costumbres de saludo, ¡regalos para vos!', pron:'gríiting cástoms, guift guíving for iú!'},
+      {en:'Greeting customs, gift giving for you!', es:'Costumbres de saludo, ¡regalos para ti!', pron:'gríiting cástoms, guift guíving for iú!'},
       {en:'Punctuality, dining etiquette bright!', es:'Puntualidad, ¡etiqueta en la mesa brillante!', pron:'panctualíti, dáining étiket bráit!'},
       {en:'Body language, interpreter, feels right!', es:'Lenguaje corporal, intérprete, ¡se siente bien!', pron:'bádi lángüich, intérpreter, fíils ráit!'}
     ]
@@ -80,7 +80,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Merger, acquisition, due diligence too!', es:'Fusión, adquisición, ¡debida diligencia también!', pron:'mércher, akuisíshon, diú díliyens tú!'},
-      {en:'Valuation, shareholders for you!', es:'Valuación, ¡accionistas para vos!', pron:'valiuéishon, shérjolders for iú!'},
+      {en:'Valuation, shareholders for you!', es:'Valuación, ¡accionistas para ti!', pron:'valiuéishon, shérjolders for iú!'},
       {en:'Hostile takeover, synergy bright!', es:'Toma hostil, ¡sinergia brillante!', pron:'jástail téikóuver, sínerchi bráit!'},
       {en:'Integration, letter of intent, all right!', es:'Integración, carta de intención, ¡todo bien!', pron:'integréishon, léter of inténd, ol ráit!'}
     ]
@@ -108,7 +108,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Marketing strategy, positioning too!', es:'Estrategia de marketing, ¡posicionamiento también!', pron:'márketing strátedchi, posíshoning tú!'},
-      {en:'Segmentation, analysis for you!', es:'Segmentación, ¡análisis para vos!', pron:'segmentéishon, análisis for iú!'},
+      {en:'Segmentation, analysis for you!', es:'Segmentación, ¡análisis para ti!', pron:'segmentéishon, análisis for iú!'},
       {en:'Unique selling, brand awareness bright!', es:'Venta única, ¡reconocimiento de marca brillante!', pron:'iuník séling, brand auérnes bráit!'},
       {en:'Marketing mix, persona, strategy right!', es:'Mezcla de marketing, perfil, ¡estrategia correcta!', pron:'márketing mix, persóuna, strátedchi ráit!'}
     ]
@@ -135,7 +135,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Brand identity, logo design too!', es:'Identidad de marca, ¡diseño de logo también!', pron:'brand aidéntiti, lóugou disáin tú!'},
-      {en:'Brand voice, guidelines for you!', es:'Voz de marca, ¡lineamientos para vos!', pron:'brand vóis, gáidlains for iú!'},
+      {en:'Brand voice, guidelines for you!', es:'Voz de marca, ¡lineamientos para ti!', pron:'brand vóis, gáidlains for iú!'},
       {en:'Tagline, brand equity bright!', es:'Eslogan, ¡valor de marca brillante!', pron:'táglain, brand écuiti bráit!'},
       {en:'Rebranding, loyalty, feels so right!', es:'Cambio de imagen, lealtad, ¡se siente tan bien!', pron:'ribránding, lóialti, fíils sóu ráit!'}
     ]
@@ -163,7 +163,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'E-commerce platform, storefront too!', es:'Plataforma de comercio electrónico, ¡tienda también!', pron:'íicámers plátform, stóarfrant tú!'},
-      {en:'Shopping cart, checkout for you!', es:'Carrito de compras, ¡pago para vos!', pron:'sháping cart, chékaut for iú!'},
+      {en:'Shopping cart, checkout for you!', es:'Carrito de compras, ¡pago para ti!', pron:'sháping cart, chékaut for iú!'},
       {en:'Payment gateway, product listing bright!', es:'Pasarela de pago, ¡listado de producto brillante!', pron:'péiment guéituei, prádact lísting bráit!'},
       {en:'Return policy, conversion rate right!', es:'Política de devoluciones, ¡tasa de conversión correcta!', pron:'ritérn pálisi, canvérshon réit ráit!'}
     ]
@@ -215,7 +215,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Subscription model, recurring too!', es:'Modelo de suscripción, ¡recurrente también!', pron:'sabscrípshon mádol, rikéring tú!'},
-      {en:'Churn rate, lifetime value for you!', es:'Tasa de cancelación, ¡valor de vida para vos!', pron:'chern réit, láiftaim váliu for iú!'},
+      {en:'Churn rate, lifetime value for you!', es:'Tasa de cancelación, ¡valor de vida para ti!', pron:'chern réit, láiftaim váliu for iú!'},
       {en:'Free trial, subscription tier bright!', es:'Prueba gratuita, ¡nivel de suscripción brillante!', pron:'fríi tráial, sabscrípshon tíar bráit!'},
       {en:'Auto-renewal, pricing plan right!', es:'Renovación automática, ¡plan de precios correcto!', pron:'óto riniúal, práising plan ráit!'}
     ]
@@ -242,7 +242,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Franchise, franchisee too!', es:'Franquicia, ¡franquiciado también!', pron:'fránchais, franchaisíi tú!'},
-      {en:'Franchisor, licensing for you!', es:'Franquiciante, ¡licencia para vos!', pron:'fránchaisor, láisensing for iú!'},
+      {en:'Franchisor, licensing for you!', es:'Franquiciante, ¡licencia para ti!', pron:'fránchaisor, láisensing for iú!'},
       {en:'Royalty fee, brand standards bright!', es:'Regalía, ¡estándares de marca brillantes!', pron:'róialti fíi, brand stándards bráit!'},
       {en:'Territory rights, trademark right!', es:'Derechos territoriales, ¡marca registrada correcta!', pron:'téritori ráits, tréidmark ráit!'}
     ]
@@ -269,7 +269,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Startup, entrepreneur too!', es:'Empresa emergente, ¡emprendedor también!', pron:'stártap, antreprenér tú!'},
-      {en:'Venture capital, pitch deck for you!', es:'Capital de riesgo, ¡presentación para vos!', pron:'vénchur cápital, pich dek for iú!'},
+      {en:'Venture capital, pitch deck for you!', es:'Capital de riesgo, ¡presentación para ti!', pron:'vénchur cápital, pich dek for iú!'},
       {en:'Seed funding, minimum viable bright!', es:'Financiamiento semilla, ¡mínimo viable brillante!', pron:'síid fánding, mínimum váiabol bráit!'},
       {en:'Scalability, pivot, exit right!', es:'Escalabilidad, cambio de rumbo, ¡salida correcta!', pron:'skéilabíliti, pívot, éxit ráit!'}
     ]
@@ -296,7 +296,7 @@ const curriculumUnidad11 = [
     ],
     jingle:[
       {en:'Business ethics, governance too!', es:'Ética empresarial, ¡gobernanza también!', pron:'bísnes ézics, gávernans tú!'},
-      {en:'Code of conduct, all for you!', es:'Código de conducta, ¡todo para vos!', pron:'cóud of cándact, ol for iú!'},
+      {en:'Code of conduct, all for you!', es:'Código de conducta, ¡todo para ti!', pron:'cóud of cándact, ol for iú!'},
       {en:'Conflict of interest, transparency bright!', es:'Conflicto de interés, ¡transparencia brillante!', pron:'cánflict of íntrest, transpárensi bráit!'},
       {en:'Accountability, compliance, feels right!', es:'Rendición de cuentas, cumplimiento, ¡se siente bien!', pron:'acauntabíliti, campláiens, fíils ráit!'}
     ]
@@ -315,7 +315,7 @@ const curriculumUnidad11 = [
     story:[
       {en:"Welcome to unit eleven's closing — almost three quarters done, legendary hero!", es:'¡Bienvenido al cierre de la unidad once — casi tres cuartos hecho, héroe legendario!', pron:"uélcam tu iúnit ilévens clóusing — ólmoust zríi cuárters dan, léyendari jírou!"},
       {en:'You are staying focused — well done, dragon trader!', es:'¡Te estás manteniendo enfocado — bien hecho, comerciante de dragones!', pron:'iú ar stéing fóucust — uél dan, drágon tréider!'},
-      {en:'Only the final third remains — you can do this!', es:'¡Solo queda el último tercio — vos podés hacerlo!', pron:'óunli de fáinal zerd riméins — iú can du dis!'},
+      {en:'Only the final third remains — you can do this!', es:'¡Solo queda el último tercio — tú puedes hacerlo!', pron:'óunli de fáinal zerd riméins — iú can du dis!'},
       {en:'See you in unit twelve, brave hero!', es:'¡Nos vemos en la unidad doce, valiente héroe!', pron:'síi iú in iúnit tuélv, bréiv jírou!'}
     ],
     jingle:[

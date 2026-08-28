@@ -24,7 +24,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Trade summit, diplomatic too!', es:'Cumbre comercial, ¡diplomática también!', pron:'tréid sámit, diplomátic tú!'},
-      {en:'Bilateral agreement, delegation for you!', es:'Acuerdo bilateral, ¡delegación para vos!', pron:'baláteral agríiment, delegéishon for iú!'},
+      {en:'Bilateral agreement, delegation for you!', es:'Acuerdo bilateral, ¡delegación para ti!', pron:'baláteral agríiment, delegéishon for iú!'},
       {en:'Cooperation, partnership bright!', es:'Cooperación, ¡asociación brillante!', pron:'cóoperéishon, pártnership bráit!'},
       {en:'Treaty, cultural exchange, feels right!', es:'Tratado, intercambio cultural, ¡se siente bien!', pron:'tríiti, cálchural exchéinch, fíils ráit!'}
     ]
@@ -52,7 +52,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Research and development, breakthrough too!', es:'Investigación y desarrollo, ¡avance también!', pron:'risérch and divélopment, bréikzru tú!'},
-      {en:'Laboratory, peer review for you!', es:'Laboratorio, ¡revisión para vos!', pron:'lábratori, píar riviú for iú!'},
+      {en:'Laboratory, peer review for you!', es:'Laboratorio, ¡revisión para ti!', pron:'lábratori, píar riviú for iú!'},
       {en:'Research grant, innovation bright!', es:'Subvención, ¡innovación brillante!', pron:'risérch grant, inovéishon bráit!'},
       {en:'Patent, collaboration, findings right!', es:'Patente, colaboración, ¡hallazgos correctos!', pron:'pátent, calaboréishon, fáindings ráit!'}
     ]
@@ -79,7 +79,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Philanthropy, legacy too!', es:'Filantropía, ¡legado también!', pron:'filántropi, légasi tú!'},
-      {en:'Charitable foundation, all for you!', es:'Fundación benéfica, ¡todo para vos!', pron:'chéritabol faundéishon, ol for iú!'},
+      {en:'Charitable foundation, all for you!', es:'Fundación benéfica, ¡todo para ti!', pron:'chéritabol faundéishon, ol for iú!'},
       {en:'Social responsibility, investment bright!', es:'Responsabilidad social, ¡inversión brillante!', pron:'sóushal rispansibíliti, invéstment bráit!'},
       {en:'Legacy planning, giving back right!', es:'Planificación del legado, ¡devolver correctamente!', pron:'légasi pláning, guíving bak ráit!'}
     ]
@@ -106,7 +106,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Retirement planning, pension fund too!', es:'Planificación de jubilación, ¡fondo de pensión también!', pron:'ritáiarment pláning, pénshon fand tú!'},
-      {en:'Retirement savings, all for you!', es:'Ahorros para el retiro, ¡todo para vos!', pron:'ritáiarment séivings, ol for iú!'},
+      {en:'Retirement savings, all for you!', es:'Ahorros para el retiro, ¡todo para ti!', pron:'ritáiarment séivings, ol for iú!'},
       {en:'Financial independence, estate bright!', es:'Independencia financiera, ¡patrimonio brillante!', pron:'faináncial indipéndens, estéit bráit!'},
       {en:'Nest egg, retirement account right!', es:'Ahorro, ¡cuenta de jubilación correcta!', pron:'nest eg, ritáiarment acáunt ráit!'}
     ]
@@ -130,7 +130,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Lasting impression, full circle too!', es:'Impresión duradera, ¡círculo completo también!', pron:'lásting imprézhon, ful sércol tú!'},
-      {en:'Test of time, pave the way for you!', es:'Paso del tiempo, ¡abrí camino para vos!', pron:'test of táim, péiv de uéi for iú!'},
+      {en:'Test of time, pave the way for you!', es:'Paso del tiempo, ¡abre camino para ti!', pron:'test of táim, péiv de uéi for iú!'},
       {en:'Reap what you sow, rise to the day!', es:'Cosechá lo que sembrás, ¡estate a la altura del día!', pron:'ríip uát iú sóu, ráis tu de déi!'},
       {en:'Leave your mark, go the distance, hooray!', es:'Dejá tu huella, llegá hasta el final, ¡hurra!', pron:'líiv iór mark, góu de dístans, juréi!'}
     ]
@@ -158,7 +158,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Personal branding, reputation too!', es:'Marca personal, ¡reputación también!', pron:'pérsonal bránding, repiutéishon tú!'},
-      {en:'Online presence, website for you!', es:'Presencia en línea, ¡sitio web para vos!', pron:'anláin prézens, uébsait for iú!'},
+      {en:'Online presence, website for you!', es:'Presencia en línea, ¡sitio web para ti!', pron:'anláin prézens, uébsait for iú!'},
       {en:'Career narrative, values bright!', es:'Historia profesional, ¡valores brillantes!', pron:'caríar nárativ, váliuus bráit!'},
       {en:'Milestones, legacy, feels right!', es:'Hitos, legado, ¡se siente bien!', pron:'máilstouns, légasi, fíils ráit!'}
     ]
@@ -186,7 +186,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Future of work, automation too!', es:'Futuro del trabajo, ¡automatización también!', pron:'fiúchur of uork, otoméishon tú!'},
-      {en:'Skills gap, lifelong learning for you!', es:'Brecha de habilidades, ¡aprendizaje para vos!', pron:'skils gap, láiflong lérning for iú!'},
+      {en:'Skills gap, lifelong learning for you!', es:'Brecha de habilidades, ¡aprendizaje para ti!', pron:'skils gap, láiflong lérning for iú!'},
       {en:'Adaptive workforce, emerging bright!', es:'Fuerza adaptable, ¡emergente brillante!', pron:'adáptiv uórkfors, imérching bráit!'},
       {en:'Upskilling, resilience, feels right!', es:'Mejora de habilidades, resiliencia, ¡se siente bien!', pron:'apskíling, resíliens, fíils ráit!'}
     ]
@@ -214,7 +214,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Business acumen, strategic too!', es:'Visión de negocios, ¡estratégico también!', pron:'bísnes ákiumen, stratéchic tú!'},
-      {en:'Cross-functional, executive for you!', es:'Multifuncional, ¡ejecutivo para vos!', pron:'cros fánkshonal, exékiutiv for iú!'},
+      {en:'Cross-functional, executive for you!', es:'Multifuncional, ¡ejecutivo para ti!', pron:'cros fánkshonal, exékiutiv for iú!'},
       {en:'Decision framework, stakeholder bright!', es:'Marco de decisión, ¡partes interesadas brillante!', pron:'disíshon fréimuork, stéikjolder bráit!'},
       {en:'Business fluency, mastery right!', es:'Fluidez de negocios, ¡dominio correcto!', pron:'bísnes flúensi, másteri ráit!'}
     ]
@@ -242,7 +242,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Intercultural communication, mindset too!', es:'Comunicación intercultural, ¡mentalidad también!', pron:'interkálchural camiunikéishon, máindset tú!'},
-      {en:'Cultural competence, perspectives for you!', es:'Competencia cultural, ¡perspectivas para vos!', pron:'cálchural cámpetens, perspéctivs for iú!'},
+      {en:'Cultural competence, perspectives for you!', es:'Competencia cultural, ¡perspectivas para ti!', pron:'cálchural cámpetens, perspéctivs for iú!'},
       {en:'Inclusive leadership, global team bright!', es:'Liderazgo inclusivo, ¡equipo global brillante!', pron:'inclúsiv líidership, glóubal tíim bráit!'},
       {en:'Respectful dialogue, unity, feels right!', es:'Diálogo respetuoso, unidad, ¡se siente bien!', pron:'rispéctful dáialog, iúniti, fíils ráit!'}
     ]
@@ -269,7 +269,7 @@ const curriculumUnidad15 = [
     ],
     jingle:[
       {en:'Achievement celebration, recognition too!', es:'Celebración de logros, ¡reconocimiento también!', pron:'achívment selebréishon, récognishon tú!'},
-      {en:'Award, milestone celebration for you!', es:'Premio, ¡celebración para vos!', pron:'auórd, máilstoun selebréishon for iú!'},
+      {en:'Award, milestone celebration for you!', es:'Premio, ¡celebración para ti!', pron:'auórd, máilstoun selebréishon for iú!'},
       {en:'Gratitude, accomplishment bright!', es:'Gratitud, ¡logro brillante!', pron:'grátituud, acámplishment bráit!'},
       {en:'Proud moment, hard-earned, feels right!', es:'Momento de orgullo, bien merecido, ¡se siente bien!', pron:'práud móument, jard ernd, fíils ráit!'}
     ]
@@ -296,7 +296,7 @@ const curriculumUnidad15 = [
       {en:'Final review, almost done!', es:'Repaso final, ¡casi terminado!', pron:'fáinal riviú, ólmoust dan!'},
       {en:'One day left, having fun!', es:'Queda un día, ¡divirtiéndote!', pron:'uán déi left, jávin fan!'},
       {en:'So proud, incredible journey, unforgettable too!', es:'Tan orgulloso, viaje increíble, ¡inolvidable también!', pron:'sóu práud, incrédibol yérni, anforguétabol tú!'},
-      {en:'Ready for anything, last lesson, just for you!', es:'Listo para todo, última lección, ¡solo para vos!', pron:'rédi for énizin, last léson, yast for iú!'}
+      {en:'Ready for anything, last lesson, just for you!', es:'Listo para todo, última lección, ¡solo para ti!', pron:'rédi for énizin, last léson, yast for iú!'}
     ]
   },
 {
@@ -315,8 +315,8 @@ const curriculumUnidad15 = [
     ],
     story:[
       {en:'Congratulations — you did it! One hundred eighty days ago, you started as a beginner.', es:'¡Felicitaciones — lo lograste! Hace ciento ochenta días, empezaste como principiante.', pron:'congrachuléishons — iú did it! uán jándred éiti déis agóu, iú stárted as a biguíner.'},
-      {en:'Today, your course is complete — you are fluent, and a truly confident speaker!', es:'¡Hoy, tu curso está completo — sos fluido, y un hablante realmente seguro de sí mismo!', pron:'tudéi, iór cors is camplíit — iú ar flúent, and a trúli cánfident spíiker!'},
-      {en:'You are not just a student anymore — you are a real English user, forever!', es:'¡Ya no sos solo un estudiante — sos un usuario real del inglés, para siempre!', pron:'iú ar nat yast a stiúdent enímor — iú ar a ríil ínglish iúser, forévar!'},
+      {en:'Today, your course is complete — you are fluent, and a truly confident speaker!', es:'¡Hoy, tu curso está completo — eres fluido, y un hablante realmente seguro de sí mismo!', pron:'tudéi, iór cors is camplíit — iú ar flúent, and a trúli cánfident spíiker!'},
+      {en:'You are not just a student anymore — you are a real English user, forever!', es:'¡Ya no eres solo un estudiante — eres un usuario real del inglés, para siempre!', pron:'iú ar nat yast a stiúdent enímor — iú ar a ríil ínglish iúser, forévar!'},
       {en:'This is a lifelong skill, and no one can ever take it away from you.', es:'Esta es una habilidad para toda la vida, y nadie te la puede quitar jamás.', pron:'dis is a láiflong skil, and nóu uán can éver téik it auéi fram iú.'},
       {en:'Celebrate today, dragon trader — you have earned a brand new chapter!', es:'¡Celebrá hoy, comerciante de dragones — te ganaste un capítulo completamente nuevo!', pron:'sélebreit tudéi, drágon tréider — iú jav ernd a brand niú cháptar!'},
       {en:"From all of us in the Kingdom of Clouds: congratulations, dragon graduate. This is not goodbye — it's just the beginning of everything you will build with English, for the rest of your life.", es:'De parte de todos nosotros en el Reino de las Nubes: felicitaciones, graduado dragón. Esto no es un adiós — es solo el comienzo de todo lo que vas a construir con el inglés, por el resto de tu vida.', pron:"fram ol of as in de kíngdom of cláuds: congrachuléishons, drágon grádiuet. dis is nat gudbái — its yast de bigíning of évrizin iú uíl bild uid ínglish, for de rest of iór láif."}
@@ -325,7 +325,7 @@ const curriculumUnidad15 = [
       {en:'Congratulations, you did it, course complete!', es:'Felicitaciones, lo lograste, ¡curso completo!', pron:'congrachuléishons, iú did it, cors camplíit!'},
       {en:'Fluent, confident speaker, oh so sweet!', es:'Fluido, hablante seguro, ¡ay qué dulce!', pron:'flúent, cánfident spíiker, óu sóu suíit!'},
       {en:'Real English user, lifelong skill, celebrate!', es:'Usuario real del inglés, habilidad de por vida, ¡celebrá!', pron:'ríil ínglish iúser, láiflong skil, sélebreit!'},
-      {en:"New chapter, dragon graduate — you're truly great!", es:'Nuevo capítulo, graduado dragón — ¡sos realmente grande!', pron:"niú cháptar, drágon grádiuet — iór trúli gréit!"}
+      {en:"New chapter, dragon graduate — you're truly great!", es:'Nuevo capítulo, graduado dragón — ¡eres realmente grande!', pron:"niú cháptar, drágon grádiuet — iór trúli gréit!"}
     ]
   }
 ];

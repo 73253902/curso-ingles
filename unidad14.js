@@ -24,7 +24,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Pharmaceutical industry, clinical trial too!', es:'Industria farmacéutica, ¡ensayo clínico también!', pron:'fármaséutical índastri, clínical tráial tú!'},
-      {en:'Drug approval, generic for you!', es:'Aprobación, ¡genérico para vos!', pron:'drag apruvol, yenéric for iú!'},
+      {en:'Drug approval, generic for you!', es:'Aprobación, ¡genérico para ti!', pron:'drag apruvol, yenéric for iú!'},
       {en:'Dosage instructions, side effects clear!', es:'Instrucciones de dosis, ¡efectos claros!', pron:'dóusich instrákshons, sáid iféccts clíar!'},
       {en:'Over-the-counter, research is near!', es:'De venta libre, ¡investigación cerca!', pron:'óuver de cáunter, risérch is níar!'}
     ]
@@ -52,7 +52,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Gaming industry, developer too!', es:'Industria de videojuegos, ¡desarrollador también!', pron:'guéiming índastri, divéloper tú!'},
-      {en:'Video game console, all for you!', es:'Consola, ¡todo para vos!', pron:'vídio guéim cánsol, ol for iú!'},
+      {en:'Video game console, all for you!', es:'Consola, ¡todo para ti!', pron:'vídio guéim cánsol, ol for iú!'},
       {en:'Game design, esports so bright!', es:'Diseño de juego, ¡esports tan brillante!', pron:'guéim disáin, íisports sóu bráit!'},
       {en:'Beta testing, community right!', es:'Pruebas beta, ¡comunidad correcta!', pron:'béita tésting, camiúniti ráit!'}
     ]
@@ -79,7 +79,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Non-profit organization, charity too!', es:'Sin fines de lucro, ¡caridad también!', pron:'nan práfit organaiséishon, chériti tú!'},
-      {en:'Fundraising campaign, volunteers for you!', es:'Recaudación, ¡voluntarios para vos!', pron:'fándréising campéin, valantíars for iú!'},
+      {en:'Fundraising campaign, volunteers for you!', es:'Recaudación, ¡voluntarios para ti!', pron:'fándréising campéin, valantíars for iú!'},
       {en:'Donor, grant funding bright!', es:'Donante, ¡financiamiento brillante!', pron:'dóunor, grant fánding bráit!'},
       {en:'Social impact, outreach right!', es:'Impacto social, ¡alcance correcto!', pron:'sóushal ímpact, áutrich ráit!'}
     ]
@@ -106,7 +106,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Publishing industry, manuscript too!', es:'Industria editorial, ¡manuscrito también!', pron:'páblishing índastri, mániuscript tú!'},
-      {en:'Literary agent, book deal for you!', es:'Agente literario, ¡contrato para vos!', pron:'líterari éiyent, buk díil for iú!'},
+      {en:'Literary agent, book deal for you!', es:'Agente literario, ¡contrato para ti!', pron:'líterari éiyent, buk díil for iú!'},
       {en:'Editor, print run so bright!', es:'Editor, ¡tirada tan brillante!', pron:'éditor, print ran sóu bráit!'},
       {en:'Ebook, book launch, royalty right!', es:'Libro electrónico, lanzamiento, ¡regalías correctas!', pron:'íibuk, buk lonch, róialti ráit!'}
     ]
@@ -133,7 +133,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Security industry, surveillance too!', es:'Industria de la seguridad, ¡vigilancia también!', pron:'sekiúriti índastri, servéilans tú!'},
-      {en:'Risk management, background for you!', es:'Gestión de riesgos, ¡antecedentes para vos!', pron:'risk mánechment, bákgraund for iú!'},
+      {en:'Risk management, background for you!', es:'Gestión de riesgos, ¡antecedentes para ti!', pron:'risk mánechment, bákgraund for iú!'},
       {en:'Access control, physical bright!', es:'Control de acceso, ¡física brillante!', pron:'áxes cantróul, físical bráit!'},
       {en:'Threat assessment, protocol right!', es:'Evaluación de amenazas, ¡protocolo correcto!', pron:'zret asésment, próutocol ráit!'}
     ]
@@ -185,7 +185,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Urban planning, zoning laws too!', es:'Planificación urbana, ¡zonificación también!', pron:'érban pláning, sóuning los tú!'},
-      {en:'Infrastructure, transportation for you!', es:'Infraestructura, ¡transporte para vos!', pron:'ínfrastrakcher, transportéishon for iú!'},
+      {en:'Infrastructure, transportation for you!', es:'Infraestructura, ¡transporte para ti!', pron:'ínfrastrakcher, transportéishon for iú!'},
       {en:'City council, land use bright!', es:'Concejo municipal, ¡uso del suelo brillante!', pron:'síti cáunsol, land iús bráit!'},
       {en:'Traffic management, sustainable right!', es:'Gestión del tráfico, ¡sostenible correcto!', pron:'tráfic mánechment, sastéinabol ráit!'}
     ]
@@ -213,7 +213,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Mental health, wellness program too!', es:'Salud mental, ¡programa de bienestar también!', pron:'méntal jelz, uélnes prógram tú!'},
-      {en:'Stress management, all for you!', es:'Manejo del estrés, ¡todo para vos!', pron:'stres mánechment, ol for iú!'},
+      {en:'Stress management, all for you!', es:'Manejo del estrés, ¡todo para ti!', pron:'stres mánechment, ol for iú!'},
       {en:'Mindfulness, burnout prevention bright!', es:'Atención plena, ¡prevención brillante!', pron:'máindfulnes, bérnaut privénshon bráit!'},
       {en:'Counseling services, self-care right!', es:'Servicios de consejería, ¡autocuidado correcto!', pron:'cáunseling sérvises, self quér ráit!'}
     ]
@@ -241,7 +241,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Remote team, collaboration too!', es:'Equipo remoto, ¡colaboración también!', pron:'rimóut tíim, calaboréishon tú!'},
-      {en:'Asynchronous work, digital nomad for you!', es:'Trabajo asincrónico, ¡nómada digital para vos!', pron:'eisínkronos uork, díchital nóumad for iú!'},
+      {en:'Asynchronous work, digital nomad for you!', es:'Trabajo asincrónico, ¡nómada digital para ti!', pron:'eisínkronos uork, díchital nóumad for iú!'},
       {en:'Home office, onboarding bright!', es:'Oficina en casa, ¡incorporación brillante!', pron:'jóum áfis, anbórding bráit!'},
       {en:'Time zone, hybrid model, feels right!', es:'Huso horario, modelo híbrido, ¡se siente bien!', pron:'táim sóun, jáibrid mádol, fíils ráit!'}
     ]
@@ -268,7 +268,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Food and beverage, menu too!', es:'Alimentos y bebidas, ¡menú también!', pron:'fúud and bévrich, méniu tú!'},
-      {en:'Food trends, innovation for you!', es:'Tendencias, ¡innovación para vos!', pron:'fúud trends, inovéishon for iú!'},
+      {en:'Food trends, innovation for you!', es:'Tendencias, ¡innovación para ti!', pron:'fúud trends, inovéishon for iú!'},
       {en:'Restaurant chain, distribution bright!', es:'Cadena de restaurantes, ¡distribución brillante!', pron:'réstront chéin, distribiúshon bráit!'},
       {en:'Sustainable sourcing, taste testing right!', es:'Abastecimiento sostenible, ¡prueba de sabor correcta!', pron:'sastéinabol sórsing, téist tésting ráit!'}
     ]
@@ -296,7 +296,7 @@ const curriculumUnidad14 = [
     ],
     jingle:[
       {en:'Waste management, recycling too!', es:'Gestión de residuos, ¡reciclaje también!', pron:'uéist mánechment, risáikling tú!'},
-      {en:'Utility company, water for you!', es:'Empresa de servicios, ¡agua para vos!', pron:'iutíliti cámpani, uáter for iú!'},
+      {en:'Utility company, water for you!', es:'Empresa de servicios, ¡agua para ti!', pron:'iutíliti cámpani, uáter for iú!'},
       {en:'Energy grid, waste reduction bright!', es:'Red eléctrica, ¡reducción brillante!', pron:'énerchi grid, uéist ridákshon bráit!'},
       {en:'Public utilities, regulation right!', es:'Servicios públicos, ¡regulación correcta!', pron:'páblic iutílitis, regiuléishon ráit!'}
     ]
@@ -315,7 +315,7 @@ const curriculumUnidad14 = [
     story:[
       {en:"Welcome to unit fourteen's finale — almost there, legendary hero!", es:'¡Bienvenido al final de la unidad catorce — casi llegamos, héroe legendario!', pron:"uélcam tu iúnit fórtiins fináli — ólmoust dér, léyendari jírou!"},
       {en:'Only twelve days left, and the final unit is ahead!', es:'¡Solo faltan doce días, y la unidad final se acerca!', pron:'óunli tuélv déis left, and de fáinal iúnit is ajéd!'},
-      {en:'So close — you can almost taste victory, dragon trader!', es:'¡Tan cerca — casi podés saborear la victoria, comerciante de dragones!', pron:'sóu clóus — iú can ólmoust téist víctori, drágon tréider!'},
+      {en:'So close — you can almost taste victory, dragon trader!', es:'¡Tan cerca — casi puedes saborear la victoria, comerciante de dragones!', pron:'sóu clóus — iú can ólmoust téist víctori, drágon tréider!'},
       {en:'See you in unit fifteen, the very last unit!', es:'¡Nos vemos en la unidad quince, la última!', pron:'síi iú in iúnit fiftíin, de véri last iúnit!'}
     ],
     jingle:[

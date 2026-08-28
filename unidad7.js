@@ -36,7 +36,7 @@ const curriculumUnidad7 = [
     story:[
       {en:'Welcome to the Dragon Hotel! Do you have a reservation, brave traveler?', es:'¡Bienvenido al Hotel Dragón! ¿Tenés una reserva, valiente viajero?', pron:'uélcam tu de drágon jóutel! du iú jav a reservéishon, bréiv trávaler?'},
       {en:'Check-in is at sunset, and check-out is whenever the volcano wakes up!', es:'El registro de entrada es al atardecer, ¡y el de salida es cuando se despierta el volcán!', pron:'chek in is at sánset, and chek áut is uénever de valkéinou uéiks ap!'},
-      {en:'The receptionist is a friendly ghost at the front desk — here is your room key!', es:'La recepcionista es un fantasma amigable en la recepción — ¡acá tenés tu llave!', pron:'de risépshonist is a fréndli góust at de frant desk — jíar is iór rúum kíi!'},
+      {en:'The receptionist is a friendly ghost at the front desk — here is your room key!', es:'La recepcionista es un fantasma amigable en la recepción — ¡aquí tienes tu llave!', pron:'de risépshonist is a fréndli góust at de frant desk — jíar is iór rúum kíi!'},
       {en:'Would you like a single room, a double room, or the entire dragon suite?', es:'¿Querés una habitación individual, doble, o la suite dragón entera?', pron:'uud iú láik a síngol rúum, a dábol rúum, or de entáier drágon suíit?'},
       {en:'I would like to book a room for my business trip, at the corporate rate, please — and send the invoice for the stay!', es:'Quisiera reservar una habitación para mi viaje de negocios, a la tarifa corporativa, por favor — ¡y envíen la factura de la estadía!', pron:'ái uud láik tu buk a rúum for mái bísnes trip, at de córporeit réit, plíis — and send de ínvois for de stéi!'}
     ],
@@ -86,7 +86,7 @@ const curriculumUnidad7 = [
     ],
     jingle:[
       {en:'Bed and pillow, towel too!', es:'Cama y almohada, ¡toalla también!', pron:'bed and pílou, táuel tú!'},
-      {en:'Air conditioning, just for you!', es:'Aire acondicionado, ¡solo para vos!', pron:'ér condíshoning, yast for iú!'},
+      {en:'Air conditioning, just for you!', es:'Aire acondicionado, ¡solo para ti!', pron:'ér condíshoning, yast for iú!'},
       {en:'Room service, do not disturb!', es:'Servicio a la habitación, ¡no molestar!', pron:'rúum sérvis, du nat distérb!'},
       {en:"Business center, nothing's a blur!", es:'Centro de negocios, ¡nada está confuso!', pron:"bísnes sénter, názings a blér!"}
     ]
@@ -244,7 +244,7 @@ const curriculumUnidad7 = [
         {en:'I need to install the app.', es:'Necesito instalar la aplicación.', pron:'ái níid tu instól de ap.'},
         {en:'I need to save the file.', es:'Necesito guardar el archivo.', pron:'ái níid tu séiv de fáil.'},
         {en:'I need to update my laptop.', es:'Necesito actualizar mi laptop.', pron:'ái níid tu apdéit mái láptap.'}
-      ], function:'decir qué necesitás hacer en la computadora', stage:2,
+      ], function:'decir qué necesitas hacer en la computadora', stage:2,
         transformations:{
           negative:{en:"I don't need to download this software.", es:'No necesito descargar este software.'},
           question:{en:'Do you need to download this software?', es:'¿Necesitás descargar este software?'},
@@ -275,7 +275,7 @@ const curriculumUnidad7 = [
     ],
     jingle:[
       {en:'Laptop, mouse, keyboard too!', es:'Laptop, mouse, ¡teclado también!', pron:'láptap, máus, kíibord tú!'},
-      {en:'Screen and software, just for you!', es:'Pantalla y software, ¡solo para vos!', pron:'scríin and sáftuer, yast for iú!'},
+      {en:'Screen and software, just for you!', es:'Pantalla y software, ¡solo para ti!', pron:'scríin and sáftuer, yast for iú!'},
       {en:'Download, install, cloud storage wide!', es:'Descargar, instalar, ¡nube amplia!', pron:'dáunlóud, instól, cláud stóridch uáid!'},
       {en:'Save the file, document with pride!', es:'Guardá el archivo, ¡documento con orgullo!', pron:'séiv de fáil, dókiument uid práid!'}
     ]
@@ -288,7 +288,7 @@ const curriculumUnidad7 = [
         {en:'I can share my screen.', es:'Puedo compartir mi pantalla.', pron:'ái can shér mái scríin.'},
         {en:"I can't connect to the wifi.", es:'No puedo conectarme al wifi.', pron:"ái cant canéct tu de uáifai."},
         {en:'I can join the video conference.', es:'Puedo unirme a la videoconferencia.', pron:'ái can chóin de vídiou cánferens.'}
-      ], function:'decir qué podés o no podés hacer con la tecnología', stage:2,
+      ], function:'decir qué puedes o no puedes hacer con la tecnología', stage:2,
         transformations:{
           negative:{en:"I can't log in.", es:'No puedo iniciar sesión.'},
           question:{en:'Can you log in?', es:'¿Podés iniciar sesión?'},
@@ -319,7 +319,7 @@ const curriculumUnidad7 = [
     ],
     jingle:[
       {en:'Internet, wifi, connection speed!', es:'Internet, wifi, ¡velocidad de conexión!', pron:'ínternet, uáifai, canécshon spíid!'},
-      {en:"Log in, password, that's what you need!", es:'Iniciar sesión, contraseña, ¡eso es lo que necesitás!', pron:"log in, pásuord, dats uát iú níid!"},
+      {en:"Log in, password, that's what you need!", es:'Iniciar sesión, contraseña, ¡eso es lo que necesitas!', pron:"log in, pásuord, dats uát iú níid!"},
       {en:'Video conference, mute yourself, share!', es:'Videoconferencia, silenciate, ¡compartí!', pron:'vídio cánferens, miút iorsélf, shér!'},
       {en:'Breakout room, recording, chat with care!', es:'Sala de grupos, grabación, ¡chat con cuidado!', pron:'bréikaut rúum, ricórding, chat uid quér!'}
     ]
@@ -392,7 +392,7 @@ const curriculumUnidad7 = [
     ],
     jingle:[
       {en:'Update, notification, settings too!', es:'Actualizar, notificación, ¡configuración también!', pron:'apdéit, noutifikéishon, sétings tú!'},
-      {en:'Account, subscription, all for you!', es:'Cuenta, suscripción, ¡todo para vos!', pron:'acáunt, sabscrípshon, ol for iú!'},
+      {en:'Account, subscription, all for you!', es:'Cuenta, suscripción, ¡todo para ti!', pron:'acáunt, sabscrípshon, ol for iú!'},
       {en:'Management software, dashboard bright!', es:'Software de gestión, ¡panel brillante!', pron:'mánechment sáftuer, dáshbord bráit!'},
       {en:'Generate a report, permissions right!', es:'Generá un informe, ¡permisos correctos!', pron:'yénereit a ripórt, permíshons ráit!'}
     ]
@@ -460,7 +460,7 @@ const curriculumUnidad7 = [
     jingle:[
       {en:'Unit seven, almost half done!', es:'Unidad siete, ¡casi la mitad hecho!', pron:'iúnit séven, ólmoust jaf dan!'},
       {en:'Keep going, well done, having fun!', es:'Seguí adelante, bien hecho, ¡divirtiéndote!', pron:'kíip góing, uél dan, jávin fan!'},
-      {en:'Final review, proud of you, friend!', es:'Repaso final, orgulloso de vos, ¡amigo!', pron:'fáinal riviú, práud of iú, frend!'},
+      {en:'Final review, proud of you, friend!', es:'Repaso final, orgulloso de ti, ¡amigo!', pron:'fáinal riviú, práud of iú, frend!'},
       {en:'See you in unit eight, till the end!', es:'Nos vemos en la unidad ocho, ¡hasta el final!', pron:'síi iú in iúnit éit, til de end!'}
     ]
   }

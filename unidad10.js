@@ -3,6 +3,20 @@
 const curriculumUnidad10 = [
 {
     day:109, unit:10, unitTitle:'Unidad 10 · Semanas 23-24', theme:'Bienes raíces / Alquilar o comprar propiedad',
+    structures:[
+      {id:'S081', pattern:"I am looking to rent + [X]", examples:[
+        {en:'I am looking to rent an apartment.', es:'Estoy buscando alquilar un departamento.', pron:'ái am lúking tu rent an apártment.'},
+        {en:'I am looking to buy a house.', es:'Estoy buscando comprar una casa.', pron:'ái am lúking tu bái a jáus.'},
+        {en:'I am looking to lease office space.', es:'Estoy buscando arrendar un espacio de oficina.', pron:'ái am lúking tu líis áfis spéis.'},
+        {en:'I am not looking to sell right now.', es:'No estoy buscando vender ahora mismo.', pron:'ái am nat lúking tu sel ráit náu.'}
+      ], function:'decir qué tipo de propiedad buscás', stage:3,
+        transformations:{
+          negative:{en:'I am not looking to rent an apartment.', es:'No estoy buscando alquilar un departamento.'},
+          question:{en:'Are you looking to rent an apartment?', es:'¿Estás buscando alquilar un departamento?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'real estate', es:'bienes raíces', pron:'ríil estéit', emoji:'🏠'},
       {en:'to rent', es:'alquilar', pron:'tu rent', emoji:'🔑'},
@@ -31,6 +45,20 @@ const curriculumUnidad10 = [
   },
 {
     day:110, unit:10, unitTitle:'Unidad 10 · Semanas 23-24', theme:'Seguros / Pólizas y reclamos',
+    structures:[
+      {id:'S082', pattern:"This is covered under + [X]", examples:[
+        {en:'This is covered under my policy.', es:'Esto está cubierto por mi póliza.', pron:'dis is cávard ánder mái pálisi.'},
+        {en:'This is covered under the warranty.', es:'Esto está cubierto por la garantía.', pron:'dis is cávard ánder de uáranti.'},
+        {en:'This is not covered under my insurance.', es:'Esto no está cubierto por mi seguro.', pron:'dis is nat cávard ánder mái inshúrans.'},
+        {en:'This is covered under the new policy.', es:'Esto está cubierto por la nueva póliza.', pron:'dis is cávard ánder de niú pálisi.'}
+      ], function:'decir qué cubre una póliza', stage:3,
+        transformations:{
+          negative:{en:'This is not covered under my policy.', es:'Esto no está cubierto por mi póliza.'},
+          question:{en:'Is this covered under my policy?', es:'¿Esto está cubierto por mi póliza?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'insurance policy', es:'póliza de seguro', pron:'inshúrans pálisi', emoji:'📜'},
       {en:'premium', es:'prima del seguro', pron:'príimium', emoji:'💲'},
@@ -52,13 +80,27 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Insurance policy, premium too!', es:'Póliza de seguro, ¡prima también!', pron:'inshúrans pálisi, príimium tú!'},
-      {en:'Coverage limit, all for you!', es:'Límite de cobertura, ¡todo para vos!', pron:'cáverich límit, ol for iú!'},
+      {en:'Coverage limit, all for you!', es:'Límite de cobertura, ¡todo para ti!', pron:'cáverich límit, ol for iú!'},
       {en:'File a claim, beneficiary clear!', es:'Presentá un reclamo, ¡beneficiario claro!', pron:'fáil a kléim, benefíshari clíar!'},
       {en:'Insurance agent, risk assessment near!', es:'Agente de seguros, ¡evaluación de riesgo cerca!', pron:'inshúrans éiyent, risk asésment níar!'}
     ]
   },
 {
     day:111, unit:10, unitTitle:'Unidad 10 · Semanas 23-24', theme:'Sistema de salud / Consultas médicas',
+    structures:[
+      {id:'S083', pattern:"I have an appointment with + [X]", examples:[
+        {en:'I have an appointment with a specialist.', es:'Tengo una cita con un especialista.', pron:'ái jav an apóintment uid a spéshalist.'},
+        {en:'I have an appointment with my doctor.', es:'Tengo una cita con mi médico.', pron:'ái jav an apóintment uid mái dáctor.'},
+        {en:'I need a referral for this.', es:'Necesito una remisión para esto.', pron:'ái níid a riférol for dis.'},
+        {en:"I don't have an appointment today.", es:'No tengo una cita hoy.', pron:"ái dont jav an apóintment tudéi."}
+      ], function:'hablar de citas médicas', stage:3,
+        transformations:{
+          negative:{en:"I don't have an appointment with a specialist.", es:'No tengo una cita con un especialista.'},
+          question:{en:'Do you have an appointment with a specialist?', es:'¿Tenés una cita con un especialista?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'health insurance', es:'seguro de salud', pron:'jelz inshúrans', emoji:'🏥'},
       {en:'copay', es:'copago', pron:'cóupei', emoji:'💵'},
@@ -80,13 +122,27 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Health insurance, copay too!', es:'Seguro de salud, ¡copago también!', pron:'jelz inshúrans, cóupei tú!'},
-      {en:'Specialist, referral for you!', es:'Especialista, ¡derivación para vos!', pron:'spéshalist, riférral for iú!'},
+      {en:'Specialist, referral for you!', es:'Especialista, ¡derivación para ti!', pron:'spéshalist, riférral for iú!'},
       {en:'Diagnosis, treatment plan clear!', es:'Diagnóstico, ¡plan de tratamiento claro!', pron:'daiagnóusis, tríitment plan clíar!'},
       {en:'Follow-up visit, physician near!', es:'Visita de seguimiento, ¡médico cerca!', pron:'fálou ap vísit, fisíshan níar!'}
     ]
   },
 {
     day:112, unit:10, unitTitle:'Unidad 10 · Semanas 23-24', theme:'Educación y capacitación',
+    structures:[
+      {id:'S084', pattern:"I am enrolled in + [X]", examples:[
+        {en:'I am enrolled in an online course.', es:'Estoy inscrito en un curso en línea.', pron:'ái am inróuld in an ánlain cors.'},
+        {en:'I am enrolled in a certificate program.', es:'Estoy inscrito en un programa de certificación.', pron:'ái am inróuld in a certíficat prógram.'},
+        {en:'I am not enrolled yet.', es:'Todavía no estoy inscrito.', pron:'ái am nat inróuld iét.'},
+        {en:'I am enrolled in continuing education.', es:'Estoy inscrito en educación continua.', pron:'ái am inróuld in cantíniuing edyukéishion.'}
+      ], function:'decir en qué programa estás inscrito', stage:3,
+        transformations:{
+          negative:{en:'I am not enrolled in an online course.', es:'No estoy inscrito en un curso en línea.'},
+          question:{en:'Are you enrolled in an online course?', es:'¿Estás inscrito en un curso en línea?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'degree', es:'título universitario', pron:'digríi', emoji:'🎓'},
       {en:'certificate program', es:'programa de certificación', pron:'sertífiket prógram', emoji:'📜'},
@@ -108,13 +164,27 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Degree, certificate program too!', es:'Título, ¡programa de certificación también!', pron:'digríi, sertífiket prógram tú!'},
-      {en:'Tuition, scholarship for you!', es:'Matrícula, ¡beca para vos!', pron:'tuíshon, skálarship for iú!'},
+      {en:'Tuition, scholarship for you!', es:'Matrícula, ¡beca para ti!', pron:'tuíshon, skálarship for iú!'},
       {en:'Curriculum, online course bright!', es:'Plan de estudios, ¡curso en línea brillante!', pron:'curículum, anláin cors bráit!'},
       {en:'Enrollment, completion, feels so right!', es:'Inscripción, finalización, ¡se siente tan bien!', pron:'inrólment, camplíshon, fíils sóu ráit!'}
     ]
   },
 {
     day:113, unit:10, unitTitle:'Unidad 10 · Semanas 23-24', theme:'Trámites gubernamentales',
+    structures:[
+      {id:'S085', pattern:"I need to renew my + [X]", examples:[
+        {en:'I need to renew my license.', es:'Necesito renovar mi licencia.', pron:'ái níid tu riniú mái láisens.'},
+        {en:'I need to renew my permit.', es:'Necesito renovar mi permiso.', pron:'ái níid tu riniú mái pérmit.'},
+        {en:'I need to submit this application form.', es:'Necesito enviar este formulario de solicitud.', pron:'ái níid tu sabmít dis aplikéishion form.'},
+        {en:"I don't need to renew it yet.", es:'Todavía no necesito renovarlo.', pron:"ái dont níid tu riniú it iét."}
+      ], function:'hablar de trámites gubernamentales', stage:3,
+        transformations:{
+          negative:{en:"I don't need to renew my license.", es:'No necesito renovar mi licencia.'},
+          question:{en:'Do you need to renew your license?', es:'¿Necesitás renovar tu licencia?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'government office', es:'oficina gubernamental', pron:'gávernment áfis', emoji:'🏛️'},
       {en:'permit', es:'permiso', pron:'pérmit', emoji:'📜'},
@@ -131,12 +201,12 @@ const curriculumUnidad10 = [
       {en:'I went to the government office to get a permit for my flying castle!', es:'¡Fui a la oficina gubernamental a sacar un permiso para mi castillo volador!', pron:'ái uént tu de gávernment áfis tu guét a pérmit for mái fláing cásol!'},
       {en:'My license renewal needs an application form, filled out in dragon ink.', es:'Mi renovación de licencia necesita un formulario de solicitud, completado con tinta de dragón.', pron:'mái láisens riniúal níids an aplikéishon form, fild áut in drágon ink.'},
       {en:'The processing time is long — bring snacks to your in-person appointment!', es:'¡El tiempo de trámite es largo — llevá bocadillos a tu cita presencial!', pron:'de prásesing táim is long — bring snaks tu iór in pérson apóintment!'},
-      {en:'You can also use the online portal, with your identification document.', es:'También podés usar el portal en línea, con tu documento de identidad.', pron:'iú can ólso iús de anláin pórtal, uid iór aidentifikéishon dókiument.'},
+      {en:'You can also use the online portal, with your identification document.', es:'También puedes usar el portal en línea, con tu documento de identidad.', pron:'iú can ólso iús de anláin pórtal, uid iór aidentifikéishon dókiument.'},
       {en:'After the fee payment, I received my approval letter — finally, official!', es:'Después del pago de la tasa, recibí mi carta de aprobación — ¡por fin, oficial!', pron:'áfter de fíi péiment, ái risívd mái apruvol léter — fáinali, ofíshal!'}
     ],
     jingle:[
       {en:'Government office, permit too!', es:'Oficina gubernamental, ¡permiso también!', pron:'gávernment áfis, pérmit tú!'},
-      {en:'License renewal, form for you!', es:'Renovación de licencia, ¡formulario para vos!', pron:'láisens riniúal, form for iú!'},
+      {en:'License renewal, form for you!', es:'Renovación de licencia, ¡formulario para ti!', pron:'láisens riniúal, form for iú!'},
       {en:'Processing time, online portal bright!', es:'Tiempo de trámite, ¡portal en línea brillante!', pron:'prásesing táim, anláin pórtal bráit!'},
       {en:'Fee payment, approval letter right!', es:'Pago de tasa, ¡carta de aprobación correcta!', pron:'fíi péiment, apruvol léter ráit!'}
     ]
@@ -187,13 +257,27 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Car dealership, test drive too!', es:'Concesionaria de autos, ¡prueba de manejo también!', pron:'car díilership, test dráiv tú!'},
-      {en:'Trade-in, financing for you!', es:'Vehículo de parte de pago, ¡financiamiento para vos!', pron:'tréid in, fainánsing for iú!'},
+      {en:'Trade-in, financing for you!', es:'Vehículo de parte de pago, ¡financiamiento para ti!', pron:'tréid in, fainánsing for iú!'},
       {en:'Warranty, mileage, all so clear!', es:'Garantía, kilometraje, ¡todo tan claro!', pron:'uáranti, máilich, ol sóu clíar!'},
       {en:'Monthly payment, sales rep is here!', es:'Cuota mensual, ¡el representante está acá!', pron:'mánzli péiment, séils rep is jíar!'}
     ]
   },
 {
     day:116, unit:10, unitTitle:'Unidad 10 · Semanas 25-26', theme:'Mudanza y logística personal',
+    structures:[
+      {id:'S086', pattern:"We are moving to + [X]", examples:[
+        {en:'We are moving to a new house.', es:'Nos estamos mudando a una casa nueva.', pron:'uí ar múving tu a niú jáus.'},
+        {en:'We are moving to a bigger office.', es:'Nos estamos mudando a una oficina más grande.', pron:'uí ar múving tu a bíguer áfis.'},
+        {en:'We are moving next month.', es:'Nos mudamos el próximo mes.', pron:'uí ar múving next manz.'},
+        {en:'We are not moving this year.', es:'No nos vamos a mudar este año.', pron:'uí ar nat múving dis íar.'}
+      ], function:'hablar de una mudanza', stage:3,
+        transformations:{
+          negative:{en:'We are not moving to a new house.', es:'No nos estamos mudando a una casa nueva.'},
+          question:{en:'Are you moving to a new house?', es:'¿Se están mudando a una casa nueva?'},
+          yesAnswer:{en:'Yes, we are.', es:'Sí.'},
+          noAnswer:{en:"No, we aren't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'moving company', es:'empresa de mudanzas', pron:'múuving cámpani', emoji:'🚚'},
       {en:'packing', es:'embalaje', pron:'páking', emoji:'📦'},
@@ -214,7 +298,7 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Moving company, packing too!', es:'Empresa de mudanzas, ¡embalaje también!', pron:'múuving cámpani, páking tú!'},
-      {en:'Moving truck, storage for you!', es:'Camión de mudanza, ¡almacenamiento para vos!', pron:'múuving trak, stóridch for iú!'},
+      {en:'Moving truck, storage for you!', es:'Camión de mudanza, ¡almacenamiento para ti!', pron:'múuving trak, stóridch for iú!'},
       {en:'Change of address, utility bright!', es:'Cambio de dirección, ¡servicios brillantes!', pron:'chéinch of adrés, iutíliti bráit!'},
       {en:'Moving date, inventory right!', es:'Fecha de mudanza, ¡inventario correcto!', pron:'múuving déit, ínventori ráit!'}
     ]
@@ -242,13 +326,27 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Fine dining, formal event too!', es:'Restaurante de alta gama, ¡evento formal también!', pron:'fáin dáining, fórmal ivént tú!'},
-      {en:'Catering, guest list for you!', es:'Servicio de banquetes, ¡lista de invitados para vos!', pron:'kéitering, guest list for iú!'},
+      {en:'Catering, guest list for you!', es:'Servicio de banquetes, ¡lista de invitados para ti!', pron:'kéitering, guest list for iú!'},
       {en:'Seating, keynote speaker bright!', es:'Asientos, ¡orador principal brillante!', pron:'síiting, kíinóut spíiker bráit!'},
       {en:'Corporate dinner, RSVP tonight!', es:'Cena corporativa, ¡confirmá esta noche!', pron:'córporeit díner, ar es víi píi tunáit!'}
     ]
   },
 {
     day:118, unit:10, unitTitle:'Unidad 10 · Semanas 25-26', theme:'Tecnología emergente / Inteligencia artificial',
+    structures:[
+      {id:'S087', pattern:"This is powered by + [X]", examples:[
+        {en:'This is powered by artificial intelligence.', es:'Esto funciona con inteligencia artificial.', pron:'dis is páuerd bái ártifíshal intéliyens.'},
+        {en:'This is powered by machine learning.', es:'Esto funciona con aprendizaje automático.', pron:'dis is páuerd bái machín lérning.'},
+        {en:'This is not powered by AI.', es:'Esto no funciona con IA.', pron:'dis is nat páuerd bái éi-ái.'},
+        {en:'This chatbot is powered by an algorithm.', es:'Este chatbot funciona con un algoritmo.', pron:'dis chátbat is páuerd bái an álgoritm.'}
+      ], function:'explicar qué tecnología usa algo', stage:3,
+        transformations:{
+          negative:{en:'This is not powered by artificial intelligence.', es:'Esto no funciona con inteligencia artificial.'},
+          question:{en:'Is this powered by artificial intelligence?', es:'¿Esto funciona con inteligencia artificial?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'artificial intelligence', es:'inteligencia artificial', pron:'artifíshal intélichens', emoji:'🤖'},
       {en:'machine learning', es:'aprendizaje automático', pron:'mashíin lérning', emoji:'🧠'},
@@ -270,13 +368,27 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Artificial intelligence, learning too!', es:'Inteligencia artificial, ¡aprendizaje también!', pron:'artifíshal intélichens, lérning tú!'},
-      {en:'Data analysis, algorithm for you!', es:'Análisis de datos, ¡algoritmo para vos!', pron:'déita análisis, álgoridm for iú!'},
+      {en:'Data analysis, algorithm for you!', es:'Análisis de datos, ¡algoritmo para ti!', pron:'déita análisis, álgoridm for iú!'},
       {en:'Digital transformation, chatbot bright!', es:'Transformación digital, ¡chatbot brillante!', pron:'díchital transforméishon, chátbat bráit!'},
       {en:'Cybersecurity, cloud, automation right!', es:'Ciberseguridad, nube, ¡automatización correcta!', pron:'sáiber sekiúriti, cláud, otoméishon ráit!'}
     ]
   },
 {
     day:119, unit:10, unitTitle:'Unidad 10 · Semanas 25-26', theme:'Liderazgo y gestión de equipos',
+    structures:[
+      {id:'S088', pattern:"I trust my team to + [VERB]", examples:[
+        {en:'I trust my team to make good decisions.', es:'Confío en que mi equipo tome buenas decisiones.', pron:'ái trast mái tíim tu méik gud disíshions.'},
+        {en:'I trust my team to deliver on time.', es:'Confío en que mi equipo entregue a tiempo.', pron:'ái trast mái tíim tu delíver on táim.'},
+        {en:"I don't trust this decision yet.", es:'Todavía no confío en esta decisión.', pron:"ái dont trast dis disíshion iét."},
+        {en:'I trust my team completely.', es:'Confío completamente en mi equipo.', pron:'ái trast mái tíim camplíitli.'}
+      ], function:'hablar de confianza en tu equipo', stage:3,
+        transformations:{
+          negative:{en:"I don't trust my team to make this decision.", es:'No confío en que mi equipo tome esta decisión.'},
+          question:{en:'Do you trust your team to make good decisions?', es:'¿Confiás en que tu equipo tome buenas decisiones?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'leadership style', es:'estilo de liderazgo', pron:'líidership stáil', emoji:'🧭'},
       {en:'delegation', es:'delegación', pron:'delegéishon', emoji:'🤲'},
@@ -298,7 +410,7 @@ const curriculumUnidad10 = [
     ],
     jingle:[
       {en:'Leadership style, delegation too!', es:'Estilo de liderazgo, ¡delegación también!', pron:'líidership stáil, delegéishon tú!'},
-      {en:'Team motivation, metrics for you!', es:'Motivación del equipo, ¡métricas para vos!', pron:'tíim moutivéishon, métrics for iú!'},
+      {en:'Team motivation, metrics for you!', es:'Motivación del equipo, ¡métricas para ti!', pron:'tíim moutivéishon, métrics for iú!'},
       {en:'One-on-one, engagement bright!', es:'Reunión individual, ¡compromiso brillante!', pron:'uán on uán, ingéichment bráit!'},
       {en:'Mentorship, decision-making right!', es:'Mentoría, ¡toma de decisiones correcta!', pron:'méntorship, disíshon méiking ráit!'}
     ]
@@ -324,7 +436,7 @@ const curriculumUnidad10 = [
       {en:'Unit ten, two thirds done!', es:'Unidad diez, ¡dos tercios hecho!', pron:'iúnit ten, tú zerds dan!'},
       {en:'One third remaining, having fun!', es:'Un tercio restante, ¡divirtiéndote!', pron:'uán zerd riméining, jávin fan!'},
       {en:'Milestone reached, keep going strong!', es:'Hito alcanzado, ¡seguí adelante fuerte!', pron:'máilstoun ríicht, kíip góing strong!'},
-      {en:'See you in unit eleven, before too long!', es:'Nos vemos en la unidad once, ¡antes de lo que pensás!', pron:'síi iú in iúnit iléven, bifór tu long!'}
+      {en:'See you in unit eleven, before too long!', es:'Nos vemos en la unidad once, ¡antes de lo que piensas!', pron:'síi iú in iúnit iléven, bifór tu long!'}
     ]
   }
 ];

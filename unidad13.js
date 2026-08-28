@@ -23,7 +23,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Fitness, gym membership too!', es:'Estado físico, ¡membresía también!', pron:'fítnes, yim mémbership tú!'},
-      {en:'Personal trainer, workout for you!', es:'Entrenador personal, ¡rutina para vos!', pron:'pérsonal tréiner, uórkaut for iú!'},
+      {en:'Personal trainer, workout for you!', es:'Entrenador personal, ¡rutina para ti!', pron:'pérsonal tréiner, uórkaut for iú!'},
       {en:'Cardio, strength training bright!', es:'Cardio, ¡entrenamiento de fuerza brillante!', pron:'cárdio, strenz tréining bráit!'},
       {en:'Sports team, tournament, feels right!', es:'Equipo deportivo, torneo, ¡se siente bien!', pron:'sports tíim, túrnament, fíils ráit!'}
     ]
@@ -50,7 +50,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Wedding, groom, bride too!', es:'Boda, novio, ¡novia también!', pron:'uéding, grúum, bráid tú!'},
-      {en:'Wedding planner, all for you!', es:'Organizador de bodas, ¡todo para vos!', pron:'uéding pláner, ol for iú!'},
+      {en:'Wedding planner, all for you!', es:'Organizador de bodas, ¡todo para ti!', pron:'uéding pláner, ol for iú!'},
       {en:'Guest of honor, vows so bright!', es:'Invitado de honor, ¡votos tan brillantes!', pron:'guest of ánor, váus sóu bráit!'},
       {en:'Reception, anniversary, feels right!', es:'Recepción, aniversario, ¡se siente bien!', pron:'risépshon, anivérsari, fíils ráit!'}
     ]
@@ -77,7 +77,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Court, judge, lawyer too!', es:'Tribunal, juez, ¡abogado también!', pron:'cort, yach, lóier tú!'},
-      {en:'Lawsuit, testimony for you!', es:'Demanda, ¡testimonio para vos!', pron:'lósuut, téstimouni for iú!'},
+      {en:'Lawsuit, testimony for you!', es:'Demanda, ¡testimonio para ti!', pron:'lósuut, téstimouni for iú!'},
       {en:'Verdict, jury, proceedings bright!', es:'Veredicto, jurado, ¡proceso brillante!', pron:'vérdict, yúri, prosíidings bráit!'},
       {en:'Settlement, plaintiff, feels right!', es:'Acuerdo, demandante, ¡se siente bien!', pron:'sétolment, pléintif, fíils ráit!'}
     ]
@@ -105,7 +105,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Bank branch, teller too!', es:'Sucursal bancaria, ¡cajero también!', pron:'bank branch, téler tú!'},
-      {en:'Overdraft, direct deposit for you!', es:'Sobregiro, ¡depósito directo para vos!', pron:'óverdraft, diréct dipásit for iú!'},
+      {en:'Overdraft, direct deposit for you!', es:'Sobregiro, ¡depósito directo para ti!', pron:'óverdraft, diréct dipásit for iú!'},
       {en:'ATM, online banking bright!', es:'Cajero automático, ¡banca en línea brillante!', pron:'éi tíi em, anláin bánking bráit!'},
       {en:'Minimum balance, safe deposit right!', es:'Saldo mínimo, ¡caja de seguridad correcta!', pron:'mínimum bálans, séif dipásit ráit!'}
     ]
@@ -133,7 +133,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Agriculture, crop, harvest too!', es:'Agricultura, cultivo, ¡cosecha también!', pron:'ágricalcher, crap, járvest tú!'},
-      {en:'Farmer, irrigation for you!', es:'Agricultor, ¡riego para vos!', pron:'fármer, irigéishon for iú!'},
+      {en:'Farmer, irrigation for you!', es:'Agricultor, ¡riego para ti!', pron:'fármer, irigéishon for iú!'},
       {en:'Livestock, organic farming bright!', es:'Ganado, ¡agricultura orgánica brillante!', pron:'láivstak, orgánic fárming bráit!'},
       {en:'Agricultural export, crop yield right!', es:'Exportación agrícola, ¡rendimiento correcto!', pron:'agricálchural éxport, crap yíild ráit!'}
     ]
@@ -153,7 +153,7 @@ const curriculumUnidad13 = [
     story:[
       {en:"Let's keep it under wraps — this dragon went above and beyond!", es:'Mantengámoslo en secreto — ¡este dragón hizo mucho más de lo esperado!', pron:"lets kíip it ánder raps — dis drágon uént abáv and biánd!"},
       {en:"I'm on the fence, but let's get down to business anyway!", es:'Estoy indeciso, ¡pero pongámonos manos a la obra de todos modos!', pron:"áim on de fens, bat lets guét dáun tu bísnes éniuei!"},
-      {en:"I have a lot on my plate, and I feel in over my head — let's just play it by ear, and you take the lead!", es:'Tengo mucho encima, y me siento superado — ¡improvisemos sobre la marcha, y tomá vos el mando!', pron:"ái jav a lat on mái pléit, and ái fíil in óuver mái jed — lets yast pléi it bái íar, and iú téik de líid!"}
+      {en:"I have a lot on my plate, and I feel in over my head — let's just play it by ear, and you take the lead!", es:'Tengo mucho encima, y me siento superado — ¡improvisemos sobre la marcha, y toma tú el mando!', pron:"ái jav a lat on mái pléit, and ái fíil in óuver mái jed — lets yast pléi it bái íar, and iú téik de líid!"}
     ],
     jingle:[
       {en:'Under wraps, above and beyond!', es:'En secreto, ¡mucho más de lo esperado!', pron:'ánder raps, abáv and biánd!'},
@@ -185,7 +185,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Construction site, blueprint too!', es:'Obra, ¡plano también!', pron:'canstrákshon sáit, blúprint tú!'},
-      {en:'Contractor, building permit for you!', es:'Contratista, ¡permiso para vos!', pron:'cántractor, bílding pérmit for iú!'},
+      {en:'Contractor, building permit for you!', es:'Contratista, ¡permiso para ti!', pron:'cántractor, bílding pérmit for iú!'},
       {en:'Scaffolding, engineer so bright!', es:'Andamios, ¡ingeniero tan brillante!', pron:'skáfolding, enyiníar sóu bráit!'},
       {en:'Safety inspection, deadline right!', es:'Inspección de seguridad, ¡fecha límite correcta!', pron:'séifti inspécshon, dédlain ráit!'}
     ]
@@ -212,7 +212,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Automotive industry, assembly line too!', es:'Industria automotriz, ¡línea de ensamblaje también!', pron:'otomóutiv índastri, asémbli láin tú!'},
-      {en:'Vehicle design, prototype for you!', es:'Diseño de vehículo, ¡prototipo para vos!', pron:'víjicol disáin, próutotaip for iú!'},
+      {en:'Vehicle design, prototype for you!', es:'Diseño de vehículo, ¡prototipo para ti!', pron:'víjicol disáin, próutotaip for iú!'},
       {en:'Crash test, fuel efficiency bright!', es:'Prueba de choque, ¡eficiencia brillante!', pron:'crash test, fiúl ifíshensi bráit!'},
       {en:'Electric vehicle, no recall in sight!', es:'Vehículo eléctrico, ¡sin retiro a la vista!', pron:'iléctric víjicol, nóu ricól in sáit!'}
     ]
@@ -240,7 +240,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Airline industry, flight crew too!', es:'Industria aérea, ¡tripulación también!', pron:'érlain índastri, fláit crúu tú!'},
-      {en:'Air traffic control, all for you!', es:'Control de tráfico, ¡todo para vos!', pron:'ér tráfic cantróul, ol for iú!'},
+      {en:'Air traffic control, all for you!', es:'Control de tráfico, ¡todo para ti!', pron:'ér tráfic cantróul, ol for iú!'},
       {en:'Boarding, cargo plane so bright!', es:'Embarque, ¡avión de carga tan brillante!', pron:'bórding, cárgou pléin sóu bráit!'},
       {en:'Pilot training, safety just right!', es:'Entrenamiento de pilotos, ¡seguridad justa!', pron:'páilot tréining, séifti yast ráit!'}
     ]
@@ -268,7 +268,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Shipping industry, cargo ship too!', es:'Industria naviera, ¡buque de carga también!', pron:'shíping índastri, cárgou ship tú!'},
-      {en:'Port authority, terminal for you!', es:'Autoridad portuaria, ¡terminal para vos!', pron:'port ozóriti, términal for iú!'},
+      {en:'Port authority, terminal for you!', es:'Autoridad portuaria, ¡terminal para ti!', pron:'port ozóriti, términal for iú!'},
       {en:'Maritime law, vessel capacity bright!', es:'Derecho marítimo, ¡capacidad brillante!', pron:'máritaim lo, vésol capásiti bráit!'},
       {en:'Dock worker, marine insurance right!', es:'Trabajador portuario, ¡seguro marítimo correcto!', pron:'dak uérker, marín inshúrans ráit!'}
     ]
@@ -294,7 +294,7 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Fashion industry, designer too!', es:'Industria de la moda, ¡diseñador también!', pron:'fáshon índastri, disáiner tú!'},
-      {en:'Runway show, textile for you!', es:'Desfile de moda, ¡textil para vos!', pron:'ránuei shóu, téxtail for iú!'},
+      {en:'Runway show, textile for you!', es:'Desfile de moda, ¡textil para ti!', pron:'ránuei shóu, téxtail for iú!'},
       {en:'Fashion trend, apparel bright!', es:'Tendencia, ¡indumentaria brillante!', pron:'fáshon trend, apárel bráit!'},
       {en:'Fashion week, garment feels right!', es:'Semana de la moda, ¡prenda que se siente bien!', pron:'fáshon uíik, gárment fíils ráit!'}
     ]

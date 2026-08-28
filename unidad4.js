@@ -45,7 +45,7 @@ const curriculumUnidad4 = [
       {en:'I would like to order, please!', es:'Quisiera pedir, ¡por favor!', pron:'ái uud láik tu órder, plíis!'},
       {en:'Appetizer, main course, dessert with ease!', es:'Entrada, plato principal, ¡postre con facilidad!', pron:'ápetaiser, méin cors, disért uid íis!'},
       {en:'Spicy, sweet, salty, tasty too!', es:'Picante, dulce, salado, ¡sabroso también!', pron:'spáisi, suíit, sólti, téisti tú!'},
-      {en:'Schedule a meeting, book the room for you!', es:'Programá una reunión, ¡reservá la sala para vos!', pron:'squéyul a míiting, buk de rúum for iú!'}
+      {en:'Schedule a meeting, book the room for you!', es:'Programa una reunión, ¡reserva la sala para ti!', pron:'squéyul a míiting, buk de rúum for iú!'}
     ]
   },
 {
@@ -178,7 +178,7 @@ const curriculumUnidad4 = [
       ], function:'confirmar que estás en la videollamada', stage:2,
         transformations:{
           negative:{en:"I can't hear you.", es:'No te escucho.'},
-          question:{en:'Can you hear me?', es:'¿Me escuchás?'},
+          question:{en:'Can you hear me?', es:'¿Me escuchas?'},
           yesAnswer:{en:'Yes, I can.', es:'Sí, te escucho.'},
           noAnswer:{en:"No, I can't.", es:'No, no te escucho.'}
         }}
@@ -194,7 +194,7 @@ const curriculumUnidad4 = [
       {en:'camera on', es:'cámara encendida', pron:'cámera on', emoji:'📷'},
       {en:'to mute', es:'silenciar', pron:'tu miút', emoji:'🔇'},
       {en:'screen share', es:'compartir pantalla', pron:'scríin shér', emoji:'🖥️'},
-      {en:'can you hear me', es:'me escuchás', pron:'can iú jíar mi', emoji:'🔊'},
+      {en:'can you hear me', es:'me escuchas', pron:'can iú jíar mi', emoji:'🔊'},
       {en:'connection', es:'conexión', pron:'conécshon', emoji:'📶'},
       {en:'to sign in', es:'iniciar sesión', pron:'tu sáin in', emoji:'🔑'},
       {en:'to sign off', es:'cerrar sesión', pron:'tu sáin of', emoji:'🚪'}
@@ -203,7 +203,7 @@ const curriculumUnidad4 = [
       {en:'The wizard drinks moon juice, dragon soda, star tea, giant beer, and enchanted wine, all at once!', es:'¡El mago bebe jugo de luna, gaseosa de dragón, té de estrellas, cerveza de gigante, y vino encantado, todo a la vez!', pron:'de uísard drinks múun yúus, drágon sóuda, star tíi, yáiant bíar, and enchánted uáin, ol at uáns!'},
       {en:"Let's start the video call — click the magic link!", es:'¡Empecemos la videollamada — hacé clic en el enlace mágico!', pron:'lets start de vídio col — clik de máyic link!'},
       {en:'Camera on! But please mute your dragon roar.', es:'¡Cámara encendida! Pero por favor silenciá tu rugido de dragón.', pron:'cámera on! bat plíis miút iór drágon rór.'},
-      {en:'Can you hear me through the storm? Let\'s screen share the treasure map.', es:'¿Me escuchás a través de la tormenta? Compartamos pantalla con el mapa del tesoro.', pron:'can iú jíar mi zrú de storm? lets scríin shér de tréshur map.'},
+      {en:'Can you hear me through the storm? Let\'s screen share the treasure map.', es:'¿Me escuchas a través de la tormenta? Compartamos pantalla con el mapa del tesoro.', pron:'can iú jíar mi zrú de storm? lets scríin shér de tréshur map.'},
       {en:'The connection is weak on the moon — sign in again, and do not forget to sign off before the eclipse!', es:'La conexión es débil en la luna — ¡iniciá sesión de nuevo, y no te olvides de cerrar sesión antes del eclipse!', pron:'de conécshon is uík on de múun — sáin in aguén, and du nat forguét tu sáin of bifór de iclíps!'}
     ],
     jingle:[
@@ -261,8 +261,8 @@ const curriculumUnidad4 = [
 {
     day:43, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso liviano de la semana 7',
     words:[
-      {en:'can you repeat that', es:'podés repetir eso', pron:'can iú ripít dat', emoji:'🔁'},
-      {en:'what do you mean', es:'qué querés decir', pron:'uát du iú míin', emoji:'❓'},
+      {en:'can you repeat that', es:'puedes repetir eso', pron:'can iú ripít dat', emoji:'🔁'},
+      {en:'what do you mean', es:'qué quieres decir', pron:'uát du iú míin', emoji:'❓'},
       {en:'I see', es:'ya veo', pron:'ái síi', emoji:'👀'},
       {en:'got it', es:'entendido', pron:'gát it', emoji:'✅'},
       {en:'no worries', es:'no hay problema', pron:'nóu uéris', emoji:'🙂'},
@@ -274,12 +274,12 @@ const curriculumUnidad4 = [
       {en:'anyway', es:'de todos modos', pron:'éniuei', emoji:'➡️'}
     ],
     story:[
-      {en:"Can you repeat that, giant? What do you mean by 'a mountain of gold'?", es:'¿Podés repetir eso, gigante? ¿Qué querés decir con "una montaña de oro"?', pron:'can iú ripít dat, yáiant? uát du iú míin bái "a máuntain of góuld"?'},
+      {en:"Can you repeat that, giant? What do you mean by 'a mountain of gold'?", es:'¿Puedes repetir eso, gigante? ¿Qué quieres decir con "una montaña de oro"?', pron:'can iú ripít dat, yáiant? uát du iú míin bái "a máuntain of góuld"?'},
       {en:'I see! Got it — no worries, dragon, same here!', es:'¡Ya veo! Entendido — no hay problema, dragón, ¡lo mismo digo!', pron:'ái síi! gát it — nóu uéris, drágon, séim jíar!'},
       {en:"Either way, in that case, just in case, do as needed — anyway, let's fly!", es:'De cualquier forma, en ese caso, por si acaso, hacé lo que se necesite — de todos modos, ¡volemos!', pron:'íder uéi, in dat kéis, yast in kéis, du as níided — éniuei, lets flái!'}
     ],
     jingle:[
-      {en:'Can you repeat that? What do you mean?', es:'¿Podés repetir eso? ¿Qué querés decir?', pron:'can iú ripít dat? uát du iú míin?'},
+      {en:'Can you repeat that? What do you mean?', es:'¿Puedes repetir eso? ¿Qué quieres decir?', pron:'can iú ripít dat? uát du iú míin?'},
       {en:'I see, got it, on the scene!', es:'Ya veo, entendido, ¡en la escena!', pron:'ái síi, gát it, on de síin!'},
       {en:'No worries, same here, either way!', es:'No hay problema, lo mismo digo, ¡de cualquier forma!', pron:'nóu uéris, séim jíar, íder uéi!'},
       {en:'Just in case, as needed, anyway!', es:'Por si acaso, según se necesite, ¡de todos modos!', pron:'yast in kéis, as níided, éniuei!'}
@@ -365,7 +365,7 @@ const curriculumUnidad4 = [
         {en:'I need to buy office supplies.', es:'Necesito comprar insumos de oficina.', pron:'ái níid tu bái áfis sapláis.'},
         {en:'I need to buy fresh vegetables.', es:'Necesito comprar verduras frescas.', pron:'ái níid tu bái fresh véchtabols.'},
         {en:'I need to buy a new supplier.', es:'Necesito conseguir un nuevo proveedor.', pron:'ái níid tu bái a niú sapláier.'}
-      ], function:'decir qué necesitás comprar', stage:2,
+      ], function:'decir qué necesitas comprar', stage:2,
         transformations:{
           negative:{en:"I don't need to buy groceries.", es:'No necesito comprar víveres.'},
           question:{en:'Do you need to buy groceries?', es:'¿Necesitás comprar víveres?'},
@@ -410,7 +410,7 @@ const curriculumUnidad4 = [
         {en:'We have enough time.', es:'Tenemos suficiente tiempo.', pron:'uí jav ináf táim.'},
         {en:'We have enough resources.', es:'Tenemos suficientes recursos.', pron:'uí jav ináf risórses.'},
         {en:'We have enough staff.', es:'Tenemos suficiente personal.', pron:'uí jav ináf staf.'}
-      ], function:'decir si tenés suficiente de algo', stage:2,
+      ], function:'decir si tienes suficiente de algo', stage:2,
         transformations:{
           negative:{en:"We don't have enough budget.", es:'No tenemos suficiente presupuesto.'},
           question:{en:'Do you have enough budget?', es:'¿Tienen suficiente presupuesto?'},

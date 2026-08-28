@@ -175,7 +175,7 @@ const curriculumUnidad2 = [
         {en:'I have a cat.', es:'Tengo un gato.', pron:'ái jav a cat.'},
         {en:'I have a bird.', es:'Tengo un pájaro.', pron:'ái jav a berd.'},
         {en:'I have two pets.', es:'Tengo dos mascotas.', pron:'ái jav tú pets.'}
-      ], function:'decir qué tenés', stage:1,
+      ], function:'decir qué tienes', stage:1,
         transformations:{
           negative:{en:"I don't have a dog.", es:'No tengo un perro.'},
           question:{en:'Do you have a dog?', es:'¿Tenés un perro?'},
@@ -190,7 +190,7 @@ const curriculumUnidad2 = [
         intro:'Ojo con esto: "have" es un verbo irregular. Con I, you, we, they se queda "have" — pero con he, she, it, cambia a "has". Es la misma trampa que ya viste con "do/does", pero un caso nuevo:',
         examples:[
           {en:'I have a dog.', es:'Tengo un perro.', pron:'ái jav a dog.'},
-          {en:'You have a dog.', es:'Vos tenés un perro.', pron:'iú jav a dog.'},
+          {en:'You have a dog.', es:'Tú tienes un perro.', pron:'iú jav a dog.'},
           {en:'He has a dog.', es:'Él tiene un perro.', pron:'ji jas a dog.'},
           {en:'She has a cat.', es:'Ella tiene un gato.', pron:'shi jas a cat.'}
         ]
@@ -396,8 +396,8 @@ const curriculumUnidad2 = [
         transformations:{
           negative:{en:"I can't take a day off.", es:'No puedo tomarme un día libre.'},
           question:{en:'Can I take a day off?', es:'¿Puedo tomarme un día libre?'},
-          yesAnswer:{en:'Yes, you can.', es:'Sí, podés.'},
-          noAnswer:{en:"No, you can't.", es:'No, no podés.'}
+          yesAnswer:{en:'Yes, you can.', es:'Sí, puedes.'},
+          noAnswer:{en:"No, you can't.", es:'No, no puedes.'}
         }}
     ],
     words:[
@@ -473,7 +473,7 @@ const curriculumUnidad2 = [
     ],
     jingle:[
       {en:'More expensive, cheaper too!', es:'Más caro, ¡más barato también!', pron:'mor expénsiv, chíiper tú!'},
-      {en:'Better, worse, the best for you!', es:'Mejor, peor, ¡el mejor para vos!', pron:'béter, uérs, de best for iú!'},
+      {en:'Better, worse, the best for you!', es:'Mejor, peor, ¡el mejor para ti!', pron:'béter, uérs, de best for iú!'},
       {en:'Compare, choose, decide with care!', es:'Comparar, elegir, ¡decidir con cuidado!', pron:'campér, chúus, disáid uid quér!'},
       {en:"Negotiate the deal, contract's fair!", es:'Negociá el trato, ¡el contrato es justo!', pron:'nigóushieit de díil, cántracts fér!'}
     ]

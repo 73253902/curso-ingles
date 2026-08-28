@@ -24,7 +24,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Public relations, media too!', es:'Relaciones públicas, ¡medios también!', pron:'páblic riléishons, mídia tú!'},
-      {en:'Press conference, media kit for you!', es:'Conferencia de prensa, ¡kit de prensa para vos!', pron:'pres cánferens, mídia kit for iú!'},
+      {en:'Press conference, media kit for you!', es:'Conferencia de prensa, ¡kit de prensa para ti!', pron:'pres cánferens, mídia kit for iú!'},
       {en:'Crisis communication, talking points bright!', es:'Comunicación en crisis, ¡puntos clave brillantes!', pron:'cráisis camiunikéishon, tóking póints bráit!'},
       {en:'Media coverage, thought leadership right!', es:'Cobertura mediática, ¡liderazgo de pensamiento correcto!', pron:'mídia cáverich, zot líidership ráit!'}
     ]
@@ -52,7 +52,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Event planning, coordinator too!', es:'Planificación de eventos, ¡coordinador también!', pron:'ivént pláning, coórdineitor tú!'},
-      {en:'Budget breakdown, vendors for you!', es:'Desglose de presupuesto, ¡proveedores para vos!', pron:'báchet bréikdaun, véndors for iú!'},
+      {en:'Budget breakdown, vendors for you!', es:'Desglose de presupuesto, ¡proveedores para ti!', pron:'báchet bréikdaun, véndors for iú!'},
       {en:'Timeline, run of show, all so bright!', es:'Cronograma, guion, ¡todo tan brillante!', pron:'táimlain, ran of shóu, ol sóu bráit!'},
       {en:'Registration, theme, survey feels right!', es:'Registro, temática, ¡la encuesta se siente bien!', pron:'rechistréishon, ziim, sérvei fíils ráit!'}
     ]
@@ -80,7 +80,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Retail management, turnover too!', es:'Gestión minorista, ¡rotación también!', pron:'ríiteil mánechment, térnóuver tú!'},
-      {en:'Point of sale, foot traffic for you!', es:'Punto de venta, ¡afluencia para vos!', pron:'póint of séil, fut tráfic for iú!'},
+      {en:'Point of sale, foot traffic for you!', es:'Punto de venta, ¡afluencia para ti!', pron:'póint of séil, fut tráfic for iú!'},
       {en:'Merchandising, seasonal sales bright!', es:'Exhibición, ¡ventas de temporada brillantes!', pron:'mérchandaisin, síizonal séils bráit!'},
       {en:'Store layout, analytics right!', es:'Distribución de tienda, ¡analítica correcta!', pron:'stóar léiaut, análitics ráit!'}
     ]
@@ -107,7 +107,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Hospitality industry, guest experience too!', es:'Industria hotelera, ¡experiencia del huésped también!', pron:'jaspitáliti índastri, guest expíriens tú!'},
-      {en:'Concierge service, all for you!', es:'Servicio de conserjería, ¡todo para vos!', pron:'cansiérch sérvis, ol for iú!'},
+      {en:'Concierge service, all for you!', es:'Servicio de conserjería, ¡todo para ti!', pron:'cansiérch sérvis, ol for iú!'},
       {en:'Travel package, group booking bright!', es:'Paquete de viaje, ¡reserva grupal brillante!', pron:'trável páquich, grup búking bráit!'},
       {en:'Amenities, occupancy rate right!', es:'Comodidades, ¡tasa de ocupación correcta!', pron:'aménitis, ákiupansi réit ráit!'}
     ]
@@ -134,7 +134,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Entertainment industry, talent too!', es:'Industria del entretenimiento, ¡talento también!', pron:'entertéinment índastri, télent tú!'},
-      {en:'Royalties, box office for you!', es:'Regalías, ¡taquilla para vos!', pron:'róialtis, bax áfis for iú!'},
+      {en:'Royalties, box office for you!', es:'Regalías, ¡taquilla para ti!', pron:'róialtis, bax áfis for iú!'},
       {en:'Streaming rights, production bright!', es:'Derechos de transmisión, ¡producción brillante!', pron:'stríiming ráits, prodákshon bráit!'},
       {en:'Creative director, engagement right!', es:'Director creativo, ¡interacción correcta!', pron:'criéitiv diréctor, ingéichment ráit!'}
     ]
@@ -162,7 +162,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Government relations, lobbying too!', es:'Relaciones gubernamentales, ¡cabildeo también!', pron:'gávernment riléishons, lábiing tú!'},
-      {en:'Public policy, all for you!', es:'Política pública, ¡todo para vos!', pron:'páblic pálisi, ol for iú!'},
+      {en:'Public policy, all for you!', es:'Política pública, ¡todo para ti!', pron:'páblic pálisi, ol for iú!'},
       {en:'Advocacy group, legislation bright!', es:'Grupo de defensa, ¡legislación brillante!', pron:'ádvocasi grup, lechisléishon bráit!'},
       {en:'Public hearing, grassroots, feels right!', es:'Audiencia pública, base, ¡se siente bien!', pron:'páblic jíaring, grásruuts, fíils ráit!'}
     ]
@@ -186,7 +186,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Bite the bullet, bandwagon too!', es:'Enfrentar lo difícil, ¡tendencia también!', pron:'báit de búlet, bánduagon tú!'},
-      {en:'Game changer, raise the bar for you!', es:'Cambio total, ¡elevá el estándar para vos!', pron:'guéim chéinyer, réis de bar for iú!'},
+      {en:'Game changer, raise the bar for you!', es:'Cambio total, ¡eleva el estándar para ti!', pron:'guéim chéinyer, réis de bar for iú!'},
       {en:'No stone unturned, hit the ground running!', es:'Nada sin revisar, ¡arrancá con todo!', pron:'nóu stóun antérnd, jit de gráund ráning!'},
       {en:"Driver's seat, calling shots, no stunning!", es:'Al mando, tomando decisiones, ¡sin sorpresas!', pron:"dráivers síit, cóling shats, nóu stáning!"}
     ]
@@ -214,7 +214,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Global supply chain, relationship too!', es:'Cadena de suministro global, ¡relación también!', pron:'glóubal sapláichéin, riléishonship tú!'},
-      {en:'Procurement, optimization for you!', es:'Adquisiciones, ¡optimización para vos!', pron:'prociúrment, aptimaiséishon for iú!'},
+      {en:'Procurement, optimization for you!', es:'Adquisiciones, ¡optimización para ti!', pron:'prociúrment, aptimaiséishon for iú!'},
       {en:'Just-in-time, logistics network bright!', es:'Justo a tiempo, ¡red logística brillante!', pron:'yast in táim, loyístics nétuork bráit!'},
       {en:'Distribution center, sourcing right!', es:'Centro de distribución, ¡abastecimiento correcto!', pron:'distribiúshon sénter, sórsing ráit!'}
     ]
@@ -241,7 +241,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Energy sector, natural resources too!', es:'Sector energético, ¡recursos naturales también!', pron:'énerchi séctor, náchural risórses tú!'},
-      {en:'Oil and gas, mining for you!', es:'Petróleo y gas, ¡minería para vos!', pron:'óil and gas, máining for iú!'},
+      {en:'Oil and gas, mining for you!', es:'Petróleo y gas, ¡minería para ti!', pron:'óil and gas, máining for iú!'},
       {en:'Renewable resources, extraction bright!', es:'Recursos renovables, ¡extracción brillante!', pron:'riniúabol risórses, extrákshon bráit!'},
       {en:'Energy efficiency, impact just right!', es:'Eficiencia energética, ¡impacto justo!', pron:'énerchi ifíshensi, ímpact yast ráit!'}
     ]
@@ -268,7 +268,7 @@ const curriculumUnidad12 = [
     ],
     jingle:[
       {en:'Consumer goods, portfolio too!', es:'Bienes de consumo, ¡portafolio también!', pron:'cansiúmer guds, pórtfoulio tú!'},
-      {en:'Product lifecycle, expansion for you!', es:'Ciclo de vida, ¡expansión para vos!', pron:'prádact láifsaikol, expánshon for iú!'},
+      {en:'Product lifecycle, expansion for you!', es:'Ciclo de vida, ¡expansión para ti!', pron:'prádact láifsaikol, expánshon for iú!'},
       {en:'International distribution, regulations bright!', es:'Distribución internacional, ¡regulaciones brillantes!', pron:'internáshonal distribiúshon, regiuléishons bráit!'},
       {en:'Local adaptation, shelf space right!', es:'Adaptación local, ¡espacio en góndola correcto!', pron:'lóucal adaptéishon, shelf spéis ráit!'}
     ]
@@ -289,13 +289,13 @@ const curriculumUnidad12 = [
     story:[
       {en:'Telecommunications reach every corner — even inside a volcano!', es:'¡Las telecomunicaciones llegan a cada rincón — hasta dentro de un volcán!', pron:'télicomiunikéishons ríich évri córner — íven insáid a valkéinou!'},
       {en:'Our network infrastructure has unlimited bandwidth, thanks to dragon-fire power!', es:'¡Nuestra infraestructura de red tiene ancho de banda ilimitado, gracias al poder de fuego de dragón!', pron:'áur nétuork ínfrastrakcher jas anlímited bánduidz, zanks tu drágon fáiar páuer!'},
-      {en:'Choose your service provider, and pick the best data plan for you!', es:'¡Elegí tu proveedor de servicios, y escogé el mejor plan de datos para vos!', pron:'chúus iór sérvis prováider, and pik de best déita plan for iú!'},
+      {en:'Choose your service provider, and pick the best data plan for you!', es:'¡Elige tu proveedor de servicios, y escoge el mejor plan de datos para ti!', pron:'chúus iór sérvis prováider, and pik de best déita plan for iú!'},
       {en:'Signal coverage is perfect after the new telecom regulation passed.', es:'La cobertura de señal es perfecta después de que pasó la nueva regulación de telecomunicaciones.', pron:'sígnal cáverich is pérfect áfter de niú télicam regiuléishon past.'},
       {en:'Fiber optic cables connect every mobile carrier in the sky kingdom!', es:'¡Los cables de fibra óptica conectan cada operador móvil en el reino del cielo!', pron:'fáiber áptic kéibols canéct évri móubail cárier in de skái kíngdom!'}
     ],
     jingle:[
       {en:'Telecommunications, infrastructure too!', es:'Telecomunicaciones, ¡infraestructura también!', pron:'télicomiunikéishons, ínfrastrakcher tú!'},
-      {en:'Bandwidth, service provider for you!', es:'Ancho de banda, ¡proveedor para vos!', pron:'bánduidz, sérvis prováider for iú!'},
+      {en:'Bandwidth, service provider for you!', es:'Ancho de banda, ¡proveedor para ti!', pron:'bánduidz, sérvis prováider for iú!'},
       {en:'Data plan, signal coverage bright!', es:'Plan de datos, ¡cobertura de señal brillante!', pron:'déita plan, sígnal cáverich bráit!'},
       {en:'Fiber optic, mobile carrier right!', es:'Fibra óptica, ¡operador móvil correcto!', pron:'fáiber áptic, móubail cárier ráit!'}
     ]

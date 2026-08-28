@@ -38,7 +38,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Email etiquette, subject line too!', es:'Etiqueta del correo, ¡línea de asunto también!', pron:'íimeil étiket, sábyect láin tú!'},
-      {en:'CC, BCC, attachment for you!', es:'Con copia, con copia oculta, ¡adjunto para vos!', pron:'síi síi, bíi síi síi, atáchment for iú!'},
+      {en:'CC, BCC, attachment for you!', es:'Con copia, con copia oculta, ¡adjunto para ti!', pron:'síi síi, bíi síi síi, atáchment for iú!'},
       {en:'Formal greeting, formal closing right!', es:'Saludo formal, ¡despedida formal correcta!', pron:'fórmal gríiting, fórmal clóusing ráit!'},
       {en:"Draft, proofread, tone, don't reply all tonight!", es:'Redactá, revisá, tono, ¡no le respondas a todos esta noche!', pron:"draft, prúufriid, tóun, dont riplái ol tunáit!"}
     ]
@@ -164,7 +164,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Customer satisfaction, complaint too!', es:'Satisfacción del cliente, ¡queja también!', pron:'cástomer satisfákshon, compléint tú!'},
-      {en:'Service recovery, empathy for you!', es:'Recuperación del servicio, ¡empatía para vos!', pron:'sérvis ricáveri, émpazi for iú!'},
+      {en:'Service recovery, empathy for you!', es:'Recuperación del servicio, ¡empatía para ti!', pron:'sérvis ricáveri, émpazi for iú!'},
       {en:'Loyalty program, journey so bright!', es:'Programa de lealtad, ¡recorrido tan brillante!', pron:'lóialti prógram, yérni sóu bráit!'},
       {en:'Escalation, survey, retention right!', es:'Escalamiento, encuesta, ¡retención correcta!', pron:'escaléishon, sérvei, riténshon ráit!'}
     ]
@@ -248,7 +248,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Innovation, sustainability too!', es:'Innovación, ¡sostenibilidad también!', pron:'inovéishon, sasteinabíliti tú!'},
-      {en:'Eco-friendly, renewable for you!', es:'Ecológico, ¡renovable para vos!', pron:'íco fréndli, riniúabol for iú!'},
+      {en:'Eco-friendly, renewable for you!', es:'Ecológico, ¡renovable para ti!', pron:'íco fréndli, riniúabol for iú!'},
       {en:'Carbon footprint, recycling right!', es:'Huella de carbono, ¡reciclaje correcto!', pron:'cárbon fútprint, risáikling ráit!'},
       {en:'Green initiative, long-term, so bright!', es:'Iniciativa verde, largo plazo, ¡tan brillante!', pron:'gríin iníshativ, long term, sóu bráit!'}
     ]
@@ -314,7 +314,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Export license, import duty too!', es:'Licencia de exportación, ¡arancel también!', pron:'éxport láisens, ímport diúti tú!'},
-      {en:'Customs clearance, all for you!', es:'Despacho aduanero, ¡todo para vos!', pron:'cástoms clírens, ol for iú!'},
+      {en:'Customs clearance, all for you!', es:'Despacho aduanero, ¡todo para ti!', pron:'cástoms clírens, ol for iú!'},
       {en:'Bill of lading, letter of credit clear!', es:'Conocimiento de embarque, ¡carta de crédito clara!', pron:'bil of léiding, léter of crédit clíar!'},
       {en:'Freight forwarder, cargo insurance near!', es:'Agente de carga, ¡seguro de carga cerca!', pron:'fréit fóruarder, cárgou inshúrans níar!'}
     ]
@@ -354,7 +354,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Production line, raw materials too!', es:'Línea de producción, ¡materia prima también!', pron:'prodákshon láin, ro matírials tú!'},
-      {en:'Assembly, plant, all for you!', es:'Ensamblaje, planta, ¡todo para vos!', pron:'asémbli, plant, ol for iú!'},
+      {en:'Assembly, plant, all for you!', es:'Ensamblaje, planta, ¡todo para ti!', pron:'asémbli, plant, ol for iú!'},
       {en:'Output, efficiency, automation bright!', es:'Producción, eficiencia, ¡automatización brillante!', pron:'áutput, ifíshensi, otoméishon bráit!'},
       {en:'Machinery, no downtime, running right!', es:'Maquinaria, sin tiempos muertos, ¡funcionando bien!', pron:'mashínari, nóu dáuntaim, ránning ráit!'}
     ]
@@ -395,7 +395,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Human resources, onboarding too!', es:'Recursos humanos, ¡incorporación también!', pron:'jiúman rísorses, anbórding tú!'},
-      {en:'Employee benefits, all for you!', es:'Beneficios para empleados, ¡todo para vos!', pron:'emploí bénefits, ol for iú!'},
+      {en:'Employee benefits, all for you!', es:'Beneficios para empleados, ¡todo para ti!', pron:'emploí bénefits, ol for iú!'},
       {en:'Performance review, training bright!', es:'Evaluación de desempeño, ¡capacitación brillante!', pron:'perfórmans riviú, tréining bráit!'},
       {en:'Promotion, diversity, feels right!', es:'Ascenso, diversidad, ¡se siente bien!', pron:'promóushon, daivérsiti, fíils ráit!'}
     ]
@@ -436,7 +436,7 @@ const curriculumUnidad9 = [
     ],
     jingle:[
       {en:'Sales pitch, cold call too!', es:'Presentación de ventas, ¡llamada en frío también!', pron:'séils pich, cóuld col tú!'},
-      {en:'Lead generation, funnel for you!', es:'Generación de prospectos, ¡embudo para vos!', pron:'líid yeneréishon, fánel for iú!'},
+      {en:'Lead generation, funnel for you!', es:'Generación de prospectos, ¡embudo para ti!', pron:'líid yeneréishon, fánel for iú!'},
       {en:'Close a deal, quota, commission bright!', es:'Cerrá un trato, cuota, ¡comisión brillante!', pron:'clóus a díil, cuóuta, comíshon bráit!'},
       {en:'Cross-sell, sales target, feels so right!', es:'Venta cruzada, meta de ventas, ¡se siente tan bien!', pron:'cros sel, séils tárguet, fíils sóu ráit!'}
     ]
@@ -447,14 +447,14 @@ const curriculumUnidad9 = [
       {en:'unit nine', es:'unidad nueve', pron:'iúnit náin', emoji:'9️⃣'},
       {en:'two thirds done', es:'dos tercios hecho', pron:'tú zerds dan', emoji:'📊'},
       {en:'staying strong', es:'manteniéndose fuerte', pron:'stéing strong', emoji:'💪'},
-      {en:'proud of you', es:'orgulloso de vos', pron:'práud of iú', emoji:'😊'},
+      {en:'proud of you', es:'orgulloso de ti', pron:'práud of iú', emoji:'😊'},
       {en:'halfway to mastery', es:'a mitad de camino al dominio', pron:'jáfuei tu másteri', emoji:'🎓'},
       {en:'see you in unit ten', es:'nos vemos en la unidad diez', pron:'síi iú in iúnit ten', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
       {en:"Welcome to unit nine's finale — two thirds done, brave hero!", es:'¡Bienvenido al final de la unidad nueve — dos tercios hecho, valiente héroe!', pron:"uélcam tu iúnit náins fináli — tú zerds dan, bréiv jírou!"},
-      {en:'You are staying strong, and I am so proud of you!', es:'¡Te estás manteniendo fuerte, y estoy tan orgulloso de vos!', pron:'iú ar stéing strong, and ái am sóu práud of iú!'},
+      {en:'You are staying strong, and I am so proud of you!', es:'¡Te estás manteniendo fuerte, y estoy tan orgulloso de ti!', pron:'iú ar stéing strong, and ái am sóu práud of iú!'},
       {en:'You are halfway to mastery of the English language!', es:'¡Estás a mitad de camino al dominio del idioma inglés!', pron:'iú ar jáfuei tu másteri of de ínglish lángüich!'},
       {en:'See you in unit ten, dragon trader!', es:'¡Nos vemos en la unidad diez, comerciante de dragones!', pron:'síi iú in iúnit ten, drágon tréider!'}
     ],

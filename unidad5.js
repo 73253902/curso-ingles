@@ -21,7 +21,7 @@ const curriculumUnidad5 = [
       {en:'Let me try on this magic armor — does it fit, or is it too big?', es:'Dejame probarme esta armadura mágica — ¿me queda bien, o es muy grande?', pron:'let mi trái on dis máyic ármor — das it fit, or is it tu big?'},
       {en:"It's too small! Do you have a bigger size, sales assistant?", es:'¡Es muy chica! ¿Tenés una talla más grande, vendedor?', pron:'its tu smol! du iú jav a bíguer sáis, séils asístant?'},
       {en:'Welcome to the Dragon Store, the best shop in the kingdom!', es:'¡Bienvenido a la Tienda del Dragón, la mejor tienda del reino!', pron:'uélcam tu de drágon stóar, de best shap in de kíngdom!'},
-      {en:'Here is your formal quote, attached to this magic scroll.', es:'Acá tenés tu cotización formal, adjunta en este pergamino mágico.', pron:'jíar is iór fórmal cuóut, atácht tu dis máyic scról.'},
+      {en:'Here is your formal quote, attached to this magic scroll.', es:'Aquí tienes tu cotización formal, adjunta en este pergamino mágico.', pron:'jíar is iór fórmal cuóut, atácht tu dis máyic scról.'},
       {en:'This proposal is valid until the next full moon!', es:'¡Esta propuesta es válida hasta la próxima luna llena!', pron:'dis propóusal is válid antíl de next ful múun!'}
     ],
     jingle:[
@@ -35,7 +35,7 @@ const curriculumUnidad5 = [
     day:50, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Regatear y descuentos / Negociar términos de la cotización',
     words:[
       {en:'to bargain', es:'regatear', pron:'tu bárguen', emoji:'🤝'},
-      {en:'can you lower the price', es:'podés bajar el precio', pron:'can iú lóuar de práis', emoji:'💲'},
+      {en:'can you lower the price', es:'puedes bajar el precio', pron:'can iú lóuar de práis', emoji:'💲'},
       {en:'best offer', es:'mejor oferta', pron:'best áfer', emoji:'🏷️'},
       {en:'sale', es:'oferta', pron:'séil', emoji:'🏷️'},
       {en:'clearance', es:'liquidación', pron:'clírens', emoji:'📉'},
@@ -57,7 +57,7 @@ const curriculumUnidad5 = [
       {en:'Let\'s bargain, lower the price!', es:'Regateemos, ¡bajá el precio!', pron:'lets bárguen, lóuar de práis!'},
       {en:'Best offer, clearance, so nice!', es:'Mejor oferta, liquidación, ¡qué lindo!', pron:'best áfer, clírens, sóu náis!'},
       {en:'Negotiate terms, counteroffer too!', es:'Negociá los términos, ¡contraoferta también!', pron:'nigóushieit terms, cáunteráfer tú!'},
-      {en:'Flexible, fixed price, minimum for you!', es:'Flexible, precio fijo, ¡mínimo para vos!', pron:'fléxibol, fixt práis, mínimum for iú!'}
+      {en:'Flexible, fixed price, minimum for you!', es:'Flexible, precio fijo, ¡mínimo para ti!', pron:'fléxibol, fixt práis, mínimum for iú!'}
     ]
   },
 {
@@ -68,12 +68,12 @@ const curriculumUnidad5 = [
         {en:'I need to get an exchange.', es:'Necesito hacer un cambio.', pron:'ái níid tu guét an exchéinch.'},
         {en:'I need to get a receipt.', es:'Necesito conseguir un recibo.', pron:'ái níid tu guét a risíit.'},
         {en:'I need to get help with this.', es:'Necesito conseguir ayuda con esto.', pron:'ái níid tu guét jelp uid dis.'}
-      ], function:'pedir algo que necesitás obtener', stage:2,
+      ], function:'pedir algo que necesitas obtener', stage:2,
         transformations:{
           negative:{en:"I don't need to get a refund.", es:'No necesito obtener un reembolso.'},
           question:{en:'Can I get a refund?', es:'¿Puedo obtener un reembolso?'},
-          yesAnswer:{en:'Yes, you can.', es:'Sí, podés.'},
-          noAnswer:{en:"No, you can't.", es:'No, no podés.'}
+          yesAnswer:{en:'Yes, you can.', es:'Sí, puedes.'},
+          noAnswer:{en:"No, you can't.", es:'No, no puedes.'}
         }}
     ],
     auxiliaryTeaching:[
@@ -207,7 +207,7 @@ const curriculumUnidad5 = [
         {en:'I need to enter my security code.', es:'Necesito ingresar mi código de seguridad.', pron:'ái níid tu énter mái sekiúriti kóud.'},
         {en:'I need to enter my shipping address.', es:'Necesito ingresar mi dirección de envío.', pron:'ái níid tu énter mái shíping adrés.'},
         {en:'I need to enter my payment details.', es:'Necesito ingresar mis datos de pago.', pron:'ái níid tu énter mái péiment díteils.'}
-      ], function:'decir qué datos tenés que ingresar', stage:2,
+      ], function:'decir qué datos tienes que ingresar', stage:2,
         transformations:{
           negative:{en:"I don't need to enter my card number.", es:'No necesito ingresar mi número de tarjeta.'},
           question:{en:'Do you need to enter your card number?', es:'¿Necesitás ingresar tu número de tarjeta?'},
@@ -298,7 +298,7 @@ const curriculumUnidad5 = [
     ],
     jingle:[
       {en:'Shirt and pants, jacket too!', es:'Camisa y pantalón, ¡chaqueta también!', pron:'shert and pants, yáket tú!'},
-      {en:'Dress in medium, large for you!', es:'Vestido en mediano, ¡grande para vos!', pron:'dres in mídium, larch for iú!'},
+      {en:'Dress in medium, large for you!', es:'Vestido en mediano, ¡grande para ti!', pron:'dres in mídium, larch for iú!'},
       {en:'Payment reminder, balance due!', es:'Recordatorio de pago, ¡saldo pendiente!', pron:'péiment rimáinder, bálans diú!'},
       {en:"Kindly remind, as agreed, it's true!", es:'Recordá amablemente, según lo acordado, ¡es verdad!', pron:'káindli rimáind, as agríid, its trú!'}
     ]
@@ -314,7 +314,7 @@ const curriculumUnidad5 = [
       ], function:'aprobar algo formalmente', stage:2,
         transformations:{
           negative:{en:"I don't approve this quote.", es:'No apruebo esta cotización.'},
-          question:{en:'Do you approve this quote?', es:'¿Aprobás esta cotización?'},
+          question:{en:'Do you approve this quote?', es:'¿Apruebas esta cotización?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}

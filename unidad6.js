@@ -9,7 +9,7 @@ const curriculumUnidad6 = [
         {en:'I need to get to the office.', es:'Necesito llegar a la oficina.', pron:'ái níid tu guét tu de áfis.'},
         {en:'I need to get to downtown.', es:'Necesito llegar al centro.', pron:'ái níid tu guét tu dáuntaun.'},
         {en:'I need to get to the warehouse.', es:'Necesito llegar al depósito.', pron:'ái níid tu guét tu de uérjaus.'}
-      ], function:'decir a dónde necesitás llegar', stage:2,
+      ], function:'decir a dónde necesitas llegar', stage:2,
         transformations:{
           negative:{en:"I don't need to get to the airport.", es:'No necesito llegar al aeropuerto.'},
           question:{en:'How do I get to the airport?', es:'¿Cómo llego al aeropuerto?'}
@@ -165,7 +165,7 @@ const curriculumUnidad6 = [
     ],
     jingle:[
       {en:'Airport, flight, boarding pass too!', es:'Aeropuerto, vuelo, ¡pase de abordar también!', pron:'érport, fláit, bórding pas tú!'},
-      {en:'Luggage and gate, customs for you!', es:'Equipaje y puerta, ¡aduana para vos!', pron:'láguich and guéit, cástoms for iú!'},
+      {en:'Luggage and gate, customs for you!', es:'Equipaje y puerta, ¡aduana para ti!', pron:'láguich and guéit, cástoms for iú!'},
       {en:"Import, export, tariff's the game!", es:'Importar, exportar, ¡arancel es el juego!', pron:'impórt, expórt, tárifs de guéim!'},
       {en:'Country of origin, always the same!', es:'País de origen, ¡siempre lo mismo!', pron:'cántri of óriyin, ólueis de séim!'}
     ]
@@ -178,7 +178,7 @@ const curriculumUnidad6 = [
         {en:'I have the commercial invoice.', es:'Tengo la factura comercial.', pron:'ái jav de camérshial ínvois.'},
         {en:'I have the packing list.', es:'Tengo la lista de empaque.', pron:'ái jav de páking list.'},
         {en:"I don't have the customs documents yet.", es:'Todavía no tengo los documentos de aduana.', pron:"ái dont jav de cástams dákiuments iét."}
-      ], function:'decir qué documentos tenés', stage:2,
+      ], function:'decir qué documentos tienes', stage:2,
         transformations:{
           negative:{en:"I don't have the shipping guide.", es:'No tengo la guía de envío.'},
           question:{en:'Do you have the shipping guide?', es:'¿Tenés la guía de envío?'},
@@ -312,7 +312,7 @@ const curriculumUnidad6 = [
         {en:'I want to rent a car.', es:'Quiero alquilar un auto.', pron:'ái uánt tu rent a car.'},
         {en:'I want to sign a service agreement.', es:'Quiero firmar un acuerdo de servicio.', pron:'ái uánt tu sáin a sérvis agríiment.'},
         {en:'I want a driver with experience.', es:'Quiero un conductor con experiencia.', pron:'ái uánt a dráiver uid expíriens.'}
-      ], function:'decir a quién querés contratar', stage:2,
+      ], function:'decir a quién quieres contratar', stage:2,
         transformations:{
           negative:{en:"I don't want to hire this carrier.", es:'No quiero contratar este transportista.'},
           question:{en:'Do you want to hire this carrier?', es:'¿Querés contratar este transportista?'},
@@ -410,7 +410,7 @@ const curriculumUnidad6 = [
       {en:'North and south, east and west!', es:'Norte y sur, ¡este y oeste!', pron:'norz and sáuz, íist and uést!'},
       {en:'Downtown, outskirts, we know best!', es:'Centro, afueras, ¡lo sabemos mejor!', pron:'dáuntaun, áutskerts, uí nóu best!'},
       {en:'Delivery route, optimal too!', es:'Ruta de distribución, ¡óptima también!', pron:'delíveri rúut, áptimal tú!'},
-      {en:'Multiple stops, dispatch for you!', es:'Múltiples paradas, ¡despacho para vos!', pron:'máltipol staps, díspach for iú!'}
+      {en:'Multiple stops, dispatch for you!', es:'Múltiples paradas, ¡despacho para ti!', pron:'máltipol staps, díspach for iú!'}
     ]
   },
 {
@@ -432,7 +432,7 @@ const curriculumUnidad6 = [
     ],
     jingle:[
       {en:'Unit six, great job so far!', es:'Unidad seis, ¡muy buen trabajo hasta ahora!', pron:'iúnit six, gréit yab sóu far!'},
-      {en:"Keep pushing, you're a star!", es:'Seguí esforzándote, ¡sos una estrella!', pron:'kíip púshing, iór a star!'},
+      {en:"Keep pushing, you're a star!", es:'Sigue esforzándote, ¡eres una estrella!', pron:'kíip púshing, iór a star!'},
       {en:'More than a third, stay consistent, friend!', es:'Más de un tercio, mantené la constancia, ¡amigo!', pron:'mor dan a zerd, stéi cansístent, frend!'},
       {en:'See you in unit seven, till the end!', es:'Nos vemos en la unidad siete, ¡hasta el final!', pron:'síi iú in iúnit séven, til de end!'}
     ]
