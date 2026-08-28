@@ -9,7 +9,7 @@ const curriculumUnidad1 = [
         {en:'I need water.', es:'Necesito agua.', pron:'ái níid uáter.'},
         {en:'I need coffee.', es:'Necesito café.', pron:'ái níid cófi.'},
         {en:'I need money.', es:'Necesito dinero.', pron:'ái níid máni.'}
-      ], function:'pedir algo que necesitás', stage:1,
+      ], function:'pedir algo que necesitas', stage:1,
         transformations:{
           negative:{en:"I don't need help.", es:'No necesito ayuda.'},
           question:{en:'Do you need help?', es:'¿Necesitás ayuda?'},
@@ -34,7 +34,7 @@ const curriculumUnidad1 = [
         intro:'Practiquemos el ayudante "don\'t" con distintos protagonistas — se usa igual con I, you, we, they:',
         examples:[
           {en:"I don't need help.", es:'No necesito ayuda.', pron:'ái dont níid jelp.'},
-          {en:"You don't need help.", es:'Vos no necesitás ayuda.', pron:'iú dont níid jelp.'},
+          {en:"You don't need help.", es:'Tú no necesitas ayuda.', pron:'iú dont níid jelp.'},
           {en:"We don't need help.", es:'Nosotros no necesitamos ayuda.', pron:'uí dont níid jelp.'},
           {en:"They don't need help.", es:'Ellos no necesitan ayuda.', pron:'déi dont níid jelp.'}
         ]
@@ -106,7 +106,7 @@ const curriculumUnidad1 = [
       {en:"I ate the email by mistake!", es:"¡Me comí el correo por error!", pron:"ái éit de íimeil bái mistéik!"},
       {en:"No problem, we can talk later —", es:"No hay problema, podemos hablar más tarde —", pron:"nóu práblem, uí can tók léiter —"},
       {en:"tomorrow, or even next year!", es:"mañana, o hasta el año que viene.", pron:"tumórou, or íven next íar!"},
-      {en:"How much treasure do you want? A million gold coins?", es:"¿Cuánto tesoro querés? ¿Un millón de monedas de oro?", pron:"jáu mach tréshur du iú uánt? a mílion góuld cóins?"},
+      {en:"How much treasure do you want? A million gold coins?", es:"¿Cuánto tesoro quieres? ¿Un millón de monedas de oro?", pron:"jáu mach tréshur du iú uánt? a mílion góuld cóins?"},
       {en:"Good afternoon, tiny humans!", es:"¡Buenas tardes, humanitos!", pron:"gud afternúun, táini jiúmans!"},
       {en:"Goodbye, and good night, my friends!", es:"¡Adiós, y buenas noches, amigos!", pron:"gudbái, and gud náit, mái frends!"}
     ],
@@ -146,7 +146,7 @@ const curriculumUnidad1 = [
       {en:'I ate the email by mistake!', es:'¡Me comí el correo por error!', pron:'ái éit de íimeil bái mistéik!'},
       {en:'No problem, we can talk later —', es:'No hay problema, podemos hablar más tarde —', pron:'nóu práblem, uí can tók léiter —'},
       {en:'tomorrow, or even next year!', es:'mañana, o hasta el año que viene.', pron:'tumórou, or íven next íar!'},
-      {en:'How much treasure do you want? A million gold coins?', es:'¿Cuánto tesoro querés? ¿Un millón de monedas de oro?', pron:'jáu mach tréshur du iú uánt? a mílion góuld cóins?'},
+      {en:'How much treasure do you want? A million gold coins?', es:'¿Cuánto tesoro quieres? ¿Un millón de monedas de oro?', pron:'jáu mach tréshur du iú uánt? a mílion góuld cóins?'},
       {en:'Good afternoon, tiny humans!', es:'¡Buenas tardes, humanitos!', pron:'gud afternúun, táini jiúmans!'},
       {en:'Goodbye, and good night, my friends!', es:'¡Adiós, y buenas noches, amigos!', pron:'gudbái, and gud náit, mái frends!'}
     ],
@@ -197,7 +197,7 @@ const curriculumUnidad1 = [
         {en:'I am from Medellín.', es:'Soy de Medellín.', pron:'ái am fram Medeyín.'},
         {en:'I am from the planet Neptune.', es:'Soy del planeta Neptuno.', pron:'ái am fram de plánet Neptiún.'},
         {en:'I am from Mexico.', es:'Soy de México.', pron:'ái am fram Méxicou.'}
-      ], function:'decir de dónde sos', stage:1,
+      ], function:'decir de dónde eres', stage:1,
         transformations:{
           negative:{en:'I am not from Colombia.', es:'No soy de Colombia.'},
           question:{en:'Are you from Colombia?', es:'¿Sos de Colombia?'},
@@ -209,7 +209,7 @@ const curriculumUnidad1 = [
         {en:'I work at a bank.', es:'Trabajo en un banco.', pron:'ái uork at a bank.'},
         {en:'I work at the Interstellar Bank.', es:'Trabajo en el Banco Interestelar.', pron:'ái uork at de ínterstelar bank.'},
         {en:'I work at a hospital.', es:'Trabajo en un hospital.', pron:'ái uork at a jáspital.'}
-      ], function:'decir dónde trabajás', stage:1,
+      ], function:'decir dónde trabajas', stage:1,
         transformations:{
           negative:{en:"I don't work at Dosting Toys.", es:'No trabajo en Dosting Toys.'},
           question:{en:'Do you work at Dosting Toys?', es:'¿Trabajás en Dosting Toys?'},
@@ -255,10 +255,10 @@ const curriculumUnidad1 = [
       {en:"Welcome to Earth! Come in, please!", es:"¡Bienvenido a la Tierra! ¡Pasá, por favor!", pron:"uélcam tu erz! cam in, plíis!"},
       {en:"What's your name?", es:"¿Cómo te llamás?", pron:"uáts iór néim?"},
       {en:"My name is Zorblax, and I am from the planet Neptune!", es:"¡Me llamo Zorblax, y soy del planeta Neptuno!", pron:"mái néim is Zorblax, and ái am fram de plánet Neptiún!"},
-      {en:"Nice to meet you. Have a seat — if you can find a chair big enough!", es:"Mucho gusto. Tomá asiento — ¡si encontrás una silla suficientemente grande!", pron:"náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!"},
+      {en:"Nice to meet you. Have a seat — if you can find a chair big enough!", es:"Mucho gusto. Toma asiento — ¡si encuentras una silla suficientemente grande!", pron:"náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!"},
       {en:"I work at the Interstellar Bank. I am the owner of a thousand galaxies!", es:"Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!", pron:"ái uork at de ínterstelar bank. ái am de óuner of a záusand gálaxis!"},
       {en:"This is our team: five robots and a talking cat, our manager.", es:"Este es nuestro equipo: cinco robots y un gato parlante, nuestro gerente.", pron:"dis is áur tíim: fáiv róubots and a tóking cat, áur mánayer."},
-      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:"Acá tenés mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!", pron:"jíar is mái bísnes card — mái cóntact is a léiser bíim, and mái fóun námber jas fórti díyits!"},
+      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:"Aquí tienes mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!", pron:"jíar is mái bísnes card — mái cóntact is a léiser bíim, and mái fóun námber jas fórti díyits!"},
       {en:"The pleasure is mine, human.", es:"El placer es mío, humano.", pron:"de pléyer is máin, jiúman."}
     ],
     words:[
@@ -285,10 +285,10 @@ const curriculumUnidad1 = [
       {en:'Welcome to Earth! Come in, please!', es:'¡Bienvenido a la Tierra! ¡Pasá, por favor!', pron:'uélcam tu erz! cam in, plíis!'},
       {en:"What's your name?", es:'¿Cómo te llamás?', pron:'uáts iór néim?'},
       {en:'My name is Zorblax, and I am from the planet Neptune!', es:'¡Me llamo Zorblax, y soy del planeta Neptuno!', pron:'mái néim is Zorblax, and ái am fram de plánet Neptiún!'},
-      {en:'Nice to meet you. Have a seat — if you can find a chair big enough!', es:'Mucho gusto. Tomá asiento — ¡si encontrás una silla suficientemente grande!', pron:'náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!'},
+      {en:'Nice to meet you. Have a seat — if you can find a chair big enough!', es:'Mucho gusto. Toma asiento — ¡si encuentras una silla suficientemente grande!', pron:'náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!'},
       {en:'I work at the Interstellar Bank. I am the owner of a thousand galaxies!', es:'Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!', pron:'ái uork at de ínterstelar bank. ái am de óuner of a záusand gálaxis!'},
       {en:'This is our team: five robots and a talking cat, our manager.', es:'Este es nuestro equipo: cinco robots y un gato parlante, nuestro gerente.', pron:'dis is áur tíim: fáiv róubots and a tóking cat, áur mánayer.'},
-      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:'Acá tenés mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!', pron:'jíar is mái bísnes card — mái cóntact is a léiser bíim, and mái fóun námber jas fórti díyits!'},
+      {en:"Here is my business card — my contact is a laser beam, and my phone number has forty digits!", es:'Aquí tienes mi tarjeta — mi contacto es un rayo láser, ¡y mi número de teléfono tiene cuarenta dígitos!', pron:'jíar is mái bísnes card — mái cóntact is a léiser bíim, and mái fóun námber jas fórti díyits!'},
       {en:'The pleasure is mine, human.', es:'El placer es mío, humano.', pron:'de pléyer is máin, jiúman.'}
     ],
     jingle:[
@@ -460,7 +460,7 @@ const curriculumUnidad1 = [
         {en:'I am the owner of a small store.', es:'Soy el dueño de una tienda pequeña.', pron:'ái am de óuner of a smol stor.'},
         {en:'I am the owner of a thousand galaxies.', es:'Soy el dueño de mil galaxias.', pron:'ái am de óuner of a záusand gálaxis.'},
         {en:'I am the owner of a restaurant.', es:'Soy el dueño de un restaurante.', pron:'ái am de óuner of a réstorant.'}
-      ], function:'decir que sos dueño de algo', stage:1,
+      ], function:'decir que eres dueño de algo', stage:1,
         transformations:{
           negative:{en:'I am not the owner of this company.', es:'No soy el dueño de esta empresa.'},
           question:{en:'Are you the owner of this company?', es:'¿Sos el dueño de esta empresa?'},
@@ -595,7 +595,7 @@ const curriculumUnidad1 = [
         {en:'We have five units.', es:'Tenemos cinco unidades.', pron:'uí jav fáiv iúnits.'},
         {en:'We have two dozens.', es:'Tenemos dos docenas.', pron:'uí jav tú dázens.'},
         {en:'We have three orders.', es:'Tenemos tres pedidos.', pron:'uí jav zríi órders.'}
-      ], function:'decir cuánto tenés en stock o en un pedido', stage:1,
+      ], function:'decir cuánto tienes en stock o en un pedido', stage:1,
         transformations:{
           negative:{en:"We don't have ten boxes.", es:'No tenemos diez cajas.'},
           question:{en:'Do you have ten boxes?', es:'¿Tienen diez cajas?'},
@@ -891,7 +891,7 @@ const curriculumUnidad1 = [
     words:[
       {en:'how are you doing', es:'cómo te va', pron:'jáu ar iú dúing', emoji:'🙂'},
       {en:"I'm fine, thanks", es:'estoy bien, gracias', pron:'áim fáin zenks', emoji:'😊'},
-      {en:'and you', es:'y vos', pron:'and iú', emoji:'❓'},
+      {en:'and you', es:'y tú', pron:'and iú', emoji:'❓'},
       {en:'have a good day', es:'que tengas buen día', pron:'jav a gud déi', emoji:'☀️'},
       {en:'take care', es:'cuídate', pron:'téik quér', emoji:'🤗'},
       {en:'no problem', es:'no hay problema', pron:'nóu práblem', emoji:'👌'},
@@ -1233,10 +1233,10 @@ const curriculumUnidad1 = [
         {en:'I can explain it.', es:'Lo puedo explicar.', pron:'ái can expléin it.'},
         {en:'I can check the price.', es:'Puedo revisar el precio.', pron:'ái can chek de práis.'},
         {en:'I can confirm the stock.', es:'Puedo confirmar el stock.', pron:'ái can canférm de stok.'}
-      ], function:'ofrecer ayuda o decir qué podés hacer', stage:1,
+      ], function:'ofrecer ayuda o decir qué puedes hacer', stage:1,
         transformations:{
           negative:{en:"I can't help you.", es:'No te puedo ayudar.'},
-          question:{en:'Can you help me?', es:'¿Me podés ayudar?'},
+          question:{en:'Can you help me?', es:'¿Me puedes ayudar?'},
           yesAnswer:{en:'Yes, I can.', es:'Sí, puedo.'},
           noAnswer:{en:"No, I can't.", es:'No, no puedo.'}
         }}
@@ -1253,9 +1253,9 @@ const curriculumUnidad1 = [
       {en:'when will it arrive', es:'cuándo llega', pron:'uén uíl it aráiv', emoji:'🚚'},
       {en:'do you have stock', es:'tienen stock', pron:'du iú jav stak', emoji:'📦'},
       {en:"what's the price", es:'cuál es el precio', pron:'uáts de práis', emoji:'💲'},
-      {en:'can you help me', es:'me podés ayudar', pron:'can iú jelp mi', emoji:'🙋'},
+      {en:'can you help me', es:'me puedes ayudar', pron:'can iú jelp mi', emoji:'🙋'},
       {en:'I have a question', es:'tengo una pregunta', pron:'ái jav a cuéstion', emoji:'❓'},
-      {en:'can you explain', es:'podés explicar', pron:'can iú expléin', emoji:'🗣️'}
+      {en:'can you explain', es:'puedes explicar', pron:'can iú expléin', emoji:'🗣️'}
     ],
     songJingle:'cancion-dia10-vocabulario.mp3',
     songStory:'cancion-dia10-historia.mp3',
