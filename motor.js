@@ -363,6 +363,56 @@ const unitMeta = {
   14:{icon:'🌐', color:'#5BC9A0', name:'Sectores emergentes', desc:'Farmacéutica, videojuegos, trabajo remoto y sostenibilidad'},
   15:{icon:'🎓', color:'#E8C33D', name:'La cima', desc:'Marca personal, el futuro del trabajo, y tu graduación'}
 };
+// Diálogo de refuerzo entre Maestro y Alumno, al inicio de cada unidad — repasa TODA la unidad anterior. Solo refuerzo, no examina, no bloquea.
+const unitDialogueReinforcement = {
+  13: [
+    {speaker:'maestro', en:'Welcome! How are you doing?', es:'¡Bienvenido! ¿Cómo estás?', pron:'uélcam! jáu ar iú dúing?', blanks:['How','are','you']},
+    {speaker:'alumno', en:'I\'m fine, thanks! And you?', es:'¡Estoy bien, gracias! ¿Y vos?', pron:'áim fáin, zenks! and iú?', blanks:['fine','thanks','you']},
+    {speaker:'maestro', en:'I\'m fine, thanks! Are you ready for the mission?', es:'¡Estoy bien, gracias! ¿Estás listo para la misión?', pron:'áim fáin, zenks! ar iú rédi for de míshion?', blanks:['ready']},
+    {speaker:'alumno', en:'I\'m ready! I\'m tired, but no problem!', es:'¡Estoy listo! Estoy cansado, ¡pero no hay problema!', pron:'áim rédi! áim táierd, bat nóu práblem!', blanks:['ready','tired','no','problem']},
+    {speaker:'maestro', en:'Of course! Sure! Let\'s go right now! One moment, please... Are you busy?', es:'¡Por supuesto! ¡Claro! ¡Vamos ahora mismo! Un momento, por favor... ¿Estás ocupado?', pron:'of cors! shúar! lets góu ráit náu! uán móument, plíis... ar iú bísi?', blanks:['Of','course','right','now','One','moment','busy']},
+    {speaker:'alumno', en:'I\'m busy, but let me check. I can help you!', es:'Estoy ocupado, pero déjame revisar. ¡Te puedo ayudar!', pron:'áim bísi, bat let mi chek. ái can jelp iú!', blanks:['busy','let','me','check','can','help','you']},
+    {speaker:'maestro', en:'Look! A crystal ball call! Thanks for calling through the crystal ball, and thanks for your time, great wizard!', es:'¡Mira! ¡Una llamada por la bola de cristal! Gracias por llamar a través de la bola de cristal, y gracias por tu tiempo, ¡gran mago!', pron:'luk! a crístal bol col! zenks for cóling zrú de crístal bol, and zenks for iór táim, gréit uísard!', blanks:['Thanks','for','thanks','for','your','time']},
+    {speaker:'alumno', en:'It was a pleasure! Let\'s stay in touch across a thousand dimensions. I will confirm it!', es:'¡Fue un placer! Mantengamos el contacto a través de mil dimensiones. ¡Lo voy a confirmar!', pron:'it uás a pléyer! lets stéi in tach acrós a záusand daménshions. ái uil canférm it!', blanks:['pleasure','stay','in','touch','will','confirm','it']},
+    {speaker:'maestro', en:'I\'ll email you a flying letter, and I\'ll call you back with a thunderstorm! I will stay in touch!', es:'Te voy a enviar una carta voladora, y te voy a devolver la llamada con una tormenta de truenos! ¡Voy a mantenerme en contacto!', pron:'áil íimeil iú a fláing léter, and áil col iú bak uid a zánderstorm! ái uil stéi in tach!', blanks:['email','call','you','back','stay','in','touch']},
+    {speaker:'alumno', en:'See you soon, or see you next week, whichever comes first through time! Have a good day! Take care!', es:'¡Nos vemos pronto, o nos vemos la próxima semana, lo que llegue primero a través del tiempo! ¡Que tengas un buen día! ¡Cuídate!', pron:'síi iú súun, or síi iú next uíik, uícheven cams ferst zrú táim! jav a gud déi! téik ker!', blanks:['See','you','soon','see','you','next','week','good','day','Take','care']},
+    {speaker:'maestro', en:'Best regards, looking forward to it. Until next time, brave traveler! Talk to you later!', es:'Saludos cordiales, con muchas ganas de eso. ¡Hasta la próxima, valiente viajero! ¡Hablamos luego!', pron:'best rigárds, lúking forúord tu it. antíl next táim, bréiv trávoler! tok tu iú léiter!', blanks:['Best','regards','Until','next','time','Talk','to','you','later']},
+    {speaker:'alumno', en:'I have a question, dragon: what, who, where, when, why, and how did the treasure disappear?', es:'Tengo una pregunta, dragón: ¿qué, quién, dónde, cuándo, por qué, y cómo desapareció el tesoro?', pron:'ái jav a cuéstion, drágon: uát, ju, uér, uén, uái, and jáu did de tréshur disapír?', blanks:['have','question','what','who','where','when','why','how']},
+    {speaker:'maestro', en:'I can explain it! Can you help me, robot detective? Can you explain this mystery?', es:'¡Lo puedo explicar! ¿Me podés ayudar, robot detective? ¿Podés explicar este misterio?', pron:'ái can expléin it! can iú jelp mi, róubat ditéctiv? can iú expléin dis místeri?', blanks:['can','explain','it']},
+    {speaker:'alumno', en:'Which one is ready — the gold coins or the diamond eggs? And when will the pirates arrive?', es:'¿Cuál está listo — las monedas de oro o los huevos de diamante? ¿Y cuándo llegan los piratas?', pron:'uích uán is rédi — de góuld cóins or de dáiamand egs? and uén uil de páirats aráiv?', blanks:['Which','one','when']},
+    {speaker:'maestro', en:'Do you have stock of magic beans, and what\'s the price for a thousand?', es:'¿Tenés stock de frijoles mágicos, y cuál es el precio por mil?', pron:'du iú jav stak of máyic bíins, and uáts de práis for a záusand?', blanks:['have','stock','what\'s','the','price']},
+    {speaker:'alumno', en:'I can check the price, and I can confirm the stock right away! Let\'s count the crystals: one, two, three, four, five, six, seven, eight, nine, ten!', es:'¡Puedo revisar el precio, y puedo confirmar el stock enseguida! Contemos los cristales: uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez!', pron:'ái can chek de práis, and ái can canférm de stak ráit auéi! lets cáunt de crístals: uán, tú, zríi, fóar, fáiv, six, séven, éit, náin, ten!', blanks:['check','confirm','one','two','three','four','five','six','seven','eight','nine','ten']},
+    {speaker:'maestro', en:'Is it ready? When will it arrive?', es:'¿Está listo? ¿Cuándo llegará?', pron:'is it rédi? uén uil it aráiv?', blanks:['it','ready','When']},
+    {speaker:'alumno', en:'It is ready! How\'s business today?', es:'¡Está listo! ¿Cómo va el negocio hoy?', pron:'it is rédi! jáus bísnes tudéi?', blanks:['ready','business']},
+    {speaker:'maestro', en:'Business is good! Business is great! Business is perfect! As always!', es:'¡El negocio va bien! ¡El negocio va muy bien! ¡El negocio va perfecto! ¡Como siempre!', pron:'bísnes is gud! bísnes is gréit! bísnes is pérfect! as ólueis!', blanks:['good','great','perfect']},
+    {speaker:'alumno', en:'Glad to hear that! So-so... sometimes business is slow, but today everything ok! I understand! Sounds good!', es:'¡Me alegra oír eso! Así así... a veces el negocio va lento, ¡pero hoy todo está bien! ¡Entiendo! ¡Suena bien!', pron:'glad tu jíar dat! sóu-sóu... sámtaims bísnes is slóu, bat tudéi évrizin ok! ái ánderstand! sáunds gud!', blanks:['Glad','slow','everything','understand','Sounds']},
+    {speaker:'maestro', en:'Perfect! Exactly!', es:'¡Perfecto! ¡Exactamente!', pron:'pérfect! exáctli!', blanks:['Perfect','Exactly']},
+    {speaker:'maestro', en:'Do you want your castle in red, blue, green, or yellow, dragon?', es:'¿Querés tu castillo en rojo, azul, verde, o amarillo, dragón?', pron:'du iú uánt iór cásol in red, blú, gríin, or iélou, drágon?', blanks:['red','blue','green','yellow']},
+    {speaker:'alumno', en:'We also have black and white castles, in a size as big as a mountain or as small as a pebble!', es:'¡También tenemos castillos negros y blancos, en un tamaño tan grande como una montaña o tan pequeño como una piedrita!', pron:'uí ólsou jav blak and uáit cásols, in a sáis as big as a máuntain or as smol as a pébol!', blanks:['black','white','size','big','small']},
+    {speaker:'maestro', en:'It is red! It is big and strong! Is it new?', es:'¡Es rojo! ¡Es grande y fuerte! ¿Es nuevo?', pron:'it is red! it is big and strong! is it niú?', blanks:['big','strong','new']},
+    {speaker:'alumno', en:'This new castle material is stronger than a thousand elephants and it will last forever! It is durable!', es:'¡Este nuevo material de castillo es más fuerte que mil elefantes y va a durar para siempre! ¡Es durable!', pron:'dis niú cásol matírial is stránguer dan a záusand élefants and it uil last foréver! it is diúrabol!', blanks:['new','stronger','durable']},
+    {speaker:'maestro', en:'It\'s incredibly heavy because it\'s made of solid metal, not paper-thin plastic!', es:'¡Es increíblemente pesado porque está hecho de metal sólido, no de plástico delgado como el papel!', pron:'its incrédibli jévi bicós its méid of sálid métal, nat péiper-zin plástic!', blanks:['metal','plastic']},
+    {speaker:'alumno', en:'It is made of metal, heavy, big, and strong!', es:'¡Está hecho de metal, pesado, grande, y fuerte!', pron:'it is méid of métal, jévi, big, and strong!', blanks:['metal','heavy','big','strong']},
+    {speaker:'maestro', en:'Let\'s begin the final spell! And now, let\'s finish this magical quest! Let\'s practice!', es:'¡Empecemos el hechizo final! Y ahora, ¡terminemos esta misión mágica! ¡Practiquemos!', pron:'lets bigín de fáinal spel! and náu, lets fínish dis máyical cuest! lets práctis!', blanks:['begin','finish','practice']},
+    {speaker:'alumno', en:'Let\'s go! Well done, brave hero, great job — you defeated the vocabulary dragon and you did it!', es:'¡Vamos! Bien hecho, valiente héroe, gran trabajo — ¡venciste al dragón del vocabulario y lo lograste!', pron:'lets góu! uél dan, bréiv jírou, gréit chab — iú difíted de vocábiuleri drágon and iú did it!', blanks:['go','Well','done','great','job','you','did','it']},
+    {speaker:'maestro', en:'Practice makes perfect, so keep going on your legendary journey! We\'re almost done with this level.', es:'La práctica hace al maestro, ¡así que seguí en tu viaje legendario! Ya casi terminamos este nivel.', pron:'práctis méiks pérfect, sóu kíip góing on iór léyendari yérni! uír ólmoust dan uid dis lével.', blanks:['makes','perfect','keep','going','almost','done']},
+    {speaker:'alumno', en:'Congratulations on finishing Unit 1, Champion!', es:'¡Felicitaciones por terminar la Unidad 1, campeón!', pron:'congrachuléishons on fínishing iúnit uán, chámpion!', blanks:['Congratulations']},
+    {speaker:'maestro', en:'See you in the next unit, where even bigger adventures await! See you Monday!', es:'¡Nos vemos en la próxima unidad, donde te esperan aventuras aún más grandes! ¡Nos vemos el lunes!', pron:'síi iú in de next iúnit, uér íven bíguer advénchurs auéit! síi iú mándei!', blanks:['See','you','Monday']},
+    {speaker:'maestro', en:'Look! A new outpost! Let\'s introduce ourselves. What\'s your name, dragon?', es:'¡Mira! ¡Un puesto nuevo! Presentémonos. ¿Cuál es tu nombre, dragón?', pron:'luk! a niú áutpost! lets intradiús aursélvs. uáts iór néim, drágon?', blanks:['introduce','ourselves','name']},
+    {speaker:'alumno', en:'My name is Blaze, and I am from the Floating City! Nice to meet you!', es:'¡Me llamo Blaze, y soy de la Ciudad Flotante! ¡Mucho gusto!', pron:'mái néim is Bléis, and ái am fram de flóuting síti! náis tu míit iú!', blanks:['name','is','from','Nice','to']},
+    {speaker:'maestro', en:'Welcome! Come in! Have a seat. This is our trading manager. Please contact us anytime.', es:'¡Bienvenido! ¡Pasá! Tomá asiento. Este es nuestro gerente de comercio. Por favor contactanos cuando quieras.', pron:'uélcam! cam in! jav a síit. dis is áur tréiding mánayer. plíis cántact as énitaim.', blanks:['seat','manager','contact']},
+    {speaker:'alumno', en:'The pleasure is mine! I work at a shop in the Floating City. Here is my business card, with my phone number and address, and our website.', es:'¡El placer es mío! Trabajo en una tienda en la Ciudad Flotante. Aquí está mi tarjeta de presentación, con mi número de teléfono y dirección, y nuestro sitio web.', pron:'de pléyer is máin! ái uork at a shap in de flóuting síti. jír is mái bísnes card, uid mái fóun námber and adrés, and áur uébsait.', blanks:['pleasure','work','at','business','card','phone','number','address','website']},
+    {speaker:'maestro', en:'What is your company name? What country and city are you from, and since when?', es:'¿Cuál es el nombre de tu empresa? ¿De qué país y ciudad sos, y desde cuándo?', pron:'uát is iór cámpani néim? uát cántri and síti ar iú fram, and sins uén?', blanks:['company','name','country','city','since','when']},
+    {speaker:'alumno', en:'Our team is from Colombia, from the city of Medellín, since last year! We sell magical toys, and we provide the best quality services and products.', es:'¡Nuestro equipo es de Colombia, de la ciudad de Medellín, desde el año pasado! Vendemos juguetes mágicos, y ofrecemos los mejores servicios y productos de calidad.', pron:'áur tíim is fram Colómbia, fram de síti of Medeyín, sins last íar! uí sel máyical tóis, and uí prováid de best cuáliti sérvises and prádacts.', blanks:['from','since','sell','provide']},
+    {speaker:'maestro', en:'What about the price? Do you offer a discount for suppliers?', es:'¿Y el precio? ¿Ofrecen descuento a proveedores?', pron:'uát abáut de práis? du iú áfer a díscaunt for sapláiers?', blanks:['price','discount']},
+    {speaker:'alumno', en:'Yes! Our customers love our prices, and delivery is fast — right from our warehouse to the market! Our brand is well known here.', es:'¡Sí! Nuestros clientes aman nuestros precios, y la entrega es rápida — directo desde nuestro depósito al mercado! Nuestra marca es bien conocida acá.', pron:'iés! áur cástomers lav áur práises, and delíveri is fast — ráit fram áur uérjaus tu de márket! áur brand is uél nóun jír.', blanks:['customers','delivery','warehouse','brand']},
+    {speaker:'maestro', en:'Is this shop just you, or is it a family business?', es:'¿Esta tienda sos solo vos, o es un negocio familiar?', pron:'is dis shap yast iú, or is it a fámili bísnes?', blanks:['family','business']},
+    {speaker:'alumno', en:'I am the owner, but I am in charge of much more than sales! My wife and my husband both work in logistics, my son works in accounting, and my daughter is our team leader!', es:'Soy el dueño, ¡pero estoy a cargo de mucho más que ventas! Mi esposa y mi esposo trabajan los dos en logística, mi hijo trabaja en contabilidad, y mi hija es nuestra líder de equipo!', pron:'ái am de óuner, bat ái am in chárch of mach mor dan séils! mái uáif and mái jásband bóuz uork in loyístics, mái san uorks in acáunting, and mái dóter is áur tíim líder!', blanks:['owner','charge','of','logistics','accounting','leader']},
+    {speaker:'maestro', en:'What about your brother, your sister, and your children?', es:'¿Y tu hermano, tu hermana, y tus hijos?', pron:'uát abáut iór bráder, iór síster, and iór chíldren?', blanks:['brother','sister','children']},
+    {speaker:'alumno', en:'My brother is an employee in our sales department, my sister is a colleague of my boss in a different outpost, and my children help us on weekends!', es:'Mi hermano es empleado en nuestro departamento de ventas, mi hermana es colega de mi jefe en otro puesto, ¡y mis hijos nos ayudan los fines de semana!', pron:'mái bráder is an emplói in áur séils dipártment, mái síster is a cálig of mái bos in a díferent áutpost, and mái chíldren jelp as on uíikends!', blanks:['brother','department','sister','children']},
+    {speaker:'maestro', en:'Great! Welcome to our market, Blaze!', es:'¡Genial! ¡Bienvenido a nuestro mercado, Blaze!', pron:'gréit! uélcam tu áur márket, Bléis!', blanks:['Great','market']}
+  ]
+};
 const unitReviewStories = {
   12: [
     {en:'Good morning! Blaze opens his shop with a warm smile.', es:'¡Buenos días! Blaze abre su tienda con una sonrisa cálida.', pron:'gud mórning! Bléis óupens jis shap uid a uórm smáil.'},
@@ -591,6 +641,11 @@ const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que 
 
 function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures, dayAuxiliary){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
+  if(unitDialogueReinforcement[dayNumber]){
+    scr.push({ kind:'dialogueReinforcement', lines: unitDialogueReinforcement[dayNumber] });
+    scr.push({ kind:'fillBlankDialogue', lines: unitDialogueReinforcement[dayNumber], mode:'maestro' });
+    scr.push({ kind:'fillBlankDialogue', lines: unitDialogueReinforcement[dayNumber], mode:'alumno' });
+  }
   if(crossDayWords && crossDayWords.length){
     scr.push({ kind:'sequence', segs:crossDayIntro, emoji:'🔁', words:crossDayWords, crossDay:true });
   }
@@ -862,6 +917,10 @@ function hideStrayUI(){
   retryScreen.classList.remove('show');
   const rap = document.getElementById('readAlongPlayer');
   if(rap) rap.style.display='none';
+  const dgp = document.getElementById('dialoguePlayer');
+  if(dgp) dgp.style.display='none';
+  const fbp = document.getElementById('fillBlankPlayer');
+  if(fbp) fbp.style.display='none';
 }
 function loadTurn(){
   buildProgress();
@@ -872,6 +931,8 @@ function loadTurn(){
   if(turn.kind==='dictation'){ runDictation(turn); return; }
   if(turn.kind==='practica'){ runPractica(turn); return; }
   if(turn.kind==='readAlong'){ runReadAlong(turn); return; }
+  if(turn.kind==='dialogueReinforcement'){ runDialogueReinforcement(turn); return; }
+  if(turn.kind==='fillBlankDialogue'){ runFillBlankDialogue(turn); return; }
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
       turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
@@ -1045,6 +1106,227 @@ async function speakHidden(text){
     u.onend=()=>resolve(); u.onerror=()=>resolve();
     speechSynthesis.speak(u);
   });
+}
+async function speakHiddenVoiced(text, pitch, rate){
+  await ensureVoices();
+  return new Promise(resolve=>{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US';
+    u.pitch=pitch; u.rate=rate;
+    if(cachedVoices){ const v=pickVoice(cachedVoices,'en'); if(v) u.voice=v; }
+    u.onend=()=>resolve(); u.onerror=()=>resolve();
+    speechSynthesis.speak(u);
+  });
+}
+function buildBlankTokens(en, blanksList){
+  const tokens = en.split(/(\s+)/);
+  let blankIdx = 0;
+  return tokens.map(tok=>{
+    if(/^\s+$/.test(tok) || tok===''){ return {type:'space', text:tok}; }
+    const stripped = tok.replace(/^["“]+/,'').replace(/[.,!?;:"”]+$/,'');
+    if(blankIdx < blanksList.length && stripped.toLowerCase() === blanksList[blankIdx].toLowerCase()){
+      const startIdx = tok.indexOf(stripped);
+      const before = tok.slice(0, startIdx);
+      const after = tok.slice(startIdx + stripped.length);
+      blankIdx++;
+      return {type:'blank', answer:stripped, before, after};
+    }
+    return {type:'word', text:tok};
+  });
+}
+function runFillBlankDialogue(turn){
+  hideStrayUI();
+  const modeLabel = turn.mode==='maestro' ? '🎓 Profesor' : '🐉 Alumno';
+  crossTag.style.display='block'; crossTag.textContent='✍️ COMPLETÁ LO QUE DICE EL '+(turn.mode==='maestro'?'PROFESOR':'ALUMNO');
+  speakerLabel.textContent='REFUERZO ESCRITO'; modeChip.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  document.getElementById('songPlayer').style.display='none';
+  document.getElementById('readAlongPlayer').style.display='none';
+  document.getElementById('dialoguePlayer').style.display='none';
+
+  illusEl.textContent='✍️';
+  setSegs(lineEl,[{t:'Ahora completá lo que dice el '+(turn.mode==='maestro'?'Profesor':'Alumno')+', usando lo que recordás del diálogo.',lang:'es'}]);
+  hintEl.textContent='Podés escuchar la pronunciación de cualquier palabra que falta, las veces que quieras — no resta nada.';
+
+  const fbPlayer=document.getElementById('fillBlankPlayer'), fbTitle=document.getElementById('fillBlankTitle'), transcript=document.getElementById('fillBlankTranscript'), current=document.getElementById('fillBlankCurrent');
+  fbPlayer.style.display='block';
+  fbTitle.textContent = turn.mode==='maestro' ? '✍️ Guion del Profesor — completá sus líneas, leyendo las del Alumno como contexto' : '✍️ Guion del Alumno — completá tus líneas, leyendo las del Profesor como contexto';
+  transcript.innerHTML=''; current.innerHTML='';
+
+  const lines = turn.lines;
+  let idxLine = 0;
+
+  function addContextLine(line){
+    const div=document.createElement('div');
+    div.className='fb-line context';
+    div.innerHTML = '<div class="fb-who">'+(line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+' (lectura)</div><div>'+line.en+'</div>';
+    transcript.appendChild(div);
+    transcript.scrollTop = transcript.scrollHeight;
+  }
+  function addCompletedLine(line, respuestas){
+    const div=document.createElement('div');
+    div.className='fb-line active';
+    div.innerHTML = '<div class="fb-who">'+(line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+'</div><div>'+line.en+'</div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div>';
+    transcript.appendChild(div);
+    transcript.scrollTop = transcript.scrollHeight;
+  }
+
+  function renderNext(){
+    if(idxLine >= lines.length){
+      current.innerHTML='';
+      nextControls.style.display='flex';
+      nextBtn.textContent='Continuar →';
+      nextBtn.onclick=()=>{ fbPlayer.style.display='none'; idx++; loadTurn(); };
+      return;
+    }
+    const line = lines[idxLine];
+    if(line.speaker !== turn.mode){
+      addContextLine(line);
+      idxLine++;
+      renderNext();
+      return;
+    }
+    const tokens = buildBlankTokens(line.en, line.blanks);
+    const box = document.createElement('div');
+    box.className='fb-line active';
+    const who = document.createElement('div'); who.className='fb-who'; who.textContent = (line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+' — te toca completar';
+    const sentence = document.createElement('div'); sentence.className='fb-sentence';
+    const inputs = [];
+    tokens.forEach(tok=>{
+      if(tok.type==='space'){ sentence.appendChild(document.createTextNode(tok.text)); }
+      else if(tok.type==='word'){ sentence.appendChild(document.createTextNode(tok.text)); }
+      else{
+        const wrap=document.createElement('span'); wrap.className='fb-blank';
+        wrap.appendChild(document.createTextNode(tok.before));
+        const inp=document.createElement('input'); inp.type='text'; inp.autocomplete='off'; inp.spellcheck=false;
+        inputs.push({inp, answer:tok.answer});
+        wrap.appendChild(inp);
+        const hintBtn=document.createElement('button'); hintBtn.className='fb-hint'; hintBtn.type='button'; hintBtn.textContent='🔊';
+        hintBtn.onclick=()=>{ speakHidden(tok.answer); };
+        wrap.appendChild(hintBtn);
+        wrap.appendChild(document.createTextNode(tok.after));
+        sentence.appendChild(wrap);
+      }
+    });
+    box.appendChild(who); box.appendChild(sentence);
+
+    const checkBtn=document.createElement('button'); checkBtn.className='mic'; checkBtn.style.marginTop='10px'; checkBtn.textContent='Revisar esta línea';
+    checkBtn.onclick=()=>{
+      inputs.forEach(({inp, answer})=>{
+        const val = normalize(inp.value.trim());
+        const ok = val === normalize(answer);
+        inp.classList.remove('correct','incorrect');
+        inp.classList.add(ok?'correct':'incorrect');
+      });
+      checkBtn.textContent='Siguiente →';
+      checkBtn.onclick=()=>{
+        addCompletedLine(line, inputs.map(x=>x.inp.value));
+        idxLine++;
+        renderNext();
+      };
+    };
+    box.appendChild(checkBtn);
+    current.innerHTML='';
+    current.appendChild(box);
+    if(inputs[0]) inputs[0].inp.focus();
+  }
+
+  renderNext();
+}
+function runDialogueReinforcement(turn){
+  hideStrayUI();
+  crossTag.style.display='block'; crossTag.textContent='🎭 DIÁLOGO DE REPASO — MAESTRO Y ALUMNO';
+  speakerLabel.textContent='REFUERZO DE LA UNIDAD'; modeChip.style.display='none';
+  appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
+  peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
+  document.getElementById('phraseSelectionPanel').style.display='none';
+  document.getElementById('songPlayer').style.display='none';
+  document.getElementById('readAlongPlayer').style.display='none';
+
+  illusEl.textContent='🎭';
+  setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y vos, el Alumno dragón.',lang:'es'}]);
+  hintEl.textContent='Esto es solo refuerzo — no se califica, y podés seguir a la lección nueva cuando quieras.';
+
+  const dlgPlayer=document.getElementById('dialoguePlayer'), transcript=document.getElementById('dialogueTranscript'), turnBox=document.getElementById('dialogueCurrentTurn');
+  const playAllBtn=document.getElementById('dialoguePlayAllBtn'), pauseBtn=document.getElementById('dialoguePauseBtn');
+  dlgPlayer.style.display='block';
+  transcript.innerHTML=''; turnBox.innerHTML='';
+
+  const lines = turn.lines;
+  let idxLine = 0, autoPlaying=false, cancelled=false;
+
+  function speakerMeta(sp){
+    return sp==='maestro'
+      ? { label:'🎓 Profesor', pitch:0.75, rate:0.95 }
+      : { label:'🐉 Alumno (vos)', pitch:1.25, rate:1.05 };
+  }
+
+  function appendToTranscript(line, lineIndex){
+    const div=document.createElement('div');
+    div.className='dlg-line '+line.speaker;
+    const meta = speakerMeta(line.speaker);
+    div.innerHTML = '<div class="dlg-who">'+meta.label+'</div><div class="dlg-en" id="dlgEn'+lineIndex+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div>';
+    transcript.appendChild(div);
+    renderStoryLine(document.getElementById('dlgEn'+lineIndex), line.en);
+    transcript.scrollTop = transcript.scrollHeight;
+  }
+
+  function renderTurnButton(){
+    if(idxLine >= lines.length){
+      turnBox.innerHTML='';
+      recordBtn.style.display='none';
+      nextControls.style.display='flex';
+      nextBtn.textContent='Continuar →';
+      nextBtn.onclick=()=>{ cancelled=true; try{ speechSynthesis.cancel(); }catch(e){} dlgPlayer.style.display='none'; idx++; loadTurn(); };
+      return;
+    }
+    const line = lines[idxLine];
+    const meta = speakerMeta(line.speaker);
+    const btn = document.createElement('button');
+    btn.className = 'mic dlg-turn-btn '+line.speaker;
+    btn.textContent = '▶ Escuchar: '+meta.label;
+    btn.onclick = async ()=>{
+      btn.disabled = true;
+      appendToTranscript(line, idxLine);
+      recordBtn.style.display='inline-flex';
+      recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
+      await speakHiddenVoiced(line.en, meta.pitch, meta.rate);
+      idxLine++;
+      renderTurnButton();
+    };
+    turnBox.innerHTML='';
+    turnBox.appendChild(btn);
+  }
+
+  playAllBtn.onclick = async ()=>{
+    if(autoPlaying) return;
+    autoPlaying=true; cancelled=false;
+    playAllBtn.style.display='none'; pauseBtn.style.display='inline-flex';
+    while(idxLine < lines.length && !cancelled){
+      const line = lines[idxLine];
+      const meta = speakerMeta(line.speaker);
+      appendToTranscript(line, idxLine);
+      recordBtn.style.display='inline-flex';
+      recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
+      await speakHiddenVoiced(line.en, meta.pitch, meta.rate);
+      idxLine++;
+      await new Promise(r=>setTimeout(r, 350));
+    }
+    autoPlaying=false;
+    playAllBtn.style.display='inline-flex'; pauseBtn.style.display='none';
+    renderTurnButton();
+  };
+  pauseBtn.onclick = ()=>{
+    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    autoPlaying=false;
+    playAllBtn.style.display='inline-flex'; pauseBtn.style.display='none';
+    renderTurnButton();
+  };
+
+  renderTurnButton();
 }
 function runReadAlong(turn){
   hideStrayUI();

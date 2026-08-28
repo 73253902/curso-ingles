@@ -231,6 +231,29 @@
   .song-lyrics .ra-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
   .song-lyrics .ra-pron{font-size:13px; font-style:italic; color:var(--en); opacity:.75; margin-top:2px;}
   .song-lyrics .ra-es{font-size:13px; color:var(--es); margin-top:2px;}
+  .dlg-line{padding:10px 12px; border-radius:8px; margin-bottom:8px; border-left:3px solid transparent;}
+  .dlg-line.maestro{background:rgba(79,182,232,.08); border-left-color:var(--en);}
+  .dlg-line.alumno{background:rgba(232,163,61,.08); border-left-color:var(--es);}
+  .dlg-who{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px;}
+  .dlg-line.maestro .dlg-who{color:var(--en);}
+  .dlg-line.alumno .dlg-who{color:var(--es);}
+  .dlg-en{font-family:'Fraunces',serif; font-size:16px; color:var(--ink); line-height:1.4;}
+  .dlg-pron{font-size:13px; font-style:italic; color:var(--muted); margin-top:2px;}
+  .dlg-es{font-size:13px; color:var(--muted); margin-top:2px;}
+  .dlg-turn-btn{font-size:16px; padding:16px 24px; border-radius:14px; width:100%; max-width:340px;}
+  .dlg-turn-btn.maestro{background:var(--en); color:#0a1a24;}
+  .dlg-turn-btn.alumno{background:var(--es); color:#241a0a;}
+  .fb-line{padding:10px 12px; border-radius:8px; margin-bottom:8px;}
+  .fb-line.context{opacity:.6; font-size:14px;}
+  .fb-line.active{background:rgba(176,141,87,.12); border:1px solid var(--border);}
+  .fb-who{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:4px;}
+  .fb-sentence{font-family:'Fraunces',serif; font-size:16px; line-height:1.8;}
+  .fb-blank{display:inline-flex; align-items:center; gap:3px; margin:0 2px;}
+  .fb-blank input{width:76px; padding:3px 6px; border-radius:6px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:14px; text-align:center;}
+  .fb-blank input.correct{border-color:var(--ok); background:rgba(111,207,151,.15);}
+  .fb-blank input.incorrect{border-color:var(--warn); background:rgba(232,106,92,.15);}
+  .fb-blank .fb-hint{cursor:pointer; font-size:13px; opacity:.7; background:none; border:none; padding:2px;}
+  .fb-blank .fb-hint:hover{opacity:1;}
   .song-lyrics .lyric-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
   .song-lyrics .lyric-es{font-size:13px; color:var(--es); margin-top:2px;}
   .song-lyrics .lyric-pron{font-size:13px; font-style:italic; color:var(--en); opacity:.75; margin-top:2px;}
@@ -402,6 +425,20 @@
             <button class="ghost" id="readAlongStopBtn">⏹ Detener</button>
           </div>
           <div class="song-lyrics" id="readAlongBox"></div>
+        </div>
+        <div class="song-player" id="dialoguePlayer" style="display:none;">
+          <span>🎭 Diálogo de repaso — Profesor y Alumno, turno por turno. Solo refuerzo, no cuenta para tu nota.</span>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+            <button class="mic" id="dialoguePlayAllBtn">▶ Reproducir todo</button>
+            <button class="ghost" id="dialoguePauseBtn" style="display:none;">⏸ Pausar</button>
+          </div>
+          <div class="song-lyrics" id="dialogueTranscript"></div>
+          <div id="dialogueCurrentTurn" style="margin-top:14px; text-align:center;"></div>
+        </div>
+        <div class="song-player" id="fillBlankPlayer" style="display:none;">
+          <span id="fillBlankTitle"></span>
+          <div class="song-lyrics" id="fillBlankTranscript"></div>
+          <div id="fillBlankCurrent" style="margin-top:14px;"></div>
         </div>
         <div class="illus" id="illus">🧑‍🤝‍🧑</div>
         <div class="line" id="line"></div>
