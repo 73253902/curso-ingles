@@ -1162,14 +1162,18 @@ function runFillBlankDialogue(turn){
   function addContextLine(line){
     const div=document.createElement('div');
     div.className='fb-line context';
-    div.innerHTML = '<div class="fb-who">'+(line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+' (lectura)</div><div>'+line.en+'</div>';
+    div.innerHTML = '<div class="fb-who">'+(line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+' (lectura)</div><div>'+line.en+'</div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div><button class="ghost" style="margin-top:6px; font-size:12px; padding:4px 10px;">🔊 Escuchar de nuevo</button>';
+    const replayBtn = div.querySelector('button');
+    replayBtn.onclick = ()=>{ speakHidden(line.en); };
     transcript.appendChild(div);
     transcript.scrollTop = transcript.scrollHeight;
   }
   function addCompletedLine(line, respuestas){
     const div=document.createElement('div');
     div.className='fb-line active';
-    div.innerHTML = '<div class="fb-who">'+(line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+'</div><div>'+line.en+'</div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div>';
+    div.innerHTML = '<div class="fb-who">'+(line.speaker==='maestro'?'🎓 Profesor':'🐉 Alumno')+'</div><div>'+line.en+'</div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div><button class="ghost" style="margin-top:6px; font-size:12px; padding:4px 10px;">🔊 Escuchar de nuevo</button>';
+    const replayBtn = div.querySelector('button');
+    replayBtn.onclick = ()=>{ speakHidden(line.en); };
     transcript.appendChild(div);
     transcript.scrollTop = transcript.scrollHeight;
   }
@@ -1254,9 +1258,10 @@ function runDialogueReinforcement(turn){
   const playAllBtn=document.getElementById('dialoguePlayAllBtn'), pauseBtn=document.getElementById('dialoguePauseBtn');
   dlgPlayer.style.display='block';
   transcript.innerHTML=''; turnBox.innerHTML='';
+  playAllBtn.style.display='inline-flex'; pauseBtn.style.display='inline-flex'; pauseBtn.textContent='⏹ Detener audio';
 
   const lines = turn.lines;
-  let idxLine = 0, autoPlaying=false, cancelled=false;
+  let idxLine = 0, autoPlaying=false, playToken = 0;
 
   function speakerMeta(sp){
     return sp==='maestro'
@@ -1264,13 +1269,23 @@ function runDialogueReinforcement(turn){
       : { label:'🐉 Alumno (vos)', pitch:1.25, rate:1.05 };
   }
 
+  async function speakWithTimeout(text, pitch, rate){
+    const maxMs = Math.max(2500, text.length*90);
+    return Promise.race([
+      speakHiddenVoiced(text, pitch, rate),
+      new Promise(resolve=>setTimeout(resolve, maxMs))
+    ]);
+  }
+
   function appendToTranscript(line, lineIndex){
     const div=document.createElement('div');
     div.className='dlg-line '+line.speaker;
     const meta = speakerMeta(line.speaker);
-    div.innerHTML = '<div class="dlg-who">'+meta.label+'</div><div class="dlg-en" id="dlgEn'+lineIndex+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div>';
+    div.innerHTML = '<div class="dlg-who">'+meta.label+'</div><div class="dlg-en" id="dlgEn'+lineIndex+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div><button class="ghost" style="margin-top:6px; font-size:12px; padding:4px 10px;">🔊 Escuchar de nuevo</button>';
     transcript.appendChild(div);
     renderStoryLine(document.getElementById('dlgEn'+lineIndex), line.en);
+    const replayBtn = div.querySelector('button');
+    replayBtn.onclick = ()=>{ speakHiddenVoiced(line.en, meta.pitch, meta.rate); };
     transcript.scrollTop = transcript.scrollHeight;
   }
 
@@ -1280,7 +1295,7 @@ function runDialogueReinforcement(turn){
       recordBtn.style.display='none';
       nextControls.style.display='flex';
       nextBtn.textContent='Continuar →';
-      nextBtn.onclick=()=>{ cancelled=true; try{ speechSynthesis.cancel(); }catch(e){} dlgPlayer.style.display='none'; idx++; loadTurn(); };
+      nextBtn.onclick=()=>{ playToken++; try{ speechSynthesis.cancel(); }catch(e){} dlgPlayer.style.display='none'; idx++; loadTurn(); };
       return;
     }
     const line = lines[idxLine];
@@ -1293,7 +1308,9 @@ function runDialogueReinforcement(turn){
       appendToTranscript(line, idxLine);
       recordBtn.style.display='inline-flex';
       recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
-      await speakHiddenVoiced(line.en, meta.pitch, meta.rate);
+      const myToken = playToken;
+      await speakWithTimeout(line.en, meta.pitch, meta.rate);
+      if(myToken!==playToken) return;
       idxLine++;
       renderTurnButton();
     };
@@ -1303,27 +1320,33 @@ function runDialogueReinforcement(turn){
 
   playAllBtn.onclick = async ()=>{
     if(autoPlaying) return;
-    autoPlaying=true; cancelled=false;
-    playAllBtn.style.display='none'; pauseBtn.style.display='inline-flex';
-    while(idxLine < lines.length && !cancelled){
+    autoPlaying=true;
+    const myToken = ++playToken;
+    playAllBtn.disabled=true;
+    while(idxLine < lines.length && myToken===playToken){
       const line = lines[idxLine];
       const meta = speakerMeta(line.speaker);
       appendToTranscript(line, idxLine);
       recordBtn.style.display='inline-flex';
       recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
-      await speakHiddenVoiced(line.en, meta.pitch, meta.rate);
+      await speakWithTimeout(line.en, meta.pitch, meta.rate);
+      if(myToken!==playToken) break;
       idxLine++;
       await new Promise(r=>setTimeout(r, 350));
+      if(myToken!==playToken) break;
     }
-    autoPlaying=false;
-    playAllBtn.style.display='inline-flex'; pauseBtn.style.display='none';
-    renderTurnButton();
+    if(myToken===playToken){
+      autoPlaying=false;
+      playAllBtn.disabled=false;
+      renderTurnButton();
+    }
   };
   pauseBtn.onclick = ()=>{
-    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    playToken++;
+    try{ speechSynthesis.cancel(); }catch(e){}
     autoPlaying=false;
-    playAllBtn.style.display='inline-flex'; pauseBtn.style.display='none';
-    renderTurnButton();
+    playAllBtn.disabled=false;
+    if(idxLine < lines.length) renderTurnButton();
   };
 
   renderTurnButton();
@@ -1352,32 +1375,38 @@ function runReadAlong(turn){
   }
   readAlongPlayer.style.display='block';
   readAlongBox.innerHTML = turn.lines.map((l,i)=>
-    '<div class="ra-line" data-i="'+i+'"><div class="ra-en" id="raEn'+i+'"></div><div class="ra-es">'+l.es+'</div></div>'
+    '<div class="ra-line" data-i="'+i+'"><div class="ra-en" id="raEn'+i+'"></div><div class="ra-pron">'+(l.pron||'')+'</div><div class="ra-es">'+l.es+'</div></div>'
   ).join('');
   turn.lines.forEach((l,i)=>{ renderStoryLine(document.getElementById('raEn'+i), l.en); });
 
   // Mismo panel de auto-grabación que ya usa el resto del curso — acá para grabarse leyendo la historia completa.
   recordBtn.style.display='inline-flex'; recordBtn.textContent='🎙️ Grabarme leyendo esta historia';
 
-  let playing=false, cancelled=false;
+  let playing=false, playToken2=0;
   playBtn2.textContent='▶ Escuchar la historia completa';
   playBtn2.disabled=false;
   playBtn2.onclick=async ()=>{
     if(playing) return;
-    playing=true; cancelled=false;
+    playing=true;
+    const myToken = ++playToken2;
     playBtn2.textContent='⏸ Reproduciendo...'; playBtn2.disabled=true;
     for(let i=0;i<turn.lines.length;i++){
-      if(cancelled) break;
+      if(myToken!==playToken2) break;
       readAlongBox.querySelectorAll('.ra-line').forEach((el,j)=>el.classList.toggle('current', j===i));
       const current = readAlongBox.querySelector('[data-i="'+i+'"]');
       if(current) current.scrollIntoView({behavior:'smooth', block:'center'});
-      await speakHidden(turn.lines[i].en);
+      const maxMs = Math.max(2500, turn.lines[i].en.length*90);
+      await Promise.race([ speakHidden(turn.lines[i].en), new Promise(r=>setTimeout(r, maxMs)) ]);
+      if(myToken!==playToken2) break;
     }
-    readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
-    playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
+    if(myToken===playToken2){
+      readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
+      playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
+    }
   };
   stopBtn2.onclick=()=>{
-    cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
+    playToken2++;
+    try{ speechSynthesis.cancel(); }catch(e){}
     playing=false; playBtn2.textContent='▶ Escuchar la historia completa'; playBtn2.disabled=false;
     readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
   };
