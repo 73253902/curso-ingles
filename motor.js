@@ -1381,11 +1381,46 @@ function runDialogueReinforcement(turn){
     note.textContent='Grabá tu respuesta acá abajo, escuchala, y decidí: guardarla y seguir, o borrarla y grabar de nuevo.';
     turnBox.appendChild(note);
 
-    recordBtn.style.display='inline-flex';
-    recordBtn.textContent='🎙️ Ahora grabá tu respuesta';
-    turnBox.appendChild(recordBtn);
-    turnBox.appendChild(recordPlayback);
-    turnBox.appendChild(reRecordBtn);
+    const panel = document.createElement('div'); panel.className='record-panel';
+    const dlgRecordBtn = document.createElement('button'); dlgRecordBtn.className='ghost'; dlgRecordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+    const dlgPlayback = document.createElement('audio'); dlgPlayback.controls=true; dlgPlayback.style.display='none';
+    const dlgReRecordBtn = document.createElement('button'); dlgReRecordBtn.className='ghost'; dlgReRecordBtn.style.display='none'; dlgReRecordBtn.textContent='🔁 Borrar y grabar de nuevo';
+    panel.appendChild(dlgRecordBtn); panel.appendChild(dlgPlayback); panel.appendChild(dlgReRecordBtn);
+    turnBox.appendChild(panel);
+
+    dlgRecordBtn.onclick = async ()=>{
+      if(recIsRecording){
+        if(recMediaRecorder && recMediaRecorder.state!=='inactive') recMediaRecorder.stop();
+        return;
+      }
+      try{
+        if(!recStream){ recStream = await navigator.mediaDevices.getUserMedia({audio:true}); }
+      }catch(e){
+        alert('No se pudo acceder al micrófono para grabar tu voz.');
+        return;
+      }
+      recChunks=[];
+      recMediaRecorder = new MediaRecorder(recStream);
+      recMediaRecorder.ondataavailable = (e)=>{ if(e.data && e.data.size>0) recChunks.push(e.data); };
+      recMediaRecorder.onstop = ()=>{
+        recIsRecording=false;
+        dlgRecordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+        const blob = new Blob(recChunks, {type: recMediaRecorder.mimeType || 'audio/webm'});
+        const url = URL.createObjectURL(blob);
+        dlgPlayback.src = url;
+        dlgPlayback.style.display='block';
+        dlgReRecordBtn.style.display='inline-flex';
+        dlgRecordBtn.style.display='none';
+      };
+      recMediaRecorder.start();
+      recIsRecording=true;
+      dlgRecordBtn.textContent='⏹ Detener mi grabación';
+    };
+    dlgReRecordBtn.onclick = ()=>{
+      dlgPlayback.style.display='none'; dlgPlayback.removeAttribute('src');
+      dlgReRecordBtn.style.display='none';
+      dlgRecordBtn.style.display='inline-flex'; dlgRecordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+    };
 
     const advBtn = document.createElement('button');
     advBtn.className='mic'; advBtn.style.marginTop='10px'; advBtn.style.display='none';
@@ -1404,7 +1439,7 @@ function runDialogueReinforcement(turn){
     turnBox.appendChild(advBtn);
     turnBox.appendChild(skipWrap);
     const gateWatcher = setInterval(()=>{
-      const grabado = recordPlayback.style.display==='block' && recordPlayback.getAttribute('src');
+      const grabado = dlgPlayback.style.display==='block' && dlgPlayback.getAttribute('src');
       advBtn.style.display = grabado ? 'inline-flex' : 'none';
     }, 300);
   }
