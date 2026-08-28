@@ -3,6 +3,20 @@
 const curriculumUnidad9 = [
 {
     day:97, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Correos electrónicos formales / Redacción de negocios',
+    structures:[
+      {id:'S071', pattern:"I am writing to + [VERB]", examples:[
+        {en:'I am writing to confirm the meeting.', es:'Le escribo para confirmar la reunión.', pron:'ái am ráiting tu canférm de míiting.'},
+        {en:'I am writing to follow up on our call.', es:'Le escribo para dar seguimiento a nuestra llamada.', pron:'ái am ráiting tu fólou ap on áur col.'},
+        {en:'I am writing to request more information.', es:'Le escribo para solicitar más información.', pron:'ái am ráiting tu riquést mor informéishion.'},
+        {en:'I am writing to inform you of a delay.', es:'Le escribo para informarle de un retraso.', pron:'ái am ráiting tu infórm iú of a diléi.'}
+      ], function:'abrir un correo formal de negocios', stage:2,
+        transformations:{
+          negative:{en:"I am not writing to complain.", es:'No le escribo para quejarme.'},
+          question:{en:'Are you writing to confirm the meeting?', es:'¿Escribís para confirmar la reunión?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, I'm not.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'email etiquette', es:'etiqueta del correo electrónico', pron:'íimeil étiket', emoji:'✉️'},
       {en:'subject line', es:'línea de asunto', pron:'sábyect láin', emoji:'📌'},
@@ -31,6 +45,20 @@ const curriculumUnidad9 = [
   },
 {
     day:98, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Gestión de proyectos / Planificación',
+    structures:[
+      {id:'S072', pattern:"The project is + [STATUS]", examples:[
+        {en:'The project is on schedule.', es:'El proyecto va según lo planeado.', pron:'de práchect is on squédiul.'},
+        {en:'The project is behind schedule.', es:'El proyecto está atrasado.', pron:'de práchect is bijáind squédiul.'},
+        {en:'This task is a top priority.', es:'Esta tarea es una prioridad principal.', pron:'dis task is a tap práioriti.'},
+        {en:'This is not part of the scope.', es:'Esto no es parte del alcance.', pron:'dis is nat part of de skóup.'}
+      ], function:'hablar del estado de un proyecto', stage:2,
+        transformations:{
+          negative:{en:'The project is not on schedule.', es:'El proyecto no va según lo planeado.'},
+          question:{en:'Is the project on schedule?', es:'¿El proyecto va según lo planeado?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'task', es:'tarea', pron:'task', emoji:'✅'},
       {en:'deliverable', es:'entregable', pron:'delíverabol', emoji:'📦'},
@@ -59,6 +87,20 @@ const curriculumUnidad9 = [
   },
 {
     day:99, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Control de calidad / Estándares',
+    structures:[
+      {id:'S073', pattern:"This meets + [X]", examples:[
+        {en:'This meets the standard.', es:'Esto cumple con el estándar.', pron:'dis míits de stándard.'},
+        {en:'This meets our requirements.', es:'Esto cumple con nuestros requisitos.', pron:'dis míits áur riquáirments.'},
+        {en:"This doesn't meet the quality standard.", es:'Esto no cumple con el estándar de calidad.', pron:"dis dásnt míit de cuáliti stándard."},
+        {en:'This meets the certification criteria.', es:'Esto cumple con los criterios de certificación.', pron:'dis míits de certifikéishion craitíria.'}
+      ], function:'decir si algo cumple con un estándar', stage:2,
+        transformations:{
+          negative:{en:"This doesn't meet the standard.", es:'Esto no cumple con el estándar.'},
+          question:{en:'Does this meet the standard?', es:'¿Esto cumple con el estándar?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí.'},
+          noAnswer:{en:"No, it doesn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'quality control', es:'control de calidad', pron:'cuáliti cantróul', emoji:'✅'},
       {en:'standard', es:'estándar', pron:'stándard', emoji:'📏'},
@@ -87,6 +129,20 @@ const curriculumUnidad9 = [
   },
 {
     day:100, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Servicio al cliente avanzado',
+    structures:[
+      {id:'S074', pattern:"We will make this right", examples:[
+        {en:'We will make this right.', es:'Vamos a solucionar esto.', pron:'uí uil méik dis ráit.'},
+        {en:'We will resolve this quickly.', es:'Vamos a resolver esto rápido.', pron:'uí uil risálv dis cuíkli.'},
+        {en:'We will follow up with you.', es:'Vamos a hacer seguimiento con usted.', pron:'uí uil fólou ap uid iú.'},
+        {en:"We won't let this happen again.", es:'No vamos a dejar que esto pase de nuevo.', pron:"uí uóunt let dis jápen aguén."}
+      ], function:'prometerle una solución a un cliente', stage:2,
+        transformations:{
+          negative:{en:"We won't make this right.", es:'No vamos a solucionar esto.'},
+          question:{en:'Will you make this right?', es:'¿Van a solucionar esto?'},
+          yesAnswer:{en:'Yes, we will.', es:'Sí.'},
+          noAnswer:{en:"No, we won't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'customer satisfaction', es:'satisfacción del cliente', pron:'cástomer satisfákshon', emoji:'😊'},
       {en:'complaint handling', es:'manejo de quejas', pron:'compléint jándling', emoji:'📋'},
@@ -115,6 +171,20 @@ const curriculumUnidad9 = [
   },
 {
     day:101, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Manejo de crisis / Comunicación en crisis',
+    structures:[
+      {id:'S075', pattern:"We are committed to + [X]", examples:[
+        {en:'We are committed to transparency.', es:'Estamos comprometidos con la transparencia.', pron:'uí ar camítid tu transpárensi.'},
+        {en:'We are committed to our customers.', es:'Estamos comprometidos con nuestros clientes.', pron:'uí ar camítid tu áur cástomers.'},
+        {en:'We are committed to fixing this issue.', es:'Estamos comprometidos a arreglar este problema.', pron:'uí ar camítid tu fíxing dis íshiu.'},
+        {en:'We are fully committed to this plan.', es:'Estamos totalmente comprometidos con este plan.', pron:'uí ar fúli camítid tu dis plan.'}
+      ], function:'transmitir compromiso durante una crisis', stage:2,
+        transformations:{
+          negative:{en:'We are not committed to silence.', es:'No estamos comprometidos con el silencio.'},
+          question:{en:'Are you committed to transparency?', es:'¿Están comprometidos con la transparencia?'},
+          yesAnswer:{en:'Yes, we are.', es:'Sí.'},
+          noAnswer:{en:"No, we aren't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'crisis management', es:'manejo de crisis', pron:'cráisis mánechment', emoji:'🚨'},
       {en:'contingency plan', es:'plan de contingencia', pron:'canténchensi plan', emoji:'📋'},
@@ -143,6 +213,20 @@ const curriculumUnidad9 = [
   },
 {
     day:102, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Innovación y sostenibilidad',
+    structures:[
+      {id:'S076', pattern:"We are trying to reduce + [X]", examples:[
+        {en:'We are trying to reduce waste.', es:'Estamos tratando de reducir los residuos.', pron:'uí ar tráing tu ridiús uéist.'},
+        {en:'We are trying to reduce our carbon footprint.', es:'Estamos tratando de reducir nuestra huella de carbono.', pron:'uí ar tráing tu ridiús áur cárbon fútprint.'},
+        {en:'We are trying to use renewable energy.', es:'Estamos tratando de usar energía renovable.', pron:'uí ar tráing tu iús riniúabol énerchi.'},
+        {en:'We are not trying to cut corners.', es:'No estamos tratando de tomar atajos.', pron:'uí ar nat tráing tu cat córners.'}
+      ], function:'hablar de esfuerzos de sostenibilidad', stage:2,
+        transformations:{
+          negative:{en:"We aren't trying to reduce waste.", es:'No estamos tratando de reducir los residuos.'},
+          question:{en:'Are you trying to reduce waste?', es:'¿Están tratando de reducir los residuos?'},
+          yesAnswer:{en:'Yes, we are.', es:'Sí.'},
+          noAnswer:{en:"No, we aren't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'innovation', es:'innovación', pron:'inovéishon', emoji:'💡'},
       {en:'sustainability', es:'sostenibilidad', pron:'sasteinabíliti', emoji:'🌱'},
@@ -195,6 +279,20 @@ const curriculumUnidad9 = [
   },
 {
     day:104, unit:9, unitTitle:'Unidad 9 · Semanas 23-24', theme:'Exportaciones e importaciones avanzado',
+    structures:[
+      {id:'S077', pattern:"This shipment requires + [X]", examples:[
+        {en:'This shipment requires an export license.', es:'Este envío requiere una licencia de exportación.', pron:'dis shípment riquáirs an éxport láisens.'},
+        {en:'This shipment requires customs clearance.', es:'Este envío requiere autorización aduanera.', pron:'dis shípment riquáirs cástams clírans.'},
+        {en:'This shipment requires cargo insurance.', es:'Este envío requiere seguro de carga.', pron:'dis shípment riquáirs cárgou inshúrans.'},
+        {en:"This shipment doesn't require a permit.", es:'Este envío no requiere un permiso.', pron:"dis shípment dásnt riquáir a pérmit."}
+      ], function:'decir qué necesita un envío internacional', stage:2,
+        transformations:{
+          negative:{en:"This shipment doesn't require a license.", es:'Este envío no requiere una licencia.'},
+          question:{en:'Does this shipment require a license?', es:'¿Este envío requiere una licencia?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí.'},
+          noAnswer:{en:"No, it doesn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'export license', es:'licencia de exportación', pron:'éxport láisens', emoji:'📜'},
       {en:'import duty', es:'arancel de importación', pron:'ímport diúti', emoji:'💲'},
@@ -223,6 +321,20 @@ const curriculumUnidad9 = [
   },
 {
     day:105, unit:9, unitTitle:'Unidad 9 · Semanas 23-24', theme:'Manufactura y producción',
+    structures:[
+      {id:'S078', pattern:"The production line is + [GERUND/ADJECTIVE]", examples:[
+        {en:'The production line is running smoothly.', es:'La línea de producción está funcionando sin problemas.', pron:'de pradákshion láin is ráning smúzli.'},
+        {en:'The machinery is not working.', es:'La maquinaria no está funcionando.', pron:'de mashínari is nat uérking.'},
+        {en:'We are increasing efficiency.', es:'Estamos aumentando la eficiencia.', pron:'uí ar increísing efíshiensi.'},
+        {en:'The plant is fully automated.', es:'La planta está totalmente automatizada.', pron:'de plant is fúli ótomeited.'}
+      ], function:'hablar del estado de la producción', stage:2,
+        transformations:{
+          negative:{en:'The production line is not running.', es:'La línea de producción no está funcionando.'},
+          question:{en:'Is the production line running?', es:'¿La línea de producción está funcionando?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí.'},
+          noAnswer:{en:"No, it isn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'production line', es:'línea de producción', pron:'prodákshon láin', emoji:'🏭'},
       {en:'raw materials', es:'materia prima', pron:'ro matírials', emoji:'🪵'},
@@ -249,6 +361,19 @@ const curriculumUnidad9 = [
   },
 {
     day:106, unit:9, unitTitle:'Unidad 9 · Semanas 23-24', theme:'Recursos humanos',
+    structures:[
+      {id:'S079', pattern:"I would like to apply for + [X]", examples:[
+        {en:'I would like to apply for the promotion.', es:'Me gustaría postularme para el ascenso.', pron:'ái uud láik tu apláy for de pramóushion.'},
+        {en:'I would like to schedule my performance review.', es:'Me gustaría agendar mi evaluación de desempeño.', pron:'ái uud láik tu squédiul mái perfórmans riviú.'},
+        {en:'I would like to discuss my benefits.', es:'Me gustaría hablar de mis beneficios.', pron:'ái uud láik tu discás mái bénefits.'},
+        {en:'I would like to submit my resignation.', es:'Me gustaría presentar mi renuncia.', pron:'ái uud láik tu sabmít mái resignéishion.'}
+      ], function:'hablar de trámites de recursos humanos', stage:2,
+        transformations:{
+          question:{en:'Would you like to apply for the promotion?', es:'¿Te gustaría postularte para el ascenso?'},
+          yesAnswer:{en:'Yes, I would.', es:'Sí, me gustaría.'},
+          noAnswer:{en:'No, not right now.', es:'No, todavía no.'}
+        }}
+    ],
     words:[
       {en:'human resources', es:'recursos humanos', pron:'jiúman rísorses', emoji:'👥'},
       {en:'onboarding', es:'proceso de incorporación', pron:'anbórding', emoji:'🚪'},
@@ -277,6 +402,20 @@ const curriculumUnidad9 = [
   },
 {
     day:107, unit:9, unitTitle:'Unidad 9 · Semanas 23-24', theme:'Ventas avanzadas / Cierre de ventas',
+    structures:[
+      {id:'S080', pattern:"I can close this deal", examples:[
+        {en:'I can close this deal today.', es:'Puedo cerrar este trato hoy.', pron:'ái can clóus dis díil tudéi.'},
+        {en:'I can offer you a better rate.', es:'Te puedo ofrecer una mejor tarifa.', pron:'ái can áfer iú a béter réit.'},
+        {en:"I can't meet that quota this month.", es:'No puedo cumplir esa cuota este mes.', pron:"ái cant míit dat cuóuta dis manz."},
+        {en:'I can help you reach your target.', es:'Te puedo ayudar a alcanzar tu meta.', pron:'ái can jelp iú ríich iór tárguet.'}
+      ], function:'hablar de cerrar una venta', stage:2,
+        transformations:{
+          negative:{en:"I can't close this deal today.", es:'No puedo cerrar este trato hoy.'},
+          question:{en:'Can you close this deal today?', es:'¿Podés cerrar este trato hoy?'},
+          yesAnswer:{en:'Yes, I can.', es:'Sí, puedo.'},
+          noAnswer:{en:"No, I can't.", es:'No, no puedo.'}
+        }}
+    ],
     words:[
       {en:'sales pitch', es:'presentación de ventas', pron:'séils pich', emoji:'🎤'},
       {en:'cold call', es:'llamada en frío', pron:'cóuld col', emoji:'📞'},
