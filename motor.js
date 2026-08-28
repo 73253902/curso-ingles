@@ -1096,10 +1096,12 @@ function runTransformDrills(items, i, onDone){
 }
 
 // ================= Dictado: se escucha, sin ver el texto, y se escribe a ciegas =================
-async function speakHidden(text){
+async function speakHidden(text, shouldAbort){
   await ensureVoices();
+  if(shouldAbort && shouldAbort()) return;
   return new Promise(resolve=>{
     speechSynthesis.cancel();
+    if(shouldAbort && shouldAbort()){ resolve(); return; }
     const u=new SpeechSynthesisUtterance(text);
     u.lang='en-US';
     if(cachedVoices){ const v=pickVoice(cachedVoices,'en'); if(v) u.voice=v; }
@@ -1107,10 +1109,12 @@ async function speakHidden(text){
     speechSynthesis.speak(u);
   });
 }
-async function speakHiddenVoiced(text, pitch, rate){
+async function speakHiddenVoiced(text, pitch, rate, shouldAbort){
   await ensureVoices();
+  if(shouldAbort && shouldAbort()) return;
   return new Promise(resolve=>{
     speechSynthesis.cancel();
+    if(shouldAbort && shouldAbort()){ resolve(); return; }
     const u=new SpeechSynthesisUtterance(text);
     u.lang='en-US';
     u.pitch=pitch; u.rate=rate;
@@ -1252,7 +1256,7 @@ function runDialogueReinforcement(turn){
 
   illusEl.textContent='🎭';
   setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y vos, el Alumno dragón.',lang:'es'}]);
-  hintEl.textContent='Esto es solo refuerzo — no se califica, y podés seguir a la lección nueva cuando quieras.';
+  hintEl.textContent='Escuchá cada línea y grabá tu propia respuesta antes de avanzar — podés escucharla y regrabarla las veces que quieras hasta que te convenza. No se califica, pero grabar es parte del ejercicio.';
 
   const dlgPlayer=document.getElementById('dialoguePlayer'), transcript=document.getElementById('dialogueTranscript'), turnBox=document.getElementById('dialogueCurrentTurn');
   const playAllBtn=document.getElementById('dialoguePlayAllBtn'), pauseBtn=document.getElementById('dialoguePauseBtn');
@@ -1269,10 +1273,10 @@ function runDialogueReinforcement(turn){
       : { label:'🐉 Alumno (vos)', pitch:1.25, rate:1.05 };
   }
 
-  async function speakWithTimeout(text, pitch, rate){
+  async function speakWithTimeout(text, pitch, rate, shouldAbort){
     const maxMs = Math.max(2500, text.length*90);
     return Promise.race([
-      speakHiddenVoiced(text, pitch, rate),
+      speakHiddenVoiced(text, pitch, rate, shouldAbort),
       new Promise(resolve=>setTimeout(resolve, maxMs))
     ]);
   }
@@ -1292,7 +1296,7 @@ function runDialogueReinforcement(turn){
   function renderTurnButton(){
     if(idxLine >= lines.length){
       turnBox.innerHTML='';
-      recordBtn.style.display='none';
+      resetRecordingPanel();
       nextControls.style.display='flex';
       nextBtn.textContent='Continuar →';
       nextBtn.onclick=()=>{ playToken++; try{ speechSynthesis.cancel(); }catch(e){} dlgPlayer.style.display='none'; idx++; loadTurn(); };
@@ -1306,16 +1310,44 @@ function runDialogueReinforcement(turn){
     btn.onclick = async ()=>{
       btn.disabled = true;
       appendToTranscript(line, idxLine);
+      resetRecordingPanel();
       recordBtn.style.display='inline-flex';
-      recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
+      recordBtn.textContent='🎙️ Ahora grabá tu respuesta';
       const myToken = playToken;
-      await speakWithTimeout(line.en, meta.pitch, meta.rate);
+      await speakWithTimeout(line.en, meta.pitch, meta.rate, ()=>myToken!==playToken);
       if(myToken!==playToken) return;
-      idxLine++;
-      renderTurnButton();
+      showAdvanceGate();
     };
     turnBox.innerHTML='';
     turnBox.appendChild(btn);
+  }
+
+  function showAdvanceGate(){
+    const note = document.createElement('div');
+    note.style.cssText='margin-top:12px; font-size:13px; color:var(--muted); text-align:center;';
+    note.textContent='Grabá tu respuesta arriba 👆 — podés escucharla y regrabarla las veces que quieras. Cuando estés conforme, tocá "Siguiente".';
+    const advBtn = document.createElement('button');
+    advBtn.className='mic'; advBtn.style.marginTop='10px'; advBtn.style.display='none';
+    advBtn.textContent='Siguiente →';
+    advBtn.onclick=()=>{
+      clearInterval(gateWatcher);
+      idxLine++;
+      renderTurnButton();
+    };
+    const skipWrap = document.createElement('div'); skipWrap.style.marginTop='6px';
+    const skipBtn = document.createElement('button');
+    skipBtn.className='ghost'; skipBtn.style.fontSize='12px'; skipBtn.style.padding='4px 10px';
+    skipBtn.textContent='Saltar esta línea sin grabar';
+    skipBtn.onclick=()=>{ clearInterval(gateWatcher); idxLine++; renderTurnButton(); };
+    skipWrap.appendChild(skipBtn);
+    turnBox.innerHTML='';
+    turnBox.appendChild(note);
+    turnBox.appendChild(advBtn);
+    turnBox.appendChild(skipWrap);
+    const gateWatcher = setInterval(()=>{
+      const grabado = recordPlayback.style.display==='block' && recordPlayback.getAttribute('src');
+      advBtn.style.display = grabado ? 'inline-flex' : 'none';
+    }, 300);
   }
 
   playAllBtn.onclick = async ()=>{
@@ -1329,7 +1361,7 @@ function runDialogueReinforcement(turn){
       appendToTranscript(line, idxLine);
       recordBtn.style.display='inline-flex';
       recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
-      await speakWithTimeout(line.en, meta.pitch, meta.rate);
+      await speakWithTimeout(line.en, meta.pitch, meta.rate, ()=>myToken!==playToken);
       if(myToken!==playToken) break;
       idxLine++;
       await new Promise(r=>setTimeout(r, 350));
@@ -1396,7 +1428,7 @@ function runReadAlong(turn){
       const current = readAlongBox.querySelector('[data-i="'+i+'"]');
       if(current) current.scrollIntoView({behavior:'smooth', block:'center'});
       const maxMs = Math.max(2500, turn.lines[i].en.length*90);
-      await Promise.race([ speakHidden(turn.lines[i].en), new Promise(r=>setTimeout(r, maxMs)) ]);
+      await Promise.race([ speakHidden(turn.lines[i].en, ()=>myToken!==playToken2), new Promise(r=>setTimeout(r, maxMs)) ]);
       if(myToken!==playToken2) break;
     }
     if(myToken===playToken2){
