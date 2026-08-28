@@ -125,8 +125,21 @@ function renderHome(){
 
   Object.keys(byUnit).forEach(unitKey=>{
     const days = byUnit[unitKey];
-    const block = document.createElement('div'); block.className='unit-block';
-    block.innerHTML = '<div class="unit-title">'+days[0].unitTitle+' <span class="themes">— '+days[0].theme+'</span></div>';
+    const um = unitMeta[unitKey] || {icon:'📘', color:'#8891A3', name:days[0].theme, desc:''};
+    const unitDone = days.every(d=>progress[d.day] && progress[d.day].completed);
+    const unitStarted = days.some(d=>progress[d.day] && progress[d.day].completed);
+
+    const block = document.createElement('div'); block.className='unit-chapter';
+    block.style.setProperty('--uc', um.color);
+    block.innerHTML =
+      '<div class="uc-head">'+
+        '<div class="uc-icon">'+um.icon+'</div>'+
+        '<div class="uc-titles">'+
+          '<div class="uc-eyebrow">Unidad '+unitKey+' · '+days[0].unitTitle.split('·')[1].trim()+(unitDone?' · completa ✅':'')+'</div>'+
+          '<div class="uc-name">'+um.name+'</div>'+
+          '<div class="uc-desc">'+um.desc+'</div>'+
+        '</div>'+
+      '</div>';
     const grid = document.createElement('div'); grid.className='day-grid';
     days.forEach(d=>{
       const card=document.createElement('div');
@@ -134,7 +147,8 @@ function renderHome(){
       const unlockedByPlacement = d.day <= (meta.unlockedThrough||1);
       const isLocked = !admin && d.day>1 && !unlockedByPlacement && !(progress[d.day-1] && progress[d.day-1].completed) && !isDone;
       card.className='day-card '+(isDone?'done':isLocked?'locked':'available');
-      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':isLocked?'🔒':'▶️')+'</div>';
+      card.title = d.theme;
+      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':isLocked?'🔒':'▶️')+'</div><div class="dt">'+d.theme.split('/')[0].trim()+'</div>';
       if(!isLocked){ card.addEventListener('click', ()=>startDay(d.day)); }
       grid.appendChild(card);
     });
@@ -143,11 +157,32 @@ function renderHome(){
   });
 
   if(curriculum.length < TOTAL_DAYS){
-    const soon=document.createElement('div'); soon.className='unit-block';
-    soon.innerHTML = '<div class="unit-title">Próximos días</div><p style="color:var(--muted); font-size:13px;">Los Días '+(curriculum.length+1)+' a '+TOTAL_DAYS+' se van sumando por lotes de 2 semanas a medida que avanzamos.</p>';
+    const soon=document.createElement('div'); soon.className='unit-chapter'; soon.style.setProperty('--uc', '#8891A3');
+    soon.innerHTML = '<div class="uc-head"><div class="uc-icon">🔜</div><div class="uc-titles"><div class="uc-eyebrow">Próximamente</div><div class="uc-name">Más unidades en camino</div><div class="uc-desc">Los Días '+(curriculum.length+1)+' a '+TOTAL_DAYS+' se van sumando por lotes de 2 semanas a medida que avanzamos.</div></div></div>';
     container.appendChild(soon);
   }
+
+  renderSyllabus();
 }
+function renderSyllabus(){
+  const box = document.getElementById('syllabusBox');
+  if(!box) return;
+  const byUnit = {};
+  curriculum.forEach(d=>{ (byUnit[d.unit] = byUnit[d.unit]||[]).push(d); });
+  box.innerHTML = Object.keys(byUnit).map(unitKey=>{
+    const days = byUnit[unitKey];
+    const um = unitMeta[unitKey] || {icon:'📘', color:'#8891A3', name:days[0].theme};
+    const rows = days.map(d=>'<div class="syl-day"><span class="syl-n">Día '+d.day+'</span><span class="syl-t">'+d.theme+'</span></div>').join('');
+    return '<div class="syl-unit" style="--uc:'+um.color+'"><div class="syl-unit-head">'+um.icon+' <b>Unidad '+unitKey+' — '+um.name+'</b></div>'+rows+'</div>';
+  }).join('');
+}
+document.getElementById('syllabusToggleBtn').addEventListener('click', ()=>{
+  const box = document.getElementById('syllabusBox');
+  const btn = document.getElementById('syllabusToggleBtn');
+  const showing = box.style.display !== 'none';
+  box.style.display = showing ? 'none' : 'block';
+  btn.textContent = showing ? '📖 Ver el programa completo — las 15 unidades y sus 180 días' : '📖 Ocultar el programa completo';
+});
 document.getElementById('skipPlacementBtn').addEventListener('click', ()=>{
   saveMeta({placementDone:true, unlockedThrough:1});
   renderHome();
@@ -310,18 +345,45 @@ const rephraseBank = [
 ];
 // Historias semanales: repasan en una mini-historia todo lo visto en los últimos 6 días de estudio.
 // Lecturas de repaso de cierre de unidad — SOLO escuchar y leer, sin ejercicios de hablar/escribir.
+// Identidad visual de cada unidad — color, ícono y nombre corto, sintetizados de los temas reales de sus días.
+const unitMeta = {
+  1:{icon:'🌱', color:'#6FCF97', name:'Primeros pasos', desc:'Saludos, presentarte, tu empresa y lo básico para arrancar'},
+  2:{icon:'🏠', color:'#4FB6E8', name:'Tu día a día', desc:'Rutina, tu oficina, y la vida cotidiana en el trabajo'},
+  3:{icon:'💰', color:'#E8A33D', name:'Números y tiempo', desc:'Precios, horarios, fechas y todo lo que se mide'},
+  4:{icon:'🍽️', color:'#E8956A', name:'Comida y reuniones', desc:'Restaurantes, presentaciones y reuniones de trabajo'},
+  5:{icon:'🛍️', color:'#E86A5C', name:'Compras y facturas', desc:'Comprar, devolver, pagar, y reclamar cuando algo sale mal'},
+  6:{icon:'🚚', color:'#5B8DEF', name:'Rutas y envíos', desc:'Direcciones, transporte, aduana y logística'},
+  7:{icon:'✈️', color:'#4FD1E8', name:'Viajes y tecnología', desc:'Hoteles, clima, y herramientas digitales de oficina'},
+  8:{icon:'💼', color:'#A66FE8', name:'Tu carrera', desc:'Entrevistas, networking, contratos y negociación avanzada'},
+  9:{icon:'📊', color:'#6FCFAF', name:'Gestión y operaciones', desc:'Proyectos, calidad, crisis, ventas y comercio exterior'},
+  10:{icon:'🏥', color:'#4FB6C8', name:'Vida profesional', desc:'Salud, propiedades, seguros, y trámites del día a día'},
+  11:{icon:'🚀', color:'#C77DE8', name:'Estrategia de marca', desc:'Marketing, fusiones, comercio electrónico y startups'},
+  12:{icon:'🎪', color:'#E86AA8', name:'Industrias y eventos', desc:'Relaciones públicas, retail, turismo y energía'},
+  13:{icon:'🏗️', color:'#C99A5B', name:'Industrias especializadas', desc:'Construcción, automotriz, aviación, moda y más'},
+  14:{icon:'🌐', color:'#5BC9A0', name:'Sectores emergentes', desc:'Farmacéutica, videojuegos, trabajo remoto y sostenibilidad'},
+  15:{icon:'🎓', color:'#E8C33D', name:'La cima', desc:'Marca personal, el futuro del trabajo, y tu graduación'}
+};
 const unitReviewStories = {
   12: [
-    {en:'Good morning! Today, our dragon friend opens the doors of his shop in the Floating City.', es:'¡Buenos días! Hoy, nuestro amigo dragón abre las puertas de su tienda en la Ciudad Flotante.', pron:'gud mórnin! tudéi, áur drágon frend óupens de dors of jis shap in de flóuting síti.'},
-    {en:'Welcome! Come in! My name is Blaze, and I am from the Floating City.', es:'¡Bienvenido! ¡Pasá! Me llamo Blaze, y soy de la Ciudad Flotante.', pron:'uélcam! cam in! mái néim is Bléis, and ái am fram de flóuting síti.'},
-    {en:'I am the owner of this store, and I work at it with my whole family.', es:'Soy el dueño de esta tienda, y trabajo en ella con toda mi familia.', pron:'ái am de óuner of dis stor, and ái uork at it uid mái jóul fámili.'},
-    {en:'We have ten boxes and five units in stock. We sell magical toys, and we provide the best service in the kingdom!', es:'Tenemos diez cajas y cinco unidades en stock. ¡Vendemos juguetes mágicos, y ofrecemos el mejor servicio del reino!', pron:'uí jav ten báxes and fáiv iúnits in stak. uí sel máyical tóis, and uí prováid de best sérvis in de kíngdom!'},
-    {en:"I'm busy today, but business is great! I am available on Friday if you need a meeting.", es:'Estoy ocupado hoy, ¡pero el negocio va muy bien! Estoy disponible el viernes si necesitás una reunión.', pron:"áim bísi tudéi, bat bísnes is gréit! ái am avéilabol on fráidei if iú níid a míiting."},
-    {en:'Can you help me choose a color? I can show you all of them! It is red, or it is blue and made of metal — it is big, strong, and durable.', es:'¿Me podés ayudar a elegir un color? ¡Te puedo mostrar todos! Es rojo, o es azul y está hecho de metal — es grande, fuerte, y durable.', pron:'can iú jelp mi chúus a cálor? ái can shóu iú ol of dem! it is red, or it is blú and méid of métal — it is big, strong, and diúrabol.'},
-    {en:"Let's confirm the order! I will call you back on Monday to confirm everything.", es:'¡Confirmemos el pedido! Te voy a devolver la llamada el lunes para confirmar todo.', pron:"lets canférm de órder! ái uil col iú bak on mándei tu canférm évrizin."},
-    {en:'Thanks for your time. It was a pleasure. See you soon!', es:'Gracias por tu tiempo. Fue un placer. ¡Nos vemos pronto!', pron:'zenks for iór táim. it uas a pléyer. síi iú súun!'},
-    {en:"Well done, everyone! Great job today. Let's finish for today — you did it!", es:'¡Bien hecho, todos! Gran trabajo hoy. Terminemos por hoy — ¡lo lograste!', pron:"uél dan, évriuan! gréit chab tudéi. lets fínish for tudéi — iú did it!"},
-    {en:'Practice makes perfect, and tomorrow, a new day begins. Congratulations, brave dragon — you finished Unit One!', es:'La práctica hace al maestro, y mañana, empieza un nuevo día. Felicitaciones, valiente dragón — ¡terminaste la Unidad Uno!', pron:'práctis méiks pérfect, and tumórou, a niú déi bigíns. congrachuléishons, bréiv drágon — iú fínisht iúnit uán!'}
+    {en:'Good morning! Blaze opens his shop with a warm smile.', es:'¡Buenos días! Blaze abre su tienda con una sonrisa cálida.', pron:'gud mórning! Bléis óupens jis shap uid a uórm smáil.'},
+    {en:'"Welcome! Come in!" he tells the first customer. "I need help finding a gift," she says.', es:'"¡Bienvenido! ¡Pasá!", le dice al primer cliente. "Necesito ayuda para encontrar un regalo", dice ella.', pron:'uélcam! cam in! ji tels de ferst cástomer. ái níid jelp fáinding a gift, shi séis.'},
+    {en:'"I can help you!" Blaze replies happily.', es:'"¡Te puedo ayudar!", responde Blaze con alegría.', pron:'ái can jelp iú! Bléis riplís jápili.'},
+    {en:'"My name is Blaze, and I am from the Floating City," he says, shaking her hand.', es:'"Me llamo Blaze, y soy de la Ciudad Flotante", dice, dándole la mano.', pron:'mái néim is Bléis, and ái am fram de flóuting síti, ji séis, shéiking jer jand.'},
+    {en:'"I am the owner of this shop, and I am in charge of everything here — from the prices to the deliveries."', es:'"Soy el dueño de esta tienda, y estoy a cargo de todo acá — desde los precios hasta las entregas."', pron:'ái am de óuner of dis shap, and ái am in chárch of évrizin jír — fram de práises tu de delíveris.'},
+    {en:'"I work at it with my whole family."', es:'"Trabajo en ella con toda mi familia."', pron:'ái uork at it uid mái jóul fámili.'},
+    {en:'His wife checks the calendar, his son counts the boxes, his daughter writes the invoice — the whole team, together.', es:'Su esposa revisa el calendario, su hijo cuenta las cajas, su hija escribe la factura — todo el equipo, juntos.', pron:'jis uáif cheks de cálendar, jis san cáunts de báxes, jis dóter ráits de ínvois — de jóul tíim, tugéder.'},
+    {en:'"We sell magical toys, and we provide the best service in the kingdom," he explains proudly.', es:'"Vendemos juguetes mágicos, y ofrecemos el mejor servicio del reino", explica orgulloso.', pron:'uí sel máyical tóis, and uí prováid de best sérvis in de kíngdom, ji explains práudli.'},
+    {en:'"We have ten boxes and five units in stock," he says, "and everything is ready to go."', es:'"Tenemos diez cajas y cinco unidades en stock", dice, "y todo está listo."', pron:'uí jav ten báxes and fáiv iúnits in stak, ji séis, and évrizing is rédi tu góu.'},
+    {en:'"I am available on Friday, if you need a meeting," he adds, checking his schedule.', es:'"Estoy disponible el viernes, si necesitás una reunión", agrega, revisando su agenda.', pron:'ái am avéilabol on Fráidei, if iú níid a míiting, ji ads, chéking jis squédiul.'},
+    {en:'By afternoon, he feels tired. "I\'m tired," he admits quietly — but he keeps going.', es:'Por la tarde, se siente cansado. "Estoy cansado", admite en voz baja — pero sigue adelante.', pron:'bái áfternúun, ji fíils táierd. áim táierd, ji admíts cuáietli — bat ji kíips góing.'},
+    {en:'"How\'s business today?" his wife asks. "Business is slow," he sighs — then smiles — "but I have hope."', es:'"¿Cómo va el negocio hoy?", pregunta su esposa. "El negocio va lento", suspira — y después sonríe — "pero tengo esperanza."', pron:'jáus bísnes tudéi? jis uáif asks. bísnes is slóu, ji sáis — den smáils — bat ái jav jóup.'},
+    {en:'A worried customer calls. "I will call you back on Monday," Blaze promises, "and I will make things right."', es:'Llama un cliente preocupado. "Te voy a devolver la llamada el lunes", promete Blaze, "y voy a arreglar las cosas."', pron:'a uórid cástomer cols. ái uil col iú bak on Mándei, Bléis prámises, and ái uil méik zings ráit.'},
+    {en:'"See you soon," he adds warmly.', es:'"Nos vemos pronto", agrega con calidez.', pron:'síi iú súun, ji ads uórmli.'},
+    {en:'A curious kid runs in. "How many? What color? Is it ready?" Questions everywhere!', es:'Entra corriendo un niño curioso. "¿Cuántos? ¿Qué color? ¿Está listo?" ¡Preguntas por todos lados!', pron:'a kiúrias kid rans in. jáu méni? uát cálor? is it rédi? cuéstions évriuér!'},
+    {en:'"It is red, it is big, and it is made of strong metal," Blaze answers patiently, one question at a time.', es:'"Es rojo, es grande, y está hecho de metal fuerte", responde Blaze con paciencia, una pregunta a la vez.', pron:'it is red, it is big, and it is méid of strong métal, Bléis ánsers péishentli, uán cuéstion at a táim.'},
+    {en:'By evening, exhausted but happy, Blaze looks at his family. "We did it. Well done, everyone. Great job."', es:'Al anochecer, agotado pero feliz, Blaze mira a su familia. "Lo logramos. Bien hecho, todos. Gran trabajo."', pron:'bái ívning, exóstid bat jápi, Bléis luks at jis fámili. uí did it. uél dan, évriuan. gréit chab.'},
+    {en:'"Congratulations on finishing Unit One," he whispers to himself, eyes shining with pride.', es:'"Felicitaciones por terminar la Unidad Uno", se susurra a sí mismo, con los ojos brillando de orgullo.', pron:'congrachuléishons on fínishing iúnit uán, ji uíspers tu jimsélf, áis sháining uid práid.'},
+    {en:'Tomorrow, a new day begins — but tonight, "let\'s practice" one more time together, and then "let\'s finish" with a smile.', es:'Mañana, empieza un nuevo día — pero esta noche, "practiquemos" una vez más juntos, y después "terminemos" con una sonrisa.', pron:'tumórou, a niú déi bigíns — bat tunáit, lets práctis uán mor táim tugéder, and den lets fínish uid a smáil.'}
   ],
   24: [
     {en:'Blaze wakes up at seven and starts work at eight — a new day in his growing shop.', es:'Blaze se despierta a las siete y empieza a trabajar a las ocho — un nuevo día en su tienda que crece.', pron:'Bléis uéiks ap at séven and starts uork at éit — a niú déi in jis gróuing shap.'},
@@ -382,6 +444,43 @@ const unitReviewStories = {
     {en:'"This post about our new toys is getting a lot of likes!" his daughter shows him, smiling.', es:'"¡Esta publicación sobre nuestros juguetes nuevos está consiguiendo muchos likes!", le muestra su hija, sonriendo.', pron:'dis póust abáut áur niú tóis is guéting a lat of láiks! jis dóter shóus jim, smáiling.'},
     {en:'Later, a technical problem appears — but "this is working now," Blaze confirms, relieved.', es:'Más tarde, aparece un problema técnico — pero "esto ya está funcionando", confirma Blaze, aliviado.', pron:'léiter, a técnical práblem apírs — bat dis is uérking náu, Bléis canférms, rilíivd.'},
     {en:"Unit seven, done — almost half done! Well done, dragon. See you in unit eight!", es:'¡Unidad siete, lista — casi a la mitad! Bien hecho, dragón. ¡Nos vemos en la unidad ocho!', pron:"iúnit séven, dan — ólmoust jaf dan! uél dan, drágon. síi iú in iúnit éit!"}
+  ],
+  96: [
+    {en:"Blaze's business is growing, so he decides to hire someone new. \"I have experience in sales,\" says the candidate.", es:'El negocio de Blaze está creciendo, así que decide contratar a alguien nuevo. "Tengo experiencia en ventas", dice el candidato.', pron:'Bléis bísnes is góuing, sóu ji dicáids tu jáier sámuan niú. ái jav expírians in séils, séis de candídeit.'},
+    {en:'"I am responsible for the sales team at my current job," he explains with confidence.', es:'"Soy responsable del equipo de ventas en mi trabajo actual", explica con confianza.', pron:'ái am rispánsibol for de séils tíim at mái cárent chab, ji explains uid cánfidens.'},
+    {en:'Later, at a networking event, "I would like to connect with you," Blaze tells another business owner.', es:'Más tarde, en un evento de networking, "me gustaría conectar con vos", le dice Blaze a otro empresario.', pron:'léiter, at a nétuorking ivént, ái uud láik tu canéct uid iú, Bléis tels anáder bísnes óuner.'},
+    {en:'Before his big presentation, "I am confident about this," he tells himself, taking a deep breath.', es:'Antes de su gran presentación, "estoy seguro de esto", se dice a sí mismo, respirando profundo.', pron:'bifór jis big presentéishion, ái am cánfident abáut dis, ji tels jimsélf, téiking a díip breez.'},
+    {en:'Back at the office, "I need to sign this contract today," he remembers, checking his calendar.', es:'De vuelta en la oficina, "necesito firmar este contrato hoy", recuerda, revisando su calendario.', pron:'bak at de áfis, ái níid tu sáin dis cántract tudéi, ji rimémbers, chéking jis cálendar.'},
+    {en:'"In my culture, we take our time to build trust," he tells his new international partner.', es:'"En mi cultura, nos tomamos nuestro tiempo para construir confianza", le dice a su nuevo socio internacional.', pron:'in mái cálchur, uí téik áur táim tu bild trast, ji tels jis niú internáshional pártner.'},
+    {en:'At the bank, "I want to invest in my business," Blaze says, reviewing his savings account.', es:'En el banco, "quiero invertir en mi negocio", dice Blaze, revisando su cuenta de ahorros.', pron:'at de bank, ái uánt tu invést in mái bísnes, Bléis séis, riviúing jis séivings acáunt.'},
+    {en:'During a negotiation, "I am willing to compromise," he says calmly — and reaches a fair deal.', es:'Durante una negociación, "estoy dispuesto a ceder", dice con calma — y llega a un trato justo.', pron:'diúring a nigóushieishion, ái am uíling tu cámpramais, ji séis cámli — and ríchis a fer díil.'},
+    {en:"Unit eight, done — more than half done! Keep pushing, dragon. See you in unit nine!", es:'¡Unidad ocho, lista — ya más de la mitad! Seguí adelante, dragón. ¡Nos vemos en la unidad nueve!', pron:"iúnit éit, dan — mor dan jaf dan! kíip púshing, drágon. síi iú in iúnit náin!"}
+  ],
+  108: [
+    {en:'Blaze opens his laptop. "I am writing to confirm the meeting," he types, careful with his tone.', es:'Blaze abre su laptop. "Le escribo para confirmar la reunión", escribe, cuidando su tono.', pron:'Bléis óupens jis láptap. ái am ráiting tu canférm de míiting, ji táips, kérful uid jis tóun.'},
+    {en:'He checks his project board. "The project is on schedule," he notes with relief.', es:'Revisa su tablero de proyecto. "El proyecto va según lo planeado", anota con alivio.', pron:'ji cheks jis práchect bord. de práchect is on squédiul, ji nóuts uid rilíif.'},
+    {en:'An inspector arrives at the warehouse. "This meets the quality standard," she confirms, nodding.', es:'Llega un inspector al depósito. "Esto cumple con el estándar de calidad", confirma, asintiendo.', pron:'an inspéctor aráivs at de uérjaus. dis míits de cuáliti stándard, shi canférms, náding.'},
+    {en:'A customer calls, upset. "We will make this right," Blaze promises, staying calm.', es:'Un cliente llama, molesto. "Vamos a solucionar esto", promete Blaze, manteniendo la calma.', pron:'a cástomer cols, apsét. uí uil méik dis ráit, Bléis prámises, stéiing calm.'},
+    {en:'To the press, he says: "We are committed to transparency, always."', es:'A la prensa, dice: "Estamos comprometidos con la transparencia, siempre."', pron:'tu de pres, ji séis: uí ar camítid tu transpárensi, ólueis.'},
+    {en:'At the factory, "we are trying to reduce waste," he tells his team, pointing at the new bins.', es:'En la fábrica, "estamos tratando de reducir los residuos", le dice a su equipo, señalando los nuevos contenedores.', pron:'at de fáctori, uí ar tráing tu ridiús uéist, ji tels jis tíim, póinting at de niú bins.'},
+    {en:'A big shipment is ready. "This shipment requires an export license," he remembers just in time.', es:'Un envío grande está listo. "Este envío requiere una licencia de exportación", recuerda justo a tiempo.', pron:'a big shípment is rédi. dis shípment riquáirs an éxport láisens, ji rimémbers yast in táim.'},
+    {en:'"The production line is running smoothly," the plant manager reports, smiling.', es:'"La línea de producción está funcionando sin problemas", informa el gerente de planta, sonriendo.', pron:'de pradákshion láin is ráning smúzli, de plant mánayer ripórts, smáiling.'},
+    {en:'His daughter walks in. "I would like to apply for the summer program," she says, proud.', es:'Entra su hija. "Me gustaría postularme para el programa de verano", dice, orgullosa.', pron:'jis dóter uóks in. ái uud láik tu apláy for de sámer prógram, shi séis, práud.'},
+    {en:'One last call: "I can close this deal today," Blaze says with a confident smile.', es:'Una última llamada: "puedo cerrar este trato hoy", dice Blaze con una sonrisa confiada.', pron:'uán last col: ái can clóus dis díil tudéi, Bléis séis uid a cánfident smáil.'},
+    {en:"Unit nine, done — two thirds of the journey behind you! Staying strong, dragon.", es:'¡Unidad nueve, lista — dos tercios del camino ya recorridos! Manteniéndote fuerte, dragón.', pron:"iúnit náin, dan — tú zerds of de yérni bijáind iú! stéiing strong, drágon."},
+    {en:"Proud of you — halfway to mastery. See you in unit ten!", es:'Orgulloso de vos — a mitad de camino hacia el dominio. ¡Nos vemos en la unidad diez!', pron:"práud of iú — jafuéi tu mástery. síi iú in iúnit ten!"}
+  ],
+  120: [
+    {en:'Blaze visits an agent. "I am looking to rent office space," he explains, checking the listings.', es:'Blaze visita a un agente. "Estoy buscando arrendar un espacio de oficina", explica, revisando los listados.', pron:'Bléis vísits an éiyent. ái am lúking tu rent áfis spéis, ji explains, chéking de lístings.'},
+    {en:'"This is covered under my policy," the insurance agent confirms, reviewing the paperwork.', es:'"Esto está cubierto por mi póliza", confirma el agente de seguros, revisando los papeles.', pron:'dis is cávard ánder mái pálisi, de inshúrans éiyent canférms, riviúing de péiperuork.'},
+    {en:'"I have an appointment with a specialist," he tells the receptionist, checking his watch.', es:'"Tengo una cita con un especialista", le dice a la recepcionista, mirando su reloj.', pron:'ái jav an apóintment uid a spéshalist, ji tels de risépshionist, chéking jis uách.'},
+    {en:'His son shares good news. "I am enrolled in an online course!" he says, excited.', es:'Su hijo comparte buenas noticias. "¡Estoy inscrito en un curso en línea!", dice, emocionado.', pron:'jis san shérs gud niús. ái am inróuld in an ánlain cors! ji séis, exsáited.'},
+    {en:'At the government office, "I need to renew my license," Blaze says, taking a number.', es:'En la oficina del gobierno, "necesito renovar mi licencia", dice Blaze, tomando un número.', pron:'at de gávernment áfis, ái níid tu riniú mái láisens, Bléis séis, téiking a námber.'},
+    {en:'"We are moving to a bigger office next month," he announces to the whole team, smiling.', es:'"Nos estamos mudando a una oficina más grande el próximo mes", anuncia a todo el equipo, sonriendo.', pron:'uí ar múving tu a bíguer áfis next manz, ji anáunses tu de jóul tíim, smáiling.'},
+    {en:'He shows off a new tool. "This is powered by artificial intelligence!" he says proudly.', es:'Muestra una nueva herramienta. "¡Esto funciona con inteligencia artificial!", dice orgulloso.', pron:'ji shóus of a niú túul. dis is páuerd bái ártifíshal intéliyens! ji séis práudli.'},
+    {en:'At the team meeting, "I trust my team to make good decisions," Blaze says, looking around the room.', es:'En la reunión de equipo, "confío en que mi equipo tome buenas decisiones", dice Blaze, mirando la sala.', pron:'at de tíim míiting, ái trast mái tíim tu méik gud disíshions, Bléis séis, lúking aráund de rúum.'},
+    {en:"Unit ten, done — two thirds done, one third remaining!", es:'¡Unidad diez, lista — dos tercios hechos, un tercio restante!', pron:"iúnit ten, dan — tú zerds dan, uán zerd rimééining!"},
+    {en:"Keep going, dragon — a milestone has been reached. See you in unit eleven!", es:'Seguí adelante, dragón — se alcanzó un hito. ¡Nos vemos en la unidad once!', pron:"kíip góing, drágon — a máilstóun jas bin ríichd. síi iú in iúnit iléven!"}
   ]
 };
 const weeklyStories = {
