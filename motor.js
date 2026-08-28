@@ -1255,22 +1255,20 @@ function runDialogueReinforcement(turn){
   document.getElementById('readAlongPlayer').style.display='none';
 
   illusEl.textContent='🎭';
-  setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y tú, el Alumno dragón.',lang:'es'}]);
-  hintEl.textContent='Escucha cada línea y graba tu propia respuesta antes de avanzar — puedes escucharla y regrabarla las veces que quieras hasta que te convenza. No se califica, pero grabar es parte del ejercicio.';
 
   const dlgPlayer=document.getElementById('dialoguePlayer'), transcript=document.getElementById('dialogueTranscript'), turnBox=document.getElementById('dialogueCurrentTurn');
   const playAllBtn=document.getElementById('dialoguePlayAllBtn'), pauseBtn=document.getElementById('dialoguePauseBtn');
   dlgPlayer.style.display='block';
   transcript.innerHTML=''; turnBox.innerHTML='';
-  playAllBtn.style.display='inline-flex'; pauseBtn.style.display='inline-flex'; pauseBtn.textContent='⏹ Detener audio';
+  playAllBtn.style.display='none'; pauseBtn.style.display='none';
 
   const lines = turn.lines;
-  let idxLine = 0, autoPlaying=false, playToken = 0;
+  let idxLine = 0, autoPlaying=false, playToken = 0, myRole = null;
 
   function speakerMeta(sp){
     return sp==='maestro'
       ? { label:'🎓 Profesor', pitch:0.75, rate:0.95 }
-      : { label:'🐉 Alumno (tú)', pitch:1.25, rate:1.05 };
+      : { label:'🐉 Alumno', pitch:1.25, rate:1.05 };
   }
 
   async function speakWithTimeout(text, pitch, rate, shouldAbort){
@@ -1285,7 +1283,8 @@ function runDialogueReinforcement(turn){
     const div=document.createElement('div');
     div.className='dlg-line '+line.speaker;
     const meta = speakerMeta(line.speaker);
-    div.innerHTML = '<div class="dlg-who">'+meta.label+'</div><div class="dlg-en" id="dlgEn'+lineIndex+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div><button class="ghost" style="margin-top:6px; font-size:12px; padding:4px 10px;">🔊 Escuchar de nuevo</button>';
+    const esMiTurno = line.speaker===myRole;
+    div.innerHTML = '<div class="dlg-who">'+meta.label+(esMiTurno?' — tu turno':'')+'</div><div class="dlg-en" id="dlgEn'+lineIndex+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div><button class="ghost" style="margin-top:6px; font-size:12px; padding:4px 10px;">🔊 Escuchar de nuevo</button>';
     transcript.appendChild(div);
     renderStoryLine(document.getElementById('dlgEn'+lineIndex), line.en);
     const replayBtn = div.querySelector('button');
@@ -1293,6 +1292,31 @@ function runDialogueReinforcement(turn){
     transcript.scrollTop = transcript.scrollHeight;
   }
 
+  // ===== Paso 1: elegir con qué personaje practicás =====
+  function showRoleSelector(){
+    setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y el Alumno dragón.',lang:'es'}]);
+    hintEl.textContent='Elegí con cuál de los dos personajes querés practicar hablando. Vas a escuchar las líneas del otro personaje como contexto, y vas a grabar las tuyas.';
+    turnBox.innerHTML='';
+    const wrap = document.createElement('div'); wrap.style.cssText='display:flex; flex-direction:column; gap:10px; align-items:center;';
+    const title = document.createElement('div'); title.style.cssText='font-size:14px; color:var(--muted); margin-bottom:4px;';
+    title.textContent='¿Con qué personaje querés practicar hoy?';
+    const btnMaestro = document.createElement('button'); btnMaestro.className='mic dlg-turn-btn maestro'; btnMaestro.textContent='🎓 Practicar como Profesor';
+    const btnAlumno = document.createElement('button'); btnAlumno.className='mic dlg-turn-btn alumno'; btnAlumno.textContent='🐉 Practicar como Alumno';
+    btnMaestro.onclick=()=>{ myRole='maestro'; startDialogue(); };
+    btnAlumno.onclick=()=>{ myRole='alumno'; startDialogue(); };
+    wrap.appendChild(title); wrap.appendChild(btnMaestro); wrap.appendChild(btnAlumno);
+    turnBox.appendChild(wrap);
+  }
+
+  function startDialogue(){
+    const meta = speakerMeta(myRole);
+    setSegs(lineEl,[{t:'Estás practicando como '+meta.label+'. Escuchá cada línea — cuando sea tu turno, grabá tu respuesta antes de seguir.',lang:'es'}]);
+    hintEl.textContent='Podés escuchar tu grabación las veces que quieras. Si no te convence, borrala y grabala de nuevo antes de guardar y avanzar.';
+    playAllBtn.style.display='inline-flex'; pauseBtn.style.display='inline-flex'; pauseBtn.textContent='⏹ Detener audio';
+    renderTurnButton();
+  }
+
+  // ===== Paso 2: recorrer el diálogo línea por línea =====
   function renderTurnButton(){
     if(idxLine >= lines.length){
       turnBox.innerHTML='';
@@ -1304,31 +1328,41 @@ function runDialogueReinforcement(turn){
     }
     const line = lines[idxLine];
     const meta = speakerMeta(line.speaker);
+    const esMiTurno = line.speaker===myRole;
     const btn = document.createElement('button');
     btn.className = 'mic dlg-turn-btn '+line.speaker;
-    btn.textContent = '▶ Escuchar: '+meta.label;
+    btn.textContent = esMiTurno ? '▶ Escuchar y después grabar: '+meta.label : '▶ Escuchar: '+meta.label+' (contexto)';
     btn.onclick = async ()=>{
       btn.disabled = true;
       appendToTranscript(line, idxLine);
       resetRecordingPanel();
-      recordBtn.style.display='inline-flex';
-      recordBtn.textContent='🎙️ Ahora grabá tu respuesta';
       const myToken = playToken;
       await speakWithTimeout(line.en, meta.pitch, meta.rate, ()=>myToken!==playToken);
       if(myToken!==playToken) return;
-      showAdvanceGate();
+      if(esMiTurno){
+        recordBtn.style.display='inline-flex';
+        recordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+        showAdvanceGate();
+      } else {
+        idxLine++;
+        renderTurnButton();
+      }
     };
     turnBox.innerHTML='';
+    const label = document.createElement('div');
+    label.style.cssText='text-align:center; font-size:13px; color:var(--muted); margin-bottom:8px;';
+    label.textContent = esMiTurno ? '👉 Ahora te toca hablar a vos, como '+meta.label : 'Turno de '+meta.label+' — solo escuchá';
+    turnBox.appendChild(label);
     turnBox.appendChild(btn);
   }
 
   function showAdvanceGate(){
     const note = document.createElement('div');
     note.style.cssText='margin-top:12px; font-size:13px; color:var(--muted); text-align:center;';
-    note.textContent='Graba tu respuesta arriba 👆 — puedes escucharla y regrabarla las veces que quieras. Cuando estés conforme, toca "Siguiente".';
+    note.textContent='Grabá tu respuesta arriba 👆, escuchala, y decidí: guardarla y seguir, o borrarla y grabar de nuevo.';
     const advBtn = document.createElement('button');
     advBtn.className='mic'; advBtn.style.marginTop='10px'; advBtn.style.display='none';
-    advBtn.textContent='Siguiente →';
+    advBtn.textContent='💾 Guardar esta grabación y seguir →';
     advBtn.onclick=()=>{
       clearInterval(gateWatcher);
       idxLine++;
@@ -1359,8 +1393,6 @@ function runDialogueReinforcement(turn){
       const line = lines[idxLine];
       const meta = speakerMeta(line.speaker);
       appendToTranscript(line, idxLine);
-      recordBtn.style.display='inline-flex';
-      recordBtn.textContent='🎙️ Grabar mi intento de esta línea';
       await speakWithTimeout(line.en, meta.pitch, meta.rate, ()=>myToken!==playToken);
       if(myToken!==playToken) break;
       idxLine++;
@@ -1381,7 +1413,7 @@ function runDialogueReinforcement(turn){
     if(idxLine < lines.length) renderTurnButton();
   };
 
-  renderTurnButton();
+  showRoleSelector();
 }
 function runReadAlong(turn){
   hideStrayUI();
