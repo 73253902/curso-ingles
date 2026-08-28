@@ -798,6 +798,14 @@ function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=
 
 // ================= Referencias DOM =================
 const lineEl=document.getElementById('line'), illusEl=document.getElementById('illus'), hintEl=document.getElementById('hint'), replayWordBtn=document.getElementById('replayWordBtn'), slowWordBtn=document.getElementById('slowWordBtn'), peekBtn=document.getElementById('peekBtn'), peekBox=document.getElementById('peekBox'), finishTalkingBtn=document.getElementById('finishTalkingBtn'), recordBtn=document.getElementById('recordBtn'), recordPlayback=document.getElementById('recordPlayback'), reRecordBtn=document.getElementById('reRecordBtn');
+const recordPanelTrueHomeParent = recordBtn.parentNode, recordPanelTrueHomeNext = recordBtn.nextSibling;
+function restoreRecordPanelIfStray(){
+  if(recordPanelTrueHomeParent && recordBtn.parentNode !== recordPanelTrueHomeParent){
+    recordPanelTrueHomeParent.insertBefore(recordBtn, recordPanelTrueHomeNext);
+    recordPanelTrueHomeParent.insertBefore(recordPlayback, recordPanelTrueHomeNext);
+    recordPanelTrueHomeParent.insertBefore(reRecordBtn, recordPanelTrueHomeNext);
+  }
+}
 const playBtn=document.getElementById('playBtn'), replayBtn=document.getElementById('replayBtn');
 const appControls=document.getElementById('appControls'), userControls=document.getElementById('userControls');
 const micBtn=document.getElementById('micBtn'), skipBtn=document.getElementById('skipBtn');
@@ -921,6 +929,7 @@ function hideStrayUI(){
   if(dgp) dgp.style.display='none';
   const fbp = document.getElementById('fillBlankPlayer');
   if(fbp) fbp.style.display='none';
+  restoreRecordPanelIfStray();
 }
 function loadTurn(){
   buildProgress();
@@ -1323,7 +1332,7 @@ function runDialogueReinforcement(turn){
       resetRecordingPanel();
       nextControls.style.display='flex';
       nextBtn.textContent='Continuar →';
-      nextBtn.onclick=()=>{ playToken++; try{ speechSynthesis.cancel(); }catch(e){} dlgPlayer.style.display='none'; idx++; loadTurn(); };
+      nextBtn.onclick=()=>{ playToken++; try{ speechSynthesis.cancel(); }catch(e){} restoreRecordPanelIfStray(); resetRecordingPanel(); dlgPlayer.style.display='none'; idx++; loadTurn(); };
       return;
     }
     const line = lines[idxLine];
@@ -1340,12 +1349,9 @@ function runDialogueReinforcement(turn){
       await speakWithTimeout(line.en, meta.pitch, meta.rate, ()=>myToken!==playToken);
       if(myToken!==playToken) return;
       if(esMiTurno){
-        recordBtn.style.display='inline-flex';
-        recordBtn.textContent='🎙️ Ahora grabá tu respuesta';
         showAdvanceGate();
       } else {
-        idxLine++;
-        renderTurnButton();
+        showContinueAfterContext(line, meta);
       }
     };
     turnBox.innerHTML='';
@@ -1356,10 +1362,31 @@ function runDialogueReinforcement(turn){
     turnBox.appendChild(btn);
   }
 
-  function showAdvanceGate(){
+  function showContinueAfterContext(line, meta){
+    turnBox.innerHTML='';
     const note = document.createElement('div');
-    note.style.cssText='margin-top:12px; font-size:13px; color:var(--muted); text-align:center;';
-    note.textContent='Grabá tu respuesta arriba 👆, escuchala, y decidí: guardarla y seguir, o borrarla y grabar de nuevo.';
+    note.style.cssText='text-align:center; font-size:13px; color:var(--muted); margin-bottom:10px;';
+    note.textContent='Esa fue la línea de '+meta.label+'. Podés leerla arriba en la transcripción antes de seguir.';
+    const advBtn = document.createElement('button');
+    advBtn.className='mic'; advBtn.textContent='Siguiente →';
+    advBtn.onclick=()=>{ idxLine++; renderTurnButton(); };
+    turnBox.appendChild(note);
+    turnBox.appendChild(advBtn);
+  }
+
+  function showAdvanceGate(){
+    turnBox.innerHTML='';
+    const note = document.createElement('div');
+    note.style.cssText='margin-bottom:10px; font-size:13px; color:var(--muted); text-align:center;';
+    note.textContent='Grabá tu respuesta acá abajo, escuchala, y decidí: guardarla y seguir, o borrarla y grabar de nuevo.';
+    turnBox.appendChild(note);
+
+    recordBtn.style.display='inline-flex';
+    recordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+    turnBox.appendChild(recordBtn);
+    turnBox.appendChild(recordPlayback);
+    turnBox.appendChild(reRecordBtn);
+
     const advBtn = document.createElement('button');
     advBtn.className='mic'; advBtn.style.marginTop='10px'; advBtn.style.display='none';
     advBtn.textContent='💾 Guardar esta grabación y seguir →';
@@ -1374,8 +1401,6 @@ function runDialogueReinforcement(turn){
     skipBtn.textContent='Saltar esta línea sin grabar';
     skipBtn.onclick=()=>{ clearInterval(gateWatcher); idxLine++; renderTurnButton(); };
     skipWrap.appendChild(skipBtn);
-    turnBox.innerHTML='';
-    turnBox.appendChild(note);
     turnBox.appendChild(advBtn);
     turnBox.appendChild(skipWrap);
     const gateWatcher = setInterval(()=>{
