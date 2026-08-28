@@ -88,7 +88,7 @@ document.getElementById('adminCompleteBtn').addEventListener('click', ()=>{
     score:{good:day.words.length, total:day.words.length, pct:100}
   });
   renderHome();
-  alert('Día '+n+' marcado como completado (sin jugar). Ya podés entrar a revisarlo o seguir al siguiente.');
+  alert('Día '+n+' marcado como completado (sin jugar). Ya puedes entrar a revisarlo o seguir al siguiente.');
 });
 document.getElementById('adminCompleteAllBtn').addEventListener('click', ()=>{
   curriculum.forEach(day=>{
@@ -99,7 +99,7 @@ document.getElementById('adminCompleteAllBtn').addEventListener('click', ()=>{
     });
   });
   renderHome();
-  alert('Los '+curriculum.length+' días cargados quedaron marcados como completados. Ahora podés entrar a cualquiera libremente para revisarlo.');
+  alert('Los '+curriculum.length+' días cargados quedaron marcados como completados. Ahora puedes entrar a cualquiera libremente para revisarlo.');
 });
 
 // ================================================================
@@ -238,7 +238,7 @@ function finishPlacementTest(){
   const resultEl=document.getElementById('placementResult');
   resultEl.style.display='flex';
   document.getElementById('placementResultText').textContent =
-    'Acertaste '+placementCorrect+' de '+total+'. Te recomendamos empezar en el Día '+recommendedDay+' — los días anteriores quedan desbloqueados igual, por si querés repasarlos primero.';
+    'Acertaste '+placementCorrect+' de '+total+'. Te recomendamos empezar en el Día '+recommendedDay+' — los días anteriores quedan desbloqueados igual, por si quieres repasarlos primero.';
   document.getElementById('goToRecommendedBtn').onclick=()=>{
     saveMeta({placementDone:true, unlockedThrough:recommendedDay});
     document.getElementById('placementTest').style.display='none';
@@ -301,7 +301,7 @@ const introTemplates = [
   w => [{t:'Sumemos: ',lang:'es'},{t:w.en,lang:'en'},{t:'. En español es "'+w.es+'".',lang:'es'}],
   w => [{t:'Una más: ',lang:'es'},{t:w.en,lang:'en'},{t:' — "'+w.es+'" en español.',lang:'es'}]
 ];
-const comboIntro = [{t:'Ahora repitamos juntos, una por una, las últimas palabras que aprendiste. Yo digo una, la repetís, la escribís, y seguimos con la siguiente.',lang:'es'}];
+const comboIntro = [{t:'Ahora repitamos juntos, una por una, las últimas palabras que aprendiste. Yo digo una, la repites, la escribes, y seguimos con la siguiente.',lang:'es'}];
 const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
 const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
 // Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
@@ -325,10 +325,10 @@ const contrastBank = [
 ];
 // Rephrasing: una frase simple y su versión más elegante, mismo significado —
 // se adquiere por exposición repetida, igual que los pares de contraste.
-const rephraseIntro = [{t:'Ahora un "rephrasing": la misma idea, dicha de una forma más elegante. Escuchá primero la versión simple, después la versión más pulida — repetí y escribí las dos.',lang:'es'}];
+const rephraseIntro = [{t:'Ahora un "rephrasing": la misma idea, dicha de una forma más elegante. Escucha primero la versión simple, después la versión más pulida — repite y escribe las dos.',lang:'es'}];
 const rephraseBank = [
   { simple:{en:'I like it.', es:'me gusta (simple)', pron:'ái láik it.'}, elegant:{en:'I really appreciate it.', es:'lo aprecio mucho (más elegante)', pron:'ái ríili apríshieit it.'} },
-  { simple:{en:'Can you help me?', es:'¿me podés ayudar? (simple)', pron:'can iú jelp mi?'}, elegant:{en:'Would you be able to assist me?', es:'¿serías capaz de asistirme? (más formal)', pron:'uud iú bi éibol tu asíst mi?'} },
+  { simple:{en:'Can you help me?', es:'¿me puedes ayudar? (simple)', pron:'can iú jelp mi?'}, elegant:{en:'Would you be able to assist me?', es:'¿serías capaz de asistirme? (más formal)', pron:'uud iú bi éibol tu asíst mi?'} },
   { simple:{en:"I don't know.", es:'no sé (simple)', pron:"ái dont nóu."}, elegant:{en:"I'm not entirely sure.", es:'no estoy del todo seguro (más suave)', pron:"áim nat entáierli shúr."} },
   { simple:{en:"It's expensive.", es:'es caro (simple)', pron:"its expénsiv."}, elegant:{en:"It's quite costly.", es:'resulta bastante costoso (más elegante)', pron:"its cuáit cóstli."} },
   { simple:{en:'I want to buy this.', es:'quiero comprar esto (simple)', pron:'ái uánt tu bái dis.'}, elegant:{en:"I'd like to purchase this.", es:'me gustaría adquirir esto (más formal)', pron:"áid láik tu pérchas dis."} },
@@ -367,7 +367,7 @@ const unitMeta = {
 const unitDialogueReinforcement = {
   13: [
     {speaker:'maestro', en:'Welcome! How are you doing?', es:'¡Bienvenido! ¿Cómo estás?', pron:'uélcam! jáu ar iú dúing?', blanks:['How','are','you']},
-    {speaker:'alumno', en:'I\'m fine, thanks! And you?', es:'¡Estoy bien, gracias! ¿Y vos?', pron:'áim fáin, zenks! and iú?', blanks:['fine','thanks','you']},
+    {speaker:'alumno', en:'I\'m fine, thanks! And you?', es:'¡Estoy bien, gracias! ¿Y tú?', pron:'áim fáin, zenks! and iú?', blanks:['fine','thanks','you']},
     {speaker:'maestro', en:'I\'m fine, thanks! Are you ready for the mission?', es:'¡Estoy bien, gracias! ¿Estás listo para la misión?', pron:'áim fáin, zenks! ar iú rédi for de míshion?', blanks:['ready']},
     {speaker:'alumno', en:'I\'m ready! I\'m tired, but no problem!', es:'¡Estoy listo! Estoy cansado, ¡pero no hay problema!', pron:'áim rédi! áim táierd, bat nóu práblem!', blanks:['ready','tired','no','problem']},
     {speaker:'maestro', en:'Of course! Sure! Let\'s go right now! One moment, please... Are you busy?', es:'¡Por supuesto! ¡Claro! ¡Vamos ahora mismo! Un momento, por favor... ¿Estás ocupado?', pron:'of cors! shúar! lets góu ráit náu! uán móument, plíis... ar iú bísi?', blanks:['Of','course','right','now','One','moment','busy']},
@@ -378,7 +378,7 @@ const unitDialogueReinforcement = {
     {speaker:'alumno', en:'See you soon, or see you next week, whichever comes first through time! Have a good day! Take care!', es:'¡Nos vemos pronto, o nos vemos la próxima semana, lo que llegue primero a través del tiempo! ¡Que tengas un buen día! ¡Cuídate!', pron:'síi iú súun, or síi iú next uíik, uícheven cams ferst zrú táim! jav a gud déi! téik ker!', blanks:['See','you','soon','see','you','next','week','good','day','Take','care']},
     {speaker:'maestro', en:'Best regards, looking forward to it. Until next time, brave traveler! Talk to you later!', es:'Saludos cordiales, con muchas ganas de eso. ¡Hasta la próxima, valiente viajero! ¡Hablamos luego!', pron:'best rigárds, lúking forúord tu it. antíl next táim, bréiv trávoler! tok tu iú léiter!', blanks:['Best','regards','Until','next','time','Talk','to','you','later']},
     {speaker:'alumno', en:'I have a question, dragon: what, who, where, when, why, and how did the treasure disappear?', es:'Tengo una pregunta, dragón: ¿qué, quién, dónde, cuándo, por qué, y cómo desapareció el tesoro?', pron:'ái jav a cuéstion, drágon: uát, ju, uér, uén, uái, and jáu did de tréshur disapír?', blanks:['have','question','what','who','where','when','why','how']},
-    {speaker:'maestro', en:'I can explain it! Can you help me, robot detective? Can you explain this mystery?', es:'¡Lo puedo explicar! ¿Me podés ayudar, robot detective? ¿Podés explicar este misterio?', pron:'ái can expléin it! can iú jelp mi, róubat ditéctiv? can iú expléin dis místeri?', blanks:['can','explain','it']},
+    {speaker:'maestro', en:'I can explain it! Can you help me, robot detective? Can you explain this mystery?', es:'¡Lo puedo explicar! ¿Me puedes ayudar, robot detective? ¿Puedes explicar este misterio?', pron:'ái can expléin it! can iú jelp mi, róubat ditéctiv? can iú expléin dis místeri?', blanks:['can','explain','it']},
     {speaker:'alumno', en:'Which one is ready — the gold coins or the diamond eggs? And when will the pirates arrive?', es:'¿Cuál está listo — las monedas de oro o los huevos de diamante? ¿Y cuándo llegan los piratas?', pron:'uích uán is rédi — de góuld cóins or de dáiamand egs? and uén uil de páirats aráiv?', blanks:['Which','one','when']},
     {speaker:'maestro', en:'Do you have stock of magic beans, and what\'s the price for a thousand?', es:'¿Tenés stock de frijoles mágicos, y cuál es el precio por mil?', pron:'du iú jav stak of máyic bíins, and uáts de práis for a záusand?', blanks:['have','stock','what\'s','the','price']},
     {speaker:'alumno', en:'I can check the price, and I can confirm the stock right away! Let\'s count the crystals: one, two, three, four, five, six, seven, eight, nine, ten!', es:'¡Puedo revisar el precio, y puedo confirmar el stock enseguida! Contemos los cristales: uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez!', pron:'ái can chek de práis, and ái can canférm de stak ráit auéi! lets cáunt de crístals: uán, tú, zríi, fóar, fáiv, six, séven, éit, náin, ten!', blanks:['check','confirm','one','two','three','four','five','six','seven','eight','nine','ten']},
@@ -402,11 +402,11 @@ const unitDialogueReinforcement = {
     {speaker:'alumno', en:'My name is Blaze, and I am from the Floating City! Nice to meet you!', es:'¡Me llamo Blaze, y soy de la Ciudad Flotante! ¡Mucho gusto!', pron:'mái néim is Bléis, and ái am fram de flóuting síti! náis tu míit iú!', blanks:['name','is','from','Nice','to']},
     {speaker:'maestro', en:'Welcome! Come in! Have a seat. This is our trading manager. Please contact us anytime.', es:'¡Bienvenido! ¡Pasá! Tomá asiento. Este es nuestro gerente de comercio. Por favor contactanos cuando quieras.', pron:'uélcam! cam in! jav a síit. dis is áur tréiding mánayer. plíis cántact as énitaim.', blanks:['seat','manager','contact']},
     {speaker:'alumno', en:'The pleasure is mine! I work at a shop in the Floating City. Here is my business card, with my phone number and address, and our website.', es:'¡El placer es mío! Trabajo en una tienda en la Ciudad Flotante. Aquí está mi tarjeta de presentación, con mi número de teléfono y dirección, y nuestro sitio web.', pron:'de pléyer is máin! ái uork at a shap in de flóuting síti. jír is mái bísnes card, uid mái fóun námber and adrés, and áur uébsait.', blanks:['pleasure','work','at','business','card','phone','number','address','website']},
-    {speaker:'maestro', en:'What is your company name? What country and city are you from, and since when?', es:'¿Cuál es el nombre de tu empresa? ¿De qué país y ciudad sos, y desde cuándo?', pron:'uát is iór cámpani néim? uát cántri and síti ar iú fram, and sins uén?', blanks:['company','name','country','city','since','when']},
+    {speaker:'maestro', en:'What is your company name? What country and city are you from, and since when?', es:'¿Cuál es el nombre de tu empresa? ¿De qué país y ciudad eres, y desde cuándo?', pron:'uát is iór cámpani néim? uát cántri and síti ar iú fram, and sins uén?', blanks:['company','name','country','city','since','when']},
     {speaker:'alumno', en:'Our team is from Colombia, from the city of Medellín, since last year! We sell magical toys, and we provide the best quality services and products.', es:'¡Nuestro equipo es de Colombia, de la ciudad de Medellín, desde el año pasado! Vendemos juguetes mágicos, y ofrecemos los mejores servicios y productos de calidad.', pron:'áur tíim is fram Colómbia, fram de síti of Medeyín, sins last íar! uí sel máyical tóis, and uí prováid de best cuáliti sérvises and prádacts.', blanks:['from','since','sell','provide']},
     {speaker:'maestro', en:'What about the price? Do you offer a discount for suppliers?', es:'¿Y el precio? ¿Ofrecen descuento a proveedores?', pron:'uát abáut de práis? du iú áfer a díscaunt for sapláiers?', blanks:['price','discount']},
     {speaker:'alumno', en:'Yes! Our customers love our prices, and delivery is fast — right from our warehouse to the market! Our brand is well known here.', es:'¡Sí! Nuestros clientes aman nuestros precios, y la entrega es rápida — directo desde nuestro depósito al mercado! Nuestra marca es bien conocida acá.', pron:'iés! áur cástomers lav áur práises, and delíveri is fast — ráit fram áur uérjaus tu de márket! áur brand is uél nóun jír.', blanks:['customers','delivery','warehouse','brand']},
-    {speaker:'maestro', en:'Is this shop just you, or is it a family business?', es:'¿Esta tienda sos solo vos, o es un negocio familiar?', pron:'is dis shap yast iú, or is it a fámili bísnes?', blanks:['family','business']},
+    {speaker:'maestro', en:'Is this shop just you, or is it a family business?', es:'¿Esta tienda eres solo tú, o es un negocio familiar?', pron:'is dis shap yast iú, or is it a fámili bísnes?', blanks:['family','business']},
     {speaker:'alumno', en:'I am the owner, but I am in charge of much more than sales! My wife and my husband both work in logistics, my son works in accounting, and my daughter is our team leader!', es:'Soy el dueño, ¡pero estoy a cargo de mucho más que ventas! Mi esposa y mi esposo trabajan los dos en logística, mi hijo trabaja en contabilidad, y mi hija es nuestra líder de equipo!', pron:'ái am de óuner, bat ái am in chárch of mach mor dan séils! mái uáif and mái jásband bóuz uork in loyístics, mái san uorks in acáunting, and mái dóter is áur tíim líder!', blanks:['owner','charge','of','logistics','accounting','leader']},
     {speaker:'maestro', en:'What about your brother, your sister, and your children?', es:'¿Y tu hermano, tu hermana, y tus hijos?', pron:'uát abáut iór bráder, iór síster, and iór chíldren?', blanks:['brother','sister','children']},
     {speaker:'alumno', en:'My brother is an employee in our sales department, my sister is a colleague of my boss in a different outpost, and my children help us on weekends!', es:'Mi hermano es empleado en nuestro departamento de ventas, mi hermana es colega de mi jefe en otro puesto, ¡y mis hijos nos ayudan los fines de semana!', pron:'mái bráder is an emplói in áur séils dipártment, mái síster is a cálig of mái bos in a díferent áutpost, and mái chíldren jelp as on uíikends!', blanks:['brother','department','sister','children']},
@@ -441,7 +441,7 @@ const unitReviewStories = {
     {en:'"I have a dog," says Blaze, "and my dog helps me organize the shop every morning!"', es:'"Tengo un perro", dice Blaze, "¡y mi perro me ayuda a organizar la tienda todas las mañanas!"', pron:'ái jav a dog, séis Bléis, and mái dog jelps mi órganáis de shap évri mórnin!'},
     {en:'A loyal customer walks in. "I recommend your shop to everyone," she says. "I would like to order more toys, please."', es:'Entra una clienta fiel. "Recomiendo tu tienda a todo el mundo", dice. "Quisiera pedir más juguetes, por favor."', pron:'a lóial cástomer uóks in. ái récomend iór shap tu évriuan, shi séis. ái uud láik tu órder mor tóis, plíis.'},
     {en:'"This is cheaper than the other shop, and better too!" she laughs. Blaze smiles proudly.', es:'"¡Este es más barato que la otra tienda, y también mejor!", se ríe. Blaze sonríe orgulloso.', pron:'dis is chíiper dan de áder shap, and béter tú! shi lafs. Bléis smáils práudli.'},
-    {en:'"Can I take a day off tomorrow?" asks Blaze\'s wife. "Of course you can!" he replies.', es:'"¿Puedo tomarme un día libre mañana?", pregunta la esposa de Blaze. "¡Claro que podés!", responde.', pron:"can ái téik a déi of tumórou? asks Bléis uáifs. of cors iú can! ji riplái."},
+    {en:'"Can I take a day off tomorrow?" asks Blaze\'s wife. "Of course you can!" he replies.', es:'"¿Puedo tomarme un día libre mañana?", pregunta la esposa de Blaze. "¡Claro que puedes!", responde.', pron:"can ái téik a déi of tumórou? asks Bléis uáifs. of cors iú can! ji riplái."},
     {en:'Halfway there! What did you learn in Unit Two? Let\'s practice one more time.', es:'¡Vamos a la mitad! ¿Qué aprendiste en la Unidad Dos? Practiquemos una vez más.', pron:"jaf-uéi der! uát did iú lern in iúnit tú? lets práctis uán mor táim."},
     {en:"You're improving every single day. Congratulations, brave dragon — the next unit is waiting for you!", es:'Estás mejorando cada día. Felicitaciones, valiente dragón — ¡la próxima unidad te está esperando!', pron:"iór improúving évri síngol déi. congrachuléishons, bréiv drágon — de next iúnit is uéiting for iú!"}
   ],
@@ -459,7 +459,7 @@ const unitReviewStories = {
     {en:"At the restaurant, Blaze looks at the menu. \"I'll have the pasta,\" he says.", es:'En el restaurante, Blaze mira el menú. "Voy a pedir la pasta", dice.', pron:"at de réstorant, Bléis luks at de méniu. áil jav de pasta, ji séis."},
     {en:'"I like spicy food," he tells the waiter, "but I don\'t like it too salty."', es:'"Me gusta la comida picante", le dice al mesero, "pero no me gusta muy salada."', pron:"ái láik spáisi fúud, ji tels de uéiter, bat ái dont láik it tú sólti."},
     {en:'After lunch, back at the office: "Let\'s discuss the agenda for today\'s meeting," Blaze says.', es:'Después del almuerzo, de vuelta en la oficina: "Discutamos la agenda de la reunión de hoy", dice Blaze.', pron:"áfter lanch, bak at de áfis: lets discás de áyenda for tudéis míiting, Bléis séis."},
-    {en:'On the video call, his supplier asks, "Can you hear me?" "Yes, I can hear you perfectly," Blaze replies.', es:'En la videollamada, su proveedor pregunta, "¿Me escuchás?" "Sí, te escucho perfecto", responde Blaze.', pron:"on de vídiou col, jis sapláier asks, can iú jíar mi? iés, ái can jíar iú pérfectli, Bléis riplís."},
+    {en:'On the video call, his supplier asks, "Can you hear me?" "Yes, I can hear you perfectly," Blaze replies.', es:'En la videollamada, su proveedor pregunta, "¿Me escuchas?" "Sí, te escucho perfecto", responde Blaze.', pron:"on de vídiou col, jis sapláier asks, can iú jíar mi? iés, ái can jíar iú pérfectli, Bléis riplís."},
     {en:'"We are on track with this order," Blaze reports, checking his notes.', es:'"Vamos bien encaminados con este pedido", informa Blaze, revisando sus notas.', pron:"uí ar on trak uid dis órder, Bléis ripórts, chéking jis nóuts."},
     {en:'"I am allergic to shellfish, by the way," he adds, laughing, "so no seafood at the next lunch meeting!"', es:'"Soy alérgico a los mariscos, por cierto", agrega, riéndose, "¡así que nada de mariscos en el próximo almuerzo de trabajo!"', pron:"ái am alérchic tu shélfish, bái de uéi, ji ads, láfing, sóu nóu síifúud at de next lanch míiting!"},
     {en:'"I need to buy office supplies today," Blaze remembers. "We have enough budget for that this month."', es:'"Necesito comprar insumos de oficina hoy", recuerda Blaze. "Tenemos suficiente presupuesto para eso este mes."', pron:"ái níid tu bái áfis sapláis tudéi, Bléis rimémbers. uí jav ináf báyet for dat dis manz."},
@@ -498,7 +498,7 @@ const unitReviewStories = {
   96: [
     {en:"Blaze's business is growing, so he decides to hire someone new. \"I have experience in sales,\" says the candidate.", es:'El negocio de Blaze está creciendo, así que decide contratar a alguien nuevo. "Tengo experiencia en ventas", dice el candidato.', pron:'Bléis bísnes is góuing, sóu ji dicáids tu jáier sámuan niú. ái jav expírians in séils, séis de candídeit.'},
     {en:'"I am responsible for the sales team at my current job," he explains with confidence.', es:'"Soy responsable del equipo de ventas en mi trabajo actual", explica con confianza.', pron:'ái am rispánsibol for de séils tíim at mái cárent chab, ji explains uid cánfidens.'},
-    {en:'Later, at a networking event, "I would like to connect with you," Blaze tells another business owner.', es:'Más tarde, en un evento de networking, "me gustaría conectar con vos", le dice Blaze a otro empresario.', pron:'léiter, at a nétuorking ivént, ái uud láik tu canéct uid iú, Bléis tels anáder bísnes óuner.'},
+    {en:'Later, at a networking event, "I would like to connect with you," Blaze tells another business owner.', es:'Más tarde, en un evento de networking, "me gustaría conectar contigo", le dice Blaze a otro empresario.', pron:'léiter, at a nétuorking ivént, ái uud láik tu canéct uid iú, Bléis tels anáder bísnes óuner.'},
     {en:'Before his big presentation, "I am confident about this," he tells himself, taking a deep breath.', es:'Antes de su gran presentación, "estoy seguro de esto", se dice a sí mismo, respirando profundo.', pron:'bifór jis big presentéishion, ái am cánfident abáut dis, ji tels jimsélf, téiking a díip breez.'},
     {en:'Back at the office, "I need to sign this contract today," he remembers, checking his calendar.', es:'De vuelta en la oficina, "necesito firmar este contrato hoy", recuerda, revisando su calendario.', pron:'bak at de áfis, ái níid tu sáin dis cántract tudéi, ji rimémbers, chéking jis cálendar.'},
     {en:'"In my culture, we take our time to build trust," he tells his new international partner.', es:'"En mi cultura, nos tomamos nuestro tiempo para construir confianza", le dice a su nuevo socio internacional.', pron:'in mái cálchur, uí téik áur táim tu bild trast, ji tels jis niú internáshional pártner.'},
@@ -518,7 +518,7 @@ const unitReviewStories = {
     {en:'His daughter walks in. "I would like to apply for the summer program," she says, proud.', es:'Entra su hija. "Me gustaría postularme para el programa de verano", dice, orgullosa.', pron:'jis dóter uóks in. ái uud láik tu apláy for de sámer prógram, shi séis, práud.'},
     {en:'One last call: "I can close this deal today," Blaze says with a confident smile.', es:'Una última llamada: "puedo cerrar este trato hoy", dice Blaze con una sonrisa confiada.', pron:'uán last col: ái can clóus dis díil tudéi, Bléis séis uid a cánfident smáil.'},
     {en:"Unit nine, done — two thirds of the journey behind you! Staying strong, dragon.", es:'¡Unidad nueve, lista — dos tercios del camino ya recorridos! Manteniéndote fuerte, dragón.', pron:"iúnit náin, dan — tú zerds of de yérni bijáind iú! stéiing strong, drágon."},
-    {en:"Proud of you — halfway to mastery. See you in unit ten!", es:'Orgulloso de vos — a mitad de camino hacia el dominio. ¡Nos vemos en la unidad diez!', pron:"práud of iú — jafuéi tu mástery. síi iú in iúnit ten!"}
+    {en:"Proud of you — halfway to mastery. See you in unit ten!", es:'Orgulloso de ti — a mitad de camino hacia el dominio. ¡Nos vemos en la unidad diez!', pron:"práud of iú — jafuéi tu mástery. síi iú in iúnit ten!"}
   ],
   120: [
     {en:'Blaze visits an agent. "I am looking to rent office space," he explains, checking the listings.', es:'Blaze visita a un agente. "Estoy buscando arrendar un espacio de oficina", explica, revisando los listados.', pron:'Bléis vísits an éiyent. ái am lúking tu rent áfis spéis, ji explains, chéking de lístings.'},
@@ -623,7 +623,7 @@ const weeklyStories = {
 };
 const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escuchá cada frase, repetila, y escribila — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
 const weeklyStoryIntro = [{t:'Antes de terminar, una historia más larga con todo lo que repasaste esta semana de estudio.',lang:'es'}];
-const jingleIntro = [{t:'Para cerrar, un jinglecito pegajoso con lo de hoy — como una publicidad que se te queda en la cabeza. Escuchalo, repetilo, y si querés, grabate "cantándolo" a tu manera.',lang:'es'}];
+const jingleIntro = [{t:'Para cerrar, un jinglecito pegajoso con lo de hoy — como una publicidad que se te queda en la cabeza. Escúchalo, repítelo, y si quieres, grábate "cantándolo" a tu manera.',lang:'es'}];
 const milestoneIntro = [{t:'¡Llegaste a un hito! Antes de cerrar este bloque de 24 días, un repaso más exigente — combinando lo que aprendiste en todo este mes de estudio, no solo hoy.',lang:'es'}];
 // Toma una palabra representativa de cada uno de los 24 días del bloque que termina en dayNumber, para el examen de hito.
 function sampleMilestoneWords(dayNumber){
@@ -938,7 +938,7 @@ function loadTurn(){
       turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🏆';
     } else {
-      turn.segs = [{t:'Ahora te toca a vos: mirá el ejemplo de abajo, y después armá tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
+      turn.segs = [{t:'Ahora te toca a ti: mira el ejemplo de abajo, y después arma tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🎯';
     }
   }
@@ -1030,7 +1030,7 @@ function afterIntro(turn){
       addTranscript('VOS (hablado)', res.said, 'user');
       spokenDone=true;
       userControls.style.display='none';
-      typeRow.style.display='flex'; typeInput.placeholder='Ahora escribí esa misma frase...'; typeInput.focus();
+      typeRow.style.display='flex'; typeInput.placeholder='Ahora escribe esa misma frase...'; typeInput.focus();
       feedback.classList.add('show','ok'); feedback.textContent='¡Buenísimo! Ahora escribila.';
     });
     skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí tu frase acá...'; typeInput.focus();};
@@ -1255,8 +1255,8 @@ function runDialogueReinforcement(turn){
   document.getElementById('readAlongPlayer').style.display='none';
 
   illusEl.textContent='🎭';
-  setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y vos, el Alumno dragón.',lang:'es'}]);
-  hintEl.textContent='Escuchá cada línea y grabá tu propia respuesta antes de avanzar — podés escucharla y regrabarla las veces que quieras hasta que te convenza. No se califica, pero grabar es parte del ejercicio.';
+  setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y tú, el Alumno dragón.',lang:'es'}]);
+  hintEl.textContent='Escucha cada línea y graba tu propia respuesta antes de avanzar — puedes escucharla y regrabarla las veces que quieras hasta que te convenza. No se califica, pero grabar es parte del ejercicio.';
 
   const dlgPlayer=document.getElementById('dialoguePlayer'), transcript=document.getElementById('dialogueTranscript'), turnBox=document.getElementById('dialogueCurrentTurn');
   const playAllBtn=document.getElementById('dialoguePlayAllBtn'), pauseBtn=document.getElementById('dialoguePauseBtn');
@@ -1270,7 +1270,7 @@ function runDialogueReinforcement(turn){
   function speakerMeta(sp){
     return sp==='maestro'
       ? { label:'🎓 Profesor', pitch:0.75, rate:0.95 }
-      : { label:'🐉 Alumno (vos)', pitch:1.25, rate:1.05 };
+      : { label:'🐉 Alumno (tú)', pitch:1.25, rate:1.05 };
   }
 
   async function speakWithTimeout(text, pitch, rate, shouldAbort){
@@ -1325,7 +1325,7 @@ function runDialogueReinforcement(turn){
   function showAdvanceGate(){
     const note = document.createElement('div');
     note.style.cssText='margin-top:12px; font-size:13px; color:var(--muted); text-align:center;';
-    note.textContent='Grabá tu respuesta arriba 👆 — podés escucharla y regrabarla las veces que quieras. Cuando estés conforme, tocá "Siguiente".';
+    note.textContent='Graba tu respuesta arriba 👆 — puedes escucharla y regrabarla las veces que quieras. Cuando estés conforme, toca "Siguiente".';
     const advBtn = document.createElement('button');
     advBtn.className='mic'; advBtn.style.marginTop='10px'; advBtn.style.display='none';
     advBtn.textContent='Siguiente →';
@@ -1393,7 +1393,7 @@ function runReadAlong(turn){
   document.getElementById('songPlayer').style.display='none';
 
   illusEl.textContent='📖';
-  lineEl.innerHTML=''; setSegs(lineEl,[{t:'Cerremos con una lectura completa de repaso — escuchá y seguí el texto, sin ejercicios.',lang:'es'}]);
+  lineEl.innerHTML=''; setSegs(lineEl,[{t:'Cerremos con una lectura completa de repaso — escucha y sigue el texto, sin ejercicios.',lang:'es'}]);
   hintEl.textContent='Encontrás acá las estructuras, palabras y frases que aprendiste en esta lección, todas juntas en una sola historia.';
 
   const readAlongPlayer=document.getElementById('readAlongPlayer'), readAlongBox=document.getElementById('readAlongBox');
@@ -1459,7 +1459,7 @@ function runDictation(turn){
   document.getElementById('songPlayer').style.display='none';
   peekBtn.style.display='none'; peekBox.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none';
   illusEl.textContent='🎧';
-  hintEl.textContent='No hay pista visual esta vez — escuchá con atención, las veces que necesites, y escribí exactamente lo que entendiste.';
+  hintEl.textContent='No hay pista visual esta vez — escucha con atención, las veces que necesites, y escribe exactamente lo que entendiste.';
   lineEl.innerHTML=''; lineEl.textContent='🔒 El texto está oculto hasta que respondas.';
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
   typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí en inglés lo que escuchaste...'; typeInput.focus();
@@ -1564,7 +1564,7 @@ function runPractica(turn){
   function showIntro(){
     illusEl.textContent='📘';
     lineEl.innerHTML=''; setSegs(lineEl,[{t:'Práctica de Progreso — Día '+turn.day, lang:'es'}]);
-    hintEl.textContent='35 ejercicios: 15 palabras, 10 preguntas abiertas, y 10 frases para traducir. La podés repetir todas las veces que quieras, cuando quieras.';
+    hintEl.textContent='35 ejercicios: 15 palabras, 10 preguntas abiertas, y 10 frases para traducir. La puedes repetir todas las veces que quieras, cuando quieras.';
     appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none';
     nextControls.style.display='flex'; feedback.classList.remove('show');
     nextBtn.textContent='Empezar →';
@@ -1581,15 +1581,15 @@ function runPractica(turn){
     let speakText;
     if(item.type==='palabra'){
       setSegs(lineEl,[{t:item.es, lang:'es'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Tocá el botón si querés escuchar la pronunciación, y traducí esta palabra o frase al inglés.';
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Toca el botón si quieres escuchar la pronunciación, y traduce esta palabra o frase al inglés.';
       speakText = item.en;
     } else if(item.type==='pregunta'){
       setSegs(lineEl,[{t:item.question, lang:'en'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Tocá el botón si querés escuchar la pronunciación, y respondé con tus propias palabras (esta parte no se califica).';
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Toca el botón si quieres escuchar la pronunciación, y responde con tus propias palabras (esta parte no se califica).';
       speakText = item.question;
     } else {
       setSegs(lineEl,[{t:item.es, lang:'es'}]);
-      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Tocá el botón si querés escuchar la pronunciación, y traducí esta frase completa al inglés.';
+      hintEl.textContent='Ejercicio '+(i+1)+' de 35 — Toca el botón si quieres escuchar la pronunciación, y traduce esta frase completa al inglés.';
       speakText = item.en;
     }
     let listenBtn = document.getElementById('practicaListenBtn');
@@ -1604,7 +1604,7 @@ function runPractica(turn){
     micBtn.onclick=()=>startListening(res=>{
       addTranscript('VOS (hablado)', res.said, 'user');
       userControls.style.display='none';
-      typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Ahora escribí tu respuesta...'; typeInput.focus();
+      typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Ahora escribe tu respuesta...'; typeInput.focus();
     }, {longForm:true});
     skipBtn.onclick=()=>{ typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí tu respuesta acá...'; typeInput.focus(); };
     sendBtn.onclick=()=>{
@@ -1793,7 +1793,7 @@ function handleSpokenResult(w, res){
   if(ok){
     feedback.className='feedback show retry'; feedback.textContent='Dijiste bien la palabra, pero sonó poco clara (necesitás 92%). Repetila una vez más.';
   } else {
-    feedback.className='feedback show retry'; feedback.textContent='Casi — probá repetirla de nuevo, vos podés.';
+    feedback.className='feedback show retry'; feedback.textContent='Casi — prueba repetirla de nuevo, tú puedes.';
   }
   userControls.style.display='flex';
 }
@@ -1958,7 +1958,7 @@ function startListening(onResult, opts){
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     finishTalkingBtn.style.display='none';
     feedback.classList.add('show','retry');
-    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisá permisos o escribí tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
+    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisa permisos o escribe tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
     typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
   };
   // Recién ahora tocamos la interfaz y arrancamos de verdad.
@@ -1976,7 +1976,7 @@ function startListening(onResult, opts){
     try{ recognition.abort(); }catch(e){}
     releaseMicButton();
     feedback.classList.add('show','retry');
-    feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Probá de nuevo, o escribí tu respuesta.';
+    feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Prueba de nuevo, o escribe tu respuesta.';
     typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
   }, watchdogMs);
   function tryStart(attemptsLeft){
@@ -1990,7 +1990,7 @@ function startListening(onResult, opts){
         clearMicWatchdog();
         releaseMicButton();
         feedback.classList.add('show','retry');
-        feedback.textContent = 'No pude activar el micrófono. Probá de nuevo, o escribí tu respuesta.';
+        feedback.textContent = 'No pude activar el micrófono. Prueba de nuevo, o escribe tu respuesta.';
         typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
       }
     }
@@ -2004,7 +2004,7 @@ function startEvaluation(){
   speakerLabel.textContent='DIÁLOGO FINAL'; modeChip.style.display='none'; crossTag.style.display='none';
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
   illusEl.textContent='💬';
-  setSegs(lineEl, [{t:'¡Ya casi terminamos! Cerremos con un diálogo: te voy a preguntar por cada cosa que aprendiste hoy — la decís y la escribís, como en una charla real.',lang:'es'}]);
+  setSegs(lineEl, [{t:'¡Ya casi terminamos! Cerremos con un diálogo: te voy a preguntar por cada cosa que aprendiste hoy — la dices y la escribes, como en una charla real.',lang:'es'}]);
   hintEl.textContent='Para aprobar la lección necesitás al menos 92% correcto.';
   nextControls.style.display='flex';
   nextBtn.textContent='Empezar el diálogo';
@@ -2079,7 +2079,7 @@ function enterReview(i){
       turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🏆';
     } else {
-      turn.segs = [{t:'Ahora te toca a vos: mirá el ejemplo de abajo, y después armá tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
+      turn.segs = [{t:'Ahora te toca a ti: mira el ejemplo de abajo, y después arma tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🎯';
     }
   }
