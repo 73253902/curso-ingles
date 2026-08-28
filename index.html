@@ -229,6 +229,7 @@
   .song-lyrics .ra-line{padding:8px 10px; border-radius:8px; margin-bottom:6px; transition:background .2s;}
   .song-lyrics .ra-line.current{background:rgba(176,141,87,.22);}
   .song-lyrics .ra-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
+  .song-lyrics .ra-pron{font-size:13px; font-style:italic; color:var(--en); opacity:.75; margin-top:2px;}
   .song-lyrics .ra-es{font-size:13px; color:var(--es); margin-top:2px;}
   .song-lyrics .lyric-en{font-family:'Fraunces',serif; font-size:17px; color:var(--en); line-height:1.4;}
   .song-lyrics .lyric-es{font-size:13px; color:var(--es); margin-top:2px;}
@@ -261,7 +262,8 @@
 
 <div class="wrap">
   <header>
-    <img src="logo-dragon.png" alt="El Dragón del Lenguaje" style="max-width:220px; width:100%; height:auto; display:block; margin:0 auto 8px;">
+    <img src="logo-dragon.png" alt="El Dragón del Lenguaje" style="max-width:220px; width:100%; height:auto; display:block; margin:0 auto 8px;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+    <h1 id="logoFallback" style="display:none; text-align:center; margin-bottom:8px;">🐉 El Dragón del Lenguaje</h1>
     <div class="eyebrow" style="justify-content:center; text-align:center;"><span class="dot"></span> Método de inmersión progresiva · Jóvenes y Adultos</div>
     <h1 style="font-size:20px; opacity:.75; margin-top:6px; text-align:center;"><span class="es">Curso completo</span> — <span class="en">180 días</span></h1>
     <p class="sub" style="text-align:center;">6 días por semana, mezclando vida diaria y negocios. Tu progreso se guarda en este navegador — no hace falta anotarlo en ningún lado.</p>
