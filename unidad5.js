@@ -430,6 +430,20 @@ const curriculumUnidad5 = [
   },
 {
     day:60, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Repaso y cierre de la Unidad 5',
+    structures:[
+      {id:'S094', pattern:"I made steady progress on + [X]", examples:[
+        {en:'I made steady progress on this unit.', es:'Hice un progreso constante en esta unidad.', pron:'ái méid stédi prógres on dis iúnit.'},
+        {en:'I made steady progress on my pronunciation.', es:'Hice un progreso constante en mi pronunciación.', pron:'ái méid stédi prógres on mái pranansiéishion.'},
+        {en:"I won't give up, even when it's hard.", es:'No me voy a rendir, incluso cuando es difícil.', pron:"ái uóunt giv ap, íven uén its jard."},
+        {en:"I'm almost at unit six — let's keep going.", es:'Ya casi llego a la Unidad Seis — sigamos adelante.', pron:"áim ólmoust at iúnit six — lets kíip góing."}
+      ], function:'hablar de tu propio progreso en el curso', stage:2,
+        transformations:{
+          negative:{en:"I didn't make progress today.", es:'Hoy no hice progreso.'},
+          question:{en:'Did you make progress this week?', es:'¿Hiciste progreso esta semana?'},
+          yesAnswer:{en:'Yes, I did.', es:'Sí.'},
+          noAnswer:{en:"No, not really.", es:'No, la verdad que no.'}
+        }}
+    ],
     words:[
       {en:'unit five', es:'unidad cinco', pron:'iúnit fáiv', emoji:'5️⃣'},
       {en:'steady progress', es:'progreso constante', pron:'stédi prágres', emoji:'📈'},

@@ -213,6 +213,20 @@ const curriculumUnidad6 = [
   },
 {
     day:66, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Puntos de referencia / Zonas de reparto',
+    structures:[
+      {id:'S095', pattern:"The delivery zone covers + [X]", examples:[
+        {en:'The delivery zone covers the whole district.', es:'La zona de entrega cubre todo el distrito.', pron:'de delíveri zóun cávers de jóul dístrict.'},
+        {en:'The delivery zone covers Main Street and the avenue.', es:'La zona de entrega cubre la Calle Principal y la avenida.', pron:'de delíveri zóun cávers méin stríit and de áveniu.'},
+        {en:'The coverage area includes the roundabout, near the bridge.', es:'El área de cobertura incluye la rotonda, cerca del puente.', pron:'de cáverach éria inclúuds de ráundabaut, níar de brich.'},
+        {en:"We don't cover that remote area yet, but same-day delivery is close.", es:'Todavía no cubrimos esa zona remota, pero la entrega el mismo día está cerca.', pron:"uí dont cáver dat rimóut éria iét, bat séim-déi delíveri is clóus."}
+      ], function:'hablar de zonas y rutas de entrega', stage:2,
+        transformations:{
+          negative:{en:"The delivery zone doesn't cover that area.", es:'La zona de entrega no cubre esa área.'},
+          question:{en:'Does the delivery zone cover this landmark?', es:'¿La zona de entrega cubre este punto de referencia?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí.'},
+          noAnswer:{en:"No, it doesn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'landmark', es:'punto de referencia', pron:'lándmark', emoji:'📍'},
       {en:'main street', es:'calle principal', pron:'méin stríit', emoji:'🛣️'},
@@ -241,6 +255,20 @@ const curriculumUnidad6 = [
   },
 {
     day:67, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Repaso liviano de la semana 11',
+    structures:[
+      {id:'S096', pattern:"It's just around the corner from + [X]", examples:[
+        {en:"It's just around the corner from here.", es:'Está justo a la vuelta de la esquina desde acá.', pron:"its yast aráund de córner fram jíar."},
+        {en:"It's right here, not far from the office.", es:'Está justo acá, no lejos de la oficina.', pron:"its ráit jíar, nat far fram de áfis."},
+        {en:"It takes about five minutes — follow the signs.", es:'Toma unos cinco minutos — seguí las señales.', pron:"it téiks abáut fáiv mínits — fálou de sáins."},
+        {en:"You passed it! It's over there, not here.", es:'¡Ya pasaste! Está allá, no acá.', pron:"iú past it! its óuver der, nat jíar."}
+      ], function:'dar indicaciones de cercanía', stage:2,
+        transformations:{
+          negative:{en:"It's not just around the corner — it's far.", es:'No está a la vuelta de la esquina — está lejos.'},
+          question:{en:'Is it just around the corner?', es:'¿Está a la vuelta de la esquina?'},
+          yesAnswer:{en:"Yes, it's very close.", es:'Sí, está muy cerca.'},
+          noAnswer:{en:"No, it's a bit far.", es:'No, está un poco lejos.'}
+        }}
+    ],
     words:[
       {en:'over there', es:'por allá', pron:'óuver dér', emoji:'👉'},
       {en:'right here', es:'justo acá', pron:'ráit jíar', emoji:'📍'},
@@ -388,6 +416,20 @@ const curriculumUnidad6 = [
   },
 {
     day:71, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Direcciones en la ciudad / Rutas de distribución',
+    structures:[
+      {id:'S097', pattern:"The optimal route goes + [DIRECTION]", examples:[
+        {en:'The optimal route goes north, then east.', es:'La ruta óptima va hacia el norte, después hacia el este.', pron:'de áptimal rúut góus norz, den íist.'},
+        {en:'The optimal route goes south, downtown.', es:'La ruta óptima va hacia el sur, al centro.', pron:'de áptimal rúut góus sáuz, dáuntáun.'},
+        {en:'The delivery route goes west, to the outskirts.', es:'La ruta de entrega va hacia el oeste, a las afueras.', pron:'de delíveri rúut góus uést, tu de áutskerts.'},
+        {en:"There are multiple stops before we dispatch the next truck.", es:'Hay múltiples paradas antes de despachar el próximo camión.', pron:"der ar máltipol staps bifór uí dispách de next trak."}
+      ], function:'describir una ruta de entrega', stage:2,
+        transformations:{
+          negative:{en:"The route doesn't go north.", es:'La ruta no va hacia el norte.'},
+          question:{en:'Does the route go north?', es:'¿La ruta va hacia el norte?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí.'},
+          noAnswer:{en:"No, it doesn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'north', es:'norte', pron:'norz', emoji:'⬆️'},
       {en:'south', es:'sur', pron:'sáuz', emoji:'⬇️'},
@@ -415,6 +457,20 @@ const curriculumUnidad6 = [
   },
 {
     day:72, unit:6, unitTitle:'Unidad 6 · Semanas 11-12', theme:'Repaso y cierre de la Unidad 6',
+    structures:[
+      {id:'S098', pattern:"I'm staying consistent with + [X]", examples:[
+        {en:"I'm staying consistent with my practice.", es:'Me estoy manteniendo constante con mi práctica.', pron:"áim stéiing cansístent uid mái práctis."},
+        {en:'Great job so far — keep pushing!', es:'Buen trabajo hasta ahora — ¡seguí adelante!', pron:'gréit yab sóu far — kíip púshing!'},
+        {en:"You're doing great — more than a third done.", es:'Lo estás haciendo genial — más de un tercio hecho.', pron:"iór dúing gréit — mor dan a zerd dan."},
+        {en:"I won't give up now.", es:'No me voy a rendir ahora.', pron:"ái uóunt giv ap náu."}
+      ], function:'hablar de tu constancia con el estudio', stage:2,
+        transformations:{
+          negative:{en:"I'm not staying consistent this week.", es:'No me estoy manteniendo constante esta semana.'},
+          question:{en:'Are you staying consistent with your practice?', es:'¿Te estás manteniendo constante con tu práctica?'},
+          yesAnswer:{en:'Yes, I am.', es:'Sí.'},
+          noAnswer:{en:"No, not really.", es:'No, la verdad que no.'}
+        }}
+    ],
     words:[
       {en:'unit six', es:'unidad seis', pron:'iúnit six', emoji:'6️⃣'},
       {en:'great job so far', es:'muy buen trabajo hasta ahora', pron:'gréit yab sóu far', emoji:'👏'},
