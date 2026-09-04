@@ -111,7 +111,18 @@ function renderHome(){
   const completed = getCompletedDays();
   const admin = isAdmin();
 
-  document.getElementById('placementCard').style.display = (meta.placementDone || admin) ? 'none' : 'flex';
+  document.getElementById('placementCard').style.display = admin ? 'none' : 'flex';
+  if(meta.placementDone){
+    document.getElementById('placementCardTitulo').textContent = '¿Querés volver a evaluarte?';
+    document.getElementById('placementCardTexto').textContent = 'Ya hiciste esta evaluación antes. Podés repetirla cuando quieras — por ejemplo, al terminar el curso, para ver cuánto avanzaste.';
+    document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme de nuevo';
+    document.getElementById('skipPlacementBtn').style.display = 'none';
+  } else {
+    document.getElementById('placementCardTitulo').textContent = '¿Ya sabés algo de inglés?';
+    document.getElementById('placementCardTexto').textContent = 'Una evaluación real de 4 fases (vocabulario, gramática, lectura y escritura) para empezar en el día que te corresponde, en vez de repetir lo que ya sabés.';
+    document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme';
+    document.getElementById('skipPlacementBtn').style.display = 'inline-flex';
+  }
   document.getElementById('adminBox').style.display = admin ? 'flex' : 'none';
 
   document.getElementById('progressSummary').innerHTML =
@@ -140,6 +151,22 @@ function renderHome(){
           '<div class="uc-desc">'+um.desc+'</div>'+
         '</div>'+
       '</div>';
+    if(String(unitKey)==='1' && typeof mostrarFoneticaBasico==='function'){
+      const fnBtn = document.createElement('button');
+      fnBtn.className='ghost'; fnBtn.style.cssText='width:100%; margin:10px 0 4px;';
+      fnBtn.textContent='🗣️ Fonética — Mi Inicio';
+      fnBtn.title='Repasá las vocales y las combinaciones básicas antes de arrancar';
+      fnBtn.onclick = ()=>mostrarFoneticaBasico(true);
+      block.appendChild(fnBtn);
+    }
+    if(String(unitKey)==='15' && typeof iniciarEvaluacion==='function'){
+      const examBtn = document.createElement('button');
+      examBtn.className='primary'; examBtn.style.cssText='width:100%; margin:10px 0 4px;';
+      examBtn.textContent='🏆 Examen final del curso';
+      examBtn.title='La misma evaluación de 4 fases, con nivel de cierre — certificá tu progreso';
+      examBtn.onclick = ()=>iniciarEvaluacion('final');
+      block.appendChild(examBtn);
+    }
     const grid = document.createElement('div'); grid.className='day-grid';
     days.forEach(d=>{
       const card=document.createElement('div');
@@ -187,71 +214,7 @@ document.getElementById('skipPlacementBtn').addEventListener('click', ()=>{
   saveMeta({placementDone:true, unlockedThrough:1});
   renderHome();
 });
-document.getElementById('startPlacementBtn').addEventListener('click', startPlacementTest);
-
-// ================================================================
-// EVALUACIÓN DE NIVEL INICIAL
-// ================================================================
-let placementSample=[], placementIdx=0, placementCorrect=0;
-function startPlacementTest(){
-  placementSample = curriculum.map(d=>({day:d.day, word:d.words[0]}));
-  placementIdx=0; placementCorrect=0;
-  document.getElementById('home').style.display='none';
-  document.getElementById('placementTest').style.display='block';
-  document.getElementById('placementResult').style.display='none';
-  renderPlacementQuestion();
-}
-function renderPlacementQuestion(){
-  const el=document.getElementById('placementProgress'); el.innerHTML='';
-  placementSample.forEach((_,i)=>{ const d=document.createElement('div'); d.className='seg'+(i<placementIdx?' done':i===placementIdx?' now':''); el.appendChild(d); });
-  const item=placementSample[placementIdx];
-  document.getElementById('placementWord').textContent = item.word.en;
-  document.getElementById('placementInput').value='';
-  document.getElementById('placementInput').focus();
-  document.getElementById('placementFeedback').classList.remove('show');
-}
-document.getElementById('placementSubmitBtn').addEventListener('click', submitPlacementAnswer);
-document.getElementById('placementInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submitPlacementAnswer(); });
-function submitPlacementAnswer(){
-  const typed = document.getElementById('placementInput').value.trim();
-  if(!typed) return;
-  const item=placementSample[placementIdx];
-  const norm = s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
-  const ok = norm(typed).includes(norm(item.word.es)) || norm(item.word.es).includes(norm(typed));
-  const fb=document.getElementById('placementFeedback'); fb.classList.add('show');
-  if(ok){ fb.className='feedback show ok'; fb.textContent='✓ Correcto.'; placementCorrect++; }
-  else{ fb.className='feedback show retry'; fb.textContent='Era "'+item.word.es+'". Seguimos.'; }
-  setTimeout(()=>{
-    placementIdx++;
-    if(placementIdx>=placementSample.length){ finishPlacementTest(); } else { renderPlacementQuestion(); }
-  }, 700);
-}
-function finishPlacementTest(){
-  const total=placementSample.length;
-  const ratio = placementCorrect/total;
-  let recommendedDay = Math.round(ratio*curriculum.length)+1;
-  recommendedDay = Math.max(1, Math.min(curriculum.length, recommendedDay));
-  document.getElementById('placementWord').textContent='🏁';
-  document.getElementById('placementHint').textContent='';
-  document.querySelector('#placementTest .type-row').style.display='none';
-  document.getElementById('placementFeedback').classList.remove('show');
-  const resultEl=document.getElementById('placementResult');
-  resultEl.style.display='flex';
-  document.getElementById('placementResultText').textContent =
-    'Acertaste '+placementCorrect+' de '+total+'. Te recomendamos empezar en el Día '+recommendedDay+' — los días anteriores quedan desbloqueados igual, por si quieres repasarlos primero.';
-  document.getElementById('goToRecommendedBtn').onclick=()=>{
-    saveMeta({placementDone:true, unlockedThrough:recommendedDay});
-    document.getElementById('placementTest').style.display='none';
-    document.querySelector('#placementTest .type-row').style.display='flex';
-    startDay(recommendedDay);
-  };
-  document.getElementById('startDay1InsteadBtn').onclick=()=>{
-    saveMeta({placementDone:true, unlockedThrough:recommendedDay});
-    document.getElementById('placementTest').style.display='none';
-    document.querySelector('#placementTest .type-row').style.display='flex';
-    startDay(1);
-  };
-}
+document.getElementById('startPlacementBtn').addEventListener('click', ()=>iniciarEvaluacion('inicial'));
 let resetArmed=false;
 document.getElementById('resetLink').addEventListener('click', ()=>{
   const el=document.getElementById('resetLink');
@@ -263,6 +226,7 @@ document.getElementById('resetLink').addEventListener('click', ()=>{
     return;
   }
   localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem('foneticaBasicoVisto');
   resetArmed=false;
   el.textContent='✓ Progreso borrado';
   el.style.color='var(--ok)';
