@@ -98,6 +98,24 @@
   .dn-fase-info p{margin:4px 0 0; color:var(--muted); font-size:13px;}
   .dn-fase-progress{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
   #dnWeekGrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:10px; margin-top:16px;}
+  .cg-regla-card{
+    display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    background:var(--bg-panel); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:14px; cursor:pointer;
+    transition:border-color .12s;
+  }
+  .cg-regla-card:hover{border-color:var(--es);}
+  .cg-regla-num{font-size:26px; font-weight:800; color:var(--es); min-width:44px;}
+  .cg-regla-info{flex:1; min-width:180px;}
+  .cg-regla-info b{font-size:15px;}
+  .cg-regla-info p{margin:4px 0 0; color:var(--muted); font-size:13px;}
+  .cg-regla-arrow{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
+  .cg-tabla{width:100%; border-collapse:collapse; margin-top:14px; font-size:14px;}
+  .cg-tabla th{text-align:left; color:var(--es); border-bottom:1px solid var(--border); padding:8px 10px; font-size:13px;}
+  .cg-tabla td{border-bottom:1px solid var(--border); padding:8px 10px;}
+  .cg-exc-titulo{color:var(--warn); font-weight:700; font-size:14px; margin-bottom:8px;}
+  .cg-exc-item{font-size:13px; color:var(--muted); margin-bottom:6px; line-height:1.5;}
+  .cg-es-grande{font-size:22px; font-weight:700;}
+  .fn-hack-titulo{font-size:15px; font-weight:700; color:var(--es); margin:18px 0 8px;}
   .dn-week-btn{
     background:var(--bg-panel-2); border:1px solid var(--border); border-radius:10px; padding:14px 10px;
     text-align:center; cursor:pointer; font-size:13px; font-weight:600; display:flex; flex-direction:column; gap:4px;
@@ -325,6 +343,22 @@
       </div>
       <button class="primary" id="dnEntryBtn">Entrar →</button>
     </div>
+    <div class="dn-entry-card" id="cgEntryCard">
+      <div class="dn-entry-icon">🔑</div>
+      <div class="dn-entry-text">
+        <b>Diccionario de Cognados</b>
+        <p>22 reglas para desbloquear el inglés que ya sabías por tu raíz en español — con excepciones y práctica, a tu propio ritmo.</p>
+      </div>
+      <button class="primary" id="cgEntryBtn">Entrar →</button>
+    </div>
+    <div class="dn-entry-card" id="fnEntryCard">
+      <div class="dn-entry-icon">🗣️</div>
+      <div class="dn-entry-text">
+        <b>Fonética</b>
+        <p>5 capítulos sobre cómo suenan de verdad las vocales y combinaciones en inglés — con práctica escrita y hablada, a tu propio ritmo.</p>
+      </div>
+      <button class="primary" id="fnEntryBtn">Entrar →</button>
+    </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
   </div>
 
@@ -365,6 +399,108 @@
         <div id="dnReviewNextRow" style="display:none;">
           <button class="primary" id="dnReviewNextBtn">Siguiente →</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DICCIONARIO DE COGNADOS — módulo aparte ===== -->
+  <div id="cognadosModulo" style="display:none;">
+    <button class="ghost" id="cgBackBtn">← Volver al curso</button>
+    <header style="margin:20px 0;">
+      <div class="eyebrow"><span class="dot"></span> Módulo independiente · 22 reglas · progreso libre</div>
+      <h1><span class="es">Diccionario de</span> <span class="en">Cognados</span></h1>
+      <p class="sub">Elegí una regla para ver sus palabras, sus excepciones, y practicar.</p>
+    </header>
+    <div id="cgReglaList"></div>
+    <div id="cgReglaDetalle" style="display:none;">
+      <button class="ghost" id="cgBackToReglasBtn">← Volver a las reglas</button>
+      <div class="dn-song-card">
+        <h2 id="cgDetalleTitulo"></h2>
+        <p class="sub" id="cgDetalleExplicacion"></p>
+        <button class="primary" id="cgPracticaBtn" style="margin:14px 0;">✍️ Practicar esta regla</button>
+        <div id="cgPalabrasBox"></div>
+        <div id="cgExcepcionesBox" style="margin-top:16px;"></div>
+      </div>
+    </div>
+    <div id="cgPracticaView" style="display:none;">
+      <button class="ghost" id="cgBackFromPracticaBtn">← Volver a la regla</button>
+      <div class="dn-song-card">
+        <h2 id="cgPracticaTitulo"></h2>
+        <p class="sub" id="cgPracticaHint"></p>
+        <div id="cgPracticaPrompt" class="dn-review-prompt"></div>
+        <div class="dn-review-input-row">
+          <input type="text" id="cgPracticaInput" placeholder="Escribí el equivalente en inglés...">
+          <button class="primary" id="cgPracticaSendBtn">Enviar</button>
+        </div>
+        <div id="cgPracticaFeedback" class="dn-review-feedback" style="display:none;"></div>
+        <div id="cgPracticaNextRow" style="display:none;">
+          <button class="primary" id="cgPracticaNextBtn">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FONÉTICA — módulo aparte ===== -->
+  <div id="foneticaModulo" style="display:none;">
+    <button class="ghost" id="fnBackBtn">← Volver al curso</button>
+    <header style="margin:20px 0;">
+      <div class="eyebrow"><span class="dot"></span> Módulo independiente · 5 capítulos · progreso libre</div>
+      <h1><span class="es">Fonética</span></h1>
+      <p class="sub">Elegí un capítulo para ver sus hacks de pronunciación, y practicar de forma escrita y hablada.</p>
+    </header>
+    <div id="fnCapList"></div>
+    <div id="fnCapDetalle" style="display:none;">
+      <button class="ghost" id="fnBackToCapsBtn">← Volver a los capítulos</button>
+      <div class="dn-song-card">
+        <h2 id="fnDetalleTitulo"></h2>
+        <p class="sub" id="fnDetalleIntro"></p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;">
+          <button class="primary" id="fnPracticaEscritaBtn">✍️ Práctica escrita</button>
+          <button class="primary" id="fnPracticaHabladaBtn">🎙️ Práctica hablada</button>
+        </div>
+        <div id="fnHacksBox"></div>
+        <p class="sub" id="fnConclusionBox" style="margin-top:16px;"></p>
+      </div>
+    </div>
+    <div id="fnPracticaEscritaView" style="display:none;">
+      <button class="ghost" id="fnBackFromPracticaEscritaBtn">← Volver al capítulo</button>
+      <div class="dn-song-card">
+        <h2 id="fnPracticaEscritaTitulo"></h2>
+        <p class="sub" id="fnPracticaEscritaHint"></p>
+        <div id="fnPracticaEscritaPrompt" class="dn-review-prompt"></div>
+        <div class="dn-review-input-row">
+          <input type="text" id="fnPracticaEscritaInput" placeholder="¿Cómo se pronuncia?">
+          <button class="primary" id="fnPracticaEscritaSendBtn">Enviar</button>
+        </div>
+        <div id="fnPracticaEscritaFeedback" class="dn-review-feedback" style="display:none;"></div>
+        <div id="fnPracticaEscritaNextRow" style="display:none;">
+          <button class="primary" id="fnPracticaEscritaNextBtn">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+    <div id="fnPracticaHabladaView" style="display:none;">
+      <button class="ghost" id="fnBackFromPracticaHabladaBtn">← Volver al capítulo</button>
+      <div class="dn-song-card">
+        <h2 id="fnPracticaHabladaTitulo"></h2>
+        <p class="sub" id="fnPracticaHabladaHint"></p>
+        <div id="fnPracticaHabladaBox" class="dn-review-prompt"></div>
+        <div id="fnPracticaHabladaNextRow" style="display:none; margin-top:12px;">
+          <button class="primary" id="fnPracticaHabladaNextBtn">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FONÉTICA BÁSICA — pantalla previa al Día 1, se puede saltear ===== -->
+  <div id="foneticaBasico" style="display:none;">
+    <div class="dn-song-card" style="max-width:640px; margin:26px auto;">
+      <h2 id="fbTitulo"></h2>
+      <p class="sub" id="fbIntro"></p>
+      <div id="fbPuntosBox"></div>
+      <p class="sub" id="fbCierre" style="margin-top:16px;"></p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+        <button class="primary" id="fbContinuarBtn">Listo, empezar el Día 1 →</button>
+        <button class="ghost" id="fbSaltarBtn">Saltear esto por ahora</button>
       </div>
     </div>
   </div>
@@ -540,6 +676,8 @@
 <script src="unidad15.js"></script>
 <script src="practicas.js"></script>
 <script src="dragonnativo.js"></script>
+<script src="cognados.js"></script>
+<script src="fonetica.js"></script>
 <script src="motor.js"></script>
 </body>
 </html>

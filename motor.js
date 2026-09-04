@@ -1012,6 +1012,9 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle,
 }
 
 function startDay(dayNum){
+  if(dayNum===1 && !localStorage.getItem('foneticaBasicoVisto') && typeof mostrarFoneticaBasico==='function'){
+    mostrarFoneticaBasico(); return;
+  }
   currentDay = curriculum.find(d=>d.day===dayNum);
   if(!currentDay) return;
   wordBank = currentDay.words;
