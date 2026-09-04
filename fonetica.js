@@ -40,16 +40,21 @@ CAP1_JS = {
     ]
   };
 
-BASICO_JS = {
+const BASICO_JS = {
   titulo:"Fonética esencial — antes de empezar",
-  intro:"Antes de tu primer día, estos son los 6 puntos más importantes para que puedas leer cualquier palabra nueva con una idea de cómo suena. Podés saltear esto y volver después — pero te va a servir desde la primera palabra.",
-  puntos: [
-    {titulo:"1. Las vocales no suenan como en español", ejemplos:[{en:"late", pron:"leit", nota:""}, {en:"go", pron:"góu", nota:""}, {en:"use", pron:"iús", nota:""}], nota:"Una misma letra puede sonar de formas muy distintas — vas a ir aprendiendo el patrón con la práctica."},
-    {titulo:"2. \"EE\" casi siempre suena como \"I\"", ejemplos:[{en:"see", pron:"si", nota:""}, {en:"street", pron:"estrit", nota:""}, {en:"feet", pron:"fit", nota:""}], nota:""},
-    {titulo:"3. \"OO\" tiene DOS sonidos posibles", ejemplos:[{en:"moon", pron:"mun", nota:""}, {en:"book", pron:"buk", nota:""}], nota:"No hay una regla fija para saber cuál — se aprende con la práctica."},
-    {titulo:"4. La \"H\" suena como nuestra \"J\"", ejemplos:[{en:"hello", pron:"jélou", nota:""}, {en:"house", pron:"jáus", nota:""}], nota:""},
-    {titulo:"5. No existe la letra Ñ en inglés", ejemplos:[], nota:"Cuando una palabra necesite ese sonido, se escribe distinto (por ejemplo con \"ny\" o \"ni\")."},
-    {titulo:"6. La \"R\" no toca el paladar", ejemplos:[{en:"ready", pron:"rédi", nota:""}, {en:"very", pron:"véri", nota:""}], nota:"Es un sonido más suave que la R española — no la vibres."}
+  intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Podés escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Podés saltear esto y volver después, pero te va a servir desde la primera palabra.",
+  grupos: [
+    {titulo:"Vocal A", ejemplos:[{en:"late", pron:"leit", nota:"A suena como EI"}, {en:"want", pron:"uont", nota:"A suena como O"}, {en:"cat", pron:"cat", nota:"A suena como A española"}]},
+    {titulo:"Vocal E", ejemplos:[{en:"be", pron:"bi", nota:"E suena como I"}, {en:"bed", pron:"bed", nota:"E suena parecido al español"}, {en:"name", pron:"neim", nota:"la E final es muda"}]},
+    {titulo:"Vocal I", ejemplos:[{en:"fine", pron:"fain", nota:"I suena como AI"}, {en:"bit", pron:"bet", nota:"I suena como E"}, {en:"police", pron:"polís", nota:"I suena como I española"}]},
+    {titulo:"Vocal O", ejemplos:[{en:"go", pron:"góu", nota:"O suena como OU"}, {en:"to", pron:"tu", nota:"O suena como U"}, {en:"stop", pron:"estap", nota:"O suena como A"}]},
+    {titulo:"Vocal U", ejemplos:[{en:"use", pron:"iús", nota:"U suena como IU"}, {en:"true", pron:"tru", nota:"U suena como U española"}, {en:"up", pron:"ap", nota:"U suena como A"}]},
+    {titulo:"Combinación EE (dos vocales juntas)", ejemplos:[{en:"see", pron:"si", nota:"EE suena como I"}, {en:"feet", pron:"fit", nota:"EE suena como I"}]},
+    {titulo:"Combinación OO (tiene dos sonidos posibles)", ejemplos:[{en:"moon", pron:"mun", nota:"sonido largo"}, {en:"book", pron:"buk", nota:"sonido corto"}]},
+    {titulo:"Combinación EA (la más común, aunque tiene más de un sonido)", ejemplos:[{en:"tea", pron:"ti", nota:"sonido más común: como I"}, {en:"read", pron:"rid", nota:"sonido más común: como I"}, {en:"bread", pron:"bred", nota:"a veces suena como E corta"}]},
+    {titulo:"Combinación AI (muy frecuente)", ejemplos:[{en:"rain", pron:"réin", nota:"AI suena como EI"}, {en:"wait", pron:"uéit", nota:"AI suena como EI"}]},
+    {titulo:"Combinación OU (frecuente, pero con varios sonidos)", ejemplos:[{en:"about", pron:"abáut", nota:"sonido más común: como AU"}, {en:"house", pron:"jáus", nota:"sonido más común: como AU"}]},
+    {titulo:"Combinación OW (frecuente, tiene dos sonidos)", ejemplos:[{en:"now", pron:"náu", nota:"como AU"}, {en:"snow", pron:"esnóu", nota:"como O larga — el otro sonido posible"}]}
   ],
   cierre:"¡Muy bien! Ya tenés lo básico para defenderte — avanzá al Día 1 con confianza. Y si en algún momento querés ir mucho más profundo en la pronunciación, el módulo de Fonética te está esperando, con sus 5 capítulos completos y mucha más práctica escrita y hablada, para seguir mejorando cuando quieras."
 };
@@ -455,17 +460,74 @@ function mostrarFoneticaBasico(){
   el('fbTitulo').textContent = b.titulo;
   el('fbIntro').textContent = b.intro;
 
-  let html = '';
-  b.puntos.forEach(p=>{
-    html += '<div class="fn-hack-titulo">'+p.titulo+'</div>';
-    if(p.ejemplos.length){
-      html += '<table class="cg-tabla"><tr><th>Inglés</th><th>Se pronuncia</th></tr>';
-      p.ejemplos.forEach(e=>{ html += '<tr><td><b>'+e.en+'</b></td><td>'+e.pron+'</td></tr>'; });
-      html += '</table>';
-    }
-    if(p.nota){ html += '<div class="cg-exc-item">'+p.nota+'</div>'; }
+  let fbRecStream=null;
+
+  function crearFilaPalabra(item){
+    const fila = document.createElement('div');
+    fila.className='fb-palabra-fila';
+
+    const info = document.createElement('div');
+    info.className='fb-palabra-info';
+    info.innerHTML = '<b>'+item.en+'</b><span class="fb-palabra-pron">'+item.pron+(item.nota?' — '+item.nota:'')+'</span>';
+    fila.appendChild(info);
+
+    const acciones = document.createElement('div');
+    acciones.className='fb-palabra-acciones';
+
+    const listenBtn = document.createElement('button');
+    listenBtn.className='mic'; listenBtn.textContent='🔊';
+    listenBtn.title='Escuchar pronunciación';
+    listenBtn.onclick = async ()=>{
+      listenBtn.disabled=true;
+      await speakHidden(item.en);
+      listenBtn.disabled=false;
+    };
+    acciones.appendChild(listenBtn);
+
+    const recordBtn = document.createElement('button');
+    recordBtn.className='mic'; recordBtn.textContent='🎙️';
+    recordBtn.title='Grabate diciendo esta palabra';
+    const playback = document.createElement('audio');
+    playback.controls=true; playback.style.display='none'; playback.className='fb-playback';
+    let isRecording=false, mediaRecorder=null, chunks=[];
+    recordBtn.onclick = async ()=>{
+      if(isRecording){
+        if(mediaRecorder && mediaRecorder.state!=='inactive') mediaRecorder.stop();
+        return;
+      }
+      try{
+        if(!fbRecStream){ fbRecStream = await navigator.mediaDevices.getUserMedia({audio:true}); }
+      }catch(e){
+        alert('No se pudo acceder al micrófono para grabar tu voz.');
+        return;
+      }
+      chunks=[];
+      mediaRecorder = new MediaRecorder(fbRecStream);
+      mediaRecorder.ondataavailable = (e)=>{ if(e.data && e.data.size>0) chunks.push(e.data); };
+      mediaRecorder.onstop = ()=>{
+        isRecording=false; recordBtn.textContent='🎙️';
+        const blob = new Blob(chunks, {type: mediaRecorder.mimeType || 'audio/webm'});
+        playback.src = URL.createObjectURL(blob);
+        playback.style.display='inline-block';
+      };
+      mediaRecorder.start();
+      isRecording=true; recordBtn.textContent='⏹';
+    };
+    acciones.appendChild(recordBtn);
+    acciones.appendChild(playback);
+    fila.appendChild(acciones);
+    return fila;
+  }
+
+  const box = el('fbPuntosBox');
+  box.innerHTML='';
+  b.grupos.forEach(g=>{
+    const titulo = document.createElement('div');
+    titulo.className='fn-hack-titulo';
+    titulo.textContent = g.titulo;
+    box.appendChild(titulo);
+    g.ejemplos.forEach(item=> box.appendChild(crearFilaPalabra(item)) );
   });
-  el('fbPuntosBox').innerHTML = html;
   el('fbCierre').textContent = b.cierre;
 
   el('fbContinuarBtn').onclick = ()=>{
