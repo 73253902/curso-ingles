@@ -482,6 +482,7 @@ const fonetica = {
 
   window.addEventListener('DOMContentLoaded', ()=>{
     el('fnEntryBtn').onclick = openModule;
+    el('fnVerBasicoBtn').onclick = ()=>mostrarFoneticaBasico(true);
     el('fnBackBtn').onclick = closeModule;
     el('fnBackToCapsBtn').onclick = ()=>{ showView('capitulos'); renderCapList(); };
     el('fnPracticaEscritaBtn').onclick = openPracticaEscrita;
@@ -495,7 +496,7 @@ const fonetica = {
 })();
 
 // ================= Pantalla básica antes del Día 1 =================
-function mostrarFoneticaBasico(){
+function mostrarFoneticaBasico(esRevision){
   const el = id=>document.getElementById(id);
   el('home').style.display='none';
   el('foneticaBasico').style.display='block';
@@ -599,14 +600,25 @@ function mostrarFoneticaBasico(){
   });
   el('fbCierre').textContent = b.cierre;
 
-  el('fbContinuarBtn').onclick = ()=>{
-    localStorage.setItem('foneticaBasicoVisto','1');
-    el('foneticaBasico').style.display='none';
-    startDay(1);
-  };
-  el('fbSaltarBtn').onclick = ()=>{
-    localStorage.setItem('foneticaBasicoVisto','1');
-    el('foneticaBasico').style.display='none';
-    startDay(1);
-  };
+  if(esRevision){
+    el('fbContinuarBtn').textContent = 'Listo, volver al inicio →';
+    el('fbSaltarBtn').style.display='none';
+    el('fbContinuarBtn').onclick = ()=>{
+      el('foneticaBasico').style.display='none';
+      el('home').style.display='block';
+    };
+  } else {
+    el('fbContinuarBtn').textContent = 'Listo, empezar el Día 1 →';
+    el('fbSaltarBtn').style.display='inline-flex';
+    el('fbContinuarBtn').onclick = ()=>{
+      localStorage.setItem('foneticaBasicoVisto','1');
+      el('foneticaBasico').style.display='none';
+      startDay(1);
+    };
+    el('fbSaltarBtn').onclick = ()=>{
+      localStorage.setItem('foneticaBasicoVisto','1');
+      el('foneticaBasico').style.display='none';
+      startDay(1);
+    };
+  }
 }
