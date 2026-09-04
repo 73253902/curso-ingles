@@ -40,6 +40,50 @@ CAP1_JS = {
     ]
   };
 
+const BASICO_CANCION_LYRICS = [
+  {en:"", es:"Escucha bien cada palabra... escucha su sonido... y repite conmigo...", pron:""},
+  {en:"Late", es:"tarde", pron:"leit"},
+  {en:"Want", es:"querer", pron:"uont"},
+  {en:"Cat", es:"gato", pron:"cat"},
+  {en:"", es:"Seguimos con la vocal E... paso a paso, con claridad...", pron:""},
+  {en:"Be", es:"ser o estar", pron:"bi"},
+  {en:"Bed", es:"cama", pron:"bed"},
+  {en:"Name", es:"nombre (la E final es muda)", pron:"neim"},
+  {en:"Step by step you win,", es:"paso a paso avanzarás,", pron:"step bái step iú uín,"},
+  {en:"Speak it out loud,", es:"¡muy pronto lo hablarás!", pron:"spíik it áut láud,"},
+  {en:"", es:"Atento a la vocal I... escucha la diferencia...", pron:""},
+  {en:"Fine", es:"bien o fino", pron:"fain"},
+  {en:"Bit", es:"un poco", pron:"bet"},
+  {en:"Police", es:"policía", pron:"polís"},
+  {en:"", es:"Marcando cada palabra despacio...", pron:""},
+  {en:"Go", es:"ir", pron:"góu"},
+  {en:"To", es:"a o hacia", pron:"tu"},
+  {en:"Stop", es:"parar", pron:"estap"},
+  {en:"Use", es:"usar", pron:"iús"},
+  {en:"True", es:"verdadero", pron:"tru"},
+  {en:"Up", es:"arriba", pron:"ap"},
+  {en:"", es:"Cuando dos vocales se unen... escucha el tiempo de la voz...", pron:""},
+  {en:"See", es:"ver", pron:"si"},
+  {en:"Feet", es:"pies", pron:"fit"},
+  {en:"Moon", es:"luna (sonido largo)", pron:"mun"},
+  {en:"Book", es:"libro (sonido corto)", pron:"buk"},
+  {en:"", es:"Las últimas parejas de vocales...", pron:""},
+  {en:"Tea", es:"té", pron:"ti"},
+  {en:"Read", es:"leer", pron:"rid"},
+  {en:"Bread", es:"pan", pron:"bred"},
+  {en:"Rain", es:"lluvia", pron:"réin"},
+  {en:"Wait", es:"esperar", pron:"uéit"},
+  {en:"About", es:"sobre o acerca de", pron:"abáut"},
+  {en:"House", es:"casa", pron:"jáus"},
+  {en:"Now", es:"ahora", pron:"náu"},
+  {en:"Snow", es:"nieve", pron:"esnóu"},
+  {en:"Know", es:"saber o conocer (la K es muda)", pron:"nóu"},
+  {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is ísi,"},
+  {en:"You're going to love it!", es:"¡Te va a encantar!", pron:"iór góing tu lav it!"},
+  {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
+  {en:"Keep practicing until the end.", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end."}
+];
+
 const BASICO_JS = {
   titulo:"Fonética esencial — antes de empezar",
   intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Podés escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Podés saltear esto y volver después, pero te va a servir desde la primera palabra.",
@@ -518,6 +562,31 @@ function mostrarFoneticaBasico(){
     fila.appendChild(acciones);
     return fila;
   }
+
+  // Reproductor de la canción real, con letra sincronizada
+  const cancionBox = el('fbCancionBox');
+  cancionBox.innerHTML = '';
+  const cancionLabel = document.createElement('div');
+  cancionLabel.className='fn-hack-titulo';
+  cancionLabel.textContent = '🎶 Escuchá la canción real, cantada — seguí la letra';
+  cancionBox.appendChild(cancionLabel);
+  const audio = document.createElement('audio');
+  audio.controls=true; audio.style.width='100%'; audio.src='cancion-fonetica-basico.mp3';
+  cancionBox.appendChild(audio);
+  const lyricsBox = document.createElement('div');
+  lyricsBox.className='song-lyrics fb-lyrics-box';
+  lyricsBox.innerHTML = BASICO_CANCION_LYRICS.map((l,i)=>{
+    const enHTML = l.en ? '<div class="lyric-en">'+l.en+'</div>' : '';
+    const pronHTML = l.pron ? '<div class="lyric-pron">'+l.pron+'</div>' : '';
+    const esHTML = l.es ? '<div class="lyric-es">'+l.es+'</div>' : '';
+    return '<div class="lyric-line" data-i="'+i+'">'+enHTML+pronHTML+esHTML+'</div>';
+  }).join('');
+  cancionBox.appendChild(lyricsBox);
+  audio.ontimeupdate = ()=>{
+    if(!audio.duration) return;
+    const activeIdx = Math.min(BASICO_CANCION_LYRICS.length-1, Math.floor((audio.currentTime/audio.duration)*BASICO_CANCION_LYRICS.length));
+    lyricsBox.querySelectorAll('.lyric-line').forEach((el,i)=>{ el.classList.toggle('current', i===activeIdx); });
+  };
 
   const box = el('fbPuntosBox');
   box.innerHTML='';
