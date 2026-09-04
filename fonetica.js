@@ -44,17 +44,17 @@ const BASICO_JS = {
   titulo:"Fonética esencial — antes de empezar",
   intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Podés escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Podés saltear esto y volver después, pero te va a servir desde la primera palabra.",
   grupos: [
-    {titulo:"Vocal A", ejemplos:[{en:"late", pron:"leit", nota:"A suena como EI"}, {en:"want", pron:"uont", nota:"A suena como O"}, {en:"cat", pron:"cat", nota:"A suena como A española"}]},
-    {titulo:"Vocal E", ejemplos:[{en:"be", pron:"bi", nota:"E suena como I"}, {en:"bed", pron:"bed", nota:"E suena parecido al español"}, {en:"name", pron:"neim", nota:"la E final es muda"}]},
-    {titulo:"Vocal I", ejemplos:[{en:"fine", pron:"fain", nota:"I suena como AI"}, {en:"bit", pron:"bet", nota:"I suena como E"}, {en:"police", pron:"polís", nota:"I suena como I española"}]},
-    {titulo:"Vocal O", ejemplos:[{en:"go", pron:"góu", nota:"O suena como OU"}, {en:"to", pron:"tu", nota:"O suena como U"}, {en:"stop", pron:"estap", nota:"O suena como A"}]},
-    {titulo:"Vocal U", ejemplos:[{en:"use", pron:"iús", nota:"U suena como IU"}, {en:"true", pron:"tru", nota:"U suena como U española"}, {en:"up", pron:"ap", nota:"U suena como A"}]},
-    {titulo:"Combinación EE (dos vocales juntas)", ejemplos:[{en:"see", pron:"si", nota:"EE suena como I"}, {en:"feet", pron:"fit", nota:"EE suena como I"}]},
-    {titulo:"Combinación OO (tiene dos sonidos posibles)", ejemplos:[{en:"moon", pron:"mun", nota:"sonido largo"}, {en:"book", pron:"buk", nota:"sonido corto"}]},
-    {titulo:"Combinación EA (la más común, aunque tiene más de un sonido)", ejemplos:[{en:"tea", pron:"ti", nota:"sonido más común: como I"}, {en:"read", pron:"rid", nota:"sonido más común: como I"}, {en:"bread", pron:"bred", nota:"a veces suena como E corta"}]},
-    {titulo:"Combinación AI (muy frecuente)", ejemplos:[{en:"rain", pron:"réin", nota:"AI suena como EI"}, {en:"wait", pron:"uéit", nota:"AI suena como EI"}]},
-    {titulo:"Combinación OU (frecuente, pero con varios sonidos)", ejemplos:[{en:"about", pron:"abáut", nota:"sonido más común: como AU"}, {en:"house", pron:"jáus", nota:"sonido más común: como AU"}]},
-    {titulo:"Combinación OW (frecuente, tiene dos sonidos)", ejemplos:[{en:"now", pron:"náu", nota:"como AU"}, {en:"snow", pron:"esnóu", nota:"como O larga — el otro sonido posible"}]}
+    {titulo:"Vocal A", ejemplos:[{en:"late", es:"tarde", pron:"leit", nota:"A suena como EI"}, {en:"want", es:"querer", pron:"uont", nota:"A suena como O"}, {en:"cat", es:"gato", pron:"cat", nota:"A suena como A española"}]},
+    {titulo:"Vocal E", ejemplos:[{en:"be", es:"ser/estar", pron:"bi", nota:"E suena como I"}, {en:"bed", es:"cama", pron:"bed", nota:"E suena parecido al español"}, {en:"name", es:"nombre", pron:"neim", nota:"la E final es muda"}]},
+    {titulo:"Vocal I", ejemplos:[{en:"fine", es:"bien / fino", pron:"fain", nota:"I suena como AI"}, {en:"bit", es:"un poco", pron:"bet", nota:"I suena como E"}, {en:"police", es:"policía", pron:"polís", nota:"I suena como I española"}]},
+    {titulo:"Vocal O", ejemplos:[{en:"go", es:"ir", pron:"góu", nota:"O suena como OU"}, {en:"to", es:"a / hacia", pron:"tu", nota:"O suena como U"}, {en:"stop", es:"parar", pron:"estap", nota:"O suena como A"}]},
+    {titulo:"Vocal U", ejemplos:[{en:"use", es:"usar", pron:"iús", nota:"U suena como IU"}, {en:"true", es:"verdadero", pron:"tru", nota:"U suena como U española"}, {en:"up", es:"arriba", pron:"ap", nota:"U suena como A"}]},
+    {titulo:"Combinación EE (dos vocales juntas)", ejemplos:[{en:"see", es:"ver", pron:"si", nota:"EE suena como I"}, {en:"feet", es:"pies", pron:"fit", nota:"EE suena como I"}]},
+    {titulo:"Combinación OO (tiene dos sonidos posibles)", ejemplos:[{en:"moon", es:"luna", pron:"mun", nota:"sonido largo"}, {en:"book", es:"libro", pron:"buk", nota:"sonido corto"}]},
+    {titulo:"Combinación EA (la más común, aunque tiene más de un sonido)", ejemplos:[{en:"tea", es:"té", pron:"ti", nota:"sonido más común: como I"}, {en:"read", es:"leer", pron:"rid", nota:"sonido más común: como I"}, {en:"bread", es:"pan", pron:"bred", nota:"a veces suena como E corta"}]},
+    {titulo:"Combinación AI (muy frecuente)", ejemplos:[{en:"rain", es:"lluvia", pron:"réin", nota:"AI suena como EI"}, {en:"wait", es:"esperar", pron:"uéit", nota:"AI suena como EI"}]},
+    {titulo:"Combinación OU (frecuente, pero con varios sonidos)", ejemplos:[{en:"about", es:"sobre / acerca de", pron:"abáut", nota:"sonido más común: como AU"}, {en:"house", es:"casa", pron:"jáus", nota:"sonido más común: como AU"}]},
+    {titulo:"Combinación OW (frecuente, tiene dos sonidos)", ejemplos:[{en:"now", es:"ahora", pron:"náu", nota:"como AU"}, {en:"snow", es:"nieve", pron:"esnóu", nota:"como O larga — el otro sonido posible"}, {en:"know", es:"saber / conocer", pron:"nóu", nota:"como O larga — ojo, la K es muda"}]}
   ],
   cierre:"¡Muy bien! Ya tenés lo básico para defenderte — avanzá al Día 1 con confianza. Y si en algún momento querés ir mucho más profundo en la pronunciación, el módulo de Fonética te está esperando, con sus 5 capítulos completos y mucha más práctica escrita y hablada, para seguir mejorando cuando quieras."
 };
@@ -468,7 +468,7 @@ function mostrarFoneticaBasico(){
 
     const info = document.createElement('div');
     info.className='fb-palabra-info';
-    info.innerHTML = '<b>'+item.en+'</b><span class="fb-palabra-pron">'+item.pron+(item.nota?' — '+item.nota:'')+'</span>';
+    info.innerHTML = '<div class="fb-palabra-en-linea"><b>'+item.en+'</b><span class="fb-palabra-es">'+item.es+'</span></div><span class="fb-palabra-pron">se pronuncia: "'+item.pron+'"'+(item.nota?' — '+item.nota:'')+'</span>';
     fila.appendChild(info);
 
     const acciones = document.createElement('div');
