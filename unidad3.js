@@ -236,7 +236,7 @@ const curriculumUnidad3 = [
         {en:"What's today's date? The payment terms are net 30.", es:'¿Cuál es la fecha de hoy? Las condiciones de pago son treinta días netos.', pron:"uáts tudéis déit? de péiment terms ar net zérti."},
         {en:'The payment terms are an upfront payment, or an installment plan.', es:'Las condiciones de pago son un pago adelantado, o un plan de cuotas.', pron:'de péiment terms ar an apfránt péiment, or an instólment plan.'},
         {en:'The balance due must be paid in full by the end of the month.', es:'El saldo pendiente debe pagarse por completo para fin de mes.', pron:'de bálans diú mast bi péid in fúl bái de end of de manz.'},
-        {en:"If you need more time, we can offer an extension or a grace period.", es:'Si necesitás más tiempo, podemos ofrecer una extensión o un período de gracia.', pron:"if iú níid mor táim, uí can áfer an exténshion or a gréis píriod."}
+        {en:"If you need more time, we can offer an extension or a grace period.", es:'Si necesitas más tiempo, podemos ofrecer una extensión o un período de gracia.', pron:"if iú níid mor táim, uí can áfer an exténshion or a gréis píriod."}
       ], function:'hablar de plazos y condiciones de pago', stage:1,
         transformations:{
           negative:{en:"The payment terms are not net 30.", es:'Las condiciones de pago no son treinta días netos.'},
@@ -427,7 +427,7 @@ const curriculumUnidad3 = [
       ], function:'pedir espacio para negociar', stage:1,
         transformations:{
           negative:{en:"I don't need to negotiate the price.", es:'No necesito negociar el precio.'},
-          question:{en:'Do you need to negotiate the price?', es:'¿Necesitás negociar el precio?'},
+          question:{en:'Do you need to negotiate the price?', es:'¿Necesitas negociar el precio?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}

@@ -61,7 +61,7 @@ const curriculumUnidad2 = [
       ], function:'contar tu rutina y horarios', stage:1,
         transformations:{
           negative:{en:"I don't wake up at seven.", es:'No me despierto a las siete.'},
-          question:{en:'Do you wake up at seven?', es:'¿Te despertás a las siete?'},
+          question:{en:'Do you wake up at seven?', es:'¿Te despiertas a las siete?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'},
           future:{en:'I will wake up at seven.', es:'Me voy a despertar a las siete.'}
@@ -207,6 +207,20 @@ const curriculumUnidad2 = [
   },
 {
     day:15, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Verbos de acción diarios / Tareas y responsabilidades',
+    structures:[
+      {id:'S089', pattern:"I have to + [VERB]", examples:[
+        {en:'I have to write this report today.', es:'Tengo que escribir este reporte hoy.', pron:'ái jav tu ráit dis ripórt tudéi.'},
+        {en:'I have to call my supplier.', es:'Tengo que llamar a mi proveedor.', pron:'ái jav tu col mái sapláier.'},
+        {en:'I have to check the numbers before I send this.', es:'Tengo que revisar los números antes de enviar esto.', pron:'ái jav tu chek de námbers bifór ái send dis.'},
+        {en:"I don't have to fix it myself — I can call someone.", es:'No tengo que arreglarlo yo mismo — puedo llamar a alguien.', pron:"ái dont jav tu fix it máiself — ái can col sámuan."}
+      ], function:'hablar de obligaciones diarias', stage:1,
+        transformations:{
+          negative:{en:"I don't have to finish this today.", es:'No tengo que terminar esto hoy.'},
+          question:{en:'Do you have to deliver this today?', es:'¿Tienes que entregar esto hoy?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to eat', es:'comer', pron:'tu íit', emoji:'🍴'},
       {en:'to drink', es:'beber', pron:'tu drink', emoji:'🥤'},
@@ -241,6 +255,20 @@ const curriculumUnidad2 = [
   },
 {
     day:16, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Objetos de la casa / Herramientas y equipo de oficina',
+    structures:[
+      {id:'S090', pattern:"Can I borrow the + [TOOL]?", examples:[
+        {en:'Can I borrow the hammer?', es:'¿Me prestas el martillo?', pron:'can ái bárou de jámer?'},
+        {en:'Can I borrow the ladder for a moment?', es:'¿Me prestas la escalera por un momento?', pron:'can ái bárou de láder for a móument?'},
+        {en:'Can I borrow the stapler?', es:'¿Me prestas la engrapadora?', pron:'can ái bárou de stéipler?'},
+        {en:"Sorry, I can't — I'm using the cart right now.", es:'Perdón, no puedo — estoy usando el carrito ahora mismo.', pron:"sári, ái cant — áim iúsing de cart ráit náu."}
+      ], function:'pedir prestada una herramienta', stage:1,
+        transformations:{
+          negative:{en:"I can't borrow the hammer right now.", es:'No puedo pedir prestado el martillo ahora mismo.'},
+          question:{en:'Can I borrow the hammer?', es:'¿Me prestas el martillo?'},
+          yesAnswer:{en:'Yes, of course.', es:'Sí, claro.'},
+          noAnswer:{en:"No, sorry, I need it.", es:'No, perdón, lo necesito.'}
+        }}
+    ],
     words:[
       {en:'tool', es:'herramienta', pron:'túul', emoji:'🛠️'},
       {en:'hammer', es:'martillo', pron:'jámer', emoji:'🔨'},
@@ -284,7 +312,7 @@ const curriculumUnidad2 = [
       ], function:'decir qué tienes', stage:1,
         transformations:{
           negative:{en:"I don't have a dog.", es:'No tengo un perro.'},
-          question:{en:'Do you have a dog?', es:'¿Tenés un perro?'},
+          question:{en:'Do you have a dog?', es:'¿Tienes un perro?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí, lo tengo.'},
           noAnswer:{en:"No, I don't.", es:'No, no lo tengo.'},
           future:{en:'I will have a dog.', es:'Voy a tener un perro.'}
@@ -343,7 +371,7 @@ const curriculumUnidad2 = [
       ], function:'recomendar algo a un cliente', stage:1,
         transformations:{
           negative:{en:"I don't recommend this product.", es:'No recomiendo este producto.'},
-          question:{en:'Do you recommend this product?', es:'¿Recomendás este producto?'},
+          question:{en:'Do you recommend this product?', es:'¿Recomiendas este producto?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí, lo recomiendo.'},
           noAnswer:{en:"No, I don't.", es:'No, no lo recomiendo.'},
           future:{en:'I will recommend this product.', es:'Voy a recomendar este producto.'}
@@ -383,6 +411,20 @@ const curriculumUnidad2 = [
   },
 {
     day:19, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Repaso liviano de la semana 3',
+    structures:[
+      {id:'S091', pattern:"By the way, + [X]", examples:[
+        {en:"By the way, actually, this is almost ready.", es:'Por cierto, en realidad, esto está casi listo.', pron:'bái de uéi, áctiuali, dis is ólmoust rédi.'},
+        {en:"By the way, for example, we could try this in general.", es:'Por cierto, por ejemplo, podríamos probar esto en general.', pron:'bái de uéi, for exámpol, uí cud trái dis in yéneral.'},
+        {en:"By the way, don't worry — it's fine, take your time.", es:'Por cierto, no te preocupes — está bien, tomate tu tiempo.', pron:"bái de uéi, dont uóri — its fáin, téik iór táim."},
+        {en:"By the way, as usual, there's no rush — it's still early.", es:'Por cierto, como siempre, no hay apuro — todavía es temprano.', pron:"bái de uéi, as iúshual, ders nóu rash — its stil érli."}
+      ], function:'introducir un comentario nuevo', stage:1,
+        transformations:{
+          negative:{en:"This is not ready yet.", es:'Esto todavía no está listo.'},
+          question:{en:'Is this almost ready?', es:'¿Esto está casi listo?'},
+          yesAnswer:{en:'Yes, almost.', es:'Sí, casi.'},
+          noAnswer:{en:'No, not yet.', es:'No, todavía no.'}
+        }}
+    ],
     words:[
       {en:'by the way', es:'a propósito', pron:'bái de uéi', emoji:'💭'},
       {en:'actually', es:'en realidad', pron:'ákchuali', emoji:'🤔'},
@@ -419,7 +461,7 @@ const curriculumUnidad2 = [
         {en:'I would like to make a reservation.', es:'Quisiera hacer una reserva.', pron:'ái uud láik tu méik a reservéishon.'}
       ], function:'pedir algo de forma educada', stage:1,
         transformations:{
-          question:{en:'Would you like some rice?', es:'¿Querés un poco de arroz?'},
+          question:{en:'Would you like some rice?', es:'¿Quieres un poco de arroz?'},
           yesAnswer:{en:'Yes, I would.', es:'Sí, quisiera.'},
           noAnswer:{en:'No, thank you.', es:'No, gracias.'}
         }}
@@ -459,6 +501,20 @@ const curriculumUnidad2 = [
   },
 {
     day:21, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Limpieza y tareas / Organización de bodega',
+    structures:[
+      {id:'S092', pattern:"I need to update the + [X]", examples:[
+        {en:'I need to update the inventory.', es:'Necesito actualizar el inventario.', pron:'ái níid tu apdéit de ínventori.'},
+        {en:'I need to update the label on this box.', es:'Necesito actualizar la etiqueta de esta caja.', pron:'ái níid tu apdéit de léibol on dis box.'},
+        {en:'I need to update the storage count.', es:'Necesito actualizar el conteo del depósito.', pron:'ái níid tu apdéit de stórich cáunt.'},
+        {en:"I don't need to update it — nothing is missing or damaged.", es:'No necesito actualizarlo — no falta ni está dañado nada.', pron:"ái dont níid tu apdéit it — názin is mísing or dámachd."}
+      ], function:'hablar de actualizar el inventario o registros', stage:1,
+        transformations:{
+          negative:{en:"I don't need to update the inventory.", es:'No necesito actualizar el inventario.'},
+          question:{en:'Do you need to update the inventory?', es:'¿Necesitas actualizar el inventario?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to clean', es:'limpiar', pron:'tu clíin', emoji:'🧽'},
       {en:'to wash', es:'lavar', pron:'tu uásh', emoji:'🧼'},
@@ -586,6 +642,20 @@ const curriculumUnidad2 = [
   },
 {
     day:24, unit:2, unitTitle:'Unidad 2 · Semanas 3-4', theme:'Repaso y cierre de la Unidad 2',
+    structures:[
+      {id:'S093', pattern:"I remember + [X]", examples:[
+        {en:'I remember everything about this unit.', es:'Recuerdo todo sobre esta unidad.', pron:'ái rimémber évrizin abáut dis iúnit.'},
+        {en:'I remember the vocabulary well.', es:'Recuerdo bien el vocabulario.', pron:'ái rimémber de vocábiuleri uél.'},
+        {en:"I remember what we practiced last week.", es:'Recuerdo lo que practicamos la semana pasada.', pron:"ái rimémber uát uí práctist last uíik."},
+        {en:"I forgot one thing, but let's practice one more time.", es:'Me olvidé una cosa, pero practiquemos una vez más.', pron:"ái forgát uán zing, bat lets práctis uán mor táim."}
+      ], function:'repasar lo aprendido en la unidad', stage:1,
+        transformations:{
+          negative:{en:"I don't remember everything yet.", es:'Todavía no recuerdo todo.'},
+          question:{en:'Do you remember everything?', es:'¿Recuerdas todo?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, not yet.", es:'No, todavía no.'}
+        }}
+    ],
     words:[
       {en:'unit two', es:'unidad dos', pron:'iúnit tú', emoji:'2️⃣'},
       {en:'review', es:'repaso', pron:'riviú', emoji:'🔁'},

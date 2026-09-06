@@ -5,7 +5,7 @@ const practicasProgreso = {
   14: {
     palabras: [
       {es:"gracias", en:"thank you"},
-      {es:"cómo te llamás", en:"what's your name"},
+      {es:"cómo te llamas", en:"what's your name"},
       {es:"vendemos", en:"we sell"},
       {es:"trabajo en", en:"I work at"},
       {es:"cuántas cajas", en:"how many boxes"},
@@ -15,7 +15,7 @@ const practicasProgreso = {
       {es:"hasta la próxima", en:"until next time"},
       {es:"puedes explicar", en:"can you explain"},
       {es:"grande", en:"big"},
-      {es:"seguí adelante", en:"keep going"},
+      {es:"sigue adelante", en:"keep going"},
       {es:"cocina", en:"kitchen"},
       {es:"me despierto", en:"I wake up"},
       {es:"turno", en:"shift"}
@@ -165,12 +165,12 @@ const practicasProgreso = {
       {es:"¿Estoy apto para viajar? Sí, después de esta vacunación contra la gripe de dragón.", en:"Am I fit to travel? Yes, after this vaccination against dragon flu!"},
       {es:"Dejame probarme esta armadura mágica, ¿me queda bien, o es muy grande?", en:"Let me try on this magic armor — does it fit, or is it too big?"},
       {es:"Aquí tienes tu cotización formal, adjunta en este pergamino mágico.", en:"Here is your formal quote, attached to this magic scroll."},
-      {es:"¿Podés bajar el precio, dragón? Regateemos.", en:"Can you lower the price, dragon? Let's bargain!"},
+      {es:"¿Puedes bajar el precio, dragón? Regateemos.", en:"Can you lower the price, dragon? Let's bargain!"},
       {es:"Pagá tarde, y hay un recargo por mora del tamaño de un dragón.", en:"Pay late, and there's a dragon-sized late fee!"},
       {es:"Acá está mi comprobante de compra, ¿puedo cambiarlo por uno nuevo?", en:"Here is my proof of purchase — can I exchange it for a new one?"},
       {es:"¿Esta espada mágica está cubierta por la garantía, o no está cubierta?", en:"Is this magic sword covered by warranty, or not covered?"},
       {es:"Deslizá la tarjeta, o insertá la tarjeta — el dragón acepta las dos.", en:"Swipe the card, or insert the card — the dragon accepts both!"},
-      {es:"Agregá al carrito el castillo volador, y escribí tu dirección de envío en las nubes.", en:"Add to cart the flying castle, and type your shipping address in the clouds."},
+      {es:"Agrega al carrito el castillo volador, y escribe tu dirección de envío en las nubes.", en:"Add to cart the flying castle, and type your shipping address in the clouds."},
       {es:"Que yo sepa, para ser honesto, los dragones nunca mienten.", en:"As far as I know, to be honest, dragons never lie."}
     ]
   },
@@ -181,8 +181,8 @@ const practicasProgreso = {
       {es:"decisión final", en:"final decision"},
       {es:"producto defectuoso", en:"faulty product"},
       {es:"número de caso", en:"case number"},
-      {es:"doblá a la izquierda", en:"turn left"},
-      {es:"seguí derecho", en:"go straight"},
+      {es:"dobla a la izquierda", en:"turn left"},
+      {es:"sigue derecho", en:"go straight"},
       {es:"está lejos", en:"it's far"},
       {es:"recogida", en:"pickup"},
       {es:"está en tránsito", en:"in transit"},
@@ -208,11 +208,11 @@ const practicasProgreso = {
       {es:"Me quejo, esto no funciona — quiero un reembolso por este producto defectuoso.", en:"I need to complain — this doesn't work, I want a refund for this faulty product."},
       {es:"Progreso constante, valiente héroe — no te rindas, ya casi estás en la unidad seis.", en:"Steady progress, brave hero — don't give up, you are almost at unit six!"},
       {es:"Disculpe, ¿dónde está el correo de dragones? ¿Cómo llego ahí?", en:"Excuse me, where is the dragon post office? How do I get there?"},
-      {es:"Doblá a la izquierda en el volcán, después seguí derecho pasando el arcoíris.", en:"Turn left at the volcano, then go straight past the rainbow!"},
+      {es:"Dobla a la izquierda en el volcán, después sigue derecho pasando el arcoíris.", en:"Turn left at the volcano, then go straight past the rainbow!"},
       {es:"Rastreemos un pedido — hacé clic en el enlace de rastreo, dragón.", en:"Let's track an order — click the tracking link, dragon!"},
       {es:"Está en tránsito, en reparto, y entregado — todo en un segundo.", en:"It's in transit, out for delivery, and delivered — all in one second!"},
       {es:"Elijamos un transportista — esta empresa de transporte vuela con dragones.", en:"Let's choose a carrier — this shipping company flies with dragons!"},
-      {es:"La aduana quiere saber: ¿importás o exportás frijoles mágicos?", en:"Customs wants to know: do you import or export magic beans?"},
+      {es:"La aduana quiere saber: ¿importas o exportas frijoles mágicos?", en:"Customs wants to know: do you import or export magic beans?"},
       {es:"El arancel y la declaración de aduana dependen del país de origen.", en:"The tariff and customs declaration depend on the country of origin!"},
       {es:"Hasta la zona más alejada tiene entrega el mismo día, en dragón.", en:"Even the most remote area gets same-day delivery, by dragon!"}
     ]
@@ -248,8 +248,8 @@ const practicasProgreso = {
       "How do you usually handle stress at work?"
     ],
     frases: [
-      {es:"Volá al norte, sur, este, u oeste — ¿por dónde queda el castillo?", en:"Fly north, south, east, or west — which way to the castle?"},
-      {es:"¡Bienvenido al Hotel Dragón! ¿Tenés una reserva, valiente viajero?", en:"Welcome to the Dragon Hotel! Do you have a reservation, brave traveler?"},
+      {es:"Vuela al norte, sur, este, u oeste — ¿por dónde queda el castillo?", en:"Fly north, south, east, or west — which way to the castle?"},
+      {es:"¡Bienvenido al Hotel Dragón! ¿Tienes una reserva, valiente viajero?", en:"Welcome to the Dragon Hotel! Do you have a reservation, brave traveler?"},
       {es:"Quisiera reservar una habitación para mi viaje de negocios, a la tarifa corporativa, por favor.", en:"I would like to book a room for my business trip, at the corporate rate, please."},
       {es:"Necesito pedir servicio a la habitación — ¡una montaña de panqueques!", en:"I need to order room service — a mountain of pancakes!"},
       {es:"¡Emergencia! Llamen al hospital — el dragón se comió una montaña entera.", en:"Emergency! Call the hospital — the dragon ate a whole mountain."},
@@ -257,7 +257,7 @@ const practicasProgreso = {
       {es:"Tengo dolor de cabeza, dolor de estómago, y tos — todo al mismo tiempo.", en:"I have a headache, a stomachache, and a cough — all at the same time."},
       {es:"¿Estoy apto para viajar? Sí, después de esta vacunación contra la gripe de dragón.", en:"Am I fit to travel? Yes, after this vaccination against dragon flu!"},
       {es:"El pronóstico dice tormenta — reprogramemos por el clima.", en:"The forecast says a storm — let's reschedule due to weather."},
-      {es:"¿Podés compartir pantalla? Vamos a la sala de grupos a planear el tesoro.", en:"Can you share screen? Let's go to the breakout room to plan the treasure!"}
+      {es:"¿Puedes compartir pantalla? Vamos a la sala de grupos a planear el tesoro.", en:"Can you share screen? Let's go to the breakout room to plan the treasure!"}
     ]
   },
   98: {
@@ -378,7 +378,7 @@ const practicasProgreso = {
     ],
     frases: [
       {es:"Fui a la oficina gubernamental a sacar un permiso para mi castillo volador.", en:"I went to the government office to get a permit for my flying castle."},
-      {es:"¡Bienvenido a la concesionaria de autos dragón! ¿Querés una prueba de manejo?", en:"Welcome to the dragon car dealership! Would you like a test drive?"},
+      {es:"¡Bienvenido a la concesionaria de autos dragón! ¿Quieres una prueba de manejo?", en:"Welcome to the dragon car dealership! Would you like a test drive?"},
       {es:"La empresa de mudanzas mandó a un gigante para ayudar a embalar mi tesoro.", en:"The moving company sent a giant to help with packing my treasure!"},
       {es:"Hasta los dragones usan inteligencia artificial y aprendizaje automático ahora.", en:"Even dragons use artificial intelligence and machine learning now!"},
       {es:"Cada dragón líder necesita su propio estilo de liderazgo, y dominar la delegación.", en:"Every dragon leader needs their own leadership style, and to master delegation!"},

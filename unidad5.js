@@ -238,7 +238,7 @@ const curriculumUnidad5 = [
       ], function:'decir qué datos tienes que ingresar', stage:2,
         transformations:{
           negative:{en:"I don't need to enter my card number.", es:'No necesito ingresar mi número de tarjeta.'},
-          question:{en:'Do you need to enter your card number?', es:'¿Necesitás ingresar tu número de tarjeta?'},
+          question:{en:'Do you need to enter your card number?', es:'¿Necesitas ingresar tu número de tarjeta?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -255,13 +255,13 @@ const curriculumUnidad5 = [
     ],
     story:[
       {en:'Welcome to the online store — everything floats straight into your shopping cart!', es:'Bienvenido a la tienda en línea — ¡todo flota directo a tu carrito de compras!', pron:'uélcam tu de anláin stóar — évrizin flóuts stréit íntu iór sháping cart!'},
-      {en:'Add to cart the flying castle, and type your shipping address in the clouds.', es:'Agregá al carrito el castillo volador, y escribí tu dirección de envío en las nubes.', pron:'ad tu cart de fláing cásol, and táip iór shíping adrés in de cláuds.'},
+      {en:'Add to cart the flying castle, and type your shipping address in the clouds.', es:'Agrega al carrito el castillo volador, y escribe tu dirección de envío en las nubes.', pron:'ad tu cart de fláing cásol, and táip iór shíping adrés in de cláuds.'},
       {en:'Enter your card number and security code, dragon.', es:'Ingresá tu número de tarjeta y código de seguridad, dragón.', pron:'énter iór card námber and sekiúriti cóud, drágon.'},
       {en:"This is a remote payment, but it's completely secure payment, I promise!", es:'Este es un pago a distancia, ¡pero es un pago completamente seguro, lo prometo!', pron:'dis is a rimóut péiment, bat its camplítli sekiúr péiment, ái prámis!'}
     ],
     jingle:[
       {en:'Online store, shopping cart too!', es:'Tienda en línea, ¡carrito también!', pron:'anláin stóar, sháping cart tú!'},
-      {en:'Add to cart, shipping address, true!', es:'Agregá al carrito, dirección de envío, ¡es verdad!', pron:'ad tu cart, shíping adrés, trú!'},
+      {en:'Add to cart, shipping address, true!', es:'Agrega al carrito, dirección de envío, ¡es verdad!', pron:'ad tu cart, shíping adrés, trú!'},
       {en:'Card number, security code, quick!', es:'Número de tarjeta, código de seguridad, ¡rápido!', pron:'card námber, sekiúriti cóud, cuík!'},
       {en:'Remote payment, secure, no trick!', es:'Pago a distancia, seguro, ¡sin trampa!', pron:'rimóut péiment, sekiúr, nóu trik!'}
     ]

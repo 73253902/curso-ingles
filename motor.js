@@ -113,13 +113,13 @@ function renderHome(){
 
   document.getElementById('placementCard').style.display = admin ? 'none' : 'flex';
   if(meta.placementDone){
-    document.getElementById('placementCardTitulo').textContent = '¿Querés volver a evaluarte?';
-    document.getElementById('placementCardTexto').textContent = 'Ya hiciste esta evaluación antes. Podés repetirla cuando quieras — por ejemplo, al terminar el curso, para ver cuánto avanzaste.';
+    document.getElementById('placementCardTitulo').textContent = '¿Quieres volver a evaluarte?';
+    document.getElementById('placementCardTexto').textContent = 'Ya hiciste esta evaluación antes. Puedes repetirla cuando quieras — por ejemplo, al terminar el curso, para ver cuánto avanzaste.';
     document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme de nuevo';
     document.getElementById('skipPlacementBtn').style.display = 'none';
   } else {
-    document.getElementById('placementCardTitulo').textContent = '¿Ya sabés algo de inglés?';
-    document.getElementById('placementCardTexto').textContent = 'Una evaluación real de 4 fases (vocabulario, gramática, lectura y escritura) para empezar en el día que te corresponde, en vez de repetir lo que ya sabés.';
+    document.getElementById('placementCardTitulo').textContent = '¿Ya sabes algo de inglés?';
+    document.getElementById('placementCardTexto').textContent = 'Una evaluación real de 4 fases (vocabulario, gramática, lectura y escritura) para empezar en el día que te corresponde, en vez de repetir lo que ya sabes.';
     document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme';
     document.getElementById('skipPlacementBtn').style.display = 'inline-flex';
   }
@@ -382,7 +382,7 @@ const unitDialogueReinforcement = {
   97: [
     {speaker:'maestro', en:'Thank you for sending your resume and cover letter — welcome to this job interview. What are your strengths and weaknesses?', es:'Gracias por enviar tu currículum y carta de presentación — bienvenido a esta entrevista de trabajo. ¿Cuáles son tus fortalezas y debilidades?', pron:'zenk iú for séndin iór resumé and cáver léter — uélcam tu dis yab íntervyu. uát ar iór strengzs and uíknesis?'},
     {speaker:'alumno', en:'I have experience in this field. My salary expectations are flexible, and my availability is immediate. I can provide references.', es:'Tengo experiencia en este campo. Mis expectativas salariales son flexibles, y mi disponibilidad es inmediata. Puedo dar referencias.', pron:'ái jav expíriens in dis fíild. mái sálari expectéishions ar fléxibol, and mái aveilabíliti is imídiat. ái can pravaíd réferenses.'},
-    {speaker:'maestro', en:'Why did you decide to apply for a job here? Are you hoping for a job offer? We\'re looking to hire the right candidate.', es:'¿Por qué decidiste postularte a un trabajo acá? ¿Esperás una oferta de trabajo? Estamos buscando contratar al candidato correcto.', pron:'uái did iú disáid tu aplái for a yab jíar? ar iú jóuping for a yab áfer? uír lúking tu jáier de ráit candídeit.'},
+    {speaker:'maestro', en:'Why did you decide to apply for a job here? Are you hoping for a job offer? We\'re looking to hire the right candidate.', es:'¿Por qué decidiste postularte a un trabajo acá? ¿Esperas una oferta de trabajo? Estamos buscando contratar al candidato correcto.', pron:'uái did iú disáid tu aplái for a yab jíar? ar iú jóuping for a yab áfer? uír lúking tu jáier de ráit candídeit.'},
     {speaker:'alumno', en:'Tell me about your previous experience, and your responsibilities. What are your achievements?', es:'Cuéntame sobre tu experiencia previa, y tus responsabilidades. ¿Cuáles son tus logros?', pron:'tel mi abáut iór prívias expíriens, and iór rispansabílitis. uát ar iór achíivments?'},
     {speaker:'maestro', en:'Why do you want this job? Tell me about yourself.', es:'¿Por qué quieres este trabajo? Cuéntame sobre ti mismo.', pron:'uái du iú uánt dis yab? tel mi abáut iórself.'},
     {speaker:'alumno', en:'I am responsible for many projects — I\'m a team player, deadline-driven, and good at problem-solving. I also have strong leadership skills.', es:'Soy responsable de muchos proyectos — soy bueno trabajando en equipo, orientado a plazos, y bueno resolviendo problemas. También tengo fuertes habilidades de liderazgo.', pron:'ái am rispánsibol for méni práchects — áim a tíim pléier, dédláin-drívan, and gud at práblem-sálving. ái ólsou jav strong líidership skils.'},
@@ -538,7 +538,7 @@ const unitDialogueReinforcement = {
     {speaker:'maestro', en:'How much food do we need — a little, a lot, or just enough? Not too much, though.', es:'¿Cuánta comida necesitamos — un poco, mucho, o solo suficiente? No demasiado, igual.', pron:'jáu mach fúud du uí níid — a lítol, a lat, or yast ináf? nat tu mach, dóu.'},
     {speaker:'alumno', en:'I need to buy some extra supplies — we have enough of some things, but none of others.', es:'Necesito comprar algunos suministros extra — tenemos suficiente de algunas cosas, pero ninguna de otras.', pron:'ái níid tu bái sam extra sapláis — uí jav ináf of sam zings, bat nan of áders.'},
     {speaker:'maestro', en:'Let\'s check the resources and get budget approval. We need to allocate funds, or maybe to cut costs, depending on the investment.', es:'Revisemos los recursos y consigamos la aprobación del presupuesto. Necesitamos asignar fondos, o tal vez recortar costos, dependiendo de la inversión.', pron:'lets chek de risórses and get báchet aprúval. uí níid tu álokeit fands, or méibi tu cat costs, dipénding on de invéstment.'},
-    {speaker:'alumno', en:'Great! Unit four is done — one third done already! Keep learning, great effort — you\'re on track!', es:'¡Genial! La Unidad Cuatro está lista — ¡ya un tercio hecho! Seguí aprendiendo, gran esfuerzo — ¡vas bien encaminado!', pron:'gréit! iúnit fóar is dan — uán zerd dan olrédi! kíip lérning, gréit éfort — iór on trak!'},
+    {speaker:'alumno', en:'Great! Unit four is done — one third done already! Keep learning, great effort — you\'re on track!', es:'¡Genial! La Unidad Cuatro está lista — ¡ya un tercio hecho! Sigue aprendiendo, gran esfuerzo — ¡vas bien encaminado!', pron:'gréit! iúnit fóar is dan — uán zerd dan olrédi! kíip lérning, gréit éfort — iór on trak!'},
     {speaker:'maestro', en:'This was our final review. See you in unit five, next unit!', es:'Este fue nuestro repaso final. ¡Nos vemos en la Unidad Cinco, la próxima unidad!', pron:'dis uás áur fáinal riviú. síi iú in iúnit fáiv, next iúnit!'}
   ],
   37: [
@@ -557,7 +557,7 @@ const unitDialogueReinforcement = {
     {speaker:'maestro', en:'What\'s today\'s date? I need to know the due date for this invoice.', es:'¿Cuál es la fecha de hoy? Necesito saber la fecha de vencimiento de esta factura.', pron:'uáts tudéis déit? ái níid tu nóu de diú déit for dis ínvois.'},
     {speaker:'alumno', en:'What\'s the date, what\'s today\'s date? Let\'s see — in January, February, March, April, May, or June, our busiest months are usually — actually, in July, August, September, October, November, or December too, the due date is the fifteenth of each month. If it\'s overdue, we charge a small fee.', es:'¿Cuál es la fecha, cuál es la fecha de hoy? A ver — en enero, febrero, marzo, abril, mayo, o junio, nuestros meses más ocupados suelen ser — en realidad, en julio, agosto, septiembre, octubre, noviembre, o diciembre también, la fecha de vencimiento es el quince de cada mes. Si está vencido, cobramos una pequeña multa.', pron:'uáts de déit, uáts tudéis déit? lets síi — in yániueri, fébrueri, march, éiprol, méi, or yun, áur bísiest manzs ar iúshuali — áctiuali, in yulái, ágast, septémber, actóuber, novémber, or disémber tu, de diú déit is de fíftiinz of íich manz. if its ouverdiú, uí charch a smol fíi.'},
     {speaker:'maestro', en:'What are your payment terms?', es:'¿Cuáles son tus condiciones de pago?', pron:'uát ar iór péiment terms?'},
-    {speaker:'alumno', en:'This year, we offer net 30, but we also accept an upfront payment, an installment plan, or the full balance due, so the invoice is paid in full. If you need more time, we can offer an extension or a grace period.', es:'Este año, ofrecemos treinta días netos, pero también aceptamos un pago adelantado, un plan de cuotas, o el saldo completo pendiente, así la factura queda pagada por completo. Si necesitás más tiempo, podemos ofrecer una extensión o un período de gracia.', pron:'dis íar, uí áfer net zérti, bat uí ólsou acsépt an apfránt péiment, an instólment plan, or de fúl bálans diú, sóu de ínvois is péid in fúl. if iú níid mor táim, uí can áfer an exténshion or a gréis píriod.'},
+    {speaker:'alumno', en:'This year, we offer net 30, but we also accept an upfront payment, an installment plan, or the full balance due, so the invoice is paid in full. If you need more time, we can offer an extension or a grace period.', es:'Este año, ofrecemos treinta días netos, pero también aceptamos un pago adelantado, un plan de cuotas, o el saldo completo pendiente, así la factura queda pagada por completo. Si necesitas más tiempo, podemos ofrecer una extensión o un período de gracia.', pron:'dis íar, uí áfer net zérti, bat uí ólsou acsépt an apfránt péiment, an instólment plan, or de fúl bálans diú, sóu de ínvois is péid in fúl. if iú níid mor táim, uí can áfer an exténshion or a gréis píriod.'},
     {speaker:'maestro', en:'Let me see — hold on, give me a second to think about this.', es:'Déjame ver — espera, dame un segundo para pensarlo.', pron:'let mi síi — jóuld on, giv mi a sécond tu zink abáut dis.'},
     {speaker:'alumno', en:'Sure, take your time. That works for you, right? Or that doesn\'t work for you?', es:'Claro, tómate tu tiempo. Eso te funciona, ¿verdad? ¿O eso no te funciona?', pron:'shúar, téik iór táim. dat uorks for iú, ráit? or dat dásnt uork for iú?'},
     {speaker:'maestro', en:'That makes sense — I agree with the terms.', es:'Eso tiene sentido — estoy de acuerdo con las condiciones.', pron:'dat méiks sens — ái agríi uid de terms.'},
@@ -586,28 +586,28 @@ const unitDialogueReinforcement = {
     {speaker:'alumno', en:'I wake up early, and I get up right away. I have breakfast, and then I go to work.', es:'Me despierto temprano, y me levanto enseguida. Desayuno, y después voy al trabajo.', pron:'ái uéik ap érli, and ái get ap ráit auéi. ái jav brékfast, and den ái góu tu uork.'},
     {speaker:'alumno', en:'I start work at eight, and I take a break for lunch and dinner. My shift is long, sometimes with overtime.', es:'Empiezo a trabajar a las ocho, y hago una pausa para el almuerzo y la cena. Mi turno es largo, a veces con horas extra.', pron:'ái start uork at éit, and ái téik a bréik for lanch and díner. mái shift is long, sámtaims uid óvertaim.'},
     {speaker:'alumno', en:'I am tired, but tomorrow is my day off — I can finally rest. I am always punctual, and I finish work at six!', es:'Estoy cansado, pero mañana es mi día libre — por fin puedo descansar. Siempre soy puntual, ¡y termino de trabajar a las seis!', pron:'ái am táierd, bat tumórou is mái déi of — ái can fáinali rest. ái am ólueis pánctual, and ái fínish uork at six!'},
-    {speaker:'maestro', en:'What do you usually do at work?', es:'¿Qué hacés normalmente en el trabajo?', pron:'uát du iú iúshuali du at uork?'},
+    {speaker:'maestro', en:'What do you usually do at work?', es:'¿Qué haces normalmente en el trabajo?', pron:'uát du iú iúshuali du at uork?'},
     {speaker:'alumno', en:'Every day, I try to eat well, to drink coffee, to walk a little, and to drive carefully.', es:'Todos los días, trato de comer bien, tomar café, caminar un poco, y manejar con cuidado.', pron:'évri déi, ái trái tu íit uél, tu drínk cáfi, tu uók a lítol, and tu dráiv kérfuli.'},
     {speaker:'alumno', en:'I like to talk to my team, to write emails, and to read every message.', es:'Me gusta hablar con mi equipo, escribir correos, y leer cada mensaje.', pron:'ái láik tu tok tu mái tíim, tu ráit íimeils, and tu ríid évri mésach.'},
     {speaker:'alumno', en:'It\'s important to send reports, to receive feedback, and to call my clients to organize the schedule.', es:'Es importante enviar reportes, recibir comentarios, y llamar a mis clientes para organizar la agenda.', pron:'its impórtant tu send ripórts, tu risíiv fíidbak, and tu col mái cláients tu órganais de squédiul.'},
     {speaker:'alumno', en:'I try to check everything twice, to finish my tasks, to fix small problems, and to deliver on time.', es:'Trato de revisar todo dos veces, terminar mis tareas, arreglar problemas pequeños, y entregar a tiempo.', pron:'ái trái tu chek évrizin tuáis, tu fínish mái tasks, tu fix smol práblems, and tu delíver on táim.'},
     {speaker:'maestro', en:'What\'s in your office?', es:'¿Qué hay en tu oficina?', pron:'uáts in iór áfis?'},
-    {speaker:'alumno', en:'There is a desk, an office, a printer, and a shelf — everything I need! Do you have the key for the roof?', es:'Hay un escritorio, una oficina, una impresora, y un estante — ¡todo lo que necesito! ¿Tenés la llave del techo?', pron:'der is a desk, an áfis, a prínter, and a shelf — évrizin ái níid! du iú jav de kíi for de rúuf?'},
-    {speaker:'maestro', en:'Do you have the tools you need?', es:'¿Tenés las herramientas que necesitás?', pron:'du iú jav de túuls iú níid?'},
+    {speaker:'alumno', en:'There is a desk, an office, a printer, and a shelf — everything I need! Do you have the key for the roof?', es:'Hay un escritorio, una oficina, una impresora, y un estante — ¡todo lo que necesito! ¿Tienes la llave del techo?', pron:'der is a desk, an áfis, a prínter, and a shelf — évrizin ái níid! du iú jav de kíi for de rúuf?'},
+    {speaker:'maestro', en:'Do you have the tools you need?', es:'¿Tienes las herramientas que necesitas?', pron:'du iú jav de túuls iú níid?'},
     {speaker:'alumno', en:'I have a tool box: a hammer, a screwdriver, a ladder, some paint, and a lamp.', es:'Tengo una caja de herramientas: un martillo, un destornillador, una escalera, pintura, y una lámpara.', pron:'ái jav a túul bax: a jámer, a scrúdraiver, a láder, sam péint, and a lamp.'},
     {speaker:'alumno', en:'I also have a broom, a bucket, a pen, some paper, and tape.', es:'También tengo una escoba, un balde, una lapicera, papel, y cinta.', pron:'ái ólsou jav a brúum, a báket, a pen, sam péiper, and téip.'},
     {speaker:'alumno', en:'I have a stapler, a folder, scissors, and a cart for the office too.', es:'Tengo una engrapadora, una carpeta, tijeras, y un carrito para la oficina también.', pron:'ái jav a stéipler, a fólder, sísors, and a cart for de áfis tu.'},
-    {speaker:'maestro', en:'Do you have any pets?', es:'¿Tenés mascotas?', pron:'du iú jav éni pets?'},
+    {speaker:'maestro', en:'Do you have any pets?', es:'¿Tienes mascotas?', pron:'du iú jav éni pets?'},
     {speaker:'alumno', en:'I have a dog, a cat, and a bird — my pets help me relax after work! I love to feed them every morning.', es:'Tengo un perro, un gato, y un pájaro — ¡mis mascotas me ayudan a relajarme después del trabajo! Me encanta darles de comer cada mañana.', pron:'ái jav a dog, a cat, and a berd — mái pets jelp mi riláx áfter uork! ái lav tu fíid dem évri mórning.'},
     {speaker:'maestro', en:'What are your company\'s values?', es:'¿Cuáles son los valores de tu empresa?', pron:'uát ar iór cámpanis váliuz?'},
     {speaker:'alumno', en:'Our company mission and vision are clear: our values are teamwork, respect, honesty, commitment, and growth.', es:'La misión y visión de nuestra empresa son claras: nuestros valores son trabajo en equipo, respeto, honestidad, compromiso, y crecimiento.', pron:'áur cámpani míshion and víshion ar clíar: áur váliuz ar tíimuork, rispéct, ánesti, camítment, and gróuz.'},
     {speaker:'alumno', en:'We also believe in trust — I recommend this company to my friendly neighbors in our neighborhood, and they became loyal customers.', es:'También creemos en la confianza — recomiendo esta empresa a mis vecinos amigables en nuestro barrio, y se volvieron clientes leales.', pron:'uí ólsou bilíiv in trast — ái récomend dis cámpani tu mái fréndli néibors in áur néiborjud, and déi bikéim lóial cástomers.'},
     {speaker:'alumno', en:'This is a regular customer with a long-term relationship — reliable and satisfied, always. It\'s easy to recommend someone like this.', es:'Este es un cliente habitual con una relación a largo plazo — confiable y satisfecho, siempre. Es fácil recomendar a alguien así.', pron:'dis is a réguiular cástomer uid a long-term riléishionship — riláiabol and sátisfaid, ólueis. its ísi tu récomend sámuan láik dis.'},
-    {speaker:'maestro', en:'How do you treat your customers?', es:'¿Cómo tratás a tus clientes?', pron:'jáu du iú tríit iór cástomers?'},
+    {speaker:'maestro', en:'How do you treat your customers?', es:'¿Cómo tratas a tus clientes?', pron:'jáu du iú tríit iór cástomers?'},
     {speaker:'alumno', en:'We recommend asking for a referral — that builds loyalty over time.', es:'Recomendamos pedir una referencia — eso construye lealtad con el tiempo.', pron:'uí récomend ásking for a riférol — dat bilds lóialti óuver táim.'},
     {speaker:'alumno', en:'If there is a complaint, we always find a solution together, as a community.', es:'Si hay una queja, siempre encontramos una solución juntos, como comunidad.', pron:'if der is a campléint, uí ólueis fáind a saliúshion tugéder, as a camiúniti.'},
-    {speaker:'maestro', en:'Are you hungry? Should we eat?', es:'¿Tenés hambre? ¿Comemos?', pron:'ar iú jángri? shud uí íit?'},
-    {speaker:'alumno', en:'By the way, are you hungry? For example, we could have lunch right now, in general.', es:'Por cierto, ¿tenés hambre? Por ejemplo, podríamos almorzar ahora mismo, en general.', pron:'bái de uéi, ar iú jángri? for exámpol, uí cud jav lanch ráit náu, in yéneral.'},
+    {speaker:'maestro', en:'Are you hungry? Should we eat?', es:'¿Tienes hambre? ¿Comemos?', pron:'ar iú jángri? shud uí íit?'},
+    {speaker:'alumno', en:'By the way, are you hungry? For example, we could have lunch right now, in general.', es:'Por cierto, ¿tienes hambre? Por ejemplo, podríamos almorzar ahora mismo, en general.', pron:'bái de uéi, ar iú jángri? for exámpol, uí cud jav lanch ráit náu, in yéneral.'},
     {speaker:'maestro', en:'As usual, don\'t worry — it\'s fine, no rush, take your time. We\'re almost there, and the food is already coming, still hot.', es:'Como siempre, no te preocupes — está bien, sin apuro, tomate tu tiempo. Ya casi llegamos, y la comida ya viene, todavía caliente.', pron:'as iúshual, dont uóri — its fáin, nóu rash, téik iór táim. uír ólmoust der, and de fúud is olrédi cáming, stil jot.'},
     {speaker:'alumno', en:'Let\'s have lunch! I would like rice, chicken, meat, vegetables, and fruit, please. And some bread and soup too.', es:'¡Almorcemos! Quisiera arroz, pollo, carne, vegetales, y fruta, por favor. Y pan y sopa también.', pron:'lets jav lanch! ái uud láik ráis, chíken, míit, véchtabols, and frúut, plíis. and sam bred and súup tu.'},
     {speaker:'alumno', en:'I\'m hungry! The salad looks delicious — a table for two, please, with a menu, a waiter, and a reservation.', es:'¡Tengo hambre! La ensalada se ve deliciosa — una mesa para dos, por favor, con un menú, un mozo, y una reserva.', pron:'áim jángri! de sálad luks delíshius — a téibol for tú, plíis, uid a méniu, a uéiter, and a reservéishion.'},
@@ -643,14 +643,14 @@ const unitDialogueReinforcement = {
     {speaker:'alumno', en:'I have a question, dragon: what, who, where, when, why, and how did the treasure disappear?', es:'Tengo una pregunta, dragón: ¿qué, quién, dónde, cuándo, por qué, y cómo desapareció el tesoro?', pron:'ái jav a cuéstion, drágon: uát, ju, uér, uén, uái, and jáu did de tréshur disapír?', blanks:['have','question','what','who','where','when','why','how']},
     {speaker:'maestro', en:'I can explain it! Can you help me, robot detective? Can you explain this mystery?', es:'¡Lo puedo explicar! ¿Me puedes ayudar, robot detective? ¿Puedes explicar este misterio?', pron:'ái can expléin it! can iú jelp mi, róubat ditéctiv? can iú expléin dis místeri?', blanks:['can','explain','it']},
     {speaker:'alumno', en:'Which one is ready — the gold coins or the diamond eggs? And when will the pirates arrive?', es:'¿Cuál está listo — las monedas de oro o los huevos de diamante? ¿Y cuándo llegan los piratas?', pron:'uích uán is rédi — de góuld cóins or de dáiamand egs? and uén uil de páirats aráiv?', blanks:['Which','one','when']},
-    {speaker:'maestro', en:'Do you have stock of magic beans, and what\'s the price for a thousand?', es:'¿Tenés stock de frijoles mágicos, y cuál es el precio por mil?', pron:'du iú jav stak of máyic bíins, and uáts de práis for a záusand?', blanks:['have','stock','what\'s','the','price']},
+    {speaker:'maestro', en:'Do you have stock of magic beans, and what\'s the price for a thousand?', es:'¿Tienes stock de frijoles mágicos, y cuál es el precio por mil?', pron:'du iú jav stak of máyic bíins, and uáts de práis for a záusand?', blanks:['have','stock','what\'s','the','price']},
     {speaker:'alumno', en:'I can check the price, and I can confirm the stock right away! Let\'s count the crystals: one, two, three, four, five, six, seven, eight, nine, ten!', es:'¡Puedo revisar el precio, y puedo confirmar el stock enseguida! Contemos los cristales: uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez!', pron:'ái can chek de práis, and ái can canférm de stak ráit auéi! lets cáunt de crístals: uán, tú, zríi, fóar, fáiv, six, séven, éit, náin, ten!', blanks:['check','confirm','one','two','three','four','five','six','seven','eight','nine','ten']},
     {speaker:'maestro', en:'Is it ready? When will it arrive?', es:'¿Está listo? ¿Cuándo llegará?', pron:'is it rédi? uén uil it aráiv?', blanks:['it','ready','When']},
     {speaker:'alumno', en:'It is ready! How\'s business today?', es:'¡Está listo! ¿Cómo va el negocio hoy?', pron:'it is rédi! jáus bísnes tudéi?', blanks:['ready','business']},
     {speaker:'maestro', en:'Business is good! Business is great! Business is perfect! As always!', es:'¡El negocio va bien! ¡El negocio va muy bien! ¡El negocio va perfecto! ¡Como siempre!', pron:'bísnes is gud! bísnes is gréit! bísnes is pérfect! as ólueis!', blanks:['good','great','perfect']},
     {speaker:'alumno', en:'Glad to hear that! So-so... sometimes business is slow, but today everything ok! I understand! Sounds good!', es:'¡Me alegra oír eso! Así así... a veces el negocio va lento, ¡pero hoy todo está bien! ¡Entiendo! ¡Suena bien!', pron:'glad tu jíar dat! sóu-sóu... sámtaims bísnes is slóu, bat tudéi évrizin ok! ái ánderstand! sáunds gud!', blanks:['Glad','slow','everything','understand','Sounds']},
     {speaker:'maestro', en:'Perfect! Exactly!', es:'¡Perfecto! ¡Exactamente!', pron:'pérfect! exáctli!', blanks:['Perfect','Exactly']},
-    {speaker:'maestro', en:'Do you want your castle in red, blue, green, or yellow, dragon?', es:'¿Querés tu castillo en rojo, azul, verde, o amarillo, dragón?', pron:'du iú uánt iór cásol in red, blú, gríin, or iélou, drágon?', blanks:['red','blue','green','yellow']},
+    {speaker:'maestro', en:'Do you want your castle in red, blue, green, or yellow, dragon?', es:'¿Quieres tu castillo en rojo, azul, verde, o amarillo, dragón?', pron:'du iú uánt iór cásol in red, blú, gríin, or iélou, drágon?', blanks:['red','blue','green','yellow']},
     {speaker:'alumno', en:'We also have black and white castles, in a size as big as a mountain or as small as a pebble!', es:'¡También tenemos castillos negros y blancos, en un tamaño tan grande como una montaña o tan pequeño como una piedrita!', pron:'uí ólsou jav blak and uáit cásols, in a sáis as big as a máuntain or as smol as a pébol!', blanks:['black','white','size','big','small']},
     {speaker:'maestro', en:'It is red! It is big and strong! Is it new?', es:'¡Es rojo! ¡Es grande y fuerte! ¿Es nuevo?', pron:'it is red! it is big and strong! is it niú?', blanks:['big','strong','new']},
     {speaker:'alumno', en:'This new castle material is stronger than a thousand elephants and it will last forever! It is durable!', es:'¡Este nuevo material de castillo es más fuerte que mil elefantes y va a durar para siempre! ¡Es durable!', pron:'dis niú cásol matírial is stránguer dan a záusand élefants and it uil last foréver! it is diúrabol!', blanks:['new','stronger','durable']},
@@ -658,7 +658,7 @@ const unitDialogueReinforcement = {
     {speaker:'alumno', en:'It is made of metal, heavy, big, and strong!', es:'¡Está hecho de metal, pesado, grande, y fuerte!', pron:'it is méid of métal, jévi, big, and strong!', blanks:['metal','heavy','big','strong']},
     {speaker:'maestro', en:'Let\'s begin the final spell! And now, let\'s finish this magical quest! Let\'s practice!', es:'¡Empecemos el hechizo final! Y ahora, ¡terminemos esta misión mágica! ¡Practiquemos!', pron:'lets bigín de fáinal spel! and náu, lets fínish dis máyical cuest! lets práctis!', blanks:['begin','finish','practice']},
     {speaker:'alumno', en:'Let\'s go! Well done, brave hero, great job — you defeated the vocabulary dragon and you did it!', es:'¡Vamos! Bien hecho, valiente héroe, gran trabajo — ¡venciste al dragón del vocabulario y lo lograste!', pron:'lets góu! uél dan, bréiv jírou, gréit chab — iú difíted de vocábiuleri drágon and iú did it!', blanks:['go','Well','done','great','job','you','did','it']},
-    {speaker:'maestro', en:'Practice makes perfect, so keep going on your legendary journey! We\'re almost done with this level.', es:'La práctica hace al maestro, ¡así que seguí en tu viaje legendario! Ya casi terminamos este nivel.', pron:'práctis méiks pérfect, sóu kíip góing on iór léyendari yérni! uír ólmoust dan uid dis lével.', blanks:['makes','perfect','keep','going','almost','done']},
+    {speaker:'maestro', en:'Practice makes perfect, so keep going on your legendary journey! We\'re almost done with this level.', es:'La práctica hace al maestro, ¡así que sigue en tu viaje legendario! Ya casi terminamos este nivel.', pron:'práctis méiks pérfect, sóu kíip góing on iór léyendari yérni! uír ólmoust dan uid dis lével.', blanks:['makes','perfect','keep','going','almost','done']},
     {speaker:'alumno', en:'Congratulations on finishing Unit 1, Champion!', es:'¡Felicitaciones por terminar la Unidad 1, campeón!', pron:'congrachuléishons on fínishing iúnit uán, chámpion!', blanks:['Congratulations']},
     {speaker:'maestro', en:'See you in the next unit, where even bigger adventures await! See you Monday!', es:'¡Nos vemos en la próxima unidad, donde te esperan aventuras aún más grandes! ¡Nos vemos el lunes!', pron:'síi iú in de next iúnit, uér íven bíguer advénchurs auéit! síi iú mándei!', blanks:['See','you','Monday']},
     {speaker:'maestro', en:'Look! A new outpost! Let\'s introduce ourselves. What\'s your name, dragon?', es:'¡Mira! ¡Un puesto nuevo! Presentémonos. ¿Cuál es tu nombre, dragón?', pron:'luk! a niú áutpost! lets intradiús aursélvs. uáts iór néim, drágon?', blanks:['introduce','ourselves','name']},
@@ -687,7 +687,7 @@ const unitReviewStories = {
     {en:'His wife checks the calendar, his son counts the boxes, his daughter writes the invoice — the whole team, together.', es:'Su esposa revisa el calendario, su hijo cuenta las cajas, su hija escribe la factura — todo el equipo, juntos.', pron:'jis uáif cheks de cálendar, jis san cáunts de báxes, jis dóter ráits de ínvois — de jóul tíim, tugéder.'},
     {en:'"We sell magical toys, and we provide the best service in the kingdom," he explains proudly.', es:'"Vendemos juguetes mágicos, y ofrecemos el mejor servicio del reino", explica orgulloso.', pron:'uí sel máyical tóis, and uí prováid de best sérvis in de kíngdom, ji explains práudli.'},
     {en:'"We have ten boxes and five units in stock," he says, "and everything is ready to go."', es:'"Tenemos diez cajas y cinco unidades en stock", dice, "y todo está listo."', pron:'uí jav ten báxes and fáiv iúnits in stak, ji séis, and évrizing is rédi tu góu.'},
-    {en:'"I am available on Friday, if you need a meeting," he adds, checking his schedule.', es:'"Estoy disponible el viernes, si necesitás una reunión", agrega, revisando su agenda.', pron:'ái am avéilabol on Fráidei, if iú níid a míiting, ji ads, chéking jis squédiul.'},
+    {en:'"I am available on Friday, if you need a meeting," he adds, checking his schedule.', es:'"Estoy disponible el viernes, si necesitas una reunión", agrega, revisando su agenda.', pron:'ái am avéilabol on Fráidei, if iú níid a míiting, ji ads, chéking jis squédiul.'},
     {en:'By afternoon, he feels tired. "I\'m tired," he admits quietly — but he keeps going.', es:'Por la tarde, se siente cansado. "Estoy cansado", admite en voz baja — pero sigue adelante.', pron:'bái áfternúun, ji fíils táierd. áim táierd, ji admíts cuáietli — bat ji kíips góing.'},
     {en:'"How\'s business today?" his wife asks. "Business is slow," he sighs — then smiles — "but I have hope."', es:'"¿Cómo va el negocio hoy?", pregunta su esposa. "El negocio va lento", suspira — y después sonríe — "pero tengo esperanza."', pron:'jáus bísnes tudéi? jis uáif asks. bísnes is slóu, ji sáis — den smáils — bat ái jav jóup.'},
     {en:'A worried customer calls. "I will call you back on Monday," Blaze promises, "and I will make things right."', es:'Llama un cliente preocupado. "Te voy a devolver la llamada el lunes", promete Blaze, "y voy a arreglar las cosas."', pron:'a uórid cástomer cols. ái uil col iú bak on Mándei, Bléis prámises, and ái uil méik zings ráit.'},
@@ -735,7 +735,7 @@ const unitReviewStories = {
     {en:'"This shirt is too big for me," says a third customer. "Let\'s find a smaller size!" Blaze smiles.', es:'"Esta camisa me queda muy grande", dice un tercer cliente. "¡Busquemos un talle más chico!", sonríe Blaze.', pron:"dis shert is tú big for mi, séis a zerd cástomer. lets fáind a smóler sáis! Bléis smáils."},
     {en:'The supplier calls: "I approve this quote," he says. "It is worth it — steady progress for both of us!"', es:'El proveedor llama: "Apruebo esta cotización", dice. "¡Vale la pena — progreso constante para los dos!"', pron:'de sapláier cols: ái aprúuv dis cuóut, ji séis. it is uérz it — stédi prágres for bóuz of as!'},
     {en:'One unhappy customer says, "I want a refund for this faulty product!" Blaze listens carefully and helps.', es:'Un cliente insatisfecho dice, "¡Quiero un reembolso por este producto defectuoso!" Blaze escucha con atención y ayuda.', pron:'uán anjápi cástomer séis, ái uánt a rífand for dis fólti prádact! Bléis lísens kérfuli and jelps.'},
-    {en:"Unit five, done! Don't give up — you're almost at unit six.", es:'¡Unidad cinco, lista! No te rindas — ya casi llegás a la unidad seis.', pron:"iúnit fáiv, dan! dont guiv ap — iór ólmoust at iúnit siks."},
+    {en:"Unit five, done! Don't give up — you're almost at unit six.", es:'¡Unidad cinco, lista! No te rindas — ya casi llegas a la unidad seis.', pron:"iúnit fáiv, dan! dont guiv ap — iór ólmoust at iúnit siks."},
     {en:'Steady progress, brave dragon. See you in the next unit!', es:'Progreso constante, valiente dragón. ¡Nos vemos en la próxima unidad!', pron:'stédi prágres, bréiv drágon. síi iú in de next iúnit!'}
   ],
   72: [
@@ -745,7 +745,7 @@ const unitReviewStories = {
     {en:'At customs, "I need to declare this item," he says, showing the invoice. "I have the shipping guide too."', es:'En la aduana, "necesito declarar este artículo", dice, mostrando la factura. "También tengo la guía de envío."', pron:'at cástams, ái níid tu diclér dis áitem, ji séis, shóuing de ínvois. ái jav de shíping gáid tú.'},
     {en:'"The shipment is delayed," warns his assistant. "There\'s a traffic jam on the main route."', es:'"El envío está retrasado", advierte su asistente. "Hay un embotellamiento en la ruta principal."', pron:'de shípment is diléid, uórns jis asístant. ders a tráfic yam on de méin rúut.'},
     {en:'"I want to hire a bigger fleet," Blaze says. "This package is fragile — handle it with care!"', es:'"Quiero contratar una flota más grande", dice Blaze. "¡Este paquete es frágil — manejalo con cuidado!"', pron:'ái uánt tu jáier a bígger flíit, Bléis séis. dis pákech is fráyail — jándol it uid ker!'},
-    {en:"Unit six, done! Keep pushing — you're doing great, more than a third of the way there.", es:'¡Unidad seis, lista! Seguí adelante — lo estás haciendo genial, ya llevás más de un tercio del camino.', pron:"iúnit siks, dan! kíip púshing — iór dúing gréit, mor dan a zerd of de uéi der."},
+    {en:"Unit six, done! Keep pushing — you're doing great, more than a third of the way there.", es:'¡Unidad seis, lista! Sigue adelante — lo estás haciendo genial, ya llevas más de un tercio del camino.', pron:"iúnit siks, dan! kíip púshing — iór dúing gréit, mor dan a zerd of de uéi der."},
     {en:'Stay consistent, brave dragon. See you in unit seven!', es:'Mantené la constancia, valiente dragón. ¡Nos vemos en la unidad siete!', pron:'stéi cansístent, bréiv drágon. síi iú in iúnit séven!'}
   ],
   84: [
@@ -767,7 +767,7 @@ const unitReviewStories = {
     {en:'"In my culture, we take our time to build trust," he tells his new international partner.', es:'"En mi cultura, nos tomamos nuestro tiempo para construir confianza", le dice a su nuevo socio internacional.', pron:'in mái cálchur, uí téik áur táim tu bild trast, ji tels jis niú internáshional pártner.'},
     {en:'At the bank, "I want to invest in my business," Blaze says, reviewing his savings account.', es:'En el banco, "quiero invertir en mi negocio", dice Blaze, revisando su cuenta de ahorros.', pron:'at de bank, ái uánt tu invést in mái bísnes, Bléis séis, riviúing jis séivings acáunt.'},
     {en:'During a negotiation, "I am willing to compromise," he says calmly — and reaches a fair deal.', es:'Durante una negociación, "estoy dispuesto a ceder", dice con calma — y llega a un trato justo.', pron:'diúring a nigóushieishion, ái am uíling tu cámpramais, ji séis cámli — and ríchis a fer díil.'},
-    {en:"Unit eight, done — more than half done! Keep pushing, dragon. See you in unit nine!", es:'¡Unidad ocho, lista — ya más de la mitad! Seguí adelante, dragón. ¡Nos vemos en la unidad nueve!', pron:"iúnit éit, dan — mor dan jaf dan! kíip púshing, drágon. síi iú in iúnit náin!"}
+    {en:"Unit eight, done — more than half done! Keep pushing, dragon. See you in unit nine!", es:'¡Unidad ocho, lista — ya más de la mitad! Sigue adelante, dragón. ¡Nos vemos en la unidad nueve!', pron:"iúnit éit, dan — mor dan jaf dan! kíip púshing, drágon. síi iú in iúnit náin!"}
   ],
   108: [
     {en:'Blaze opens his laptop. "I am writing to confirm the meeting," he types, careful with his tone.', es:'Blaze abre su laptop. "Le escribo para confirmar la reunión", escribe, cuidando su tono.', pron:'Bléis óupens jis láptap. ái am ráiting tu canférm de míiting, ji táips, kérful uid jis tóun.'},
@@ -793,7 +793,7 @@ const unitReviewStories = {
     {en:'He shows off a new tool. "This is powered by artificial intelligence!" he says proudly.', es:'Muestra una nueva herramienta. "¡Esto funciona con inteligencia artificial!", dice orgulloso.', pron:'ji shóus of a niú túul. dis is páuerd bái ártifíshal intéliyens! ji séis práudli.'},
     {en:'At the team meeting, "I trust my team to make good decisions," Blaze says, looking around the room.', es:'En la reunión de equipo, "confío en que mi equipo tome buenas decisiones", dice Blaze, mirando la sala.', pron:'at de tíim míiting, ái trast mái tíim tu méik gud disíshions, Bléis séis, lúking aráund de rúum.'},
     {en:"Unit ten, done — two thirds done, one third remaining!", es:'¡Unidad diez, lista — dos tercios hechos, un tercio restante!', pron:"iúnit ten, dan — tú zerds dan, uán zerd rimééining!"},
-    {en:"Keep going, dragon — a milestone has been reached. See you in unit eleven!", es:'Seguí adelante, dragón — se alcanzó un hito. ¡Nos vemos en la unidad once!', pron:"kíip góing, drágon — a máilstóun jas bin ríichd. síi iú in iúnit iléven!"}
+    {en:"Keep going, dragon — a milestone has been reached. See you in unit eleven!", es:'Sigue adelante, dragón — se alcanzó un hito. ¡Nos vemos en la unidad once!', pron:"kíip góing, drágon — a máilstóun jas bin ríichd. síi iú in iúnit iléven!"}
   ]
 };
 const weeklyStories = {
@@ -802,7 +802,7 @@ const weeklyStories = {
     {en:'Welcome, tiny human! Come in and have a seat on this giant mushroom.', es:'¡Bienvenido, humanito! Pasá y tomá asiento en este hongo gigante.', pron:'uélcam, táini jiúman! cam in and jav a síit on dis yáiant máshrum.'},
     {en:'We are from the Kingdom of Clouds, and we sell magic potions to a thousand customers.', es:'Somos del Reino de las Nubes, y vendemos pociones mágicas a mil clientes.', pron:'uí ar fram de kíngdom of cláuds, and uí sel máyic póushons tu a záusand cástomers.'},
     {en:'My flying wife is the sales manager, and my fire-breathing son works in logistics.', es:'Mi esposa voladora es la gerente de ventas, y mi hijo que respira fuego trabaja en logística.', pron:'mái fláing uáif is de séils mánayer, and mái fáiar brízing san uorks in loyístics.'},
-    {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitás para este pedido? ¿Diez cajas, o toda una docena?', pron:'jáu méni drágon egs du iú níid for dis órder? ten báxes, or a jóul dázen?'},
+    {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitas para este pedido? ¿Diez cajas, o toda una docena?', pron:'jáu méni drágon egs du iú níid for dis órder? ten báxes, or a jóul dázen?'},
     {en:"Are you available on Monday, in the year 3000? Let's schedule an appointment!", es:'¿Estás disponible el lunes, en el año 3000? ¡Agendemos una cita!', pron:"ar iú avéilabol on mándei, in de íar zríi záusand? lets squéyul an apóintment!"},
     {en:'Thank you, and see you soon in the clouds. Goodbye!', es:'Gracias, y nos vemos pronto en las nubes. ¡Adiós!', pron:'zenk iú, and síi iú súun in de cláuds. gudbái!'}
   ],
@@ -819,7 +819,7 @@ const weeklyStories = {
     {en:'The cleaning robot can wash an entire ocean and count a million stars before breakfast.', es:'El robot de limpieza puede lavar un océano entero y contar un millón de estrellas antes del desayuno.', pron:'de clíining róubot can uásh an entáier óushon and cáunt a mílion stars bifór brékfast.'},
     {en:"Even dragons need vacation — I'm traveling to a floating island this weekend!", es:'¡Hasta los dragones necesitan vacaciones — viajo a una isla flotante este fin de semana!', pron:"íven drágons níid veiquéishon — áim tráveling tu a flóuting áiland dis uíikend!"},
     {en:"This dragon egg is cheaper, but let's compare every option before we negotiate the deal.", es:'Este huevo de dragón es más barato, pero comparemos cada opción antes de negociar el trato.', pron:"dis drágon eg is chíiper, bat lets campér évri ápshon bifór uí nigóushieit de díil."},
-    {en:"Well done, brave hero! You remember everything from Unit Two. Congratulations, you're halfway there!", es:'¡Bien hecho, valiente héroe! Te acordás de todo de la Unidad Dos. ¡Felicitaciones, vas a mitad de camino!', pron:"uél dan, bréiv jírou! iú rimémber évrizin fram iúnit tú. congrachuléishons, iór jáfuei dér!"}
+    {en:"Well done, brave hero! You remember everything from Unit Two. Congratulations, you're halfway there!", es:'¡Bien hecho, valiente héroe! Te acuerdas de todo de la Unidad Dos. ¡Felicitaciones, vas a mitad de camino!', pron:"uél dan, bréiv jírou! iú rimémber évrizin fram iúnit tú. congrachuléishons, iór jáfuei dér!"}
   ],
   30: [
     {en:'Our budget was twenty gold coins, but the flying castle final price was approximately one thousand!', es:'Nuestro presupuesto era veinte monedas de oro, ¡pero el precio final del castillo volador fue aproximadamente mil!', pron:'áur báchet uas tuénti góuld cóins, bat de fláing cásols fáinal práis uas apráximetli uán záusand!'},
@@ -845,20 +845,20 @@ const weeklyStories = {
     {en:'For breakfast, a thousand eggs — and in our follow-up meeting, the milestone is finally on track!', es:'De desayuno, mil huevos — ¡y en nuestra reunión de seguimiento, el hito por fin va bien encaminado!', pron:'for brékfast, a záusand egs — and in áur fálou ap míiting, de máilstoun is fáinali on trak!'}
   ],
   48: [
-    {en:"Can you repeat that? Got it, no worries — either way, let's continue!", es:'¿Podés repetir eso? Entendido, no hay problema — de cualquier forma, ¡sigamos!', pron:"can iú ripít dat? gát it, nóu uéris — íder uéi, lets cantíniu!"},
+    {en:"Can you repeat that? Got it, no worries — either way, let's continue!", es:'¿Puedes repetir eso? Entendido, no hay problema — de cualquier forma, ¡sigamos!', pron:"can iú ripít dat? gát it, nóu uéris — íder uéi, lets cantíniu!"},
     {en:"The wizard's potions are gluten-free, and the responsible person took notes for the minutes.", es:'Las pociones del mago son sin gluten, y la persona responsable tomó notas para la minuta.', pron:"de uísards póushons ar glúten fríi, and de rispánsibol pérson tuk nóuts for de mínits."},
     {en:'The giant baked a cake as tall as a castle — in conclusion, here is our action plan!', es:'El gigante horneó una torta tan alta como un castillo — ¡en conclusión, acá está nuestro plan de acción!', pron:'de yáiant béikt a quéik as tol as a cásol — in canclúshon, jíar is áur ákshon plan!'},
     {en:'At the giant supermarket, we had a supplier meeting with fresh dragon fruit and a magic catalog.', es:'En el supermercado gigante, tuvimos una reunión con el proveedor con fruta de dragón fresca y un catálogo mágico.', pron:'at de yáiant súpermarket, uí jad a sapláier míiting uid fresh drágon frúut and a máyic cátalog.'},
     {en:'A little water, a lot of gold — we got budget approval for the biggest investment yet!', es:'Un poco de agua, mucho oro — ¡conseguimos la aprobación de presupuesto para la inversión más grande hasta ahora!', pron:'a lítol uáter, a lat of góuld — uí gat báchet apruvol for de bíguest invéstment iét!'},
-    {en:'One third of the journey is done — keep learning, hero, see you in unit five!', es:'Un tercio del viaje está hecho — ¡seguí aprendiendo, héroe, nos vemos en la unidad cinco!', pron:'uán zerd of de yérni is dan — kíip lérning, jírou, síi iú in iúnit fáiv!'}
+    {en:'One third of the journey is done — keep learning, hero, see you in unit five!', es:'Un tercio del viaje está hecho — ¡sigue aprendiendo, héroe, nos vemos en la unidad cinco!', pron:'uán zerd of de yérni is dan — kíip lérning, jírou, síi iú in iúnit fáiv!'}
   ],
   54: [
     {en:'Let me try on this magic armor — does it fit, or is it too big?', es:'Dejame probarme esta armadura mágica — ¿me queda bien, o es muy grande?', pron:'let mi trái on dis máyic ármor — das it fit, or is it tu big?'},
-    {en:"Can you lower the price, dragon? Let's bargain and negotiate terms!", es:'¿Podés bajar el precio, dragón? ¡Regateemos y negociemos los términos!', pron:'can iú lóuar de práis, drágon? lets bárguen and nigóushieit terms!'},
+    {en:"Can you lower the price, dragon? Let's bargain and negotiate terms!", es:'¿Puedes bajar el precio, dragón? ¡Regateemos y negociemos los términos!', pron:'can iú lóuar de práis, drágon? lets bárguen and nigóushieit terms!'},
     {en:'I want to return this broken dragon egg — please issue an invoice today.', es:'Quiero devolver este huevo de dragón roto — por favor emitan una factura hoy.', pron:'ái uánt tu ritérn dis bróuken drágon eg — plíis íshu an ínvois tudéi.'},
     {en:'Is this covered by warranty, or is there a late fee?', es:'¿Esto está cubierto por la garantía, o hay un recargo por mora?', pron:'is dis cávard bái uáranti, or is dér a léit fíi?'},
     {en:'Swipe the card, or pay cash only — the transaction ID is written in the stars.', es:'Deslizá la tarjeta, o pagá solo en efectivo — el número de transacción está escrito en las estrellas.', pron:'suáip de card, or péi cash óunli — de transácshon ái díi is ríten in de stars.'},
-    {en:'Add to cart, and enjoy this completely secure payment!', es:'Agregá al carrito, ¡y disfrutá este pago completamente seguro!', pron:'ad tu cart, and enyói dis camplítli sekiúr péiment!'}
+    {en:'Add to cart, and enjoy this completely secure payment!', es:'Agrega al carrito, ¡y disfruta este pago completamente seguro!', pron:'ad tu cart, and enyói dis camplítli sekiúr péiment!'}
   ],
   60: [
     {en:'As far as I know, to be honest, this shirt is too small for a dragon!', es:'Que yo sepa, para ser honesto, ¡esta camisa es muy chica para un dragón!', pron:'as far as ái nóu, tu bi ánest, dis shert is tu smol for a drágon!'},
@@ -868,7 +868,7 @@ const weeklyStories = {
     {en:"Steady progress, brave hero — don't give up, you're almost at unit six!", es:'Progreso constante, valiente héroe — ¡no te rindas, ya casi estás en la unidad seis!', pron:'stédi prágres, bréiv jírou — dont guiv ap, iór ólmoust at iúnit six!'}
   ],
   66: [
-    {en:'Excuse me, how do I get to the post office? Turn left at the volcano!', es:'Disculpe, ¿cómo llego al correo? ¡Doblá a la izquierda en el volcán!', pron:'exquiúsmi, jáu du ái guét tu de póust áfis? tern left at de valkéinou!'},
+    {en:'Excuse me, how do I get to the post office? Turn left at the volcano!', es:'Disculpe, ¿cómo llego al correo? ¡Dobla a la izquierda en el volcán!', pron:'exquiúsmi, jáu du ái guét tu de póust áfis? tern left at de valkéinou!'},
     {en:"Let's track an order — it's in transit, and out for delivery!", es:'Rastreemos un pedido — ¡está en tránsito, y en reparto!', pron:'lets trak an órder — its in tránsit, and áut for delíveri!'},
     {en:'Should we take the train, or choose a flying carrier instead?', es:'¿Tomamos el tren, o elegimos un transportista volador en su lugar?', pron:'shud uí téik de tréin, or chúus a fláing cárier instéd?'},
     {en:'At the airport, customs asked about the country of origin.', es:'En el aeropuerto, la aduana preguntó sobre el país de origen.', pron:'at de érport, cástoms askt abáut de cántri of óriyin.'},
@@ -876,11 +876,11 @@ const weeklyStories = {
     {en:'Even the most remote landmark gets same-day delivery in our coverage area!', es:'¡Hasta el punto de referencia más alejado tiene entrega el mismo día en nuestra área de cobertura!', pron:'íven de móust rimóut lándmark guéts séim déi delíveri in áur cáverich éria!'}
   ],
   72: [
-    {en:"Just follow the signs — you can't miss it, even during rush hour!", es:'Solo seguí las señales — no te lo vas a perder, ¡ni siquiera en hora pico!', pron:'yast fálou de sáins — iú cant mis it, íven dúring rash áuar!'},
+    {en:"Just follow the signs — you can't miss it, even during rush hour!", es:'Solo sigue las señales — no te lo vas a perder, ¡ni siquiera en hora pico!', pron:'yast fálou de sáins — iú cant mis it, íven dúring rash áuar!'},
     {en:'The supply chain is back on track — no more backorders!', es:'La cadena de suministro está de nuevo en marcha — ¡no más pedidos pendientes!', pron:'de sapláichéin is bak on trak — nóu mor bákorders!'},
     {en:'I rented a car with a full tank, and hired the best carrier in the kingdom.', es:'Alquilé un auto con el tanque lleno, y contraté al mejor transportista del reino.', pron:'ái réntid a car uid a ful tank, and jáiard de best cárier in de kíngdom.'},
     {en:'Fragile! Handle with care, and send it straight to the loading dock.', es:'¡Frágil! Manejar con cuidado, y enviarlo directo al muelle de carga.', pron:'fráyail! jándol uid quér, and send it stréit tu de lóuding dak.'},
-    {en:'Fly north or south, follow the optimal route, and dispatch to the whole kingdom!', es:'Volá al norte o al sur, seguí la ruta óptima, ¡y despachá a todo el reino!', pron:'flái norz or sáuz, fálou de áptimal rúut, and díspach tu de jóul kíngdom!'},
+    {en:'Fly north or south, follow the optimal route, and dispatch to the whole kingdom!', es:'Vuela al norte o al sur, sigue la ruta óptima, ¡y despacha a todo el reino!', pron:'flái norz or sáuz, fálou de áptimal rúut, and díspach tu de jóul kíngdom!'},
     {en:'Great job so far — more than a third done. See you in the next unit!', es:'Muy buen trabajo hasta ahora — más de un tercio hecho. ¡Nos vemos en la próxima unidad!', pron:'gréit yab sóu far — mor dan a zerd dan. síi iú in de next iúnit!'}
   ]
 };
@@ -1045,7 +1045,7 @@ let micGranted=false, alreadyCompletedView=false;
 const gate=document.getElementById('gate'), gateBtn=document.getElementById('gateBtn'), gateStatus=document.getElementById('gateStatus');
 gateBtn.addEventListener('click', async ()=>{
   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
-    gateStatus.textContent='Tu navegador no soporta micrófono aquí. Podés escribir tus respuestas.';
+    gateStatus.textContent='Tu navegador no soporta micrófono aquí. Puedes escribir tus respuestas.';
     micGranted=false; setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1400); return;
   }
   gateStatus.textContent='Pidiendo permiso...';
@@ -1056,7 +1056,7 @@ gateBtn.addEventListener('click', async ()=>{
     localStorage.setItem('mic_ever_granted','1');
     setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},500);
   }catch(err){
-    micGranted=false; gateStatus.textContent='No se concedió el permiso. Podés escribir tus respuestas.';
+    micGranted=false; gateStatus.textContent='No se concedió el permiso. Puedes escribir tus respuestas.';
     setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1800);
   }
 });
@@ -1210,7 +1210,7 @@ function loadTurn(){
   if(turn.kind==='fillBlankDialogue'){ runFillBlankDialogue(turn); return; }
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
-      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
+      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabes ahora. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🏆';
     } else {
       turn.segs = [{t:'Ahora te toca a ti: mira el ejemplo de abajo, y después arma tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
@@ -1428,7 +1428,7 @@ function runFillBlankDialogue(turn){
 
   illusEl.textContent='✍️';
   setSegs(lineEl,[{t:'Ahora completá lo que dice el '+(turn.mode==='maestro'?'Profesor':'Alumno')+', usando lo que recordás del diálogo.',lang:'es'}]);
-  hintEl.textContent='Podés escuchar la pronunciación de cualquier palabra que falta, las veces que quieras — no resta nada.';
+  hintEl.textContent='Puedes escuchar la pronunciación de cualquier palabra que falta, las veces que quieras — no resta nada.';
 
   const fbPlayer=document.getElementById('fillBlankPlayer'), fbTitle=document.getElementById('fillBlankTitle'), transcript=document.getElementById('fillBlankTranscript'), current=document.getElementById('fillBlankCurrent');
   fbPlayer.style.display='block';
@@ -1571,11 +1571,11 @@ function runDialogueReinforcement(turn){
   // ===== Paso 1: elegir con qué personaje practicás =====
   function showRoleSelector(){
     setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y el Alumno dragón.',lang:'es'}]);
-    hintEl.textContent='Elegí con cuál de los dos personajes querés practicar hablando. Vas a escuchar las líneas del otro personaje como contexto, y vas a grabar las tuyas.';
+    hintEl.textContent='Elegí con cuál de los dos personajes quieres practicar hablando. Vas a escuchar las líneas del otro personaje como contexto, y vas a grabar las tuyas.';
     turnBox.innerHTML='';
     const wrap = document.createElement('div'); wrap.style.cssText='display:flex; flex-direction:column; gap:10px; align-items:center;';
     const title = document.createElement('div'); title.style.cssText='font-size:14px; color:var(--muted); margin-bottom:4px;';
-    title.textContent='¿Con qué personaje querés practicar hoy?';
+    title.textContent='¿Con qué personaje quieres practicar hoy?';
     const btnMaestro = document.createElement('button'); btnMaestro.className='mic dlg-turn-btn maestro'; btnMaestro.textContent='🎓 Practicar como Profesor';
     const btnAlumno = document.createElement('button'); btnAlumno.className='mic dlg-turn-btn alumno'; btnAlumno.textContent='🐉 Practicar como Alumno';
     btnMaestro.onclick=()=>{ myRole='maestro'; startDialogue(); };
@@ -1587,7 +1587,7 @@ function runDialogueReinforcement(turn){
   function startDialogue(){
     const meta = speakerMeta(myRole);
     setSegs(lineEl,[{t:'Estás practicando como '+meta.label+'. Escuchá cada línea — cuando sea tu turno, grabá tu respuesta antes de seguir.',lang:'es'}]);
-    hintEl.textContent='Podés escuchar tu grabación las veces que quieras. Si no te convence, borrala y grabala de nuevo antes de guardar y avanzar.';
+    hintEl.textContent='Puedes escuchar tu grabación las veces que quieras. Si no te convence, bórrala y grábala de nuevo antes de guardar y avanzar.';
     playAllBtn.style.display='inline-flex'; pauseBtn.style.display='inline-flex'; pauseBtn.textContent='⏹ Detener audio';
     renderTurnButton();
   }
@@ -1612,7 +1612,7 @@ function runDialogueReinforcement(turn){
 
     const label = document.createElement('div');
     label.style.cssText='text-align:center; font-size:13px; color:var(--muted); margin-bottom:8px;';
-    label.textContent = esMiTurno ? '👉 Ahora te toca hablar a vos, como '+meta.label : 'Turno de '+meta.label+' — leelo y escuchalo';
+    label.textContent = esMiTurno ? '👉 Ahora te toca hablar a ti, como '+meta.label : 'Turno de '+meta.label+' — leelo y escuchalo';
     turnBox.appendChild(label);
 
     const lineBoxId = 'dlgTurnEn'+idxLine;
@@ -2003,7 +2003,7 @@ function runPractica(turn){
     else if(score>=total*0.57) msg='Vas por buen camino. Repasá especialmente lo que falló, y repetí esta práctica cuando quieras.';
     else msg='Cada intento te acerca más — repasá con calma, y volvé a intentarlo las veces que necesites.';
     if(turn.day===168) msg += ' Este fue tu último repaso antes del examen de hito — ¡confiá en todo lo que aprendiste!';
-    hintEl.textContent=msg+' Podés repetir esta práctica cuantas veces quieras.';
+    hintEl.textContent=msg+' Puedes repetir esta práctica cuantas veces quieras.';
     feedback.classList.remove('show');
     nextControls.style.display='flex';
     nextBtn.textContent='📥 Descargar mi práctica';
@@ -2435,7 +2435,7 @@ function enterReview(i){
   const turn=script[i];
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
-      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabés ahora. Primero hablada, después escrita.',lang:'es'}];
+      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabes ahora. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🏆';
     } else {
       turn.segs = [{t:'Ahora te toca a ti: mira el ejemplo de abajo, y después arma tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];

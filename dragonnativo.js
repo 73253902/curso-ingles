@@ -20,7 +20,7 @@ const FIJAS_FASE1 = {
   ],
   outro: [
     {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
-    {en:"Keep practicing until the end,", es:"Seguí practicando hasta el final.", pron:"kíip práctising antíl de end,"}
+    {en:"Keep practicing until the end,", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end,"}
   ]
 };
 
@@ -29,13 +29,13 @@ const FASE1_SEMANAS = [
     estrofa1:{label:"Nuevas", lineas:[
       {en:"Sorry,", es:"Perdón,", pron:"sóri,"},
       {en:"I didn't catch that,", es:"no escuché bien,", pron:"ái dídnt cach dat,"},
-      {en:"Can you say that again?", es:"¿Podés repetir?", pron:"can iú séi dat aguén?"},
+      {en:"Can you say that again?", es:"¿Puedes repetir?", pron:"can iú séi dat aguén?"},
       {en:"I need a minute...", es:"Necesito un minuto...", pron:"ái níid a mínit..."},
       {en:"I'll be right back!", es:"¡Ya vuelvo!", pron:"áil bi ráit bak!"}
     ]},
     estrofa2:{label:"La escena sigue", lineas:[
       {en:"I'm back now, sorry about that,", es:"Ya volví, perdón por eso,", pron:"áim bak náu, sóri abáut dat,"},
-      {en:"Can you say that again, one more time?", es:"¿Podés repetir, una vez más?", pron:"can iú séi dat aguén, uán mor táim?"},
+      {en:"Can you say that again, one more time?", es:"¿Puedes repetir, una vez más?", pron:"can iú séi dat aguén, uán mor táim?"},
       {en:"I didn't catch it, but now I understand,", es:"No escuché bien, pero ahora entiendo,", pron:"ái dídnt cach it, bat náu ái anderstánd,"},
       {en:"Thank you for waiting, my friend!", es:"¡Gracias por esperar, amigo!", pron:"zenk iú for uéiting, mái frend!"}
     ]}
@@ -57,20 +57,20 @@ const FASE1_SEMANAS = [
   },
   { numero:3, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"I agree with you,", es:"Estoy de acuerdo con vos,", pron:"ái agríi uid iú,"},
+      {en:"I agree with you,", es:"Estoy de acuerdo contigo,", pron:"ái agríi uid iú,"},
       {en:"but he disagrees,", es:"pero él no está de acuerdo,", pron:"bat ji disagríis,"},
       {en:"No worries,", es:"No hay problema,", pron:"nóu uóris,"},
       {en:"take your time to decide!", es:"¡Tomate tu tiempo para decidir!", pron:"téik iór táim tu disáid!"}
     ]},
     estrofa2:{label:"Repaso Semana 1", lineas:[
       {en:"Sorry, I didn't catch that,", es:"Perdón, no escuché bien,", pron:"sóri, ái dídnt cach dat,"},
-      {en:"can you say that again?", es:"¿podés repetir?", pron:"can iú séi dat aguén?"},
+      {en:"can you say that again?", es:"¿puedes repetir?", pron:"can iú séi dat aguén?"},
       {en:"I need a minute, I'll be right back!", es:"¡Necesito un minuto, ya vuelvo!", pron:"ái níid a mínit, áil bi ráit bak!"}
     ]}
   },
   { numero:4, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"What do you mean?", es:"¿Qué querés decir?", pron:"uát du iú míin?"},
+      {en:"What do you mean?", es:"¿Qué quieres decir?", pron:"uát du iú míin?"},
       {en:"Oh, now I see!", es:"¡Ah, ya veo!", pron:"óu, náu ái síi!"},
       {en:"That sounds good to me,", es:"Me suena bien eso,", pron:"dat sáunds gud tu mi,"},
       {en:"not right now, but soon!", es:"¡Ahora no, pero pronto!", pron:"nat ráit náu, bat súun!"}
@@ -100,7 +100,7 @@ const FASE1_SEMANAS = [
       {en:"Give me a second, hold that thought!", es:"¡Dame un segundo, esperá esa idea!", pron:"guiv mi a sécond, jóuld dat zot!"}
     ]},
     estrofa2:{label:"Repaso Semana 4", lineas:[
-      {en:"What do you mean? Oh, now I see,", es:"¿Qué querés decir? Ah, ya veo,", pron:"uát du iú míin? óu, náu ái síi,"},
+      {en:"What do you mean? Oh, now I see,", es:"¿Qué quieres decir? Ah, ya veo,", pron:"uát du iú míin? óu, náu ái síi,"},
       {en:"that sounds good to me!", es:"¡me suena bien eso!", pron:"dat sáunds gud tu mi!"}
     ]}
   },
@@ -148,7 +148,7 @@ const FASE1_SEMANAS = [
   },
   { numero:10, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"I see what you mean,", es:"Entiendo lo que querés decir,", pron:"ái síi uát iú míin,"},
+      {en:"I see what you mean,", es:"Entiendo lo que quieres decir,", pron:"ái síi uát iú míin,"},
       {en:"that's interesting!", es:"¡eso es interesante!", pron:"dats íntresting!"},
       {en:"Tell me more,", es:"Contame más,", pron:"tel mi mor,"},
       {en:"I'd love to hear it!", es:"¡me encantaría escucharlo!", pron:"áid lav tu jíar it!"}
@@ -178,11 +178,11 @@ const FASE1_SEMANAS = [
       {en:"I'm on it!", es:"¡ya me pongo con eso!", pron:"áim on it!"}
     ]},
     estrofa2:{label:"Repaso Semana 10", lineas:[
-      {en:"I see what you mean, that's interesting,", es:"Entiendo lo que querés decir, es interesante,", pron:"ái síi uát iú míin, dats íntresting,"},
+      {en:"I see what you mean, that's interesting,", es:"Entiendo lo que quieres decir, es interesante,", pron:"ái síi uát iú míin, dats íntresting,"},
       {en:"tell me more, I'd love to hear it!", es:"¡contame más, me encantaría escucharlo!", pron:"tel mi mor, áid lav tu jíar it!"}
     ]},
     puente:{label:"Repaso profundo — Semana 6", lineas:[
-      {en:"What do you mean? Oh, now I see,", es:"¿Qué querés decir? Ah, ya veo,", pron:"uát du iú míin? óu, náu ái síi,"},
+      {en:"What do you mean? Oh, now I see,", es:"¿Qué quieres decir? Ah, ya veo,", pron:"uát du iú míin? óu, náu ái síi,"},
       {en:"that sounds good to me!", es:"¡me suena bien eso!", pron:"dat sáunds gud tu mi!"}
     ]}
   },
@@ -234,7 +234,7 @@ const FASE1_SEMANAS = [
       {en:"never mind, it's not important!", es:"¡no importa, no es importante!", pron:"néver máind, its nat impórtant!"}
     ]},
     puente:{label:"Repaso profundo — Semana 10", lineas:[
-      {en:"I see what you mean, that's interesting,", es:"Entiendo lo que querés decir, es interesante,", pron:"ái síi uát iú míin, dats íntresting,"},
+      {en:"I see what you mean, that's interesting,", es:"Entiendo lo que quieres decir, es interesante,", pron:"ái síi uát iú míin, dats íntresting,"},
       {en:"tell me more, I'd love to hear it!", es:"¡contame más, me encantaría escucharlo!", pron:"tel mi mor, áid lav tu jíar it!"}
     ]}
   },
@@ -276,8 +276,8 @@ const FASE1_SEMANAS = [
   },
   { numero:20, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"Take care!", es:"¡Cuidate!", pron:"téik quér!"},
-      {en:"You too!", es:"¡Vos también!", pron:"iú tú!"},
+      {en:"Take care!", es:"¡Cuídate!", pron:"téik quér!"},
+      {en:"You too!", es:"¡Tú también!", pron:"iú tú!"},
       {en:"See you around,", es:"Nos vemos por ahí,", pron:"síi iú aráund,"},
       {en:"have a good one!", es:"¡que la pases bien!", pron:"jav a gud uán!"}
     ]},
@@ -292,7 +292,7 @@ const FASE1_SEMANAS = [
   },
   { numero:21, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"Do you need anything?", es:"¿Necesitás algo?", pron:"du iú níid énizing?"},
+      {en:"Do you need anything?", es:"¿Necesitas algo?", pron:"du iú níid énizing?"},
       {en:"I'm all set,", es:"Estoy bien así,", pron:"áim ol set,"},
       {en:"just checking,", es:"solo estaba revisando,", pron:"yast chéking,"},
       {en:"appreciate it!", es:"¡lo aprecio!", pron:"aprísheit it!"}
@@ -310,7 +310,7 @@ const FASE1_SEMANAS = [
       {en:"just to be sure!", es:"¡solo para estar seguro!", pron:"yast tu bi shur!"}
     ]},
     estrofa2:{label:"Repaso Semana 20", lineas:[
-      {en:"Take care, you too,", es:"¡Cuidate! ¡Vos también!", pron:"téik quér, iú tú,"},
+      {en:"Take care, you too,", es:"¡Cuídate! ¡Tú también!", pron:"téik quér, iú tú,"},
       {en:"see you around, have a good one!", es:"¡nos vemos por ahí, que la pases bien!", pron:"síi iú aráund, jav a gud uán!"}
     ]}
   },
@@ -322,7 +322,7 @@ const FASE1_SEMANAS = [
       {en:"all set then!", es:"¡listo entonces!", pron:"ol set den!"}
     ]},
     estrofa2:{label:"Repaso Semana 21", lineas:[
-      {en:"Do you need anything? I'm all set,", es:"¿Necesitás algo? Estoy bien así,", pron:"du iú níid énizing? áim ol set,"},
+      {en:"Do you need anything? I'm all set,", es:"¿Necesitas algo? Estoy bien así,", pron:"du iú níid énizing? áim ol set,"},
       {en:"just checking, appreciate it!", es:"¡solo estaba revisando, lo aprecio!", pron:"yast chéking, aprísheit it!"}
     ]}
   },
@@ -330,7 +330,7 @@ const FASE1_SEMANAS = [
     estrofa1:{label:"Nuevas", lineas:[
       {en:"Congratulations!", es:"¡Felicitaciones!", pron:"congrachuléishons!"},
       {en:"Thank you so much!", es:"¡Muchas gracias!", pron:"zenk iú sóu mach!"},
-      {en:"You earned it,", es:"Te lo merecés,", pron:"iú érnd it,"},
+      {en:"You earned it,", es:"Te lo mereces,", pron:"iú érnd it,"},
       {en:"well deserved!", es:"¡bien merecido!", pron:"uél disérvd!"}
     ]},
     estrofa2:{label:"Repaso Semana 22", lineas:[
@@ -358,12 +358,12 @@ const FASE1_SEMANAS = [
     estrofa1:{label:"Nuevas", lineas:[
       {en:"I really appreciate this,", es:"De verdad aprecio esto,", pron:"ái ríli aprísheit dis,"},
       {en:"it means a lot,", es:"significa mucho,", pron:"it míins a lat,"},
-      {en:"you're very kind,", es:"sos muy amable,", pron:"iór véri káind,"},
+      {en:"you're very kind,", es:"eres muy amable,", pron:"iór véri káind,"},
       {en:"thank you again!", es:"¡gracias otra vez!", pron:"zenk iú aguén!"}
     ]},
     estrofa2:{label:"Repaso Semana 24", lineas:[
       {en:"Congratulations! Thank you so much!", es:"¡Felicitaciones! ¡Muchas gracias!", pron:"congrachuléishons! zenk iú sóu mach!"},
-      {en:"You earned it, well deserved!", es:"¡Te lo merecés, bien merecido!", pron:"iú érnd it, uél disérvd!"}
+      {en:"You earned it, well deserved!", es:"¡Te lo mereces, bien merecido!", pron:"iú érnd it, uél disérvd!"}
     ]}
   },
   { numero:27, audio:null,
@@ -380,14 +380,14 @@ const FASE1_SEMANAS = [
   },
   { numero:28, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"I couldn't have done it without you,", es:"No podría haberlo hecho sin vos,", pron:"ái cúdnt jav dan it uidáut iú,"},
+      {en:"I couldn't have done it without you,", es:"No podría haberlo hecho sin ti,", pron:"ái cúdnt jav dan it uidáut iú,"},
       {en:"teamwork!", es:"¡trabajo en equipo!", pron:"tíimuork!"},
       {en:"We did it together,", es:"Lo hicimos juntos,", pron:"uí did it tugéder,"},
       {en:"that's what counts!", es:"¡eso es lo que importa!", pron:"dats uát cáunts!"}
     ]},
     estrofa2:{label:"Repaso Semana 26", lineas:[
       {en:"I really appreciate this, it means a lot,", es:"De verdad aprecio esto, significa mucho,", pron:"ái ríli aprísheit dis, it míins a lat,"},
-      {en:"you're very kind, thank you again!", es:"¡sos muy amable, gracias otra vez!", pron:"iór véri káind, zenk iú aguén!"}
+      {en:"you're very kind, thank you again!", es:"¡eres muy amable, gracias otra vez!", pron:"iór véri káind, zenk iú aguén!"}
     ]},
     puente:{label:"Repaso profundo — Semana 22", lineas:[
       {en:"Is everything okay? Yes, all good,", es:"¿Está todo bien? ¡Sí, todo bien!", pron:"is évrizing oukéi? iés, ol gud,"},
@@ -411,7 +411,7 @@ const FASE1_SEMANAS = [
       {en:"You made it all the way,", es:"Llegaste hasta el final,", pron:"iú méid it ol de uéi,"},
       {en:"one hundred twenty phrases,", es:"ciento veinte frases,", pron:"uán jándred tuénti fréisis,"},
       {en:"every single one,", es:"cada una de ellas,", pron:"évri síngol uán,"},
-      {en:"now part of you!", es:"¡ahora son parte de vos!", pron:"náu part of iú!"}
+      {en:"now part of you!", es:"¡ahora son parte de ti!", pron:"náu part of iú!"}
     ]},
     estrofa2:{label:"Repaso Semana 29", lineas:[
       {en:"We're almost there, just one more step,", es:"Ya casi llegamos, un paso más,", pron:"uír ólmoust dér, yast uán mor step,"},
@@ -425,7 +425,7 @@ const FASE1_SEMANAS = [
     ]},
     outroOverride: [
       {en:"See you in Phase Two, dragon friend,", es:"Nos vemos en la Fase Dos, amigo dragón,", pron:"síi iú in féis tú, drágon frend,"},
-      {en:"Keep practicing until the end,", es:"Seguí practicando hasta el final.", pron:"kíip práctising antíl de end,"}
+      {en:"Keep practicing until the end,", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end,"}
     ]
   }
 ];
@@ -607,7 +607,7 @@ const dragonNativo = {
   }
 
   function showReviewSummary(){
-    el('dnReviewPrompt').innerHTML = '<b>Resultado: '+reviewOk+' de '+reviewGraded+'</b><br><span style="color:var(--muted);font-size:13px;">Podés repetir este repaso cuantas veces quieras.</span>';
+    el('dnReviewPrompt').innerHTML = '<b>Resultado: '+reviewOk+' de '+reviewGraded+'</b><br><span style="color:var(--muted);font-size:13px;">Puedes repetir este repaso cuantas veces quieras.</span>';
     el('dnReviewListenBtn').style.display='none';
     el('dnReviewInput').style.display='none';
     el('dnReviewSendBtn').style.display='none';

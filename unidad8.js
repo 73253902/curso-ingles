@@ -12,7 +12,7 @@ const curriculumUnidad8 = [
       ], function:'hablar de tu experiencia en una entrevista', stage:2,
         transformations:{
           negative:{en:"I don't have experience in sales.", es:'No tengo experiencia en ventas.'},
-          question:{en:'Do you have experience in sales?', es:'¿Tenés experiencia en ventas?'},
+          question:{en:'Do you have experience in sales?', es:'¿Tienes experiencia en ventas?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -36,7 +36,7 @@ const curriculumUnidad8 = [
       {en:'What are your strengths and weaknesses, candidate?', es:'¿Cuáles son tus fortalezas y debilidades, candidato?', pron:'uát ar iór strenz and uíknesses, cándideit?'},
       {en:'My strength is breathing fire efficiently, and my weakness is I sleep for a hundred years.', es:'Mi fortaleza es respirar fuego eficientemente, y mi debilidad es que duermo cien años.', pron:'mái strenz is bríizing fáiar efíshentli, and mái uíknes is ái slíip for a jándred íars.'},
       {en:'What are your salary expectations, and what is your availability?', es:'¿Cuáles son tus expectativas salariales, y cuál es tu disponibilidad?', pron:'uát ar iór sálari expectéishons, and uát is iór aveilabíliti?'},
-      {en:'Do you have references? Congratulations — we would like to hire you, here is the job offer!', es:'¿Tenés referencias? ¡Felicitaciones — nos gustaría contratarte, acá está la oferta de trabajo!', pron:'du iú jav réferenses? congrachuléishons — uí uud láik tu jáiar iú, jíar is de yab áfer!'}
+      {en:'Do you have references? Congratulations — we would like to hire you, here is the job offer!', es:'¿Tienes referencias? ¡Felicitaciones — nos gustaría contratarte, acá está la oferta de trabajo!', pron:'du iú jav réferenses? congrachuléishons — uí uud láik tu jáiar iú, jíar is de yab áfer!'}
     ],
     jingle:[
       {en:'Resume, cover letter too!', es:'Currículum, ¡carta de presentación también!', pron:'réziumei, cáver léter tú!'},
@@ -56,7 +56,7 @@ const curriculumUnidad8 = [
       ], function:'decir de qué eres responsable', stage:2,
         transformations:{
           negative:{en:'I am not responsible for the sales team.', es:'No soy responsable del equipo de ventas.'},
-          question:{en:'Are you responsible for the sales team?', es:'¿Sos responsable del equipo de ventas?'},
+          question:{en:'Are you responsible for the sales team?', es:'¿Eres responsable del equipo de ventas?'},
           yesAnswer:{en:'Yes, I am.', es:'Sí.'},
           noAnswer:{en:"No, I'm not.", es:'No.'}
         }}
@@ -181,7 +181,7 @@ const curriculumUnidad8 = [
       ], function:'hablar de firmar documentos', stage:2,
         transformations:{
           negative:{en:"I don't need to sign the contract.", es:'No necesito firmar el contrato.'},
-          question:{en:'Do you need to sign the contract?', es:'¿Necesitás firmar el contrato?'},
+          question:{en:'Do you need to sign the contract?', es:'¿Necesitas firmar el contrato?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -244,7 +244,7 @@ const curriculumUnidad8 = [
       {en:'Our office culture values work-life balance — even dragons need rest!', es:'¡Nuestra cultura de oficina valora el equilibrio entre trabajo y vida — hasta los dragones necesitan descansar!', pron:'áur áfis cálcher váliuus uork láif bálans — íven drágons níid rest!'},
       {en:'Punctuality matters, but the dress code allows wings and scales.', es:'La puntualidad importa, pero el código de vestimenta permite alas y escamas.', pron:'panctualíti máters, bat de dres cóud alóus uíngs and skéils.'},
       {en:'We love small talk and direct communication, without too much hierarchy.', es:'Nos encanta la charla informal y la comunicación directa, sin demasiada jerarquía.', pron:'uí lav smol tok and diréct camiunikéishon, uidáut tu mach jáiararki.'},
-      {en:'Our feedback culture is honest — even if you breathe fire during a meeting!', es:'¡Nuestra cultura de retroalimentación es honesta — hasta si respirás fuego durante una reunión!', pron:'áur fíidbak cálcher is ánest — íven if iú bríiz fáiar dúring a míiting!'},
+      {en:'Our feedback culture is honest — even if you breathe fire during a meeting!', es:'¡Nuestra cultura de retroalimentación es honesta — hasta si respiras fuego durante una reunión!', pron:'áur fíidbak cálcher is ánest — íven if iú bríiz fáiar dúring a míiting!'},
       {en:'We offer remote work and flexible hours — fly whenever you want!', es:'¡Ofrecemos trabajo remoto y horario flexible — volá cuando quieras!', pron:'uí áfer rimóut uork and fléxibol áuars — flái uénever iú uánt!'}
     ],
     jingle:[
@@ -303,7 +303,7 @@ const curriculumUnidad8 = [
       ], function:'hablar de tus planes financieros', stage:2,
         transformations:{
           negative:{en:"I don't want to invest in stocks.", es:'No quiero invertir en acciones.'},
-          question:{en:'Do you want to invest in stocks?', es:'¿Querés invertir en acciones?'},
+          question:{en:'Do you want to invest in stocks?', es:'¿Quieres invertir en acciones?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -345,7 +345,7 @@ const curriculumUnidad8 = [
       ], function:'hablar de impuestos y contabilidad', stage:2,
         transformations:{
           negative:{en:"I don't need to file taxes yet.", es:'Todavía no necesito presentar impuestos.'},
-          question:{en:'Do you need to file taxes soon?', es:'¿Necesitás presentar impuestos pronto?'},
+          question:{en:'Do you need to file taxes soon?', es:'¿Necesitas presentar impuestos pronto?'},
           yesAnswer:{en:'Yes, before the deadline.', es:'Sí, antes de la fecha límite.'},
           noAnswer:{en:"No, not yet.", es:'No, todavía no.'}
         }}
@@ -447,7 +447,7 @@ const curriculumUnidad8 = [
       {en:'There is a conflict between the dragons — we need to resolve it fast!', es:'Hay un conflicto entre los dragones — ¡necesitamos resolverlo rápido!', pron:'dér is a cánflict bituín de drágons — uí níid tu risálv it fast!'},
       {en:'The mediator helped us find common ground — we both love gold!', es:'¡El mediador nos ayudó a encontrar un punto en común — a los dos nos encanta el oro!', pron:'de míidieitor jelpt as fáind cámon gráund — uí bóuz lav góuld!'},
       {en:"Let's listen actively, and keep a respectful tone during this discussion.", es:'Escuchemos activamente, y mantengamos un tono respetuoso durante esta discusión.', pron:"lets lísen áctivli, and kíip a rispéctful tóun dúring dis discúshon."},
-      {en:'Can you clarify what you meant by "my treasure, not yours"?', es:'¿Podés aclarar qué quisiste decir con "mi tesoro, no el tuyo"?', pron:'can iú clárifai uát iú ment bái "mái tréshur, nat iórs"?'},
+      {en:'Can you clarify what you meant by "my treasure, not yours"?', es:'¿Puedes aclarar qué quisiste decir con "mi tesoro, no el tuyo"?', pron:'can iú clárifai uát iú ment bái "mái tréshur, nat iórs"?'},
       {en:"Now let's move forward together, as friends!", es:'¡Ahora avancemos juntos, como amigos!', pron:"náu lets múuv fóruard tugéder, as frends!"}
     ],
     jingle:[
@@ -462,7 +462,7 @@ const curriculumUnidad8 = [
     structures:[
       {id:'S106', pattern:"This progress was well earned + [X]", examples:[
         {en:'Unit eight is done — more than half done now!', es:'La Unidad Ocho está lista — ¡ya más de la mitad hecha!', pron:'iúnit éit is dan — mor dan jaf dan náu!'},
-        {en:'Keep pushing — this progress was well earned.', es:'Seguí adelante — este progreso fue bien merecido.', pron:'kíip púshing — dis prógres uás uél érnd.'},
+        {en:'Keep pushing — this progress was well earned.', es:'Sigue adelante — este progreso fue bien merecido.', pron:'kíip púshing — dis prógres uás uél érnd.'},
         {en:"You're in the final stretch now.", es:'Ya estás en el tramo final ahora.', pron:"iór in de fáinal strech náu."},
         {en:'See you in unit nine, next unit!', es:'¡Nos vemos en la Unidad Nueve, la próxima unidad!', pron:'síi iú in iúnit náin, next iúnit!'}
       ], function:'cerrar la unidad reconociendo el progreso', stage:2,
@@ -476,7 +476,7 @@ const curriculumUnidad8 = [
     words:[
       {en:'unit eight', es:'unidad ocho', pron:'iúnit éit', emoji:'8️⃣'},
       {en:'more than half done', es:'más de la mitad hecho', pron:'mor dan jaf dan', emoji:'📊'},
-      {en:'keep pushing', es:'seguí esforzándote', pron:'kíip púshing', emoji:'💪'},
+      {en:'keep pushing', es:'sigue esforzándote', pron:'kíip púshing', emoji:'💪'},
       {en:'well earned', es:'bien merecido', pron:'uél érnd', emoji:'👏'},
       {en:'final stretch', es:'recta final', pron:'fáinal strech', emoji:'🏁'},
       {en:'see you in unit nine', es:'nos vemos en la unidad nueve', pron:'síi iú in iúnit náin', emoji:'➡️'},
@@ -484,13 +484,13 @@ const curriculumUnidad8 = [
     ],
     story:[
       {en:"Welcome to unit eight's closing chapter — more than half done, brave hero!", es:'¡Bienvenido al capítulo de cierre de la unidad ocho — más de la mitad hecho, valiente héroe!', pron:"uélcam tu iúnit éits clóusing cháptar — mor dan jaf dan, bréiv jírou!"},
-      {en:'Keep pushing — this is well earned progress!', es:'¡Seguí esforzándote — este es un progreso bien merecido!', pron:'kíip púshing — dis is uél érnd prágres!'},
+      {en:'Keep pushing — this is well earned progress!', es:'¡Sigue esforzándote — este es un progreso bien merecido!', pron:'kíip púshing — dis is uél érnd prágres!'},
       {en:'We are entering the final stretch of this legendary journey!', es:'¡Estamos entrando en la recta final de este viaje legendario!', pron:'uí ar éntering de fáinal strech of dis léyendari yérni!'},
       {en:'See you in unit nine, dragon trader!', es:'¡Nos vemos en la unidad nueve, comerciante de dragones!', pron:'síi iú in iúnit náin, drágon tréider!'}
     ],
     jingle:[
       {en:'Unit eight, more than half done!', es:'Unidad ocho, ¡más de la mitad hecho!', pron:'iúnit éit, mor dan jaf dan!'},
-      {en:'Keep pushing, well earned, having fun!', es:'Seguí esforzándote, bien merecido, ¡divirtiéndote!', pron:'kíip púshing, uél érnd, jávin fan!'},
+      {en:'Keep pushing, well earned, having fun!', es:'Sigue esforzándote, bien merecido, ¡divirtiéndote!', pron:'kíip púshing, uél érnd, jávin fan!'},
       {en:'Final stretch, almost there, my friend!', es:'Recta final, casi llegamos, ¡mi amigo!', pron:'fáinal strech, ólmoust dér, mái frend!'},
       {en:'See you in unit nine, till the end!', es:'Nos vemos en la unidad nueve, ¡hasta el final!', pron:'síi iú in iúnit náin, til de end!'}
     ]

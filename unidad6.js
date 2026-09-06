@@ -19,9 +19,9 @@ const curriculumUnidad6 = [
       {en:'excuse me', es:'disculpe', pron:'exquiúsmi', emoji:'🙋'},
       {en:'where is', es:'dónde está', pron:'uér is', emoji:'❓'},
       {en:'how do I get to', es:'cómo llego a', pron:'jáu du ái guét tu', emoji:'🗺️'},
-      {en:'turn left', es:'doblá a la izquierda', pron:'tern left', emoji:'⬅️'},
-      {en:'turn right', es:'doblá a la derecha', pron:'tern ráit', emoji:'➡️'},
-      {en:'go straight', es:'seguí derecho', pron:'góu stréit', emoji:'⬆️'},
+      {en:'turn left', es:'dobla a la izquierda', pron:'tern left', emoji:'⬅️'},
+      {en:'turn right', es:'dobla a la derecha', pron:'tern ráit', emoji:'➡️'},
+      {en:'go straight', es:'sigue derecho', pron:'góu stréit', emoji:'⬆️'},
       {en:"it's near", es:'está cerca', pron:'its níar', emoji:'📍'},
       {en:"it's far", es:'está lejos', pron:'its far', emoji:'📍'},
       {en:'block', es:'cuadra', pron:'blak', emoji:'🏙️'},
@@ -32,14 +32,14 @@ const curriculumUnidad6 = [
     ],
     story:[
       {en:'Excuse me, where is the dragon post office? How do I get there?', es:'Disculpe, ¿dónde está el correo de dragones? ¿Cómo llego ahí?', pron:'exquiúsmi, uér is de drágon póust áfis? jáu du ái guét dér?'},
-      {en:'Turn left at the volcano, then go straight past the rainbow!', es:'¡Doblá a la izquierda en el volcán, después seguí derecho pasando el arcoíris!', pron:'tern left at de valkéinou, den góu stréit past de réinbou!'},
+      {en:'Turn left at the volcano, then go straight past the rainbow!', es:'¡Dobla a la izquierda en el volcán, después sigue derecho pasando el arcoíris!', pron:'tern left at de valkéinou, den góu stréit past de réinbou!'},
       {en:"It's near the corner, one block past the giant's castle.", es:'Está cerca de la esquina, una cuadra pasando el castillo del gigante.', pron:'its níar de córner, uán blak past de yáiants cásol.'},
       {en:"Let's coordinate a shipment — pickup by dragon, please!", es:'Coordinemos un envío — ¡recogida en dragón, por favor!', pron:'lets cordinéit a shípment — píkap bái drágon, plíis!'}
     ],
     jingle:[
       {en:'Excuse me, where is the store?', es:'Disculpe, ¿dónde está la tienda?', pron:'exquiúsmi, uér is de stóar?'},
-      {en:'Turn left, turn right, and more!', es:'Doblá a la izquierda, doblá a la derecha, ¡y más!', pron:'tern left, tern ráit, and mor!'},
-      {en:"It's near, it's far, go straight!", es:'Está cerca, está lejos, ¡seguí derecho!', pron:'its níar, its far, góu stréit!'},
+      {en:'Turn left, turn right, and more!', es:'Dobla a la izquierda, dobla a la derecha, ¡y más!', pron:'tern left, tern ráit, and mor!'},
+      {en:"It's near, it's far, go straight!", es:'Está cerca, está lejos, ¡sigue derecho!', pron:'its níar, its far, góu stréit!'},
       {en:"Coordinate a shipment, don't be late!", es:'Coordiná un envío, ¡no llegues tarde!', pron:'cordinéit a shípment, dont bi léit!'}
     ]
   },
@@ -139,7 +139,7 @@ const curriculumUnidad6 = [
       ], function:'declarar algo en aduana', stage:2,
         transformations:{
           negative:{en:"I don't need to declare this item.", es:'No necesito declarar este artículo.'},
-          question:{en:'Do you need to declare this item?', es:'¿Necesitás declarar este artículo?'},
+          question:{en:'Do you need to declare this item?', es:'¿Necesitas declarar este artículo?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -160,7 +160,7 @@ const curriculumUnidad6 = [
     story:[
       {en:'Welcome to the dragon airport! Where is your flight, and your boarding pass?', es:'¡Bienvenido al aeropuerto de dragones! ¿Dónde está tu vuelo, y tu pase de abordar?', pron:'uélcam tu de drágon érport! uér is iór fláit, and iór bórding pas?'},
       {en:'My luggage is a thousand treasure chests — which gate, please?', es:'Mi equipaje son mil cofres del tesoro — ¿qué puerta de embarque, por favor?', pron:'mái láguich is a záusand tréshur chests — uích guéit, plíis?'},
-      {en:'Customs wants to know: do you import or export magic beans?', es:'La aduana quiere saber: ¿importás o exportás frijoles mágicos?', pron:'cástoms uánts tu nóu: du iú impórt or expórt máyic bíins?'},
+      {en:'Customs wants to know: do you import or export magic beans?', es:'La aduana quiere saber: ¿importas o exportas frijoles mágicos?', pron:'cástoms uánts tu nóu: du iú impórt or expórt máyic bíins?'},
       {en:'The tariff and customs declaration depend on the country of origin!', es:'¡El arancel y la declaración de aduana dependen del país de origen!', pron:'de tárif and cástoms declaréishon dipénd on de cántri of óriyin!'}
     ],
     jingle:[
@@ -181,7 +181,7 @@ const curriculumUnidad6 = [
       ], function:'decir qué documentos tienes', stage:2,
         transformations:{
           negative:{en:"I don't have the shipping guide.", es:'No tengo la guía de envío.'},
-          question:{en:'Do you have the shipping guide?', es:'¿Tenés la guía de envío?'},
+          question:{en:'Do you have the shipping guide?', es:'¿Tienes la guía de envío?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -259,7 +259,7 @@ const curriculumUnidad6 = [
       {id:'S096', pattern:"It's just around the corner from + [X]", examples:[
         {en:"It's just around the corner from here.", es:'Está justo a la vuelta de la esquina desde acá.', pron:"its yast aráund de córner fram jíar."},
         {en:"It's right here, not far from the office.", es:'Está justo acá, no lejos de la oficina.', pron:"its ráit jíar, nat far fram de áfis."},
-        {en:"It takes about five minutes — follow the signs.", es:'Toma unos cinco minutos — seguí las señales.', pron:"it téiks abáut fáiv mínits — fálou de sáins."},
+        {en:"It takes about five minutes — follow the signs.", es:'Toma unos cinco minutos — sigue las señales.', pron:"it téiks abáut fáiv mínits — fálou de sáins."},
         {en:"You passed it! It's over there, not here.", es:'¡Ya pasaste! Está allá, no acá.', pron:"iú past it! its óuver der, nat jíar."}
       ], function:'dar indicaciones de cercanía', stage:2,
         transformations:{
@@ -277,18 +277,18 @@ const curriculumUnidad6 = [
       {en:"it takes about", es:'tarda alrededor de', pron:'it téiks abáut', emoji:'⏱️'},
       {en:'not far from here', es:'no muy lejos de acá', pron:'nat far fram jíar', emoji:'📍'},
       {en:'just around the corner', es:'a la vuelta de la esquina', pron:'yast aráund de córner', emoji:'📐'},
-      {en:'follow the signs', es:'seguí las señales', pron:'fálou de sáins', emoji:'🪧'}
+      {en:'follow the signs', es:'sigue las señales', pron:'fálou de sáins', emoji:'🪧'}
     ],
     story:[
       {en:"Over there, right here — you're close, but you passed it!", es:'Por allá, justo acá — ¡estás cerca, pero ya lo pasaste!', pron:'óuver dér, ráit jíar — iór clóus, bat iú past it!'},
       {en:'It takes about five minutes, not far from here, just around the corner!', es:'Tarda alrededor de cinco minutos, no muy lejos de acá, ¡a la vuelta de la esquina!', pron:'it téiks abáut fáiv mínits, nat far fram jíar, yast aráund de córner!'},
-      {en:"Just follow the signs, dragon — you can't miss it!", es:'Solo seguí las señales, dragón — ¡no te lo vas a perder!', pron:'yast fálou de sáins, drágon — iú cant mis it!'}
+      {en:"Just follow the signs, dragon — you can't miss it!", es:'Solo sigue las señales, dragón — ¡no te lo vas a perder!', pron:'yast fálou de sáins, drágon — iú cant mis it!'}
     ],
     jingle:[
       {en:'Over there, right here, so close!', es:'Por allá, justo acá, ¡tan cerca!', pron:'óuver dér, ráit jíar, sóu clóus!'},
       {en:"You passed it, that's what I chose!", es:'Ya lo pasaste, ¡eso elegí!', pron:'iú past it, dats uát ái chóus!'},
       {en:'Not far from here, around the bend!', es:'No muy lejos de acá, ¡a la vuelta!', pron:'nat far fram jíar, aráund de bend!'},
-      {en:'Follow the signs, until the end!', es:'Seguí las señales, ¡hasta el final!', pron:'fálou de sáins, antíl de end!'}
+      {en:'Follow the signs, until the end!', es:'Sigue las señales, ¡hasta el final!', pron:'fálou de sáins, antíl de end!'}
     ]
   },
 {
@@ -343,7 +343,7 @@ const curriculumUnidad6 = [
       ], function:'decir a quién quieres contratar', stage:2,
         transformations:{
           negative:{en:"I don't want to hire this carrier.", es:'No quiero contratar este transportista.'},
-          question:{en:'Do you want to hire this carrier?', es:'¿Querés contratar este transportista?'},
+          question:{en:'Do you want to hire this carrier?', es:'¿Quieres contratar este transportista?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -443,7 +443,7 @@ const curriculumUnidad6 = [
       {en:'dispatch', es:'despacho', pron:'díspach', emoji:'📤'}
     ],
     story:[
-      {en:'Fly north, south, east, or west — which way to the castle?', es:'Volá al norte, sur, este, u oeste — ¿por dónde queda el castillo?', pron:'flái norz, sáuz, íist, or uést — uích uéi tu de cásol?'},
+      {en:'Fly north, south, east, or west — which way to the castle?', es:'Vuela al norte, sur, este, u oeste — ¿por dónde queda el castillo?', pron:'flái norz, sáuz, íist, or uést — uích uéi tu de cásol?'},
       {en:'Downtown is full of dragons; the outskirts are full of giants!', es:'¡El centro está lleno de dragones; las afueras están llenas de gigantes!', pron:'dáuntaun is ful of drágons; de áutskerts ar ful of yáiants!'},
       {en:'This is the delivery route, and this is the optimal route!', es:'¡Esta es la ruta de distribución, y esta es la ruta óptima!', pron:'dis is de delíveri rúut, and dis is de áptimal rúut!'},
       {en:'Multiple stops, one dispatch, and we deliver to the whole kingdom!', es:'¡Múltiples paradas, un despacho, y entregamos a todo el reino!', pron:'máltipol staps, uán díspach, and uí delíver tu de jóul kíngdom!'}
@@ -460,7 +460,7 @@ const curriculumUnidad6 = [
     structures:[
       {id:'S098', pattern:"I'm staying consistent with + [X]", examples:[
         {en:"I'm staying consistent with my practice.", es:'Me estoy manteniendo constante con mi práctica.', pron:"áim stéiing cansístent uid mái práctis."},
-        {en:'Great job so far — keep pushing!', es:'Buen trabajo hasta ahora — ¡seguí adelante!', pron:'gréit yab sóu far — kíip púshing!'},
+        {en:'Great job so far — keep pushing!', es:'Buen trabajo hasta ahora — ¡sigue adelante!', pron:'gréit yab sóu far — kíip púshing!'},
         {en:"You're doing great — more than a third done.", es:'Lo estás haciendo genial — más de un tercio hecho.', pron:"iór dúing gréit — mor dan a zerd dan."},
         {en:"I won't give up now.", es:'No me voy a rendir ahora.', pron:"ái uóunt giv ap náu."}
       ], function:'hablar de tu constancia con el estudio', stage:2,
@@ -474,7 +474,7 @@ const curriculumUnidad6 = [
     words:[
       {en:'unit six', es:'unidad seis', pron:'iúnit six', emoji:'6️⃣'},
       {en:'great job so far', es:'muy buen trabajo hasta ahora', pron:'gréit yab sóu far', emoji:'👏'},
-      {en:'keep pushing', es:'seguí esforzándote', pron:'kíip púshing', emoji:'💪'},
+      {en:'keep pushing', es:'sigue esforzándote', pron:'kíip púshing', emoji:'💪'},
       {en:"you're doing great", es:'lo estás haciendo genial', pron:'iór dúing gréit', emoji:'🌟'},
       {en:'more than a third', es:'más de un tercio', pron:'mor dan a zerd', emoji:'📊'},
       {en:'stay consistent', es:'mantené la constancia', pron:'stéi cansístent', emoji:'🔁'},
@@ -483,7 +483,7 @@ const curriculumUnidad6 = [
     ],
     story:[
       {en:"Welcome to unit six's grand finale, brave hero — great job so far!", es:'¡Bienvenido al gran final de la unidad seis, valiente héroe — muy buen trabajo hasta ahora!', pron:'uélcam tu iúnit síxis grand fináli, bréiv jírou — gréit yab sóu far!'},
-      {en:"Keep pushing, you're doing great — more than a third of the journey is done!", es:'¡Seguí esforzándote, lo estás haciendo genial — más de un tercio del viaje está hecho!', pron:'kíip púshing, iór dúing gréit — mor dan a zerd of de yérni is dan!'},
+      {en:"Keep pushing, you're doing great — more than a third of the journey is done!", es:'¡Sigue esforzándote, lo estás haciendo genial — más de un tercio del viaje está hecho!', pron:'kíip púshing, iór dúing gréit — mor dan a zerd of de yérni is dan!'},
       {en:'Stay consistent, dragon trader — see you in the next unit!', es:'Mantené la constancia, comerciante de dragones — ¡nos vemos en la próxima unidad!', pron:'stéi cansístent, drágon tréider — síi iú in de next iúnit!'}
     ],
     jingle:[

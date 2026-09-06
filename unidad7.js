@@ -12,7 +12,7 @@ const curriculumUnidad7 = [
       ], function:'hacer el check-in en un hotel', stage:2,
         transformations:{
           negative:{en:"I don't have a reservation.", es:'No tengo una reserva.'},
-          question:{en:'Do you have a reservation?', es:'¿Tenés una reserva?'},
+          question:{en:'Do you have a reservation?', es:'¿Tienes una reserva?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -34,10 +34,10 @@ const curriculumUnidad7 = [
       {en:'invoice for stay', es:'factura de la estadía', pron:'ínvois for stéi', emoji:'🧾'}
     ],
     story:[
-      {en:'Welcome to the Dragon Hotel! Do you have a reservation, brave traveler?', es:'¡Bienvenido al Hotel Dragón! ¿Tenés una reserva, valiente viajero?', pron:'uélcam tu de drágon jóutel! du iú jav a reservéishon, bréiv trávaler?'},
+      {en:'Welcome to the Dragon Hotel! Do you have a reservation, brave traveler?', es:'¡Bienvenido al Hotel Dragón! ¿Tienes una reserva, valiente viajero?', pron:'uélcam tu de drágon jóutel! du iú jav a reservéishon, bréiv trávaler?'},
       {en:'Check-in is at sunset, and check-out is whenever the volcano wakes up!', es:'El registro de entrada es al atardecer, ¡y el de salida es cuando se despierta el volcán!', pron:'chek in is at sánset, and chek áut is uénever de valkéinou uéiks ap!'},
       {en:'The receptionist is a friendly ghost at the front desk — here is your room key!', es:'La recepcionista es un fantasma amigable en la recepción — ¡aquí tienes tu llave!', pron:'de risépshonist is a fréndli góust at de frant desk — jíar is iór rúum kíi!'},
-      {en:'Would you like a single room, a double room, or the entire dragon suite?', es:'¿Querés una habitación individual, doble, o la suite dragón entera?', pron:'uud iú láik a síngol rúum, a dábol rúum, or de entáier drágon suíit?'},
+      {en:'Would you like a single room, a double room, or the entire dragon suite?', es:'¿Quieres una habitación individual, doble, o la suite dragón entera?', pron:'uud iú láik a síngol rúum, a dábol rúum, or de entáier drágon suíit?'},
       {en:'I would like to book a room for my business trip, at the corporate rate, please — and send the invoice for the stay!', es:'Quisiera reservar una habitación para mi viaje de negocios, a la tarifa corporativa, por favor — ¡y envíen la factura de la estadía!', pron:'ái uud láik tu buk a rúum for mái bísnes trip, at de córporeit réit, plíis — and send de ínvois for de stéi!'}
     ],
     jingle:[
@@ -58,7 +58,7 @@ const curriculumUnidad7 = [
       ], function:'pedir algo en el hotel', stage:2,
         transformations:{
           negative:{en:"I don't need more towels.", es:'No necesito más toallas.'},
-          question:{en:'Do you need more towels?', es:'¿Necesitás más toallas?'},
+          question:{en:'Do you need more towels?', es:'¿Necesitas más toallas?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -93,6 +93,20 @@ const curriculumUnidad7 = [
   },
 {
     day:75, unit:7, unitTitle:'Unidad 7 · Semanas 13-14', theme:'Emergencias médicas básicas / Seguro de viaje',
+    structures:[
+      {id:'S099', pattern:"I need an ambulance, help me please", examples:[
+        {en:'This is an emergency, I need an ambulance — help me please!', es:'¡Esto es una emergencia, necesito una ambulancia — ayúdenme por favor!', pron:'dis is an iméryensi, ái níid an ámbiulans — jelp mi plíis!'},
+        {en:'I need a doctor, or a nurse — there was an accident.', es:'Necesito un médico, o una enfermera — hubo un accidente.', pron:'ái níid a dáctor, or a ners — der uás an áksident.'},
+        {en:'I have a lot of pain, and a fever — take me to the hospital.', es:'Tengo mucho dolor, y fiebre — llévenme al hospital.', pron:'ái jav a lat of péin, and a fíver — téik mi tu de jáspital.'},
+        {en:"Check my travel insurance for medical coverage — I need to file a claim, here's my policy number.", es:'Revisen mi seguro de viaje para la cobertura médica — necesito presentar un reclamo, acá está mi número de póliza.', pron:"chek mái trável inshúrans for médical cáverach — ái níid tu fáil a kléim, jírs mái pálisi námber."}
+      ], function:'pedir ayuda en una emergencia médica', stage:2,
+        transformations:{
+          negative:{en:"This is not an emergency.", es:'Esto no es una emergencia.'},
+          question:{en:'Do you need an ambulance?', es:'¿Necesitas una ambulancia?'},
+          yesAnswer:{en:'Yes, right away.', es:'Sí, ahora mismo.'},
+          noAnswer:{en:"No, I'm okay.", es:'No, estoy bien.'}
+        }}
+    ],
     words:[
       {en:'emergency', es:'emergencia', pron:'imérchensi', emoji:'🚨'},
       {en:'hospital', es:'hospital', pron:'jáspital', emoji:'🏥'},
@@ -133,7 +147,7 @@ const curriculumUnidad7 = [
       ], function:'describir un síntoma', stage:2,
         transformations:{
           negative:{en:"I don't have a headache.", es:'No tengo dolor de cabeza.'},
-          question:{en:'Do you have a headache?', es:'¿Tenés dolor de cabeza?'},
+          question:{en:'Do you have a headache?', es:'¿Tienes dolor de cabeza?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -155,7 +169,7 @@ const curriculumUnidad7 = [
     story:[
       {en:'At the dragon pharmacy, every medicine is made from stardust!', es:'¡En la farmacia de dragones, cada medicina está hecha de polvo de estrellas!', pron:'at de drágon fármasi, évri médisin is méid fram stárdast!'},
       {en:'I have a headache, a stomachache, and a cough — all at the same time!', es:'¡Tengo dolor de cabeza, dolor de estómago, y tos — todo al mismo tiempo!', pron:'ái jav a jédeik, a stámakeik, and a cof — ol at de séim táim!'},
-      {en:'Do you have allergy medicine? Here is my prescription for one giant dose!', es:'¿Tenés medicina para alergias? ¡Acá está mi receta para una dosis gigante!', pron:'du iú jav álerchi médisin? jíar is mái priscrípshon for uán yáiant dóus!'},
+      {en:'Do you have allergy medicine? Here is my prescription for one giant dose!', es:'¿Tienes medicina para alergias? ¡Acá está mi receta para una dosis gigante!', pron:'du iú jav álerchi médisin? jíar is mái priscrípshon for uán yáiant dóus!'},
       {en:'My symptoms are strange — I can breathe fire now! I need a medical certificate.', es:'Mis síntomas son raros — ¡ahora puedo respirar fuego! Necesito un certificado médico.', pron:'mái símptoms ar stréinch — ái can bríiz fáiar náu! ái níid a médical sertífiket.'},
       {en:'Am I fit to travel? Yes, after this vaccination against dragon flu!', es:'¿Estoy apto para viajar? ¡Sí, después de esta vacunación contra la gripe de dragón!', pron:'am ái fit tu trável? iés, áfter dis vaxinéishon agénst drágon flú!'}
     ],
@@ -212,6 +226,20 @@ const curriculumUnidad7 = [
   },
 {
     day:78, unit:7, unitTitle:'Unidad 7 · Semanas 13-14', theme:'Repaso liviano de la semana 13',
+    structures:[
+      {id:'S100', pattern:"Honestly, + [X]", examples:[
+        {en:"Honestly, in fact, to be precise, this is a good plan.", es:'Honestamente, de hecho, para ser precisos, este es un buen plan.', pron:'ánestli, in fact, tu bi presáis, dis is a gud plan.'},
+        {en:"Honestly, more or less, kind of — but by all means, let's try.", es:'Honestamente, más o menos, algo así — pero por supuesto, intentemos.', pron:"ánestli, mor or les, káind of — bat bái ol míins, lets trái."},
+        {en:"Honestly, no matter what, without a doubt, we'll finish this.", es:'Honestamente, pase lo que pase, sin duda, vamos a terminar esto.', pron:"ánestli, nóu máter uát, uidáut a dáut, uíl fínish dis."},
+        {en:"Honestly, anyway, we arrived just in time.", es:'Honestamente, de todos modos, llegamos justo a tiempo.', pron:"ánestli, éniuei, uí aráivd yast in táim."}
+      ], function:'introducir una opinión sincera', stage:2,
+        transformations:{
+          negative:{en:"Honestly, this is not a good plan.", es:'Honestamente, este no es un buen plan.'},
+          question:{en:'Honestly, is this a good plan?', es:'Honestamente, ¿es un buen plan?'},
+          yesAnswer:{en:'Yes, honestly.', es:'Sí, honestamente.'},
+          noAnswer:{en:"No, honestly not.", es:'No, honestamente no.'}
+        }}
+    ],
     words:[
       {en:'honestly', es:'honestamente', pron:'ánestli', emoji:'💬'},
       {en:'in fact', es:'de hecho', pron:'in fact', emoji:'📌'},
@@ -247,7 +275,7 @@ const curriculumUnidad7 = [
       ], function:'decir qué necesitas hacer en la computadora', stage:2,
         transformations:{
           negative:{en:"I don't need to download this software.", es:'No necesito descargar este software.'},
-          question:{en:'Do you need to download this software?', es:'¿Necesitás descargar este software?'},
+          question:{en:'Do you need to download this software?', es:'¿Necesitas descargar este software?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -291,7 +319,7 @@ const curriculumUnidad7 = [
       ], function:'decir qué puedes o no puedes hacer con la tecnología', stage:2,
         transformations:{
           negative:{en:"I can't log in.", es:'No puedo iniciar sesión.'},
-          question:{en:'Can you log in?', es:'¿Podés iniciar sesión?'},
+          question:{en:'Can you log in?', es:'¿Puedes iniciar sesión?'},
           yesAnswer:{en:'Yes, I can.', es:'Sí, puedo.'},
           noAnswer:{en:"No, I can't.", es:'No, no puedo.'}
         }}
@@ -314,7 +342,7 @@ const curriculumUnidad7 = [
       {en:'The dragon internet is faster than light, and the wifi reaches the moon!', es:'¡El internet de dragones es más rápido que la luz, y el wifi llega hasta la luna!', pron:'de drágon ínternet is fáster dan láit, and de uáifai ríiches de múun!'},
       {en:'Check the connection speed, then log in with your password and username!', es:'¡Revisá la velocidad de conexión, después iniciá sesión con tu contraseña y usuario!', pron:'chek de canécshon spíid, den log in uid iór pásuord and iúsernéim!'},
       {en:'This video conference has a thousand dragons — please mute yourself!', es:'¡Esta videoconferencia tiene mil dragones — por favor silenciate!', pron:'dis vídio cánferens jas a záusand drágons — plíis miút iorsélf!'},
-      {en:"Can you share screen? Let's go to the breakout room to plan the treasure!", es:'¿Podés compartir pantalla? ¡Vamos a la sala de grupos a planear el tesoro!', pron:"can iú shér scríin? lets góu tu de bréikaut rúum tu plan de tréshur!"},
+      {en:"Can you share screen? Let's go to the breakout room to plan the treasure!", es:'¿Puedes compartir pantalla? ¡Vamos a la sala de grupos a planear el tesoro!', pron:"can iú shér scríin? lets góu tu de bréikaut rúum tu plan de tréshur!"},
       {en:'Start the recording, and check the chat box for questions!', es:'¡Empezá la grabación, y revisá el chat por si hay preguntas!', pron:'start de ricórding, and chek de chat bax for cuéstions!'}
     ],
     jingle:[
@@ -370,6 +398,20 @@ const curriculumUnidad7 = [
   },
 {
     day:82, unit:7, unitTitle:'Unidad 7 · Semanas 15-16', theme:'Aplicaciones / Software de gestión',
+    structures:[
+      {id:'S101', pattern:"I need to update the + [X]", examples:[
+        {en:'I need to update the settings on my account.', es:'Necesito actualizar la configuración de mi cuenta.', pron:'ái níid tu apdéit de sétings on mái acáunt.'},
+        {en:'Check the notification about the subscription.', es:'Revisá la notificación sobre la suscripción.', pron:'chek de noutifikéishion abáut de sabscrípshion.'},
+        {en:'Our management software has an inventory system with a dashboard.', es:'Nuestro software de gestión tiene un sistema de inventario con un panel de control.', pron:'áur mánechment sóftuer jas an ínventori sístem uid a dáshbord.'},
+        {en:'I need to generate a report — check the user permissions first.', es:'Necesito generar un reporte — revisá primero los permisos de usuario.', pron:'ái níid tu yéneréit a ripórt — chek de iúser permíshions ferst.'}
+      ], function:'hablar de software de gestión', stage:2,
+        transformations:{
+          negative:{en:"I don't need to update the settings.", es:'No necesito actualizar la configuración.'},
+          question:{en:'Do you need to update the settings?', es:'¿Necesitas actualizar la configuración?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, I don't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'to update', es:'actualizar', pron:'tu apdéit', emoji:'🔄'},
       {en:'notification', es:'notificación', pron:'noutifikéishon', emoji:'🔔'},
@@ -441,10 +483,24 @@ const curriculumUnidad7 = [
   },
 {
     day:84, unit:7, unitTitle:'Unidad 7 · Semanas 15-16', theme:'Repaso y cierre de la Unidad 7',
+    structures:[
+      {id:'S102', pattern:"I'm proud of your progress on + [X]", examples:[
+        {en:"Unit seven is done — we're almost half done!", es:'La Unidad Siete está lista — ¡ya vamos casi por la mitad!', pron:"iúnit séven is dan — uír ólmoust jaf dan!"},
+        {en:'Keep going, well done — this was a final review.', es:'Sigue adelante, bien hecho — este fue un repaso final.', pron:'kíip góing, uél dan — dis uás a fáinal riviú.'},
+        {en:"I'm proud of your progress on this unit.", es:'Estoy orgulloso de tu progreso en esta unidad.', pron:"áim práud of iór prógres on dis iúnit."},
+        {en:'See you in unit eight, next unit!', es:'¡Nos vemos en la Unidad Ocho, la próxima unidad!', pron:'síi iú in iúnit éit, next iúnit!'}
+      ], function:'cerrar la unidad con orgullo del progreso', stage:2,
+        transformations:{
+          negative:{en:"I'm not done with this unit yet.", es:'Todavía no terminé esta unidad.'},
+          question:{en:'Are you proud of your progress?', es:'¿Estás orgulloso de tu progreso?'},
+          yesAnswer:{en:'Yes, very proud.', es:'Sí, muy orgulloso.'},
+          noAnswer:{en:"Not yet, but I'm getting there.", es:'Todavía no, pero ya casi llego.'}
+        }}
+    ],
     words:[
       {en:'unit seven', es:'unidad siete', pron:'iúnit séven', emoji:'7️⃣'},
       {en:'almost half done', es:'casi la mitad hecho', pron:'ólmoust jaf dan', emoji:'📊'},
-      {en:'keep going', es:'seguí adelante', pron:'kíip góing', emoji:'💪'},
+      {en:'keep going', es:'sigue adelante', pron:'kíip góing', emoji:'💪'},
       {en:'well done', es:'bien hecho', pron:'uél dan', emoji:'👏'},
       {en:'final review', es:'repaso final', pron:'fáinal riviú', emoji:'🔁'},
       {en:'proud of your progress', es:'orgulloso de tu progreso', pron:'práud of iór prágres', emoji:'😊'},
@@ -453,13 +509,13 @@ const curriculumUnidad7 = [
     ],
     story:[
       {en:"Welcome to unit seven's final review, brave hero — you're almost half done!", es:'¡Bienvenido al repaso final de la unidad siete, valiente héroe — ya estás casi a la mitad!', pron:"uélcam tu iúnit sévens fáinal riviú, bréiv jírou — iór ólmoust jaf dan!"},
-      {en:'Keep going, well done — hotels, hospitals, and technology are all yours now!', es:'¡Seguí adelante, bien hecho — hoteles, hospitales, y tecnología ya son tuyos!', pron:'kíip góing, uél dan — jóutels, jáspitals, and tecnólochi ar ol iórs náu!'},
+      {en:'Keep going, well done — hotels, hospitals, and technology are all yours now!', es:'¡Sigue adelante, bien hecho — hoteles, hospitales, y tecnología ya son tuyos!', pron:'kíip góing, uél dan — jóutels, jáspitals, and tecnólochi ar ol iórs náu!'},
       {en:'I am so proud of your progress, dragon trader!', es:'¡Estoy tan orgulloso de tu progreso, comerciante de dragones!', pron:'ái am sóu práud of iór prágres, drágon tréider!'},
       {en:'See you in unit eight, where new adventures await!', es:'¡Nos vemos en la unidad ocho, donde te esperan nuevas aventuras!', pron:'síi iú in iúnit éit, uér niú advénchurs auéit!'}
     ],
     jingle:[
       {en:'Unit seven, almost half done!', es:'Unidad siete, ¡casi la mitad hecho!', pron:'iúnit séven, ólmoust jaf dan!'},
-      {en:'Keep going, well done, having fun!', es:'Seguí adelante, bien hecho, ¡divirtiéndote!', pron:'kíip góing, uél dan, jávin fan!'},
+      {en:'Keep going, well done, having fun!', es:'Sigue adelante, bien hecho, ¡divirtiéndote!', pron:'kíip góing, uél dan, jávin fan!'},
       {en:'Final review, proud of you, friend!', es:'Repaso final, orgulloso de ti, ¡amigo!', pron:'fáinal riviú, práud of iú, frend!'},
       {en:'See you in unit eight, till the end!', es:'Nos vemos en la unidad ocho, ¡hasta el final!', pron:'síi iú in iúnit éit, til de end!'}
     ]

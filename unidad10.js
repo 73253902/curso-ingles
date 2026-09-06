@@ -96,7 +96,7 @@ const curriculumUnidad10 = [
       ], function:'hablar de citas médicas', stage:3,
         transformations:{
           negative:{en:"I don't have an appointment with a specialist.", es:'No tengo una cita con un especialista.'},
-          question:{en:'Do you have an appointment with a specialist?', es:'¿Tenés una cita con un especialista?'},
+          question:{en:'Do you have an appointment with a specialist?', es:'¿Tienes una cita con un especialista?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -180,7 +180,7 @@ const curriculumUnidad10 = [
       ], function:'hablar de trámites gubernamentales', stage:3,
         transformations:{
           negative:{en:"I don't need to renew my license.", es:'No necesito renovar mi licencia.'},
-          question:{en:'Do you need to renew your license?', es:'¿Necesitás renovar tu licencia?'},
+          question:{en:'Do you need to renew your license?', es:'¿Necesitas renovar tu licencia?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -249,7 +249,7 @@ const curriculumUnidad10 = [
       {en:'sales representative', es:'representante de ventas', pron:'séils reprisénativ', emoji:'🧑‍💼'}
     ],
     story:[
-      {en:'Welcome to the dragon car dealership! Would you like a test drive?', es:'¡Bienvenido a la concesionaria de autos dragón! ¿Querés una prueba de manejo?', pron:'uélcam tu de drágon car díilership! uud iú láik a test dráiv?'},
+      {en:'Welcome to the dragon car dealership! Would you like a test drive?', es:'¡Bienvenido a la concesionaria de autos dragón! ¿Quieres una prueba de manejo?', pron:'uélcam tu de drágon car díilership! uud iú láik a test dráiv?'},
       {en:'I have a trade-in — my old flying carpet, plus financing options please!', es:'Tengo un vehículo de parte de pago — mi vieja alfombra voladora, ¡más opciones de financiamiento por favor!', pron:'ái jav a tréid in — mái óuld fláing cárpet, plas fainánsing ápshons plíis!'},
       {en:'Does it come with a warranty? And what is the mileage on this dragon-mobile?', es:'¿Viene con garantía? ¿Y cuál es el kilometraje de este dragón-móvil?', pron:'das it cam uid a uáranti? and uát is de máilich on dis drágon móbail?'},
       {en:"The monthly payment works for me — let's do a vehicle inspection first.", es:'La cuota mensual me sirve — hagamos primero una inspección del vehículo.', pron:"de mánzli péiment uorks for mi — lets du a víjicol inspécshon ferst."},
@@ -384,7 +384,7 @@ const curriculumUnidad10 = [
       ], function:'hablar de confianza en tu equipo', stage:3,
         transformations:{
           negative:{en:"I don't trust my team to make this decision.", es:'No confío en que mi equipo tome esta decisión.'},
-          question:{en:'Do you trust your team to make good decisions?', es:'¿Confiás en que tu equipo tome buenas decisiones?'},
+          question:{en:'Do you trust your team to make good decisions?', es:'¿Confías en que tu equipo tome buenas decisiones?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -421,21 +421,21 @@ const curriculumUnidad10 = [
       {en:'unit ten', es:'unidad diez', pron:'iúnit ten', emoji:'🔟'},
       {en:'two thirds done', es:'dos tercios hecho', pron:'tú zerds dan', emoji:'📊'},
       {en:'one third remaining', es:'un tercio restante', pron:'uán zerd riméining', emoji:'⏳'},
-      {en:'keep going', es:'seguí adelante', pron:'kíip góing', emoji:'💪'},
+      {en:'keep going', es:'sigue adelante', pron:'kíip góing', emoji:'💪'},
       {en:'milestone reached', es:'hito alcanzado', pron:'máilstoun ríicht', emoji:'🏆'},
       {en:'see you in unit eleven', es:'nos vemos en la unidad once', pron:'síi iú in iúnit iléven', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
       {en:"Welcome to unit ten's grand closing — two thirds done, legendary hero!", es:'¡Bienvenido al gran cierre de la unidad diez — dos tercios hecho, héroe legendario!', pron:"uélcam tu iúnit tens grand clóusing — tú zerds dan, léyendari jírou!"},
-      {en:"Only one third remaining — keep going, you're almost there!", es:'¡Solo un tercio restante — seguí adelante, ya casi llegás!', pron:"óunli uán zerd riméining — kíip góing, iór ólmoust dér!"},
+      {en:"Only one third remaining — keep going, you're almost there!", es:'¡Solo un tercio restante — sigue adelante, ya casi llegas!', pron:"óunli uán zerd riméining — kíip góing, iór ólmoust dér!"},
       {en:'This is a real milestone reached — one hundred twenty days of dragon adventures!', es:'¡Este es un hito real alcanzado — ciento veinte días de aventuras de dragones!', pron:'dis is a ríil máilstoun ríicht — uán jándred tuénti déis of drágon advénchurs!'},
       {en:'See you in unit eleven, dragon trader!', es:'¡Nos vemos en la unidad once, comerciante de dragones!', pron:'síi iú in iúnit iléven, drágon tréider!'}
     ],
     jingle:[
       {en:'Unit ten, two thirds done!', es:'Unidad diez, ¡dos tercios hecho!', pron:'iúnit ten, tú zerds dan!'},
       {en:'One third remaining, having fun!', es:'Un tercio restante, ¡divirtiéndote!', pron:'uán zerd riméining, jávin fan!'},
-      {en:'Milestone reached, keep going strong!', es:'Hito alcanzado, ¡seguí adelante fuerte!', pron:'máilstoun ríicht, kíip góing strong!'},
+      {en:'Milestone reached, keep going strong!', es:'Hito alcanzado, ¡sigue adelante fuerte!', pron:'máilstoun ríicht, kíip góing strong!'},
       {en:'See you in unit eleven, before too long!', es:'Nos vemos en la unidad once, ¡antes de lo que piensas!', pron:'síi iú in iúnit iléven, bifór tu long!'}
     ]
   }

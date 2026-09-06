@@ -118,7 +118,7 @@ const curriculumUnidad9 = [
       {en:'This inspection found a tiny defect — a crack shaped like a star!', es:'¡Esta inspección encontró un defecto diminuto — una grieta con forma de estrella!', pron:'dis inspécshon fáund a táini dífect — a crak shéipt láik a star!'},
       {en:'We need compliance and certification before selling to other kingdoms.', es:'Necesitamos cumplimiento normativo y certificación antes de vender a otros reinos.', pron:'uí níid campláiens and sertifikéishon bifór séling tu áder kíngdoms.'},
       {en:'Our quality assurance team makes sure every product meets standards!', es:'¡Nuestro equipo de aseguramiento de calidad se asegura de que cada producto cumpla los estándares!', pron:'áur cuáliti ashúrans tíim méiks shúr évri prádact míits stándards!'},
-      {en:'Follow the checklist, and complete the approval process before shipping!', es:'¡Seguí la lista de verificación, y completá el proceso de aprobación antes de enviar!', pron:'fálou de chéklist, and camplíit de apruvol práses bifór shíping!'}
+      {en:'Follow the checklist, and complete the approval process before shipping!', es:'¡Sigue la lista de verificación, y completa el proceso de aprobación antes de enviar!', pron:'fálou de chéklist, and camplíit de apruvol práses bifór shíping!'}
     ],
     jingle:[
       {en:'Quality control, standard too!', es:'Control de calidad, ¡estándar también!', pron:'cuáliti cantróul, stándard tú!'},
@@ -160,7 +160,7 @@ const curriculumUnidad9 = [
       {en:'Complaint handling starts with empathy, and ends with service recovery.', es:'El manejo de quejas empieza con empatía, y termina con recuperación del servicio.', pron:'compléint jándling starts uid émpazi, and ends uid sérvis ricáveri.'},
       {en:'Join our loyalty program, and enjoy the best customer journey in the sky!', es:'¡Uníte a nuestro programa de lealtad, y disfrutá el mejor recorrido de cliente del cielo!', pron:'yóin áur lóialti prógram, and enyói de best cástomer yérni in de skái!'},
       {en:"If there's a problem, the escalation path leads straight to the wizard king!", es:'¡Si hay un problema, la vía de escalamiento lleva directo al rey mago!', pron:"if ders a práblem, de escaléishon paz líids stréit tu de uísard king!"},
-      {en:'Please complete this satisfaction survey — it helps our retention and personalized service!', es:'¡Por favor completá esta encuesta de satisfacción — ayuda a nuestra retención y servicio personalizado!', pron:'plíis camplíit dis satisfákshon sérvei — it jelps áur riténshon and pérsonalaisd sérvis!'}
+      {en:'Please complete this satisfaction survey — it helps our retention and personalized service!', es:'¡Por favor completa esta encuesta de satisfacción — ayuda a nuestra retención y servicio personalizado!', pron:'plíis camplíit dis satisfákshon sérvei — it jelps áur riténshon and pérsonalaisd sérvis!'}
     ],
     jingle:[
       {en:'Customer satisfaction, complaint too!', es:'Satisfacción del cliente, ¡queja también!', pron:'cástomer satisfákshon, compléint tú!'},
@@ -411,7 +411,7 @@ const curriculumUnidad9 = [
       ], function:'hablar de cerrar una venta', stage:2,
         transformations:{
           negative:{en:"I can't close this deal today.", es:'No puedo cerrar este trato hoy.'},
-          question:{en:'Can you close this deal today?', es:'¿Podés cerrar este trato hoy?'},
+          question:{en:'Can you close this deal today?', es:'¿Puedes cerrar este trato hoy?'},
           yesAnswer:{en:'Yes, I can.', es:'Sí, puedo.'},
           noAnswer:{en:"No, I can't.", es:'No, no puedo.'}
         }}

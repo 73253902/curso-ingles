@@ -146,7 +146,7 @@ const curriculumUnidad4 = [
       ], function:'hablar de preparar comida o una presentación', stage:2,
         transformations:{
           negative:{en:"I don't need to prepare that yet.", es:'Todavía no necesito preparar eso.'},
-          question:{en:'Do you need to prepare the slides?', es:'¿Necesitás preparar las diapositivas?'},
+          question:{en:'Do you need to prepare the slides?', es:'¿Necesitas preparar las diapositivas?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, not yet.", es:'No, todavía no.'}
         }}
@@ -260,7 +260,7 @@ const curriculumUnidad4 = [
     ],
     story:[
       {en:'For breakfast, the giant eats a thousand eggs, a mountain of toast, and an ocean of cereal!', es:'¡De desayuno, el gigante come mil huevos, una montaña de tostadas, y un océano de cereal!', pron:'for brékfast, de yáiant íits a záusand egs, a máuntain of tóust, and an óushon of síarial!'},
-      {en:'A dragon sandwich, and a snack of stardust — never skip a meal, or you turn invisible!', es:'¡Un sándwich de dragón, y una merienda de polvo de estrellas — nunca te saltees una comida, o te volvés invisible!', pron:'a drágon sánduich, and a snak of stárdast — néver skip a míil, or iú tern invísibol!'},
+      {en:'A dragon sandwich, and a snack of stardust — never skip a meal, or you turn invisible!', es:'¡Un sándwich de dragón, y una merienda de polvo de estrellas — nunca te saltees una comida, o te vuelves invisible!', pron:'a drágon sánduich, and a snak of stárdast — néver skip a míil, or iú tern invísibol!'},
       {en:"Let's have our follow-up meeting for a status update on the flying castle project.", es:'Tengamos nuestra reunión de seguimiento para una actualización de estado del proyecto del castillo volador.', pron:'lets jav áur fálou ap míiting for a státos apdéit on de fláing cásol práchect.'},
       {en:'Progress is huge, but one task is still pending!', es:'¡El progreso es enorme, pero una tarea todavía está pendiente!', pron:'prágres is jiúch, bat uán task is stil péndin!'},
       {en:'Are we on track, or behind schedule on the treasure milestone?', es:'¿Vamos bien encaminados, o atrasados en el hito del tesoro?', pron:'ar uí on trak, or bijáind squéyul on de tréshur máilstoun?'}
@@ -324,7 +324,7 @@ const curriculumUnidad4 = [
       ], function:'avisar sobre alergias', stage:2,
         transformations:{
           negative:{en:'I am not allergic to nuts.', es:'No soy alérgico a los frutos secos.'},
-          question:{en:'Are you allergic to nuts?', es:'¿Sos alérgico a los frutos secos?'},
+          question:{en:'Are you allergic to nuts?', es:'¿Eres alérgico a los frutos secos?'},
           yesAnswer:{en:'Yes, I am.', es:'Sí.'},
           noAnswer:{en:"No, I'm not.", es:'No.'}
         }}
@@ -410,7 +410,7 @@ const curriculumUnidad4 = [
       ], function:'decir qué necesitas comprar', stage:2,
         transformations:{
           negative:{en:"I don't need to buy groceries.", es:'No necesito comprar víveres.'},
-          question:{en:'Do you need to buy groceries?', es:'¿Necesitás comprar víveres?'},
+          question:{en:'Do you need to buy groceries?', es:'¿Necesitas comprar víveres?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
@@ -492,7 +492,7 @@ const curriculumUnidad4 = [
     structures:[
       {id:'S115', pattern:"I'm on track to + [VERB]", examples:[
         {en:'Unit four is done — one third done already!', es:'La Unidad Cuatro está lista — ¡ya un tercio hecho!', pron:'iúnit fóar is dan — uán zerd dan olrédi!'},
-        {en:'Keep learning — great effort so far.', es:'Seguí aprendiendo — gran esfuerzo hasta ahora.', pron:'kíip lérning — gréit éfort sóu far.'},
+        {en:'Keep learning — great effort so far.', es:'Sigue aprendiendo — gran esfuerzo hasta ahora.', pron:'kíip lérning — gréit éfort sóu far.'},
         {en:"I'm on track to finish this final review.", es:'Voy bien encaminado para terminar este repaso final.', pron:"áim on trak tu fínish dis fáinal riviú."},
         {en:'See you in unit five, next unit!', es:'¡Nos vemos en la Unidad Cinco, la próxima unidad!', pron:'síi iú in iúnit fáiv, next iúnit!'}
       ], function:'cerrar la unidad reconociendo el avance', stage:2,
@@ -506,7 +506,7 @@ const curriculumUnidad4 = [
     words:[
       {en:'unit four', es:'unidad cuatro', pron:'iúnit fóar', emoji:'4️⃣'},
       {en:'one third done', es:'un tercio hecho', pron:'uán zerd dan', emoji:'📊'},
-      {en:'keep learning', es:'seguí aprendiendo', pron:'kíip lérning', emoji:'📚'},
+      {en:'keep learning', es:'sigue aprendiendo', pron:'kíip lérning', emoji:'📚'},
       {en:'great effort', es:'gran esfuerzo', pron:'gréit éfort', emoji:'💪'},
       {en:"you're on track", es:'vas bien encaminado', pron:'iór on trak', emoji:'✅'},
       {en:'final review', es:'repaso final', pron:'fáinal riviú', emoji:'🔁'},
@@ -515,13 +515,13 @@ const curriculumUnidad4 = [
     ],
     story:[
       {en:"Welcome to unit four's review — one third of this legendary journey is done!", es:'Bienvenido al repaso de la unidad cuatro — ¡un tercio de este viaje legendario está hecho!', pron:'uélcam tu iúnit fóars riviú — uán zerd of dis léyendari yérni is dan!'},
-      {en:'Keep learning, hero, with great effort — you are always on track!', es:'¡Seguí aprendiendo, héroe, con gran esfuerzo — siempre vas bien encaminado!', pron:'kíip lérning, jírou, uid gréit éfort — iú ar ólueis on trak!'},
+      {en:'Keep learning, hero, with great effort — you are always on track!', es:'¡Sigue aprendiendo, héroe, con gran esfuerzo — siempre vas bien encaminado!', pron:'kíip lérning, jírou, uid gréit éfort — iú ar ólueis on trak!'},
       {en:'This is your final review of the kitchen, the meetings, and a thousand magic feasts.', es:'Este es tu repaso final de la cocina, las reuniones, y mil banquetes mágicos.', pron:'dis is iór fáinal riviú of de quítchen, de míitings, and a záusand máyic fíists.'},
       {en:'See you in unit five, where even greater treasures await!', es:'¡Nos vemos en la unidad cinco, donde te esperan tesoros aún más grandes!', pron:'síi iú in iúnit fáiv, uér íven gréiter tréshurs auéit!'}
     ],
     jingle:[
       {en:'Unit four, one third done today!', es:'Unidad cuatro, ¡un tercio hecho hoy!', pron:'iúnit fóar, uán zerd dan tudéi!'},
-      {en:'Keep learning, great effort, hooray!', es:'Seguí aprendiendo, gran esfuerzo, ¡hurra!', pron:'kíip lérning, gréit éfort, juréi!'},
+      {en:'Keep learning, great effort, hooray!', es:'Sigue aprendiendo, gran esfuerzo, ¡hurra!', pron:'kíip lérning, gréit éfort, juréi!'},
       {en:"You're on track, final review, my friend!", es:'Vas bien encaminado, repaso final, ¡mi amigo!', pron:'iór on trak, fáinal riviú, mái frend!'},
       {en:'See you in unit five, till we meet again!', es:'Nos vemos en la unidad cinco, ¡hasta que nos volvamos a encontrar!', pron:'síi iú in iúnit fáiv, til uí míit aguén!'}
     ]

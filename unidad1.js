@@ -12,7 +12,7 @@ const curriculumUnidad1 = [
       ], function:'pedir algo que necesitas', stage:1,
         transformations:{
           negative:{en:"I don't need help.", es:'No necesito ayuda.'},
-          question:{en:'Do you need help?', es:'¿Necesitás ayuda?'},
+          question:{en:'Do you need help?', es:'¿Necesitas ayuda?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí, la necesito.'},
           noAnswer:{en:"No, I don't.", es:'No, no la necesito.'},
           future:{en:'I will need help.', es:'Voy a necesitar ayuda.'}
@@ -53,7 +53,7 @@ const curriculumUnidad1 = [
         title:'La pregunta: Do / Does',
         intro:'El mismo ayudante sirve para preguntar — solo que va al principio de la frase, sin "not". Con I/you/we/they usás "Do", y con he/she/it usás "Does":',
         examples:[
-          {en:'Do you need help?', es:'¿Necesitás ayuda?', pron:'du iú níid jelp?'},
+          {en:'Do you need help?', es:'¿Necesitas ayuda?', pron:'du iú níid jelp?'},
           {en:'Do they need help?', es:'¿Ellos necesitan ayuda?', pron:'du déi níid jelp?'},
           {en:'Does he need help?', es:'¿Él necesita ayuda?', pron:'das ji níid jelp?'},
           {en:'Does she need help?', es:'¿Ella necesita ayuda?', pron:'das shi níid jelp?'}
@@ -200,7 +200,7 @@ const curriculumUnidad1 = [
       ], function:'decir de dónde eres', stage:1,
         transformations:{
           negative:{en:'I am not from Colombia.', es:'No soy de Colombia.'},
-          question:{en:'Are you from Colombia?', es:'¿Sos de Colombia?'},
+          question:{en:'Are you from Colombia?', es:'¿Eres de Colombia?'},
           yesAnswer:{en:'Yes, I am.', es:'Sí, lo soy.'},
           noAnswer:{en:"No, I'm not.", es:'No, no lo soy.'}
         }},
@@ -212,7 +212,7 @@ const curriculumUnidad1 = [
       ], function:'decir dónde trabajas', stage:1,
         transformations:{
           negative:{en:"I don't work at Dosting Toys.", es:'No trabajo en Dosting Toys.'},
-          question:{en:'Do you work at Dosting Toys?', es:'¿Trabajás en Dosting Toys?'},
+          question:{en:'Do you work at Dosting Toys?', es:'¿Trabajas en Dosting Toys?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí, trabajo ahí.'},
           noAnswer:{en:"No, I don't.", es:'No, no trabajo ahí.'},
           future:{en:'I will work at Dosting Toys.', es:'Voy a trabajar en Dosting Toys.'}
@@ -253,7 +253,7 @@ const curriculumUnidad1 = [
     ],
     songStoryLyrics:[
       {en:"Welcome to Earth! Come in, please!", es:"¡Bienvenido a la Tierra! ¡Pasá, por favor!", pron:"uélcam tu erz! cam in, plíis!"},
-      {en:"What's your name?", es:"¿Cómo te llamás?", pron:"uáts iór néim?"},
+      {en:"What's your name?", es:"¿Cómo te llamas?", pron:"uáts iór néim?"},
       {en:"My name is Zorblax, and I am from the planet Neptune!", es:"¡Me llamo Zorblax, y soy del planeta Neptuno!", pron:"mái néim is Zorblax, and ái am fram de plánet Neptiún!"},
       {en:"Nice to meet you. Have a seat — if you can find a chair big enough!", es:"Mucho gusto. Toma asiento — ¡si encuentras una silla suficientemente grande!", pron:"náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!"},
       {en:"I work at the Interstellar Bank. I am the owner of a thousand galaxies!", es:"Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!", pron:"ái uork at de ínterstelar bank. ái am de óuner of a záusand gálaxis!"},
@@ -283,7 +283,7 @@ const curriculumUnidad1 = [
     ],
     story:[
       {en:'Welcome to Earth! Come in, please!', es:'¡Bienvenido a la Tierra! ¡Pasá, por favor!', pron:'uélcam tu erz! cam in, plíis!'},
-      {en:"What's your name?", es:'¿Cómo te llamás?', pron:'uáts iór néim?'},
+      {en:"What's your name?", es:'¿Cómo te llamas?', pron:'uáts iór néim?'},
       {en:'My name is Zorblax, and I am from the planet Neptune!', es:'¡Me llamo Zorblax, y soy del planeta Neptuno!', pron:'mái néim is Zorblax, and ái am fram de plánet Neptiún!'},
       {en:'Nice to meet you. Have a seat — if you can find a chair big enough!', es:'Mucho gusto. Toma asiento — ¡si encuentras una silla suficientemente grande!', pron:'náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!'},
       {en:'I work at the Interstellar Bank. I am the owner of a thousand galaxies!', es:'Trabajo en el Banco Interestelar. ¡Soy el dueño de mil galaxias!', pron:'ái uork at de ínterstelar bank. ái am de óuner of a záusand gálaxis!'},
@@ -377,7 +377,7 @@ const curriculumUnidad1 = [
       {en:"I don't understand,", es:"No entiendo,", pron:"ái dont anderstánd,"},
       {en:"Could you help me, please?", es:"¿Podría ayudarme, por favor?", pron:"cud iú jelp mi, plíis?"},
       {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
-      {en:"Keep practicing until the end,", es:"Seguí practicando hasta el final.", pron:"kíip práctising antíl de end,"}
+      {en:"Keep practicing until the end,", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end,"}
     ],
     songStoryLyrics:[
       {en:"What country and city do wizards come from? I'm from the Floating City, in the Kingdom of Clouds!", es:"¿De qué país y ciudad vienen los magos? ¡Soy de la Ciudad Flotante, en el Reino de las Nubes!", pron:"uát cántri and síti du uísards cam fram? áim fram de flóuting síti, in de kíngdom of cláuds!"},
@@ -389,7 +389,7 @@ const curriculumUnidad1 = [
       {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is ísi,"},
       {en:"You're going to love it!", es:"¡Te va a encantar!", pron:"iór góing tu lav it!"},
       {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
-      {en:"Keep practicing until the end,", es:"Seguí practicando hasta el final.", pron:"kíip práctising antíl de end,"}
+      {en:"Keep practicing until the end,", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end,"}
     ],
     words:[
       {en:'country', es:'país', pron:'cántri', emoji:'🌍'},
@@ -420,7 +420,7 @@ const curriculumUnidad1 = [
       {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
       {en:"You're going to love it!", es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
       {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
-      {en:'Keep practicing until the end,', es:'Seguí practicando hasta el final.', pron:'kíip práctising antíl de end,'}
+      {en:'Keep practicing until the end,', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end,'}
     ],
     jingle:[
       {en:'Country', es:'es país', pron:'cántri'},
@@ -449,7 +449,7 @@ const curriculumUnidad1 = [
       {en:'warehouse', es:'la bodega hoy', pron:'uérjaus'},
       {en:'Brand', es:'es la marca que te dice quién soy', pron:'brand'},
       {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
-      {en:'Keep practicing until the end,', es:'Seguí practicando hasta el final.', pron:'kíip práctising antíl de end,'}
+      {en:'Keep practicing until the end,', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end,'}
     ]
   },
 {
@@ -463,7 +463,7 @@ const curriculumUnidad1 = [
       ], function:'decir que eres dueño de algo', stage:1,
         transformations:{
           negative:{en:'I am not the owner of this company.', es:'No soy el dueño de esta empresa.'},
-          question:{en:'Are you the owner of this company?', es:'¿Sos el dueño de esta empresa?'},
+          question:{en:'Are you the owner of this company?', es:'¿Eres el dueño de esta empresa?'},
           yesAnswer:{en:'Yes, I am.', es:'Sí, lo soy.'},
           noAnswer:{en:"No, I'm not.", es:'No, no lo soy.'},
           future:{en:'I will be the owner of this company.', es:'Voy a ser el dueño de esta empresa.'}
@@ -515,7 +515,7 @@ const curriculumUnidad1 = [
       {en:"In this great team,", es:"te digo quién soy.", pron:"in dis gréit tíim,"},
       {en:"My boss and my colleagues working with pride,", es:"con mi líder de equipo siempre a mi lado.", pron:"mái bos and mái cólígs uórking uid práid,"},
       {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
-      {en:"Keep practicing until the end,", es:"Seguí practicando hasta el final.", pron:"kíip práctising antíl de end,"}
+      {en:"Keep practicing until the end,", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end,"}
     ],
     songStoryLyrics:[
       {en:"I am the owner of this superhero company!", es:"¡Soy el dueño de esta empresa de superhéroes!", pron:"ái am de óuner of dis súperjírou cámpani!"},
@@ -526,7 +526,7 @@ const curriculumUnidad1 = [
       {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is ísi,"},
       {en:"You're going to love it!", es:"¡Te va a encantar!", pron:"iór góing tu lav it!"},
       {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
-      {en:"Keep practicing until the end,", es:"Seguí practicando hasta el final.", pron:"kíip práctising antíl de end,"}
+      {en:"Keep practicing until the end,", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end,"}
     ],
     words:[
       {en:'wife', es:'esposa', pron:'uáif', emoji:'👩'},
@@ -556,7 +556,7 @@ const curriculumUnidad1 = [
       {en:'Learning English is easy,', es:'Aprender inglés es fácil,', pron:'lérning ínglish is ísi,'},
       {en:"You're going to love it!", es:'¡Te va a encantar!', pron:'iór góing tu lav it!'},
       {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
-      {en:'Keep practicing until the end,', es:'Seguí practicando hasta el final.', pron:'kíip práctising antíl de end,'}
+      {en:'Keep practicing until the end,', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end,'}
     ],
     jingle:[
       {en:'Wife', es:'es esposa', pron:'uáif'},
@@ -584,7 +584,7 @@ const curriculumUnidad1 = [
       {en:'colleague', es:'colega donde voy.', pron:'cólig'},
       {en:'Team leader', es:'es el líder de equipo en acción', pron:'tíim líider'},
       {en:'See you next week, dragon friend,', es:'Nos vemos la próxima semana, amigo dragón,', pron:'síi iú next uíik, drágon frend,'},
-      {en:'Keep practicing until the end,', es:'Seguí practicando hasta el final.', pron:'kíip práctising antíl de end,'}
+      {en:'Keep practicing until the end,', es:'Sigue practicando hasta el final.', pron:'kíip práctising antíl de end,'}
     ]
   },
 {
@@ -1508,7 +1508,7 @@ const curriculumUnidad1 = [
       {en:'great job', es:'muy buen trabajo', pron:'gréit yab', emoji:'🌟'},
       {en:'you did it', es:'lo lograste', pron:'iú did it', emoji:'🎉'},
       {en:'practice makes perfect', es:'la práctica hace al maestro', pron:'práctis méiks pérfect', emoji:'📈'},
-      {en:'keep going', es:'seguí así', pron:'kíip góing', emoji:'💪'},
+      {en:'keep going', es:'sigue así', pron:'kíip góing', emoji:'💪'},
       {en:'almost done', es:'casi terminamos', pron:'ólmoust dan', emoji:'⏳'},
       {en:'congratulations', es:'felicitaciones', pron:'congrachuléishons', emoji:'🎊'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
