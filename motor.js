@@ -111,7 +111,7 @@ function renderHome(){
   const completed = getCompletedDays();
   const admin = isAdmin();
 
-  document.getElementById('placementCard').style.display = admin ? 'none' : 'flex';
+  document.getElementById('placementCard').style.display = 'flex';
   if(meta.placementDone){
     document.getElementById('placementCardTitulo').textContent = '¿Quieres volver a evaluarte?';
     document.getElementById('placementCardTexto').textContent = 'Ya hiciste esta evaluación antes. Puedes repetirla cuando quieras — por ejemplo, al terminar el curso, para ver cuánto avanzaste.';
