@@ -123,7 +123,7 @@ const curriculumUnidad4 = [
     ],
     story:[
       {en:'Let\'s split the bill — a giant leaves the biggest tip in history, a whole mountain of gold!', es:'Dividamos la cuenta — ¡un gigante deja la propina más grande de la historia, una montaña entera de oro!', pron:'lets split de bil — a yáiant líivs de bíguest tip in jístori, a jóul máuntain of góuld!'},
-      {en:'Do you want a reservation for two dragons, take out, or dine in on a cloud?', es:'¿Querés una reserva para dos dragones, para llevar, o comer en una nube?', pron:'du iú uánt a reservéishon for tú drágons, téik áut, or dáin in on a cláud?'},
+      {en:'Do you want a reservation for two dragons, take out, or dine in on a cloud?', es:'¿Quieres una reserva para dos dragones, para llevar, o comer en una nube?', pron:'du iú uánt a reservéishon for tú drágons, téik áut, or dáin in on a cláud?'},
       {en:"Today's agenda item: how to discuss with a talking volcano.", es:'El punto de la agenda de hoy: cómo discutir con un volcán parlante.', pron:'tudéis ayénda áitem: jáu tu discás uid a tóking valkéinou.'},
       {en:'The action item and next steps: follow up with the wizard council, and take meeting minutes on a floating scroll.', es:'La tarea a realizar y los próximos pasos: hacer seguimiento con el consejo de magos, y tomar minuta en un pergamino flotante.', pron:'de ákshon áitem and next steps: fálou ap uid de uísard cáunsol, and téik míiting mínits on a flóuting scról.'},
       {en:"Let's summarize and wrap up before the castle disappears!", es:'¡Resumamos y cerremos antes de que el castillo desaparezca!', pron:'lets sámaráis and rap ap bifór de cásol disapírs!'}
@@ -137,6 +137,20 @@ const curriculumUnidad4 = [
   },
 {
     day:40, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Cocinar en casa / Preparar una presentación',
+    structures:[
+      {id:'S112', pattern:"I need to prepare the + [X]", examples:[
+        {en:'I need to prepare the recipe — check the ingredients first.', es:'Necesito preparar la receta — revisá los ingredientes primero.', pron:'ái níid tu pripér de résipi — chek de inguridients ferst.'},
+        {en:'I need to boil, to fry, or to bake this — the oven and the stove are ready.', es:'Necesito hervir, freír, u hornear esto — el horno y la cocina están listos.', pron:'ái níid tu bóil, tu frái, or tu béik dis — de áven and de stóuv ar rédi.'},
+        {en:'I need to cut the vegetables before I prepare the slides for the presentation.', es:'Necesito cortar las verduras antes de preparar las diapositivas para la presentación.', pron:'ái níid tu cat de véchtabols bifór ái pripér de sláids for de presentéishion.'},
+        {en:"I need the handout ready before we rehearse.", es:'Necesito el folleto listo antes de ensayar.', pron:"ái níid de jándaut rédi bifór uí rijérs."}
+      ], function:'hablar de preparar comida o una presentación', stage:2,
+        transformations:{
+          negative:{en:"I don't need to prepare that yet.", es:'Todavía no necesito preparar eso.'},
+          question:{en:'Do you need to prepare the slides?', es:'¿Necesitás preparar las diapositivas?'},
+          yesAnswer:{en:'Yes, I do.', es:'Sí.'},
+          noAnswer:{en:"No, not yet.", es:'No, todavía no.'}
+        }}
+    ],
     words:[
       {en:'to cook', es:'cocinar', pron:'tu cuk', emoji:'👨‍🍳'},
       {en:'recipe', es:'receta', pron:'résipi', emoji:'📖'},
@@ -260,6 +274,20 @@ const curriculumUnidad4 = [
   },
 {
     day:43, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso liviano de la semana 7',
+    structures:[
+      {id:'S113', pattern:"Can you repeat that? + [X]", examples:[
+        {en:'Can you repeat that? What do you mean?', es:'¿Puedes repetir eso? ¿Qué quieres decir?', pron:'can iú ripíit dat? uát du iú míin?'},
+        {en:'I see, got it — no worries, same here.', es:'Ya veo, entendido — no hay problema, lo mismo digo.', pron:'ái síi, gat it — nóu uóris, séim jíar.'},
+        {en:'Either way, in that case, let\'s proceed just in case.', es:'De cualquier manera, en ese caso, sigamos adelante por las dudas.', pron:"íder uéi, in dat kéis, lets prosíid yast in kéis."},
+        {en:"Let's follow up as needed — anyway, let's continue.", es:'Hagamos seguimiento según haga falta — de todos modos, sigamos.', pron:"lets fálou ap as níided — éniuei, lets cantíniu."}
+      ], function:'reforzar conectores de clarificación', stage:2,
+        transformations:{
+          negative:{en:"I don't understand what you mean.", es:'No entiendo qué quieres decir.'},
+          question:{en:'What do you mean?', es:'¿Qué quieres decir?'},
+          yesAnswer:{en:'I understand now.', es:'Ahora entiendo.'},
+          noAnswer:{en:"Still not clear.", es:'Todavía no está claro.'}
+        }}
+    ],
     words:[
       {en:'can you repeat that', es:'puedes repetir eso', pron:'can iú ripít dat', emoji:'🔁'},
       {en:'what do you mean', es:'qué quieres decir', pron:'uát du iú míin', emoji:'❓'},
@@ -330,6 +358,20 @@ const curriculumUnidad4 = [
   },
 {
     day:45, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Postres y dulces / Cerrar reunión y próximos pasos',
+    structures:[
+      {id:'S114', pattern:"Let's plan for the + [TIME]", examples:[
+        {en:'Would you like some cake, a cookie, or ice cream? I have a sweet tooth.', es:'¿Quieres torta, una galleta, o helado? Soy goloso.', pron:'uud iú láik sam kéik, a cúki, or áis críim? ái jav a suíit túuz.'},
+        {en:"In conclusion, thank you all for coming — before we finish, any questions?", es:'En conclusión, gracias a todos por venir — antes de terminar, ¿alguna pregunta?', pron:"in canclúshion, zenk iú ol for cáming — bifór uí fínish, éni cuéstions?"},
+        {en:"Let's plan for the same time next week.", es:'Planeemos para la misma hora la próxima semana.', pron:"lets plan for de séim táim next uíik."},
+        {en:"Here's our action plan for chocolate and candy orders too.", es:'Acá está nuestro plan de acción para los pedidos de chocolate y caramelos también.', pron:"jírs áur ákshion plan for chácolet and cándi órders tu."}
+      ], function:'cerrar una reunión y planear el próximo encuentro', stage:2,
+        transformations:{
+          negative:{en:"We're not meeting next week.", es:'No nos reunimos la próxima semana.'},
+          question:{en:'Are we meeting at the same time?', es:'¿Nos reunimos a la misma hora?'},
+          yesAnswer:{en:'Yes, same time.', es:'Sí, a la misma hora.'},
+          noAnswer:{en:"No, a different time.", es:'No, a otra hora.'}
+        }}
+    ],
     words:[
       {en:'cake', es:'torta', pron:'quéik', emoji:'🍰'},
       {en:'cookie', es:'galleta', pron:'cúki', emoji:'🍪'},
@@ -447,6 +489,20 @@ const curriculumUnidad4 = [
   },
 {
     day:48, unit:4, unitTitle:'Unidad 4 · Semanas 7-8', theme:'Repaso y cierre de la Unidad 4',
+    structures:[
+      {id:'S115', pattern:"I'm on track to + [VERB]", examples:[
+        {en:'Unit four is done — one third done already!', es:'La Unidad Cuatro está lista — ¡ya un tercio hecho!', pron:'iúnit fóar is dan — uán zerd dan olrédi!'},
+        {en:'Keep learning — great effort so far.', es:'Seguí aprendiendo — gran esfuerzo hasta ahora.', pron:'kíip lérning — gréit éfort sóu far.'},
+        {en:"I'm on track to finish this final review.", es:'Voy bien encaminado para terminar este repaso final.', pron:"áim on trak tu fínish dis fáinal riviú."},
+        {en:'See you in unit five, next unit!', es:'¡Nos vemos en la Unidad Cinco, la próxima unidad!', pron:'síi iú in iúnit fáiv, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el avance', stage:2,
+        transformations:{
+          negative:{en:"I'm not on track yet.", es:'Todavía no voy bien encaminado.'},
+          question:{en:'Are you on track to finish?', es:'¿Vas bien encaminado para terminar?'},
+          yesAnswer:{en:'Yes, on track.', es:'Sí, bien encaminado.'},
+          noAnswer:{en:"Not quite yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'unit four', es:'unidad cuatro', pron:'iúnit fóar', emoji:'4️⃣'},
       {en:'one third done', es:'un tercio hecho', pron:'uán zerd dan', emoji:'📊'},

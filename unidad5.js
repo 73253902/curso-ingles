@@ -3,6 +3,20 @@
 const curriculumUnidad5 = [
 {
     day:49, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'De compras en la tienda / Enviar una cotización formal',
+    structures:[
+      {id:'S116', pattern:"Does it fit? It's too + [ADJECTIVE]", examples:[
+        {en:"I'd like to try on this shirt — what size do you have?", es:'Quisiera probarme esta camisa — ¿qué talle tienes?', pron:"áid láik tu trái on dis shert — uát sáis du iú jav?"},
+        {en:"Does it fit? It's too big — let me check the fitting room.", es:'¿Te queda bien? Es demasiado grande — déjame revisar el probador.', pron:"das it fit? its tu big — let mi chek de fíting rúum."},
+        {en:'The sales assistant sent me a formal quote — the proposal is attached.', es:'El vendedor me envió una cotización formal — la propuesta está adjunta.', pron:'de séils asístant sent mi a fórmal cuóut — de propóusal is atáchd.'},
+        {en:'This offer is valid until Friday — is it too small, or just right?', es:'Esta oferta es válida hasta el viernes — ¿es demasiado chico, o justo?', pron:'dis áfer is válid antíl fráidei — is it tu smol, or yast ráit?'}
+      ], function:'hablar de probarse ropa y cotizaciones formales', stage:2,
+        transformations:{
+          negative:{en:"It doesn't fit — it's too small.", es:'No queda bien — es demasiado chico.'},
+          question:{en:'Does it fit?', es:'¿Queda bien?'},
+          yesAnswer:{en:'Yes, perfectly.', es:'Sí, perfecto.'},
+          noAnswer:{en:"No, it's too big.", es:'No, es demasiado grande.'}
+        }}
+    ],
     words:[
       {en:'to try on', es:'probarse', pron:'tu trái on', emoji:'👕'},
       {en:'size (clothing)', es:'talla', pron:'sáis', emoji:'📏'},
@@ -19,7 +33,7 @@ const curriculumUnidad5 = [
     ],
     story:[
       {en:'Let me try on this magic armor — does it fit, or is it too big?', es:'Dejame probarme esta armadura mágica — ¿me queda bien, o es muy grande?', pron:'let mi trái on dis máyic ármor — das it fit, or is it tu big?'},
-      {en:"It's too small! Do you have a bigger size, sales assistant?", es:'¡Es muy chica! ¿Tenés una talla más grande, vendedor?', pron:'its tu smol! du iú jav a bíguer sáis, séils asístant?'},
+      {en:"It's too small! Do you have a bigger size, sales assistant?", es:'¡Es muy chica! ¿Tienes una talla más grande, vendedor?', pron:'its tu smol! du iú jav a bíguer sáis, séils asístant?'},
       {en:'Welcome to the Dragon Store, the best shop in the kingdom!', es:'¡Bienvenido a la Tienda del Dragón, la mejor tienda del reino!', pron:'uélcam tu de drágon stóar, de best shap in de kíngdom!'},
       {en:'Here is your formal quote, attached to this magic scroll.', es:'Aquí tienes tu cotización formal, adjunta en este pergamino mágico.', pron:'jíar is iór fórmal cuóut, atácht tu dis máyic scról.'},
       {en:'This proposal is valid until the next full moon!', es:'¡Esta propuesta es válida hasta la próxima luna llena!', pron:'dis propóusal is válid antíl de next ful múun!'}
@@ -33,6 +47,20 @@ const curriculumUnidad5 = [
   },
 {
     day:50, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Regatear y descuentos / Negociar términos de la cotización',
+    structures:[
+      {id:'S117', pattern:"Can you lower the price on + [X]", examples:[
+        {en:'I would like to bargain a little — can you lower the price?', es:'Me gustaría regatear un poco — ¿puedes bajar el precio?', pron:'ái uud láik tu bárguein a lítol — can iú lóuer de práis?'},
+        {en:'Is there a sale, or a clearance section? What percentage off?', es:'¿Hay una oferta, o una sección de liquidación? ¿Qué porcentaje de descuento?', pron:'is der a séil, or a clírans sékshion? uát persénteich of?'},
+        {en:"Here's my counteroffer — are you flexible, or is this a fixed price?", es:'Acá está mi contraoferta — ¿eres flexible, o este es un precio fijo?', pron:"jírs mái cáunteráfer — ar iú fléxibol, or dis is a fixd práis?"},
+        {en:"What's the minimum order to negotiate better terms?", es:'¿Cuál es el pedido mínimo para negociar mejores términos?', pron:"uáts de mínimum órder tu nigóushieit béter terms?"}
+      ], function:'negociar precios y descuentos', stage:2,
+        transformations:{
+          negative:{en:"I can't lower the price further.", es:'No puedo bajar más el precio.'},
+          question:{en:'Can you lower the price?', es:'¿Puedes bajar el precio?'},
+          yesAnswer:{en:'Yes, a little.', es:'Sí, un poco.'},
+          noAnswer:{en:"No, it's fixed.", es:'No, es fijo.'}
+        }}
+    ],
     words:[
       {en:'to bargain', es:'regatear', pron:'tu bárguen', emoji:'🤝'},
       {en:'can you lower the price', es:'puedes bajar el precio', pron:'can iú lóuar de práis', emoji:'💲'},
@@ -47,7 +75,7 @@ const curriculumUnidad5 = [
       {en:'minimum order', es:'pedido mínimo', pron:'mínimum órder', emoji:'📦'}
     ],
     story:[
-      {en:"Can you lower the price, dragon? Let's bargain!", es:'¿Podés bajar el precio, dragón? ¡Regateemos!', pron:'can iú lóuar de práis, drágon? lets bárguen!'},
+      {en:"Can you lower the price, dragon? Let's bargain!", es:'¿Puedes bajar el precio, dragón? ¡Regateemos!', pron:'can iú lóuar de práis, drágon? lets bárguen!'},
       {en:'This is my best offer — a magic sale, with clearance on old treasure!', es:'Esta es mi mejor oferta — una oferta mágica, ¡con liquidación de tesoro viejo!', pron:'dis is mái best áfer — a máyic séil, uid clírens on óuld tréshur!'},
       {en:'Fifty percent off, or I fly away with my gold!', es:'Cincuenta por ciento de descuento, ¡o me voy volando con mi oro!', pron:'fífti persént of, or ái flái auéi uid mái góuld!'},
       {en:"Let's negotiate terms — here is my counteroffer, flexible dragon!", es:'Negociemos los términos — acá está mi contraoferta, ¡dragón flexible!', pron:'lets nigóushieit terms — jíar is mái cáunteráfer, fléxibol drágon!'},
@@ -240,6 +268,20 @@ const curriculumUnidad5 = [
   },
 {
     day:55, unit:5, unitTitle:'Unidad 5 · Semanas 9-10', theme:'Repaso liviano de la semana 9',
+    structures:[
+      {id:'S118', pattern:"As far as I know, + [X]", examples:[
+        {en:'As far as I know, this should work fine.', es:'Que yo sepa, esto debería funcionar bien.', pron:'as far as ái nóu, dis shud uork fáin.'},
+        {en:"To be honest, on the other hand, I'm not completely sure.", es:'Para ser honesto, por otro lado, no estoy completamente seguro.', pron:"tu bi ánest, on de áder jand, áim nat camplíitli shur."},
+        {en:"In other words, we're not there yet, but we will be soon.", es:'En otras palabras, todavía no llegamos, pero vamos a llegar pronto.', pron:"in áder uords, uír nat der iét, bat uí uil bi súun."},
+        {en:"From now on, let's check this once again, little by little.", es:'De ahora en adelante, revisemos esto una vez más, poco a poco.', pron:"fram náu on, lets chek dis uáns aguén, lítol bái lítol."}
+      ], function:'reforzar conectores de opinión y certeza', stage:2,
+        transformations:{
+          negative:{en:"As far as I know, this won't work.", es:'Que yo sepa, esto no va a funcionar.'},
+          question:{en:'Does this work, as far as you know?', es:'¿Esto funciona, que tú sepas?'},
+          yesAnswer:{en:'Yes, as far as I know.', es:'Sí, que yo sepa.'},
+          noAnswer:{en:"I'm not sure.", es:'No estoy seguro.'}
+        }}
+    ],
     words:[
       {en:'as far as I know', es:'que yo sepa', pron:'as far as ái nóu', emoji:'🤔'},
       {en:'to be honest', es:'para ser honesto', pron:'tu bi ánest', emoji:'💬'},
@@ -397,7 +439,7 @@ const curriculumUnidad5 = [
       ], function:'reclamar algo con firmeza', stage:2,
         transformations:{
           negative:{en:"I don't want a refund.", es:'No quiero un reembolso.'},
-          question:{en:'Do you want a refund?', es:'¿Querés un reembolso?'},
+          question:{en:'Do you want a refund?', es:'¿Quieres un reembolso?'},
           yesAnswer:{en:'Yes, I do.', es:'Sí.'},
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}

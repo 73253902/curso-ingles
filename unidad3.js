@@ -51,6 +51,20 @@ const curriculumUnidad3 = [
   },
 {
     day:26, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Números redondos / Cotizaciones y totales',
+    structures:[
+      {id:'S107', pattern:"The grand total adds up to + [NUMBER]", examples:[
+        {en:'The grand total adds up to ninety dollars.', es:'El total general suma noventa dólares.', pron:'de grand tóutal ads ap tu náinti dálars.'},
+        {en:'The grand total adds up to one hundred units.', es:'El total general suma cien unidades.', pron:'de grand tóutal ads ap tu uán jándred iúnits.'},
+        {en:'Check the subtotal, the tax, and the shipping cost before the grand total.', es:'Revisá el subtotal, el impuesto, y el costo de envío antes del total general.', pron:'chek de sábtoutal, de tax, and de shíping cost bifór de grand tóutal.'},
+        {en:"The grand total doesn't add up to a thousand yet.", es:'El total general todavía no suma mil.', pron:"de grand tóutal dásnt ad ap tu a záusand iét."}
+      ], function:'hablar de totales y cotizaciones con números redondos', stage:1,
+        transformations:{
+          negative:{en:"It doesn't add up to that.", es:'No suma eso.'},
+          question:{en:'Does it add up to the grand total?', es:'¿Suma el total general?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí.'},
+          noAnswer:{en:"No, it doesn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'thirty', es:'treinta', pron:'zérti', emoji:'3️⃣'},
       {en:'forty', es:'cuarenta', pron:'fórti', emoji:'4️⃣'},
@@ -129,6 +143,20 @@ const curriculumUnidad3 = [
   },
 {
     day:28, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Más sobre la hora / Puntualidad en entregas',
+    structures:[
+      {id:'S108', pattern:"The estimated arrival is + [TIME]", examples:[
+        {en:'The estimated arrival is in the morning.', es:'La llegada estimada es en la mañana.', pron:'de éstimeited aráival is in de mórning.'},
+        {en:'The estimated arrival is in the afternoon, not the evening.', es:'La llegada estimada es en la tarde, no en la noche.', pron:'de éstimeited aráival is in de áfternúun, nat de ívning.'},
+        {en:"It's a little delayed, but the tracking number shows it's coming as soon as possible.", es:'Está un poco demorado, pero el número de rastreo muestra que viene lo antes posible.', pron:"its a lítol diléid, bat de tráking námber shóus its cáming as súun as pásibol."},
+        {en:"It's not early, and it's not late either — right around the estimated time.", es:'No es temprano, y tampoco es tarde — justo alrededor de la hora estimada.', pron:"its nat érli, and its nat léit áider — ráit aráund de éstimeited táim."}
+      ], function:'hablar de horarios de entrega y puntualidad', stage:1,
+        transformations:{
+          negative:{en:"The estimated arrival is not delayed.", es:'La llegada estimada no está demorada.'},
+          question:{en:'Is the estimated arrival delayed?', es:'¿Está demorada la llegada estimada?'},
+          yesAnswer:{en:'Yes, a little.', es:'Sí, un poco.'},
+          noAnswer:{en:"No, it's on time.", es:'No, está a tiempo.'}
+        }}
+    ],
     words:[
       {en:'in the morning', es:'de la mañana', pron:'in de mórning', emoji:'🌅'},
       {en:'in the afternoon', es:'de la tarde', pron:'in de afternúun', emoji:'🌇'},
@@ -203,6 +231,20 @@ const curriculumUnidad3 = [
   },
 {
     day:30, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Fechas / Plazos de pago',
+    structures:[
+      {id:'S109', pattern:"The payment terms are + [X]", examples:[
+        {en:"What's today's date? The payment terms are net 30.", es:'¿Cuál es la fecha de hoy? Las condiciones de pago son treinta días netos.', pron:"uáts tudéis déit? de péiment terms ar net zérti."},
+        {en:'The payment terms are an upfront payment, or an installment plan.', es:'Las condiciones de pago son un pago adelantado, o un plan de cuotas.', pron:'de péiment terms ar an apfránt péiment, or an instólment plan.'},
+        {en:'The balance due must be paid in full by the end of the month.', es:'El saldo pendiente debe pagarse por completo para fin de mes.', pron:'de bálans diú mast bi péid in fúl bái de end of de manz.'},
+        {en:"If you need more time, we can offer an extension or a grace period.", es:'Si necesitás más tiempo, podemos ofrecer una extensión o un período de gracia.', pron:"if iú níid mor táim, uí can áfer an exténshion or a gréis píriod."}
+      ], function:'hablar de plazos y condiciones de pago', stage:1,
+        transformations:{
+          negative:{en:"The payment terms are not net 30.", es:'Las condiciones de pago no son treinta días netos.'},
+          question:{en:'What are the payment terms?', es:'¿Cuáles son las condiciones de pago?'},
+          yesAnswer:{en:'Net 30, yes.', es:'Treinta días netos, sí.'},
+          noAnswer:{en:"No, it's different.", es:'No, es distinto.'}
+        }}
+    ],
     words:[
       {en:"what's the date", es:'qué fecha es', pron:'uáts de déit', emoji:'📅'},
       {en:"today's date", es:'la fecha de hoy', pron:'tudéis déit', emoji:'📆'},
@@ -232,6 +274,20 @@ const curriculumUnidad3 = [
   },
 {
     day:31, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Repaso liviano de la semana 5',
+    structures:[
+      {id:'S110', pattern:"Let me see, + [X]", examples:[
+        {en:'Let me see — hold on, give me a second to think.', es:'Déjame ver — esperá, dame un segundo para pensar.', pron:'let mi síi — jóuld on, guiv mi a sécond tu zink.'},
+        {en:'That works for me — it makes sense.', es:'Eso me funciona — tiene sentido.', pron:'dat uorks for mi — it méiks sens.'},
+        {en:"I agree with most of it, but I disagree with one part.", es:'Estoy de acuerdo con la mayoría, pero no estoy de acuerdo con una parte.', pron:"ái agríi uid móust of it, bat ái disagríi uid uán part."},
+        {en:"Maybe, or probably — I'm not completely sure yet.", es:'Tal vez, o probablemente — todavía no estoy completamente seguro.', pron:"méibi, or prábabli — áim nat camplíitli shur iét."}
+      ], function:'reforzar conectores de acuerdo y duda', stage:1,
+        transformations:{
+          negative:{en:"That doesn't work for me.", es:'Eso no me funciona.'},
+          question:{en:'Does that work for you?', es:'¿Eso te funciona?'},
+          yesAnswer:{en:'Yes, it works.', es:'Sí, funciona.'},
+          noAnswer:{en:"No, it doesn't.", es:'No.'}
+        }}
+    ],
     words:[
       {en:'let me see', es:'déjame ver', pron:'let mi síi', emoji:'👀'},
       {en:'hold on', es:'esperá', pron:'jóuld on', emoji:'✋'},
@@ -452,6 +508,20 @@ const curriculumUnidad3 = [
   },
 {
     day:36, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Repaso y cierre de la Unidad 3',
+    structures:[
+      {id:'S111', pattern:"I made strong progress + [X]", examples:[
+        {en:'Unit three is done — I made strong progress this time.', es:'La Unidad Tres está lista — hice un progreso fuerte esta vez.', pron:'iúnit zríi is dan — ái méid strong prógres dis táim.'},
+        {en:"It's review time — this was a final challenge.", es:'Es hora de repaso — este fue un desafío final.', pron:"its riviú táim — dis uás a fáinal chálench."},
+        {en:"That was well earned — I'm proud of you.", es:'Eso fue bien merecido — estoy orgulloso de ti.', pron:"dat uás uél érnd — áim práud of iú."},
+        {en:'See you in unit four, next unit!', es:'¡Nos vemos en la Unidad Cuatro, la próxima unidad!', pron:'síi iú in iúnit fóar, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el progreso', stage:1,
+        transformations:{
+          negative:{en:"I didn't make much progress today.", es:'Hoy no hice mucho progreso.'},
+          question:{en:'Did you make strong progress?', es:'¿Hiciste un progreso fuerte?'},
+          yesAnswer:{en:'Yes, I did.', es:'Sí.'},
+          noAnswer:{en:"Not as much as I wanted.", es:'No tanto como quería.'}
+        }}
+    ],
     words:[
       {en:'unit three', es:'unidad tres', pron:'iúnit zríi', emoji:'3️⃣'},
       {en:'strong progress', es:'buen progreso', pron:'strong prágres', emoji:'📈'},

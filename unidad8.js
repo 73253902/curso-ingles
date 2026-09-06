@@ -256,6 +256,20 @@ const curriculumUnidad8 = [
   },
 {
     day:91, unit:8, unitTitle:'Unidad 8 · Semanas 17-18', theme:'Repaso liviano de la semana 17',
+    structures:[
+      {id:'S103', pattern:"As a matter of fact, + [X]", examples:[
+        {en:'As a matter of fact, to sum up, this project went well.', es:'De hecho, para resumir, este proyecto salió bien.', pron:'as a máter of fact, tu sam ap, dis práchect uént uél.'},
+        {en:'On top of that, either way, we need to decide soon.', es:'Además de eso, de cualquier manera, necesitamos decidir pronto.', pron:'on tap of dat, íder uéi, uí níid tu disáid súun.'},
+        {en:"Needless to say, all things considered, this was a good year.", es:'No hace falta decir, considerando todo, este fue un buen año.', pron:"nídles tu séi, ol zings cansíderd, dis uás a gud íar."},
+        {en:"At the end of the day, for the most part, we did our best.", es:'Al final del día, en su mayor parte, hicimos lo mejor que pudimos.', pron:"at de end of de déi, for de móust part, uí did áur best."}
+      ], function:'reforzar conectores de discurso avanzado', stage:2,
+        transformations:{
+          negative:{en:"As a matter of fact, this is not true.", es:'De hecho, esto no es verdad.'},
+          question:{en:'Is this true, as a matter of fact?', es:'¿Es verdad esto, de hecho?'},
+          yesAnswer:{en:'Yes, as a matter of fact.', es:'Sí, de hecho.'},
+          noAnswer:{en:"No, not really.", es:'No, la verdad que no.'}
+        }}
+    ],
     words:[
       {en:'as a matter of fact', es:'de hecho', pron:'as a máter of fact', emoji:'💬'},
       {en:'to sum up', es:'para resumir', pron:'tu sam ap', emoji:'📝'},
@@ -322,6 +336,20 @@ const curriculumUnidad8 = [
   },
 {
     day:93, unit:8, unitTitle:'Unidad 8 · Semanas 19-20', theme:'Impuestos y contabilidad básica',
+    structures:[
+      {id:'S104', pattern:"I need to file taxes before the + [DEADLINE]", examples:[
+        {en:'I need to file taxes before the end of the fiscal year.', es:'Necesito presentar impuestos antes del fin del año fiscal.', pron:'ái níid tu fáil táxis bifór de end of de físcal íar.'},
+        {en:'My accountant is reviewing our revenue and expenses.', es:'Mi contador está revisando nuestros ingresos y gastos.', pron:'mái acáuntant is riviúing áur révenu and expénsis.'},
+        {en:'Our profit margin looks good this quarter.', es:'Nuestro margen de ganancia se ve bien este trimestre.', pron:'áur práfit márchin luks gud dis cuórter.'},
+        {en:"Keep every receipt — some expenses are deductible, and there might be an audit.", es:'Guardá cada recibo — algunos gastos son deducibles, y podría haber una auditoría.', pron:"kíip évri risíit — sam expénsis ar dedáctibol, and der máit bi an ódit."}
+      ], function:'hablar de impuestos y contabilidad', stage:2,
+        transformations:{
+          negative:{en:"I don't need to file taxes yet.", es:'Todavía no necesito presentar impuestos.'},
+          question:{en:'Do you need to file taxes soon?', es:'¿Necesitás presentar impuestos pronto?'},
+          yesAnswer:{en:'Yes, before the deadline.', es:'Sí, antes de la fecha límite.'},
+          noAnswer:{en:"No, not yet.", es:'No, todavía no.'}
+        }}
+    ],
     words:[
       {en:'tax return', es:'declaración de impuestos', pron:'tax ritérn', emoji:'📄'},
       {en:'accountant', es:'contador', pron:'acáuntant', emoji:'🧮'},
@@ -391,6 +419,20 @@ const curriculumUnidad8 = [
   },
 {
     day:95, unit:8, unitTitle:'Unidad 8 · Semanas 19-20', theme:'Resolución de conflictos',
+    structures:[
+      {id:'S105', pattern:"Let's try to resolve this + [CONFLICT]", examples:[
+        {en:"There's a conflict — let's try to resolve this together.", es:'Hay un conflicto — tratemos de resolver esto juntos.', pron:"ders a cánflict — lets trái tu risólv dis tugéder."},
+        {en:'We might need a mediator to find common ground.', es:'Podríamos necesitar un mediador para encontrar un punto en común.', pron:'uí máit níid a mídieitor tu fáind cámon gráund.'},
+        {en:"Let's listen actively, and use a respectful tone.", es:'Escuchemos activamente, y usemos un tono respetuoso.', pron:"lets lísen áctivli, and iús a rispéctful tóun."},
+        {en:"We need to clarify things, so we can move forward.", es:'Necesitamos aclarar las cosas, para poder avanzar.', pron:"uí níid tu clárifái zings, sóu uí can múuv fórward."}
+      ], function:'hablar de resolver conflictos en el trabajo', stage:2,
+        transformations:{
+          negative:{en:"This conflict is not resolved yet.", es:'Este conflicto todavía no está resuelto.'},
+          question:{en:'Can we resolve this conflict today?', es:'¿Podemos resolver este conflicto hoy?'},
+          yesAnswer:{en:'Yes, let\'s try.', es:'Sí, intentemos.'},
+          noAnswer:{en:"No, we need more time.", es:'No, necesitamos más tiempo.'}
+        }}
+    ],
     words:[
       {en:'conflict', es:'conflicto', pron:'cánflict', emoji:'⚡'},
       {en:'to resolve', es:'resolver', pron:'tu risálv', emoji:'✅'},
@@ -417,6 +459,20 @@ const curriculumUnidad8 = [
   },
 {
     day:96, unit:8, unitTitle:'Unidad 8 · Semanas 19-20', theme:'Repaso y cierre de la Unidad 8',
+    structures:[
+      {id:'S106', pattern:"This progress was well earned + [X]", examples:[
+        {en:'Unit eight is done — more than half done now!', es:'La Unidad Ocho está lista — ¡ya más de la mitad hecha!', pron:'iúnit éit is dan — mor dan jaf dan náu!'},
+        {en:'Keep pushing — this progress was well earned.', es:'Seguí adelante — este progreso fue bien merecido.', pron:'kíip púshing — dis prógres uás uél érnd.'},
+        {en:"You're in the final stretch now.", es:'Ya estás en el tramo final ahora.', pron:"iór in de fáinal strech náu."},
+        {en:'See you in unit nine, next unit!', es:'¡Nos vemos en la Unidad Nueve, la próxima unidad!', pron:'síi iú in iúnit náin, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el progreso', stage:2,
+        transformations:{
+          negative:{en:"This unit is not finished yet.", es:'Esta unidad todavía no está terminada.'},
+          question:{en:'Is unit eight finished?', es:'¿Está terminada la Unidad Ocho?'},
+          yesAnswer:{en:'Yes, completely.', es:'Sí, completamente.'},
+          noAnswer:{en:"Almost — just a little more.", es:'Casi — un poco más.'}
+        }}
+    ],
     words:[
       {en:'unit eight', es:'unidad ocho', pron:'iúnit éit', emoji:'8️⃣'},
       {en:'more than half done', es:'más de la mitad hecho', pron:'mor dan jaf dan', emoji:'📊'},
