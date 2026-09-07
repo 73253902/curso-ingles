@@ -2505,6 +2505,7 @@ function startListening(onResult, opts){
   try{ recognition.abort(); }catch(e){}
   recognition.continuous = !!opts.longForm;
   let collected = [];
+  let singleResultGiven = false;
   let started = false;
   // Asignamos los manejadores de ESTA llamada antes de intentar arrancar.
   recognition.onresult=(e)=>{
@@ -2517,19 +2518,25 @@ function startListening(onResult, opts){
     clearMicWatchdog();
     const result=e.results[0][0];
     const confidence=(typeof result.confidence==='number'&&result.confidence>0)?result.confidence:null;
+    singleResultGiven = true;
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     onResult({said:result.transcript, confidence});
   };
   recognition.onend=()=>{
     clearMicWatchdog();
+    finishTalkingBtn.style.display='none';
     if(!opts.longForm){
-      if(micBtn.classList.contains('listening')){
-        micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+      micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
+      if(!singleResultGiven){
+        // El reconocimiento terminó solo, sin detectar nada — no lo dejamos en silencio:
+        // avisamos y dejamos abierta la opción de reintentar o escribir.
+        feedback.classList.add('show','retry');
+        feedback.textContent = 'No te escuché — puede pasar. Toca el micrófono de nuevo, o escribe tu respuesta.';
+        typeRow.style.display='flex'; typeInput.placeholder='Escribe lo que ibas a decir...';
       }
       return;
     }
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
-    finishTalkingBtn.style.display='none';
     const said = collected.join(' ').trim();
     onResult({said: said || '(no se detectó audio, prueba de nuevo)', confidence:null});
   };
@@ -2543,12 +2550,12 @@ function startListening(onResult, opts){
   };
   // Recién ahora tocamos la interfaz y arrancamos de verdad.
   micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
+  finishTalkingBtn.style.display='inline-flex';
+  finishTalkingBtn.onclick = ()=>{ try{ recognition.stop(); }catch(e){} };
   if(opts.longForm){
     micBtn.textContent = '🎙 Escuchando... (toca "Terminé" cuando acabes)';
-    finishTalkingBtn.style.display='inline-flex';
-    finishTalkingBtn.onclick = ()=>{ try{ recognition.stop(); }catch(e){} };
   } else {
-    micBtn.textContent = '🎙 Escuchando...';
+    micBtn.textContent = '🎙 Escuchando... (o toca "Terminé")';
   }
   clearMicWatchdog();
   const watchdogMs = opts.longForm ? 45000 : 12000;
