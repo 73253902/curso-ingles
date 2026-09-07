@@ -220,7 +220,7 @@ document.getElementById('resetLink').addEventListener('click', ()=>{
   const el=document.getElementById('resetLink');
   if(!resetArmed){
     resetArmed=true;
-    el.textContent='¿Seguro? Tocá de nuevo para confirmar';
+    el.textContent='¿Seguro? Toca de nuevo para confirmar';
     el.style.color='var(--warn)';
     setTimeout(()=>{ resetArmed=false; el.textContent='Borrar todo mi progreso guardado'; el.style.color=''; }, 4000);
     return;
@@ -267,7 +267,7 @@ const introTemplates = [
 ];
 const comboIntro = [{t:'Ahora repitamos juntos, una por una, las últimas palabras que aprendiste. Yo digo una, la repites, la escribes, y seguimos con la siguiente.',lang:'es'}];
 const reviewIntro = [{t:'Antes de seguir, un mini repaso: vamos a repetir y escribir dos palabras de antes, una por una.',lang:'es'}];
-const contrastIntro = [{t:'Fijate estas dos frases. Suenan parecido, pero no son lo mismo. Escuchalas, repetilas y escribilas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
+const contrastIntro = [{t:'Fíjate estas dos frases. Suenan parecido, pero no son lo mismo. Escúchalas, repítelas y escríbelas — con el tiempo, la diferencia se te va a hacer natural sola, sin que nadie te la explique.',lang:'es'}];
 // Banco de pares de contraste: estructuras del idioma mostradas una al lado de la otra,
 // sin explicar la regla — el alumno las adquiere por exposición repetida, como un chico.
 const contrastBank = [
@@ -331,6 +331,110 @@ const unitMeta = {
 // Conversación corta al final de cada día (a partir del Día 2), usando el vocabulario de ESE día.
 // Se agrega día a día; los días sin entrada acá simplemente no muestran este turno todavía.
 const dailyMiniDialogue = {
+  21: [
+    {speaker:'maestro', en:'I need to clean this office — it\'s very dirty today.', es:'Necesito limpiar esta oficina — está muy sucia hoy.', pron:'ái níid tu clíin dis áfis — its véri dérti tudéi.'},
+    {speaker:'alumno', en:'I need to wash the floor, and to sweep the storage room too.', es:'Necesito lavar el piso, y barrer el depósito también.', pron:'ái níid tu uásh de flor, and tu suíip de stórich rúum tu.'},
+    {speaker:'maestro', en:'I need to update the inventory, and put things in order.', es:'Necesito actualizar el inventario, y poner las cosas en orden.', pron:'ái níid tu apdéit de ínventori, and put zings in órder.'},
+    {speaker:'alumno', en:'Sure — I need to count everything, and check every label carefully.', es:'Claro — necesito contar todo, y revisar cada etiqueta con cuidado.', pron:'shur — ái níid tu cáunt évrizin, and chek évri léibol kérfuli.'},
+    {speaker:'maestro', en:'Is anything missing, or damaged?', es:'¿Falta algo, o está dañado?', pron:'is énizin mísing, or dámachd?'},
+    {speaker:'alumno', en:'Yes, one box is damaged — I need to return it, and take out the trash.', es:'Sí, una caja está dañada — necesito devolverla, y sacar la basura.', pron:'iés, uán bax is dámachd — ái níid tu ritérn it, and téik áut de trash.'},
+    {speaker:'maestro', en:'Once it\'s clean again, I need to update the storage records.', es:'Una vez que esté limpio de nuevo, necesito actualizar los registros del depósito.', pron:'uáns its clíin aguén, ái níid tu apdéit de stórich récords.'},
+    {speaker:'alumno', en:'Perfect, let\'s finish this together.', es:'Perfecto, terminemos esto juntos.', pron:'pérfect, lets fínish dis tugéder.'}
+  ],
+  22: [
+    {speaker:'maestro', en:'Do you have plans for the weekend, or a vacation coming up?', es:'¿Tienes planes para el fin de semana, o unas vacaciones próximas?', pron:'du iú jav plans for de uíikend, or a vakéishion cáming ap?'},
+    {speaker:'alumno', en:'I want to relax, to enjoy some free time, and to travel somewhere.', es:'Quiero relajarme, disfrutar algo de tiempo libre, y viajar a algún lado.', pron:'ái uánt tu riláx, tu enyói sam fríi táim, and tu trável sámuér.'},
+    {speaker:'maestro', en:'Is there a holiday next week?', es:'¿Hay un feriado la próxima semana?', pron:'is der a jálidei next uíik?'},
+    {speaker:'alumno', en:'Yes! I can request permission for a sick leave too, if I need to.', es:'¡Sí! También puedo pedir permiso para una licencia por enfermedad, si lo necesito.', pron:'iés! ái can ricuést permíshion for a sik líiv tu, if ái níid tu.'},
+    {speaker:'maestro', en:'Can you approve my time off? I need to request it, and you need to approve it.', es:'¿Puedes aprobar mi tiempo libre? Necesito pedirlo, y tú necesitas aprobarlo.', pron:'can iú apruúv mái táim of? ái níid tu ricuést it, and iú níid tu apruúv it.'},
+    {speaker:'alumno', en:'I can approve it — but who will cover for me while I\'m gone?', es:'Puedo aprobarlo — ¿pero quién me cubre mientras no estoy?', pron:'ái can apruúv it — bat jú uil cáver for mi uáil áim gon?'},
+    {speaker:'maestro', en:'I need to plan everything before I leave, don\'t worry — I know how to return to work on time.', es:'Necesito planear todo antes de irme, no te preocupes — sé cómo volver al trabajo a tiempo.', pron:'ái níid tu plan évrizin bifór ái líiv, dont uóri — ái nóu jáu tu ritérn tu uork on táim.'},
+    {speaker:'alumno', en:'Great, enjoy your time, and I\'ll see you when you return to work.', es:'Genial, disfruta tu tiempo, y nos vemos cuando vuelvas al trabajo.', pron:'gréit, enyói iór táim, and áil síi iú uén iú ritérn tu uork.'}
+  ],
+  23: [
+    {speaker:'maestro', en:'This is a new supplier, more expensive than the old one — is it better?', es:'Este es un proveedor nuevo, más caro que el anterior — ¿es mejor?', pron:'dis is a niú sapláier, mor expénsiv dan de óuld uán — is it béter?'},
+    {speaker:'alumno', en:'Actually, it\'s cheaper, but the quality seems worse.', es:'En realidad, es más barato, pero la calidad parece peor.', pron:'áctiuali, its chíiper, bat de cuáliti síims uérs.'},
+    {speaker:'maestro', en:'Let\'s try to compare both options before we decide.', es:'Tratemos de comparar ambas opciones antes de decidir.', pron:'lets trái tu campér bóuz ápshions bifór uí disáid.'},
+    {speaker:'alumno', en:'I already tried to compare them — this deal looks like the best offer.', es:'Ya traté de compararlas — este trato parece la mejor oferta.', pron:'ái olrédi tráid tu campér dem — dis díil luks láik de best áfer.'},
+    {speaker:'maestro', en:'Is this contract different from the other agreement?', es:'¿Este contrato es diferente del otro acuerdo?', pron:'is dis cántract díferent fram de áder agríiment?'},
+    {speaker:'alumno', en:'It\'s basically the same, but let\'s try to negotiate the price a little more.', es:'Es básicamente lo mismo, pero tratemos de negociar el precio un poco más.', pron:'its béisicli de séim, bat lets trái tu nigóushieit de práis a lítol mor.'},
+    {speaker:'maestro', en:'I\'d like to choose the better option, even if it costs more — I need to decide soon.', es:'Me gustaría elegir la mejor opción, aunque cueste más — necesito decidir pronto.', pron:'áid láik tu chúus de béter ápshion, íven if it costs mor — ái níid tu disáid súun.'},
+    {speaker:'alumno', en:'Agreed — let\'s finalize this deal together.', es:'De acuerdo — finalicemos este trato juntos.', pron:'agríid — lets fáinaláiz dis díil tugéder.'}
+  ],
+  24: [
+    {speaker:'maestro', en:'Welcome to unit two, review time! What did you learn this unit?', es:'¡Bienvenido a la Unidad Dos, hora de repaso! ¿Qué aprendiste en esta unidad?', pron:'uélcam tu iúnit tú, riviú táim! uát did iú lern dis iúnit?'},
+    {speaker:'alumno', en:'I remember everything — well, I forgot one small thing.', es:'Recuerdo todo — bueno, olvidé una cosa pequeña.', pron:'ái rimémber évrizin — uél, ái forgát uán smol zing.'},
+    {speaker:'maestro', en:'Let\'s practice one more time, just to be sure.', es:'Practiquemos una vez más, solo para estar seguros.', pron:'lets práctis uán mor táim, yast tu bi shur.'},
+    {speaker:'alumno', en:'Good idea — you\'re improving with each practice.', es:'Buena idea — estás mejorando con cada práctica.', pron:'gud aidía — iór imprúuving uid íich práctis.'},
+    {speaker:'maestro', en:'You\'re halfway there already!', es:'¡Ya vas por la mitad!', pron:'iór jáfuei der olrédi!'},
+    {speaker:'alumno', en:'That\'s great — see you in the next unit!', es:'¡Eso es genial — nos vemos en la próxima unidad!', pron:'dats gréit — síi iú in de next iúnit!'}
+  ],
+  14: [
+    {speaker:'maestro', en:'What time do you wake up, and what time do you get up?', es:'¿A qué hora te despiertas, y a qué hora te levantas?', pron:'uát táim du iú uéik ap, and uát táim du iú get ap?'},
+    {speaker:'alumno', en:'I wake up at six, and I get up right away — I have breakfast at seven.', es:'Me despierto a las seis, y me levanto enseguida — desayuno a las siete.', pron:'ái uéik ap at six, and ái get ap ráit auéi — ái jav brékfast at séven.'},
+    {speaker:'maestro', en:'When do you go to work, and when do you start work?', es:'¿Cuándo vas al trabajo, y cuándo empiezas a trabajar?', pron:'uén du iú góu tu uork, and uén du iú start uork?'},
+    {speaker:'alumno', en:'I go to work at eight, and I start work at nine — with a short break for lunch.', es:'Voy al trabajo a las ocho, y empiezo a trabajar a las nueve — con una pausa corta para el almuerzo.', pron:'ái góu tu uork at éit, and ái start uork at náin — uid a short bréik for lanch.'},
+    {speaker:'maestro', en:'What about dinner, and your shift?', es:'¿Y qué tal la cena, y tu turno?', pron:'uát abáut díner, and iór shift?'},
+    {speaker:'alumno', en:'I finish work at six, have dinner at seven — my shift includes some overtime today.', es:'Termino de trabajar a las seis, ceno a las siete — mi turno incluye algunas horas extra hoy.', pron:'ái fínish uork at six, jav díner at séven — mái shift inclúuds sam óvertaim tudéi.'},
+    {speaker:'maestro', en:'Do you get a day off, or are you tired?', es:'¿Tienes un día libre, o estás cansado?', pron:'du iú get a déi of, or ar iú táiard?'},
+    {speaker:'alumno', en:'Tomorrow is my day off — I\'m tired now, but I\'m always punctual, and I need to rest.', es:'Mañana es mi día libre — estoy cansado ahora, pero siempre soy puntual, y necesito descansar.', pron:'tumórou is mái déi of — áim táiard náu, bat áim ólueis pánchual, and ái níid tu rest.'}
+  ],
+  15: [
+    {speaker:'maestro', en:'What do you need to do today — to walk, to drive, or to organize your desk?', es:'¿Qué necesitas hacer hoy — caminar, manejar, u organizar tu escritorio?', pron:'uát du iú níid tu du tudéi — tu uók, tu dráiv, or tu órganais iór desk?'},
+    {speaker:'alumno', en:'I have to eat first, then I have to drink some coffee — I need to check my emails, and to talk to my team.', es:'Tengo que comer primero, después tengo que tomar café — necesito revisar mis correos, y hablar con mi equipo.', pron:'ái jav tu íit ferst, den ái jav tu drink sam cáfi — ái níid tu chek mái íimeils, and tu tok tu mái tíim.'},
+    {speaker:'maestro', en:'Do you have to write anything, or to read something important?', es:'¿Tienes que escribir algo, o leer algo importante?', pron:'du iú jav tu ráit énizin, or tu ríid sámzin impórtant?'},
+    {speaker:'alumno', en:'I have to write a report, and I have to read a few messages too.', es:'Tengo que escribir un reporte, y también tengo que leer algunos mensajes.', pron:'ái jav tu ráit a ripórt, and ái jav tu ríid a fiú mésachis tu.'},
+    {speaker:'maestro', en:'What about calling clients, or sending something?', es:'¿Y qué tal llamar a clientes, o enviar algo?', pron:'uát abáut cóling cláients, or séndin sámzin?'},
+    {speaker:'alumno', en:'I have to call a client, and to send an invoice — then I have to receive their payment.', es:'Tengo que llamar a un cliente, y enviar una factura — después tengo que recibir su pago.', pron:'ái jav tu col a cláient, and tu send an ínvois — den ái jav tu risíiv der péiment.'},
+    {speaker:'maestro', en:'Anything to fix, or to deliver today?', es:'¿Algo para arreglar, o entregar hoy?', pron:'énizin tu fix, or tu delíver tudéi?'},
+    {speaker:'alumno', en:'Yes, I have to fix a small problem, and to finish and deliver the package before five.', es:'Sí, tengo que arreglar un problema pequeño, y terminar y entregar el paquete antes de las cinco.', pron:'iés, ái jav tu fix a smol práblem, and tu fínish and delíver de páquich bifór fáiv.'}
+  ],
+  16: [
+    {speaker:'maestro', en:'Can I borrow the hammer, and any tool you have? I need to fix this shelf.', es:'¿Me prestas el martillo, y cualquier herramienta que tengas? Necesito arreglar este estante.', pron:'can ái bárou de jámer, and éni túul iú jav? ái níid tu fix dis shelf.'},
+    {speaker:'alumno', en:'Sure — here\'s the hammer, and a screwdriver too, if you need one.', es:'Claro — acá está el martillo, y un destornillador también, si necesitas uno.', pron:'shur — jírs de jámer, and a scrúdraiver tu, if iú níid uán.'},
+    {speaker:'maestro', en:'Do you have a ladder? I need to paint that wall.', es:'¿Tienes una escalera? Necesito pintar esa pared.', pron:'du iú jav a láder? ái níid tu péint dat uól.'},
+    {speaker:'alumno', en:'Yes, there\'s a ladder, some paint, and a lamp in the storage room.', es:'Sí, hay una escalera, algo de pintura, y una lámpara en el depósito.', pron:'iés, ders a láder, sam péint, and a lamp in de stórich rúum.'},
+    {speaker:'maestro', en:'Can I borrow the broom, and the bucket?', es:'¿Me prestas la escoba, y el balde?', pron:'can ái bárou de brúum, and de báket?'},
+    {speaker:'alumno', en:'Of course — and here\'s a pen and paper if you need to write something down.', es:'Por supuesto — y acá está una lapicera y papel si necesitas anotar algo.', pron:'of cors — and jírs a pen and péiper if iú níid tu ráit sámzin dáun.'},
+    {speaker:'maestro', en:'What about a stapler, or a folder?', es:'¿Y qué tal una engrapadora, o una carpeta?', pron:'uát abáut a stéipler, or a fólder?'},
+    {speaker:'alumno', en:'There\'s a stapler, a folder, some tape, scissors, and a cart in the office.', es:'Hay una engrapadora, una carpeta, algo de cinta, tijeras, y un carrito en la oficina.', pron:'ders a stéipler, a fólder, sam téip, sísors, and a cart in de áfis.'}
+  ],
+  17: [
+    {speaker:'maestro', en:'Do you have a pet — a dog, a cat, or a bird?', es:'¿Tienes una mascota — un perro, un gato, o un pájaro?', pron:'du iú jav a pet — a dog, a cat, or a berd?'},
+    {speaker:'alumno', en:'I have a dog, and I have to feed him every morning.', es:'Tengo un perro, y tengo que darle de comer cada mañana.', pron:'ái jav a dog, and ái jav tu fíid jim évri mórning.'},
+    {speaker:'maestro', en:'What are your company\'s values?', es:'¿Cuáles son los valores de tu empresa?', pron:'uát ar iór cámpanis váliuz?'},
+    {speaker:'alumno', en:'Our values are teamwork, respect, and honesty — with a strong commitment to growth.', es:'Nuestros valores son trabajo en equipo, respeto, y honestidad — con un fuerte compromiso con el crecimiento.', pron:'áur váliuz ar tíimuork, rispéct, and ánesti — uid a strong camítment tu gróuz.'},
+    {speaker:'maestro', en:'Do you have trust in your team?', es:'¿Tienes confianza en tu equipo?', pron:'du iú jav trast in iór tíim?'},
+    {speaker:'alumno', en:'Yes, I have trust in them — that\'s part of our teamwork and respect too.', es:'Sí, tengo confianza en ellos — eso también es parte de nuestro trabajo en equipo y respeto.', pron:'iés, ái jav trast in dem — dats part of áur tíimuork and rispéct tu.'},
+    {speaker:'maestro', en:'That sounds like a great company culture.', es:'Eso suena como una gran cultura empresarial.', pron:'dat sáunds láik a gréit cámpani cálcher.'},
+    {speaker:'alumno', en:'It is! Our mission and vision focus on growth, honesty, and commitment every day.', es:'¡Así es! Nuestra misión y visión se enfocan en el crecimiento, la honestidad, y el compromiso cada día.', pron:'it is! áur míshion and víshion fóucas on gróuz, ánesti, and camítment évri déi.'}
+  ],
+  18: [
+    {speaker:'maestro', en:'Do you know your neighbors well? What\'s your neighborhood like?', es:'¿Conoces bien a tus vecinos? ¿Cómo es tu barrio?', pron:'du iú nóu iór néibors uél? uáts iór néiborjud láik?'},
+    {speaker:'alumno', en:'Yes, I have a friendly community — my neighbors are wonderful.', es:'Sí, tengo una comunidad amigable — mis vecinos son maravillosos.', pron:'iés, ái jav a fréndli camiúniti — mái néibors ar uánderful.'},
+    {speaker:'maestro', en:'Are your customers loyal, or just regular customers?', es:'¿Tus clientes son leales, o solo clientes habituales?', pron:'ar iór cástomers lóial, or yast réguiular cástomers?'},
+    {speaker:'alumno', en:'Most are loyal customers, with a long-term relationship built on trust.', es:'La mayoría son clientes leales, con una relación a largo plazo construida sobre la confianza.', pron:'móust ar lóial cástomers, uid a long-term riléishionship bilt on trast.'},
+    {speaker:'maestro', en:'I like to recommend this business — they\'re very reliable, and their loyalty program is great.', es:'Me gusta recomendar este negocio — son muy confiables, y su programa de lealtad es genial.', pron:'ái láik tu récomend dis bísnes — der véri riláiabol, and der lóialti prógram is gréit.'},
+    {speaker:'alumno', en:'Thank you! I recommend asking for a referral if you liked our service.', es:'¡Gracias! Recomiendo pedir una referencia si te gustó nuestro servicio.', pron:'zenk iú! ái récomend ásking for a riférol if iú láikd áur sérvis.'},
+    {speaker:'maestro', en:'Any feedback, or a complaint you\'d like to share?', es:'¿Algún comentario, o una queja que quieras compartir?', pron:'éni fíidbak, or a campléint iúd láik tu sher?'},
+    {speaker:'alumno', en:'No complaint — I\'m satisfied! I just have some feedback, actually — a small solution to suggest.', es:'Ninguna queja — ¡estoy satisfecho! Solo tengo algo de retroalimentación, en realidad — una pequeña solución para sugerir.', pron:'nóu campléint — áim sátisfaid! ái yast jav sam fíidbak, áctiuali — a smol saliúshion tu sayést.'}
+  ],
+  19: [
+    {speaker:'maestro', en:'By the way, are you almost done with that report?', es:'Por cierto, ¿ya casi terminas ese reporte?', pron:'bái de uéi, ar iú ólmoust dan uid dat ripórt?'},
+    {speaker:'alumno', en:'Actually, I\'m still working on it — no rush, though.', es:'En realidad, todavía estoy trabajando en eso — sin apuro, igual.', pron:'áctiuali, áim stil uórking on it — nóu rash, dóu.'},
+    {speaker:'maestro', en:'For example, in general, it\'s coming along well.', es:'Por ejemplo, en general, va saliendo bien.', pron:'for exámpol, in yéneral, its cáming alóng uél.'},
+    {speaker:'alumno', en:'As usual, don\'t worry — it\'s fine, take your time.', es:'Como siempre, no te preocupes — está bien, tómate tu tiempo.', pron:'as iúshual, dont uóri — its fáin, téik iór táim.'},
+    {speaker:'maestro', en:'Is it already finished, or still in progress?', es:'¿Ya está terminado, o todavía en progreso?', pron:'is it olrédi fínisht, or stil in prógres?'},
+    {speaker:'alumno', en:'By the way, it\'s almost ready — just a little more.', es:'Por cierto, ya casi está listo — solo un poco más.', pron:'bái de uéi, its ólmoust rédi — yast a lítol mor.'}
+  ],
+  20: [
+    {speaker:'maestro', en:'Let\'s have lunch! I would like rice, chicken, vegetables, and some fruit.', es:'¡Almorcemos! Quisiera arroz, pollo, vegetales, y algo de fruta.', pron:'lets jav lanch! ái uud láik ráis, chíken, véchtabols, and sam frúut.'},
+    {speaker:'alumno', en:'I\'m hungry too — I would like meat with bread and soup instead.', es:'Yo también tengo hambre — quisiera carne con pan y sopa en cambio.', pron:'áim jángri tu — ái uud láik míit uid bred and súup instéd.'},
+    {speaker:'maestro', en:'This salad looks delicious — a table for two, please.', es:'Esta ensalada se ve deliciosa — una mesa para dos, por favor.', pron:'dis sálad luks delíshius — a téibol for tú, plíis.'},
+    {speaker:'alumno', en:'Perfect, let\'s ask the waiter for a menu, and maybe a reservation next time.', es:'Perfecto, pidámosle al mesero un menú, y tal vez una reserva la próxima vez.', pron:'pérfect, lets ask de uéiter for a méniu, and méibi a reservéishion next táim.'},
+    {speaker:'maestro', en:'The check please! This was delicious.', es:'¡La cuenta por favor! Esto estuvo delicioso.', pron:'de chek plíis! dis uás delíshius.'},
+    {speaker:'alumno', en:'I would like to come back soon — let\'s have lunch here again.', es:'Me gustaría volver pronto — almorcemos acá de nuevo.', pron:'ái uud láik tu cam bak súun — lets jav lanch jíar aguén.'}
+  ],
   13: [
     {speaker:'maestro', en:'Welcome to my new house! There is a kitchen, a living room, and a bedroom.', es:'¡Bienvenido a mi casa nueva! Hay una cocina, una sala, y un dormitorio.', pron:'uélcam tu mái niú jáus! der is a kíchen, a líving rúum, and a bédrum.'},
     {speaker:'alumno', en:'There is also a garden, with a door and a window right there.', es:'También hay un jardín, con una puerta y una ventana justo ahí.', pron:'der is ólsou a gárden, uid a dor and a uíndou ráit der.'},
@@ -608,7 +712,7 @@ const unitDialogueReinforcement = {
     {speaker:'maestro', en:'Let\'s schedule a meeting — I need to schedule a meeting. What\'s on the agenda, and who are the attendees?', es:'Programemos una reunión — necesito programar una reunión. ¿Qué hay en la agenda, y quiénes son los asistentes?', pron:'lets squédiul a míiting — ái níid tu squédiul a míiting. uáts on de ayénda, and jú ar de aténdiis?'},
     {speaker:'alumno', en:'I need to book a conference room for that time slot.', es:'Necesito reservar una sala de conferencias para ese horario.', pron:'ái níid tu buk a cánferens rúum for dat táim slat.'},
     {speaker:'maestro', en:'Can you confirm attendance? I\'ll be there, but John says: I can\'t attend — he has a schedule conflict, so please try to confirm attendance for the rest.', es:'¿Puedes confirmar tu asistencia? Yo voy a estar, pero John dice: no puedo asistir — tiene un conflicto de horario, así que por favor trata de confirmar la asistencia del resto.', pron:'can iú canférm aténdans? áil bi der, bat Yan séis: ái cant aténd — ji jas a squédiul cánflict, sóu plíis trái tu canférm aténdans for de rest.'},
-    {speaker:'alumno', en:'Let me send the invite. Will you accept it, or would you rather decline it? I need to accept or to decline soon.', es:'Déjame enviar la invitación. ¿Vas a aceptarla, o preferís rechazarla? Necesito aceptar o rechazar pronto.', pron:'let mi send de inváit. uil iú acsépt it, or uud iú ráder disláin it? ái níid tu acsépt or tu disláin súun.'},
+    {speaker:'alumno', en:'Let me send the invite. Will you accept it, or would you rather decline it? I need to accept or to decline soon.', es:'Déjame enviar la invitación. ¿Vas a aceptarla, o prefieres rechazarla? Necesito aceptar o rechazar pronto.', pron:'let mi send de inváit. uil iú acsépt it, or uud iú ráder disláin it? ái níid tu acsépt or tu disláin súun.'},
     {speaker:'maestro', en:'Should we split the bill, or is this a reservation for the company? I prefer dine in, not take out.', es:'¿Dividimos la cuenta, o esta es una reserva para la empresa? Prefiero comer acá, no para llevar.', pron:'shud uí split de bil, or is dis a reservéishion for de cámpani? ái préfer dáin in, nat téik áut.'},
     {speaker:'alumno', en:'Don\'t forget the tip! Now, what\'s the first topic on the agenda?', es:'¡No te olvides de la propina! Ahora, ¿cuál es el primer tema de la agenda?', pron:'dont forguét de tip! náu, uáts de ferst tápic on de ayénda?'},
     {speaker:'maestro', en:'Let\'s discuss this agenda item — I want to discuss the next steps and the action items.', es:'Discutamos este punto de la agenda — quiero discutir los próximos pasos y las tareas pendientes.', pron:'lets discás dis ayénda áitem — ái uánt tu discás de next steps and de ákshion áitems.'},
@@ -988,7 +1092,7 @@ const weeklyStories = {
     {en:'Great job so far — more than a third done. See you in the next unit!', es:'Muy buen trabajo hasta ahora — más de un tercio hecho. ¡Nos vemos en la próxima unidad!', pron:'gréit yab sóu far — mor dan a zerd dan. síi iú in de next iúnit!'}
   ]
 };
-const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escuchá cada frase, repetila, y escribila — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
+const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escucha cada frase, repítela, y escríbela — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
 const weeklyStoryIntro = [{t:'Antes de terminar, una historia más larga con todo lo que repasaste esta semana de estudio.',lang:'es'}];
 const jingleIntro = [{t:'Para cerrar, un jinglecito pegajoso con lo de hoy — como una publicidad que se te queda en la cabeza. Escúchalo, repítelo, y si quieres, grábate "cantándolo" a tu manera.',lang:'es'}];
 const milestoneIntro = [{t:'¡Llegaste a un hito! Antes de cerrar este bloque de 24 días, un repaso más exigente — combinando lo que aprendiste en todo este mes de estudio, no solo hoy.',lang:'es'}];
@@ -1065,9 +1169,6 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle,
     scr.push({ kind:'readAlong', lines:unitReviewStories[dayNumber] });
   }
   scr.push({ kind:'task', theme:theme, exampleLines: (dayStory && dayStory.length) ? dayStory.slice(0, Math.min(2, dayStory.length)) : [], dayStructures: dayStructures||[] });
-  if(dailyMiniDialogue[dayNumber]){
-    scr.push({ kind:'dialogueReinforcement', lines: dailyMiniDialogue[dayNumber], isDailyMini:true });
-  }
   if(dayNumber % 24 === 0){
     const milestoneWords = sampleMilestoneWords(dayNumber);
     if(milestoneWords.length){
@@ -1077,6 +1178,9 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle,
   }
   if(typeof practicasProgreso !== 'undefined' && practicasProgreso[dayNumber]){
     scr.push({ kind:'practica', day:dayNumber, data:practicasProgreso[dayNumber] });
+  }
+  if(dailyMiniDialogue[dayNumber]){
+    scr.push({ kind:'dialogueReinforcement', lines: dailyMiniDialogue[dayNumber], isDailyMini:true });
   }
   scr.push({ kind:'end' });
   return scr;
@@ -1339,7 +1443,7 @@ function loadTurn(){
   const realLyrics = turn.isJingle ? (currentDay && currentDay.songJingleLyrics) : (turn.isDailyStory ? (currentDay && currentDay.songStoryLyrics) : null);
   if(songFile){
     songPlayer.style.display='block';
-    songPlayerLabel.textContent = turn.isJingle ? '🎶 Escuchá el jingle real, cantado — seguí la letra' : '🎶 Escuchá la historia real, cantada — seguí la letra';
+    songPlayerLabel.textContent = turn.isJingle ? '🎶 Escucha el jingle real, cantado — sigue la letra' : '🎶 Escucha la historia real, cantada — sigue la letra';
     if(songAudio.getAttribute('src') !== songFile){ songAudio.src = songFile; }
     let lyricCount;
     if(realLyrics && realLyrics.length){
@@ -1413,9 +1517,9 @@ function afterIntro(turn){
       spokenDone=true;
       userControls.style.display='none';
       typeRow.style.display='flex'; typeInput.placeholder='Ahora escribe esa misma frase...'; typeInput.focus();
-      feedback.classList.add('show','ok'); feedback.textContent='¡Buenísimo! Ahora escribila.';
+      feedback.classList.add('show','ok'); feedback.textContent='¡Buenísimo! Ahora escríbela.';
     });
-    skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí tu frase acá...'; typeInput.focus();};
+    skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribe tu frase acá...'; typeInput.focus();};
     sendBtn.onclick=()=>{
       if(!typeInput.value.trim())return;
       addTranscript('VOS (escrito)', typeInput.value.trim(), 'user');
@@ -1462,8 +1566,8 @@ function runTransformDrills(items, i, onDone){
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show');
   setSegs(lineEl, [{t:'Frase base: "'+item.base+'"', lang:'en'}]);
-  hintEl.textContent='Ejercicio '+(i+1)+' de '+items.length+' — Escribila en forma '+item.askType+'.';
-  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí la frase transformada...'; typeInput.focus();
+  hintEl.textContent='Ejercicio '+(i+1)+' de '+items.length+' — Escríbela en forma '+item.askType+'.';
+  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribe la frase transformada...'; typeInput.focus();
   sendBtn.onclick=()=>{
     const typed=typeInput.value.trim(); if(!typed) return;
     const correct = normalize(typed)===normalize(item.target);
@@ -1534,12 +1638,12 @@ function runFillBlankDialogue(turn){
   document.getElementById('dialoguePlayer').style.display='none';
 
   illusEl.textContent='✍️';
-  setSegs(lineEl,[{t:'Ahora completá lo que dice el '+(turn.mode==='maestro'?'Profesor':'Alumno')+', usando lo que recordás del diálogo.',lang:'es'}]);
+  setSegs(lineEl,[{t:'Ahora completa lo que dice el '+(turn.mode==='maestro'?'Profesor':'Alumno')+', usando lo que recuerdas del diálogo.',lang:'es'}]);
   hintEl.textContent='Puedes escuchar la pronunciación de cualquier palabra que falta, las veces que quieras — no resta nada.';
 
   const fbPlayer=document.getElementById('fillBlankPlayer'), fbTitle=document.getElementById('fillBlankTitle'), transcript=document.getElementById('fillBlankTranscript'), current=document.getElementById('fillBlankCurrent');
   fbPlayer.style.display='block';
-  fbTitle.textContent = turn.mode==='maestro' ? '✍️ Guion del Profesor — completá sus líneas, leyendo las del Alumno como contexto' : '✍️ Guion del Alumno — completá tus líneas, leyendo las del Profesor como contexto';
+  fbTitle.textContent = turn.mode==='maestro' ? '✍️ Guion del Profesor — completa sus líneas, leyendo las del Alumno como contexto' : '✍️ Guion del Alumno — completa tus líneas, leyendo las del Profesor como contexto';
   transcript.innerHTML=''; current.innerHTML='';
 
   const lines = turn.lines;
@@ -1680,7 +1784,7 @@ function runDialogueReinforcement(turn){
     transcript.scrollTop = transcript.scrollHeight;
   }
 
-  // ===== Paso 1: elegir con qué personaje practicás =====
+  // ===== Paso 1: elegir con qué personaje practicas =====
   function showRoleSelector(){
     setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y el Alumno dragón.',lang:'es'}]);
     hintEl.textContent='Elegí con cuál de los dos personajes quieres practicar hablando. Vas a escuchar las líneas del otro personaje como contexto, y vas a grabar las tuyas.';
@@ -1698,7 +1802,7 @@ function runDialogueReinforcement(turn){
 
   function startDialogue(){
     const meta = speakerMeta(myRole);
-    setSegs(lineEl,[{t:'Estás practicando como '+meta.label+'. Escuchá cada línea — cuando sea tu turno, grabá tu respuesta antes de seguir.',lang:'es'}]);
+    setSegs(lineEl,[{t:'Estás practicando como '+meta.label+'. Escucha cada línea — cuando sea tu turno, graba tu respuesta antes de seguir.',lang:'es'}]);
     hintEl.textContent='Puedes escuchar tu grabación las veces que quieras. Si no te convence, bórrala y grábala de nuevo antes de guardar y avanzar.';
     playAllBtn.style.display='inline-flex'; pauseBtn.style.display='inline-flex'; pauseBtn.textContent='⏹ Detener audio';
     renderTurnButton();
@@ -1757,11 +1861,11 @@ function runDialogueReinforcement(turn){
   function showRecordPanel(line, meta){
     const note = document.createElement('div');
     note.style.cssText='margin:10px 0; font-size:13px; color:var(--muted); text-align:center;';
-    note.textContent='Grabá tu respuesta acá abajo, escuchala, y decidí: guardarla y seguir, o borrarla y grabar de nuevo.';
+    note.textContent='Graba tu respuesta acá abajo, escúchala, y decide: guardarla y seguir, o borrarla y grabar de nuevo.';
     turnBox.appendChild(note);
 
     const panel = document.createElement('div'); panel.className='record-panel';
-    const dlgRecordBtn = document.createElement('button'); dlgRecordBtn.className='ghost'; dlgRecordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+    const dlgRecordBtn = document.createElement('button'); dlgRecordBtn.className='ghost'; dlgRecordBtn.textContent='🎙️ Ahora graba tu respuesta';
     const dlgPlayback = document.createElement('audio'); dlgPlayback.controls=true; dlgPlayback.style.display='none';
     const dlgReRecordBtn = document.createElement('button'); dlgReRecordBtn.className='ghost'; dlgReRecordBtn.style.display='none'; dlgReRecordBtn.textContent='🔁 Borrar y grabar de nuevo';
     panel.appendChild(dlgRecordBtn); panel.appendChild(dlgPlayback); panel.appendChild(dlgReRecordBtn);
@@ -1783,7 +1887,7 @@ function runDialogueReinforcement(turn){
       recMediaRecorder.ondataavailable = (e)=>{ if(e.data && e.data.size>0) recChunks.push(e.data); };
       recMediaRecorder.onstop = ()=>{
         recIsRecording=false;
-        dlgRecordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+        dlgRecordBtn.textContent='🎙️ Ahora graba tu respuesta';
         const blob = new Blob(recChunks, {type: recMediaRecorder.mimeType || 'audio/webm'});
         const url = URL.createObjectURL(blob);
         dlgPlayback.src = url;
@@ -1798,7 +1902,7 @@ function runDialogueReinforcement(turn){
     dlgReRecordBtn.onclick = ()=>{
       dlgPlayback.style.display='none'; dlgPlayback.removeAttribute('src');
       dlgReRecordBtn.style.display='none';
-      dlgRecordBtn.style.display='inline-flex'; dlgRecordBtn.textContent='🎙️ Ahora grabá tu respuesta';
+      dlgRecordBtn.style.display='inline-flex'; dlgRecordBtn.textContent='🎙️ Ahora graba tu respuesta';
     };
 
     const advBtn = document.createElement('button');
@@ -1933,7 +2037,7 @@ function runDictation(turn){
   hintEl.textContent='No hay pista visual esta vez — escucha con atención, las veces que necesites, y escribe exactamente lo que entendiste.';
   lineEl.innerHTML=''; lineEl.textContent='🔒 El texto está oculto hasta que respondas.';
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none'; feedback.classList.remove('show');
-  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí en inglés lo que escuchaste...'; typeInput.focus();
+  typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribe en inglés lo que escuchaste...'; typeInput.focus();
   playBtn.style.display='none';
   let listenBtn = document.getElementById('dictListenBtn');
   if(!listenBtn){
@@ -2077,7 +2181,7 @@ function runPractica(turn){
       userControls.style.display='none';
       typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Ahora escribe tu respuesta...'; typeInput.focus();
     }, {longForm:true});
-    skipBtn.onclick=()=>{ typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribí tu respuesta acá...'; typeInput.focus(); };
+    skipBtn.onclick=()=>{ typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Escribe tu respuesta acá...'; typeInput.focus(); };
     sendBtn.onclick=()=>{
       const said=typeInput.value.trim();
       if(!said) return;
@@ -2151,9 +2255,14 @@ function runWordChallenge(){
   const dlb2 = document.getElementById('dictListenBtn');
   if(dlb2) dlb2.style.display='none';
   spokenAttempts = 0;
+  // Reseteo defensivo: si la palabra anterior dejó el micrófono a medio escuchar
+  // (por ejemplo, si el watchdog no llegó a dispararse a tiempo), esto asegura que
+  // cada palabra nueva arranque con el botón de micrófono en su estado normal.
+  try{ recognition.onresult=null; recognition.onend=null; recognition.onerror=null; recognition.abort(); }catch(e){}
+  releaseMicButton();
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
-  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICÁ ESTA PALABRA');
-  hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="pron-hint">· tocá cualquier palabra para reescucharla sola</span>' : '');
+  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICA ESTA PALABRA');
+  hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="pron-hint">· toca cualquier palabra para reescucharla sola</span>' : '');
   const segs = [{t:w.en,lang:'en'}]; // siempre una sola frase completa, para que la voz salga fluida
   illusEl.textContent='💬';
   appControls.style.display='flex'; playBtn.style.display=''; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
@@ -2173,7 +2282,7 @@ function runWordChallenge(){
   };
   replayBtn.onclick=async ()=>{ await speakSegs(segs, lineEl); if(currentTurnIsStory) renderStoryLine(lineEl, w.en); };
   micBtn.onclick=()=>startListening(res=>handleSpokenResult(w,res), {longForm:currentTurnIsStory});
-  skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus();};
+  skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribe lo que ibas a decir...'; typeInput.focus();};
   sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; const said=typeInput.value.trim(); typeInput.value=''; typeRow.style.display='none'; handleSpokenResult(w,{said,confidence:null}); };
 }
 // Muestra la frase de la historia como palabras individuales, tocables, CON espacios correctos entre ellas.
@@ -2197,7 +2306,7 @@ function attachWordClicks(container, segs){
   document.getElementById('phraseSelectionPanel').style.display='none';
   spans.forEach((span,i)=>{
     span.style.cursor='pointer';
-    span.title='Tocá una palabra para escucharla sola. Tocá otra palabra después para escuchar toda la frase entre las dos.';
+    span.title='Toca una palabra para escucharla sola. Toca otra palabra después para escuchar toda la frase entre las dos.';
     span.onclick=(e)=>{
       e.stopPropagation();
       if(wordSelectStart===null){
@@ -2248,8 +2357,8 @@ function handleSpokenResult(w, res){
     const credit = spokenAttempts===1 ? 1 : 0.5;
     feedback.className='feedback show ok';
     feedback.textContent = spokenAttempts===1
-      ? '✓ Muy bien, se entendió claro (92%+). Ahora escribila.'
-      : '✓ Ahora sí se entendió claro. Ahora escribila.';
+      ? '✓ Muy bien, se entendió claro (92%+). Ahora escríbela.'
+      : '✓ Ahora sí se entendió claro. Ahora escríbela.';
     goToWriteStep(w, credit);
     return;
   }
@@ -2262,7 +2371,7 @@ function handleSpokenResult(w, res){
     return;
   }
   if(ok){
-    feedback.className='feedback show retry'; feedback.textContent='Dijiste bien la palabra, pero sonó poco clara (necesitás 92%). Repetila una vez más.';
+    feedback.className='feedback show retry'; feedback.textContent='Dijiste bien la palabra, pero sonó poco clara (necesitas 92%). Repítela una vez más.';
   } else {
     feedback.className='feedback show retry'; feedback.textContent='Casi — prueba repetirla de nuevo, tú puedes.';
   }
@@ -2270,13 +2379,13 @@ function handleSpokenResult(w, res){
 }
 function goToWriteStep(w, pronCredit){
   modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
-  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRIBILA';
+  speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRÍBELA';
   illusEl.textContent='✏️'; replayWordBtn.style.display='none'; slowWordBtn.style.display='none'; resetRecordingPanel(); finishTalkingBtn.style.display='none'; document.getElementById('phraseSelectionPanel').style.display='none'; wordSelectStart=null;
   setSegs(lineEl, [{t:'¿Cómo se escribe "'+w.es+'" en inglés?',lang:'es'}]);
   hintEl.textContent='Pista: empieza con "'+w.en[0].toUpperCase()+'"';
   appControls.style.display='none'; userControls.style.display='none'; nextControls.style.display='none';
   feedback.classList.remove('show');
-  typeRow.style.display='flex'; typeInput.placeholder='Escribí la palabra en inglés...'; typeInput.value=''; typeInput.focus();
+  typeRow.style.display='flex'; typeInput.placeholder='Escribe la palabra en inglés...'; typeInput.value=''; typeInput.focus();
   peekBtn.style.display='inline-flex'; peekBox.style.display='none';
   let writeCredit = 0;
   let attempts = 0;
@@ -2327,7 +2436,7 @@ function goToWriteStep(w, pronCredit){
       feedback.className='feedback show retry';
       feedback.textContent = attempts>=2
         ? 'Se escribe "'+w.en+'". Quedó anotada para repasar.'
-        : 'No es así todavía. Fijate bien y probá de nuevo, o tocá "Ver respuesta" si preferís seguir.';
+        : 'No es así todavía. Fíjate bien y prueba de nuevo, o toca "Ver respuesta" si prefieres seguir.';
       typeInput.value=''; typeInput.focus();
       nextControls.style.display='flex';
       nextBtn.textContent='Ver respuesta y continuar';
@@ -2389,7 +2498,7 @@ function releaseMicButton(){
 }
 function startListening(onResult, opts){
   opts = opts || {};
-  if(!micSupported||!micGranted){ typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...'; typeInput.focus(); return; }
+  if(!micSupported||!micGranted){ typeRow.style.display='flex'; typeInput.placeholder='Escribe lo que ibas a decir...'; typeInput.focus(); return; }
   // Desconectamos cualquier manejador de una llamada anterior ANTES de tocar nada más,
   // así un abort() de una sesión vieja no dispara callbacks viejos sobre el estado nuevo.
   recognition.onresult=null; recognition.onend=null; recognition.onerror=null;
@@ -2422,20 +2531,20 @@ function startListening(onResult, opts){
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     finishTalkingBtn.style.display='none';
     const said = collected.join(' ').trim();
-    onResult({said: said || '(no se detectó audio, probá de nuevo)', confidence:null});
+    onResult({said: said || '(no se detectó audio, prueba de nuevo)', confidence:null});
   };
   recognition.onerror=(e)=>{
     clearMicWatchdog();
     micBtn.classList.remove('listening'); micBtn.textContent='🎙 Hablar mi respuesta'; setMicStatus('on','Micrófono: activo');
     finishTalkingBtn.style.display='none';
     feedback.classList.add('show','retry');
-    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisa permisos o escribe tu respuesta.':'No pude escucharte bien. Probá de nuevo o escribí.';
-    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+    feedback.textContent=(e.error==='not-allowed'||e.error==='service-not-allowed')?'El navegador bloqueó el micrófono. Revisa permisos o escribe tu respuesta.':'No pude escucharte bien. Prueba de nuevo o escribe.';
+    typeRow.style.display='flex'; typeInput.placeholder='Escribe lo que ibas a decir...';
   };
   // Recién ahora tocamos la interfaz y arrancamos de verdad.
   micBtn.classList.add('listening'); setMicStatus('listening','Micrófono: escuchando ahora');
   if(opts.longForm){
-    micBtn.textContent = '🎙 Escuchando... (tocá "Terminé" cuando acabes)';
+    micBtn.textContent = '🎙 Escuchando... (toca "Terminé" cuando acabes)';
     finishTalkingBtn.style.display='inline-flex';
     finishTalkingBtn.onclick = ()=>{ try{ recognition.stop(); }catch(e){} };
   } else {
@@ -2448,7 +2557,7 @@ function startListening(onResult, opts){
     releaseMicButton();
     feedback.classList.add('show','retry');
     feedback.textContent = 'No te escuché a tiempo (puede haber sido un problema de conexión). Prueba de nuevo, o escribe tu respuesta.';
-    typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+    typeRow.style.display='flex'; typeInput.placeholder='Escribe lo que ibas a decir...';
   }, watchdogMs);
   function tryStart(attemptsLeft){
     try{
@@ -2462,7 +2571,7 @@ function startListening(onResult, opts){
         releaseMicButton();
         feedback.classList.add('show','retry');
         feedback.textContent = 'No pude activar el micrófono. Prueba de nuevo, o escribe tu respuesta.';
-        typeRow.style.display='flex'; typeInput.placeholder='Escribí lo que ibas a decir...';
+        typeRow.style.display='flex'; typeInput.placeholder='Escribe lo que ibas a decir...';
       }
     }
   }
@@ -2476,7 +2585,7 @@ function startEvaluation(){
   appControls.style.display='none'; userControls.style.display='none'; typeRow.style.display='none'; feedback.classList.remove('show');
   illusEl.textContent='💬';
   setSegs(lineEl, [{t:'¡Ya casi terminamos! Cerremos con un diálogo: te voy a preguntar por cada cosa que aprendiste hoy — la dices y la escribes, como en una charla real.',lang:'es'}]);
-  hintEl.textContent='Para aprobar la lección necesitás al menos 92% correcto.';
+  hintEl.textContent='Para aprobar la lección necesitas al menos 92% correcto.';
   nextControls.style.display='flex';
   nextBtn.textContent='Empezar el diálogo';
   nextBtn.onclick=()=>{
