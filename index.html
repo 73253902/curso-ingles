@@ -321,6 +321,33 @@
   </header>
 
   <!-- ===== PANTALLA DE INICIO: selector de días ===== -->
+  <!-- ===== AUTENTICACIÓN — login/registro y bloqueo por prueba vencida ===== -->
+  <div id="authGate" style="display:none;">
+    <div class="panel" style="max-width:420px; margin:60px auto 0;">
+      <div id="authLoginBox" style="display:block;">
+        <h2 style="margin-top:0;">El Dragón del Lenguaje</h2>
+        <p class="sub">Iniciá sesión o creá tu cuenta para empezar tu prueba gratuita de 7 días.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+          <input type="email" id="authEmail" placeholder="tu@correo.com" style="padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink);">
+          <input type="password" id="authPassword" placeholder="Contraseña" style="padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink);">
+          <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted);">
+            <input type="checkbox" id="authModoRegistro"> Es la primera vez — quiero crear una cuenta nueva
+          </label>
+          <div id="authError" style="color:var(--warn); font-size:13px; min-height:18px;"></div>
+          <button class="primary" id="authSubmitBtn">Entrar</button>
+        </div>
+      </div>
+      <div id="authPagoBox" style="display:none;">
+        <h2 style="margin-top:0;">🔒 Prueba gratuita finalizada</h2>
+        <p class="sub" id="authPagoTexto"></p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+          <button class="primary" id="authPagarBtn">Pagar ahora</button>
+          <button class="ghost" id="authCerrarSesionBtn">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="home">
     <div class="placement-card" id="placementCard">
       <div class="pc-icon">🎯</div>
@@ -698,6 +725,8 @@
 <script src="cognados.js"></script>
 <script src="fonetica.js"></script>
 <script src="evaluacion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
 <script src="motor.js"></script>
 </body>
 </html>

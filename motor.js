@@ -29,7 +29,13 @@ const TOTAL_DAYS = 180; // el mapa completo; el resto de los días se muestran "
 // ================================================================
 const STORAGE_KEY = 'curso_ingles_progreso_v1';
 function loadProgress(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; } }
-function saveProgress(all){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); }catch(e){} }
+function saveProgress(all){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); }catch(e){}
+  // Sincronización con la nube: no bloquea el guardado local si falla o tarda.
+  if(typeof pushProgressToSupabase === 'function' && typeof currentUser !== 'undefined' && currentUser){
+    pushProgressToSupabase(all).catch(()=>{});
+  }
+}
 function saveDayResult(dayNum, data){
   const all = loadProgress();
   all[dayNum] = data;
@@ -2844,4 +2850,4 @@ backToLessonBtn.addEventListener('click', ()=>{
 
 // ================= Arranque =================
 ensureVoices();
-showHome();
+if(typeof iniciarApp === 'function'){ iniciarApp(); } else { showHome(); }
