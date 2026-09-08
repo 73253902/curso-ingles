@@ -179,4 +179,59 @@ function mostrarPantallaPago(profile){
   el('authPagoBox').style.display='block';
   el('authPagoTexto').textContent = 'Tu prueba gratuita de '+DIAS_PRUEBA_GRATIS+' días ya terminó. Para seguir usando el curso, necesitas hacer el pago único.';
   el('authCerrarSesionBtn').onclick = async ()=>{ await signOut(); mostrarPantallaLogin(); };
+  el('authPagarBtn').onclick = iniciarPagoWompi;
+}
+
+// ================================================================
+// Pago con Wompi — abre el widget de pago con los datos generados
+// de forma segura por la función crear-pago (Supabase Edge Function)
+// ================================================================
+async function iniciarPagoWompi(){
+  const el = id => document.getElementById(id);
+  el('authPagarBtn').disabled = true;
+  el('authPagarBtn').textContent = 'Preparando el pago...';
+
+  try{
+    const { data: sesionData } = await supabaseClient.auth.getSession();
+    const token = sesionData.session.access_token;
+
+    const resp = await fetch(SUPABASE_URL + '/functions/v1/crear-pago', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + token }
+    });
+    const datosDePago = await resp.json();
+
+    if(datosDePago.error){
+      alert('No se pudo iniciar el pago: ' + datosDePago.error);
+      el('authPagarBtn').disabled = false;
+      el('authPagarBtn').textContent = 'Pagar ahora';
+      return;
+    }
+
+    const checkout = new WidgetCheckout({
+      currency: datosDePago.currency,
+      amountInCents: datosDePago.amountInCents,
+      reference: datosDePago.reference,
+      publicKey: datosDePago.publicKey,
+      signature: { integrity: datosDePago.signature },
+      redirectUrl: window.location.href
+    });
+
+    checkout.open(async function(result){
+      el('authPagarBtn').disabled = false;
+      el('authPagarBtn').textContent = 'Pagar ahora';
+      const transaction = result.transaction;
+      if(transaction && transaction.status === 'APPROVED'){
+        // El webhook ya debería haber marcado el pago — recargamos para confirmar acceso
+        alert('¡Pago aprobado! Cargando tu curso...');
+        iniciarApp();
+      } else {
+        alert('El pago no se completó (estado: ' + (transaction ? transaction.status : 'desconocido') + '). Puedes intentar de nuevo.');
+      }
+    });
+  } catch(e){
+    alert('Ocurrió un error al iniciar el pago: ' + e.message);
+    el('authPagarBtn').disabled = false;
+    el('authPagarBtn').textContent = 'Pagar ahora';
+  }
 }
