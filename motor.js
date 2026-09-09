@@ -117,8 +117,15 @@ function renderHome(){
   const completed = getCompletedDays();
   const admin = isAdmin();
 
+  const esTester = typeof currentProfile !== 'undefined' && currentProfile && currentProfile.is_tester;
+
   document.getElementById('placementCard').style.display = 'flex';
-  if(meta.placementDone){
+  if(esTester){
+    document.getElementById('placementCardTitulo').textContent = '🧪 Sos parte del equipo de prueba — ¡gracias!';
+    document.getElementById('placementCardTexto').textContent = 'Tenés acceso completo y permanente al curso, sin límite de tiempo. Si encontrás algún problema mientras lo probás, avisale a Robinson.';
+    document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme';
+    document.getElementById('skipPlacementBtn').style.display = 'none';
+  } else if(meta.placementDone){
     document.getElementById('placementCardTitulo').textContent = '¿Quieres volver a evaluarte?';
     document.getElementById('placementCardTexto').textContent = 'Ya hiciste esta evaluación antes. Puedes repetirla cuando quieras — por ejemplo, al terminar el curso, para ver cuánto avanzaste.';
     document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme de nuevo';
@@ -179,10 +186,15 @@ function renderHome(){
       const isDone = progress[d.day] && progress[d.day].completed;
       const unlockedByPlacement = d.day <= (meta.unlockedThrough||1);
       const isLocked = !admin && d.day>1 && !unlockedByPlacement && !(progress[d.day-1] && progress[d.day-1].completed) && !isDone;
-      card.className='day-card '+(isDone?'done':isLocked?'locked':'available');
-      card.title = d.theme;
-      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':isLocked?'🔒':'▶️')+'</div><div class="dt">'+d.theme.split('/')[0].trim()+'</div>';
-      if(!isLocked){ card.addEventListener('click', ()=>startDay(d.day)); }
+      const necesitaPago = !admin && typeof diaEstaDesbloqueado==='function' && !diaEstaDesbloqueado(d.day, typeof currentProfile!=='undefined'?currentProfile:null);
+      card.className='day-card '+(isDone?'done':(isLocked||necesitaPago)?'locked':'available');
+      card.title = necesitaPago ? 'Necesitas el pago único para desbloquear esta lección' : d.theme;
+      card.innerHTML = '<div class="n">Día '+d.day+'</div><div class="st">'+(isDone?'✅':necesitaPago?'💳':isLocked?'🔒':'▶️')+'</div><div class="dt">'+d.theme.split('/')[0].trim()+'</div>';
+      if(necesitaPago){
+        card.addEventListener('click', ()=>{ if(typeof mostrarPantallaPago==='function') mostrarPantallaPago(typeof currentProfile!=='undefined'?currentProfile:null); });
+      } else if(!isLocked){
+        card.addEventListener('click', ()=>startDay(d.day));
+      }
       grid.appendChild(card);
     });
     block.appendChild(grid);
@@ -337,269 +349,15 @@ const unitMeta = {
 // Conversación corta al final de cada día (a partir del Día 2), usando el vocabulario de ESE día.
 // Se agrega día a día; los días sin entrada acá simplemente no muestran este turno todavía.
 const dailyMiniDialogue = {
-  37: [
-    {speaker:'maestro', en:'Are you ready to order? I would like to know what\'s your main course.', es:'¿Estás listo para pedir? Quisiera saber cuál es tu plato principal.', pron:'ar iú rédi tu órder? ái uud láik tu nóu uáts iór méin cors.'},
-    {speaker:'alumno', en:'I\'ll have the chicken please, and an appetizer to start — something spicy would be great.', es:'Voy a pedir el pollo por favor, y una entrada para empezar — algo picante estaría genial.', pron:'áil jav de chíken plíis, and an ápetaiser tu start — sámzin spáisi uud bi gréit.'},
-    {speaker:'maestro', en:'Do you want anything sweet or salty for dessert?', es:'¿Quieres algo dulce o salado de postre?', pron:'du iú uánt énizin suíit or sólti for disért?'},
-    {speaker:'alumno', en:'The cake looked tasty — but first, I need to schedule a meeting to discuss the agenda.', es:'La torta se veía sabrosa — pero primero, necesito programar una reunión para discutir la agenda.', pron:'de kéik lukt téisti — bat ferst, ái níid tu squédiul a míiting tu discás de áyenda.'},
-    {speaker:'maestro', en:'Who are the attendees, and can we book a conference room?', es:'¿Quiénes son los asistentes, y podemos reservar una sala de conferencias?', pron:'jú ar de aténdis, and can uí buk a cánferens rúum?'},
-    {speaker:'alumno', en:'Yes, let\'s find a good time slot for everyone this week — I need to book the conference room too.', es:'Sí, busquemos un buen horario para todos esta semana — también necesito reservar la sala de conferencias.', pron:'iés, lets fáind a gud táim slot for évriuan dis uíik — ái níid tu buk de cánferens rúum tu.'}
-  ],
-  38: [
-    {speaker:'maestro', en:'What do you like, or what don\'t you like on the menu?', es:'¿Qué te gusta, o qué no te gusta del menú?', pron:'uát du iú láik, or uát dont iú láik on de méniu?'},
-    {speaker:'alumno', en:'I like spicy food, and I don\'t like plain food — I love it, actually, and I need to prefer something milder today, my favorite is spicy, but I like to try new things.', es:'Me gusta la comida picante, y no me gusta la comida simple — me encanta en realidad, y necesito preferir algo más suave hoy, mi favorito es lo picante, pero me gusta probar cosas nuevas.', pron:'ái láik spáisi fúud, and ái dont láik pléin fúud — ái lav it, áctiuali, and ái níid tu prifér sámzin máilder tudéi, mái féivorit is spáisi, bat ái láik tu trái niú zings.'},
-    {speaker:'maestro', en:'Can you try this dish? I want to know the taste.', es:'¿Puedes probar este plato? Quiero saber el sabor.', pron:'can iú trái dis dish? ái uánt tu nóu de téist.'},
-    {speaker:'alumno', en:'I am allergic to shellfish, so I can\'t try that one, sorry.', es:'Soy alérgico a los mariscos, así que no puedo probar ese, disculpa.', pron:'ái am aléryic tu shélfish, sóu ái cant trái dat uán, sóri.'},
-    {speaker:'maestro', en:'Can you confirm attendance for tomorrow\'s meeting? I\'ll be there for sure.', es:'¿Puedes confirmar tu asistencia para la reunión de mañana? Yo voy a estar seguro.', pron:'can iú canférm aténdans for tumórous míiting? áil bi der for shur.'},
-    {speaker:'alumno', en:'I can\'t attend — there\'s a schedule conflict. Should I decline the invite, or accept it anyway? I need to confirm attendance soon, and I need to accept or to decline before Friday.', es:'No puedo asistir — hay un conflicto de horario. ¿Debería rechazar la invitación, o aceptarla igual? Necesito confirmar mi asistencia pronto, y necesito aceptar o rechazar antes del viernes.', pron:'ái cant aténd — ders a squédiul cánflict. shud ái dicláin de inváit, or acsépt it éniuei? ái níid tu canférm aténdans súun, and ái níid tu acsépt or tu dicláin bifór fráidei.'}
-  ],
-  39: [
-    {speaker:'maestro', en:'Should we split the bill, or is this a reservation for the group?', es:'¿Dividimos la cuenta, o esta es una reserva para el grupo?', pron:'shud uí split de bil, or is dis a reservéishion for de grup?'},
-    {speaker:'alumno', en:'Let\'s split it — and don\'t forget the tip. Dine in or take out today?', es:'Dividámosla — y no olvides la propina. ¿Comemos acá o para llevar hoy?', pron:'lets split it — and dont forguét de tip. dáin in or téik áut tudéi?'},
-    {speaker:'maestro', en:'What\'s the first agenda item, and which topic do we need to discuss?', es:'¿Cuál es el primer tema de la agenda, y qué tema necesitamos discutir?', pron:'uáts de ferst áyenda áitem, and uích tápic du uí níid tu discás?'},
-    {speaker:'alumno', en:'Let\'s discuss the budget first — that\'s an important action item.', es:'Discutamos el presupuesto primero — eso es un punto de acción importante.', pron:'lets discás de báchet ferst — dats an impórtant ákshion áitem.'},
-    {speaker:'maestro', en:'What are the next steps, and can you follow up after the meeting?', es:'¿Cuáles son los próximos pasos, y puedes hacer seguimiento después de la reunión?', pron:'uát ar de next steps, and can iú fálou ap áfter de míiting?'},
-    {speaker:'alumno', en:'Sure — check the meeting minutes, and I need to summarize before we wrap up.', es:'Claro — revisa la minuta de la reunión, y necesito resumir antes de cerrar.', pron:'shur — chek de míiting mínits, and ái níid tu sámaráis bifór uí rap ap.'}
-  ],
-  40: [
-    {speaker:'maestro', en:'I need to cook dinner tonight — do you have a good recipe?', es:'Necesito cocinar la cena esta noche — ¿tienes una buena receta?', pron:'ái níid tu cuk díner tunáit — du iú jav a gud résipi?'},
-    {speaker:'alumno', en:'Yes! First, I need to cut the ingredients, then to boil the water, and to fry or to bake the rest — turn on the oven and the stove.', es:'¡Sí! Primero, necesito cortar los ingredientes, después hervir el agua, y freír u hornear el resto — enciende el horno y la cocina.', pron:'iés! ferst, ái níid tu cat de ingriídients, den tu bóil de uóter, and tu frái or tu béik de rest — tern on de áven and de stóuv.'},
-    {speaker:'maestro', en:'I need to prepare the slides for tomorrow\'s presentation too.', es:'También necesito preparar las diapositivas para la presentación de mañana.', pron:'ái níid tu pripér de sláids for tumórous presentéishion tu.'},
-    {speaker:'alumno', en:'I need to rehearse it too — let\'s do it together, and I\'ll help you prepare the handout as well.', es:'También necesito ensayarla — hagámoslo juntos, y te ayudo a preparar el folleto también.', pron:'ái níid tu rijérs it tu — lets du it tugéder, and áil jelp iú pripér de jándaut as uél.'}
-  ],
-  41: [
-    {speaker:'maestro', en:'Would you like some juice, soda, tea, beer, or wine with dinner?', es:'¿Quieres jugo, gaseosa, té, cerveza, o vino con la cena?', pron:'uud iú láik sam yús, sóuda, tíi, bíar, or uáin uid díner?'},
-    {speaker:'alumno', en:'Just tea for me, thanks. Can you hear me on this video call? Here\'s the link to join.', es:'Solo té para mí, gracias. ¿Me escuchas en esta videollamada? Acá está el enlace para unirte.', pron:'yast tíi for mi, zenks. can iú jíar mi on dis vídiou col? jírs de link tu yóin.'},
-    {speaker:'maestro', en:'Your camera on button seems off — can you turn it on, and check the connection?', es:'Tu botón de cámara encendida parece apagado — ¿puedes encenderla, y revisar la conexión?', pron:'iór cámera on báton síims of — can iú tern it on, and chek de canékshion?'},
-    {speaker:'alumno', en:'Sure, I need to sign in again — I can screen share with you once I mute my microphone (I need to mute it now), and I need to sign off when we finish.', es:'Claro, necesito iniciar sesión de nuevo — puedo compartir pantalla contigo una vez que silencie mi micrófono (necesito silenciarlo ahora), y necesito cerrar sesión cuando terminemos.', pron:'shur, ái níid tu sáin in aguén — ái can scríin sher uid iú uáns ái miút mái máicrofoun (ái níid tu miút it náu), and ái níid tu sáin of uén uí fínish.'}
-  ],
-  42: [
-    {speaker:'maestro', en:'What did you have for breakfast — eggs, toast, or cereal?', es:'¿Qué desayunaste — huevos, tostadas, o cereal?', pron:'uát did iú jav for brékfast — egs, tóust, or síirial?'},
-    {speaker:'alumno', en:'I had a sandwich instead, and a snack later — I had to skip a meal yesterday, though.', es:'Comí un sándwich en cambio, y una merienda después — aunque ayer tuve que saltarme una comida.', pron:'ái jad a sánduich instéd, and a snak léiter — ái jad tu skip a míil iésterdei, dóu.'},
-    {speaker:'maestro', en:'Let\'s do a follow-up meeting for a status update on the project.', es:'Hagamos una reunión de seguimiento para una actualización del estado del proyecto.', pron:'lets du a fálou-ap míiting for a stéitas apdéit on de práchect.'},
-    {speaker:'alumno', en:'Sure — we are on track, and making good progress, though one milestone is still pending, and slightly behind schedule.', es:'Claro — vamos bien encaminados, y haciendo buen progreso, aunque un hito todavía está pendiente, y un poco atrasados según lo planeado.', pron:'shur — uí ar on trak, and méiking gud prógres, dóu uán máilstoun is stil pénding, and sláitli bijáind squédiul.'}
-  ],
-  43: [
-    {speaker:'maestro', en:'Can you repeat that? What do you mean exactly?', es:'¿Puedes repetir eso? ¿Qué quieres decir exactamente?', pron:'can iú ripíit dat? uát du iú míin exáctli?'},
-    {speaker:'alumno', en:'Oh, I see — got it now, no worries.', es:'Ah, ya veo — entendido ahora, no hay problema.', pron:'óu, ái síi — gat it náu, nóu uóris.'},
-    {speaker:'maestro', en:'Same here, either way — in that case, let\'s continue.', es:'Lo mismo digo, de cualquier manera — en ese caso, continuemos.', pron:'séim jíar, íder uéi — in dat kéis, lets cantíniu.'},
-    {speaker:'alumno', en:'Just in case, let\'s do this as needed, anyway.', es:'Por las dudas, hagamos esto según haga falta, de todos modos.', pron:'yast in kéis, lets du dis as níided, éniuei.'}
-  ],
-  44: [
-    {speaker:'maestro', en:'Do you have any allergy — nuts, shellfish, or something else?', es:'¿Tienes alguna alergia — nueces, mariscos, o algo más?', pron:'du iú jav éni álery — nats, shélfish, or sámzin els?'},
-    {speaker:'alumno', en:'I need gluten-free food, and I\'m lactose intolerant too — what\'s safe to eat here?', es:'Necesito comida sin gluten, y también soy intolerante a la lactosa — ¿qué es seguro comer acá?', pron:'ái níid glúten-fríi fúud, and áim láctous intólerant tu — uáts séif tu íit jíar?'},
-    {speaker:'maestro', en:'We need to avoid those ingredients then. Can you take notes for the meeting? I need to take notes too.', es:'Entonces necesitamos evitar esos ingredientes. ¿Puedes tomar notas para la reunión? Yo también necesito tomar notas.', pron:'uí níid tu avóid dóus ingriídients den. can iú téik nóuts for de míiting? ái níid tu téik nóuts tu.'},
-    {speaker:'alumno', en:'Sure — I\'ll write the minutes of the meeting, note the decision, and the responsible person, plus attach the attachment.', es:'Claro — voy a escribir la minuta de la reunión, anotar la decisión, y la persona responsable, además de adjuntar el archivo adjunto.', pron:'shur — áil ráit de mínits of de míiting, nóut de disíshion, and de rispánsibol pérson, plas atách de atáchment.'}
-  ],
-  45: [
-    {speaker:'maestro', en:'Would you like some cake, a cookie, or ice cream? I have a sweet tooth.', es:'¿Quieres torta, una galleta, o helado? Soy goloso.', pron:'uud iú láik sam kéik, a cúki, or áis críim? ái jav a suíit túuz.'},
-    {speaker:'alumno', en:'Chocolate or candy sounds great too! In conclusion, thank you all for coming.', es:'¡Chocolate o caramelos también suena genial! En conclusión, gracias a todos por venir.', pron:'chácolet or cándi sáunds gréit tu! in canclúshion, zenk iú ol for cáming.'},
-    {speaker:'maestro', en:'Before we finish, any questions?', es:'Antes de terminar, ¿alguna pregunta?', pron:'bifór uí fínish, éni cuéstions?'},
-    {speaker:'alumno', en:'Let\'s plan for the same time next week — here\'s our action plan.', es:'Planeemos para la misma hora la próxima semana — acá está nuestro plan de acción.', pron:'lets plan for de séim táim next uíik — jírs áur ákshion plan.'}
-  ],
-  46: [
-    {speaker:'maestro', en:'I need to buy groceries at the supermarket — do you have the shopping list?', es:'Necesito comprar víveres en el supermercado — ¿tienes la lista de compras?', pron:'ái níid tu bái gróuseris at de súupermárket — du iú jav de sháping list?'},
-    {speaker:'alumno', en:'Yes, check aisle three — grab a basket, and let\'s go through the cashier at checkout.', es:'Sí, revisa el pasillo tres — toma una canasta, y pasemos por la cajera al pagar.', pron:'iés, chek áil zríi — grab a básket, and lets góu zru de cashíar at chékáut.'},
-    {speaker:'maestro', en:'Is the fish fresh, or is it frozen?', es:'¿El pescado está fresco, o está congelado?', pron:'is de fish fresh, or is it fróuzen?'},
-    {speaker:'alumno', en:'It\'s fresh! Now let\'s prepare for the supplier meeting — bring a sample and the catalog.', es:'¡Está fresco! Ahora preparémonos para la reunión con el proveedor — trae una muestra y el catálogo.', pron:'its fresh! náu lets pripér for de sapláier míiting — bring a sámpol and de cátalog.'},
-    {speaker:'maestro', en:'What are the terms and conditions for this partnership?', es:'¿Cuáles son los términos y condiciones para esta sociedad?', pron:'uát ar de terms and candíshions for dis pártnership?'},
-    {speaker:'alumno', en:'Let\'s review them together before we sign anything.', es:'Revisémoslos juntos antes de firmar algo.', pron:'lets riviú dem tugéder bifór uí sáin énizin.'}
-  ],
-  47: [
-    {speaker:'maestro', en:'Do we have enough budget approval for this — a little, or a lot?', es:'¿Tenemos suficiente aprobación de presupuesto para esto — un poco, o mucho?', pron:'du uí jav ináf báchet apruúval for dis — a lítol, or a lat?'},
-    {speaker:'alumno', en:'We have enough resources, but not too much extra — some funds, but definitely none for luxury.', es:'Tenemos suficientes recursos, pero no demasiado extra — algo de fondos, pero definitivamente nada para lujo.', pron:'uí jav ináf risórsis, bat nat tu mach éxtra — sam fands, bat définitli nan for lákshuri.'},
-    {speaker:'maestro', en:'How do we allocate the investment then? We need to allocate it carefully.', es:'¿Cómo asignamos la inversión entonces? Necesitamos asignarla con cuidado.', pron:'jáu du uí álokeit de invéstment den? uí níid tu álokeit it kérfuli.'},
-    {speaker:'alumno', en:'We might need to cut costs somewhere to make this work.', es:'Podríamos necesitar recortar gastos en algún lado para que esto funcione.', pron:'uí máit níid tu cat costs sámuér tu méik dis uork.'}
-  ],
-  48: [
-    {speaker:'maestro', en:'Welcome to unit four, final review! We\'re one third done already.', es:'¡Bienvenido a la Unidad Cuatro, repaso final! Ya llevamos un tercio hecho.', pron:'uélcam tu iúnit fóar, fáinal riviú! uír uán zerd dan olrédi.'},
-    {speaker:'alumno', en:'Keep learning — great effort so far, you\'re on track!', es:'Sigue aprendiendo — gran esfuerzo hasta ahora, ¡vas bien encaminado!', pron:'kíip lérning — gréit éfort sóu far, iór on trak!'},
-    {speaker:'maestro', en:'I\'m on track to finish this unit strong.', es:'Voy bien encaminado para terminar esta unidad con fuerza.', pron:'áim on trak tu fínish dis iúnit strong.'},
-    {speaker:'alumno', en:'See you in unit five, next unit!', es:'¡Nos vemos en la Unidad Cinco, la próxima unidad!', pron:'síi iú in iúnit fáiv, next iúnit!'}
-  ],
-  25: [
-    {speaker:'maestro', en:'What\'s the budget for this order — eleven, twelve, or thirteen units?', es:'¿Cuál es el presupuesto para este pedido — once, doce, o trece unidades?', pron:'uáts de báchet for dis órder — iléven, tuélv, or zértíin iúnits?'},
-    {speaker:'alumno', en:'Let\'s see: fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, or twenty — how many do you need?', es:'A ver: catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve, o veinte — ¿cuántas necesitas?', pron:'lets síi: fórtíin, fiftíin, síkstíin, séventíin, éitíin, náintíin, or tuénti — jáu méni du iú níid?'},
-    {speaker:'maestro', en:'This item is going to cost approximately two hundred dollars, but that\'s expensive for us.', es:'Este artículo va a costar aproximadamente doscientos dólares, pero eso es caro para nosotros.', pron:'dis áitem is góing tu cost aprócsimatli tú jándred dálars, bat dats expénsiv for as.'},
-    {speaker:'alumno', en:'We need something cheap — what\'s the final price after the discount?', es:'Necesitamos algo barato — ¿cuál es el precio final después del descuento?', pron:'uí níid sámzin chíip — uáts de fáinal práis áfter de discáunt?'}
-  ],
-  26: [
-    {speaker:'maestro', en:'Can you give me a quote for thirty, forty, or fifty units?', es:'¿Puedes darme una cotización para treinta, cuarenta, o cincuenta unidades?', pron:'can iú guiv mi a cuóut for zérti, fórti, or fífti iúnits?'},
-    {speaker:'alumno', en:'Sure — sixty, seventy, eighty, or ninety, plus a hundred more if you need them.', es:'Claro — sesenta, setenta, ochenta, o noventa, más cien más si las necesitas.', pron:'shur — síksti, séventi, éiti, or náinti, plas a jándred mor if iú níid dem.'},
-    {speaker:'maestro', en:'What about the subtotal, tax, and shipping cost?', es:'¿Y qué tal el subtotal, el impuesto, y el costo de envío?', pron:'uát abáut de sábtoutal, tax, and shíping cost?'},
-    {speaker:'alumno', en:'The grand total should add up to about a thousand dollars — I need to add up everything correctly.', es:'El total general debería sumar cerca de mil dólares — necesito sumar todo correctamente.', pron:'de grand tóutal shud ad ap tu abáut a záusand dálars — ái níid tu ad ap évrizin coréctli.'}
-  ],
-  27: [
-    {speaker:'maestro', en:'What time is it right now — is it three o\'clock?', es:'¿Qué hora es ahora mismo — son las tres en punto?', pron:'uát táim is it ráit náu — is it zríi oclák?'},
-    {speaker:'alumno', en:'It\'s half past three, actually — quarter past would be three fifteen, and quarter to four means almost an hour, or one minute before four.', es:'Son las tres y media, en realidad — y cuarto serían las tres y cuarto, y cuarto para las cuatro significa casi una hora, o un minuto antes de las cuatro.', pron:'its jaf past zríi, áctiuali — cuórter past uud bi zríi fiftíin, and cuórter tu fóar míins ólmoust an áur, or uán mínit bifór fóar.'},
-    {speaker:'maestro', en:'What are your business hours, and what time does the store open?', es:'¿Cuál es tu horario comercial, y a qué hora abre la tienda?', pron:'uát ar iór bísnes áurs, and uát táim das de stor óupen?'},
-    {speaker:'alumno', en:'It opens at nine, and it closes at six — delivery time is usually within 24 hours, same day if you\'re lucky, or next day otherwise.', es:'Abre a las nueve, y cierra a las seis — el tiempo de entrega suele ser dentro de 24 horas, el mismo día si tienes suerte, o al día siguiente si no.', pron:'it óupens at náin, and it clóuzes at six — delíveri táim is iúshuali uidín tuénti fóar áurs, séim déi if iór láki, or next déi áderuáis.'}
-  ],
-  28: [
-    {speaker:'maestro', en:'Do you prefer meetings in the morning, in the afternoon, in the evening, or at night?', es:'¿Prefieres las reuniones en la mañana, en la tarde, en el anochecer, o en la noche?', pron:'du iú prifér míitings in de mórning, in de áfternúun, in de ívning, or at náit?'},
-    {speaker:'alumno', en:'I prefer early morning meetings — I don\'t like being late.', es:'Prefiero las reuniones temprano en la mañana — no me gusta llegar tarde.', pron:'ái prifér érli mórning míitings — ái dont láik bíing léit.'},
-    {speaker:'maestro', en:'Is the package delayed, or will it arrive around the estimated time?', es:'¿El paquete está demorado, o va a llegar cerca de la hora estimada?', pron:'is de páquich diléid, or uil it aráiv aráund de éstimeited táim?'},
-    {speaker:'alumno', en:'The estimated arrival is around five, before or as soon as possible after that — check the tracking number for updates.', es:'La llegada estimada es cerca de las cinco, antes o lo antes posible después de eso — revisa el número de rastreo para actualizaciones.', pron:'de éstimeited aráival is aráund fáiv, bifór or as súun as pásibol áfter dat — chek de tráking námber for apdéits.'}
-  ],
-  29: [
-    {speaker:'maestro', en:'When is the due date for this invoice — January, February, or March?', es:'¿Cuándo es la fecha de vencimiento de esta factura — enero, febrero, o marzo?', pron:'uén is de diú déit for dis ínvois — yániuari, fébruari, or march?'},
-    {speaker:'alumno', en:'It\'s actually in April, May, or June — let me check the calendar.', es:'En realidad es en abril, mayo, o junio — déjame revisar el calendario.', pron:'its áctiuali in éipril, méi, or yun — let mi chek de cálendar.'},
-    {speaker:'maestro', en:'Is it overdue already? What about July, August, or September?', es:'¿Ya está vencida? ¿Y qué tal julio, agosto, o septiembre?', pron:'is it óverdiú olrédi? uát abáut yulái, ógost, or septémber?'},
-    {speaker:'alumno', en:'No, it\'s fine — the due date is October, or maybe November or December at the latest.', es:'No, está bien — la fecha de vencimiento es octubre, o tal vez noviembre o diciembre como muy tarde.', pron:'nóu, its fáin — de diú déit is octóuber, or méibi novémber or disémber at de léitest.'}
-  ],
-  30: [
-    {speaker:'maestro', en:'What\'s the date? What\'s today\'s date? I need to know the payment terms.', es:'¿Cuál es la fecha? ¿Cuál es la fecha de hoy? Necesito saber las condiciones de pago.', pron:'uáts de déit? uáts tudéis déit? ái níid tu nóu de péiment terms.'},
-    {speaker:'alumno', en:'The payment terms are net 30 — do you prefer an upfront payment, or an installment plan?', es:'Las condiciones de pago son treinta días netos — ¿prefieres un pago adelantado, o un plan de cuotas?', pron:'de péiment terms ar net zérti — du iú prifér an apfránt péiment, or an instólment plan?'},
-    {speaker:'maestro', en:'What if there\'s a balance due at the end of the year or month?', es:'¿Y si hay un saldo pendiente al final del año o mes?', pron:'uát if ders a bálans diú at de end of de íar or manz?'},
-    {speaker:'alumno', en:'It needs to be paid in full, but we can offer an extension, or a grace period if needed.', es:'Necesita pagarse por completo, pero podemos ofrecer una extensión, o un período de gracia si hace falta.', pron:'it níids tu bi péid in fúl, bat uí can áfer an exténshion, or a gréis píriod if níided.'}
-  ],
-  31: [
-    {speaker:'maestro', en:'Let me see... hold on, give me a second to think about this.', es:'Déjame ver... espera, dame un segundo para pensar esto.', pron:'let mi síi... jóuld on, guiv mi a sécond tu zink abáut dis.'},
-    {speaker:'alumno', en:'That works for me, or that doesn\'t work at all — which is it for you?', es:'Eso me funciona, o eso no funciona para nada — ¿cuál es para ti?', pron:'dat uorks for mi, or dat dásnt uork at ol — uích is it for iú?'},
-    {speaker:'maestro', en:'It makes sense to me — I agree with most of it.', es:'Tiene sentido para mí — estoy de acuerdo con la mayoría.', pron:'it méiks sens tu mi — ái agríi uid móust of it.'},
-    {speaker:'alumno', en:'Maybe, or probably — I definitely think it\'s a good idea, though I disagree a little with the price.', es:'Tal vez, o probablemente — definitivamente pienso que es una buena idea, aunque no estoy de acuerdo un poco con el precio.', pron:'méibi, or prábabli — définitli zink its a gud aidía, dóu ái disagríi a lítol uid de práis.'}
-  ],
-  32: [
-    {speaker:'maestro', en:'Is this the first, second, third, or fourth item on the list?', es:'¿Es este el primero, segundo, tercero, o cuarto artículo de la lista?', pron:'is dis de ferst, sécond, zerd, or fórz áitem on de list?'},
-    {speaker:'alumno', en:'It\'s actually the fifth, and it\'s next — right before the last one.', es:'En realidad es el quinto, y es el siguiente — justo antes del último.', pron:'its áctiuali de fifz, and its next — ráit bifór de last uán.'},
-    {speaker:'maestro', en:'What\'s our top priority, and where does this rank?', es:'¿Cuál es nuestra prioridad principal, y dónde se ubica esto?', pron:'uáts áur top praióriti, and uér das dis rank?'},
-    {speaker:'alumno', en:'This is urgent — check the ranking, our best seller, and our preferred supplier before the waiting list grows.', es:'Esto es urgente — revisa el ranking, nuestro más vendido, y nuestro proveedor preferido antes de que crezca la lista de espera.', pron:'dis is éryent — chek de ránking, áur best séler, and áur prifér sapláier bifór de uéiting list gróus.'}
-  ],
-  33: [
-    {speaker:'maestro', en:'How much money do you have — cash, or just a credit card?', es:'¿Cuánto dinero tienes — efectivo, o solo una tarjeta de crédito?', pron:'jáu mach máni du iú jav — cash, or yast a crédit card?'},
-    {speaker:'alumno', en:'I have a debit card, and I can write a check, or do a bank transfer or wire transfer too — how do you want to pay, and how much will you charge?', es:'Tengo una tarjeta de débito, y puedo escribir un cheque, o hacer una transferencia bancaria o transferencia electrónica también — ¿cómo quieres pagar, y cuánto vas a cobrar?', pron:'ái jav a débit card, and ái can ráit a chek, or du a bank tránsfer or uáier tránsfer tu — jáu du iú uánt tu péi, and jáu mach uil iú charch?'},
-    {speaker:'maestro', en:'Do you have the receipt, and what\'s the exchange rate for this currency?', es:'¿Tienes el recibo, y cuál es la tasa de cambio para esta moneda?', pron:'du iú jav de risíit, and uáts de exchéinch réit for dis cárensi?'},
-    {speaker:'alumno', en:'I will pay by card — you need to charge it, and give me the change afterward, or a refund if needed?', es:'Voy a pagar con tarjeta — necesitas cobrarlo, y darme el cambio después, ¿o un reembolso si hace falta?', pron:'ái uil péi bái card — iú níid tu charch it, and guiv mi de chéinch áfteruórd, or a rífand if níided?'}
-  ],
-  34: [
-    {speaker:'maestro', en:'Do you want to buy, or to sell today? I need to purchase in bulk.', es:'¿Quieres comprar, o vender hoy? Necesito comprar al por mayor.', pron:'du iú uánt tu bái, or tu sel tudéi? ái níid tu pérchas in balk.'},
-    {speaker:'alumno', en:'For a bulk order, we offer wholesale prices — the lowest price is much better than retail.', es:'Para un pedido al por mayor, ofrecemos precios de mayoreo — el precio más bajo es mucho mejor que al por menor.', pron:'for a balk órder, uí áfer jóulseil práisis — de lóuest práis is mach béter dan rítail.'},
-    {speaker:'maestro', en:'What\'s our profit margin, and are we close to a loss, or break even?', es:'¿Cuál es nuestro margen de ganancia, y estamos cerca de una pérdida, o de solo cubrir gastos?', pron:'uáts áur práfit márchin, and ar uí clóus tu a los, or bréik íven?'},
-    {speaker:'alumno', en:'I need to negotiate the price — let\'s make a final offer, and get the deal closed today.', es:'Necesito negociar el precio — hagamos una oferta final, y cerremos el trato hoy.', pron:'ái níid tu nigóushieit de práis — lets méik a fáinal áfer, and get de díil clóusd tudéi.'}
-  ],
-  35: [
-    {speaker:'maestro', en:'What\'s the weight — how much does this weigh, one kilogram, or five hundred gram?', es:'¿Cuál es el peso — cuánto pesa esto, un kilogramo, o quinientos gramos?', pron:'uáts de uéit — jáu mach das dis uéi, uán quílougram, or fáiv jándred gram?'},
-    {speaker:'alumno', en:'It\'s actually measured in liter, since it\'s a liquid — about two liters total.', es:'En realidad se mide en litros, ya que es un líquido — cerca de dos litros en total.', pron:'its áctiuali méshurd in líiter, sins its a líquid — abáut tú líiters tóutal.'},
-    {speaker:'maestro', en:'What\'s the length, width, and height of this pack?', es:'¿Cuál es el largo, ancho, y alto de este paquete?', pron:'uáts de lenz, uidz, and jáit of dis pak?'},
-    {speaker:'alumno', en:'Let me check — it\'s about one meter, or forty centimeter, and we measure the volume before loading the pallet, in inch or pound too.', es:'Déjame revisar — es cerca de un metro, o cuarenta centímetros, y medimos el volumen antes de cargar la tarima, en pulgadas o libras también.', pron:'let mi chek — its abáut uán míter, or fórti séntimiter, and uí méshur de váliun bifór lóuding de pálet, in inch or páund tu.'}
-  ],
-  36: [
-    {speaker:'maestro', en:'Welcome to unit three, review time! Are you ready for the final challenge?', es:'¡Bienvenido a la Unidad Tres, hora de repaso! ¿Estás listo para el desafío final?', pron:'uélcam tu iúnit zríi, riviú táim! ar iú rédi for de fáinal chálench?'},
-    {speaker:'alumno', en:'Yes! I made strong progress this unit — I feel well earned and proud of you too.', es:'¡Sí! Hice un progreso fuerte esta unidad — me siento bien merecido y orgulloso de ti también.', pron:'iés! ái méid strong prógres dis iúnit — ái fíil uél érnd and práud of iú tu.'},
-    {speaker:'maestro', en:'Let\'s finish this together, one more time.', es:'Terminemos esto juntos, una vez más.', pron:'lets fínish dis tugéder, uán mor táim.'},
-    {speaker:'alumno', en:'That\'s the spirit — see you in unit four, next unit!', es:'Ese es el espíritu — ¡nos vemos en la Unidad Cuatro, la próxima unidad!', pron:'dats de spírit — síi iú in iúnit fóar, next iúnit!'}
-  ],
-  21: [
-    {speaker:'maestro', en:'I need to clean this office — it\'s very dirty today.', es:'Necesito limpiar esta oficina — está muy sucia hoy.', pron:'ái níid tu clíin dis áfis — its véri dérti tudéi.'},
-    {speaker:'alumno', en:'I need to wash the floor, and to sweep the storage room too.', es:'Necesito lavar el piso, y barrer el depósito también.', pron:'ái níid tu uásh de flor, and tu suíip de stórich rúum tu.'},
-    {speaker:'maestro', en:'I need to update the inventory, and put things in order.', es:'Necesito actualizar el inventario, y poner las cosas en orden.', pron:'ái níid tu apdéit de ínventori, and put zings in órder.'},
-    {speaker:'alumno', en:'Sure — I need to count everything, and check every label carefully.', es:'Claro — necesito contar todo, y revisar cada etiqueta con cuidado.', pron:'shur — ái níid tu cáunt évrizin, and chek évri léibol kérfuli.'},
-    {speaker:'maestro', en:'Is anything missing, or damaged?', es:'¿Falta algo, o está dañado?', pron:'is énizin mísing, or dámachd?'},
-    {speaker:'alumno', en:'Yes, one box is damaged — I need to return it, and take out the trash.', es:'Sí, una caja está dañada — necesito devolverla, y sacar la basura.', pron:'iés, uán bax is dámachd — ái níid tu ritérn it, and téik áut de trash.'},
-    {speaker:'maestro', en:'Once it\'s clean again, I need to update the storage records.', es:'Una vez que esté limpio de nuevo, necesito actualizar los registros del depósito.', pron:'uáns its clíin aguén, ái níid tu apdéit de stórich récords.'},
-    {speaker:'alumno', en:'Perfect, let\'s finish this together.', es:'Perfecto, terminemos esto juntos.', pron:'pérfect, lets fínish dis tugéder.'}
-  ],
-  22: [
-    {speaker:'maestro', en:'Do you have plans for the weekend, or a vacation coming up?', es:'¿Tienes planes para el fin de semana, o unas vacaciones próximas?', pron:'du iú jav plans for de uíikend, or a vakéishion cáming ap?'},
-    {speaker:'alumno', en:'I want to relax, to enjoy some free time, and to travel somewhere.', es:'Quiero relajarme, disfrutar algo de tiempo libre, y viajar a algún lado.', pron:'ái uánt tu riláx, tu enyói sam fríi táim, and tu trável sámuér.'},
-    {speaker:'maestro', en:'Is there a holiday next week?', es:'¿Hay un feriado la próxima semana?', pron:'is der a jálidei next uíik?'},
-    {speaker:'alumno', en:'Yes! I can request permission for a sick leave too, if I need to.', es:'¡Sí! También puedo pedir permiso para una licencia por enfermedad, si lo necesito.', pron:'iés! ái can ricuést permíshion for a sik líiv tu, if ái níid tu.'},
-    {speaker:'maestro', en:'Can you approve my time off? I need to request it, and you need to approve it.', es:'¿Puedes aprobar mi tiempo libre? Necesito pedirlo, y tú necesitas aprobarlo.', pron:'can iú apruúv mái táim of? ái níid tu ricuést it, and iú níid tu apruúv it.'},
-    {speaker:'alumno', en:'I can approve it — but who will cover for me while I\'m gone?', es:'Puedo aprobarlo — ¿pero quién me cubre mientras no estoy?', pron:'ái can apruúv it — bat jú uil cáver for mi uáil áim gon?'},
-    {speaker:'maestro', en:'I need to plan everything before I leave, don\'t worry — I know how to return to work on time.', es:'Necesito planear todo antes de irme, no te preocupes — sé cómo volver al trabajo a tiempo.', pron:'ái níid tu plan évrizin bifór ái líiv, dont uóri — ái nóu jáu tu ritérn tu uork on táim.'},
-    {speaker:'alumno', en:'Great, enjoy your time, and I\'ll see you when you return to work.', es:'Genial, disfruta tu tiempo, y nos vemos cuando vuelvas al trabajo.', pron:'gréit, enyói iór táim, and áil síi iú uén iú ritérn tu uork.'}
-  ],
-  23: [
-    {speaker:'maestro', en:'This is a new supplier, more expensive than the old one — is it better?', es:'Este es un proveedor nuevo, más caro que el anterior — ¿es mejor?', pron:'dis is a niú sapláier, mor expénsiv dan de óuld uán — is it béter?'},
-    {speaker:'alumno', en:'Actually, it\'s cheaper, but the quality seems worse.', es:'En realidad, es más barato, pero la calidad parece peor.', pron:'áctiuali, its chíiper, bat de cuáliti síims uérs.'},
-    {speaker:'maestro', en:'Let\'s try to compare both options before we decide.', es:'Tratemos de comparar ambas opciones antes de decidir.', pron:'lets trái tu campér bóuz ápshions bifór uí disáid.'},
-    {speaker:'alumno', en:'I already tried to compare them — this deal looks like the best offer.', es:'Ya traté de compararlas — este trato parece la mejor oferta.', pron:'ái olrédi tráid tu campér dem — dis díil luks láik de best áfer.'},
-    {speaker:'maestro', en:'Is this contract different from the other agreement?', es:'¿Este contrato es diferente del otro acuerdo?', pron:'is dis cántract díferent fram de áder agríiment?'},
-    {speaker:'alumno', en:'It\'s basically the same, but let\'s try to negotiate the price a little more.', es:'Es básicamente lo mismo, pero tratemos de negociar el precio un poco más.', pron:'its béisicli de séim, bat lets trái tu nigóushieit de práis a lítol mor.'},
-    {speaker:'maestro', en:'I\'d like to choose the better option, even if it costs more — I need to decide soon.', es:'Me gustaría elegir la mejor opción, aunque cueste más — necesito decidir pronto.', pron:'áid láik tu chúus de béter ápshion, íven if it costs mor — ái níid tu disáid súun.'},
-    {speaker:'alumno', en:'Agreed — let\'s finalize this deal together.', es:'De acuerdo — finalicemos este trato juntos.', pron:'agríid — lets fáinaláiz dis díil tugéder.'}
-  ],
-  24: [
-    {speaker:'maestro', en:'Welcome to unit two, review time! What did you learn this unit?', es:'¡Bienvenido a la Unidad Dos, hora de repaso! ¿Qué aprendiste en esta unidad?', pron:'uélcam tu iúnit tú, riviú táim! uát did iú lern dis iúnit?'},
-    {speaker:'alumno', en:'I remember everything — well, I forgot one small thing.', es:'Recuerdo todo — bueno, olvidé una cosa pequeña.', pron:'ái rimémber évrizin — uél, ái forgát uán smol zing.'},
-    {speaker:'maestro', en:'Let\'s practice one more time, just to be sure.', es:'Practiquemos una vez más, solo para estar seguros.', pron:'lets práctis uán mor táim, yast tu bi shur.'},
-    {speaker:'alumno', en:'Good idea — you\'re improving with each practice.', es:'Buena idea — estás mejorando con cada práctica.', pron:'gud aidía — iór imprúuving uid íich práctis.'},
-    {speaker:'maestro', en:'You\'re halfway there already!', es:'¡Ya vas por la mitad!', pron:'iór jáfuei der olrédi!'},
-    {speaker:'alumno', en:'That\'s great — see you in the next unit!', es:'¡Eso es genial — nos vemos en la próxima unidad!', pron:'dats gréit — síi iú in de next iúnit!'}
-  ],
-  14: [
-    {speaker:'maestro', en:'What time do you wake up, and what time do you get up?', es:'¿A qué hora te despiertas, y a qué hora te levantas?', pron:'uát táim du iú uéik ap, and uát táim du iú get ap?'},
-    {speaker:'alumno', en:'I wake up at six, and I get up right away — I have breakfast at seven.', es:'Me despierto a las seis, y me levanto enseguida — desayuno a las siete.', pron:'ái uéik ap at six, and ái get ap ráit auéi — ái jav brékfast at séven.'},
-    {speaker:'maestro', en:'When do you go to work, and when do you start work?', es:'¿Cuándo vas al trabajo, y cuándo empiezas a trabajar?', pron:'uén du iú góu tu uork, and uén du iú start uork?'},
-    {speaker:'alumno', en:'I go to work at eight, and I start work at nine — with a short break for lunch.', es:'Voy al trabajo a las ocho, y empiezo a trabajar a las nueve — con una pausa corta para el almuerzo.', pron:'ái góu tu uork at éit, and ái start uork at náin — uid a short bréik for lanch.'},
-    {speaker:'maestro', en:'What about dinner, and your shift?', es:'¿Y qué tal la cena, y tu turno?', pron:'uát abáut díner, and iór shift?'},
-    {speaker:'alumno', en:'I finish work at six, have dinner at seven — my shift includes some overtime today.', es:'Termino de trabajar a las seis, ceno a las siete — mi turno incluye algunas horas extra hoy.', pron:'ái fínish uork at six, jav díner at séven — mái shift inclúuds sam óvertaim tudéi.'},
-    {speaker:'maestro', en:'Do you get a day off, or are you tired?', es:'¿Tienes un día libre, o estás cansado?', pron:'du iú get a déi of, or ar iú táiard?'},
-    {speaker:'alumno', en:'Tomorrow is my day off — I\'m tired now, but I\'m always punctual, and I need to rest.', es:'Mañana es mi día libre — estoy cansado ahora, pero siempre soy puntual, y necesito descansar.', pron:'tumórou is mái déi of — áim táiard náu, bat áim ólueis pánchual, and ái níid tu rest.'}
-  ],
-  15: [
-    {speaker:'maestro', en:'What do you need to do today — to walk, to drive, or to organize your desk?', es:'¿Qué necesitas hacer hoy — caminar, manejar, u organizar tu escritorio?', pron:'uát du iú níid tu du tudéi — tu uók, tu dráiv, or tu órganais iór desk?'},
-    {speaker:'alumno', en:'I have to eat first, then I have to drink some coffee — I need to check my emails, and to talk to my team.', es:'Tengo que comer primero, después tengo que tomar café — necesito revisar mis correos, y hablar con mi equipo.', pron:'ái jav tu íit ferst, den ái jav tu drink sam cáfi — ái níid tu chek mái íimeils, and tu tok tu mái tíim.'},
-    {speaker:'maestro', en:'Do you have to write anything, or to read something important?', es:'¿Tienes que escribir algo, o leer algo importante?', pron:'du iú jav tu ráit énizin, or tu ríid sámzin impórtant?'},
-    {speaker:'alumno', en:'I have to write a report, and I have to read a few messages too.', es:'Tengo que escribir un reporte, y también tengo que leer algunos mensajes.', pron:'ái jav tu ráit a ripórt, and ái jav tu ríid a fiú mésachis tu.'},
-    {speaker:'maestro', en:'What about calling clients, or sending something?', es:'¿Y qué tal llamar a clientes, o enviar algo?', pron:'uát abáut cóling cláients, or séndin sámzin?'},
-    {speaker:'alumno', en:'I have to call a client, and to send an invoice — then I have to receive their payment.', es:'Tengo que llamar a un cliente, y enviar una factura — después tengo que recibir su pago.', pron:'ái jav tu col a cláient, and tu send an ínvois — den ái jav tu risíiv der péiment.'},
-    {speaker:'maestro', en:'Anything to fix, or to deliver today?', es:'¿Algo para arreglar, o entregar hoy?', pron:'énizin tu fix, or tu delíver tudéi?'},
-    {speaker:'alumno', en:'Yes, I have to fix a small problem, and to finish and deliver the package before five.', es:'Sí, tengo que arreglar un problema pequeño, y terminar y entregar el paquete antes de las cinco.', pron:'iés, ái jav tu fix a smol práblem, and tu fínish and delíver de páquich bifór fáiv.'}
-  ],
-  16: [
-    {speaker:'maestro', en:'Can I borrow the hammer, and any tool you have? I need to fix this shelf.', es:'¿Me prestas el martillo, y cualquier herramienta que tengas? Necesito arreglar este estante.', pron:'can ái bárou de jámer, and éni túul iú jav? ái níid tu fix dis shelf.'},
-    {speaker:'alumno', en:'Sure — here\'s the hammer, and a screwdriver too, if you need one.', es:'Claro — acá está el martillo, y un destornillador también, si necesitas uno.', pron:'shur — jírs de jámer, and a scrúdraiver tu, if iú níid uán.'},
-    {speaker:'maestro', en:'Do you have a ladder? I need to paint that wall.', es:'¿Tienes una escalera? Necesito pintar esa pared.', pron:'du iú jav a láder? ái níid tu péint dat uól.'},
-    {speaker:'alumno', en:'Yes, there\'s a ladder, some paint, and a lamp in the storage room.', es:'Sí, hay una escalera, algo de pintura, y una lámpara en el depósito.', pron:'iés, ders a láder, sam péint, and a lamp in de stórich rúum.'},
-    {speaker:'maestro', en:'Can I borrow the broom, and the bucket?', es:'¿Me prestas la escoba, y el balde?', pron:'can ái bárou de brúum, and de báket?'},
-    {speaker:'alumno', en:'Of course — and here\'s a pen and paper if you need to write something down.', es:'Por supuesto — y acá está una lapicera y papel si necesitas anotar algo.', pron:'of cors — and jírs a pen and péiper if iú níid tu ráit sámzin dáun.'},
-    {speaker:'maestro', en:'What about a stapler, or a folder?', es:'¿Y qué tal una engrapadora, o una carpeta?', pron:'uát abáut a stéipler, or a fólder?'},
-    {speaker:'alumno', en:'There\'s a stapler, a folder, some tape, scissors, and a cart in the office.', es:'Hay una engrapadora, una carpeta, algo de cinta, tijeras, y un carrito en la oficina.', pron:'ders a stéipler, a fólder, sam téip, sísors, and a cart in de áfis.'}
-  ],
-  17: [
-    {speaker:'maestro', en:'Do you have a pet — a dog, a cat, or a bird?', es:'¿Tienes una mascota — un perro, un gato, o un pájaro?', pron:'du iú jav a pet — a dog, a cat, or a berd?'},
-    {speaker:'alumno', en:'I have a dog, and I have to feed him every morning.', es:'Tengo un perro, y tengo que darle de comer cada mañana.', pron:'ái jav a dog, and ái jav tu fíid jim évri mórning.'},
-    {speaker:'maestro', en:'What are your company\'s values?', es:'¿Cuáles son los valores de tu empresa?', pron:'uát ar iór cámpanis váliuz?'},
-    {speaker:'alumno', en:'Our values are teamwork, respect, and honesty — with a strong commitment to growth.', es:'Nuestros valores son trabajo en equipo, respeto, y honestidad — con un fuerte compromiso con el crecimiento.', pron:'áur váliuz ar tíimuork, rispéct, and ánesti — uid a strong camítment tu gróuz.'},
-    {speaker:'maestro', en:'Do you have trust in your team?', es:'¿Tienes confianza en tu equipo?', pron:'du iú jav trast in iór tíim?'},
-    {speaker:'alumno', en:'Yes, I have trust in them — that\'s part of our teamwork and respect too.', es:'Sí, tengo confianza en ellos — eso también es parte de nuestro trabajo en equipo y respeto.', pron:'iés, ái jav trast in dem — dats part of áur tíimuork and rispéct tu.'},
-    {speaker:'maestro', en:'That sounds like a great company culture.', es:'Eso suena como una gran cultura empresarial.', pron:'dat sáunds láik a gréit cámpani cálcher.'},
-    {speaker:'alumno', en:'It is! Our mission and vision focus on growth, honesty, and commitment every day.', es:'¡Así es! Nuestra misión y visión se enfocan en el crecimiento, la honestidad, y el compromiso cada día.', pron:'it is! áur míshion and víshion fóucas on gróuz, ánesti, and camítment évri déi.'}
-  ],
-  18: [
-    {speaker:'maestro', en:'Do you know your neighbors well? What\'s your neighborhood like?', es:'¿Conoces bien a tus vecinos? ¿Cómo es tu barrio?', pron:'du iú nóu iór néibors uél? uáts iór néiborjud láik?'},
-    {speaker:'alumno', en:'Yes, I have a friendly community — my neighbors are wonderful.', es:'Sí, tengo una comunidad amigable — mis vecinos son maravillosos.', pron:'iés, ái jav a fréndli camiúniti — mái néibors ar uánderful.'},
-    {speaker:'maestro', en:'Are your customers loyal, or just regular customers?', es:'¿Tus clientes son leales, o solo clientes habituales?', pron:'ar iór cástomers lóial, or yast réguiular cástomers?'},
-    {speaker:'alumno', en:'Most are loyal customers, with a long-term relationship built on trust.', es:'La mayoría son clientes leales, con una relación a largo plazo construida sobre la confianza.', pron:'móust ar lóial cástomers, uid a long-term riléishionship bilt on trast.'},
-    {speaker:'maestro', en:'I like to recommend this business — they\'re very reliable, and their loyalty program is great.', es:'Me gusta recomendar este negocio — son muy confiables, y su programa de lealtad es genial.', pron:'ái láik tu récomend dis bísnes — der véri riláiabol, and der lóialti prógram is gréit.'},
-    {speaker:'alumno', en:'Thank you! I recommend asking for a referral if you liked our service.', es:'¡Gracias! Recomiendo pedir una referencia si te gustó nuestro servicio.', pron:'zenk iú! ái récomend ásking for a riférol if iú láikd áur sérvis.'},
-    {speaker:'maestro', en:'Any feedback, or a complaint you\'d like to share?', es:'¿Algún comentario, o una queja que quieras compartir?', pron:'éni fíidbak, or a campléint iúd láik tu sher?'},
-    {speaker:'alumno', en:'No complaint — I\'m satisfied! I just have some feedback, actually — a small solution to suggest.', es:'Ninguna queja — ¡estoy satisfecho! Solo tengo algo de retroalimentación, en realidad — una pequeña solución para sugerir.', pron:'nóu campléint — áim sátisfaid! ái yast jav sam fíidbak, áctiuali — a smol saliúshion tu sayést.'}
-  ],
-  19: [
-    {speaker:'maestro', en:'By the way, are you almost done with that report?', es:'Por cierto, ¿ya casi terminas ese reporte?', pron:'bái de uéi, ar iú ólmoust dan uid dat ripórt?'},
-    {speaker:'alumno', en:'Actually, I\'m still working on it — no rush, though.', es:'En realidad, todavía estoy trabajando en eso — sin apuro, igual.', pron:'áctiuali, áim stil uórking on it — nóu rash, dóu.'},
-    {speaker:'maestro', en:'For example, in general, it\'s coming along well.', es:'Por ejemplo, en general, va saliendo bien.', pron:'for exámpol, in yéneral, its cáming alóng uél.'},
-    {speaker:'alumno', en:'As usual, don\'t worry — it\'s fine, take your time.', es:'Como siempre, no te preocupes — está bien, tómate tu tiempo.', pron:'as iúshual, dont uóri — its fáin, téik iór táim.'},
-    {speaker:'maestro', en:'Is it already finished, or still in progress?', es:'¿Ya está terminado, o todavía en progreso?', pron:'is it olrédi fínisht, or stil in prógres?'},
-    {speaker:'alumno', en:'By the way, it\'s almost ready — just a little more.', es:'Por cierto, ya casi está listo — solo un poco más.', pron:'bái de uéi, its ólmoust rédi — yast a lítol mor.'}
-  ],
-  20: [
-    {speaker:'maestro', en:'Let\'s have lunch! I would like rice, chicken, vegetables, and some fruit.', es:'¡Almorcemos! Quisiera arroz, pollo, vegetales, y algo de fruta.', pron:'lets jav lanch! ái uud láik ráis, chíken, véchtabols, and sam frúut.'},
-    {speaker:'alumno', en:'I\'m hungry too — I would like meat with bread and soup instead.', es:'Yo también tengo hambre — quisiera carne con pan y sopa en cambio.', pron:'áim jángri tu — ái uud láik míit uid bred and súup instéd.'},
-    {speaker:'maestro', en:'This salad looks delicious — a table for two, please.', es:'Esta ensalada se ve deliciosa — una mesa para dos, por favor.', pron:'dis sálad luks delíshius — a téibol for tú, plíis.'},
-    {speaker:'alumno', en:'Perfect, let\'s ask the waiter for a menu, and maybe a reservation next time.', es:'Perfecto, pidámosle al mesero un menú, y tal vez una reserva la próxima vez.', pron:'pérfect, lets ask de uéiter for a méniu, and méibi a reservéishion next táim.'},
-    {speaker:'maestro', en:'The check please! This was delicious.', es:'¡La cuenta por favor! Esto estuvo delicioso.', pron:'de chek plíis! dis uás delíshius.'},
-    {speaker:'alumno', en:'I would like to come back soon — let\'s have lunch here again.', es:'Me gustaría volver pronto — almorcemos acá de nuevo.', pron:'ái uud láik tu cam bak súun — lets jav lanch jíar aguén.'}
-  ],
-  13: [
-    {speaker:'maestro', en:'Welcome to my new house! There is a kitchen, a living room, and a bedroom.', es:'¡Bienvenido a mi casa nueva! Hay una cocina, una sala, y un dormitorio.', pron:'uélcam tu mái niú jáus! der is a kíchen, a líving rúum, and a bédrum.'},
-    {speaker:'alumno', en:'There is also a garden, with a door and a window right there.', es:'También hay un jardín, con una puerta y una ventana justo ahí.', pron:'der is ólsou a gárden, uid a dor and a uíndou ráit der.'},
-    {speaker:'maestro', en:'And this must be your office — is there a desk and a chair?', es:'Y esta debe ser tu oficina — ¿hay un escritorio y una silla?', pron:'and dis mast bi iór áfis — is der a desk and a chér?'},
-    {speaker:'alumno', en:'Yes, there is a desk, with a computer, a printer, and a shelf for my books.', es:'Sí, hay un escritorio, con una computadora, una impresora, y un estante para mis libros.', pron:'iés, der is a desk, uid a campiúter, a prínter, and a shelf for mái buks.'},
-    {speaker:'maestro', en:'Do you have the key for the roof? I\'d love to see the view.', es:'¿Tienes la llave del techo? Me encantaría ver la vista.', pron:'du iú jav de kíi for de rúuf? áid lav tu síi de viú.'},
-    {speaker:'alumno', en:'Of course — let\'s check the table first, and then we\'ll go up to the roof.', es:'Por supuesto — revisemos la mesa primero, y después subimos al techo.', pron:'of cors — lets chek de téibol ferst, and den uíl góu ap tu de rúuf.'}
+  2: [
+    {speaker:'maestro', en:'My name is Roberto — what\'s your name?', es:'Me llamo Roberto — ¿cómo te llamas?', pron:'mái néim is Robérto — uáts iór néim?'},
+    {speaker:'alumno', en:'Nice to meet you! I am from Medellín, and this is our team.', es:'¡Mucho gusto! Soy de Medellín, y este es nuestro equipo.', pron:'náis tu míit iú! ái am fram medeyín, and dis is áur tíim.'},
+    {speaker:'maestro', en:'I work at Dosting Toys — I\'m the manager here, welcome!', es:'Trabajo en Dosting Toys — soy el gerente acá, ¡bienvenido!', pron:'ái uork at Dósting Tóis — áim de mánayer jíar, uélcam!'},
+    {speaker:'alumno', en:'Come in, please — have a seat. The pleasure is mine.', es:'Pasa, por favor — toma asiento. El gusto es mío.', pron:'cam in, plíis — jav a síit. de pléshur is máin.'},
+    {speaker:'maestro', en:'Here\'s my business card, with my phone number and address.', es:'Acá está mi tarjeta de presentación, con mi número de teléfono y dirección.', pron:'jírs mái bísnes card, uid mái fóun námber and adrés.'},
+    {speaker:'alumno', en:'You can also check our website for contact information.', es:'También puedes revisar nuestro sitio web para información de contacto.', pron:'iú can ólsou chek áur uébsait for cántact informéishion.'},
+    {speaker:'maestro', en:'Who\'s the owner of this company, if I may ask?', es:'¿Quién es el dueño de esta empresa, si puedo preguntar?', pron:'jus de óuner of dis cámpani, if ái méi ask?'},
+    {speaker:'alumno', en:'That\'s me! I\'m both the owner and the manager here.', es:'¡Ese soy yo! Soy el dueño y el gerente acá.', pron:'dats mi! áim bóuz de óuner and de mánayer jíar.'}
   ],
   3: [
     {speaker:'maestro', en:'What country and city are you from?', es:'¿De qué país y ciudad eres?', pron:'uát cántri and síti ar iú fram?'},
@@ -682,15 +440,385 @@ const dailyMiniDialogue = {
     {speaker:'alumno', en:'Keep going — we\'re almost done with this unit.', es:'Sigue adelante — ya casi terminamos esta unidad.', pron:'kíip góing — uír ólmoust dan uid dis iúnit.'},
     {speaker:'maestro', en:'Congratulations! See you in the next unit.', es:'¡Felicitaciones! Nos vemos en la próxima unidad.', pron:'cangrachuléishions! síi iú in de next iúnit.'}
   ],
-  2: [
-    {speaker:'maestro', en:"My name is Roberto — what's your name?", es:'Me llamo Roberto — ¿cómo te llamas?', pron:'mái néim is Robérto — uáts iór néim?'},
-    {speaker:'alumno', en:'Nice to meet you! I am from Medellín, and this is our team.', es:'¡Mucho gusto! Soy de Medellín, y este es nuestro equipo.', pron:'náis tu míit iú! ái am fram medeyín, and dis is áur tíim.'},
-    {speaker:'maestro', en:"I work at Dosting Toys — I'm the manager here, welcome!", es:'Trabajo en Dosting Toys — soy el gerente acá, ¡bienvenido!', pron:"ái uork at Dósting Tóis — áim de mánayer jíar, uélcam!"},
-    {speaker:'alumno', en:'Come in, please — have a seat. The pleasure is mine.', es:'Pasa, por favor — toma asiento. El gusto es mío.', pron:'cam in, plíis — jav a síit. de pléshur is máin.'},
-    {speaker:'maestro', en:"Here's my business card, with my phone number and address.", es:'Acá está mi tarjeta de presentación, con mi número de teléfono y dirección.', pron:"jírs mái bísnes card, uid mái fóun námber and adrés."},
-    {speaker:'alumno', en:'You can also check our website for contact information.', es:'También puedes revisar nuestro sitio web para información de contacto.', pron:'iú can ólsou chek áur uébsait for cántact informéishion.'},
-    {speaker:'maestro', en:"Who's the owner of this company, if I may ask?", es:'¿Quién es el dueño de esta empresa, si puedo preguntar?', pron:"jus de óuner of dis cámpani, if ái méi ask?"},
-    {speaker:'alumno', en:"That's me! I'm both the owner and the manager here.", es:'¡Ese soy yo! Soy el dueño y el gerente acá.', pron:"dats mi! áim bóuz de óuner and de mánayer jíar."}
+  13: [
+    {speaker:'maestro', en:'Welcome to my new house! There is a kitchen, a living room, and a bedroom.', es:'¡Bienvenido a mi casa nueva! Hay una cocina, una sala, y un dormitorio.', pron:'uélcam tu mái niú jáus! der is a kíchen, a líving rúum, and a bédrum.'},
+    {speaker:'alumno', en:'There is also a garden, with a door and a window right there.', es:'También hay un jardín, con una puerta y una ventana justo ahí.', pron:'der is ólsou a gárden, uid a dor and a uíndou ráit der.'},
+    {speaker:'maestro', en:'And this must be your office — is there a desk and a chair?', es:'Y esta debe ser tu oficina — ¿hay un escritorio y una silla?', pron:'and dis mast bi iór áfis — is der a desk and a chér?'},
+    {speaker:'alumno', en:'Yes, there is a desk, with a computer, a printer, and a shelf for my books.', es:'Sí, hay un escritorio, con una computadora, una impresora, y un estante para mis libros.', pron:'iés, der is a desk, uid a campiúter, a prínter, and a shelf for mái buks.'},
+    {speaker:'maestro', en:'Do you have the key for the roof? I\'d love to see the view.', es:'¿Tienes la llave del techo? Me encantaría ver la vista.', pron:'du iú jav de kíi for de rúuf? áid lav tu síi de viú.'},
+    {speaker:'alumno', en:'Of course — let\'s check the table first, and then we\'ll go up to the roof.', es:'Por supuesto — revisemos la mesa primero, y después subimos al techo.', pron:'of cors — lets chek de téibol ferst, and den uíl góu ap tu de rúuf.'}
+  ],
+  14: [
+    {speaker:'maestro', en:'What time do you wake up, and what time do you get up?', es:'¿A qué hora te despiertas, y a qué hora te levantas?', pron:'uát táim du iú uéik ap, and uát táim du iú get ap?'},
+    {speaker:'alumno', en:'I wake up at six, and I get up right away — I have breakfast at seven.', es:'Me despierto a las seis, y me levanto enseguida — desayuno a las siete.', pron:'ái uéik ap at six, and ái get ap ráit auéi — ái jav brékfast at séven.'},
+    {speaker:'maestro', en:'When do you go to work, and when do you start work?', es:'¿Cuándo vas al trabajo, y cuándo empiezas a trabajar?', pron:'uén du iú góu tu uork, and uén du iú start uork?'},
+    {speaker:'alumno', en:'I go to work at eight, and I start work at nine — with a short break for lunch.', es:'Voy al trabajo a las ocho, y empiezo a trabajar a las nueve — con una pausa corta para el almuerzo.', pron:'ái góu tu uork at éit, and ái start uork at náin — uid a short bréik for lanch.'},
+    {speaker:'maestro', en:'What about dinner, and your shift?', es:'¿Y qué tal la cena, y tu turno?', pron:'uát abáut díner, and iór shift?'},
+    {speaker:'alumno', en:'I finish work at six, have dinner at seven — my shift includes some overtime today.', es:'Termino de trabajar a las seis, ceno a las siete — mi turno incluye algunas horas extra hoy.', pron:'ái fínish uork at six, jav díner at séven — mái shift inclúuds sam óvertaim tudéi.'},
+    {speaker:'maestro', en:'Do you get a day off, or are you tired?', es:'¿Tienes un día libre, o estás cansado?', pron:'du iú get a déi of, or ar iú táiard?'},
+    {speaker:'alumno', en:'Tomorrow is my day off — I\'m tired now, but I\'m always punctual, and I need to rest.', es:'Mañana es mi día libre — estoy cansado ahora, pero siempre soy puntual, y necesito descansar.', pron:'tumórou is mái déi of — áim táiard náu, bat áim ólueis pánchual, and ái níid tu rest.'}
+  ],
+  15: [
+    {speaker:'maestro', en:'What do you need to do today — to walk, to drive, or to organize your desk?', es:'¿Qué necesitas hacer hoy — caminar, manejar, u organizar tu escritorio?', pron:'uát du iú níid tu du tudéi — tu uók, tu dráiv, or tu órganais iór desk?'},
+    {speaker:'alumno', en:'I have to eat first, then I have to drink some coffee — I need to check my emails, and to talk to my team.', es:'Tengo que comer primero, después tengo que tomar café — necesito revisar mis correos, y hablar con mi equipo.', pron:'ái jav tu íit ferst, den ái jav tu drink sam cáfi — ái níid tu chek mái íimeils, and tu tok tu mái tíim.'},
+    {speaker:'maestro', en:'Do you have to write anything, or to read something important?', es:'¿Tienes que escribir algo, o leer algo importante?', pron:'du iú jav tu ráit énizin, or tu ríid sámzin impórtant?'},
+    {speaker:'alumno', en:'I have to write a report, and I have to read a few messages too.', es:'Tengo que escribir un reporte, y también tengo que leer algunos mensajes.', pron:'ái jav tu ráit a ripórt, and ái jav tu ríid a fiú mésachis tu.'},
+    {speaker:'maestro', en:'What about calling clients, or sending something?', es:'¿Y qué tal llamar a clientes, o enviar algo?', pron:'uát abáut cóling cláients, or séndin sámzin?'},
+    {speaker:'alumno', en:'I have to call a client, and to send an invoice — then I have to receive their payment.', es:'Tengo que llamar a un cliente, y enviar una factura — después tengo que recibir su pago.', pron:'ái jav tu col a cláient, and tu send an ínvois — den ái jav tu risíiv der péiment.'},
+    {speaker:'maestro', en:'Anything to fix, or to deliver today?', es:'¿Algo para arreglar, o entregar hoy?', pron:'énizin tu fix, or tu delíver tudéi?'},
+    {speaker:'alumno', en:'Yes, I have to fix a small problem, and to finish and deliver the package before five.', es:'Sí, tengo que arreglar un problema pequeño, y terminar y entregar el paquete antes de las cinco.', pron:'iés, ái jav tu fix a smol práblem, and tu fínish and delíver de páquich bifór fáiv.'}
+  ],
+  16: [
+    {speaker:'maestro', en:'Can I borrow the hammer, and any tool you have? I need to fix this shelf.', es:'¿Me prestas el martillo, y cualquier herramienta que tengas? Necesito arreglar este estante.', pron:'can ái bárou de jámer, and éni túul iú jav? ái níid tu fix dis shelf.'},
+    {speaker:'alumno', en:'Sure — here\'s the hammer, and a screwdriver too, if you need one.', es:'Claro — acá está el martillo, y un destornillador también, si necesitas uno.', pron:'shur — jírs de jámer, and a scrúdraiver tu, if iú níid uán.'},
+    {speaker:'maestro', en:'Do you have a ladder? I need to paint that wall.', es:'¿Tienes una escalera? Necesito pintar esa pared.', pron:'du iú jav a láder? ái níid tu péint dat uól.'},
+    {speaker:'alumno', en:'Yes, there\'s a ladder, some paint, and a lamp in the storage room.', es:'Sí, hay una escalera, algo de pintura, y una lámpara en el depósito.', pron:'iés, ders a láder, sam péint, and a lamp in de stórich rúum.'},
+    {speaker:'maestro', en:'Can I borrow the broom, and the bucket?', es:'¿Me prestas la escoba, y el balde?', pron:'can ái bárou de brúum, and de báket?'},
+    {speaker:'alumno', en:'Of course — and here\'s a pen and paper if you need to write something down.', es:'Por supuesto — y acá está una lapicera y papel si necesitas anotar algo.', pron:'of cors — and jírs a pen and péiper if iú níid tu ráit sámzin dáun.'},
+    {speaker:'maestro', en:'What about a stapler, or a folder?', es:'¿Y qué tal una engrapadora, o una carpeta?', pron:'uát abáut a stéipler, or a fólder?'},
+    {speaker:'alumno', en:'There\'s a stapler, a folder, some tape, scissors, and a cart in the office.', es:'Hay una engrapadora, una carpeta, algo de cinta, tijeras, y un carrito en la oficina.', pron:'ders a stéipler, a fólder, sam téip, sísors, and a cart in de áfis.'}
+  ],
+  17: [
+    {speaker:'maestro', en:'Do you have a pet — a dog, a cat, or a bird?', es:'¿Tienes una mascota — un perro, un gato, o un pájaro?', pron:'du iú jav a pet — a dog, a cat, or a berd?'},
+    {speaker:'alumno', en:'I have a dog, and I have to feed him every morning.', es:'Tengo un perro, y tengo que darle de comer cada mañana.', pron:'ái jav a dog, and ái jav tu fíid jim évri mórning.'},
+    {speaker:'maestro', en:'What are your company\'s values?', es:'¿Cuáles son los valores de tu empresa?', pron:'uát ar iór cámpanis váliuz?'},
+    {speaker:'alumno', en:'Our values are teamwork, respect, and honesty — with a strong commitment to growth.', es:'Nuestros valores son trabajo en equipo, respeto, y honestidad — con un fuerte compromiso con el crecimiento.', pron:'áur váliuz ar tíimuork, rispéct, and ánesti — uid a strong camítment tu gróuz.'},
+    {speaker:'maestro', en:'Do you have trust in your team?', es:'¿Tienes confianza en tu equipo?', pron:'du iú jav trast in iór tíim?'},
+    {speaker:'alumno', en:'Yes, I have trust in them — that\'s part of our teamwork and respect too.', es:'Sí, tengo confianza en ellos — eso también es parte de nuestro trabajo en equipo y respeto.', pron:'iés, ái jav trast in dem — dats part of áur tíimuork and rispéct tu.'},
+    {speaker:'maestro', en:'That sounds like a great company culture.', es:'Eso suena como una gran cultura empresarial.', pron:'dat sáunds láik a gréit cámpani cálcher.'},
+    {speaker:'alumno', en:'It is! Our mission and vision focus on growth, honesty, and commitment every day.', es:'¡Así es! Nuestra misión y visión se enfocan en el crecimiento, la honestidad, y el compromiso cada día.', pron:'it is! áur míshion and víshion fóucas on gróuz, ánesti, and camítment évri déi.'}
+  ],
+  18: [
+    {speaker:'maestro', en:'Do you know your neighbors well? What\'s your neighborhood like?', es:'¿Conoces bien a tus vecinos? ¿Cómo es tu barrio?', pron:'du iú nóu iór néibors uél? uáts iór néiborjud láik?'},
+    {speaker:'alumno', en:'Yes, I have a friendly community — my neighbors are wonderful.', es:'Sí, tengo una comunidad amigable — mis vecinos son maravillosos.', pron:'iés, ái jav a fréndli camiúniti — mái néibors ar uánderful.'},
+    {speaker:'maestro', en:'Are your customers loyal, or just regular customers?', es:'¿Tus clientes son leales, o solo clientes habituales?', pron:'ar iór cástomers lóial, or yast réguiular cástomers?'},
+    {speaker:'alumno', en:'Most are loyal customers, with a long-term relationship built on trust.', es:'La mayoría son clientes leales, con una relación a largo plazo construida sobre la confianza.', pron:'móust ar lóial cástomers, uid a long-term riléishionship bilt on trast.'},
+    {speaker:'maestro', en:'I like to recommend this business — they\'re very reliable, and their loyalty program is great.', es:'Me gusta recomendar este negocio — son muy confiables, y su programa de lealtad es genial.', pron:'ái láik tu récomend dis bísnes — der véri riláiabol, and der lóialti prógram is gréit.'},
+    {speaker:'alumno', en:'Thank you! I recommend asking for a referral if you liked our service.', es:'¡Gracias! Recomiendo pedir una referencia si te gustó nuestro servicio.', pron:'zenk iú! ái récomend ásking for a riférol if iú láikd áur sérvis.'},
+    {speaker:'maestro', en:'Any feedback, or a complaint you\'d like to share?', es:'¿Algún comentario, o una queja que quieras compartir?', pron:'éni fíidbak, or a campléint iúd láik tu sher?'},
+    {speaker:'alumno', en:'No complaint — I\'m satisfied! I just have some feedback, actually — a small solution to suggest.', es:'Ninguna queja — ¡estoy satisfecho! Solo tengo algo de retroalimentación, en realidad — una pequeña solución para sugerir.', pron:'nóu campléint — áim sátisfaid! ái yast jav sam fíidbak, áctiuali — a smol saliúshion tu sayést.'}
+  ],
+  19: [
+    {speaker:'maestro', en:'By the way, are you almost done with that report?', es:'Por cierto, ¿ya casi terminas ese reporte?', pron:'bái de uéi, ar iú ólmoust dan uid dat ripórt?'},
+    {speaker:'alumno', en:'Actually, I\'m still working on it — no rush, though.', es:'En realidad, todavía estoy trabajando en eso — sin apuro, igual.', pron:'áctiuali, áim stil uórking on it — nóu rash, dóu.'},
+    {speaker:'maestro', en:'For example, in general, it\'s coming along well.', es:'Por ejemplo, en general, va saliendo bien.', pron:'for exámpol, in yéneral, its cáming alóng uél.'},
+    {speaker:'alumno', en:'As usual, don\'t worry — it\'s fine, take your time.', es:'Como siempre, no te preocupes — está bien, tómate tu tiempo.', pron:'as iúshual, dont uóri — its fáin, téik iór táim.'},
+    {speaker:'maestro', en:'Is it already finished, or still in progress?', es:'¿Ya está terminado, o todavía en progreso?', pron:'is it olrédi fínisht, or stil in prógres?'},
+    {speaker:'alumno', en:'By the way, it\'s almost ready — just a little more.', es:'Por cierto, ya casi está listo — solo un poco más.', pron:'bái de uéi, its ólmoust rédi — yast a lítol mor.'}
+  ],
+  20: [
+    {speaker:'maestro', en:'Let\'s have lunch! I would like rice, chicken, vegetables, and some fruit.', es:'¡Almorcemos! Quisiera arroz, pollo, vegetales, y algo de fruta.', pron:'lets jav lanch! ái uud láik ráis, chíken, véchtabols, and sam frúut.'},
+    {speaker:'alumno', en:'I\'m hungry too — I would like meat with bread and soup instead.', es:'Yo también tengo hambre — quisiera carne con pan y sopa en cambio.', pron:'áim jángri tu — ái uud láik míit uid bred and súup instéd.'},
+    {speaker:'maestro', en:'This salad looks delicious — a table for two, please.', es:'Esta ensalada se ve deliciosa — una mesa para dos, por favor.', pron:'dis sálad luks delíshius — a téibol for tú, plíis.'},
+    {speaker:'alumno', en:'Perfect, let\'s ask the waiter for a menu, and maybe a reservation next time.', es:'Perfecto, pidámosle al mesero un menú, y tal vez una reserva la próxima vez.', pron:'pérfect, lets ask de uéiter for a méniu, and méibi a reservéishion next táim.'},
+    {speaker:'maestro', en:'The check please! This was delicious.', es:'¡La cuenta por favor! Esto estuvo delicioso.', pron:'de chek plíis! dis uás delíshius.'},
+    {speaker:'alumno', en:'I would like to come back soon — let\'s have lunch here again.', es:'Me gustaría volver pronto — almorcemos acá de nuevo.', pron:'ái uud láik tu cam bak súun — lets jav lanch jíar aguén.'}
+  ],
+  21: [
+    {speaker:'maestro', en:'I need to clean this office — it\'s very dirty today.', es:'Necesito limpiar esta oficina — está muy sucia hoy.', pron:'ái níid tu clíin dis áfis — its véri dérti tudéi.'},
+    {speaker:'alumno', en:'I need to wash the floor, and to sweep the storage room too.', es:'Necesito lavar el piso, y barrer el depósito también.', pron:'ái níid tu uásh de flor, and tu suíip de stórich rúum tu.'},
+    {speaker:'maestro', en:'I need to update the inventory, and put things in order.', es:'Necesito actualizar el inventario, y poner las cosas en orden.', pron:'ái níid tu apdéit de ínventori, and put zings in órder.'},
+    {speaker:'alumno', en:'Sure — I need to count everything, and check every label carefully.', es:'Claro — necesito contar todo, y revisar cada etiqueta con cuidado.', pron:'shur — ái níid tu cáunt évrizin, and chek évri léibol kérfuli.'},
+    {speaker:'maestro', en:'Is anything missing, or damaged?', es:'¿Falta algo, o está dañado?', pron:'is énizin mísing, or dámachd?'},
+    {speaker:'alumno', en:'Yes, one box is damaged — I need to return it, and take out the trash.', es:'Sí, una caja está dañada — necesito devolverla, y sacar la basura.', pron:'iés, uán bax is dámachd — ái níid tu ritérn it, and téik áut de trash.'},
+    {speaker:'maestro', en:'Once it\'s clean again, I need to update the storage records.', es:'Una vez que esté limpio de nuevo, necesito actualizar los registros del depósito.', pron:'uáns its clíin aguén, ái níid tu apdéit de stórich récords.'},
+    {speaker:'alumno', en:'Perfect, let\'s finish this together.', es:'Perfecto, terminemos esto juntos.', pron:'pérfect, lets fínish dis tugéder.'}
+  ],
+  22: [
+    {speaker:'maestro', en:'Do you have plans for the weekend, or a vacation coming up?', es:'¿Tienes planes para el fin de semana, o unas vacaciones próximas?', pron:'du iú jav plans for de uíikend, or a vakéishion cáming ap?'},
+    {speaker:'alumno', en:'I want to relax, to enjoy some free time, and to travel somewhere.', es:'Quiero relajarme, disfrutar algo de tiempo libre, y viajar a algún lado.', pron:'ái uánt tu riláx, tu enyói sam fríi táim, and tu trável sámuér.'},
+    {speaker:'maestro', en:'Is there a holiday next week?', es:'¿Hay un feriado la próxima semana?', pron:'is der a jálidei next uíik?'},
+    {speaker:'alumno', en:'Yes! I can request permission for a sick leave too, if I need to.', es:'¡Sí! También puedo pedir permiso para una licencia por enfermedad, si lo necesito.', pron:'iés! ái can ricuést permíshion for a sik líiv tu, if ái níid tu.'},
+    {speaker:'maestro', en:'Can you approve my time off? I need to request it, and you need to approve it.', es:'¿Puedes aprobar mi tiempo libre? Necesito pedirlo, y tú necesitas aprobarlo.', pron:'can iú apruúv mái táim of? ái níid tu ricuést it, and iú níid tu apruúv it.'},
+    {speaker:'alumno', en:'I can approve it — but who will cover for me while I\'m gone?', es:'Puedo aprobarlo — ¿pero quién me cubre mientras no estoy?', pron:'ái can apruúv it — bat jú uil cáver for mi uáil áim gon?'},
+    {speaker:'maestro', en:'I need to plan everything before I leave, don\'t worry — I know how to return to work on time.', es:'Necesito planear todo antes de irme, no te preocupes — sé cómo volver al trabajo a tiempo.', pron:'ái níid tu plan évrizin bifór ái líiv, dont uóri — ái nóu jáu tu ritérn tu uork on táim.'},
+    {speaker:'alumno', en:'Great, enjoy your time, and I\'ll see you when you return to work.', es:'Genial, disfruta tu tiempo, y nos vemos cuando vuelvas al trabajo.', pron:'gréit, enyói iór táim, and áil síi iú uén iú ritérn tu uork.'}
+  ],
+  23: [
+    {speaker:'maestro', en:'This is a new supplier, more expensive than the old one — is it better?', es:'Este es un proveedor nuevo, más caro que el anterior — ¿es mejor?', pron:'dis is a niú sapláier, mor expénsiv dan de óuld uán — is it béter?'},
+    {speaker:'alumno', en:'Actually, it\'s cheaper, but the quality seems worse.', es:'En realidad, es más barato, pero la calidad parece peor.', pron:'áctiuali, its chíiper, bat de cuáliti síims uérs.'},
+    {speaker:'maestro', en:'Let\'s try to compare both options before we decide.', es:'Tratemos de comparar ambas opciones antes de decidir.', pron:'lets trái tu campér bóuz ápshions bifór uí disáid.'},
+    {speaker:'alumno', en:'I already tried to compare them — this deal looks like the best offer.', es:'Ya traté de compararlas — este trato parece la mejor oferta.', pron:'ái olrédi tráid tu campér dem — dis díil luks láik de best áfer.'},
+    {speaker:'maestro', en:'Is this contract different from the other agreement?', es:'¿Este contrato es diferente del otro acuerdo?', pron:'is dis cántract díferent fram de áder agríiment?'},
+    {speaker:'alumno', en:'It\'s basically the same, but let\'s try to negotiate the price a little more.', es:'Es básicamente lo mismo, pero tratemos de negociar el precio un poco más.', pron:'its béisicli de séim, bat lets trái tu nigóushieit de práis a lítol mor.'},
+    {speaker:'maestro', en:'I\'d like to choose the better option, even if it costs more — I need to decide soon.', es:'Me gustaría elegir la mejor opción, aunque cueste más — necesito decidir pronto.', pron:'áid láik tu chúus de béter ápshion, íven if it costs mor — ái níid tu disáid súun.'},
+    {speaker:'alumno', en:'Agreed — let\'s finalize this deal together.', es:'De acuerdo — finalicemos este trato juntos.', pron:'agríid — lets fáinaláiz dis díil tugéder.'}
+  ],
+  24: [
+    {speaker:'maestro', en:'Welcome to unit two, review time! What did you learn this unit?', es:'¡Bienvenido a la Unidad Dos, hora de repaso! ¿Qué aprendiste en esta unidad?', pron:'uélcam tu iúnit tú, riviú táim! uát did iú lern dis iúnit?'},
+    {speaker:'alumno', en:'I remember everything — well, I forgot one small thing.', es:'Recuerdo todo — bueno, olvidé una cosa pequeña.', pron:'ái rimémber évrizin — uél, ái forgát uán smol zing.'},
+    {speaker:'maestro', en:'Let\'s practice one more time, just to be sure.', es:'Practiquemos una vez más, solo para estar seguros.', pron:'lets práctis uán mor táim, yast tu bi shur.'},
+    {speaker:'alumno', en:'Good idea — you\'re improving with each practice.', es:'Buena idea — estás mejorando con cada práctica.', pron:'gud aidía — iór imprúuving uid íich práctis.'},
+    {speaker:'maestro', en:'You\'re halfway there already!', es:'¡Ya vas por la mitad!', pron:'iór jáfuei der olrédi!'},
+    {speaker:'alumno', en:'That\'s great — see you in the next unit!', es:'¡Eso es genial — nos vemos en la próxima unidad!', pron:'dats gréit — síi iú in de next iúnit!'}
+  ],
+  25: [
+    {speaker:'maestro', en:'What\'s the budget for this order — eleven, twelve, or thirteen units?', es:'¿Cuál es el presupuesto para este pedido — once, doce, o trece unidades?', pron:'uáts de báchet for dis órder — iléven, tuélv, or zértíin iúnits?'},
+    {speaker:'alumno', en:'Let\'s see: fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, or twenty — how many do you need?', es:'A ver: catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve, o veinte — ¿cuántas necesitas?', pron:'lets síi: fórtíin, fiftíin, síkstíin, séventíin, éitíin, náintíin, or tuénti — jáu méni du iú níid?'},
+    {speaker:'maestro', en:'This item is going to cost approximately two hundred dollars, but that\'s expensive for us.', es:'Este artículo va a costar aproximadamente doscientos dólares, pero eso es caro para nosotros.', pron:'dis áitem is góing tu cost aprócsimatli tú jándred dálars, bat dats expénsiv for as.'},
+    {speaker:'alumno', en:'We need something cheap — what\'s the final price after the discount?', es:'Necesitamos algo barato — ¿cuál es el precio final después del descuento?', pron:'uí níid sámzin chíip — uáts de fáinal práis áfter de discáunt?'}
+  ],
+  26: [
+    {speaker:'maestro', en:'Can you give me a quote for thirty, forty, or fifty units?', es:'¿Puedes darme una cotización para treinta, cuarenta, o cincuenta unidades?', pron:'can iú guiv mi a cuóut for zérti, fórti, or fífti iúnits?'},
+    {speaker:'alumno', en:'Sure — sixty, seventy, eighty, or ninety, plus a hundred more if you need them.', es:'Claro — sesenta, setenta, ochenta, o noventa, más cien más si las necesitas.', pron:'shur — síksti, séventi, éiti, or náinti, plas a jándred mor if iú níid dem.'},
+    {speaker:'maestro', en:'What about the subtotal, tax, and shipping cost?', es:'¿Y qué tal el subtotal, el impuesto, y el costo de envío?', pron:'uát abáut de sábtoutal, tax, and shíping cost?'},
+    {speaker:'alumno', en:'The grand total should add up to about a thousand dollars — I need to add up everything correctly.', es:'El total general debería sumar cerca de mil dólares — necesito sumar todo correctamente.', pron:'de grand tóutal shud ad ap tu abáut a záusand dálars — ái níid tu ad ap évrizin coréctli.'}
+  ],
+  27: [
+    {speaker:'maestro', en:'What time is it right now — is it three o\'clock?', es:'¿Qué hora es ahora mismo — son las tres en punto?', pron:'uát táim is it ráit náu — is it zríi oclák?'},
+    {speaker:'alumno', en:'It\'s half past three, actually — quarter past would be three fifteen, and quarter to four means almost an hour, or one minute before four.', es:'Son las tres y media, en realidad — y cuarto serían las tres y cuarto, y cuarto para las cuatro significa casi una hora, o un minuto antes de las cuatro.', pron:'its jaf past zríi, áctiuali — cuórter past uud bi zríi fiftíin, and cuórter tu fóar míins ólmoust an áur, or uán mínit bifór fóar.'},
+    {speaker:'maestro', en:'What are your business hours, and what time does the store open?', es:'¿Cuál es tu horario comercial, y a qué hora abre la tienda?', pron:'uát ar iór bísnes áurs, and uát táim das de stor óupen?'},
+    {speaker:'alumno', en:'It opens at nine, and it closes at six — delivery time is usually within 24 hours, same day if you\'re lucky, or next day otherwise.', es:'Abre a las nueve, y cierra a las seis — el tiempo de entrega suele ser dentro de 24 horas, el mismo día si tienes suerte, o al día siguiente si no.', pron:'it óupens at náin, and it clóuzes at six — delíveri táim is iúshuali uidín tuénti fóar áurs, séim déi if iór láki, or next déi áderuáis.'}
+  ],
+  28: [
+    {speaker:'maestro', en:'Do you prefer meetings in the morning, in the afternoon, in the evening, or at night?', es:'¿Prefieres las reuniones en la mañana, en la tarde, en el anochecer, o en la noche?', pron:'du iú prifér míitings in de mórning, in de áfternúun, in de ívning, or at náit?'},
+    {speaker:'alumno', en:'I prefer early morning meetings — I don\'t like being late.', es:'Prefiero las reuniones temprano en la mañana — no me gusta llegar tarde.', pron:'ái prifér érli mórning míitings — ái dont láik bíing léit.'},
+    {speaker:'maestro', en:'Is the package delayed, or will it arrive around the estimated time?', es:'¿El paquete está demorado, o va a llegar cerca de la hora estimada?', pron:'is de páquich diléid, or uil it aráiv aráund de éstimeited táim?'},
+    {speaker:'alumno', en:'The estimated arrival is around five, before or as soon as possible after that — check the tracking number for updates.', es:'La llegada estimada es cerca de las cinco, antes o lo antes posible después de eso — revisa el número de rastreo para actualizaciones.', pron:'de éstimeited aráival is aráund fáiv, bifór or as súun as pásibol áfter dat — chek de tráking námber for apdéits.'}
+  ],
+  29: [
+    {speaker:'maestro', en:'When is the due date for this invoice — January, February, or March?', es:'¿Cuándo es la fecha de vencimiento de esta factura — enero, febrero, o marzo?', pron:'uén is de diú déit for dis ínvois — yániuari, fébruari, or march?'},
+    {speaker:'alumno', en:'It\'s actually in April, May, or June — let me check the calendar.', es:'En realidad es en abril, mayo, o junio — déjame revisar el calendario.', pron:'its áctiuali in éipril, méi, or yun — let mi chek de cálendar.'},
+    {speaker:'maestro', en:'Is it overdue already? What about July, August, or September?', es:'¿Ya está vencida? ¿Y qué tal julio, agosto, o septiembre?', pron:'is it óverdiú olrédi? uát abáut yulái, ógost, or septémber?'},
+    {speaker:'alumno', en:'No, it\'s fine — the due date is October, or maybe November or December at the latest.', es:'No, está bien — la fecha de vencimiento es octubre, o tal vez noviembre o diciembre como muy tarde.', pron:'nóu, its fáin — de diú déit is octóuber, or méibi novémber or disémber at de léitest.'}
+  ],
+  30: [
+    {speaker:'maestro', en:'What\'s the date? What\'s today\'s date? I need to know the payment terms.', es:'¿Cuál es la fecha? ¿Cuál es la fecha de hoy? Necesito saber las condiciones de pago.', pron:'uáts de déit? uáts tudéis déit? ái níid tu nóu de péiment terms.'},
+    {speaker:'alumno', en:'The payment terms are net 30 — do you prefer an upfront payment, or an installment plan?', es:'Las condiciones de pago son treinta días netos — ¿prefieres un pago adelantado, o un plan de cuotas?', pron:'de péiment terms ar net zérti — du iú prifér an apfránt péiment, or an instólment plan?'},
+    {speaker:'maestro', en:'What if there\'s a balance due at the end of the year or month?', es:'¿Y si hay un saldo pendiente al final del año o mes?', pron:'uát if ders a bálans diú at de end of de íar or manz?'},
+    {speaker:'alumno', en:'It needs to be paid in full, but we can offer an extension, or a grace period if needed.', es:'Necesita pagarse por completo, pero podemos ofrecer una extensión, o un período de gracia si hace falta.', pron:'it níids tu bi péid in fúl, bat uí can áfer an exténshion, or a gréis píriod if níided.'}
+  ],
+  31: [
+    {speaker:'maestro', en:'Let me see... hold on, give me a second to think about this.', es:'Déjame ver... espera, dame un segundo para pensar esto.', pron:'let mi síi... jóuld on, guiv mi a sécond tu zink abáut dis.'},
+    {speaker:'alumno', en:'That works for me, or that doesn\'t work at all — which is it for you?', es:'Eso me funciona, o eso no funciona para nada — ¿cuál es para ti?', pron:'dat uorks for mi, or dat dásnt uork at ol — uích is it for iú?'},
+    {speaker:'maestro', en:'It makes sense to me — I agree with most of it.', es:'Tiene sentido para mí — estoy de acuerdo con la mayoría.', pron:'it méiks sens tu mi — ái agríi uid móust of it.'},
+    {speaker:'alumno', en:'Maybe, or probably — I definitely think it\'s a good idea, though I disagree a little with the price.', es:'Tal vez, o probablemente — definitivamente pienso que es una buena idea, aunque no estoy de acuerdo un poco con el precio.', pron:'méibi, or prábabli — définitli zink its a gud aidía, dóu ái disagríi a lítol uid de práis.'}
+  ],
+  32: [
+    {speaker:'maestro', en:'Is this the first, second, third, or fourth item on the list?', es:'¿Es este el primero, segundo, tercero, o cuarto artículo de la lista?', pron:'is dis de ferst, sécond, zerd, or fórz áitem on de list?'},
+    {speaker:'alumno', en:'It\'s actually the fifth, and it\'s next — right before the last one.', es:'En realidad es el quinto, y es el siguiente — justo antes del último.', pron:'its áctiuali de fifz, and its next — ráit bifór de last uán.'},
+    {speaker:'maestro', en:'What\'s our top priority, and where does this rank?', es:'¿Cuál es nuestra prioridad principal, y dónde se ubica esto?', pron:'uáts áur top praióriti, and uér das dis rank?'},
+    {speaker:'alumno', en:'This is urgent — check the ranking, our best seller, and our preferred supplier before the waiting list grows.', es:'Esto es urgente — revisa el ranking, nuestro más vendido, y nuestro proveedor preferido antes de que crezca la lista de espera.', pron:'dis is éryent — chek de ránking, áur best séler, and áur prifér sapláier bifór de uéiting list gróus.'}
+  ],
+  33: [
+    {speaker:'maestro', en:'How much money do you have — cash, or just a credit card?', es:'¿Cuánto dinero tienes — efectivo, o solo una tarjeta de crédito?', pron:'jáu mach máni du iú jav — cash, or yast a crédit card?'},
+    {speaker:'alumno', en:'I have a debit card, and I can write a check, or do a bank transfer or wire transfer too — how do you want to pay, and how much will you charge?', es:'Tengo una tarjeta de débito, y puedo escribir un cheque, o hacer una transferencia bancaria o transferencia electrónica también — ¿cómo quieres pagar, y cuánto vas a cobrar?', pron:'ái jav a débit card, and ái can ráit a chek, or du a bank tránsfer or uáier tránsfer tu — jáu du iú uánt tu péi, and jáu mach uil iú charch?'},
+    {speaker:'maestro', en:'Do you have the receipt, and what\'s the exchange rate for this currency?', es:'¿Tienes el recibo, y cuál es la tasa de cambio para esta moneda?', pron:'du iú jav de risíit, and uáts de exchéinch réit for dis cárensi?'},
+    {speaker:'alumno', en:'I will pay by card — you need to charge it, and give me the change afterward, or a refund if needed?', es:'Voy a pagar con tarjeta — necesitas cobrarlo, y darme el cambio después, ¿o un reembolso si hace falta?', pron:'ái uil péi bái card — iú níid tu charch it, and guiv mi de chéinch áfteruórd, or a rífand if níided?'}
+  ],
+  34: [
+    {speaker:'maestro', en:'Do you want to buy, or to sell today? I need to purchase in bulk.', es:'¿Quieres comprar, o vender hoy? Necesito comprar al por mayor.', pron:'du iú uánt tu bái, or tu sel tudéi? ái níid tu pérchas in balk.'},
+    {speaker:'alumno', en:'For a bulk order, we offer wholesale prices — the lowest price is much better than retail.', es:'Para un pedido al por mayor, ofrecemos precios de mayoreo — el precio más bajo es mucho mejor que al por menor.', pron:'for a balk órder, uí áfer jóulseil práisis — de lóuest práis is mach béter dan rítail.'},
+    {speaker:'maestro', en:'What\'s our profit margin, and are we close to a loss, or break even?', es:'¿Cuál es nuestro margen de ganancia, y estamos cerca de una pérdida, o de solo cubrir gastos?', pron:'uáts áur práfit márchin, and ar uí clóus tu a los, or bréik íven?'},
+    {speaker:'alumno', en:'I need to negotiate the price — let\'s make a final offer, and get the deal closed today.', es:'Necesito negociar el precio — hagamos una oferta final, y cerremos el trato hoy.', pron:'ái níid tu nigóushieit de práis — lets méik a fáinal áfer, and get de díil clóusd tudéi.'}
+  ],
+  35: [
+    {speaker:'maestro', en:'What\'s the weight — how much does this weigh, one kilogram, or five hundred gram?', es:'¿Cuál es el peso — cuánto pesa esto, un kilogramo, o quinientos gramos?', pron:'uáts de uéit — jáu mach das dis uéi, uán quílougram, or fáiv jándred gram?'},
+    {speaker:'alumno', en:'It\'s actually measured in liter, since it\'s a liquid — about two liters total.', es:'En realidad se mide en litros, ya que es un líquido — cerca de dos litros en total.', pron:'its áctiuali méshurd in líiter, sins its a líquid — abáut tú líiters tóutal.'},
+    {speaker:'maestro', en:'What\'s the length, width, and height of this pack?', es:'¿Cuál es el largo, ancho, y alto de este paquete?', pron:'uáts de lenz, uidz, and jáit of dis pak?'},
+    {speaker:'alumno', en:'Let me check — it\'s about one meter, or forty centimeter, and we measure the volume before loading the pallet, in inch or pound too.', es:'Déjame revisar — es cerca de un metro, o cuarenta centímetros, y medimos el volumen antes de cargar la tarima, en pulgadas o libras también.', pron:'let mi chek — its abáut uán míter, or fórti séntimiter, and uí méshur de váliun bifór lóuding de pálet, in inch or páund tu.'}
+  ],
+  36: [
+    {speaker:'maestro', en:'Welcome to unit three, review time! Are you ready for the final challenge?', es:'¡Bienvenido a la Unidad Tres, hora de repaso! ¿Estás listo para el desafío final?', pron:'uélcam tu iúnit zríi, riviú táim! ar iú rédi for de fáinal chálench?'},
+    {speaker:'alumno', en:'Yes! I made strong progress this unit — I feel well earned and proud of you too.', es:'¡Sí! Hice un progreso fuerte esta unidad — me siento bien merecido y orgulloso de ti también.', pron:'iés! ái méid strong prógres dis iúnit — ái fíil uél érnd and práud of iú tu.'},
+    {speaker:'maestro', en:'Let\'s finish this together, one more time.', es:'Terminemos esto juntos, una vez más.', pron:'lets fínish dis tugéder, uán mor táim.'},
+    {speaker:'alumno', en:'That\'s the spirit — see you in unit four, next unit!', es:'Ese es el espíritu — ¡nos vemos en la Unidad Cuatro, la próxima unidad!', pron:'dats de spírit — síi iú in iúnit fóar, next iúnit!'}
+  ],
+  37: [
+    {speaker:'maestro', en:'Are you ready to order? I would like to know what\'s your main course.', es:'¿Estás listo para pedir? Quisiera saber cuál es tu plato principal.', pron:'ar iú rédi tu órder? ái uud láik tu nóu uáts iór méin cors.'},
+    {speaker:'alumno', en:'I\'ll have the chicken please, and an appetizer to start — something spicy would be great.', es:'Voy a pedir el pollo por favor, y una entrada para empezar — algo picante estaría genial.', pron:'áil jav de chíken plíis, and an ápetaiser tu start — sámzin spáisi uud bi gréit.'},
+    {speaker:'maestro', en:'Do you want anything sweet or salty for dessert?', es:'¿Quieres algo dulce o salado de postre?', pron:'du iú uánt énizin suíit or sólti for disért?'},
+    {speaker:'alumno', en:'The cake looked tasty — but first, I need to schedule a meeting to discuss the agenda.', es:'La torta se veía sabrosa — pero primero, necesito programar una reunión para discutir la agenda.', pron:'de kéik lukt téisti — bat ferst, ái níid tu squédiul a míiting tu discás de áyenda.'},
+    {speaker:'maestro', en:'Who are the attendees, and can we book a conference room?', es:'¿Quiénes son los asistentes, y podemos reservar una sala de conferencias?', pron:'jú ar de aténdis, and can uí buk a cánferens rúum?'},
+    {speaker:'alumno', en:'Yes, let\'s find a good time slot for everyone this week — I need to book the conference room too.', es:'Sí, busquemos un buen horario para todos esta semana — también necesito reservar la sala de conferencias.', pron:'iés, lets fáind a gud táim slot for évriuan dis uíik — ái níid tu buk de cánferens rúum tu.'}
+  ],
+  38: [
+    {speaker:'maestro', en:'What do you like, or what don\'t you like on the menu?', es:'¿Qué te gusta, o qué no te gusta del menú?', pron:'uát du iú láik, or uát dont iú láik on de méniu?'},
+    {speaker:'alumno', en:'I like spicy food, and I don\'t like plain food — I love it, actually, and I need to prefer something milder today, my favorite is spicy, but I like to try new things.', es:'Me gusta la comida picante, y no me gusta la comida simple — me encanta en realidad, y necesito preferir algo más suave hoy, mi favorito es lo picante, pero me gusta probar cosas nuevas.', pron:'ái láik spáisi fúud, and ái dont láik pléin fúud — ái lav it, áctiuali, and ái níid tu prifér sámzin máilder tudéi, mái féivorit is spáisi, bat ái láik tu trái niú zings.'},
+    {speaker:'maestro', en:'Can you try this dish? I want to know the taste.', es:'¿Puedes probar este plato? Quiero saber el sabor.', pron:'can iú trái dis dish? ái uánt tu nóu de téist.'},
+    {speaker:'alumno', en:'I am allergic to shellfish, so I can\'t try that one, sorry.', es:'Soy alérgico a los mariscos, así que no puedo probar ese, disculpa.', pron:'ái am aléryic tu shélfish, sóu ái cant trái dat uán, sóri.'},
+    {speaker:'maestro', en:'Can you confirm attendance for tomorrow\'s meeting? I\'ll be there for sure.', es:'¿Puedes confirmar tu asistencia para la reunión de mañana? Yo voy a estar seguro.', pron:'can iú canférm aténdans for tumórous míiting? áil bi der for shur.'},
+    {speaker:'alumno', en:'I can\'t attend — there\'s a schedule conflict. Should I decline the invite, or accept it anyway? I need to confirm attendance soon, and I need to accept or to decline before Friday.', es:'No puedo asistir — hay un conflicto de horario. ¿Debería rechazar la invitación, o aceptarla igual? Necesito confirmar mi asistencia pronto, y necesito aceptar o rechazar antes del viernes.', pron:'ái cant aténd — ders a squédiul cánflict. shud ái dicláin de inváit, or acsépt it éniuei? ái níid tu canférm aténdans súun, and ái níid tu acsépt or tu dicláin bifór fráidei.'}
+  ],
+  39: [
+    {speaker:'maestro', en:'Should we split the bill, or is this a reservation for the group?', es:'¿Dividimos la cuenta, o esta es una reserva para el grupo?', pron:'shud uí split de bil, or is dis a reservéishion for de grup?'},
+    {speaker:'alumno', en:'Let\'s split it — and don\'t forget the tip. Dine in or take out today?', es:'Dividámosla — y no olvides la propina. ¿Comemos acá o para llevar hoy?', pron:'lets split it — and dont forguét de tip. dáin in or téik áut tudéi?'},
+    {speaker:'maestro', en:'What\'s the first agenda item, and which topic do we need to discuss?', es:'¿Cuál es el primer tema de la agenda, y qué tema necesitamos discutir?', pron:'uáts de ferst áyenda áitem, and uích tápic du uí níid tu discás?'},
+    {speaker:'alumno', en:'Let\'s discuss the budget first — that\'s an important action item.', es:'Discutamos el presupuesto primero — eso es un punto de acción importante.', pron:'lets discás de báchet ferst — dats an impórtant ákshion áitem.'},
+    {speaker:'maestro', en:'What are the next steps, and can you follow up after the meeting?', es:'¿Cuáles son los próximos pasos, y puedes hacer seguimiento después de la reunión?', pron:'uát ar de next steps, and can iú fálou ap áfter de míiting?'},
+    {speaker:'alumno', en:'Sure — check the meeting minutes, and I need to summarize before we wrap up.', es:'Claro — revisa la minuta de la reunión, y necesito resumir antes de cerrar.', pron:'shur — chek de míiting mínits, and ái níid tu sámaráis bifór uí rap ap.'}
+  ],
+  40: [
+    {speaker:'maestro', en:'I need to cook dinner tonight — do you have a good recipe?', es:'Necesito cocinar la cena esta noche — ¿tienes una buena receta?', pron:'ái níid tu cuk díner tunáit — du iú jav a gud résipi?'},
+    {speaker:'alumno', en:'Yes! First, I need to cut the ingredients, then to boil the water, and to fry or to bake the rest — turn on the oven and the stove.', es:'¡Sí! Primero, necesito cortar los ingredientes, después hervir el agua, y freír u hornear el resto — enciende el horno y la cocina.', pron:'iés! ferst, ái níid tu cat de ingriídients, den tu bóil de uóter, and tu frái or tu béik de rest — tern on de áven and de stóuv.'},
+    {speaker:'maestro', en:'I need to prepare the slides for tomorrow\'s presentation too.', es:'También necesito preparar las diapositivas para la presentación de mañana.', pron:'ái níid tu pripér de sláids for tumórous presentéishion tu.'},
+    {speaker:'alumno', en:'I need to rehearse it too — let\'s do it together, and I\'ll help you prepare the handout as well.', es:'También necesito ensayarla — hagámoslo juntos, y te ayudo a preparar el folleto también.', pron:'ái níid tu rijérs it tu — lets du it tugéder, and áil jelp iú pripér de jándaut as uél.'}
+  ],
+  41: [
+    {speaker:'maestro', en:'Would you like some juice, soda, tea, beer, or wine with dinner?', es:'¿Quieres jugo, gaseosa, té, cerveza, o vino con la cena?', pron:'uud iú láik sam yús, sóuda, tíi, bíar, or uáin uid díner?'},
+    {speaker:'alumno', en:'Just tea for me, thanks. Can you hear me on this video call? Here\'s the link to join.', es:'Solo té para mí, gracias. ¿Me escuchas en esta videollamada? Acá está el enlace para unirte.', pron:'yast tíi for mi, zenks. can iú jíar mi on dis vídiou col? jírs de link tu yóin.'},
+    {speaker:'maestro', en:'Your camera on button seems off — can you turn it on, and check the connection?', es:'Tu botón de cámara encendida parece apagado — ¿puedes encenderla, y revisar la conexión?', pron:'iór cámera on báton síims of — can iú tern it on, and chek de canékshion?'},
+    {speaker:'alumno', en:'Sure, I need to sign in again — I can screen share with you once I mute my microphone (I need to mute it now), and I need to sign off when we finish.', es:'Claro, necesito iniciar sesión de nuevo — puedo compartir pantalla contigo una vez que silencie mi micrófono (necesito silenciarlo ahora), y necesito cerrar sesión cuando terminemos.', pron:'shur, ái níid tu sáin in aguén — ái can scríin sher uid iú uáns ái miút mái máicrofoun (ái níid tu miút it náu), and ái níid tu sáin of uén uí fínish.'}
+  ],
+  42: [
+    {speaker:'maestro', en:'What did you have for breakfast — eggs, toast, or cereal?', es:'¿Qué desayunaste — huevos, tostadas, o cereal?', pron:'uát did iú jav for brékfast — egs, tóust, or síirial?'},
+    {speaker:'alumno', en:'I had a sandwich instead, and a snack later — I had to skip a meal yesterday, though.', es:'Comí un sándwich en cambio, y una merienda después — aunque ayer tuve que saltarme una comida.', pron:'ái jad a sánduich instéd, and a snak léiter — ái jad tu skip a míil iésterdei, dóu.'},
+    {speaker:'maestro', en:'Let\'s do a follow-up meeting for a status update on the project.', es:'Hagamos una reunión de seguimiento para una actualización del estado del proyecto.', pron:'lets du a fálou-ap míiting for a stéitas apdéit on de práchect.'},
+    {speaker:'alumno', en:'Sure — we are on track, and making good progress, though one milestone is still pending, and slightly behind schedule.', es:'Claro — vamos bien encaminados, y haciendo buen progreso, aunque un hito todavía está pendiente, y un poco atrasados según lo planeado.', pron:'shur — uí ar on trak, and méiking gud prógres, dóu uán máilstoun is stil pénding, and sláitli bijáind squédiul.'}
+  ],
+  43: [
+    {speaker:'maestro', en:'Can you repeat that? What do you mean exactly?', es:'¿Puedes repetir eso? ¿Qué quieres decir exactamente?', pron:'can iú ripíit dat? uát du iú míin exáctli?'},
+    {speaker:'alumno', en:'Oh, I see — got it now, no worries.', es:'Ah, ya veo — entendido ahora, no hay problema.', pron:'óu, ái síi — gat it náu, nóu uóris.'},
+    {speaker:'maestro', en:'Same here, either way — in that case, let\'s continue.', es:'Lo mismo digo, de cualquier manera — en ese caso, continuemos.', pron:'séim jíar, íder uéi — in dat kéis, lets cantíniu.'},
+    {speaker:'alumno', en:'Just in case, let\'s do this as needed, anyway.', es:'Por las dudas, hagamos esto según haga falta, de todos modos.', pron:'yast in kéis, lets du dis as níided, éniuei.'}
+  ],
+  44: [
+    {speaker:'maestro', en:'Do you have any allergy — nuts, shellfish, or something else?', es:'¿Tienes alguna alergia — nueces, mariscos, o algo más?', pron:'du iú jav éni álery — nats, shélfish, or sámzin els?'},
+    {speaker:'alumno', en:'I need gluten-free food, and I\'m lactose intolerant too — what\'s safe to eat here?', es:'Necesito comida sin gluten, y también soy intolerante a la lactosa — ¿qué es seguro comer acá?', pron:'ái níid glúten-fríi fúud, and áim láctous intólerant tu — uáts séif tu íit jíar?'},
+    {speaker:'maestro', en:'We need to avoid those ingredients then. Can you take notes for the meeting? I need to take notes too.', es:'Entonces necesitamos evitar esos ingredientes. ¿Puedes tomar notas para la reunión? Yo también necesito tomar notas.', pron:'uí níid tu avóid dóus ingriídients den. can iú téik nóuts for de míiting? ái níid tu téik nóuts tu.'},
+    {speaker:'alumno', en:'Sure — I\'ll write the minutes of the meeting, note the decision, and the responsible person, plus attach the attachment.', es:'Claro — voy a escribir la minuta de la reunión, anotar la decisión, y la persona responsable, además de adjuntar el archivo adjunto.', pron:'shur — áil ráit de mínits of de míiting, nóut de disíshion, and de rispánsibol pérson, plas atách de atáchment.'}
+  ],
+  45: [
+    {speaker:'maestro', en:'Would you like some cake, a cookie, or ice cream? I have a sweet tooth.', es:'¿Quieres torta, una galleta, o helado? Soy goloso.', pron:'uud iú láik sam kéik, a cúki, or áis críim? ái jav a suíit túuz.'},
+    {speaker:'alumno', en:'Chocolate or candy sounds great too! In conclusion, thank you all for coming.', es:'¡Chocolate o caramelos también suena genial! En conclusión, gracias a todos por venir.', pron:'chácolet or cándi sáunds gréit tu! in canclúshion, zenk iú ol for cáming.'},
+    {speaker:'maestro', en:'Before we finish, any questions?', es:'Antes de terminar, ¿alguna pregunta?', pron:'bifór uí fínish, éni cuéstions?'},
+    {speaker:'alumno', en:'Let\'s plan for the same time next week — here\'s our action plan.', es:'Planeemos para la misma hora la próxima semana — acá está nuestro plan de acción.', pron:'lets plan for de séim táim next uíik — jírs áur ákshion plan.'}
+  ],
+  46: [
+    {speaker:'maestro', en:'I need to buy groceries at the supermarket — do you have the shopping list?', es:'Necesito comprar víveres en el supermercado — ¿tienes la lista de compras?', pron:'ái níid tu bái gróuseris at de súupermárket — du iú jav de sháping list?'},
+    {speaker:'alumno', en:'Yes, check aisle three — grab a basket, and let\'s go through the cashier at checkout.', es:'Sí, revisa el pasillo tres — toma una canasta, y pasemos por la cajera al pagar.', pron:'iés, chek áil zríi — grab a básket, and lets góu zru de cashíar at chékáut.'},
+    {speaker:'maestro', en:'Is the fish fresh, or is it frozen?', es:'¿El pescado está fresco, o está congelado?', pron:'is de fish fresh, or is it fróuzen?'},
+    {speaker:'alumno', en:'It\'s fresh! Now let\'s prepare for the supplier meeting — bring a sample and the catalog.', es:'¡Está fresco! Ahora preparémonos para la reunión con el proveedor — trae una muestra y el catálogo.', pron:'its fresh! náu lets pripér for de sapláier míiting — bring a sámpol and de cátalog.'},
+    {speaker:'maestro', en:'What are the terms and conditions for this partnership?', es:'¿Cuáles son los términos y condiciones para esta sociedad?', pron:'uát ar de terms and candíshions for dis pártnership?'},
+    {speaker:'alumno', en:'Let\'s review them together before we sign anything.', es:'Revisémoslos juntos antes de firmar algo.', pron:'lets riviú dem tugéder bifór uí sáin énizin.'}
+  ],
+  47: [
+    {speaker:'maestro', en:'Do we have enough budget approval for this — a little, or a lot?', es:'¿Tenemos suficiente aprobación de presupuesto para esto — un poco, o mucho?', pron:'du uí jav ináf báchet apruúval for dis — a lítol, or a lat?'},
+    {speaker:'alumno', en:'We have enough resources, but not too much extra — some funds, but definitely none for luxury.', es:'Tenemos suficientes recursos, pero no demasiado extra — algo de fondos, pero definitivamente nada para lujo.', pron:'uí jav ináf risórsis, bat nat tu mach éxtra — sam fands, bat définitli nan for lákshuri.'},
+    {speaker:'maestro', en:'How do we allocate the investment then? We need to allocate it carefully.', es:'¿Cómo asignamos la inversión entonces? Necesitamos asignarla con cuidado.', pron:'jáu du uí álokeit de invéstment den? uí níid tu álokeit it kérfuli.'},
+    {speaker:'alumno', en:'We might need to cut costs somewhere to make this work.', es:'Podríamos necesitar recortar gastos en algún lado para que esto funcione.', pron:'uí máit níid tu cat costs sámuér tu méik dis uork.'}
+  ],
+  48: [
+    {speaker:'maestro', en:'Welcome to unit four, final review! We\'re one third done already.', es:'¡Bienvenido a la Unidad Cuatro, repaso final! Ya llevamos un tercio hecho.', pron:'uélcam tu iúnit fóar, fáinal riviú! uír uán zerd dan olrédi.'},
+    {speaker:'alumno', en:'Keep learning — great effort so far, you\'re on track!', es:'Sigue aprendiendo — gran esfuerzo hasta ahora, ¡vas bien encaminado!', pron:'kíip lérning — gréit éfort sóu far, iór on trak!'},
+    {speaker:'maestro', en:'I\'m on track to finish this unit strong.', es:'Voy bien encaminado para terminar esta unidad con fuerza.', pron:'áim on trak tu fínish dis iúnit strong.'},
+    {speaker:'alumno', en:'See you in unit five, next unit!', es:'¡Nos vemos en la Unidad Cinco, la próxima unidad!', pron:'síi iú in iúnit fáiv, next iúnit!'}
+  ],
+  49: [
+    {speaker:'maestro', en:'I\'d like to try on this shirt — what size do you have?', es:'Quisiera probarme esta camisa — ¿qué talle tienes?', pron:'áid láik tu trái on dis shert — uát sáis du iú jav?'},
+    {speaker:'alumno', en:'Sure, the fitting room is right there. Does it fit? It\'s too tight, maybe.', es:'Claro, el probador está ahí. ¿Te queda bien? Tal vez está muy ajustada.', pron:'shur, de fíting rúum is ráit der. das it fit? its tu táit, méibi.'},
+    {speaker:'maestro', en:'It\'s too big, actually — too small won\'t work either, let me try a smaller size.', es:'En realidad me queda grande — muy chica tampoco funciona, déjame probar un talle más chico.', pron:'its tu big, áctiuali — tu smol uónt uork íider, let mi trái a smóler sáis.'},
+    {speaker:'alumno', en:'The sales assistant at the store can help you find the right one.', es:'El vendedor de la tienda puede ayudarte a encontrar la talla correcta.', pron:'de séils asístant at de stor can jelp iú fáind de ráit uán.'},
+    {speaker:'maestro', en:'By the way, did you send that formal quote yet?', es:'Por cierto, ¿ya enviaste esa cotización formal?', pron:'bái de uéi, did iú send dat fórmal cuóut iét?'},
+    {speaker:'alumno', en:'Yes, the proposal is attached to the email — it\'s valid until Friday.', es:'Sí, la propuesta está adjunta en el correo — es válida hasta el viernes.', pron:'iés, de propóusal is atáchd tu de íimeil — its válid antíl fráidei.'},
+    {speaker:'maestro', en:'Perfect, I\'ll review it today.', es:'Perfecto, la reviso hoy.', pron:'pérfect, áil riviú it tudéi.'},
+    {speaker:'alumno', en:'Let me know if anything doesn\'t fit right, or if you need help.', es:'Avisame si algo no te queda bien, o si necesitas ayuda.', pron:'let mi nóu if énizin dásnt fit ráit, or if iú níid jelp.'}
+  ],
+  50: [
+    {speaker:'maestro', en:'I\'d like to bargain a little — can you lower the price on this?', es:'Me gustaría regatear un poco — ¿puedes bajar el precio de esto?', pron:'áid láik tu bárguein a lítol — can iú lóuer de práis on dis?'},
+    {speaker:'alumno', en:'Let me check — is this from the clearance section, or the regular sale?', es:'Déjame revisar — ¿esto es de la sección de liquidación, o de la oferta regular?', pron:'let mi chek — is dis fram de clírans sékshion, or de réguiular séil?'},
+    {speaker:'maestro', en:'It\'s regular price, but what percentage off could you offer?', es:'Es precio regular, pero ¿qué porcentaje de descuento podrías ofrecer?', pron:'its réguiular práis, bat uát persénteich of cud iú áfer?'},
+    {speaker:'alumno', en:'I need to negotiate terms — here\'s my best offer for now.', es:'Necesito negociar los términos — acá está mi mejor oferta por ahora.', pron:'ái níid tu nigóushieit terms — jírs mái best áfer for náu.'},
+    {speaker:'maestro', en:'Can I make a counteroffer instead?', es:'¿Puedo hacer una contraoferta en cambio?', pron:'can ái méik a cáunteráfer instéd?'},
+    {speaker:'alumno', en:'Sure, I\'m flexible — unless it\'s a fixed price item.', es:'Claro, soy flexible — a menos que sea un artículo de precio fijo.', pron:'shur, áim fléxibol — anlés its a fixd práis áitem.'},
+    {speaker:'maestro', en:'What\'s the minimum order to get a better deal?', es:'¿Cuál es el pedido mínimo para conseguir un mejor trato?', pron:'uáts de mínimum órder tu get a béter díil?'},
+    {speaker:'alumno', en:'Let\'s negotiate terms based on your minimum order size.', es:'Negociemos los términos según el tamaño de tu pedido mínimo.', pron:'lets nigóushieit terms béisd on iór mínimum órder sáis.'}
+  ],
+  51: [
+    {speaker:'maestro', en:'I need to return this item — do you have a refund policy?', es:'Necesito devolver este artículo — ¿tienen política de reembolso?', pron:'ái níid tu ritérn dis áitem — du iú jav a rífand pálisi?'},
+    {speaker:'alumno', en:'Sure, do you want a refund, or an exchange instead?', es:'Claro, ¿quieres un reembolso, o un cambio en su lugar?', pron:'shur, du iú uánt a rífand, or an exchéinch instéd?'},
+    {speaker:'maestro', en:'The product is defective — actually, it\'s broken.', es:'El producto está defectuoso — en realidad, está roto.', pron:'de prádact is diféctiv — áctiuali, its bróuken.'},
+    {speaker:'alumno', en:'Do you have your proof of purchase with you?', es:'¿Tienes tu comprobante de compra contigo?', pron:'du iú jav iór prúuf of pérchas uid iú?'},
+    {speaker:'maestro', en:'Yes, right here. Also, I need to issue an invoice for the exchange, and I need to get this sorted out.', es:'Sí, acá está. También, necesito emitir una factura para el cambio, y necesito resolver esto.', pron:'iés, ráit jíar. ólsou, ái níid tu íshu an ínvois for de exchéinch, and ái níid tu get dis sórtid áut.'},
+    {speaker:'alumno', en:'Of course — what\'s the invoice number you need reissued?', es:'Por supuesto — ¿cuál es el número de factura que necesitas reemitir?', pron:'of cors — uáts de ínvois námber iú níid riíshud?'},
+    {speaker:'maestro', en:'I\'ll also need your billing address and tax ID.', es:'También voy a necesitar tu dirección de facturación y NIT.', pron:'áil ólsou níid iór bíling adrés and tax ái-dí.'},
+    {speaker:'alumno', en:'No problem — is the payment due upon receipt, or later?', es:'No hay problema — ¿el pago vence al recibirlo, o después?', pron:'nóu práblem — is de péiment diú apán risíit, or léiter?'}
+  ],
+  52: [
+    {speaker:'maestro', en:'Is this warranty still valid? Is it covered, or not covered?', es:'¿Esta garantía todavía es válida? ¿Está cubierta, o no cubierta?', pron:'is dis uáranti stil válid? is it cáverd, or nat cáverd?'},
+    {speaker:'alumno', en:'Let me check — this is covered by the warranty, a full repair is covered, but a replacement might not be.', es:'Déjame revisar — esto está cubierto por la garantía, una reparación completa está cubierta, pero un reemplazo tal vez no.', pron:'let mi chek — dis is cáverd bái de uáranti, a fúl ripér is cáverd, bat a riplésment máit nat bi.'},
+    {speaker:'maestro', en:'What about withholding tax on this invoice?', es:'¿Y qué tal la retención de impuestos en esta factura?', pron:'uát abáut uidjóulding tax on dis ínvois?'},
+    {speaker:'alumno', en:'The withholding tax and VAT are both included in the terms of sale.', es:'La retención de impuestos y el IVA están incluidos en los términos de venta.', pron:'de uidjóulding tax and vi-éi-tí ar bóuz inclúudid in de terms of séil.'},
+    {speaker:'maestro', en:'Is there a late fee if I pay after the due date?', es:'¿Hay un recargo por mora si pago después de la fecha de vencimiento?', pron:'is der a léit fíi if ái péi áfter de diú déit?'},
+    {speaker:'alumno', en:'Yes, there\'s a late fee — but the net amount stays the same.', es:'Sí, hay un recargo por mora — pero el monto neto sigue igual.', pron:'iés, ders a léit fíi — bat de net amáunt stéis de séim.'},
+    {speaker:'maestro', en:'Got it, I\'ll pay before the due date then.', es:'Entendido, voy a pagar antes de la fecha de vencimiento entonces.', pron:'gat it, áil péi bifór de diú déit den.'},
+    {speaker:'alumno', en:'Good idea — that way you avoid the late fee completely.', es:'Buena idea — así evitas el recargo por mora por completo.', pron:'gud aidía — dat uéi iú avóid de léit fíi camplíitli.'}
+  ],
+  53: [
+    {speaker:'maestro', en:'Do you accept cards, or is it cash only?', es:'¿Aceptan tarjetas, o es solo efectivo?', pron:'du iú accépt cards, or is it cash óunli?'},
+    {speaker:'alumno', en:'We accept cards — you can swipe the card, or insert the card.', es:'Aceptamos tarjetas — puedes deslizar la tarjeta, o insertarla.', pron:'uí accépt cards — iú can suáip de card, or insért de card.'},
+    {speaker:'maestro', en:'Can I pay contactless instead?', es:'¿Puedo pagar sin contacto en cambio?', pron:'can ái péi cántactles instéd?'},
+    {speaker:'alumno', en:'Sure, just enter your PIN if it asks, or tap for contactless.', es:'Claro, solo ingresa tu clave si lo pide, o acerca la tarjeta para pago sin contacto.', pron:'shur, yast énter iór pin if it asks, or tap for cántactles.'},
+    {speaker:'maestro', en:'Can you help me to record a payment for this transaction?', es:'¿Puedes ayudarme a registrar un pago para esta transacción?', pron:'can iú jelp mi tu ricórd a péiment for dis transákshion?'},
+    {speaker:'alumno', en:'Of course — I\'ll record a payment, payment received, and here\'s your transaction ID.', es:'Por supuesto — voy a registrar un pago, pago recibido, y acá está tu número de transacción.', pron:'of cors — áil ricórd a péiment, péiment risíivd, and jírs iór transákshion ái-dí.'},
+    {speaker:'maestro', en:'Is this a partial payment, or the full amount?', es:'¿Este es un pago parcial, o el monto completo?', pron:'is dis a párshal péiment, or de fúl amáunt?'},
+    {speaker:'alumno', en:'This is a partial payment — we\'ll record the rest later.', es:'Este es un pago parcial — vamos a registrar el resto después.', pron:'dis is a párshal péiment — uíl ricórd de rest léiter.'}
+  ],
+  54: [
+    {speaker:'maestro', en:'I\'m shopping at an online store — can you help me check out?', es:'Estoy comprando en una tienda en línea — ¿puedes ayudarme a pagar?', pron:'áim sháping at an ónláin stor — can iú jelp mi chek áut?'},
+    {speaker:'alumno', en:'Sure, add to cart, add it to your shopping cart, and confirm your shipping address.', es:'Claro, agrégalo al carrito, agrégalo a tu carrito de compras, y confirma tu dirección de envío.', pron:'shur, ad tu cart, ad it tu iór sháping cart, and canférm iór shíping adrés.'},
+    {speaker:'maestro', en:'I need to enter my card number now, right?', es:'Necesito ingresar mi número de tarjeta ahora, ¿verdad?', pron:'ái níid tu énter mái card námber náu, ráit?'},
+    {speaker:'alumno', en:'Yes, and the security code too — it\'s a remote payment.', es:'Sí, y el código de seguridad también — es un pago a distancia.', pron:'iés, and de sikiúriti kóud tu — its a rimóut péiment.'},
+    {speaker:'maestro', en:'Is this a secure payment, though?', es:'¿Pero esto es un pago seguro?', pron:'is dis a sikiúr péiment, dóu?'},
+    {speaker:'alumno', en:'Yes, completely — the online store uses a secure payment system.', es:'Sí, completamente — la tienda en línea usa un sistema de pago seguro.', pron:'iés, camplíitli — de ónláin stor iúsis a sikiúr péiment sístem.'},
+    {speaker:'maestro', en:'Perfect, let me finish adding to my cart then.', es:'Perfecto, déjame terminar de agregar cosas a mi carrito entonces.', pron:'pérfect, let mi fínish áding tu mái cart den.'},
+    {speaker:'alumno', en:'Take your time — the shopping cart saves your items automatically.', es:'Tómate tu tiempo — el carrito de compras guarda tus artículos automáticamente.', pron:'téik iór táim — de sháping cart séivs iór áitems ótomáticli.'}
+  ],
+  55: [
+    {speaker:'maestro', en:'As far as I know, this deal is still open — is that right?', es:'Que yo sepa, este trato todavía está abierto — ¿es correcto?', pron:'as far as ái nóu, dis díil is stil óupen — is dat ráit?'},
+    {speaker:'alumno', en:'To be honest, I\'m not completely sure yet.', es:'Para ser honesto, todavía no estoy completamente seguro.', pron:'tu bi ánest, áim nat camplíitli shur iét.'},
+    {speaker:'maestro', en:'On the other hand, in other words, we could wait a bit longer.', es:'Por otro lado, en otras palabras, podríamos esperar un poco más.', pron:'on de áder jand, in áder uords, uí cud uéit a bit lónguer.'},
+    {speaker:'alumno', en:'Not yet, but from now on, let\'s check every week.', es:'Todavía no, pero de ahora en adelante, revisemos cada semana.', pron:'nat iét, bat fram náu on, lets chek évri uíik.'},
+    {speaker:'maestro', en:'Once again, little by little, we\'re making progress.', es:'Una vez más, poco a poco, estamos avanzando.', pron:'uáns aguén, lítol bái lítol, uír méiking prógres.'},
+    {speaker:'alumno', en:'Agreed — little by little is better than not at all.', es:'De acuerdo — poco a poco es mejor que nada.', pron:'agríid — lítol bái lítol is béter dan nat at ol.'}
+  ],
+  56: [
+    {speaker:'maestro', en:'I\'m looking for a shirt, some pants, or maybe a jacket.', es:'Estoy buscando una camisa, unos pantalones, o tal vez una chaqueta.', pron:'áim lúking for a shert, sam pants, or méibi a yáket.'},
+    {speaker:'alumno', en:'This dress comes in medium, or large — which do you prefer?', es:'Este vestido viene en mediano, o grande — ¿cuál prefieres?', pron:'dis dres cams in míidiam, or larch — uích du iú prifér?'},
+    {speaker:'maestro', en:'Actually, this is too small for me.', es:'En realidad, esto me queda muy chico.', pron:'áctiuali, dis is tu smol for mi.'},
+    {speaker:'alumno', en:'Let me get you a different size then. By the way, about the payment reminder —', es:'Déjame traerte otra talla entonces. Por cierto, sobre el recordatorio de pago —', pron:'let mi guet iú a díferent sáis den. bái de uéi, abáut de péiment rimáinder —'},
+    {speaker:'maestro', en:'Right, is there an outstanding balance on my account?', es:'Cierto, ¿hay un saldo pendiente en mi cuenta?', pron:'ráit, is der an áutstanding bálans on mái acáunt?'},
+    {speaker:'alumno', en:'Yes, we kindly remind you it\'s due as agreed last month.', es:'Sí, te recordamos amablemente que vence como se acordó el mes pasado.', pron:'iés, uí káindli rimáind iú its diú as agríid last manz.'},
+    {speaker:'maestro', en:'I\'ll take care of it today, along with the pants.', es:'Me voy a encargar de eso hoy, junto con los pantalones.', pron:'áil téik ker of it tudéi, alóng uid de pants.'},
+    {speaker:'alumno', en:'Perfect, and let\'s find the right jacket size too.', es:'Perfecto, y busquemos la talla correcta de chaqueta también.', pron:'pérfect, and lets fáind de ráit yáket sáis tu.'}
+  ],
+  57: [
+    {speaker:'maestro', en:'I need new shoes, maybe some boots, and a belt too.', es:'Necesito zapatos nuevos, tal vez unas botas, y un cinturón también.', pron:'ái níid niú shúus, méibi sam búuts, and a belt tu.'},
+    {speaker:'alumno', en:'This hat and bag would go well with those boots.', es:'Este sombrero y bolso combinarían bien con esas botas.', pron:'dis jat and bag uud góu uél uid dóus búuts.'},
+    {speaker:'maestro', en:'Can we also approve a quote today?', es:'¿Podemos también aprobar una cotización hoy?', pron:'can uí ólsou apruúv a cuóut tudéi?'},
+    {speaker:'alumno', en:'Sure, is it approved already, or still pending approval? I need to approve a quote for you.', es:'Claro, ¿ya está aprobada, o todavía pendiente de aprobación? Necesito aprobar una cotización por ti.', pron:'shur, is it apruúvd olrédi, or stil pénding aprúval? ái níid tu apruúv a cuóut for iú.'},
+    {speaker:'maestro', en:'It\'s pending approval — can you give the go ahead?', es:'Está pendiente de aprobación — ¿puedes dar el visto bueno?', pron:'its pénding aprúval — can iú guiv de góu ajéd?'},
+    {speaker:'alumno', en:'I approve it, and I can sign off on it right now, actually.', es:'Lo apruebo, y puedo firmarlo ahora mismo, en realidad.', pron:'ái apruúv it, and ái can sáin of on it ráit náu, áctiuali.'},
+    {speaker:'maestro', en:'Great, and I\'ll take the shoes and the belt as well.', es:'Genial, y también me llevo los zapatos y el cinturón.', pron:'gréit, and áil téik de shúus and de belt as uél.'},
+    {speaker:'alumno', en:'Perfect — let me ring that up for you.', es:'Perfecto — déjame cobrarte eso.', pron:'pérfect — let mi ring dat ap for iú.'}
+  ],
+  58: [
+    {speaker:'maestro', en:'Let\'s do a price comparison before deciding.', es:'Hagamos una comparación de precios antes de decidir.', pron:'lets du a práis campárison bifór disáiding.'},
+    {speaker:'alumno', en:'Sure — which supplier is the cheapest, and which is the most expensive?', es:'Claro — ¿qué proveedor es el más barato, y cuál es el más caro?', pron:'shur — uích sapláier is de chíipest, and uích is de móust expénsiv?'},
+    {speaker:'maestro', en:'Is the expensive one actually worth it?', es:'¿El caro realmente vale la pena?', pron:'is de expénsiv uán áctiuali uorz it?'},
+    {speaker:'alumno', en:'It is worth it — it could be a good bargain if the quality matches the price.', es:'Vale la pena — podría ser una buena oferta si la calidad coincide con el precio.', pron:'it is uorz it — it cud bi a gud bárguein if de cuáliti mátches de práis.'},
+    {speaker:'maestro', en:'Should we shop around a bit more first?', es:'¿Deberíamos comparar precios un poco más primero?', pron:'shud uí shap aráund a bit mor ferst?'},
+    {speaker:'alumno', en:'Yes, let\'s do a full supplier comparison, including lead time.', es:'Sí, hagamos una comparación completa de proveedores, incluyendo el tiempo de entrega.', pron:'iés, lets du a fúl sapláier campárison, inclúding líid táim.'},
+    {speaker:'maestro', en:'What matters most — best value, or fastest lead time?', es:'¿Qué importa más — mejor valor, o el tiempo de entrega más rápido?', pron:'uát máters móust — best váliu, or fástest líid táim?'},
+    {speaker:'alumno', en:'Best value, definitely — let\'s make the final decision based on that.', es:'Mejor valor, definitivamente — tomemos la decisión final en base a eso.', pron:'best váliu, définitli — lets méik de fáinal disíshion béisd on dat.'}
+  ],
+  59: [
+    {speaker:'maestro', en:'I want to complain about this order — this doesn\'t work at all.', es:'Quiero quejarme de este pedido — esto no funciona para nada.', pron:'ái uánt tu campléin abáut dis órder — dis dásnt uork at ol.'},
+    {speaker:'alumno', en:'I\'m sorry to hear that — I want to help resolve this, to resolve it for you.', es:'Lamento escuchar eso — quiero ayudar a resolver esto, resolverlo por ti.', pron:'áim sóri tu jíar dat — ái uánt tu jelp risólv dis, tu risólv it for iú.'},
+    {speaker:'maestro', en:'This is a faulty product, and I want a refund.', es:'Este es un producto defectuoso, y quiero un reembolso.', pron:'dis is a fólti prádact, and ái uánt a rífand.'},
+    {speaker:'alumno', en:'Let me connect you with customer service right away.', es:'Déjame conectarte con servicio al cliente de inmediato.', pron:'let mi canéct iú uid cástomer sérvis ráit auéi.'},
+    {speaker:'maestro', en:'I also need to dispute a charge — there was a billing error.', es:'También necesito disputar un cargo — hubo un error de facturación.', pron:'ái ólsou níid tu dispiút a charch — der uás a bíling érror.'},
+    {speaker:'alumno', en:'I understand, please accept our apology for the inconvenience.', es:'Entiendo, por favor acepta nuestras disculpas por el inconveniente.', pron:'ái anderstánd, plíis accépt áur apáloyi for de inconvíniens.'},
+    {speaker:'maestro', en:'What\'s my case number for this issue?', es:'¿Cuál es mi número de caso para este problema?', pron:'uáts mái kéis námber for dis íshu?'},
+    {speaker:'alumno', en:'Here\'s your case number — we\'ll resolve it as soon as possible.', es:'Acá está tu número de caso — lo vamos a resolver lo antes posible.', pron:'jírs iór kéis námber — uíl risólv it as súun as pásibol.'}
+  ],
+  60: [
+    {speaker:'maestro', en:'Welcome to unit five, review time!', es:'¡Bienvenido a la Unidad Cinco, hora de repaso!', pron:'uélcam tu iúnit fáiv, riviú táim!'},
+    {speaker:'alumno', en:'I made steady progress on everything this unit.', es:'Hice un progreso constante en todo en esta unidad.', pron:'ái méid stédi prógres on évrizin dis iúnit.'},
+    {speaker:'maestro', en:'Don\'t give up — you\'re almost at unit six.', es:'No te rindas — ya casi llegas a la Unidad Seis.', pron:'dont guiv ap — iór ólmoust at iúnit six.'},
+    {speaker:'alumno', en:'Thank you, I won\'t give up now.', es:'Gracias, no me voy a rendir ahora.', pron:'zenk iú, ái uónt guiv ap náu.'},
+    {speaker:'maestro', en:'This was a great unit overall.', es:'Esta fue una gran unidad en general.', pron:'dis uás a gréit iúnit óverol.'},
+    {speaker:'alumno', en:'See you in the next unit!', es:'¡Nos vemos en la próxima unidad!', pron:'síi iú in de next iúnit!'}
   ]
 };
 
@@ -1345,6 +1473,10 @@ function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle,
 }
 
 function startDay(dayNum){
+  if(!isAdmin() && typeof diaEstaDesbloqueado==='function' && !diaEstaDesbloqueado(dayNum, typeof currentProfile!=='undefined'?currentProfile:null)){
+    if(typeof mostrarPantallaPago==='function') mostrarPantallaPago(typeof currentProfile!=='undefined'?currentProfile:null);
+    return;
+  }
   if(dayNum===1 && !localStorage.getItem('foneticaBasicoVisto') && typeof mostrarFoneticaBasico==='function'){
     mostrarFoneticaBasico(); return;
   }

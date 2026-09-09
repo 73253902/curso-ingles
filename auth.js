@@ -1,15 +1,15 @@
 // ================================================================
 // AUTENTICACIÓN Y SINCRONIZACIÓN — El Dragón del Lenguaje
-// Conecta con Supabase para: registro/login, control de prueba gratuita
-// de 7 días, control de pago único, y sincronización de progreso
-// entre dispositivos.
+// Conecta con Supabase para: registro/login, control de acceso por
+// contenido (primeras 7 lecciones gratis, el resto requiere pago
+// único), y sincronización de progreso entre dispositivos.
 // ================================================================
 
 const SUPABASE_URL = 'https://waclgxxqjtrgxqsqklky.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RZfjr7f9iqYFPoHkGQjo_Q_mL67PtJ5';
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const DIAS_PRUEBA_GRATIS = 7;
+const LECCIONES_GRATIS = 7;
 
 let currentUser = null;
 let currentProfile = null;
@@ -46,7 +46,7 @@ async function checkSession(){
 }
 
 // ================================================================
-// Perfil: prueba gratuita y estado de pago
+// Perfil: estado de pago y de tester
 // ================================================================
 async function loadProfile(){
   if(!currentUser) return null;
@@ -60,18 +60,14 @@ async function loadProfile(){
   return data;
 }
 
-function diasRestantesDePrueba(profile){
-  if(!profile) return 0;
-  const inicio = new Date(profile.trial_started_at);
-  const ahora = new Date();
-  const diasPasados = Math.floor((ahora - inicio) / (1000*60*60*24));
-  return Math.max(0, DIAS_PRUEBA_GRATIS - diasPasados);
-}
-
-function tieneAcceso(profile){
+// ¿Puede entrar a este día del curso principal? Las primeras LECCIONES_GRATIS
+// siempre están disponibles para cualquiera; el resto necesita pago (o ser tester).
+function diaEstaDesbloqueado(dayNum, profile){
+  if(dayNum <= LECCIONES_GRATIS) return true;
   if(!profile) return false;
   if(profile.paid) return true;
-  return diasRestantesDePrueba(profile) > 0;
+  if(profile.is_tester) return true;
+  return false;
 }
 
 // ================================================================
@@ -115,12 +111,9 @@ async function iniciarApp(){
     return;
   }
 
-  if(!tieneAcceso(profile)){
-    mostrarPantallaPago(profile);
-    return;
-  }
-
-  // Tiene acceso: traer el progreso de la nube antes de mostrar la app
+  // Ya no hay bloqueo por tiempo: cualquiera que inició sesión entra a la app.
+  // El bloqueo por lección (día 8 en adelante) se chequea al abrir cada día,
+  // no acá en el arranque general.
   const progresoNube = await pullProgressFromSupabase();
   if(progresoNube && Object.keys(progresoNube).length){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progresoNube));
@@ -169,7 +162,8 @@ function mostrarPantallaLogin(){
 }
 
 // ================================================================
-// Pantalla de prueba vencida / pago requerido
+// Pantalla de pago requerido — se muestra al intentar abrir un día
+// bloqueado (8 en adelante), no al arrancar la app.
 // ================================================================
 function mostrarPantallaPago(profile){
   const el = id => document.getElementById(id);
@@ -177,8 +171,8 @@ function mostrarPantallaPago(profile){
   el('authGate').style.display='block';
   el('authLoginBox').style.display='none';
   el('authPagoBox').style.display='block';
-  el('authPagoTexto').textContent = 'Tu prueba gratuita de '+DIAS_PRUEBA_GRATIS+' días ya terminó. Para seguir usando el curso, necesitas hacer el pago único.';
-  el('authCerrarSesionBtn').onclick = async ()=>{ await signOut(); mostrarPantallaLogin(); };
+  el('authPagoTexto').textContent = 'Ya usaste las '+LECCIONES_GRATIS+' lecciones gratis. Para seguir con el resto del curso, necesitas hacer el pago único.';
+  el('authCerrarSesionBtn').onclick = ()=>{ el('authGate').style.display='none'; showHome(); };
   el('authPagarBtn').onclick = iniciarPagoWompi;
 }
 
@@ -222,9 +216,11 @@ async function iniciarPagoWompi(){
       el('authPagarBtn').textContent = 'Pagar ahora';
       const transaction = result.transaction;
       if(transaction && transaction.status === 'APPROVED'){
-        // El webhook ya debería haber marcado el pago — recargamos para confirmar acceso
+        // El webhook ya debería haber marcado el pago — recargamos el perfil para confirmar acceso
         alert('¡Pago aprobado! Cargando tu curso...');
-        iniciarApp();
+        await loadProfile();
+        el('authGate').style.display='none';
+        showHome();
       } else {
         alert('El pago no se completó (estado: ' + (transaction ? transaction.status : 'desconocido') + '). Puedes intentar de nuevo.');
       }
