@@ -255,6 +255,20 @@ const curriculumUnidad9 = [
   },
 {
     day:103, unit:9, unitTitle:'Unidad 9 · Semanas 21-22', theme:'Repaso liviano de la semana 21',
+    structures:[
+      {id:'S119', pattern:"To put it simply, + [X]", examples:[
+        {en:'To put it simply, this deal works for everyone.', es:'Para decirlo simple, este trato funciona para todos.', pron:'tu put it símpli, dis díil uorks for évriuan.'},
+        {en:'In short, above all, we value honesty.', es:'En resumen, sobre todo, valoramos la honestidad.', pron:'in short, abáv ol, uí váliu ánesti.'},
+        {en:'First and foremost, last but not least, thank you all.', es:'Ante todo, y por último pero no menos importante, gracias a todos.', pron:'ferst and fórmoust, last bat nat líist, zenk iú ol.'},
+        {en:"On the whole, generally speaking, when it comes down to it, we did well.", es:'En general, hablando en términos generales, cuando se trata de eso, lo hicimos bien.', pron:"on de jóul, yéneráli spíiking, uén it cams dáun tu it, uí did uél."}
+      ], function:'reforzar conectores de resumen y cierre', stage:3,
+        transformations:{
+          negative:{en:"To put it simply, this doesn't work.", es:'Para decirlo simple, esto no funciona.'},
+          question:{en:'To put it simply, does this work?', es:'¿Para decirlo simple, esto funciona?'},
+          yesAnswer:{en:'Yes, to put it simply.', es:'Sí, para decirlo simple.'},
+          noAnswer:{en:"No, not really.", es:'No, la verdad que no.'}
+        }}
+    ],
     words:[
       {en:'to put it simply', es:'para decirlo simplemente', pron:'tu put it símpli', emoji:'💬'},
       {en:'in short', es:'en resumen', pron:'in short', emoji:'📝'},
@@ -443,6 +457,20 @@ const curriculumUnidad9 = [
   },
 {
     day:108, unit:9, unitTitle:'Unidad 9 · Semanas 23-24', theme:'Repaso y cierre de la Unidad 9',
+    structures:[
+      {id:'S120', pattern:"We are two thirds done + [X]", examples:[
+        {en:'Welcome to unit nine — we are two thirds done now!', es:'¡Bienvenido a la Unidad Nueve — ya vamos dos tercios hechos!', pron:'uélcam tu iúnit náin — uí ar tú zerds dan náu!'},
+        {en:"You're staying strong through this whole course.", es:'Te mantienes fuerte a lo largo de todo este curso.', pron:"iór stéing strong zru dis jóul cors."},
+        {en:"I'm proud of you for reaching this point.", es:'Estoy orgulloso de ti por llegar hasta este punto.', pron:"áim práud of iú for ríiching dis póint."},
+        {en:'This feels like halfway to mastery, see you in unit ten!', es:'Esto se siente como a mitad de camino hacia el dominio, ¡nos vemos en la Unidad Diez!', pron:'dis fíils láik jáfuei tu mástri, síi iú in iúnit ten!'}
+      ], function:'cerrar la unidad reconociendo el progreso', stage:3,
+        transformations:{
+          negative:{en:"We are not done yet.", es:'Todavía no terminamos.'},
+          question:{en:'Are we two thirds done?', es:'¿Ya vamos dos tercios hechos?'},
+          yesAnswer:{en:'Yes, two thirds done.', es:'Sí, dos tercios hechos.'},
+          noAnswer:{en:"Not quite yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'unit nine', es:'unidad nueve', pron:'iúnit náin', emoji:'9️⃣'},
       {en:'two thirds done', es:'dos tercios hecho', pron:'tú zerds dan', emoji:'📊'},

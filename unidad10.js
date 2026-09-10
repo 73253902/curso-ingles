@@ -213,6 +213,20 @@ const curriculumUnidad10 = [
   },
 {
     day:114, unit:10, unitTitle:'Unidad 10 · Semanas 23-24', theme:'Repaso liviano de la semana 23',
+    structures:[
+      {id:'S121', pattern:"As far as that goes, + [X]", examples:[
+        {en:'As far as that goes, this project turned out well.', es:'En lo que respecta a eso, este proyecto salió bien.', pron:'as far as dat góus, dis práchect ternd áut uél.'},
+        {en:'Come to think of it, mind you, we did better than expected.', es:'Pensándolo bien, eso sí, lo hicimos mejor de lo esperado.', pron:'cam tu zink of it, máind iú, uí did béter dan expéctid.'},
+        {en:'That being said, at any rate, we finished on time.', es:'Dicho esto, de todas formas, terminamos a tiempo.', pron:'dat bíing sed, at éni réit, uí fínisht on táim.'},
+        {en:"For what it's worth, to make matters worse, if anything, we learned a lot.", es:'Para lo que vale, para colmo, si acaso, aprendimos mucho.', pron:"for uáts uorz, tu méik máters uérs, if énizin, uí lernd a lat."}
+      ], function:'reforzar conectores de matiz y reflexión', stage:3,
+        transformations:{
+          negative:{en:"As far as that goes, it didn't work.", es:'En lo que respecta a eso, no funcionó.'},
+          question:{en:'As far as that goes, did it work?', es:'¿En lo que respecta a eso, funcionó?'},
+          yesAnswer:{en:'Yes, as far as that goes.', es:'Sí, en lo que respecta a eso.'},
+          noAnswer:{en:"Not really, no.", es:'La verdad que no.'}
+        }}
+    ],
     words:[
       {en:'as far as that goes', es:'en cuanto a eso', pron:'as far as dat góus', emoji:'💬'},
       {en:'come to think of it', es:'pensándolo bien', pron:'cam tu zink of it', emoji:'🤔'},
@@ -237,6 +251,20 @@ const curriculumUnidad10 = [
   },
 {
     day:115, unit:10, unitTitle:'Unidad 10 · Semanas 25-26', theme:'Concesionaria de autos / Comprar un vehículo',
+    structures:[
+      {id:'S122', pattern:"I'd like to test drive + [X]", examples:[
+        {en:"Welcome to our car dealership! I'd like to test drive this one.", es:'¡Bienvenido a nuestra concesionaria! Me gustaría hacer una prueba de manejo de este.', pron:"uélcam tu áur car díilership! áid láik tu test dráiv dis uán."},
+        {en:'Do you accept a trade-in, and what are the financing options?', es:'¿Aceptan mi auto como parte de pago, y cuáles son las opciones de financiamiento?', pron:'du iú accépt a tréid-in, and uát ar de fainánsing ápshions?'},
+        {en:'What about the warranty, and the mileage on this car?', es:'¿Y qué tal la garantía, y el kilometraje de este auto?', pron:'uát abáut de uáranti, and de máilich on dis car?'},
+        {en:"What's my monthly payment, after the vehicle inspection?", es:'¿Cuál es mi pago mensual, después de la inspección del vehículo?', pron:"uáts mái mánzli péiment, áfter de víjicol inspékshion?"}
+      ], function:'hablar de comprar un auto en la concesionaria', stage:3,
+        transformations:{
+          negative:{en:"I don't want to test drive this one.", es:'No quiero hacer una prueba de manejo de este.'},
+          question:{en:'Would you like to test drive it?', es:'¿Te gustaría hacer una prueba de manejo?'},
+          yesAnswer:{en:"Yes, I'd like that.", es:'Sí, me gustaría.'},
+          noAnswer:{en:"No, not right now.", es:'No, ahora no.'}
+        }}
+    ],
     words:[
       {en:'car dealership', es:'concesionaria de autos', pron:'car díilership', emoji:'🚗'},
       {en:'test drive', es:'prueba de manejo', pron:'test dráiv', emoji:'🛣️'},
@@ -305,6 +333,20 @@ const curriculumUnidad10 = [
   },
 {
     day:117, unit:10, unitTitle:'Unidad 10 · Semanas 25-26', theme:'Restaurantes de alta gama / Eventos corporativos',
+    structures:[
+      {id:'S123', pattern:"This is a formal event, so + [X]", examples:[
+        {en:"This is a formal event, so let's consider fine dining.", es:'Este es un evento formal, así que consideremos alta cocina.', pron:"dis is a fórmal ivént, sóu lets cansíder fáin dáining."},
+        {en:'We need catering for the guest list, and a seating arrangement.', es:'Necesitamos servicio de banquetes para la lista de invitados, y una disposición de asientos.', pron:'uí níid kétering for de guest list, and a síiting aréinchment.'},
+        {en:'The keynote speaker will join our corporate dinner.', es:'El orador principal se va a unir a nuestra cena corporativa.', pron:'de kíinóut spíiker uil yóin áur córporeit díner.'},
+        {en:'Please RSVP by Friday — the venue requires a strict dress code.', es:'Por favor confirma asistencia para el viernes — el lugar del evento requiere un código de vestimenta estricto.', pron:'plíis ar-es-vi-pi bái fráidei — de vénu ricuáiars a strict dres kóud.'}
+      ], function:'organizar un evento formal o cena corporativa', stage:3,
+        transformations:{
+          negative:{en:"This is not a formal event.", es:'Este no es un evento formal.'},
+          question:{en:'Is this a formal event?', es:'¿Este es un evento formal?'},
+          yesAnswer:{en:'Yes, very formal.', es:'Sí, muy formal.'},
+          noAnswer:{en:"No, it's casual.", es:'No, es casual.'}
+        }}
+    ],
     words:[
       {en:'fine dining', es:'restaurante de alta gama', pron:'fáin dáining', emoji:'🍽️'},
       {en:'formal event', es:'evento formal', pron:'fórmal ivént', emoji:'🎩'},
@@ -417,6 +459,20 @@ const curriculumUnidad10 = [
   },
 {
     day:120, unit:10, unitTitle:'Unidad 10 · Semanas 25-26', theme:'Repaso y cierre de la Unidad 10',
+    structures:[
+      {id:'S124', pattern:"We are two thirds done, with + [X] remaining", examples:[
+        {en:'Welcome to unit ten, review time!', es:'¡Bienvenido a la Unidad Diez, hora de repaso!', pron:'uélcam tu iúnit ten, riviú táim!'},
+        {en:'We are two thirds done, with one third remaining.', es:'Vamos dos tercios hechos, con un tercio restante.', pron:'uí ar tú zerds dan, uid uán zerd riméining.'},
+        {en:'Keep going — a real milestone reached today.', es:'Sigue adelante — un verdadero hito alcanzado hoy.', pron:'kíip góing — a ríal máilstoun ríichd tudéi.'},
+        {en:'See you in unit eleven, next unit!', es:'¡Nos vemos en la Unidad Once, la próxima unidad!', pron:'síi iú in iúnit iléven, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el hito alcanzado', stage:3,
+        transformations:{
+          negative:{en:"We are not two thirds done yet.", es:'Todavía no vamos dos tercios hechos.'},
+          question:{en:'Are we two thirds done?', es:'¿Vamos dos tercios hechos?'},
+          yesAnswer:{en:'Yes, two thirds done.', es:'Sí, dos tercios hechos.'},
+          noAnswer:{en:"Almost there.", es:'Casi ahí.'}
+        }}
+    ],
     words:[
       {en:'unit ten', es:'unidad diez', pron:'iúnit ten', emoji:'🔟'},
       {en:'two thirds done', es:'dos tercios hecho', pron:'tú zerds dan', emoji:'📊'},
