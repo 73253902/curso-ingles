@@ -1775,6 +1775,42 @@ const dragonNativo = {
 
   function el(id){ return document.getElementById(id); }
 
+  // ================= Progreso de El Dragón Nativo (independiente del progreso del curso principal) =================
+  const DN_PROGRESO_KEY = 'dragon_nativo_progreso_v1';
+
+  function cargarProgresoDN(){
+    try{
+      const raw = localStorage.getItem(DN_PROGRESO_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch(e){ return {}; }
+  }
+  function guardarProgresoDN(progreso){
+    try{ localStorage.setItem(DN_PROGRESO_KEY, JSON.stringify(progreso)); } catch(e){}
+  }
+  function marcarSemanaCompletada(faseId, weekNum){
+    const progreso = cargarProgresoDN();
+    if(!progreso[faseId]) progreso[faseId] = {};
+    progreso[faseId][weekNum] = true;
+    guardarProgresoDN(progreso);
+  }
+  function semanaCompletada(faseId, weekNum){
+    const progreso = cargarProgresoDN();
+    return !!(progreso[faseId] && progreso[faseId][weekNum]);
+  }
+  function faseCompletada(faseId){
+    const fase = dragonNativo.fases.find(f=>f.id===faseId);
+    if(!fase || !fase.semanas) return false;
+    return fase.semanas.every(s => semanaCompletada(faseId, s.numero));
+  }
+  // Una fase está desbloqueada para el alumno si tiene contenido, y (es la Fase 1, o la fase anterior está completa).
+  // El admin ve todo desbloqueado sin importar el progreso.
+  function faseDesbloqueada(fase){
+    if(!fase.disponible) return false;
+    if(typeof isAdmin === 'function' && isAdmin()) return true;
+    if(fase.id === 1) return true;
+    return faseCompletada(fase.id - 1);
+  }
+
   function openModule(){
     el('home').style.display='none';
     el('dragonNativo').style.display='block';
@@ -1798,11 +1834,15 @@ const dragonNativo = {
     dragonNativo.fases.forEach(fase=>{
       const card = document.createElement('div');
       card.className='dn-fase-card';
-      const progresoTxt = fase.disponible ? (fase.semanas.length+' semanas · '+fase.frases+' frases') : 'Próximamente';
+      const desbloqueada = faseDesbloqueada(fase);
+      let progresoTxt;
+      if(!fase.disponible){ progresoTxt = 'Próximamente'; }
+      else if(!desbloqueada){ progresoTxt = 'Completá la Fase '+(fase.id-1)+' para desbloquear'; }
+      else { progresoTxt = fase.semanas.length+' semanas · '+fase.frases+' frases'; }
       card.innerHTML = '<div class="dn-fase-num">'+fase.id+'</div>'
         +'<div class="dn-fase-info"><b>'+fase.nombre+' — '+fase.subtitulo+'</b><p>'+progresoTxt+'</p></div>'
-        +'<div class="dn-fase-progress">'+(fase.disponible?'▶':'🔒')+'</div>';
-      if(fase.disponible){
+        +'<div class="dn-fase-progress">'+(desbloqueada?'▶':'🔒')+'</div>';
+      if(desbloqueada){
         card.onclick=()=>{ currentFaseId=fase.id; renderWeekGrid(fase.id); showView('semanas'); };
       } else {
         card.style.opacity='0.5'; card.style.cursor='default';
@@ -1817,8 +1857,9 @@ const dragonNativo = {
     grid.innerHTML='';
     fase.semanas.forEach(semana=>{
       const btn = document.createElement('div');
-      btn.className='dn-week-btn';
-      btn.innerHTML = '<span class="wk-num">'+semana.numero+'</span><span class="wk-audio">'+(semana.audio?'🔊 con audio':'📝 solo letra')+'</span>';
+      const completada = semanaCompletada(faseId, semana.numero);
+      btn.className='dn-week-btn'+(completada?' dn-week-done':'');
+      btn.innerHTML = '<span class="wk-num">'+semana.numero+(completada?' ✅':'')+'</span><span class="wk-audio">'+(semana.audio?'🔊 con audio':'📝 solo letra')+'</span>';
       btn.onclick=()=>{ renderSong(faseId, semana.numero); showView('cancion'); };
       grid.appendChild(btn);
     });
@@ -1943,7 +1984,8 @@ const dragonNativo = {
   }
 
   function showReviewSummary(){
-    el('dnReviewPrompt').innerHTML = '<b>Resultado: '+reviewOk+' de '+reviewGraded+'</b><br><span style="color:var(--muted);font-size:13px;">Puedes repetir este repaso cuantas veces quieras.</span>';
+    marcarSemanaCompletada(currentFaseId, currentWeekNum);
+    el('dnReviewPrompt').innerHTML = '<b>Resultado: '+reviewOk+' de '+reviewGraded+'</b><br><span style="color:var(--muted);font-size:13px;">✅ Semana completada — puedes repetir este repaso cuantas veces quieras.</span>';
     el('dnReviewListenBtn').style.display='none';
     el('dnReviewInput').style.display='none';
     el('dnReviewSendBtn').style.display='none';
