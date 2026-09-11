@@ -3,6 +3,20 @@
 const curriculumUnidad14 = [
 {
     day:157, unit:14, unitTitle:'Unidad 14 · Semanas 33-34', theme:'Industria farmacéutica',
+    structures:[
+      {id:'S161', pattern:"This drug needs approval before + [X]", examples:[
+        {en:'This drug needs approval before entering the clinical trial phase.', es:'Este medicamento necesita aprobación antes de entrar en la fase de ensayo clínico.', pron:'dis drag níids apruúval bifór éntering de clínical tráial féis.'},
+        {en:'A generic drug becomes available after patent expiration.', es:'Un medicamento genérico se vuelve disponible después del vencimiento de la patente.', pron:'a yenéric drag bicáms aveilábol áfter pátent expiréishion.'},
+        {en:'Always follow dosage instructions, and watch for side effects.', es:'Siempre sigue las instrucciones de dosis, y atento a los efectos secundarios.', pron:'ólueis fálou dóusich instrákshions, and uách for sáid ifécts.'},
+        {en:'Is this a prescription drug, or over-the-counter?', es:'¿Este es un medicamento con receta, o de venta libre?', pron:'is dis a priscrípshion drag, or óver-de-cáunter?'}
+      ], function:'hablar de la industria farmacéutica', stage:4,
+        transformations:{
+          negative:{en:"This drug doesn't need approval yet.", es:'Este medicamento todavía no necesita aprobación.'},
+          question:{en:'Does this drug need approval?', es:'¿Este medicamento necesita aprobación?'},
+          yesAnswer:{en:'Yes, definitely.', es:'Sí, definitivamente.'},
+          noAnswer:{en:"Not this one.", es:'Este no.'}
+        }}
+    ],
     words:[
       {en:'pharmaceutical industry', es:'industria farmacéutica', pron:'fármaséutical índastri', emoji:'💊'},
       {en:'clinical trial', es:'ensayo clínico', pron:'clínical tráial', emoji:'🧪'},
@@ -31,6 +45,20 @@ const curriculumUnidad14 = [
   },
 {
     day:158, unit:14, unitTitle:'Unidad 14 · Semanas 33-34', theme:'Industria de videojuegos',
+    structures:[
+      {id:'S162', pattern:"This game developer is working on + [X]", examples:[
+        {en:'This game developer is working on a new video game console.', es:'Este desarrollador de videojuegos está trabajando en una nueva consola de videojuegos.', pron:'dis guéim divéloper is uórking on a niú vídio guéim cánsoul.'},
+        {en:'In-game purchases are part of the game design now.', es:'Las compras dentro del juego son parte del diseño del juego ahora.', pron:'in-guéim pérchasis ar part of de guéim disáin náu.'},
+        {en:'The esports scene relies on a powerful game engine.', es:'La escena de deportes electrónicos depende de un motor de juego potente.', pron:'de i-sports síin riláis on a páuerful guéim énchin.'},
+        {en:'Beta testing helps the gaming community shape the downloadable content.', es:'Las pruebas beta ayudan a la comunidad de jugadores a dar forma al contenido descargable.', pron:'béita tésting jelps de guéiming camiúniti shéip de dáunlóudabol cántent.'}
+      ], function:'hablar de la industria de videojuegos', stage:4,
+        transformations:{
+          negative:{en:"This developer isn't working on that yet.", es:'Este desarrollador todavía no está trabajando en eso.'},
+          question:{en:'Is this developer working on a new game?', es:'¿Este desarrollador está trabajando en un juego nuevo?'},
+          yesAnswer:{en:'Yes, right now.', es:'Sí, ahora mismo.'},
+          noAnswer:{en:"Not this year.", es:'No este año.'}
+        }}
+    ],
     words:[
       {en:'gaming industry', es:'industria de videojuegos', pron:'guéiming índastri', emoji:'🎮'},
       {en:'game developer', es:'desarrollador de juegos', pron:'guéim divéloper', emoji:'👨‍💻'},
@@ -59,6 +87,20 @@ const curriculumUnidad14 = [
   },
 {
     day:159, unit:14, unitTitle:'Unidad 14 · Semanas 33-34', theme:'Organizaciones sin fines de lucro',
+    structures:[
+      {id:'S163', pattern:"This non-profit organization runs + [X]", examples:[
+        {en:'This non-profit organization runs a charity and a fundraising campaign.', es:'Esta organización sin fines de lucro dirige una obra benéfica y una campaña de recaudación de fondos.', pron:'dis nan-práfit orgánaiséishion rans a chériti and a fándréising campéin.'},
+        {en:'Every volunteer and donor makes a real difference.', es:'Cada voluntario y donante hace una diferencia real.', pron:'évri váluntíar and dóunor méiks a ríal díferens.'},
+        {en:'Grant funding supports our social impact goals.', es:'El financiamiento por subvención apoya nuestras metas de impacto social.', pron:'grant fánding sapórts áur sóushal ímpact góuls.'},
+        {en:'Community outreach helped us keep our tax-exempt status.', es:'El alcance comunitario nos ayudó a mantener nuestro estatus exento de impuestos.', pron:'camiúniti áutrich jelpd as kíip áur tax-ixémpt stétus.'}
+      ], function:'hablar de organizaciones sin fines de lucro', stage:4,
+        transformations:{
+          negative:{en:"This organization doesn't run that program.", es:'Esta organización no dirige ese programa.'},
+          question:{en:'Does this organization run a fundraising campaign?', es:'¿Esta organización dirige una campaña de recaudación de fondos?'},
+          yesAnswer:{en:'Yes, every year.', es:'Sí, cada año.'},
+          noAnswer:{en:"Not this year.", es:'No este año.'}
+        }}
+    ],
     words:[
       {en:'non-profit organization', es:'organización sin fines de lucro', pron:'nan práfit organaiséishon', emoji:'🤲'},
       {en:'charity', es:'obra de caridad', pron:'chériti', emoji:'❤️'},
@@ -86,6 +128,20 @@ const curriculumUnidad14 = [
   },
 {
     day:160, unit:14, unitTitle:'Unidad 14 · Semanas 33-34', theme:'Industria editorial',
+    structures:[
+      {id:'S164', pattern:"This manuscript needs a literary agent before + [X]", examples:[
+        {en:'This manuscript needs a literary agent before entering the publishing industry.', es:'Este manuscrito necesita un agente literario antes de entrar en la industria editorial.', pron:'dis mánuscrit níids a líterari éichent bifór éntering de páblishing índastri.'},
+        {en:"We're close to signing a book deal with an editor.", es:'Estamos cerca de firmar un contrato de libro con un editor.', pron:"uír clóus tu sáining a buk díil uid an éditor."},
+        {en:'The print run and ebook format launch together.', es:'La tirada impresa y el formato de libro electrónico se lanzan juntos.', pron:'de print ran and íibuk fórmat lonch tugéder.'},
+        {en:'After the book launch, check your royalty statement.', es:'Después del lanzamiento del libro, revisa tu declaración de regalías.', pron:'áfter de buk lonch, chek iór róialti stéitment.'}
+      ], function:'hablar de la industria editorial', stage:4,
+        transformations:{
+          negative:{en:"This manuscript doesn't need an agent yet.", es:'Este manuscrito todavía no necesita un agente.'},
+          question:{en:'Does this manuscript need a literary agent?', es:'¿Este manuscrito necesita un agente literario?'},
+          yesAnswer:{en:'Yes, definitely.', es:'Sí, definitivamente.'},
+          noAnswer:{en:"Not at this stage.", es:'No en esta etapa.'}
+        }}
+    ],
     words:[
       {en:'publishing industry', es:'industria editorial', pron:'páblishing índastri', emoji:'📚'},
       {en:'manuscript', es:'manuscrito', pron:'mániuscript', emoji:'📝'},
@@ -113,6 +169,20 @@ const curriculumUnidad14 = [
   },
 {
     day:161, unit:14, unitTitle:'Unidad 14 · Semanas 33-34', theme:'Seguridad y defensa',
+    structures:[
+      {id:'S165', pattern:"The security industry relies on + [X]", examples:[
+        {en:'The security industry relies on a strong surveillance system.', es:'La industria de seguridad depende de un sistema de vigilancia fuerte.', pron:'de sikiúriti índastri riláis on a strong servéilans sístem.'},
+        {en:'Risk management starts with a proper background check.', es:'La gestión de riesgos empieza con una verificación de antecedentes adecuada.', pron:'risk mánechment starts uid a práper bákgráund chek.'},
+        {en:'Access control and physical security work together.', es:'El control de acceso y la seguridad física trabajan juntos.', pron:'áccess cantról and fízical sikiúriti uork tugéder.'},
+        {en:'A threat assessment requires the right security clearance and emergency protocol.', es:'Una evaluación de amenazas requiere la autorización de seguridad correcta y el protocolo de emergencia.', pron:'a zret asésment ricuáiars de ráit sikiúriti clírans and emérgensi próutocal.'}
+      ], function:'hablar de seguridad y defensa', stage:4,
+        transformations:{
+          negative:{en:"This doesn't rely only on surveillance.", es:'Esto no depende solo de la vigilancia.'},
+          question:{en:'Does this rely on a background check?', es:'¿Esto depende de una verificación de antecedentes?'},
+          yesAnswer:{en:'Yes, always.', es:'Sí, siempre.'},
+          noAnswer:{en:"Not always.", es:'No siempre.'}
+        }}
+    ],
     words:[
       {en:'security industry', es:'industria de la seguridad', pron:'sekiúriti índastri', emoji:'🛡️'},
       {en:'surveillance system', es:'sistema de vigilancia', pron:'servéilans sístem', emoji:'📹'},
@@ -140,6 +210,20 @@ const curriculumUnidad14 = [
   },
 {
     day:162, unit:14, unitTitle:'Unidad 14 · Semanas 33-34', theme:'Repaso liviano de la semana 33',
+    structures:[
+      {id:'S166', pattern:"Let's break the ice + [X]", examples:[
+        {en:"Let's break the ice — we'll cross that bridge when we come to it.", es:'Rompamos el hielo — cruzaremos ese puente cuando lleguemos a él.', pron:"lets bréik de áis — uíl cros dat brich uén uí cam tu it."},
+        {en:'Keep your eye on the ball, or you might turn the tables against yourself.', es:'Mantén el ojo en la pelota, o podrías voltear la situación en tu contra.', pron:'kíip iór ái on de bol, or iú máit tern de téibols aguénst iórself.'},
+        {en:"Don't pull the plug — we're not back to square one yet.", es:'No desconectes esto — todavía no estamos de vuelta al punto de partida.', pron:"dont pul de plag — uír nat bak tu scuér uán iét."},
+        {en:'Give me the benefit of the doubt — this hits close to home.', es:'Dame el beneficio de la duda — esto me toca muy de cerca.', pron:'guiv mi de bénefit of de dáut — dis jits clóus tu jóum.'}
+      ], function:'usar modismos avanzados de negocios en inglés', stage:4,
+        transformations:{
+          negative:{en:"Let's not break the ice yet.", es:'Todavía no rompamos el hielo.'},
+          question:{en:'Should we break the ice now?', es:'¿Deberíamos romper el hielo ahora?'},
+          yesAnswer:{en:'Yes, let\'s do it.', es:'Sí, hagámoslo.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'to break the ice', es:'romper el hielo', pron:'tu bréik de áis', emoji:'🧊'},
       {en:'to cross that bridge when we come to it', es:'resolver algo cuando llegue el momento', pron:'tu cros dat brich uén uí cam tu it', emoji:'🌉'},
@@ -164,6 +248,20 @@ const curriculumUnidad14 = [
   },
 {
     day:163, unit:14, unitTitle:'Unidad 14 · Semanas 35-36', theme:'Planificación urbana',
+    structures:[
+      {id:'S167', pattern:"Urban planning depends on + [X]", examples:[
+        {en:'Urban planning depends on clear zoning laws.', es:'La planificación urbana depende de leyes de zonificación claras.', pron:'érban pláning dipénds on clíar sóuning los.'},
+        {en:'Infrastructure development improves public transportation.', es:'El desarrollo de infraestructura mejora el transporte público.', pron:'infraestrákchur divélopment imprúuvs páblic transportéishion.'},
+        {en:'The city council decides on land use for urban development.', es:'El concejo municipal decide sobre el uso del suelo para el desarrollo urbano.', pron:'de síti cáunsil disáids on land iús for érban divélopment.'},
+        {en:'Traffic management protects public space in every sustainable city.', es:'La gestión del tráfico protege el espacio público en cada ciudad sostenible.', pron:'tráfic mánechment pratécts páblic spéis in évri sastéinabol síti.'}
+      ], function:'hablar de planificación urbana', stage:4,
+        transformations:{
+          negative:{en:"Urban planning doesn't depend only on that.", es:'La planificación urbana no depende solo de eso.'},
+          question:{en:'Does urban planning depend on zoning laws?', es:'¿La planificación urbana depende de leyes de zonificación?'},
+          yesAnswer:{en:'Yes, heavily.', es:'Sí, mucho.'},
+          noAnswer:{en:"Partly, yes.", es:'En parte, sí.'}
+        }}
+    ],
     words:[
       {en:'urban planning', es:'planificación urbana', pron:'érban pláning', emoji:'🏙️'},
       {en:'zoning laws', es:'leyes de zonificación', pron:'sóuning los', emoji:'📜'},
@@ -192,6 +290,20 @@ const curriculumUnidad14 = [
   },
 {
     day:164, unit:14, unitTitle:'Unidad 14 · Semanas 35-36', theme:'Salud mental y bienestar',
+    structures:[
+      {id:'S168', pattern:"Our wellness program focuses on + [X]", examples:[
+        {en:'Our wellness program focuses on mental health and stress management.', es:'Nuestro programa de bienestar se enfoca en la salud mental y el manejo del estrés.', pron:'áur uélnes prógram fóucasis on méntal jelz and stres mánechment.'},
+        {en:'Work-life integration matters more than ever.', es:'La integración entre trabajo y vida importa más que nunca.', pron:'uork-láif integréishion máters mor dan éver.'},
+        {en:'Our employee assistance program teaches mindfulness for burnout prevention.', es:'Nuestro programa de asistencia al empleado enseña atención plena para prevenir el agotamiento.', pron:'áur emplóii asístans prógram tíches máindfulnes for bérnáut privénshion.'},
+        {en:'Mental health awareness, counseling services, and a self-care routine all help.', es:'La concientización sobre salud mental, los servicios de consejería, y una rutina de autocuidado, todo ayuda.', pron:'méntal jelz auérnes, cáunseling sérvisis, and a self-ker rutíin ol jelp.'}
+      ], function:'hablar de salud mental y bienestar', stage:4,
+        transformations:{
+          negative:{en:"Our program doesn't focus only on that.", es:'Nuestro programa no se enfoca solo en eso.'},
+          question:{en:'Does your wellness program focus on stress management?', es:'¿Tu programa de bienestar se enfoca en el manejo del estrés?'},
+          yesAnswer:{en:'Yes, mainly.', es:'Sí, principalmente.'},
+          noAnswer:{en:"Not primarily.", es:'No principalmente.'}
+        }}
+    ],
     words:[
       {en:'mental health', es:'salud mental', pron:'méntal jelz', emoji:'🧠'},
       {en:'wellness program', es:'programa de bienestar', pron:'uélnes prógram', emoji:'🌿'},
@@ -220,6 +332,20 @@ const curriculumUnidad14 = [
   },
 {
     day:165, unit:14, unitTitle:'Unidad 14 · Semanas 35-36', theme:'Cultura de trabajo remoto',
+    structures:[
+      {id:'S169', pattern:"Our remote team relies on + [X]", examples:[
+        {en:'Our remote team relies on virtual collaboration every day.', es:'Nuestro equipo remoto depende de la colaboración virtual todos los días.', pron:'áur rimóut tíim riláis on vérchual calaboréishion évri déi.'},
+        {en:'Asynchronous work suits any digital nomad well.', es:'El trabajo asincrónico le queda bien a cualquier nómada digital.', pron:'eisínkronas uork suts éni díchital nóumad uél.'},
+        {en:'A good home office setup makes remote onboarding easier.', es:'Una buena configuración de oficina en casa hace más fácil la incorporación remota.', pron:'a gud jóum áfis sétap méiks rimóut anbórding íisier.'},
+        {en:'Time zone coordination, and a virtual water cooler, boost remote productivity in this hybrid work model.', es:'La coordinación de zonas horarias, y un espacio virtual de charla informal, impulsan la productividad remota en este modelo de trabajo híbrido.', pron:'táim sóun coórdineishion, and a vérchual uóter cúler, bust rimóut pradáctiviti in dis jáibrid uork mádel.'}
+      ], function:'hablar de la cultura de trabajo remoto', stage:4,
+        transformations:{
+          negative:{en:"Our team doesn't rely only on that tool.", es:'Nuestro equipo no depende solo de esa herramienta.'},
+          question:{en:'Does your remote team rely on virtual collaboration?', es:'¿Tu equipo remoto depende de la colaboración virtual?'},
+          yesAnswer:{en:'Yes, completely.', es:'Sí, por completo.'},
+          noAnswer:{en:"Not entirely.", es:'No del todo.'}
+        }}
+    ],
     words:[
       {en:'remote team', es:'equipo remoto', pron:'rimóut tíim', emoji:'💻'},
       {en:'virtual collaboration', es:'colaboración virtual', pron:'vírchual calaboréishon', emoji:'🤝'},
@@ -248,6 +374,20 @@ const curriculumUnidad14 = [
   },
 {
     day:166, unit:14, unitTitle:'Unidad 14 · Semanas 35-36', theme:'Industria de alimentos y bebidas',
+    structures:[
+      {id:'S170', pattern:"This restaurant chain focuses on + [X]", examples:[
+        {en:'This restaurant chain focuses on menu development and food trends.', es:'Esta cadena de restaurantes se enfoca en el desarrollo del menú y las tendencias alimentarias.', pron:'dis réstorant chéin fóucasis on méniu divélopment and fud trends.'},
+        {en:'Culinary innovation keeps the food and beverage industry exciting.', es:'La innovación culinaria mantiene emocionante la industria de alimentos y bebidas.', pron:'cúlineri inovéishion kíips de fud and béverich índastri exsáiting.'},
+        {en:'Food distribution and a beverage company work closely together.', es:'La distribución de alimentos y una empresa de bebidas trabajan de cerca juntas.', pron:'fud distribiúshion and a béverich cámpani uork clóusli tugéder.'},
+        {en:'Sustainable sourcing matters during every taste testing session.', es:'El abastecimiento sostenible importa durante cada sesión de degustación.', pron:'sastéinabol sórsing máters dúring évri téist tésting séshion.'}
+      ], function:'hablar de la industria de alimentos y bebidas', stage:4,
+        transformations:{
+          negative:{en:"This chain doesn't focus only on that.", es:'Esta cadena no se enfoca solo en eso.'},
+          question:{en:'Does this chain focus on food trends?', es:'¿Esta cadena se enfoca en las tendencias alimentarias?'},
+          yesAnswer:{en:'Yes, always.', es:'Sí, siempre.'},
+          noAnswer:{en:"Not exclusively.", es:'No exclusivamente.'}
+        }}
+    ],
     words:[
       {en:'food and beverage industry', es:'industria de alimentos y bebidas', pron:'fúud and bévrich índastri', emoji:'🍽️'},
       {en:'menu development', es:'desarrollo de menú', pron:'méniu divélopment', emoji:'📋'},
@@ -275,6 +415,20 @@ const curriculumUnidad14 = [
   },
 {
     day:167, unit:14, unitTitle:'Unidad 14 · Semanas 35-36', theme:'Gestión de residuos y servicios públicos',
+    structures:[
+      {id:'S171', pattern:"Our waste management includes + [X]", examples:[
+        {en:'Our waste management includes a strong recycling program.', es:'Nuestra gestión de residuos incluye un fuerte programa de reciclaje.', pron:'áur uéist mánechment inclúuds a strong risáikling prógram.'},
+        {en:'The utility company oversees water treatment and the energy grid.', es:'La empresa de servicios públicos supervisa el tratamiento de agua y la red eléctrica.', pron:'de iutíliti cámpani óversíis uóter tríitment and de énerchi grid.'},
+        {en:'Waste reduction depends on public utilities working well.', es:'La reducción de residuos depende de que los servicios públicos funcionen bien.', pron:'uéist ridákshion dipénds on páblic iutílitis uórking uél.'},
+        {en:'Sanitation services and infrastructure maintenance follow strict environmental regulation.', es:'Los servicios de saneamiento y el mantenimiento de infraestructura siguen una regulación ambiental estricta.', pron:'sanitéishion sérvisis and infraestrákchur méintenans fálou strict environméntal reguleishion.'}
+      ], function:'hablar de gestión de residuos y servicios públicos', stage:4,
+        transformations:{
+          negative:{en:"Our waste management doesn't include that yet.", es:'Nuestra gestión de residuos todavía no incluye eso.'},
+          question:{en:'Does your waste management include recycling?', es:'¿Tu gestión de residuos incluye reciclaje?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí, lo incluye.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'waste management', es:'gestión de residuos', pron:'uéist mánechment', emoji:'🗑️'},
       {en:'recycling program', es:'programa de reciclaje', pron:'risáikling prógram', emoji:'♻️'},
@@ -303,6 +457,20 @@ const curriculumUnidad14 = [
   },
 {
     day:168, unit:14, unitTitle:'Unidad 14 · Semanas 35-36', theme:'Repaso y cierre de la Unidad 14',
+    structures:[
+      {id:'S172', pattern:"Unit fourteen is done, only + [NUMBER] days left", examples:[
+        {en:'Unit fourteen is done — almost there now!', es:'La Unidad Catorce está lista — ¡ya casi llegamos!', pron:'iúnit fórtíin is dan — ólmoust der náu!'},
+        {en:'Only twelve days left in the whole course.', es:'Solo faltan doce días en todo el curso.', pron:'óunli tuélv déis left in de jóul cors.'},
+        {en:'The final unit ahead is the last one.', es:'La unidad final que viene es la última.', pron:'de fáinal iúnit ajéd is de last uán.'},
+        {en:'So close now — see you in unit fifteen, the last unit!', es:'Tan cerca ahora — ¡nos vemos en la Unidad Quince, la última unidad!', pron:'sóu clóus náu — síi iú in iúnit fiftíin, de last iúnit!'}
+      ], function:'cerrar la unidad reconociendo lo cerca que está el final', stage:4,
+        transformations:{
+          negative:{en:"We are not done with the course yet.", es:'Todavía no terminamos el curso.'},
+          question:{en:'Are we almost done with the course?', es:'¿Ya casi terminamos el curso?'},
+          yesAnswer:{en:'Yes, almost there.', es:'Sí, ya casi.'},
+          noAnswer:{en:"A little more to go.", es:'Falta un poco más.'}
+        }}
+    ],
     words:[
       {en:'unit fourteen', es:'unidad catorce', pron:'iúnit fórtiin', emoji:'⓮'},
       {en:'almost there', es:'casi llegamos', pron:'ólmoust dér', emoji:'🏃'},
