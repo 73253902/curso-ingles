@@ -1914,6 +1914,13 @@ const dragonNativo = {
       el('dnReviewListenBtn').disabled=false;
     };
     el('dnReviewInput').focus();
+
+    // El modo admin no necesita completar cada frase para poder seguir —
+    // el botón "Siguiente" queda disponible de entrada, sin exigir respuesta.
+    if(typeof isAdmin === 'function' && isAdmin()){
+      el('dnReviewNextRow').style.display='flex';
+      el('dnReviewNextBtn').textContent = (reviewIdx+1<reviewItems.length) ? 'Siguiente →' : 'Ver resultado →';
+    }
   }
 
   function submitReviewAnswer(){
