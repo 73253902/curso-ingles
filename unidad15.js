@@ -3,6 +3,20 @@
 const curriculumUnidad15 = [
 {
     day:169, unit:15, unitTitle:'Unidad 15 · Semanas 35-36', theme:'Cumbre internacional de negocios / Diplomacia comercial',
+    structures:[
+      {id:'S173', pattern:"This trade summit strengthens + [X]", examples:[
+        {en:'This trade summit strengthens diplomatic relations between countries.', es:'Esta cumbre comercial fortalece las relaciones diplomáticas entre países.', pron:'dis tréid sámit strengzens diplomátic riléishions bituíin cántris.'},
+        {en:'A bilateral agreement was signed by the delegation.', es:'La delegación firmó un acuerdo bilateral.', pron:'a bailáteral agríiment uás sáind bái de delegéishion.'},
+        {en:'International cooperation builds a stronger economic partnership.', es:'La cooperación internacional construye una asociación económica más fuerte.', pron:'internáshional cooperéishion bilds a strónguer ecanámic pártnership.'},
+        {en:'Treaty negotiation and cultural exchange shape the global economy on the summit agenda.', es:'La negociación de tratados y el intercambio cultural le dan forma a la economía global en la agenda de la cumbre.', pron:'tríti nigoushiéishion and cálchural exchéinch shéip de glóubal ecánomi on de sámit ayénda.'}
+      ], function:'hablar de cumbres internacionales y diplomacia comercial', stage:4,
+        transformations:{
+          negative:{en:"This summit doesn't strengthen that relationship yet.", es:'Esta cumbre todavía no fortalece esa relación.'},
+          question:{en:'Does this summit strengthen diplomatic relations?', es:'¿Esta cumbre fortalece las relaciones diplomáticas?'},
+          yesAnswer:{en:'Yes, significantly.', es:'Sí, significativamente.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'trade summit', es:'cumbre comercial', pron:'tréid sámit', emoji:'🌐'},
       {en:'diplomatic relations', es:'relaciones diplomáticas', pron:'diplomátic riléishons', emoji:'🤝'},
@@ -31,6 +45,20 @@ const curriculumUnidad15 = [
   },
 {
     day:170, unit:15, unitTitle:'Unidad 15 · Semanas 35-36', theme:'Investigación y desarrollo científico',
+    structures:[
+      {id:'S174', pattern:"This scientific breakthrough came from + [X]", examples:[
+        {en:'This scientific breakthrough came from years of research and development.', es:'Este avance científico vino de años de investigación y desarrollo.', pron:'dis sáientific bréikzru kéim fram íars of risérch and divélopment.'},
+        {en:'The laboratory relies on careful peer review.', es:'El laboratorio depende de una revisión por pares cuidadosa.', pron:'de láboratori riláis on kérful píar riviú.'},
+        {en:'A research grant funded this innovation lab.', es:'Una subvención de investigación financió este laboratorio de innovación.', pron:'a risérch grant fándid dis inovéishion lab.'},
+        {en:'The patent application followed scientific collaboration and clear research findings, ready for technology transfer.', es:'La solicitud de patente siguió a la colaboración científica y hallazgos claros de investigación, lista para la transferencia de tecnología.', pron:'de pátent aplikéishion fáloud sáientific colaboréishion and clíar risérch fáindings, rédi for teknáloyi tránsfer.'}
+      ], function:'hablar de investigación y desarrollo científico', stage:4,
+        transformations:{
+          negative:{en:"This breakthrough didn't come from that lab.", es:'Este avance no vino de ese laboratorio.'},
+          question:{en:'Did this breakthrough come from research and development?', es:'¿Este avance vino de investigación y desarrollo?'},
+          yesAnswer:{en:'Yes, exactly.', es:'Sí, exactamente.'},
+          noAnswer:{en:"From somewhere else.", es:'De otro lado.'}
+        }}
+    ],
     words:[
       {en:'research and development', es:'investigación y desarrollo', pron:'risérch and divélopment', emoji:'🔬'},
       {en:'scientific breakthrough', es:'avance científico', pron:'saiéntific bréikzru', emoji:'💡'},
@@ -59,6 +87,20 @@ const curriculumUnidad15 = [
   },
 {
     day:171, unit:15, unitTitle:'Unidad 15 · Semanas 35-36', theme:'Filantropía y legado',
+    structures:[
+      {id:'S175', pattern:"This philanthropy shapes a lasting + [X]", examples:[
+        {en:'This philanthropy shapes a lasting legacy for our charitable foundation.', es:'Esta filantropía da forma a un legado duradero para nuestra fundación benéfica.', pron:'dis filántropi shéips a lásting légasi for áur chéritabol fáundeishion.'},
+        {en:'The endowment supports philanthropic giving for years to come.', es:'La dotación apoya la donación filantrópica por muchos años más.', pron:'de indáument sapórts filantrópic guíving for íars tu cam.'},
+        {en:'Social responsibility grows through community investment.', es:'La responsabilidad social crece a través de la inversión en la comunidad.', pron:'sóushal risponsibíliti gróus zru camiúniti invéstment.'},
+        {en:'Legacy planning is truly about giving back.', es:'La planificación del legado es realmente sobre retribuir.', pron:'légasi pláning is trúli abáut guíving bak.'}
+      ], function:'hablar de filantropía y legado', stage:4,
+        transformations:{
+          negative:{en:"This foundation doesn't shape that legacy yet.", es:'Esta fundación todavía no da forma a ese legado.'},
+          question:{en:'Does this philanthropy shape a lasting legacy?', es:'¿Esta filantropía da forma a un legado duradero?'},
+          yesAnswer:{en:'Yes, truly.', es:'Sí, de verdad.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'philanthropy', es:'filantropía', pron:'filántropi', emoji:'🤲'},
       {en:'legacy', es:'legado', pron:'légasi', emoji:'📜'},
@@ -86,6 +128,20 @@ const curriculumUnidad15 = [
   },
 {
     day:172, unit:15, unitTitle:'Unidad 15 · Semanas 35-36', theme:'Planificación de jubilación / Retiro',
+    structures:[
+      {id:'S176', pattern:"Retirement planning requires + [X]", examples:[
+        {en:'Retirement planning requires a solid pension fund.', es:'La planificación de jubilación requiere un fondo de pensiones sólido.', pron:'ritáierment pláning ricuáiars a sálid pénshion fand.'},
+        {en:'Your retirement savings grow toward financial independence.', es:'Tus ahorros de jubilación crecen hacia la independencia financiera.', pron:'iór ritáierment séivings gróu tuórd fainánshial independéns.'},
+        {en:'Estate planning matters before retirement age.', es:'La planificación patrimonial importa antes de la edad de jubilación.', pron:'estéit pláning máters bifór ritáierment éich.'},
+        {en:'A comfortable retirement lifestyle depends on a healthy nest egg in your retirement account.', es:'Un estilo de vida de jubilación cómodo depende de un buen ahorro en tu cuenta de retiro.', pron:'a cámfortabol ritáierment láifstáil dipénds on a jélzi nest eg in iór ritáierment acáunt.'}
+      ], function:'hablar de planificación de jubilación y retiro', stage:4,
+        transformations:{
+          negative:{en:"Retirement planning doesn't require that yet.", es:'La planificación de jubilación todavía no requiere eso.'},
+          question:{en:'Does retirement planning require a pension fund?', es:'¿La planificación de jubilación requiere un fondo de pensiones?'},
+          yesAnswer:{en:'Yes, ideally.', es:'Sí, idealmente.'},
+          noAnswer:{en:"Not necessarily.", es:'No necesariamente.'}
+        }}
+    ],
     words:[
       {en:'retirement planning', es:'planificación de jubilación', pron:'ritáiarment pláning', emoji:'🏖️'},
       {en:'pension fund', es:'fondo de pensión', pron:'pénshon fand', emoji:'💰'},
@@ -113,6 +169,20 @@ const curriculumUnidad15 = [
   },
 {
     day:173, unit:15, unitTitle:'Unidad 15 · Semanas 35-36', theme:'Repaso liviano de la semana 35',
+    structures:[
+      {id:'S177', pattern:"You'll leave a lasting impression + [X]", examples:[
+        {en:"You'll leave a lasting impression — this has come full circle.", es:'Vas a dejar una impresión duradera — esto ha cerrado el círculo.', pron:"iúl líiv a lásting impréshion — dis jas cam fúl sércol."},
+        {en:'This will stand the test of time, and pave the way for others.', es:'Esto va a resistir el paso del tiempo, y abrir el camino para otros.', pron:'dis uil stand de test of táim, and péiv de uéi for áders.'},
+        {en:'You reap what you sow — rise to the occasion.', es:'Cosechas lo que siembras — está a la altura de las circunstancias.', pron:'iú ríip uát iú sóu — ráis tu de akéishion.'},
+        {en:'Leave your mark, and go the distance.', es:'Deja tu huella, y llega hasta el final.', pron:'líiv iór mark, and góu de dístans.'}
+      ], function:'usar modismos finales sobre logro y legado', stage:4,
+        transformations:{
+          negative:{en:"This won't leave a lasting impression.", es:'Esto no va a dejar una impresión duradera.'},
+          question:{en:'Will this leave a lasting impression?', es:'¿Esto va a dejar una impresión duradera?'},
+          yesAnswer:{en:'Yes, definitely.', es:'Sí, definitivamente.'},
+          noAnswer:{en:"Probably not.", es:'Probablemente no.'}
+        }}
+    ],
     words:[
       {en:'to leave a lasting impression', es:'dejar una impresión duradera', pron:'tu líiv a lásting imprézhon', emoji:'✨'},
       {en:'to come full circle', es:'llegar a un círculo completo', pron:'tu cam ful sércol', emoji:'🔄'},
@@ -137,6 +207,20 @@ const curriculumUnidad15 = [
   },
 {
     day:174, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'Marca personal / Reputación profesional',
+    structures:[
+      {id:'S178', pattern:"Your personal branding builds + [X]", examples:[
+        {en:'Your personal branding builds a strong professional reputation.', es:'Tu marca personal construye una fuerte reputación profesional.', pron:'iór pérsonal bránding bilds a strong proféshional repiutéishion.'},
+        {en:'A solid online presence starts with your personal website.', es:'Una presencia sólida en línea empieza con tu sitio web personal.', pron:'a sálid ónláin prézens starts uid iór pérsonal uébsait.'},
+        {en:'Your career narrative shapes your networking profile.', es:'Tu narrativa de carrera da forma a tu perfil de networking.', pron:'iór karíir nárativ shéips iór nétuorking próufail.'},
+        {en:'A clear personal values statement supports reputation management, and highlights your career milestones for a lasting professional legacy.', es:'Una declaración clara de valores personales apoya la gestión de la reputación, y destaca tus hitos profesionales para un legado profesional duradero.', pron:'a clíar pérsonal váliuz stéitment sapórts repiutéishion mánechment, and jáilaits iór karíir máilstoun for a lásting proféshional légasi.'}
+      ], function:'hablar de marca personal y reputación profesional', stage:4,
+        transformations:{
+          negative:{en:"Your branding doesn't build that yet.", es:'Tu marca todavía no construye eso.'},
+          question:{en:'Does your personal branding build a strong reputation?', es:'¿Tu marca personal construye una fuerte reputación?'},
+          yesAnswer:{en:'Yes, over time.', es:'Sí, con el tiempo.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'personal branding', es:'marca personal', pron:'pérsonal bránding', emoji:'🆔'},
       {en:'professional reputation', es:'reputación profesional', pron:'proféshonal repiutéishon', emoji:'⭐'},
@@ -165,6 +249,20 @@ const curriculumUnidad15 = [
   },
 {
     day:175, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'El futuro del trabajo',
+    structures:[
+      {id:'S179', pattern:"The future of work demands + [X]", examples:[
+        {en:'The future of work demands adapting to workplace automation.', es:'El futuro del trabajo exige adaptarse a la automatización laboral.', pron:'de fiúchur of uork dimánds adápting tu uórkpleis otoméishion.'},
+        {en:'Closing the skills gap requires lifelong learning.', es:'Cerrar la brecha de habilidades requiere aprendizaje continuo.', pron:'clóusing de skils gap ricuáiars láiflong lérning.'},
+        {en:'An adaptive workforce embraces emerging careers despite technological disruption.', es:'Una fuerza laboral adaptable adopta carreras emergentes a pesar de la disrupción tecnológica.', pron:'an adáptiv uórkfors imbréises iméryin karíirs dispáit teknáloyical disrápshion.'},
+        {en:'Workforce planning and upskilling build real career resilience.', es:'La planificación de la fuerza laboral y la mejora de habilidades construyen verdadera resiliencia profesional.', pron:'uórkfors pláning and ápskiling bild ríal karíir risíliens.'}
+      ], function:'hablar del futuro del trabajo', stage:4,
+        transformations:{
+          negative:{en:"The future of work doesn't demand only that.", es:'El futuro del trabajo no exige solo eso.'},
+          question:{en:'Does the future of work demand lifelong learning?', es:'¿El futuro del trabajo exige aprendizaje continuo?'},
+          yesAnswer:{en:'Yes, absolutely.', es:'Sí, absolutamente.'},
+          noAnswer:{en:"Not for everyone.", es:'No para todos.'}
+        }}
+    ],
     words:[
       {en:'future of work', es:'futuro del trabajo', pron:'fiúchur of uork', emoji:'🔮'},
       {en:'workplace automation', es:'automatización del lugar de trabajo', pron:'uórkpleis otoméishon', emoji:'🤖'},
@@ -193,6 +291,20 @@ const curriculumUnidad15 = [
   },
 {
     day:176, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'Repaso integral de negocios',
+    structures:[
+      {id:'S180', pattern:"True business acumen combines + [X]", examples:[
+        {en:'True business acumen combines strategic thinking with real experience.', es:'La verdadera perspicacia empresarial combina pensamiento estratégico con experiencia real.', pron:'tru bísnes ákiuman cambáins stratéyic zínking uid ríal expíriens.'},
+        {en:'Cross-functional collaboration builds strong executive presence.', es:'La colaboración interfuncional construye una fuerte presencia ejecutiva.', pron:'cros-fánkshional calaboréishion bilds strong ecsékiutiv prézens.'},
+        {en:'A clear decision framework improves stakeholder management.', es:'Un marco de decisión claro mejora la gestión de las partes interesadas.', pron:'a clíar disíshion fréimuork imprúuvs stéikjolder mánechment.'},
+        {en:'Business fluency and professional growth are the result of this comprehensive review, and real mastery.', es:'La fluidez de negocios y el crecimiento profesional son el resultado de este repaso integral, y el verdadero dominio.', pron:'bísnes flúensi and proféshional gróuz ar de risált of dis camprijénsiv riviú, and ríal mástri.'}
+      ], function:'hacer un repaso integral de todo lo aprendido en negocios', stage:4,
+        transformations:{
+          negative:{en:"This doesn't combine only those two things.", es:'Esto no combina solo esas dos cosas.'},
+          question:{en:'Does true business acumen combine strategy and experience?', es:'¿La verdadera perspicacia empresarial combina estrategia y experiencia?'},
+          yesAnswer:{en:'Yes, both.', es:'Sí, ambas.'},
+          noAnswer:{en:"Mostly experience.", es:'Mayormente experiencia.'}
+        }}
+    ],
     words:[
       {en:'business acumen', es:'visión de negocios', pron:'bísnes ákiumen', emoji:'🧠'},
       {en:'strategic thinking', es:'pensamiento estratégico', pron:'stratéchic zínking', emoji:'♟️'},
@@ -221,6 +333,20 @@ const curriculumUnidad15 = [
   },
 {
     day:177, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'Comunicación intercultural avanzada',
+    structures:[
+      {id:'S181', pattern:"True intercultural communication requires + [X]", examples:[
+        {en:'True intercultural communication requires a global mindset.', es:'La verdadera comunicación intercultural requiere una mentalidad global.', pron:'tru intercálchural camiunikéishion ricuáiars a glóubal máindset.'},
+        {en:'Cultural competence values diverse perspectives.', es:'La competencia cultural valora perspectivas diversas.', pron:'cálchural cámpitens váliuz daivérs perspéctivs.'},
+        {en:'Inclusive leadership adapts its communication style for any global team.', es:'El liderazgo inclusivo adapta su estilo de comunicación para cualquier equipo global.', pron:'inclúsiv líidership adápts its camiunikéishion stáil for éni glóubal tíim.'},
+        {en:'Cultural adaptability and respectful dialogue build real unity in diversity.', es:'La adaptabilidad cultural y el diálogo respetuoso construyen verdadera unidad en la diversidad.', pron:'cálchural adaptabíliti and rispéctful dáialog bild ríal iúniti in daivérsiti.'}
+      ], function:'hablar de comunicación intercultural avanzada', stage:4,
+        transformations:{
+          negative:{en:"This doesn't require only that.", es:'Esto no requiere solo eso.'},
+          question:{en:'Does intercultural communication require a global mindset?', es:'¿La comunicación intercultural requiere una mentalidad global?'},
+          yesAnswer:{en:'Yes, essentially.', es:'Sí, esencialmente.'},
+          noAnswer:{en:"Among other things.", es:'Entre otras cosas.'}
+        }}
+    ],
     words:[
       {en:'intercultural communication', es:'comunicación intercultural', pron:'interkálchural camiunikéishon', emoji:'🌍'},
       {en:'global mindset', es:'mentalidad global', pron:'glóubal máindset', emoji:'🧠'},
@@ -249,6 +375,20 @@ const curriculumUnidad15 = [
   },
 {
     day:178, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'Celebración de logros / Reconocimiento',
+    structures:[
+      {id:'S182', pattern:"This achievement celebration honors + [X]", examples:[
+        {en:'This achievement celebration honors your recognition ceremony and award.', es:'Esta celebración de logro honra tu ceremonia de reconocimiento y premio.', pron:'dis achíivment selebréishion ánors iór recognísion sériimoni and auórd.'},
+        {en:'Every milestone celebration deserves real gratitude.', es:'Cada celebración de hito merece verdadera gratitud.', pron:'évri máilstoun selebréishion disérvs ríal grátitiud.'},
+        {en:'This accomplishment is a proud moment for everyone.', es:'Este logro es un momento de orgullo para todos.', pron:'dis acámplishment is a práud móument for évriuan.'},
+        {en:'This hard-earned success marks a real journey\'s end.', es:'Este éxito bien merecido marca el verdadero final de un viaje.', pron:'dis jard-érnd sacsés marks a ríal yérnis end.'}
+      ], function:'hablar de celebración de logros y reconocimiento', stage:4,
+        transformations:{
+          negative:{en:"This doesn't honor only that achievement.", es:'Esto no honra solo ese logro.'},
+          question:{en:'Does this celebration honor your achievement?', es:'¿Esta celebración honra tu logro?'},
+          yesAnswer:{en:'Yes, fully.', es:'Sí, totalmente.'},
+          noAnswer:{en:"Partly, yes.", es:'En parte, sí.'}
+        }}
+    ],
     words:[
       {en:'achievement celebration', es:'celebración de logros', pron:'achívment selebréishon', emoji:'🎉'},
       {en:'recognition ceremony', es:'ceremonia de reconocimiento', pron:'récognishon sérimouni', emoji:'🏅'},
@@ -276,6 +416,20 @@ const curriculumUnidad15 = [
   },
 {
     day:179, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'La víspera del final',
+    structures:[
+      {id:'S183', pattern:"This final review shows + [X]", examples:[
+        {en:'This final review shows we are almost done.', es:'Este repaso final muestra que ya casi terminamos.', pron:'dis fáinal riviú shóus uí ar ólmoust dan.'},
+        {en:'One day left, and I am so proud of this incredible journey.', es:'Un día restante, y estoy muy orgulloso de este viaje increíble.', pron:'uán déi left, and ái am sóu práud of dis incrédibol yérni.'},
+        {en:'This has been an unforgettable experience.', es:'Esto ha sido una experiencia inolvidable.', pron:'dis jas bin an anforguétabol expíriens.'},
+        {en:'I am ready for anything, right before the last lesson.', es:'Estoy listo para cualquier cosa, justo antes de la última lección.', pron:'ái am rédi for énizin, ráit bifór de last léson.'}
+      ], function:'hablar de la víspera del final del curso', stage:4,
+        transformations:{
+          negative:{en:"This isn't the final review yet.", es:'Este todavía no es el repaso final.'},
+          question:{en:'Is this the final review?', es:'¿Este es el repaso final?'},
+          yesAnswer:{en:'Yes, it is.', es:'Sí, lo es.'},
+          noAnswer:{en:"Almost.", es:'Casi.'}
+        }}
+    ],
     words:[
       {en:'final review', es:'repaso final', pron:'fáinal riviú', emoji:'🔁'},
       {en:'almost done', es:'casi terminado', pron:'ólmoust dan', emoji:'📊'},
@@ -301,6 +455,20 @@ const curriculumUnidad15 = [
   },
 {
     day:180, unit:15, unitTitle:'Unidad 15 · Semanas 37-38', theme:'¡GRADUACIÓN! — Cierre de los 180 días',
+    structures:[
+      {id:'S184', pattern:"Congratulations, you did it + [X]", examples:[
+        {en:'Congratulations — you did it, the course is complete!', es:'¡Felicitaciones — lo lograste, el curso está completo!', pron:'cangrachuléishions — iú did it, de cors is camplíit!'},
+        {en:'You are fluent now, a confident speaker of English.', es:'Ahora eres fluido, un hablante seguro de inglés.', pron:'iú ar flúent náu, a cánfident spíiker of ínglish.'},
+        {en:'You are a real English user, with a lifelong skill.', es:'Eres un usuario real del inglés, con una habilidad de por vida.', pron:'iú ar a ríal ínglish iúser, uid a láiflong skil.'},
+        {en:"Let's celebrate — a new chapter begins for every dragon graduate.", es:'Celebremos — un nuevo capítulo empieza para cada graduado dragón.', pron:"lets sélebreit — a niú cháper biguíns for évri drágon gráchueit."}
+      ], function:'celebrar la graduación completa del curso de 180 días', stage:4,
+        transformations:{
+          negative:{en:"This is not the end — it's a new beginning.", es:'Esto no es el final — es un nuevo comienzo.'},
+          question:{en:'Did you really finish the whole course?', es:'¿De verdad terminaste todo el curso?'},
+          yesAnswer:{en:'Yes, all 180 days!', es:'¡Sí, los 180 días!'},
+          noAnswer:{en:"Not yet, but almost.", es:'Todavía no, pero ya casi.'}
+        }}
+    ],
     words:[
       {en:'congratulations', es:'felicitaciones', pron:'congrachuléishons', emoji:'🎉'},
       {en:'you did it', es:'lo lograste', pron:'iú did it', emoji:'🙌'},
