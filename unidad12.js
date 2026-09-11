@@ -3,6 +3,20 @@
 const curriculumUnidad12 = [
 {
     day:133, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Relaciones públicas',
+    structures:[
+      {id:'S137', pattern:"Our public relations team is handling + [X]", examples:[
+        {en:'Our public relations team is handling media relations for this launch.', es:'Nuestro equipo de relaciones públicas está manejando las relaciones con los medios para este lanzamiento.', pron:'áur páblic riléishions tíim is jándling mídia riléishions for dis lonch.'},
+        {en:'We need to protect our public image before the press conference.', es:'Necesitamos proteger nuestra imagen pública antes de la conferencia de prensa.', pron:'uí níid tu pratéct áur páblic ímich bifór de pres cánferens.'},
+        {en:'The media kit includes our talking points for crisis communication.', es:'El kit de prensa incluye nuestros puntos clave para comunicación de crisis.', pron:'de mídia kit inclúuds áur tóking póints for cráisis camiunikéishion.'},
+        {en:'This PR campaign builds thought leadership through strong media coverage.', es:'Esta campaña de relaciones públicas construye liderazgo de pensamiento a través de una fuerte cobertura mediática.', pron:'dis pi-ar campéin bilds zot líidership zru strong mídia cáverich.'}
+      ], function:'hablar de relaciones públicas y comunicación corporativa', stage:4,
+        transformations:{
+          negative:{en:"Our PR team isn't handling that yet.", es:'Nuestro equipo de relaciones públicas todavía no está manejando eso.'},
+          question:{en:'Is your PR team handling this?', es:'¿Tu equipo de relaciones públicas está manejando esto?'},
+          yesAnswer:{en:'Yes, they are.', es:'Sí, lo están manejando.'},
+          noAnswer:{en:"Not directly, no.", es:'No directamente.'}
+        }}
+    ],
     words:[
       {en:'public relations', es:'relaciones públicas', pron:'páblic riléishons', emoji:'📢'},
       {en:'media relations', es:'relaciones con los medios', pron:'mídia riléishons', emoji:'📰'},
@@ -31,6 +45,20 @@ const curriculumUnidad12 = [
   },
 {
     day:134, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Planificación de eventos',
+    structures:[
+      {id:'S138', pattern:"The event coordinator is in charge of + [X]", examples:[
+        {en:'The event coordinator is in charge of event planning and the budget breakdown.', es:'El coordinador de eventos está a cargo de la planificación del evento y el desglose del presupuesto.', pron:'de ivént coórdineitor is in charch of ivént pláning and de báchet bréikdáun.'},
+        {en:'Vendor management fits into the event timeline.', es:'La gestión de proveedores encaja dentro del cronograma del evento.', pron:'véndor mánechment fits íntu de ivént táimláin.'},
+        {en:'The run of show covers event logistics from start to finish.', es:'El guion del evento cubre la logística del evento de principio a fin.', pron:'de ran of shóu cávers ivént loyístics fram start tu fínish.'},
+        {en:'Attendee registration and the event theme shape the post-event survey too.', es:'El registro de asistentes y el tema del evento también dan forma a la encuesta posterior al evento.', pron:'aténdíi rechistréishion and de ivént zíim shéip de póust-ivént sérvei tu.'}
+      ], function:'hablar de planificación y coordinación de eventos', stage:4,
+        transformations:{
+          negative:{en:"The coordinator is not in charge of that.", es:'El coordinador no está a cargo de eso.'},
+          question:{en:'Is the coordinator in charge of vendor management?', es:'¿El coordinador está a cargo de la gestión de proveedores?'},
+          yesAnswer:{en:'Yes, that too.', es:'Sí, eso también.'},
+          noAnswer:{en:"No, someone else handles that.", es:'No, otra persona maneja eso.'}
+        }}
+    ],
     words:[
       {en:'event planning', es:'planificación de eventos', pron:'ivént pláning', emoji:'📅'},
       {en:'event coordinator', es:'coordinador de eventos', pron:'ivént coórdineitor', emoji:'🧑‍💼'},
@@ -59,6 +87,20 @@ const curriculumUnidad12 = [
   },
 {
     day:135, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Gestión minorista / Retail',
+    structures:[
+      {id:'S139', pattern:"Our retail management focuses on + [X]", examples:[
+        {en:'Our retail management focuses on inventory turnover and point of sale data.', es:'Nuestra gestión minorista se enfoca en la rotación de inventario y los datos del punto de venta.', pron:'áur ríiteil mánechment fóucasis on ínventori térnóver and póint of séil déita.'},
+        {en:'Foot traffic and visual merchandising drive seasonal sales.', es:'El tráfico de personas y el merchandising visual impulsan las ventas de temporada.', pron:'fut tráfic and víshual merchándaising dráiv síizonal séils.'},
+        {en:'The store layout affects loss prevention and customer footfall.', es:'La disposición de la tienda afecta la prevención de pérdidas y el flujo de clientes.', pron:'de stor léiaut aféccts los privénshion and cástomer fútfol.'},
+        {en:'Retail analytics show us exactly where to improve.', es:'El análisis minorista nos muestra exactamente dónde mejorar.', pron:'ríiteil análytics shóu as exáctli uér tu imprúuv.'}
+      ], function:'hablar de gestión minorista y retail', stage:4,
+        transformations:{
+          negative:{en:"Our management doesn't focus on that.", es:'Nuestra gestión no se enfoca en eso.'},
+          question:{en:'Does your retail management focus on foot traffic?', es:'¿Tu gestión minorista se enfoca en el tráfico de personas?'},
+          yesAnswer:{en:'Yes, closely.', es:'Sí, de cerca.'},
+          noAnswer:{en:"Not as much as we should.", es:'No tanto como deberíamos.'}
+        }}
+    ],
     words:[
       {en:'retail management', es:'gestión minorista', pron:'ríiteil mánechment', emoji:'🏪'},
       {en:'inventory turnover', es:'rotación de inventario', pron:'ínventori térnóuver', emoji:'🔄'},
@@ -87,6 +129,20 @@ const curriculumUnidad12 = [
   },
 {
     day:136, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Hospitalidad y turismo',
+    structures:[
+      {id:'S140', pattern:"The hospitality industry depends on + [X]", examples:[
+        {en:'The hospitality industry depends on great guest experience.', es:'La industria de la hospitalidad depende de una gran experiencia del huésped.', pron:'de jaspitáliti índastri dipénds on gréit guest expíriens.'},
+        {en:'Concierge service and the tourism board both help visitors.', es:'El servicio de conserjería y la junta de turismo ayudan a los visitantes.', pron:'cánsierch sérvis and de túrism bord bóuz jelp vísitors.'},
+        {en:'This travel package includes a group booking and great amenities.', es:'Este paquete de viaje incluye una reserva grupal y excelentes comodidades.', pron:'dis trável páquich inclúuds a grup búking and gréit aménitis.'},
+        {en:'A high occupancy rate keeps the tour operator busy.', es:'Una alta tasa de ocupación mantiene ocupado al operador turístico.', pron:'a jái ocupánsi réit kíips de túr áporeitor bísi.'}
+      ], function:'hablar de hospitalidad y turismo', stage:4,
+        transformations:{
+          negative:{en:"The hospitality industry doesn't depend only on that.", es:'La industria de la hospitalidad no depende solo de eso.'},
+          question:{en:'Does the hospitality industry depend on guest experience?', es:'¿La industria de la hospitalidad depende de la experiencia del huésped?'},
+          yesAnswer:{en:'Yes, entirely.', es:'Sí, por completo.'},
+          noAnswer:{en:"Not entirely.", es:'No del todo.'}
+        }}
+    ],
     words:[
       {en:'hospitality industry', es:'industria hotelera', pron:'jaspitáliti índastri', emoji:'🏨'},
       {en:'guest experience', es:'experiencia del huésped', pron:'guest expíriens', emoji:'😊'},
@@ -114,6 +170,20 @@ const curriculumUnidad12 = [
   },
 {
     day:137, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Arte y entretenimiento / Industria creativa',
+    structures:[
+      {id:'S141', pattern:"The entertainment industry runs on + [X]", examples:[
+        {en:'The entertainment industry runs on talent agencies and royalties.', es:'La industria del entretenimiento funciona con agencias de talento y regalías.', pron:'de entertéinment índastri rans on tálent éichensis and róialtis.'},
+        {en:'Box office numbers and streaming rights matter a lot now.', es:'Los números de taquilla y los derechos de transmisión importan mucho ahora.', pron:'bax áfis námbers and stríiming ráits máter a lat náu.'},
+        {en:'The production company hired a creative director for this project.', es:'La productora contrató a un director creativo para este proyecto.', pron:'de pradákshion cámpani jáierd a criéitiv diréctor for dis práchect.'},
+        {en:'Content licensing drives audience engagement across platforms.', es:'La licencia de contenido impulsa el compromiso de la audiencia en todas las plataformas.', pron:'cántent láisensing dráivs ódiens enguéichment acrós plátforms.'}
+      ], function:'hablar de la industria del entretenimiento', stage:4,
+        transformations:{
+          negative:{en:"This doesn't run on royalties alone.", es:'Esto no funciona solo con regalías.'},
+          question:{en:'Does the industry run on streaming rights?', es:'¿La industria funciona con derechos de transmisión?'},
+          yesAnswer:{en:'Yes, largely.', es:'Sí, en gran parte.'},
+          noAnswer:{en:"Not entirely.", es:'No del todo.'}
+        }}
+    ],
     words:[
       {en:'entertainment industry', es:'industria del entretenimiento', pron:'entertéinment índastri', emoji:'🎬'},
       {en:'talent agency', es:'agencia de talentos', pron:'télent éiyensi', emoji:'⭐'},
@@ -141,6 +211,20 @@ const curriculumUnidad12 = [
   },
 {
     day:138, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Relaciones gubernamentales / Cabildeo',
+    structures:[
+      {id:'S142', pattern:"Government relations involves + [X]", examples:[
+        {en:'Government relations involves lobbying on public policy.', es:'Las relaciones gubernamentales involucran cabildeo sobre políticas públicas.', pron:'gávernment riléishions invólvs lábiing on páblic pálisi.'},
+        {en:'Regulatory affairs and an advocacy group both track new legislation.', es:'Los asuntos regulatorios y un grupo de defensa siguen la nueva legislación.', pron:'réguiulatori afférs and an ádvocasi grup bóuz trak niú lechisléishion.'},
+        {en:'A public hearing lets the policy maker hear from citizens directly.', es:'Una audiencia pública permite que el responsable de políticas escuche a los ciudadanos directamente.', pron:'a páblic jíaring lets de pálisi méiker jíar fram sítizens diréctli.'},
+        {en:'A grassroots campaign can shift the whole political landscape.', es:'Una campaña de base puede cambiar todo el panorama político.', pron:'a grásruts campéin can shift de jóul palítical lándskeip.'}
+      ], function:'hablar de relaciones gubernamentales y cabildeo', stage:4,
+        transformations:{
+          negative:{en:"This doesn't involve lobbying directly.", es:'Esto no involucra cabildeo directamente.'},
+          question:{en:'Does this involve public policy?', es:'¿Esto involucra políticas públicas?'},
+          yesAnswer:{en:'Yes, directly.', es:'Sí, directamente.'},
+          noAnswer:{en:"Only indirectly.", es:'Solo indirectamente.'}
+        }}
+    ],
     words:[
       {en:'government relations', es:'relaciones gubernamentales', pron:'gávernment riléishons', emoji:'🏛️'},
       {en:'lobbying', es:'cabildeo', pron:'lábiing', emoji:'🗣️'},
@@ -169,6 +253,20 @@ const curriculumUnidad12 = [
   },
 {
     day:139, unit:12, unitTitle:'Unidad 12 · Semanas 29-30', theme:'Repaso liviano de la semana 29',
+    structures:[
+      {id:'S143', pattern:"We need to bite the bullet + [X]", examples:[
+        {en:"We need to bite the bullet, not jump on the bandwagon.", es:'Necesitamos afrontar la situación, no subirnos a la moda.', pron:"uí níid tu báit de búlet, nat yamp on de bánduagon."},
+        {en:'This could be a game changer, so let\'s raise the bar.', es:'Esto podría cambiarlo todo, así que subamos la vara.', pron:'dis cud bi a guéim chéinyer, sóu lets réis de bar.'},
+        {en:"Let's leave no stone unturned, and hit the ground running.", es:'No dejemos nada sin revisar, y arranquemos con todo desde el principio.', pron:"lets líiv nóu stóun antérnd, and jit de gráund ráning."},
+        {en:"You're in the driver's seat now — you get to call the shots.", es:'Ahora estás al mando — tú decides.', pron:"iór in de dráivers síit náu — iú guet tu col de shats."}
+      ], function:'usar modismos avanzados de negocios en inglés', stage:4,
+        transformations:{
+          negative:{en:"We're not ready to bite the bullet yet.", es:'Todavía no estamos listos para afrontar la situación.'},
+          question:{en:'Should we bite the bullet now?', es:'¿Deberíamos afrontar la situación ahora?'},
+          yesAnswer:{en:'Yes, let\'s do it.', es:'Sí, hagámoslo.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'to bite the bullet', es:'enfrentar algo difícil', pron:'tu báit de búlet', emoji:'🦷'},
       {en:'to jump on the bandwagon', es:'subirse a una tendencia', pron:'tu champ on de bánduagon', emoji:'🚐'},
@@ -193,6 +291,20 @@ const curriculumUnidad12 = [
   },
 {
     day:140, unit:12, unitTitle:'Unidad 12 · Semanas 31-32', theme:'Cadena de suministro avanzada / Logística global',
+    structures:[
+      {id:'S144', pattern:"Our global supply chain relies on + [X]", examples:[
+        {en:'Our global supply chain relies on strong supplier relationships.', es:'Nuestra cadena de suministro global depende de relaciones sólidas con proveedores.', pron:'áur glóubal saplái chéin riláis on strong sapláier riléishionships.'},
+        {en:'Procurement and inventory optimization keep costs down.', es:'La adquisición y la optimización de inventario mantienen los costos bajos.', pron:'pracúrment and ínventori optimizéishion kíip costs dáun.'},
+        {en:'Just-in-time delivery depends on a solid logistics network.', es:'La entrega justo a tiempo depende de una red logística sólida.', pron:'yast-in-táim delíveri dipénds on a sálid loyístics nétuork.'},
+        {en:'A distribution center helps us handle supply chain disruption and vendor negotiation.', es:'Un centro de distribución nos ayuda a manejar la interrupción de la cadena de suministro y la negociación con proveedores.', pron:'a distribiúshion sénter jelps as jándol saplái chéin disrápshion and véndor nigoushiéishion.'}
+      ], function:'hablar de cadena de suministro y logística global', stage:4,
+        transformations:{
+          negative:{en:"Our supply chain doesn't rely only on that.", es:'Nuestra cadena de suministro no depende solo de eso.'},
+          question:{en:'Does your supply chain rely on that supplier?', es:'¿Tu cadena de suministro depende de ese proveedor?'},
+          yesAnswer:{en:'Yes, heavily.', es:'Sí, mucho.'},
+          noAnswer:{en:"We have backups.", es:'Tenemos respaldos.'}
+        }}
+    ],
     words:[
       {en:'global supply chain', es:'cadena de suministro global', pron:'glóubal sapláichéin', emoji:'🌍'},
       {en:'supplier relationship', es:'relación con proveedores', pron:'sapláier riléishonship', emoji:'🤝'},
@@ -221,6 +333,20 @@ const curriculumUnidad12 = [
   },
 {
     day:141, unit:12, unitTitle:'Unidad 12 · Semanas 31-32', theme:'Energía y recursos naturales',
+    structures:[
+      {id:'S145', pattern:"The energy sector depends on + [X]", examples:[
+        {en:'The energy sector depends on natural resources like oil and gas.', es:'El sector energético depende de recursos naturales como el petróleo y el gas.', pron:'de énerchi séctor dipénds on náchural risórsis láik óil and gas.'},
+        {en:'The mining industry is shifting toward renewable resources.', es:'La industria minera se está moviendo hacia recursos renovables.', pron:'de máining índastri is shífting tuórd rinúabol risórsis.'},
+        {en:'The extraction process must consider energy efficiency.', es:'El proceso de extracción debe considerar la eficiencia energética.', pron:'de extrákshion práses mast cansíder énerchi efíshiensi.'},
+        {en:'Good resource management reduces environmental impact.', es:'Una buena gestión de recursos reduce el impacto ambiental.', pron:'gud risórs mánechment ridiúses environméntal ímpact.'}
+      ], function:'hablar de energía y recursos naturales', stage:4,
+        transformations:{
+          negative:{en:"This sector doesn't depend only on oil.", es:'Este sector no depende solo del petróleo.'},
+          question:{en:'Does this depend on natural resources?', es:'¿Esto depende de recursos naturales?'},
+          yesAnswer:{en:'Yes, heavily.', es:'Sí, mucho.'},
+          noAnswer:{en:"Not as much anymore.", es:'Ya no tanto.'}
+        }}
+    ],
     words:[
       {en:'energy sector', es:'sector energético', pron:'énerchi séctor', emoji:'⚡'},
       {en:'natural resources', es:'recursos naturales', pron:'náchural risórses', emoji:'🌍'},
@@ -248,6 +374,20 @@ const curriculumUnidad12 = [
   },
 {
     day:142, unit:12, unitTitle:'Unidad 12 · Semanas 31-32', theme:'Bienes de consumo / Retail internacional',
+    structures:[
+      {id:'S146', pattern:"Our brand portfolio supports + [X]", examples:[
+        {en:'Our brand portfolio supports every stage of the product lifecycle.', es:'Nuestra cartera de marcas apoya cada etapa del ciclo de vida del producto.', pron:'áur brand pórtfoulio sapórts évri stéich of de prádact láifsaicol.'},
+        {en:'Market expansion requires international distribution.', es:'La expansión de mercado requiere distribución internacional.', pron:'márket expánshion ricuáiars internáshional distribiúshion.'},
+        {en:'Import regulations vary with local market adaptation.', es:'Las regulaciones de importación varían con la adaptación al mercado local.', pron:'ímport reguleishions véri uid lóucal márket adaptéishion.'},
+        {en:'Our global brand strategy competes for limited shelf space.', es:'Nuestra estrategia de marca global compite por espacio limitado en las estanterías.', pron:'áur glóubal brand stráteyi campíts for límitid shelf spéis.'}
+      ], function:'hablar de bienes de consumo y retail internacional', stage:4,
+        transformations:{
+          negative:{en:"Our portfolio doesn't support that market yet.", es:'Nuestra cartera todavía no apoya ese mercado.'},
+          question:{en:'Does our portfolio support international distribution?', es:'¿Nuestra cartera apoya la distribución internacional?'},
+          yesAnswer:{en:'Yes, fully.', es:'Sí, totalmente.'},
+          noAnswer:{en:"Not in every region.", es:'No en todas las regiones.'}
+        }}
+    ],
     words:[
       {en:'consumer goods', es:'bienes de consumo', pron:'cansiúmer guds', emoji:'🛒'},
       {en:'brand portfolio', es:'portafolio de marcas', pron:'brand pórtfoulio', emoji:'📁'},
@@ -275,6 +415,20 @@ const curriculumUnidad12 = [
   },
 {
     day:143, unit:12, unitTitle:'Unidad 12 · Semanas 31-32', theme:'Telecomunicaciones',
+    structures:[
+      {id:'S147', pattern:"Our telecommunications network needs + [X]", examples:[
+        {en:'Our telecommunications network needs better network infrastructure.', es:'Nuestra red de telecomunicaciones necesita mejor infraestructura de red.', pron:'áur telecamiunikéishions nétuork níids béter nétuork infraestrákchur.'},
+        {en:'Bandwidth issues affect every service provider.', es:'Los problemas de ancho de banda afectan a cada proveedor de servicio.', pron:'bánduidz íshus aféct évri sérvis prováider.'},
+        {en:'Customers want a better data plan and full signal coverage.', es:'Los clientes quieren un mejor plan de datos y cobertura de señal completa.', pron:'cástomers uánt a béter déita plan and fúl sígnal cáverich.'},
+        {en:'Telecom regulation and fiber optic expansion depend on the mobile carrier.', es:'La regulación de telecomunicaciones y la expansión de fibra óptica dependen del operador móvil.', pron:'télecam reguleishion and fáiber áptic expánshion dipénd on de móubail cárier.'}
+      ], function:'hablar de telecomunicaciones e infraestructura', stage:4,
+        transformations:{
+          negative:{en:"Our network doesn't need that upgrade yet.", es:'Nuestra red todavía no necesita esa mejora.'},
+          question:{en:'Does our network need better infrastructure?', es:'¿Nuestra red necesita mejor infraestructura?'},
+          yesAnswer:{en:'Yes, urgently.', es:'Sí, urgentemente.'},
+          noAnswer:{en:"Not right now.", es:'No por ahora.'}
+        }}
+    ],
     words:[
       {en:'telecommunications', es:'telecomunicaciones', pron:'télicomiunikéishons', emoji:'📡'},
       {en:'network infrastructure', es:'infraestructura de red', pron:'nétuork ínfrastrakcher', emoji:'🏗️'},
@@ -302,6 +456,20 @@ const curriculumUnidad12 = [
   },
 {
     day:144, unit:12, unitTitle:'Unidad 12 · Semanas 31-32', theme:'Repaso y cierre de la Unidad 12',
+    structures:[
+      {id:'S148', pattern:"Unit twelve is done, four fifths + [X]", examples:[
+        {en:'Unit twelve is done — four fifths of the way there!', es:'La Unidad Doce está lista — ¡cuatro quintos del camino recorrido!', pron:'iúnit tuélv is dan — for fifzs of de uéi der!'},
+        {en:'One fifth remaining — you are unstoppable.', es:'Un quinto restante — eres imparable.', pron:'uán fifz riméining — iú ar anstápabol.'},
+        {en:'The final stretch begins right now.', es:'El tramo final empieza ahora mismo.', pron:'de fáinal strech biguíns ráit náu.'},
+        {en:'See you in unit thirteen, next unit!', es:'¡Nos vemos en la Unidad Trece, la próxima unidad!', pron:'síi iú in iúnit zertíin, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el progreso', stage:4,
+        transformations:{
+          negative:{en:"We are not four fifths done yet.", es:'Todavía no vamos cuatro quintos.'},
+          question:{en:'Are we four fifths done?', es:'¿Vamos cuatro quintos?'},
+          yesAnswer:{en:'Yes, four fifths.', es:'Sí, cuatro quintos.'},
+          noAnswer:{en:"Almost there.", es:'Ya casi.'}
+        }}
+    ],
     words:[
       {en:'unit twelve', es:'unidad doce', pron:'iúnit tuélv', emoji:'⓬'},
       {en:'four fifths done', es:'cuatro quintos hecho', pron:'fóar fifzs dan', emoji:'📊'},
