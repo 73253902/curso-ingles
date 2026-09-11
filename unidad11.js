@@ -3,6 +3,20 @@
 const curriculumUnidad11 = [
 {
     day:121, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Modismos y verbos frasales de negocios',
+    structures:[
+      {id:'S125', pattern:"Let's touch base + [X]", examples:[
+        {en:"Let's touch base tomorrow, and follow through on the plan.", es:'Pongámonos en contacto mañana, y demos seguimiento al plan.', pron:"lets tach béis tumórou, and fálou zru on de plan."},
+        {en:'We need to think outside the box to get the ball rolling.', es:'Necesitamos pensar fuera de la caja para poner las cosas en marcha.', pron:'uí níid tu zink áutsáid de bax tu guet de bol róuling.'},
+        {en:"Let's make sure we're on the same page, without cutting corners.", es:'Asegurémonos de estar en la misma sintonía, sin tomar atajos.', pron:"lets méik shur uír on de séim péich, uidáut cáting córners."},
+        {en:'I always go the extra mile, and keep you in the loop.', es:'Siempre doy un esfuerzo extra, y te mantengo al tanto.', pron:'ái ólueis góu de éxtra máil, and kíip iú in de lup.'}
+      ], function:'usar modismos comunes de negocios en inglés', stage:4,
+        transformations:{
+          negative:{en:"Let's not touch base yet — too early.", es:'No nos pongamos en contacto todavía — muy temprano.'},
+          question:{en:'Should we touch base tomorrow?', es:'¿Deberíamos ponernos en contacto mañana?'},
+          yesAnswer:{en:'Yes, let\'s touch base.', es:'Sí, pongámonos en contacto.'},
+          noAnswer:{en:"Let's wait a bit.", es:'Esperemos un poco.'}
+        }}
+    ],
     words:[
       {en:'to touch base', es:'ponerse en contacto brevemente', pron:'tu tach béis', emoji:'📞'},
       {en:'to follow through', es:'llevar a cabo, cumplir', pron:'tu fálou zrú', emoji:'✅'},
@@ -31,6 +45,20 @@ const curriculumUnidad11 = [
   },
 {
     day:122, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Etiqueta internacional de negocios',
+    structures:[
+      {id:'S126', pattern:"It's important to be aware of + [X]", examples:[
+        {en:"It's important to be aware of cultural sensitivity and business etiquette.", es:'Es importante tener presente la sensibilidad cultural y la etiqueta de negocios.', pron:"its impórtant tu bi auér of cálchural sensitíviti and bísnes étiket."},
+        {en:'Greeting customs, and gift giving, vary by country.', es:'Las costumbres de saludo, y el intercambio de regalos, varían según el país.', pron:'gríiting cástams, and guift guíving, véri bái cántri.'},
+        {en:'Punctuality expectations, and dining etiquette, matter too.', es:'Las expectativas de puntualidad, y la etiqueta en la mesa, también importan.', pron:'panctiualíti expectéishions, and dáining étiket, máter tu.'},
+        {en:'Watch your body language, and pick appropriate topics with an interpreter if needed.', es:'Cuida tu lenguaje corporal, y elige temas apropiados con un intérprete si hace falta.', pron:'uách iór bádi lánguich, and pik apróupriet tápics uid an intérpreter if níided.'}
+      ], function:'hablar de etiqueta internacional de negocios', stage:4,
+        transformations:{
+          negative:{en:"It's not important to ignore this.", es:'No es importante ignorar esto.'},
+          question:{en:'Is it important to be aware of this?', es:'¿Es importante tener presente esto?'},
+          yesAnswer:{en:'Yes, very important.', es:'Sí, muy importante.'},
+          noAnswer:{en:"Not as much here.", es:'No tanto acá.'}
+        }}
+    ],
     words:[
       {en:'cultural sensitivity', es:'sensibilidad cultural', pron:'cálchural sensitíviti', emoji:'🌍'},
       {en:'business etiquette', es:'etiqueta de negocios', pron:'bísnes étiket', emoji:'🎩'},
@@ -59,6 +87,20 @@ const curriculumUnidad11 = [
   },
 {
     day:123, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Fusiones y adquisiciones',
+    structures:[
+      {id:'S127', pattern:"We need to conduct due diligence on + [X]", examples:[
+        {en:'We need to conduct due diligence on this merger.', es:'Necesitamos hacer la debida diligencia sobre esta fusión.', pron:'uí níid tu candáct diú díliyens on dis mércher.'},
+        {en:'The acquisition depends on a fair valuation for shareholders.', es:'La adquisición depende de una valoración justa para los accionistas.', pron:'de acuisíshion dipénds on a fer valiuéishion for shérjolders.'},
+        {en:'Is this a hostile takeover, or based on synergy?', es:'¿Esto es una adquisición hostil, o se basa en sinergia?', pron:'is dis a jástail téikóver, or béisd on sínerchi?'},
+        {en:'The integration process starts once we sign the letter of intent, pending antitrust review.', es:'El proceso de integración empieza una vez que firmemos la carta de intención, pendiente de revisión antimonopolio.', pron:'de integréishion práses starts uáns uí sáin de léter of inténd, pénding ántitrast riviú.'}
+      ], function:'hablar de fusiones y adquisiciones empresariales', stage:4,
+        transformations:{
+          negative:{en:"We don't need due diligence yet.", es:'Todavía no necesitamos la debida diligencia.'},
+          question:{en:'Do we need due diligence on this?', es:'¿Necesitamos la debida diligencia sobre esto?'},
+          yesAnswer:{en:'Yes, definitely.', es:'Sí, definitivamente.'},
+          noAnswer:{en:"Not at this stage.", es:'No en esta etapa.'}
+        }}
+    ],
     words:[
       {en:'merger', es:'fusión', pron:'mércher', emoji:'🤝'},
       {en:'acquisition', es:'adquisición', pron:'akuisíshon', emoji:'📈'},
@@ -87,6 +129,20 @@ const curriculumUnidad11 = [
   },
 {
     day:124, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Estrategia de marketing',
+    structures:[
+      {id:'S128', pattern:"Our marketing strategy focuses on + [X]", examples:[
+        {en:'Our marketing strategy focuses on brand positioning.', es:'Nuestra estrategia de marketing se enfoca en el posicionamiento de marca.', pron:'áur márketing stráteyi fóucasis on brand posíshioning.'},
+        {en:'Market segmentation and competitive analysis come first.', es:'La segmentación de mercado y el análisis competitivo van primero.', pron:'márket segmentéishion and campétitiv análysis cam ferst.'},
+        {en:"What's our unique selling proposition, to build brand awareness?", es:'¿Cuál es nuestra propuesta de venta única, para construir reconocimiento de marca?', pron:"uáts áur iuník séling proposíshion, tu bild brand auérnes?"},
+        {en:'Our marketing mix and customer persona guide the go-to-market strategy.', es:'Nuestra mezcla de marketing y perfil de cliente guían la estrategia de lanzamiento al mercado.', pron:'áur márketing mix and cástomer pérsona gáid de góu-tu-márket stráteyi.'}
+      ], function:'hablar de estrategia de marketing', stage:4,
+        transformations:{
+          negative:{en:"Our strategy doesn't focus on that.", es:'Nuestra estrategia no se enfoca en eso.'},
+          question:{en:'Does our strategy focus on brand positioning?', es:'¿Nuestra estrategia se enfoca en el posicionamiento de marca?'},
+          yesAnswer:{en:'Yes, exactly.', es:'Sí, exacto.'},
+          noAnswer:{en:"No, something else.", es:'No, otra cosa.'}
+        }}
+    ],
     words:[
       {en:'marketing strategy', es:'estrategia de marketing', pron:'márketing strátedchi', emoji:'📊'},
       {en:'brand positioning', es:'posicionamiento de marca', pron:'brand posíshoning', emoji:'🎯'},
@@ -115,6 +171,20 @@ const curriculumUnidad11 = [
   },
 {
     day:125, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Branding e identidad de marca',
+    structures:[
+      {id:'S129', pattern:"Our brand identity includes + [X]", examples:[
+        {en:'Our brand identity includes the logo design and brand voice.', es:'Nuestra identidad de marca incluye el diseño del logo y la voz de marca.', pron:'áur brand aidéntiti inclúuds de lóugo disáin and brand vóis.'},
+        {en:'The brand guidelines and tagline need to stay consistent.', es:'Las pautas de marca y el eslogan necesitan mantenerse consistentes.', pron:'de brand gáidláins and tágláin níid tu stéi cansístent.'},
+        {en:'Brand equity grows with a strong visual identity.', es:'El valor de marca crece con una identidad visual fuerte.', pron:'brand écuiti gróus uid a strong víshual aidéntiti.'},
+        {en:'Are we rebranding, or building brand loyalty with what we have?', es:'¿Estamos renovando la marca, o construyendo lealtad de marca con lo que tenemos?', pron:'ar uí ribránding, or bílding brand lóialti uid uát uí jav?'}
+      ], function:'hablar de branding e identidad de marca', stage:4,
+        transformations:{
+          negative:{en:"Our brand identity doesn't include that.", es:'Nuestra identidad de marca no incluye eso.'},
+          question:{en:'Does our brand identity include a tagline?', es:'¿Nuestra identidad de marca incluye un eslogan?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí, lo incluye.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'brand identity', es:'identidad de marca', pron:'brand aidéntiti', emoji:'🆔'},
       {en:'logo design', es:'diseño de logo', pron:'lóugou disáin', emoji:'🎨'},
@@ -142,6 +212,20 @@ const curriculumUnidad11 = [
   },
 {
     day:126, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Comercio electrónico',
+    structures:[
+      {id:'S130', pattern:"This affects our + [X]", examples:[
+        {en:'Shopping cart abandonment on our e-commerce platform affects our conversion rate.', es:'El abandono del carrito de compras en nuestra plataforma de comercio electrónico afecta nuestra tasa de conversión.', pron:'sháping cart abándonment on áur i-cámers plátform aféccts áur canvérshion réit.'},
+        {en:'We need to simplify the checkout process on our online storefront.', es:'Necesitamos simplificar el proceso de pago en nuestra tienda en línea.', pron:'uí níid tu símplifái de chékáut práses on áur ónláin stórfront.'},
+        {en:'The payment gateway and product listing need updates too.', es:'La pasarela de pago y el listado de productos también necesitan actualizaciones.', pron:'de péiment guéituei and prádact lísting níid apdéits tu.'},
+        {en:'Customer reviews, our return policy, and order fulfillment all affect our conversion rate.', es:'Las reseñas de clientes, nuestra política de devoluciones, y el cumplimiento de pedidos, todo afecta nuestra tasa de conversión.', pron:'cástomer riviús, áur ritérn pálisi, and órder fulfílment ol aféccts áur canvérshion réit.'}
+      ], function:'hablar de comercio electrónico y su optimización', stage:4,
+        transformations:{
+          negative:{en:"This doesn't affect our conversion rate.", es:'Esto no afecta nuestra tasa de conversión.'},
+          question:{en:'Does this affect our conversion rate?', es:'¿Esto afecta nuestra tasa de conversión?'},
+          yesAnswer:{en:'Yes, significantly.', es:'Sí, significativamente.'},
+          noAnswer:{en:"Not much.", es:'No mucho.'}
+        }}
+    ],
     words:[
       {en:'e-commerce platform', es:'plataforma de comercio electrónico', pron:'íicámers plátform', emoji:'💻'},
       {en:'online storefront', es:'tienda en línea', pron:'anláin stóarfrant', emoji:'🏪'},
@@ -170,6 +254,20 @@ const curriculumUnidad11 = [
   },
 {
     day:127, unit:11, unitTitle:'Unidad 11 · Semanas 27-28', theme:'Repaso liviano de la semana 27',
+    structures:[
+      {id:'S131', pattern:"You hit the nail on the head + [X]", examples:[
+        {en:'You hit the nail on the head — we see eye to eye on this.', es:'Le diste en el clavo — estamos de acuerdo en esto.', pron:'iú jit de néil on de jed — uí síi ái tu ái on dis.'},
+        {en:'You need to think on your feet, or go back to the drawing board.', es:'Necesitas pensar rápido, o volver a empezar de cero.', pron:'iú níid tu zink on iór fíit, or góu bak tu de dróing bord.'},
+        {en:'Read between the lines, but keep your options open.', es:'Lee entre líneas, pero mantén tus opciones abiertas.', pron:'ríid bituíin de láins, bat kíip iór ápshions óupen.'},
+        {en:"Take it with a grain of salt — we're all in the same boat.", es:'Tómalo con pinzas — estamos todos en el mismo barco.', pron:"téik it uid a gréin of solt — uír ol in de séim bóut."}
+      ], function:'usar modismos comunes en inglés de negocios', stage:4,
+        transformations:{
+          negative:{en:"You didn't hit the nail on the head this time.", es:'Esta vez no le diste en el clavo.'},
+          question:{en:'Did I hit the nail on the head?', es:'¿Le di en el clavo?'},
+          yesAnswer:{en:'Yes, exactly.', es:'Sí, exacto.'},
+          noAnswer:{en:"Not quite.", es:'No del todo.'}
+        }}
+    ],
     words:[
       {en:'to hit the nail on the head', es:'dar en el clavo', pron:'tu jit de néil on de jed', emoji:'🔨'},
       {en:'to see eye to eye', es:'estar de acuerdo', pron:'tu síi ái tu ái', emoji:'👀'},
@@ -194,6 +292,20 @@ const curriculumUnidad11 = [
   },
 {
     day:128, unit:11, unitTitle:'Unidad 11 · Semanas 29-30', theme:'Modelos de suscripción',
+    structures:[
+      {id:'S132', pattern:"Our subscription model includes + [X]", examples:[
+        {en:'Our subscription model includes recurring revenue and a free trial.', es:'Nuestro modelo de suscripción incluye ingresos recurrentes y una prueba gratuita.', pron:'áur sabscrípshion mádel inclúuds rikéring révenu and a fríi tráial.'},
+        {en:"What's our churn rate, and customer lifetime value?", es:'¿Cuál es nuestra tasa de cancelación, y el valor de vida del cliente?', pron:"uáts áur chern réit, and cástomer láiftaim váliu?"},
+        {en:'Each subscription tier has auto-renewal, and a cancellation policy.', es:'Cada nivel de suscripción tiene renovación automática, y una política de cancelación.', pron:'íich sabscrípshion tíar jas óto-riniúal, and a canseléishion pálisi.'},
+        {en:"There's an upsell opportunity within every pricing plan.", es:'Hay una oportunidad de venta adicional dentro de cada plan de precios.', pron:"ders an ápsel oportiúniti uidín évri práising plan."}
+      ], function:'hablar de modelos de suscripción para negocios', stage:4,
+        transformations:{
+          negative:{en:"Our subscription model doesn't include that.", es:'Nuestro modelo de suscripción no incluye eso.'},
+          question:{en:'Does our subscription model include a free trial?', es:'¿Nuestro modelo de suscripción incluye una prueba gratuita?'},
+          yesAnswer:{en:'Yes, it does.', es:'Sí, lo incluye.'},
+          noAnswer:{en:"No, not this tier.", es:'No, este nivel no.'}
+        }}
+    ],
     words:[
       {en:'subscription model', es:'modelo de suscripción', pron:'sabscrípshon mádol', emoji:'🔁'},
       {en:'recurring revenue', es:'ingresos recurrentes', pron:'rikéring révenu', emoji:'💵'},
@@ -222,6 +334,20 @@ const curriculumUnidad11 = [
   },
 {
     day:129, unit:11, unitTitle:'Unidad 11 · Semanas 29-30', theme:'Franquicias y licencias',
+    structures:[
+      {id:'S133', pattern:"This franchise is protected by + [X]", examples:[
+        {en:'This franchise is protected by a licensing agreement.', es:'Esta franquicia está protegida por un acuerdo de licencia.', pron:'dis fránchais is pratéctid bái a láisensing agríiment.'},
+        {en:"The franchisee pays a royalty fee to the franchisor.", es:'El franquiciado paga una regalía al franquiciante.', pron:"de fránchaisíi péis a róialti fíi tu de fránchaisor."},
+        {en:'Brand standards and territory rights must be respected.', es:'Los estándares de marca y los derechos territoriales deben respetarse.', pron:'brand stándards and térritori ráits mast bi rispéctid.'},
+        {en:'Intellectual property, like the trademark, is fully protected here.', es:'La propiedad intelectual, como la marca registrada, está totalmente protegida acá.', pron:'inteléctual práperti, láik de tréidmark, is fúli pratéctid jíar.'}
+      ], function:'hablar de franquicias y licencias comerciales', stage:4,
+        transformations:{
+          negative:{en:"This franchise is not protected yet.", es:'Esta franquicia todavía no está protegida.'},
+          question:{en:'Is this franchise protected by an agreement?', es:'¿Esta franquicia está protegida por un acuerdo?'},
+          yesAnswer:{en:'Yes, fully protected.', es:'Sí, totalmente protegida.'},
+          noAnswer:{en:"Not fully, no.", es:'No del todo.'}
+        }}
+    ],
     words:[
       {en:'franchise', es:'franquicia', pron:'fránchais', emoji:'🏪'},
       {en:'franchisee', es:'franquiciado', pron:'franchaisíi', emoji:'🧑‍💼'},
@@ -249,6 +375,20 @@ const curriculumUnidad11 = [
   },
 {
     day:130, unit:11, unitTitle:'Unidad 11 · Semanas 29-30', theme:'Cultura startup / Emprendimiento',
+    structures:[
+      {id:'S134', pattern:"Our startup is looking for + [X]", examples:[
+        {en:'Our startup is looking for venture capital right now.', es:'Nuestra startup está buscando capital de riesgo ahora mismo.', pron:'áur stártap is lúking for vénchur cápital ráit náu.'},
+        {en:"The entrepreneur is preparing a pitch deck for seed funding.", es:'El emprendedor está preparando una presentación para financiamiento inicial.', pron:"de antreprenúr is pripéring a pitch dek for síid fánding."},
+        {en:'We need a minimum viable product before we think about scalability.', es:'Necesitamos un producto mínimo viable antes de pensar en la escalabilidad.', pron:'uí níid a mínimum váiabol prádact bifór uí zink abáut skéilabíliti.'},
+        {en:'Should we pivot, or focus on our exit strategy instead?', es:'¿Deberíamos cambiar de rumbo, o enfocarnos en nuestra estrategia de salida en cambio?', pron:'shud uí pívat, or fóucas on áur éxit stráteyi instéd?'}
+      ], function:'hablar de startups y emprendimiento', stage:4,
+        transformations:{
+          negative:{en:"Our startup is not looking for that right now.", es:'Nuestra startup no está buscando eso ahora mismo.'},
+          question:{en:'Is your startup looking for venture capital?', es:'¿Tu startup está buscando capital de riesgo?'},
+          yesAnswer:{en:'Yes, actively.', es:'Sí, activamente.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'startup', es:'empresa emergente', pron:'stártap', emoji:'🚀'},
       {en:'entrepreneur', es:'emprendedor', pron:'antreprenér', emoji:'🧑‍💼'},
@@ -276,6 +416,20 @@ const curriculumUnidad11 = [
   },
 {
     day:131, unit:11, unitTitle:'Unidad 11 · Semanas 29-30', theme:'Ética empresarial y gobernanza',
+    structures:[
+      {id:'S135', pattern:"We value business ethics and + [X]", examples:[
+        {en:'We value business ethics and strong corporate governance.', es:'Valoramos la ética empresarial y una gobernanza corporativa sólida.', pron:'uí váliu bísnes ézics and strong córporeit gávernans.'},
+        {en:'Every employee follows our code of conduct.', es:'Cada empleado sigue nuestro código de conducta.', pron:'évri emplóii fálous áur kóud of cándact.'},
+        {en:'A whistleblower can report a conflict of interest safely.', es:'Un denunciante puede reportar un conflicto de interés de forma segura.', pron:'a uísolblóuer can ripórt a cánflict of íntrest séifli.'},
+        {en:'Transparency and accountability guide our board of directors and compliance officer.', es:'La transparencia y la rendición de cuentas guían a nuestra junta directiva y oficial de cumplimiento.', pron:'transpárensi and acauntabíliti gáid áur bord of diréctors and campláians áfiser.'}
+      ], function:'hablar de ética empresarial y gobernanza corporativa', stage:4,
+        transformations:{
+          negative:{en:"We don't tolerate a conflict of interest.", es:'No toleramos un conflicto de interés.'},
+          question:{en:'Do we value transparency?', es:'¿Valoramos la transparencia?'},
+          yesAnswer:{en:'Yes, always.', es:'Sí, siempre.'},
+          noAnswer:{en:"We need to improve there.", es:'Necesitamos mejorar ahí.'}
+        }}
+    ],
     words:[
       {en:'business ethics', es:'ética empresarial', pron:'bísnes ézics', emoji:'⚖️'},
       {en:'corporate governance', es:'gobernanza corporativa', pron:'córporeit gávernans', emoji:'🏛️'},
@@ -303,6 +457,20 @@ const curriculumUnidad11 = [
   },
 {
     day:132, unit:11, unitTitle:'Unidad 11 · Semanas 29-30', theme:'Repaso y cierre de la Unidad 11',
+    structures:[
+      {id:'S136', pattern:"Unit eleven is done, almost + [FRACTION]", examples:[
+        {en:'Unit eleven is done — almost three quarters now!', es:'La Unidad Once está lista — ¡ya casi tres cuartos!', pron:'iúnit iléven is dan — ólmoust zríi cuórters náu!'},
+        {en:"Staying focused, well done so far.", es:'Manteniéndote enfocado, bien hecho hasta ahora.', pron:"stéing fóucasd, uél dan sóu far."},
+        {en:'This is the final third of the whole course.', es:'Este es el último tercio de todo el curso.', pron:'dis is de fáinal zerd of de jóul cors.'},
+        {en:'See you in unit twelve, next unit!', es:'¡Nos vemos en la Unidad Doce, la próxima unidad!', pron:'síi iú in iúnit tuélv, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el progreso', stage:4,
+        transformations:{
+          negative:{en:"We are not almost three quarters done.", es:'Todavía no vamos casi tres cuartos.'},
+          question:{en:'Are we almost three quarters done?', es:'¿Ya vamos casi tres cuartos?'},
+          yesAnswer:{en:'Yes, almost there.', es:'Sí, ya casi.'},
+          noAnswer:{en:"Not quite yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'unit eleven', es:'unidad once', pron:'iúnit iléven', emoji:'⓫'},
       {en:'almost three quarters', es:'casi tres cuartos', pron:'ólmoust zríi cuárters', emoji:'📊'},
