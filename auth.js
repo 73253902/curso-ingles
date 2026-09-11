@@ -98,6 +98,16 @@ async function pushProgressToSupabase(progressData){
 // ================================================================
 async function iniciarApp(){
   const el = id => document.getElementById(id);
+
+  // El modo admin es independiente del sistema de cuentas — si ya estás en modo
+  // admin (por la URL ?admin=..., recordada en localStorage), entrás directo,
+  // sin necesidad de registrarte ni iniciar sesión.
+  if(typeof isAdmin === 'function' && isAdmin()){
+    el('authGate').style.display='none';
+    showHome();
+    return;
+  }
+
   const haySesion = await checkSession();
 
   if(!haySesion){

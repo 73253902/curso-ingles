@@ -94,7 +94,7 @@ const FASE1_SEMANAS = [
   },
   { numero:6, audio:null,
     estrofa1:{label:"Nuevas", lineas:[
-      {en:"Let me know,", es:"Avisame,", pron:"let mi nóu,"},
+      {en:"Let me know,", es:"Avísame,", pron:"let mi nóu,"},
       {en:"I hope so,", es:"espero que sí,", pron:"ái jóup sóu,"},
       {en:"me too!", es:"¡yo también!", pron:"mi tú!"},
       {en:"Give me a second, hold that thought!", es:"¡Dame un segundo, esperá esa idea!", pron:"guiv mi a sécond, jóuld dat zot!"}
@@ -126,7 +126,7 @@ const FASE1_SEMANAS = [
       {en:"or maybe that's not true!", es:"¡o tal vez no es verdad!", pron:"or méibi dats nat trú!"}
     ]},
     estrofa2:{label:"Repaso Semana 6", lineas:[
-      {en:"Let me know,", es:"avisame,", pron:"let mi nóu,"},
+      {en:"Let me know,", es:"avísame,", pron:"let mi nóu,"},
       {en:"I hope so, give me a second!", es:"espero que sí, ¡dame un segundo!", pron:"ái jóup sóu, guiv mi a sécond!"}
     ]},
     puente:{label:"Repaso profundo — Semana 2", lineas:[
@@ -430,10 +430,176 @@ const FASE1_SEMANAS = [
   }
 ];
 
+const FIJAS_FASE2 = {
+  precoro: [
+    {en:"Now we're talking, flowing free,", es:"Ahora sí estamos hablando, fluyendo libre,", pron:"náu uír tóking, flóuing fríi,"},
+    {en:"Fluency is calling me,", es:"La fluidez me está llamando,", pron:"flúensi is cóling mi,"}
+  ],
+  pedal: [
+    {en:"Conversations flow with ease,", es:"Las conversaciones fluyen con facilidad,", pron:"canversáshions flóu uid íis,"},
+    {en:"You're speaking naturally!", es:"¡Estás hablando naturalmente!", pron:"iór spíiking náchurali!"}
+  ],
+  coro: [
+    {en:"By the way,", es:"Por cierto,", pron:"bái de uéi,"},
+    {en:"honestly speaking,", es:"hablando honestamente,", pron:"ánestli spíiking,"},
+    {en:"let's cut to the chase,", es:"vayamos al grano,", pron:"lets cat tu de chéis,"},
+    {en:"that being said,", es:"dicho esto,", pron:"dat bíing sed,"}
+  ],
+  outro: [
+    {en:"See you next week, fluent friend,", es:"Nos vemos la próxima semana, amigo fluido,", pron:"síi iú next uíik, flúent frend,"},
+    {en:"Keep the conversation going till the end,", es:"Sigue la conversación hasta el final.", pron:"kíip de canverséishion góing til de end,"}
+  ]
+};
+
+const FASE2_SEMANAS = [
+  { numero:1, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"By the way,", es:"Por cierto,", pron:"bái de uéi,"},
+      {en:"speaking of which,", es:"hablando de eso,", pron:"spíiking of uích,"},
+      {en:"that reminds me,", es:"eso me recuerda,", pron:"dat rimáinds mi,"},
+      {en:"anyway,", es:"de todas formas,", pron:"éniuei,"},
+      {en:"moving on!", es:"¡sigamos adelante!", pron:"múuving on!"}
+    ]},
+    estrofa2:{label:"La escena sigue", lineas:[
+      {en:"By the way, speaking of which, I forgot to tell you,", es:"Por cierto, hablando de eso, me olvidé de contarte,", pron:"bái de uéi, spíiking of uích, ái forgát tu tel iú,"},
+      {en:"that reminds me of something funny too,", es:"eso también me recuerda algo gracioso,", pron:"dat rimáinds mi of sámzin fáni tu,"},
+      {en:"anyway, we can talk about that later,", es:"de todas formas, podemos hablar de eso después,", pron:"éniuei, uí can tok abáut dat léiter,"},
+      {en:"let's keep moving on for now!", es:"¡sigamos adelante por ahora!", pron:"lets kíip múuving on for náu!"}
+    ]}
+  },
+  { numero:2, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"Honestly,", es:"Honestamente,", pron:"ánestli,"},
+      {en:"to be fair,", es:"para ser justo,", pron:"tu bi fer,"},
+      {en:"if you ask me,", es:"si me preguntas,", pron:"if iú ask mi,"},
+      {en:"personally,", es:"personalmente,", pron:"pérsonali,"},
+      {en:"I could be wrong!", es:"¡podría estar equivocado!", pron:"ái cud bi rong!"}
+    ]},
+    estrofa2:{label:"La escena sigue", lineas:[
+      {en:"Honestly, to be fair, I hadn't thought about it that way,", es:"Honestamente, para ser justo, no lo había pensado así,", pron:"ánestli, tu bi fer, ái jádnt zot abáut it dat uéi,"},
+      {en:"if you ask me, it makes sense now,", es:"si me preguntas, ahora tiene sentido,", pron:"if iú ask mi, it méiks sens náu,"},
+      {en:"personally, I agree with you,", es:"personalmente, estoy de acuerdo contigo,", pron:"pérsonali, ái agríi uid iú,"},
+      {en:"but of course, I could be wrong!", es:"¡pero claro, podría estar equivocado!", pron:"bat of cors, ái cud bi rong!"}
+    ]}
+  },
+  { numero:3, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"Let's face it,", es:"Seamos honestos,", pron:"lets féis it,"},
+      {en:"the thing is,", es:"la cosa es que,", pron:"de zing is,"},
+      {en:"here's the deal,", es:"acá está el asunto,", pron:"jírs de díil,"},
+      {en:"long story short,", es:"para hacerla corta,", pron:"long stóri short,"}
+    ]},
+    estrofa2:{label:"Repaso Semana 1", lineas:[
+      {en:"By the way, that reminds me,", es:"Por cierto, eso me recuerda,", pron:"bái de uéi, dat rimáinds mi,"},
+      {en:"anyway, moving on!", es:"¡de todas formas, sigamos adelante!", pron:"éniuei, múuving on!"}
+    ]}
+  },
+  { numero:4, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"I was just thinking,", es:"Justo estaba pensando,", pron:"ái uás yast zínking,"},
+      {en:"come to think of it,", es:"pensándolo bien,", pron:"cam tu zink of it,"},
+      {en:"now that you mention it,", es:"ahora que lo mencionas,", pron:"náu dat iú ménshion it,"},
+      {en:"funny you should say that!", es:"¡qué gracioso que digas eso!", pron:"fáni iú shud séi dat!"}
+    ]},
+    estrofa2:{label:"La escena sigue", lineas:[
+      {en:"I was just thinking about that, come to think of it,", es:"Justo estaba pensando en eso, pensándolo bien,", pron:"ái uás yast zínking abáut dat, cam tu zink of it,"},
+      {en:"now that you mention it, it makes more sense,", es:"ahora que lo mencionas, tiene más sentido,", pron:"náu dat iú ménshion it, it méiks mor sens,"},
+      {en:"funny you should say that,", es:"qué gracioso que digas eso,", pron:"fáni iú shud séi dat,"},
+      {en:"I was thinking the same thing!", es:"¡yo estaba pensando lo mismo!", pron:"ái uás zínking de séim zing!"}
+    ]}
+  },
+  { numero:5, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"Not gonna lie,", es:"No voy a mentir,", pron:"nat gána lái,"},
+      {en:"I hear you,", es:"te entiendo,", pron:"ái jíar iú,"},
+      {en:"fair enough,", es:"justo, tiene sentido,", pron:"fer ináf,"},
+      {en:"that makes two of us!", es:"¡ya somos dos!", pron:"dat méiks tú of as!"}
+    ]},
+    estrofa2:{label:"Repaso Semana 2", lineas:[
+      {en:"Honestly, if you ask me,", es:"Honestamente, si me preguntas,", pron:"ánestli, if iú ask mi,"},
+      {en:"personally, I could be wrong!", es:"¡personalmente, podría estar equivocado!", pron:"pérsonali, ái cud bi rong!"}
+    ]},
+    puente:{label:"Repaso profundo — Semana 1", lineas:[
+      {en:"By the way, speaking of which, that reminds me,", es:"Por cierto, hablando de eso, eso me recuerda,", pron:"bái de uéi, spíiking of uích, dat rimáinds mi,"},
+      {en:"anyway, let's keep moving on!", es:"¡de todas formas, sigamos adelante!", pron:"éniuei, lets kíip múuving on!"}
+    ]}
+  },
+  { numero:6, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"No worries at all,", es:"No hay ningún problema,", pron:"nóu uóris at ol,"},
+      {en:"take your time,", es:"tómate tu tiempo,", pron:"téik iór táim,"},
+      {en:"whenever you're ready,", es:"cuando estés listo,", pron:"uénever iór rédi,"},
+      {en:"there's no rush!", es:"¡no hay apuro!", pron:"ders nóu rash!"}
+    ]},
+    estrofa2:{label:"La escena sigue", lineas:[
+      {en:"No worries at all, take your time,", es:"No hay ningún problema, tómate tu tiempo,", pron:"nóu uóris at ol, téik iór táim,"},
+      {en:"whenever you're ready, just let me know,", es:"cuando estés listo, solo avísame,", pron:"uénever iór rédi, yast let mi nóu,"},
+      {en:"there's no rush at all,", es:"no hay apuro para nada,", pron:"ders nóu rash at ol,"},
+      {en:"we have plenty of time!", es:"¡tenemos mucho tiempo!", pron:"uí jav plénti of táim!"}
+    ]}
+  },
+  { numero:7, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"I couldn't agree more,", es:"No podría estar más de acuerdo,", pron:"ái cúdnt agríi mor,"},
+      {en:"that's exactly it,", es:"eso es exactamente,", pron:"dats exáctli it,"},
+      {en:"you took the words right out of my mouth,", es:"me quitaste las palabras de la boca,", pron:"iú tuk de uords ráit áut of mái máuz,"},
+      {en:"couldn't have said it better!", es:"¡no lo podría haber dicho mejor!", pron:"cúdnt jav sed it béter!"}
+    ]},
+    estrofa2:{label:"Repaso Semana 3", lineas:[
+      {en:"Let's face it, here's the deal,", es:"Seamos honestos, acá está el asunto,", pron:"lets féis it, jírs de díil,"},
+      {en:"long story short, that's the thing!", es:"¡para hacerla corta, esa es la cosa!", pron:"long stóri short, dats de zing!"}
+    ]}
+  },
+  { numero:8, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"I was about to say the same thing,", es:"Estaba a punto de decir lo mismo,", pron:"ái uás abáut tu séi de séim zing,"},
+      {en:"great minds think alike,", es:"las mentes brillantes piensan igual,", pron:"gréit máinds zink aláik,"},
+      {en:"exactly what I was thinking,", es:"exactamente lo que estaba pensando,", pron:"exáctli uát ái uás zínking,"},
+      {en:"we're on the same page!", es:"¡estamos en la misma sintonía!", pron:"uír on de séim péich!"}
+    ]},
+    estrofa2:{label:"La escena sigue", lineas:[
+      {en:"I was about to say the same thing, great minds think alike,", es:"Estaba a punto de decir lo mismo, las mentes brillantes piensan igual,", pron:"ái uás abáut tu séi de séim zing, gréit máinds zink aláik,"},
+      {en:"that's exactly what I was thinking,", es:"eso es exactamente lo que estaba pensando,", pron:"dats exáctli uát ái uás zínking,"},
+      {en:"we're on the same page today,", es:"estamos en la misma sintonía hoy,", pron:"uír on de séim péich tudéi,"},
+      {en:"that hardly ever happens!", es:"¡eso casi nunca pasa!", pron:"dat járdli éver jápens!"}
+    ]}
+  },
+  { numero:9, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"To make a long story short,", es:"Para acortar la historia,", pron:"tu méik a long stóri short,"},
+      {en:"let's cut to the chase,", es:"vayamos al grano,", pron:"lets cat tu de chéis,"},
+      {en:"bottom line is,", es:"la conclusión es,", pron:"bátom láin is,"},
+      {en:"in a nutshell...", es:"en pocas palabras...", pron:"in a nátshel..."}
+    ]},
+    estrofa2:{label:"Repaso Semana 4", lineas:[
+      {en:"I was just thinking, now that you mention it,", es:"Justo estaba pensando, ahora que lo mencionas,", pron:"ái uás yast zínking, náu dat iú ménshion it,"},
+      {en:"funny you should say that!", es:"¡qué gracioso que digas eso!", pron:"fáni iú shud séi dat!"}
+    ]},
+    puente:{label:"Repaso profundo — Semana 2", lineas:[
+      {en:"Honestly, to be fair, if you ask me,", es:"Honestamente, para ser justo, si me preguntas,", pron:"ánestli, tu bi fer, if iú ask mi,"},
+      {en:"personally, I could be wrong!", es:"¡personalmente, podría estar equivocado!", pron:"pérsonali, ái cud bi rong!"}
+    ]}
+  },
+  { numero:10, audio:null,
+    estrofa1:{label:"Nuevas", lineas:[
+      {en:"That being said,", es:"Dicho esto,", pron:"dat bíing sed,"},
+      {en:"on second thought,", es:"pensándolo mejor,", pron:"on sécond zot,"},
+      {en:"let me rephrase that,", es:"déjame reformular eso,", pron:"let mi riphréis dat,"},
+      {en:"what I meant was...", es:"lo que quise decir fue...", pron:"uát ái ment uás..."}
+    ]},
+    estrofa2:{label:"La escena sigue", lineas:[
+      {en:"That being said, on second thought,", es:"Dicho esto, pensándolo mejor,", pron:"dat bíing sed, on sécond zot,"},
+      {en:"let me rephrase that a little,", es:"déjame reformular eso un poco,", pron:"let mi riphréis dat a lítol,"},
+      {en:"what I meant was something different,", es:"lo que quise decir fue algo distinto,", pron:"uát ái ment uás sámzin díferent,"},
+      {en:"does that make more sense now?", es:"¿eso tiene más sentido ahora?", pron:"das dat méik mor sens náu?"}
+    ]}
+  }
+];
+
 const dragonNativo = {
   fases: [
     { id:1, nombre:"Fase 1", subtitulo:"Supervivencia diaria", frases:120, disponible:true, fijas:FIJAS_FASE1, semanas:FASE1_SEMANAS },
-    { id:2, nombre:"Fase 2", subtitulo:"Fluidez conversacional", frases:120, disponible:false },
+    { id:2, nombre:"Fase 2", subtitulo:"Fluidez conversacional", frases:120, disponible:false, fijas:FIJAS_FASE2, semanas:FASE2_SEMANAS },
     { id:3, nombre:"Fase 3", subtitulo:"Modismos y expresiones idiomáticas", frases:120, disponible:false },
     { id:4, nombre:"Fase 4", subtitulo:"Refinamiento y naturalidad nativa", frases:120, disponible:false }
   ]
