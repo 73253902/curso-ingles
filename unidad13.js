@@ -3,6 +3,20 @@
 const curriculumUnidad13 = [
 {
     day:145, unit:13, unitTitle:'Unidad 13 · Semanas 31-32', theme:'Deportes y actividad física',
+    structures:[
+      {id:'S149', pattern:"My personal trainer helped me with + [X]", examples:[
+        {en:'My personal trainer helped me with my gym membership and workout routine.', es:'Mi entrenador personal me ayudó con mi membresía del gimnasio y mi rutina de ejercicio.', pron:'mái pérsonal tréiner jelpd mi uid mái yim mémbership and uórkáut rutíin.'},
+        {en:'Cardio and strength training both matter for fitness.', es:'El cardio y el entrenamiento de fuerza importan para el estado físico.', pron:'cárdio and strengz tréining bóuz máter for fítnes.'},
+        {en:'Our sports team is preparing for the tournament.', es:'Nuestro equipo deportivo se está preparando para el torneo.', pron:'áur sports tíim is pripéring for de túrnament.'},
+        {en:'This athlete just signed a sponsorship deal.', es:'Este atleta acaba de firmar un contrato de patrocinio.', pron:'dis ázlit yast sáind a spánsorship díil.'}
+      ], function:'hablar de deportes y actividad física', stage:4,
+        transformations:{
+          negative:{en:"My trainer didn't help with that.", es:'Mi entrenador no ayudó con eso.'},
+          question:{en:'Did your trainer help with your routine?', es:'¿Tu entrenador ayudó con tu rutina?'},
+          yesAnswer:{en:'Yes, a lot.', es:'Sí, mucho.'},
+          noAnswer:{en:"Not really.", es:'La verdad que no.'}
+        }}
+    ],
     words:[
       {en:'fitness', es:'estado físico', pron:'fítnes', emoji:'💪'},
       {en:'gym membership', es:'membresía del gimnasio', pron:'yim mémbership', emoji:'🏋️'},
@@ -30,6 +44,20 @@ const curriculumUnidad13 = [
   },
 {
     day:146, unit:13, unitTitle:'Unidad 13 · Semanas 31-32', theme:'Bodas y celebraciones',
+    structures:[
+      {id:'S150', pattern:"The wedding planner is organizing + [X]", examples:[
+        {en:'The wedding planner is organizing everything for the groom and bride.', es:'El organizador de bodas está organizando todo para el novio y la novia.', pron:'de uéding pláner is órganaising évrizin for de grum and bráid.'},
+        {en:'The guest of honor will hear the wedding vows first.', es:'El invitado de honor va a escuchar los votos matrimoniales primero.', pron:'de guest of ánor uil jíar de uéding vóus ferst.'},
+        {en:'The reception starts right after the ceremony.', es:'La recepción empieza justo después de la ceremonia.', pron:'de riseption starts ráit áfter de sérimoni.'},
+        {en:"This anniversary celebration has a strict celebration budget.", es:'Esta celebración de aniversario tiene un presupuesto de celebración estricto.', pron:"dis aniversari selebréishion jas a strict selebréishion báchet."}
+      ], function:'hablar de bodas y celebraciones', stage:4,
+        transformations:{
+          negative:{en:"The wedding planner isn't organizing that part.", es:'El organizador de bodas no está organizando esa parte.'},
+          question:{en:'Is the wedding planner organizing the reception?', es:'¿El organizador de bodas está organizando la recepción?'},
+          yesAnswer:{en:'Yes, everything.', es:'Sí, todo.'},
+          noAnswer:{en:"Just part of it.", es:'Solo una parte.'}
+        }}
+    ],
     words:[
       {en:'wedding', es:'boda', pron:'uéding', emoji:'💍'},
       {en:'groom', es:'novio', pron:'grúum', emoji:'🤵'},
@@ -57,6 +85,20 @@ const curriculumUnidad13 = [
   },
 {
     day:147, unit:13, unitTitle:'Unidad 13 · Semanas 31-32', theme:'Sistema judicial / Procesos legales',
+    structures:[
+      {id:'S151', pattern:"The judge will review + [X]", examples:[
+        {en:'The judge will review the testimony before the lawsuit continues.', es:'El juez va a revisar el testimonio antes de que continúe la demanda.', pron:'de yach uil riviú de téstimoni bifór de lósut cantíniús.'},
+        {en:'The lawyer is preparing for court, and the jury is ready.', es:'El abogado se está preparando para el tribunal, y el jurado está listo.', pron:'de lóier is pripéring for cort, and de yúri is rédi.'},
+        {en:'The plaintiff hopes for a fair verdict.', es:'El demandante espera un veredicto justo.', pron:'de pléintif jóups for a fer vérdict.'},
+        {en:'These legal proceedings could end in a settlement instead.', es:'Estos procesos legales podrían terminar en un acuerdo en cambio.', pron:'díis líigal prosíidings cud end in a sétolment instéd.'}
+      ], function:'hablar del sistema judicial y procesos legales', stage:4,
+        transformations:{
+          negative:{en:"The judge won't review that today.", es:'El juez no va a revisar eso hoy.'},
+          question:{en:'Will the judge review the testimony?', es:'¿El juez va a revisar el testimonio?'},
+          yesAnswer:{en:'Yes, tomorrow.', es:'Sí, mañana.'},
+          noAnswer:{en:"Not this week.", es:'No esta semana.'}
+        }}
+    ],
     words:[
       {en:'court', es:'tribunal', pron:'cort', emoji:'⚖️'},
       {en:'judge', es:'juez', pron:'yach', emoji:'🧑‍⚖️'},
@@ -84,6 +126,20 @@ const curriculumUnidad13 = [
   },
 {
     day:148, unit:13, unitTitle:'Unidad 13 · Semanas 31-32', theme:'Operaciones bancarias detalladas',
+    structures:[
+      {id:'S152', pattern:"I need to visit the bank branch to + [X]", examples:[
+        {en:'I need to visit the bank branch to speak with a teller.', es:'Necesito visitar la sucursal del banco para hablar con un cajero.', pron:'ái níid tu vísit de bank branch tu spíik uid a téler.'},
+        {en:'I have an overdraft on my account statement.', es:'Tengo un sobregiro en mi extracto de cuenta.', pron:'ái jav an óverdraft on mái acáunt stéitment.'},
+        {en:'Set up direct deposit, and check the nearest ATM for online banking help.', es:'Configura el depósito directo, y revisa el cajero automático más cercano para ayuda con la banca en línea.', pron:'set ap diréct dipázit, and chek de níarest éi-tí-em for ónláin bánking jelp.'},
+        {en:'There might be a bank hold if you go below the minimum balance — check your safe deposit box too.', es:'Podría haber una retención bancaria si bajas del saldo mínimo — revisa también tu caja de seguridad.', pron:'der máit bi a bank jóuld if iú góu bilóu de mínimum bálans — chek iór séif dipázit bax tu.'}
+      ], function:'hablar de operaciones bancarias detalladas', stage:4,
+        transformations:{
+          negative:{en:"I don't need to visit the branch today.", es:'Hoy no necesito visitar la sucursal.'},
+          question:{en:'Do you need to visit the bank branch?', es:'¿Necesitas visitar la sucursal del banco?'},
+          yesAnswer:{en:'Yes, today.', es:'Sí, hoy.'},
+          noAnswer:{en:"No, online is fine.", es:'No, en línea está bien.'}
+        }}
+    ],
     words:[
       {en:'bank branch', es:'sucursal bancaria', pron:'bank branch', emoji:'🏦'},
       {en:'teller', es:'cajero bancario', pron:'téler', emoji:'🧑‍💼'},
@@ -112,6 +168,20 @@ const curriculumUnidad13 = [
   },
 {
     day:149, unit:13, unitTitle:'Unidad 13 · Semanas 31-32', theme:'Agricultura y producción de alimentos',
+    structures:[
+      {id:'S153', pattern:"This farmer relies on + [X]", examples:[
+        {en:'This farmer relies on agriculture and a good harvest every year.', es:'Este agricultor depende de la agricultura y una buena cosecha cada año.', pron:'dis fármer riláis on ágricalchur and a gud járvest évri íar.'},
+        {en:'Every crop needs proper irrigation and healthy livestock nearby.', es:'Cada cultivo necesita riego adecuado y ganado saludable cerca.', pron:'évri crap níids práper irrigéishion and jélzi láivstok níarbái.'},
+        {en:'Organic farming supports better food safety standards.', es:'La agricultura orgánica apoya mejores estándares de seguridad alimentaria.', pron:'organic fárming sapórts béter fud séifti stándards.'},
+        {en:'Agricultural export depends on a strong crop yield.', es:'La exportación agrícola depende de un buen rendimiento de cultivo.', pron:'agricúlchural éxport dipénds on a strong crap iíld.'}
+      ], function:'hablar de agricultura y producción de alimentos', stage:4,
+        transformations:{
+          negative:{en:"This farmer doesn't rely only on that crop.", es:'Este agricultor no depende solo de ese cultivo.'},
+          question:{en:'Does this farmer rely on irrigation?', es:'¿Este agricultor depende del riego?'},
+          yesAnswer:{en:'Yes, heavily.', es:'Sí, mucho.'},
+          noAnswer:{en:"Only in the dry season.", es:'Solo en época seca.'}
+        }}
+    ],
     words:[
       {en:'agriculture', es:'agricultura', pron:'ágricalcher', emoji:'🌾'},
       {en:'crop', es:'cultivo', pron:'crap', emoji:'🌱'},
@@ -140,6 +210,20 @@ const curriculumUnidad13 = [
   },
 {
     day:150, unit:13, unitTitle:'Unidad 13 · Semanas 31-32', theme:'Repaso liviano de la semana 31',
+    structures:[
+      {id:'S154', pattern:"Let's keep it under wraps + [X]", examples:[
+        {en:"Let's keep it under wraps, and go above and beyond instead.", es:'Mantengámoslo en secreto, y hagamos un esfuerzo extra en cambio.', pron:"lets kíip it ánder raps, and góu abáv and bijánd instéd."},
+        {en:"I'm on the fence — let's get down to business.", es:'Estoy indeciso — pongámonos a trabajar en serio.', pron:"áim on de fens — lets guet dáun tu bísnes."},
+        {en:'I have a lot on my plate — I might be in over my head.', es:'Tengo demasiado encima — podría estar sobrepasado.', pron:'ái jav a lat on mái pléit — ái máit bi in óver mái jed.'},
+        {en:"Let's play it by ear, and you take the lead this time.", es:'Improvisemos sobre la marcha, y tú toma la delantera esta vez.', pron:"lets pléi it bái íar, and iú téik de líid dis táim."}
+      ], function:'usar modismos avanzados de negocios en inglés', stage:4,
+        transformations:{
+          negative:{en:"Let's not keep it under wraps.", es:'No lo mantengamos en secreto.'},
+          question:{en:'Should we keep it under wraps?', es:'¿Deberíamos mantenerlo en secreto?'},
+          yesAnswer:{en:'Yes, for now.', es:'Sí, por ahora.'},
+          noAnswer:{en:"No, let's share it.", es:'No, compartámoslo.'}
+        }}
+    ],
     words:[
       {en:'to keep it under wraps', es:'mantenerlo en secreto', pron:'tu kíip it ánder raps', emoji:'🤫'},
       {en:'to go above and beyond', es:'hacer mucho más de lo esperado', pron:'tu góu abáv and biánd', emoji:'⭐'},
@@ -164,6 +248,20 @@ const curriculumUnidad13 = [
   },
 {
     day:151, unit:13, unitTitle:'Unidad 13 · Semanas 33-34', theme:'Industria de la construcción',
+    structures:[
+      {id:'S155', pattern:"The contractor needs the blueprint before + [X]", examples:[
+        {en:'The contractor needs the blueprint before starting the construction site.', es:'El contratista necesita el plano antes de empezar el sitio de construcción.', pron:'de cántractor níids de blúprint bifór stárting de canstrákshion sáit.'},
+        {en:'We need a building permit, and the scaffolding must be safe.', es:'Necesitamos un permiso de construcción, y el andamio debe ser seguro.', pron:'uí níid a bílding pérmit, and de skáfolding mast bi séif.'},
+        {en:'The structural engineer will guide the construction crew.', es:'El ingeniero estructural va a guiar al equipo de construcción.', pron:'de strákchural enyinír uil gáid de canstrákshion cru.'},
+        {en:'A safety inspection checks the building materials before the project deadline.', es:'Una inspección de seguridad revisa los materiales de construcción antes de la fecha límite del proyecto.', pron:'a séifti inspékshion cheks de bílding matírials bifór de práchect dédláin.'}
+      ], function:'hablar de la industria de la construcción', stage:4,
+        transformations:{
+          negative:{en:"The contractor doesn't have the blueprint yet.", es:'El contratista todavía no tiene el plano.'},
+          question:{en:'Does the contractor need the blueprint now?', es:'¿El contratista necesita el plano ahora?'},
+          yesAnswer:{en:'Yes, right away.', es:'Sí, de inmediato.'},
+          noAnswer:{en:"Not until next week.", es:'No hasta la próxima semana.'}
+        }}
+    ],
     words:[
       {en:'construction site', es:'obra en construcción', pron:'canstrákshon sáit', emoji:'🏗️'},
       {en:'blueprint', es:'plano', pron:'blúprint', emoji:'📐'},
@@ -192,6 +290,20 @@ const curriculumUnidad13 = [
   },
 {
     day:152, unit:13, unitTitle:'Unidad 13 · Semanas 33-34', theme:'Industria automotriz / Manufactura',
+    structures:[
+      {id:'S156', pattern:"The automotive industry is testing + [X]", examples:[
+        {en:'The automotive industry is testing a new prototype on the assembly line.', es:'La industria automotriz está probando un nuevo prototipo en la línea de ensamblaje.', pron:'de otomótiv índastri is tésting a niú próutotáip on de asémbli láin.'},
+        {en:'The vehicle design must pass a crash test first.', es:'El diseño del vehículo debe pasar una prueba de choque primero.', pron:'de víjicol disáin mast pas a crash test ferst.'},
+        {en:'Fuel efficiency matters most for every electric vehicle.', es:'La eficiencia de combustible importa más para cada vehículo eléctrico.', pron:'fiúel efíshiensi máters móust for évri iléctric víjicol.'},
+        {en:'An automotive supplier reported a manufacturing defect, so there\'s a recall.', es:'Un proveedor automotriz reportó un defecto de fabricación, así que hay un retiro del mercado.', pron:'an otomótiv sapláier ripórtid a manyufáchuring dífect, sóu ders a rikól.'}
+      ], function:'hablar de la industria automotriz y manufactura', stage:4,
+        transformations:{
+          negative:{en:"The industry isn't testing that yet.", es:'La industria todavía no está probando eso.'},
+          question:{en:'Is the industry testing a new prototype?', es:'¿La industria está probando un nuevo prototipo?'},
+          yesAnswer:{en:'Yes, right now.', es:'Sí, ahora mismo.'},
+          noAnswer:{en:"Not yet.", es:'Todavía no.'}
+        }}
+    ],
     words:[
       {en:'automotive industry', es:'industria automotriz', pron:'otomóutiv índastri', emoji:'🚗'},
       {en:'assembly line', es:'línea de ensamblaje', pron:'asémbli láin', emoji:'🏭'},
@@ -219,6 +331,20 @@ const curriculumUnidad13 = [
   },
 {
     day:153, unit:13, unitTitle:'Unidad 13 · Semanas 33-34', theme:'Industria de la aviación',
+    structures:[
+      {id:'S157', pattern:"The airline industry relies on + [X]", examples:[
+        {en:'The airline industry relies on a well-trained flight crew.', es:'La industria aérea depende de una tripulación de vuelo bien entrenada.', pron:'de érláin índastri riláis on a uél-tréind fláit cru.'},
+        {en:'Air traffic control and aircraft maintenance keep flights safe.', es:'El control de tráfico aéreo y el mantenimiento de aeronaves mantienen los vuelos seguros.', pron:'er tráfic cantról and érkraft méintenans kíip fláits séif.'},
+        {en:'The boarding procedure applies to both passenger and cargo planes.', es:'El procedimiento de embarque aplica tanto para aviones de pasajeros como de carga.', pron:'de bórding prosíyur apláis tu bóuz pásencher and cárgo pléins.'},
+        {en:'Pilot training and aviation safety prevent most flight delays at airport operations.', es:'El entrenamiento de pilotos y la seguridad de aviación previenen la mayoría de las demoras de vuelo en las operaciones del aeropuerto.', pron:'páilat tréining and éiviéishion séifti privént móust fláit diléis at érport aperéishions.'}
+      ], function:'hablar de la industria de la aviación', stage:4,
+        transformations:{
+          negative:{en:"The industry doesn't rely only on that.", es:'La industria no depende solo de eso.'},
+          question:{en:'Does the airline industry rely on aircraft maintenance?', es:'¿La industria aérea depende del mantenimiento de aeronaves?'},
+          yesAnswer:{en:'Yes, completely.', es:'Sí, por completo.'},
+          noAnswer:{en:"Not entirely.", es:'No del todo.'}
+        }}
+    ],
     words:[
       {en:'airline industry', es:'industria aérea', pron:'érlain índastri', emoji:'✈️'},
       {en:'flight crew', es:'tripulación de vuelo', pron:'fláit crúu', emoji:'🧑‍✈️'},
@@ -247,6 +373,20 @@ const curriculumUnidad13 = [
   },
 {
     day:154, unit:13, unitTitle:'Unidad 13 · Semanas 33-34', theme:'Industria naviera / Transporte marítimo',
+    structures:[
+      {id:'S158', pattern:"The shipping industry depends on + [X]", examples:[
+        {en:'The shipping industry depends on the port authority and container terminal.', es:'La industria naviera depende de la autoridad portuaria y la terminal de contenedores.', pron:'de shíping índastri dipénds on de port ozóriti and cantéiner términal.'},
+        {en:'Every cargo ship must follow maritime law.', es:'Cada buque de carga debe seguir la ley marítima.', pron:'évri cárgo ship mast fálou máritaim lo.'},
+        {en:'Vessel capacity affects the whole shipping route.', es:'La capacidad del buque afecta toda la ruta de envío.', pron:'vésel capásiti aféccts de jóul shíping rúut.'},
+        {en:'A dock worker helps with customs inspection and marine insurance paperwork.', es:'Un trabajador portuario ayuda con la inspección de aduana y el papeleo del seguro marítimo.', pron:'a dak uórker jelps uid cástoms inspékshion and marín inshúrans péiperuork.'}
+      ], function:'hablar de la industria naviera y transporte marítimo', stage:4,
+        transformations:{
+          negative:{en:"The industry doesn't depend only on that port.", es:'La industria no depende solo de ese puerto.'},
+          question:{en:'Does the industry depend on maritime law?', es:'¿La industria depende de la ley marítima?'},
+          yesAnswer:{en:'Yes, entirely.', es:'Sí, por completo.'},
+          noAnswer:{en:"Partly, yes.", es:'En parte, sí.'}
+        }}
+    ],
     words:[
       {en:'shipping industry', es:'industria naviera', pron:'shíping índastri', emoji:'🚢'},
       {en:'cargo ship', es:'buque de carga', pron:'cárgou ship', emoji:'🛳️'},
@@ -275,6 +415,20 @@ const curriculumUnidad13 = [
   },
 {
     day:155, unit:13, unitTitle:'Unidad 13 · Semanas 33-34', theme:'Industria de la moda',
+    structures:[
+      {id:'S159', pattern:"The fashion designer is preparing for + [X]", examples:[
+        {en:'The fashion designer is preparing for the runway show.', es:'El diseñador de moda se está preparando para el desfile.', pron:'de fáshion disáiner is pripéring for de ránuei shóu.'},
+        {en:'This textile is trending in the fashion industry right now.', es:'Este textil está de moda en la industria de la moda ahora mismo.', pron:'dis téxtail is trénding in de fáshion índastri ráit náu.'},
+        {en:'Apparel manufacturing must keep up with every fashion trend.', es:'La fabricación de prendas debe mantenerse al día con cada tendencia de moda.', pron:'apárel manyufáchuring mast kíip ap uid évri fáshion trend.'},
+        {en:'Retail fashion gets more attention during fashion week for each garment.', es:'La moda al por menor recibe más atención durante la semana de la moda para cada prenda.', pron:'ríiteil fáshion guets mor aténshion dúring fáshion uíik for íich gárment.'}
+      ], function:'hablar de la industria de la moda', stage:4,
+        transformations:{
+          negative:{en:"The designer isn't preparing for that yet.", es:'El diseñador todavía no se está preparando para eso.'},
+          question:{en:'Is the designer preparing for the runway show?', es:'¿El diseñador se está preparando para el desfile?'},
+          yesAnswer:{en:'Yes, all week.', es:'Sí, toda la semana.'},
+          noAnswer:{en:"Not this season.", es:'No esta temporada.'}
+        }}
+    ],
     words:[
       {en:'fashion industry', es:'industria de la moda', pron:'fáshon índastri', emoji:'👗'},
       {en:'fashion designer', es:'diseñador de moda', pron:'fáshon disáiner', emoji:'✂️'},
@@ -301,6 +455,20 @@ const curriculumUnidad13 = [
   },
 {
     day:156, unit:13, unitTitle:'Unidad 13 · Semanas 33-34', theme:'Repaso y cierre de la Unidad 13',
+    structures:[
+      {id:'S160', pattern:"Unit thirteen is done, five sixths + [X]", examples:[
+        {en:'Unit thirteen is done — five sixths of the way there!', es:'La Unidad Trece está lista — ¡cinco sextos del camino recorrido!', pron:'iúnit zertíin is dan — fáiv sixzs of de uéi der!'},
+        {en:"Almost there — you're doing great.", es:'Ya casi — lo estás haciendo genial.', pron:"ólmoust der — iór dúing gréit."},
+        {en:'Just one sixth to go now.', es:'Solo un sexto por recorrer ahora.', pron:'yast uán sixz tu góu náu.'},
+        {en:'Keep the momentum — see you in unit fourteen, next unit!', es:'Mantén el impulso — ¡nos vemos en la Unidad Catorce, la próxima unidad!', pron:'kíip de moméntam — síi iú in iúnit fórtíin, next iúnit!'}
+      ], function:'cerrar la unidad reconociendo el progreso', stage:4,
+        transformations:{
+          negative:{en:"We are not five sixths done yet.", es:'Todavía no vamos cinco sextos.'},
+          question:{en:'Are we five sixths done?', es:'¿Vamos cinco sextos?'},
+          yesAnswer:{en:'Yes, five sixths.', es:'Sí, cinco sextos.'},
+          noAnswer:{en:"Almost.", es:'Casi.'}
+        }}
+    ],
     words:[
       {en:'unit thirteen', es:'unidad trece', pron:'iúnit zértiin', emoji:'⓭'},
       {en:'five sixths done', es:'cinco sextos hecho', pron:'fáiv sixzs dan', emoji:'📊'},
