@@ -1406,6 +1406,596 @@ const dailyMiniDialogue = {
     {speaker:'alumno', en:'Thank you, this milestone reached feels great.', es:'Gracias, este hito alcanzado se siente genial.', pron:'zenk iú, dis máilstoun ríichd fíils gréit.'},
     {speaker:'maestro', en:'See you in unit eleven, next unit!', es:'¡Nos vemos en la Unidad Once, la próxima unidad!', pron:'síi iú in iúnit iléven, next iúnit!'},
     {speaker:'alumno', en:'Thanks, see you in unit eleven!', es:'¡Gracias, nos vemos en la Unidad Once!', pron:'zenks, síi iú in iúnit iléven!'}
+  ],
+  121: [
+    {speaker:'maestro', en:'We need to touch base on this project — I want to follow through on the plan.', es:'Necesitamos ponernos en contacto sobre este proyecto — quiero dar seguimiento al plan.', pron:'uí níid tu tach béis on dis práchect — ái uánt tu fálou zru on de plan.'},
+    {speaker:'alumno', en:'Sure, we need to think outside the box to get the ball rolling.', es:'Claro, necesitamos pensar fuera de la caja para poner las cosas en marcha.', pron:'shur, uí níid tu zink áutsáid de bax tu guet de bol róuling.'},
+    {speaker:'maestro', en:'It helps to be on the same page about the budget.', es:'Ayuda estar en la misma sintonía sobre el presupuesto.', pron:'it jelps tu bi on de séim péich abáut de báchet.'},
+    {speaker:'alumno', en:'Yes, and we should try not to cut corners this time.', es:'Sí, y deberíamos tratar de no tomar atajos esta vez.', pron:'iés, and uí shud trái nat tu cat córners dis táim.'},
+    {speaker:'maestro', en:'I always try to go the extra mile — I like to keep someone in the loop.', es:'Siempre trato de dar un esfuerzo extra — me gusta mantener a alguien al tanto.', pron:'ái ólueis trái tu góu de éxtra máil — ái láik tu kíip sámuan in de lup.'},
+    {speaker:'alumno', en:'What do you bring to the table for this deal? I like to bring to the table real value.', es:'¿Qué aportas a este trato? Me gusta aportar valor real.', pron:'uát du iú bring tu de téibol for dis díil? ái láik tu bring tu de téibol ríal váliu.'},
+    {speaker:'maestro', en:'I bring years of experience — we need to circle back tomorrow with more details.', es:'Aporto años de experiencia — necesitamos retomar esto mañana con más detalles.', pron:'ái bring íars of expíriens — uí níid tu sércol bak tumórou uid mor ditéils.'},
+    {speaker:'alumno', en:'Sounds good, let\'s circle back then.', es:'Suena bien, retomemos entonces.', pron:'sáunds gud, lets sércol bak den.'}
+  ],
+  122: [
+    {speaker:'maestro', en:'I need to learn more about cultural sensitivity before this trip.', es:'Necesito aprender más sobre sensibilidad cultural antes de este viaje.', pron:'ái níid tu lern mor abáut cálchural sensitíviti bifór dis trip.'},
+    {speaker:'alumno', en:'Business etiquette varies a lot — greeting customs especially.', es:'La etiqueta de negocios varía mucho — las costumbres de saludo especialmente.', pron:'bísnes étiket véris a lat — gríiting cástams espéshali.'},
+    {speaker:'maestro', en:'What about gift giving — is it expected?', es:'¿Y qué tal el intercambio de regalos — se espera?', pron:'uát abáut guift guíving — is it expéctid?'},
+    {speaker:'alumno', en:'Yes, and punctuality expectations matter too.', es:'Sí, y las expectativas de puntualidad también importan.', pron:'iés, and panctiualíti expectéishions máter tu.'},
+    {speaker:'maestro', en:'Should I be careful with dining etiquette?', es:'¿Debería tener cuidado con la etiqueta en la mesa?', pron:'shud ái bi kérful uid dáining étiket?'},
+    {speaker:'alumno', en:'Definitely — and stick to appropriate topics, watch your body language.', es:'Definitivamente — y quédate en temas apropiados, cuida tu lenguaje corporal.', pron:'définitli — and stik tu apróupriet tápics, uách iór bádi lánguich.'},
+    {speaker:'maestro', en:'Would an interpreter help during meetings?', es:'¿Un intérprete ayudaría durante las reuniones?', pron:'uud an intérpreter jelp dúring míitings?'},
+    {speaker:'alumno', en:'Yes, and cross-cultural training would help even more.', es:'Sí, y el entrenamiento intercultural ayudaría todavía más.', pron:'iés, and cros-cálchural tréining uud jelp íven mor.'}
+  ],
+  123: [
+    {speaker:'maestro', en:'We\'re considering a merger with that company.', es:'Estamos considerando una fusión con esa empresa.', pron:'uír cansídering a mércher uid dat cámpani.'},
+    {speaker:'alumno', en:'Is this an acquisition, or a true merger?', es:'¿Esto es una adquisición, o una verdadera fusión?', pron:'is dis an acuisíshion, or a tru mércher?'},
+    {speaker:'maestro', en:'We need due diligence, and a fair valuation first.', es:'Necesitamos la debida diligencia, y una valoración justa primero.', pron:'uí níid diú díliyens, and a fer valiuéishion ferst.'},
+    {speaker:'alumno', en:'Are the shareholders on board with this?', es:'¿Los accionistas están de acuerdo con esto?', pron:'ar de shérjolders on bord uid dis?'},
+    {speaker:'maestro', en:'It\'s not a hostile takeover — there\'s real synergy here.', es:'No es una adquisición hostil — hay sinergia real acá.', pron:'its nat a jástail téikóver — ders ríal sínerchi jíar.'},
+    {speaker:'alumno', en:'What about the integration process afterward?', es:'¿Y qué tal el proceso de integración después?', pron:'uát abáut de integréishion práses áfteruord?'},
+    {speaker:'maestro', en:'We\'ll sign a letter of intent, pending antitrust review.', es:'Vamos a firmar una carta de intención, pendiente de revisión antimonopolio.', pron:'uíl sáin a léter of inténd, pénding ántitrast riviú.'},
+    {speaker:'alumno', en:'Sounds like a solid plan for this merger.', es:'Suena como un plan sólido para esta fusión.', pron:'sáunds láik a sálid plan for dis mércher.'}
+  ],
+  124: [
+    {speaker:'maestro', en:'Our marketing strategy needs better brand positioning.', es:'Nuestra estrategia de marketing necesita mejor posicionamiento de marca.', pron:'áur márketing stráteyi níids béter brand posíshioning.'},
+    {speaker:'alumno', en:'Have we done market segmentation and competitive analysis?', es:'¿Hicimos la segmentación de mercado y el análisis competitivo?', pron:'jav uí dan márket segmentéishion and campétitiv análysis?'},
+    {speaker:'maestro', en:'Yes, and we found our unique selling proposition.', es:'Sí, y encontramos nuestra propuesta de venta única.', pron:'iés, and uí fáund áur iuník séling proposíshion.'},
+    {speaker:'alumno', en:'How do we build more brand awareness?', es:'¿Cómo construimos más reconocimiento de marca?', pron:'jáu du uí bild mor brand auérnes?'},
+    {speaker:'maestro', en:'Through our marketing mix, and understanding our customer persona.', es:'A través de nuestra mezcla de marketing, y entendiendo nuestro perfil de cliente.', pron:'zru áur márketing mix, and anderstánding áur cástomer pérsona.'},
+    {speaker:'alumno', en:'What\'s our positioning statement then?', es:'¿Cuál es nuestra declaración de posicionamiento entonces?', pron:'uáts áur posíshioning stéitment den?'},
+    {speaker:'maestro', en:'We\'re finalizing that, along with our go-to-market strategy.', es:'Estamos finalizando eso, junto con nuestra estrategia de lanzamiento al mercado.', pron:'uír fáinalaising dat, alóng uid áur góu-tu-márket stráteyi.'},
+    {speaker:'alumno', en:'Perfect, this marketing strategy is coming together.', es:'Perfecto, esta estrategia de marketing se está armando bien.', pron:'pérfect, dis márketing stráteyi is cáming tugéder.'}
+  ],
+  125: [
+    {speaker:'maestro', en:'Our brand identity needs a new logo design.', es:'Nuestra identidad de marca necesita un nuevo diseño de logo.', pron:'áur brand aidéntiti níids a niú lóugo disáin.'},
+    {speaker:'alumno', en:'What about our brand voice — does it match?', es:'¿Y qué tal nuestra voz de marca — coincide?', pron:'uát abáut áur brand vóis — das it match?'},
+    {speaker:'maestro', en:'We updated the brand guidelines, and even the tagline.', es:'Actualizamos las pautas de marca, y hasta el eslogan.', pron:'uí apdéitid de brand gáidláins, and íven de tágláin.'},
+    {speaker:'alumno', en:'Has our brand equity grown this year?', es:'¿Nuestro valor de marca creció este año?', pron:'jas áur brand écuiti gróun dis íar?'},
+    {speaker:'maestro', en:'Yes, thanks to a stronger visual identity.', es:'Sí, gracias a una identidad visual más fuerte.', pron:'iés, zenks tu a strónguer víshual aidéntiti.'},
+    {speaker:'alumno', en:'Are we rebranding completely, or just refreshing?', es:'¿Estamos renovando la marca por completo, o solo refrescando?', pron:'ar uí ribránding camplíitli, or yast rifréshing?'},
+    {speaker:'maestro', en:'Just refreshing — we don\'t want to lose brand loyalty.', es:'Solo refrescando — no queremos perder la lealtad de marca.', pron:'yast rifréshing — uí dont uánt tu lus brand lóialti.'},
+    {speaker:'alumno', en:'Good thinking, that brand loyalty took years to build.', es:'Buena idea, esa lealtad de marca tomó años en construirse.', pron:'gud zínking, dat brand lóialti tuk íars tu bild.'}
+  ],
+  126: [
+    {speaker:'maestro', en:'Our e-commerce platform needs improvements.', es:'Nuestra plataforma de comercio electrónico necesita mejoras.', pron:'áur i-cámers plátform níids imprúuvments.'},
+    {speaker:'alumno', en:'What about the online storefront design?', es:'¿Y qué tal el diseño de la tienda en línea?', pron:'uát abáut de ónláin stórfront disáin?'},
+    {speaker:'maestro', en:'We\'re fixing shopping cart abandonment issues first.', es:'Estamos arreglando primero los problemas de abandono del carrito de compras.', pron:'uír fíxing sháping cart abándonment íshus ferst.'},
+    {speaker:'alumno', en:'Is the checkout process too complicated?', es:'¿El proceso de pago es demasiado complicado?', pron:'is de chékáut práses tu cámplikeited?'},
+    {speaker:'maestro', en:'Yes, and we need a better payment gateway too.', es:'Sí, y también necesitamos una mejor pasarela de pago.', pron:'iés, and uí níid a béter péiment guéituei tu.'},
+    {speaker:'alumno', en:'What about our product listing quality?', es:'¿Y qué tal la calidad de nuestro listado de productos?', pron:'uát abáut áur prádact lísting cuáliti?'},
+    {speaker:'maestro', en:'We\'re improving that, plus customer reviews visibility.', es:'Estamos mejorando eso, más la visibilidad de las reseñas de clientes.', pron:'uír imprúuving dat, plas cástomer riviús visibíliti.'},
+    {speaker:'alumno', en:'Our return policy and order fulfillment affect conversion rate too.', es:'Nuestra política de devoluciones y cumplimiento de pedidos también afectan la tasa de conversión.', pron:'áur ritérn pálisi and órder fulfílment aféct canvérshion réit tu.'}
+  ],
+  127: [
+    {speaker:'maestro', en:'That comment really seemed to hit the nail on the head.', es:'Ese comentario realmente pareció darle en el clavo.', pron:'dat cáment ríali símd tu jit de néil on de jed.'},
+    {speaker:'alumno', en:'Yes, we tend to see eye to eye on this issue.', es:'Sí, tendemos a estar de acuerdo en este tema.', pron:'iés, uí tend tu síi ái tu ái on dis íshu.'},
+    {speaker:'maestro', en:'It helps to think on your feet when things change.', es:'Ayuda pensar rápido cuando las cosas cambian.', pron:'it jelps tu zink on iór fíit uén zings chéinch.'},
+    {speaker:'alumno', en:'Sure, or we need to go back to the drawing board.', es:'Claro, o necesitamos volver a empezar de cero.', pron:'shur, or uí níid tu góu bak tu de dróing bord.'},
+    {speaker:'maestro', en:'Try to read between the lines in this email.', es:'Trata de leer entre líneas en este correo.', pron:'trái tu ríid bituíin de láins in dis íimeil.'},
+    {speaker:'alumno', en:'I will, but it helps to keep your options open too.', es:'Lo haré, pero también ayuda mantener las opciones abiertas.', pron:'ái uil, bat it jelps tu kíip iór ápshions óupen tu.'},
+    {speaker:'maestro', en:'It\'s smart to take it with a grain of salt for now.', es:'Es inteligente tomarlo con pinzas por ahora.', pron:'its smart tu téik it uid a gréin of solt for náu.'},
+    {speaker:'alumno', en:'We\'re all in the same boat here — nice to be in the same boat with you.', es:'Estamos todos en el mismo barco acá — que bueno estar en el mismo barco contigo.', pron:'uír ol in de séim bóut jíar — náis tu bi in de séim bóut uid iú.'}
+  ],
+  128: [
+    {speaker:'maestro', en:'Our subscription model needs adjustment.', es:'Nuestro modelo de suscripción necesita ajuste.', pron:'áur sabscrípshion mádel níids ayástment.'},
+    {speaker:'alumno', en:'Is recurring revenue growing this quarter?', es:'¿Los ingresos recurrentes están creciendo este trimestre?', pron:'is rikéring révenu gróuing dis cuórter?'},
+    {speaker:'maestro', en:'Yes, but our churn rate increased slightly.', es:'Sí, pero nuestra tasa de cancelación aumentó un poco.', pron:'iés, bat áur chern réit incrísd sláitli.'},
+    {speaker:'alumno', en:'What about customer lifetime value?', es:'¿Y qué tal el valor de vida del cliente?', pron:'uát abáut cástomer láiftaim váliu?'},
+    {speaker:'maestro', en:'It\'s improving, especially after the free trial period.', es:'Está mejorando, especialmente después del período de prueba gratuita.', pron:'its imprúuving, espéshali áfter de fríi tráial píriod.'},
+    {speaker:'alumno', en:'Should we add a new subscription tier?', es:'¿Deberíamos agregar un nuevo nivel de suscripción?', pron:'shud uí ad a niú sabscrípshion tíar?'},
+    {speaker:'maestro', en:'Maybe, with better auto-renewal and cancellation policy options.', es:'Tal vez, con mejores opciones de renovación automática y política de cancelación.', pron:'méibi, uid béter óto-riniúal and canseléishion pálisi ápshions.'},
+    {speaker:'alumno', en:'What about an upsell opportunity in our pricing plan?', es:'¿Y qué tal una oportunidad de venta adicional en nuestro plan de precios?', pron:'uát abáut an ápsel oportiúniti in áur práising plan?'}
+  ],
+  129: [
+    {speaker:'maestro', en:'We\'re considering opening a new franchise.', es:'Estamos considerando abrir una nueva franquicia.', pron:'uír cansídering óupening a niú fránchais.'},
+    {speaker:'alumno', en:'Would you be the franchisee, or the franchisor?', es:'¿Serías el franquiciado, o el franquiciante?', pron:'uud iú bi de fránchaisíi, or de fránchaisor?'},
+    {speaker:'maestro', en:'I\'d be the franchisee, under a licensing agreement.', es:'Sería el franquiciado, bajo un acuerdo de licencia.', pron:'áid bi de fránchaisíi, ánder a láisensing agríiment.'},
+    {speaker:'alumno', en:'What\'s the royalty fee for this franchise?', es:'¿Cuál es la regalía para esta franquicia?', pron:'uáts de róialti fíi for dis fránchais?'},
+    {speaker:'maestro', en:'It\'s reasonable, and it follows strict brand standards.', es:'Es razonable, y sigue estándares de marca estrictos.', pron:'its ríizonabol, and it fálous strict brand stándards.'},
+    {speaker:'alumno', en:'Do you get exclusive territory rights?', es:'¿Obtienes derechos territoriales exclusivos?', pron:'du iú guet exclúsiv térritori ráits?'},
+    {speaker:'maestro', en:'Yes, and all intellectual property stays protected.', es:'Sí, y toda la propiedad intelectual queda protegida.', pron:'iés, and ol inteléctual práperti stéis pratéctid.'},
+    {speaker:'alumno', en:'Even the trademark is fully covered then.', es:'Hasta la marca registrada queda totalmente cubierta entonces.', pron:'íven de tréidmark is fúli cáverd den.'}
+  ],
+  130: [
+    {speaker:'maestro', en:'Our startup needs more venture capital.', es:'Nuestra startup necesita más capital de riesgo.', pron:'áur stártap níids mor vénchur cápital.'},
+    {speaker:'alumno', en:'Have you finished the pitch deck yet?', es:'¿Ya terminaste la presentación para inversores?', pron:'jav iú fínisht de pitch dek iét?'},
+    {speaker:'maestro', en:'Almost — we\'re also seeking seed funding.', es:'Casi — también estamos buscando financiamiento inicial.', pron:'ólmoust — uír ólsou síiking síid fánding.'},
+    {speaker:'alumno', en:'Is the minimum viable product ready?', es:'¿El producto mínimo viable está listo?', pron:'is de mínimum váiabol prádact rédi?'},
+    {speaker:'maestro', en:'Yes, and we\'re testing its scalability now.', es:'Sí, y estamos probando su escalabilidad ahora.', pron:'iés, and uír tésting its skéilabíliti náu.'},
+    {speaker:'alumno', en:'Should we pivot our business model?', es:'¿Deberíamos cambiar de rumbo nuestro modelo de negocio?', pron:'shud uí pívat áur bísnes mádel?'},
+    {speaker:'maestro', en:'Maybe, if it improves our exit strategy.', es:'Tal vez, si mejora nuestra estrategia de salida.', pron:'méibi, if it imprúuvs áur éxit stráteyi.'},
+    {speaker:'alumno', en:'Every entrepreneur faces that decision eventually.', es:'Cada emprendedor enfrenta esa decisión eventualmente.', pron:'évri antreprenúr féisis dat disíshion ivénchuali.'}
+  ],
+  131: [
+    {speaker:'maestro', en:'Our company values strong business ethics.', es:'Nuestra empresa valora una ética empresarial fuerte.', pron:'áur cámpani váliuz strong bísnes ézics.'},
+    {speaker:'alumno', en:'How\'s our corporate governance structure?', es:'¿Cómo está nuestra estructura de gobernanza corporativa?', pron:'jáus áur córporeit gávernans strákchur?'},
+    {speaker:'maestro', en:'Solid — everyone follows our code of conduct.', es:'Sólida — todos siguen nuestro código de conducta.', pron:'sálid — évriuan fálous áur kóud of cándact.'},
+    {speaker:'alumno', en:'What if someone is a whistleblower?', es:'¿Qué pasa si alguien es un denunciante?', pron:'uát if sámuan is a uísolblóuer?'},
+    {speaker:'maestro', en:'We protect them, and address any conflict of interest.', es:'Los protegemos, y abordamos cualquier conflicto de interés.', pron:'uí pratéct dem, and adrés éni cánflict of íntrest.'},
+    {speaker:'alumno', en:'Is transparency a priority here?', es:'¿La transparencia es una prioridad acá?', pron:'is transpárensi a priáriti jíar?'},
+    {speaker:'maestro', en:'Absolutely, along with real accountability.', es:'Absolutamente, junto con una verdadera rendición de cuentas.', pron:'ábsoliutli, alóng uid ríal acauntabíliti.'},
+    {speaker:'alumno', en:'The board of directors and compliance officer both agree.', es:'La junta directiva y el oficial de cumplimiento están de acuerdo, ambos.', pron:'de bord of diréctors and campláians áfiser bóuz agríi.'}
+  ],
+  132: [
+    {speaker:'maestro', en:'Welcome to unit eleven, review time!', es:'¡Bienvenido a la Unidad Once, hora de repaso!', pron:'uélcam tu iúnit iléven, riviú táim!'},
+    {speaker:'alumno', en:'Almost three quarters done with the whole course.', es:'Ya casi tres cuartos de todo el curso.', pron:'ólmoust zríi cuórters dan uid de jóul cors.'},
+    {speaker:'maestro', en:'Staying focused really pays off.', es:'Mantenerse enfocado realmente vale la pena.', pron:'stéing fóucasd ríali péis of.'},
+    {speaker:'alumno', en:'Well done — you\'ve made it to the final third.', es:'Bien hecho — llegaste al tercio final.', pron:'uél dan — iúv méid it tu de fáinal zerd.'},
+    {speaker:'maestro', en:'I\'m proud of this progress.', es:'Estoy orgulloso de este progreso.', pron:'áim práud of dis prógres.'},
+    {speaker:'alumno', en:'See you in unit twelve, next unit!', es:'¡Nos vemos en la Unidad Doce, la próxima unidad!', pron:'síi iú in iúnit tuélv, next iúnit!'}
+  ],
+  133: [
+    {speaker:'maestro', en:'Our public relations team needs to manage media relations today.', es:'Nuestro equipo de relaciones públicas necesita manejar las relaciones con los medios hoy.', pron:'áur páblic riléishions tíim níids tu mánach mídia riléishions tudéi.'},
+    {speaker:'alumno', en:'Is our public image at risk after that news story?', es:'¿Nuestra imagen pública está en riesgo después de esa noticia?', pron:'is áur páblic ímich at risk áfter dat niús stóri?'},
+    {speaker:'maestro', en:'We\'re preparing for a press conference tomorrow.', es:'Nos estamos preparando para una conferencia de prensa mañana.', pron:'uír pripéring for a pres cánferens tumórou.'},
+    {speaker:'alumno', en:'Good, is the media kit ready with talking points?', es:'Bien, ¿el kit de prensa está listo con los puntos clave?', pron:'gud, is de mídia kit rédi uid tóking póints?'},
+    {speaker:'maestro', en:'Yes, and we\'re focused on crisis communication.', es:'Sí, y estamos enfocados en la comunicación de crisis.', pron:'iés, and uír fóucasd on cráisis camiunikéishion.'},
+    {speaker:'alumno', en:'How\'s our media coverage looking so far?', es:'¿Cómo se ve nuestra cobertura mediática hasta ahora?', pron:'jáus áur mídia cáverich lúking sóu far?'},
+    {speaker:'maestro', en:'Positive — this PR campaign really builds thought leadership.', es:'Positiva — esta campaña de relaciones públicas realmente construye liderazgo de pensamiento.', pron:'pázitiv — dis pi-ar campéin ríali bilds zot líidership.'},
+    {speaker:'alumno', en:'That\'s great news for the whole team.', es:'Esa es una gran noticia para todo el equipo.', pron:'dats gréit niús for de jóul tíim.'}
+  ],
+  134: [
+    {speaker:'maestro', en:'I\'m working on event planning for next month.', es:'Estoy trabajando en la planificación de eventos para el próximo mes.', pron:'áim uórking on ivént pláning for next manz.'},
+    {speaker:'alumno', en:'Are you the event coordinator for this one?', es:'¿Eres el coordinador de eventos para este?', pron:'ar iú de ivént coórdineitor for dis uán?'},
+    {speaker:'maestro', en:'Yes, and I\'m reviewing the budget breakdown now.', es:'Sí, y estoy revisando el desglose del presupuesto ahora.', pron:'iés, and áim riviúing de báchet bréikdáun náu.'},
+    {speaker:'alumno', en:'What about vendor management and the event timeline?', es:'¿Y qué tal la gestión de proveedores y el cronograma del evento?', pron:'uát abáut véndor mánechment and de ivént táimláin?'},
+    {speaker:'maestro', en:'Both are on track — I have the run of show ready too.', es:'Ambos van bien encaminados — también tengo listo el guion del evento.', pron:'bóuz ar on trak — ái jav de ran of shóu rédi tu.'},
+    {speaker:'alumno', en:'How\'s event logistics going overall?', es:'¿Cómo va la logística del evento en general?', pron:'jáus ivént loyístics góing óverol?'},
+    {speaker:'maestro', en:'Smooth so far — attendee registration opened this week.', es:'Sin problemas hasta ahora — el registro de asistentes abrió esta semana.', pron:'smúuz sóu far — aténdíi rechistréishion óupend dis uíik.'},
+    {speaker:'alumno', en:'Don\'t forget the event theme, and a post-event survey after.', es:'No te olvides del tema del evento, y una encuesta posterior después.', pron:'dont forguét de ivént zíim, and a póust-ivént sérvei áfter.'}
+  ],
+  135: [
+    {speaker:'maestro', en:'Retail management is getting harder this season.', es:'La gestión minorista se está poniendo más difícil esta temporada.', pron:'ríiteil mánechment is guéting járder dis síizon.'},
+    {speaker:'alumno', en:'What about inventory turnover — is it improving?', es:'¿Y qué tal la rotación de inventario — está mejorando?', pron:'uát abáut ínventori térnóver — is it imprúuving?'},
+    {speaker:'maestro', en:'Yes, and point of sale data looks better too.', es:'Sí, y los datos del punto de venta también se ven mejor.', pron:'iés, and póint of séil déita luks béter tu.'},
+    {speaker:'alumno', en:'Is foot traffic up in the store?', es:'¿El tráfico de personas está subiendo en la tienda?', pron:'is fut tráfic ap in de stor?'},
+    {speaker:'maestro', en:'A little, thanks to new visual merchandising.', es:'Un poco, gracias al nuevo merchandising visual.', pron:'a lítol, zenks tu niú víshual merchándaising.'},
+    {speaker:'alumno', en:'How are seasonal sales performing?', es:'¿Cómo están rindiendo las ventas de temporada?', pron:'jáu ar síizonal séils perfórming?'},
+    {speaker:'maestro', en:'Good — we changed the store layout for loss prevention.', es:'Bien — cambiamos la disposición de la tienda para la prevención de pérdidas.', pron:'gud — uí chéinchd de stor léiaut for los privénshion.'},
+    {speaker:'alumno', en:'Customer footfall and retail analytics both confirm it\'s working.', es:'El flujo de clientes y el análisis minorista, ambos confirman que está funcionando.', pron:'cástomer fútfol and ríiteil análytics bóuz canférm its uórking.'}
+  ],
+  136: [
+    {speaker:'maestro', en:'The hospitality industry depends on great service.', es:'La industria de la hospitalidad depende de un gran servicio.', pron:'de jaspitáliti índastri dipénds on gréit sérvis.'},
+    {speaker:'alumno', en:'How\'s guest experience at this hotel?', es:'¿Cómo es la experiencia del huésped en este hotel?', pron:'jáus guest expíriens at dis jóutel?'},
+    {speaker:'maestro', en:'Excellent — the concierge service is outstanding.', es:'Excelente — el servicio de conserjería es sobresaliente.', pron:'éxelent — de cánsierch sérvis is áutstánding.'},
+    {speaker:'alumno', en:'Does the tourism board recommend this travel package?', es:'¿La junta de turismo recomienda este paquete de viaje?', pron:'das de túrism bord récomend dis trável páquich?'},
+    {speaker:'maestro', en:'Yes, especially for group booking discounts.', es:'Sí, especialmente por los descuentos de reserva grupal.', pron:'iés, espéshali for grup búking díscáunts.'},
+    {speaker:'alumno', en:'What about the amenities here?', es:'¿Y qué tal las comodidades acá?', pron:'uát abáut de aménitis jíar?'},
+    {speaker:'maestro', en:'Very good, and the occupancy rate stays high.', es:'Muy buenas, y la tasa de ocupación se mantiene alta.', pron:'véri gud, and de ocupánsi réit stéis jái.'},
+    {speaker:'alumno', en:'Our tour operator says this is a top destination.', es:'Nuestro operador turístico dice que este es un destino de primera.', pron:'áur túr áporeitor séis dis is a tap destinéishion.'}
+  ],
+  137: [
+    {speaker:'maestro', en:'The entertainment industry keeps growing fast.', es:'La industria del entretenimiento sigue creciendo rápido.', pron:'de entertéinment índastri kíips gróuing fast.'},
+    {speaker:'alumno', en:'Did the talent agency sign a new client?', es:'¿La agencia de talento firmó a un cliente nuevo?', pron:'did de tálent éichensi sáin a niú cláient?'},
+    {speaker:'maestro', en:'Yes, and they\'re negotiating royalties now.', es:'Sí, y están negociando las regalías ahora.', pron:'iés, and déir nigóushieiting róialtis náu.'},
+    {speaker:'alumno', en:'How did box office numbers look this weekend?', es:'¿Cómo se vieron los números de taquilla este fin de semana?', pron:'jáu did bax áfis námbers luk dis uíikend?'},
+    {speaker:'maestro', en:'Strong, plus streaming rights added more revenue.', es:'Fuertes, además los derechos de transmisión agregaron más ingresos.', pron:'strong, plas stríiming ráits ádid mor révenu.'},
+    {speaker:'alumno', en:'Is the production company hiring?', es:'¿La productora está contratando?', pron:'is de pradákshion cámpani jáiring?'},
+    {speaker:'maestro', en:'Yes, they need a new creative director.', es:'Sí, necesitan un nuevo director creativo.', pron:'iés, déi níid a niú criéitiv diréctor.'},
+    {speaker:'alumno', en:'Content licensing really boosts audience engagement.', es:'La licencia de contenido realmente impulsa el compromiso de la audiencia.', pron:'cántent láisensing ríali busts ódiens enguéichment.'}
+  ],
+  138: [
+    {speaker:'maestro', en:'Government relations require careful planning.', es:'Las relaciones gubernamentales requieren una planificación cuidadosa.', pron:'gávernment riléishions ricuáiar kérful pláning.'},
+    {speaker:'alumno', en:'Is lobbying part of your job now?', es:'¿El cabildeo es parte de tu trabajo ahora?', pron:'is lábiing part of iór yab náu?'},
+    {speaker:'maestro', en:'Yes, mostly around public policy issues.', es:'Sí, mayormente en torno a temas de política pública.', pron:'iés, móustli aráund páblic pálisi íshus.'},
+    {speaker:'alumno', en:'What about regulatory affairs at your company?', es:'¿Y qué tal los asuntos regulatorios en tu empresa?', pron:'uát abáut réguiulatori afférs at iór cámpani?'},
+    {speaker:'maestro', en:'We work closely with an advocacy group there.', es:'Trabajamos de cerca con un grupo de defensa ahí.', pron:'uí uork clóusli uid an ádvocasi grup der.'},
+    {speaker:'alumno', en:'Did new legislation pass this year?', es:'¿Se aprobó nueva legislación este año?', pron:'did niú lechisléishion pas dis íar?'},
+    {speaker:'maestro', en:'Not yet, but there was a public hearing.', es:'Todavía no, pero hubo una audiencia pública.', pron:'nat iét, bat der uás a páblic jíaring.'},
+    {speaker:'alumno', en:'Every policy maker listens to a grassroots campaign eventually, since the political landscape keeps shifting.', es:'Cada responsable de políticas escucha a una campaña de base eventualmente, ya que el panorama político sigue cambiando.', pron:'évri pálisi méiker lísens tu a grásruts campéin ivénchuali, sins de palítical lándskeip kíips shífting.'}
+  ],
+  139: [
+    {speaker:'maestro', en:'Sometimes you just have to bite the bullet.', es:'A veces solo tienes que afrontar la situación.', pron:'sámtaims iú yast jav tu báit de búlet.'},
+    {speaker:'alumno', en:'Are we going to jump on the bandwagon too?', es:'¿También vamos a subirnos a la moda?', pron:'ar uí góing tu yamp on de bánduagon tu?'},
+    {speaker:'maestro', en:'This new product could be a game changer — it deserves to be a game changer for us.', es:'Este producto nuevo podría cambiarlo todo — se merece ser algo que lo cambie todo para nosotros.', pron:'dis niú prádact cud bi a guéim chéinyer — it disérvs tu bi a guéim chéinyer for as.'},
+    {speaker:'alumno', en:'We need to raise the bar for everyone.', es:'Necesitamos subir la vara para todos.', pron:'uí níid tu réis de bar for évriuan.'},
+    {speaker:'maestro', en:'Let\'s leave no stone unturned on this project — we plan to leave no stone unturned.', es:'No dejemos nada sin revisar en este proyecto — planeamos no dejar nada sin revisar.', pron:'lets líiv nóu stóun antérnd on dis práchect — uí plan tu líiv nóu stóun antérnd.'},
+    {speaker:'alumno', en:'Can we hit the ground running tomorrow? I want to hit the ground running.', es:'¿Podemos arrancar con todo mañana? Quiero arrancar con todo desde el principio.', pron:'can uí jit de gráund ráning tumórou? ái uánt tu jit de gráund ráning.'},
+    {speaker:'maestro', en:'You\'re in the driver\'s seat on this decision — nice to be in the driver\'s seat.', es:'Estás al mando en esta decisión — que bueno estar al mando.', pron:'iór in de dráivers síit on dis disíshion — náis tu bi in de dráivers síit.'},
+    {speaker:'alumno', en:'That means you get to call the shots.', es:'Eso significa que tú decides.', pron:'dat míins iú guet tu col de shats.'}
+  ],
+  140: [
+    {speaker:'maestro', en:'Our global supply chain needs a review.', es:'Nuestra cadena de suministro global necesita una revisión.', pron:'áur glóubal saplái chéin níids a riviú.'},
+    {speaker:'alumno', en:'How\'s our supplier relationship going?', es:'¿Cómo va nuestra relación con proveedores?', pron:'jáus áur sapláier riléishionship góing?'},
+    {speaker:'maestro', en:'Strong, and procurement costs are down.', es:'Fuerte, y los costos de adquisición bajaron.', pron:'strong, and procúrment costs ar dáun.'},
+    {speaker:'alumno', en:'What about inventory optimization?', es:'¿Y qué tal la optimización de inventario?', pron:'uát abáut ínventori optimizéishion?'},
+    {speaker:'maestro', en:'We improved that with just-in-time delivery.', es:'Mejoramos eso con la entrega justo a tiempo.', pron:'uí imprúuvd dat uid yast-in-táim delíveri.'},
+    {speaker:'alumno', en:'Is our logistics network reliable?', es:'¿Nuestra red logística es confiable?', pron:'is áur loyístics nétuork riláiabol?'},
+    {speaker:'maestro', en:'Yes, especially the distribution center.', es:'Sí, especialmente el centro de distribución.', pron:'iés, espéshali de distribiúshion sénter.'},
+    {speaker:'alumno', en:'Supply chain disruption led to new vendor negotiation and sourcing strategy.', es:'La interrupción de la cadena de suministro llevó a una nueva negociación con proveedores y estrategia de abastecimiento.', pron:'saplái chéin disrápshion led tu niú véndor nigoushiéishion and sórsing stráteyi.'}
+  ],
+  141: [
+    {speaker:'maestro', en:'The energy sector is changing fast.', es:'El sector energético está cambiando rápido.', pron:'de énerchi séctor is chéinying fast.'},
+    {speaker:'alumno', en:'Are natural resources still the main focus?', es:'¿Los recursos naturales siguen siendo el enfoque principal?', pron:'ar náchural risórsis stil de méin fóucas?'},
+    {speaker:'maestro', en:'Yes, especially oil and gas for now.', es:'Sí, especialmente el petróleo y el gas por ahora.', pron:'iés, espéshali óil and gas for náu.'},
+    {speaker:'alumno', en:'What about the mining industry?', es:'¿Y qué tal la industria minera?', pron:'uát abáut de máining índastri?'},
+    {speaker:'maestro', en:'Growing too, alongside renewable resources.', es:'También creciendo, junto con los recursos renovables.', pron:'gróuing tu, alóngsáid rinúabol risórsis.'},
+    {speaker:'alumno', en:'Is the extraction process improving?', es:'¿El proceso de extracción está mejorando?', pron:'is de extrákshion práses imprúuving?'},
+    {speaker:'maestro', en:'Somewhat, with better energy efficiency.', es:'Un poco, con mejor eficiencia energética.', pron:'sámuát, uid béter énerchi efíshiensi.'},
+    {speaker:'alumno', en:'Good resource management reduces environmental impact.', es:'Una buena gestión de recursos reduce el impacto ambiental.', pron:'gud risórs mánechment ridiúses environméntal ímpact.'}
+  ],
+  142: [
+    {speaker:'maestro', en:'Consumer goods sales are up this quarter.', es:'Las ventas de bienes de consumo subieron este trimestre.', pron:'cansiúmer guds séils ar ap dis cuórter.'},
+    {speaker:'alumno', en:'How\'s our brand portfolio performing?', es:'¿Cómo está rindiendo nuestra cartera de marcas?', pron:'jáus áur brand pórtfoulio perfórming?'},
+    {speaker:'maestro', en:'Well, across every product lifecycle stage.', es:'Bien, en cada etapa del ciclo de vida del producto.', pron:'uél, acrós évri prádact láifsaicol stéich.'},
+    {speaker:'alumno', en:'Are we planning market expansion?', es:'¿Estamos planeando una expansión de mercado?', pron:'ar uí pláning márket expánshion?'},
+    {speaker:'maestro', en:'Yes, through international distribution.', es:'Sí, a través de distribución internacional.', pron:'iés, zru internáshional distribiúshion.'},
+    {speaker:'alumno', en:'What about import regulations abroad?', es:'¿Y qué tal las regulaciones de importación en el extranjero?', pron:'uát abáut ímport reguleishions abród?'},
+    {speaker:'maestro', en:'We\'re studying local market adaptation now.', es:'Estamos estudiando la adaptación al mercado local ahora.', pron:'uír stádiing lóucal márket adaptéishion náu.'},
+    {speaker:'alumno', en:'Our global brand strategy needs more shelf space.', es:'Nuestra estrategia de marca global necesita más espacio en las estanterías.', pron:'áur glóubal brand stráteyi níids mor shelf spéis.'}
+  ],
+  143: [
+    {speaker:'maestro', en:'Telecommunications keeps evolving quickly.', es:'Las telecomunicaciones siguen evolucionando rápido.', pron:'telecamiunikéishions kíips ivólving cuíckli.'},
+    {speaker:'alumno', en:'Is our network infrastructure ready?', es:'¿Nuestra infraestructura de red está lista?', pron:'is áur nétuork infraestrákchur rédi?'},
+    {speaker:'maestro', en:'Mostly, though bandwidth is still limited.', es:'Mayormente, aunque el ancho de banda todavía es limitado.', pron:'móustli, dóu bánduidz is stil límitid.'},
+    {speaker:'alumno', en:'Which service provider do we use?', es:'¿Qué proveedor de servicio usamos?', pron:'uích sérvis prováider du uí iús?'},
+    {speaker:'maestro', en:'A reliable one, with a good data plan.', es:'Uno confiable, con un buen plan de datos.', pron:'a riláiabol uán, uid a gud déita plan.'},
+    {speaker:'alumno', en:'Is signal coverage strong in rural areas?', es:'¿La cobertura de señal es fuerte en zonas rurales?', pron:'is sígnal cáverich strong in rúral érias?'},
+    {speaker:'maestro', en:'Improving, thanks to new telecom regulation.', es:'Mejorando, gracias a la nueva regulación de telecomunicaciones.', pron:'imprúuving, zenks tu niú télecam reguleishion.'},
+    {speaker:'alumno', en:'Fiber optic expansion depends on our mobile carrier too.', es:'La expansión de fibra óptica también depende de nuestro operador móvil.', pron:'fáiber áptic expánshion dipénds on áur móubail cárier tu.'}
+  ],
+  144: [
+    {speaker:'maestro', en:'Welcome to unit twelve, review time!', es:'¡Bienvenido a la Unidad Doce, hora de repaso!', pron:'uélcam tu iúnit tuélv, riviú táim!'},
+    {speaker:'alumno', en:'Four fifths done — almost there.', es:'Cuatro quintos hecho — ya casi llegamos.', pron:'for fifzs dan — ólmoust der.'},
+    {speaker:'maestro', en:'Just one fifth remaining now.', es:'Solo un quinto restante ahora.', pron:'yast uán fifz riméining náu.'},
+    {speaker:'alumno', en:'You are truly unstoppable at this point.', es:'Eres verdaderamente imparable a esta altura.', pron:'iú ar trúli anstápabol at dis póint.'},
+    {speaker:'maestro', en:'The final stretch begins today.', es:'El tramo final empieza hoy.', pron:'de fáinal strech biguíns tudéi.'},
+    {speaker:'alumno', en:'See you in unit thirteen, next unit!', es:'¡Nos vemos en la Unidad Trece, la próxima unidad!', pron:'síi iú in iúnit zertíin, next iúnit!'}
+  ],
+  145: [
+    {speaker:'maestro', en:'I renewed my gym membership this week.', es:'Renové mi membresía del gimnasio esta semana.', pron:'ái riniúd mái yim mémbership dis uíik.'},
+    {speaker:'alumno', en:'Are you working with a personal trainer now?', es:'¿Estás trabajando con un entrenador personal ahora?', pron:'ar iú uórking uid a pérsonal tréiner náu?'},
+    {speaker:'maestro', en:'Yes, my workout routine includes more cardio.', es:'Sí, mi rutina de ejercicio incluye más cardio.', pron:'iés, mái uórkáut rutíin inclúuds mor cárdio.'},
+    {speaker:'alumno', en:'Do you also do strength training?', es:'¿También haces entrenamiento de fuerza?', pron:'du iú ólsou du strengz tréining?'},
+    {speaker:'maestro', en:'Every week — I\'m training for our sports team tournament.', es:'Cada semana — me estoy entrenando para el torneo de nuestro equipo deportivo.', pron:'évri uíik — áim tréining for áur sports tíim túrnament.'},
+    {speaker:'alumno', en:'Is your teammate a professional athlete?', es:'¿Tu compañero de equipo es un atleta profesional?', pron:'is iór tíimméit a proféshional ázlit?'},
+    {speaker:'maestro', en:'Almost — she just signed a sponsorship deal.', es:'Casi — ella acaba de firmar un contrato de patrocinio.', pron:'ólmoust — shi yast sáind a spánsorship díil.'},
+    {speaker:'alumno', en:'That\'s amazing for improving her fitness career too.', es:'Eso es increíble para mejorar también su carrera en el estado físico.', pron:'dats amézing for imprúuving jer fítnes karíir tu.'}
+  ],
+  146: [
+    {speaker:'maestro', en:'We\'re planning our wedding for next spring.', es:'Estamos planeando nuestra boda para la próxima primavera.', pron:'uír pláning áur uéding for next spring.'},
+    {speaker:'alumno', en:'Who\'s the wedding planner helping you?', es:'¿Quién es el organizador de bodas que te está ayudando?', pron:'jus de uéding pláner jélping iú?'},
+    {speaker:'maestro', en:'A great one — she organized my sister\'s wedding too.', es:'Uno excelente — ella también organizó la boda de mi hermana.', pron:'a gréit uán — shi órganaisd mái sísters uéding tu.'},
+    {speaker:'alumno', en:'Have you chosen the groom and bride\'s outfits yet?', es:'¿Ya elegiste los atuendos del novio y la novia?', pron:'jav iú chóusen de grum and bráids áutfits iét?'},
+    {speaker:'maestro', en:'Almost, and we\'re writing our wedding vows now.', es:'Casi, y estamos escribiendo nuestros votos matrimoniales ahora.', pron:'ólmoust, and uír ráiting áur uéding vóus náu.'},
+    {speaker:'alumno', en:'Who\'s the guest of honor at the reception?', es:'¿Quién es el invitado de honor en la recepción?', pron:'jus de guest of ánor at de riséption?'},
+    {speaker:'maestro', en:'My grandmother — it\'s also her anniversary that week.', es:'Mi abuela — también es su aniversario esa semana.', pron:'mái grándmader — its ólsou jer aniversari dat uíik.'},
+    {speaker:'alumno', en:'Let\'s make sure the celebration budget covers everything.', es:'Asegurémonos de que el presupuesto de celebración cubra todo.', pron:'lets méik shur de selebréishion báchet cávers évrizin.'}
+  ],
+  147: [
+    {speaker:'maestro', en:'I have to go to court next week.', es:'Tengo que ir al tribunal la próxima semana.', pron:'ái jav tu góu tu cort next uíik.'},
+    {speaker:'alumno', en:'Is the judge assigned to your case yet?', es:'¿Ya está asignado el juez a tu caso?', pron:'is de yach asáind tu iór kéis iét?'},
+    {speaker:'maestro', en:'Yes, and my lawyer is preparing the lawsuit.', es:'Sí, y mi abogado está preparando la demanda.', pron:'iés, and mái lóier is pripéring de lósut.'},
+    {speaker:'alumno', en:'Will there be a jury for this?', es:'¿Va a haber un jurado para esto?', pron:'uil der bi a yúri for dis?'},
+    {speaker:'maestro', en:'Probably, and I need to prepare my testimony.', es:'Probablemente, y necesito preparar mi testimonio.', pron:'prábabli, and ái níid tu pripér mái téstimoni.'},
+    {speaker:'alumno', en:'What outcome do you expect from the verdict?', es:'¿Qué resultado esperas del veredicto?', pron:'uát áutcam du iú expéct fram de vérdict?'},
+    {speaker:'maestro', en:'Hopefully fair — these legal proceedings take time.', es:'Espero que sea justo — estos procesos legales toman tiempo.', pron:'jóupfuli fer — díis líigal prosíidings téik táim.'},
+    {speaker:'alumno', en:'Could this end in a settlement instead of trial for the plaintiff?', es:'¿Esto podría terminar en un acuerdo en vez de juicio para el demandante?', pron:'cud dis end in a sétolment instéd of tráial for de pléintif?'}
+  ],
+  148: [
+    {speaker:'maestro', en:'I need to visit the bank branch today.', es:'Necesito visitar la sucursal del banco hoy.', pron:'ái níid tu vísit de bank branch tudéi.'},
+    {speaker:'alumno', en:'Can the teller help you with an overdraft issue?', es:'¿El cajero puede ayudarte con un problema de sobregiro?', pron:'can de téler jelp iú uid an óverdraft íshu?'},
+    {speaker:'maestro', en:'Yes, and I need my account statement too.', es:'Sí, y también necesito mi extracto de cuenta.', pron:'iés, and ái níid mái acáunt stéitment tu.'},
+    {speaker:'alumno', en:'Did you set up direct deposit already?', es:'¿Ya configuraste el depósito directo?', pron:'did iú set ap diréct dipázit olrédi?'},
+    {speaker:'maestro', en:'Yes, and I found the nearest ATM for online banking help.', es:'Sí, y encontré el cajero automático más cercano para ayuda con la banca en línea.', pron:'iés, and ái fáund de níarest éi-tí-em for ónláin bánking jelp.'},
+    {speaker:'alumno', en:'Is there a bank hold on your account?', es:'¿Hay una retención bancaria en tu cuenta?', pron:'is der a bank jóuld on iór acáunt?'},
+    {speaker:'maestro', en:'No, but I\'m below the minimum balance.', es:'No, pero estoy por debajo del saldo mínimo.', pron:'nóu, bat áim bilóu de mínimum bálans.'},
+    {speaker:'alumno', en:'Don\'t forget to check your safe deposit box while you\'re there.', es:'No te olvides de revisar tu caja de seguridad mientras estás ahí.', pron:'dont forguét tu chek iór séif dipázit bax uáil iór der.'}
+  ],
+  149: [
+    {speaker:'maestro', en:'Agriculture is central to this region\'s economy.', es:'La agricultura es central para la economía de esta región.', pron:'ágricalchur is séntral tu dis rícheons ecánomi.'},
+    {speaker:'alumno', en:'How was this year\'s crop and harvest?', es:'¿Cómo estuvo el cultivo y la cosecha de este año?', pron:'jáu uás dis íars crap and járvest?'},
+    {speaker:'maestro', en:'Good, thanks to better irrigation systems.', es:'Bien, gracias a mejores sistemas de riego.', pron:'gud, zenks tu béter irrigéishion sístems.'},
+    {speaker:'alumno', en:'Does the farmer also raise livestock?', es:'¿El agricultor también cría ganado?', pron:'das de fármer ólsou réis láivstok?'},
+    {speaker:'maestro', en:'Yes, alongside some organic farming too.', es:'Sí, junto con algo de agricultura orgánica también.', pron:'iés, alóngsáid sam organic fárming tu.'},
+    {speaker:'alumno', en:'Is agricultural export growing this year?', es:'¿La exportación agrícola está creciendo este año?', pron:'is agricúlchural éxport gróuing dis íar?'},
+    {speaker:'maestro', en:'Yes, especially with strong food safety standards.', es:'Sí, especialmente con fuertes estándares de seguridad alimentaria.', pron:'iés, espéshali uid strong fud séifti stándards.'},
+    {speaker:'alumno', en:'The crop yield really improved this season.', es:'El rendimiento de cultivo realmente mejoró esta temporada.', pron:'de crap iíld ríali imprúuvd dis síizon.'}
+  ],
+  150: [
+    {speaker:'maestro', en:'Let\'s try to keep it under wraps for now.', es:'Tratemos de mantenerlo en secreto por ahora.', pron:'lets trái tu kíip it ánder raps for náu.'},
+    {speaker:'alumno', en:'Should we try to go above and beyond on this project?', es:'¿Deberíamos tratar de hacer un esfuerzo extra en este proyecto?', pron:'shud uí trái tu góu abáv and bijánd on dis práchect?'},
+    {speaker:'maestro', en:'I need to be on the fence about the deadline still.', es:'Todavía necesito estar indeciso sobre la fecha límite.', pron:'ái níid tu bi on de fens abáut de dédláin stil.'},
+    {speaker:'alumno', en:'Let\'s try to get down to business then.', es:'Tratemos de ponernos a trabajar en serio entonces.', pron:'lets trái tu guet dáun tu bísnes den.'},
+    {speaker:'maestro', en:'I have to have a lot on your plate handled already, I know.', es:'Tengo que tener manejado ya lo que tienes encima, lo sé.', pron:'ái jav tu jav a lat on iór pléit jándeld olrédi, ái nóu.'},
+    {speaker:'alumno', en:'Are you starting to be in over your head with this workload?', es:'¿Estás empezando a estar sobrepasado con esta carga de trabajo?', pron:'ar iú stárting tu bi in óver iór jed uid dis uórklóud?'},
+    {speaker:'maestro', en:'Let\'s just try to play it by ear for today.', es:'Tratemos solo de improvisar sobre la marcha por hoy.', pron:'lets yast trái tu pléi it bái íar for tudéi.'},
+    {speaker:'alumno', en:'You should try to take the lead on the next meeting.', es:'Deberías tratar de tomar la delantera en la próxima reunión.', pron:'iú shud trái tu téik de líid on de next míiting.'}
+  ],
+  151: [
+    {speaker:'maestro', en:'I visited the construction site today.', es:'Visité el sitio de construcción hoy.', pron:'ái vísitid de canstrákshion sáit tudéi.'},
+    {speaker:'alumno', en:'Did the contractor bring the blueprint?', es:'¿El contratista trajo el plano?', pron:'did de cántractor bring de blúprint?'},
+    {speaker:'maestro', en:'Yes, and we already have the building permit.', es:'Sí, y ya tenemos el permiso de construcción.', pron:'iés, and uí olrédi jav de bílding pérmit.'},
+    {speaker:'alumno', en:'Is the scaffolding safe up there?', es:'¿El andamio está seguro allá arriba?', pron:'is de skáfolding séif ap der?'},
+    {speaker:'maestro', en:'The structural engineer checked it this morning.', es:'El ingeniero estructural lo revisó esta mañana.', pron:'de strákchural enyinír chekt it dis mórning.'},
+    {speaker:'alumno', en:'How\'s the construction crew doing overall?', es:'¿Cómo está el equipo de construcción en general?', pron:'jáus de canstrákshion cru dúing óverol?'},
+    {speaker:'maestro', en:'Good, they just passed a safety inspection.', es:'Bien, acaban de pasar una inspección de seguridad.', pron:'gud, déi yast pásd a séifti inspékshion.'},
+    {speaker:'alumno', en:'We ordered more building materials before the project deadline.', es:'Pedimos más materiales de construcción antes de la fecha límite del proyecto.', pron:'uí órderd mor bílding matírials bifór de práchect dédláin.'}
+  ],
+  152: [
+    {speaker:'maestro', en:'The automotive industry is very competitive now.', es:'La industria automotriz es muy competitiva ahora.', pron:'de otomótiv índastri is véri campétitiv náu.'},
+    {speaker:'alumno', en:'Is the assembly line running smoothly?', es:'¿La línea de ensamblaje está funcionando sin problemas?', pron:'is de asémbli láin ráning smúzli?'},
+    {speaker:'maestro', en:'Yes, and the vehicle design looks great.', es:'Sí, y el diseño del vehículo se ve genial.', pron:'iés, and de víjicol disáin luks gréit.'},
+    {speaker:'alumno', en:'Did the new prototype pass the crash test?', es:'¿El nuevo prototipo pasó la prueba de choque?', pron:'did de niú próutotáip pas de crash test?'},
+    {speaker:'maestro', en:'Yes, and fuel efficiency improved a lot.', es:'Sí, y la eficiencia de combustible mejoró mucho.', pron:'iés, and fiúel efíshiensi imprúuvd a lat.'},
+    {speaker:'alumno', en:'Are you building an electric vehicle too?', es:'¿También están construyendo un vehículo eléctrico?', pron:'ar iú bílding an iléctric víjicol tu?'},
+    {speaker:'maestro', en:'We are, working closely with our automotive supplier.', es:'Sí, trabajando de cerca con nuestro proveedor automotriz.', pron:'uí ar, uórking clóusli uid áur otomótiv sapláier.'},
+    {speaker:'alumno', en:'There was a small manufacturing defect, so we issued a recall.', es:'Hubo un pequeño defecto de fabricación, así que emitimos un retiro del mercado.', pron:'der uás a smol manyufáchuring dífect, sóu uí íshud a rikól.'}
+  ],
+  153: [
+    {speaker:'maestro', en:'The airline industry faced challenges this year.', es:'La industria aérea enfrentó desafíos este año.', pron:'de érláin índastri féisd chálenyis dis íar.'},
+    {speaker:'alumno', en:'Is the flight crew fully trained?', es:'¿La tripulación de vuelo está totalmente entrenada?', pron:'is de fláit cru fúli tréind?'},
+    {speaker:'maestro', en:'Yes, and air traffic control confirmed our schedule.', es:'Sí, y el control de tráfico aéreo confirmó nuestro horario.', pron:'iés, and er tráfic cantról canférmd áur squédiul.'},
+    {speaker:'alumno', en:'Did aircraft maintenance finish on time?', es:'¿El mantenimiento de aeronaves terminó a tiempo?', pron:'did érkraft méintenans fínish on táim?'},
+    {speaker:'maestro', en:'Almost, right before the boarding procedure started.', es:'Casi, justo antes de que empezara el procedimiento de embarque.', pron:'ólmoust, ráit bifór de bórding prosíyur stártid.'},
+    {speaker:'alumno', en:'Is there a cargo plane departing today too?', es:'¿También hay un avión de carga saliendo hoy?', pron:'is der a cárgo pléin dipárting tudéi tu?'},
+    {speaker:'maestro', en:'Yes, after pilot training wraps up this week.', es:'Sí, después de que termine el entrenamiento de pilotos esta semana.', pron:'iés, áfter páilat tréining raps ap dis uíik.'},
+    {speaker:'alumno', en:'Aviation safety matters more than any flight delay at airport operations.', es:'La seguridad de aviación importa más que cualquier demora de vuelo en las operaciones del aeropuerto.', pron:'éiviéishion séifti máters mor dan éni fláit diléi at érport aperéishions.'}
+  ],
+  154: [
+    {speaker:'maestro', en:'The shipping industry moves a lot of goods, including every cargo ship.', es:'La industria naviera mueve muchos bienes, incluido cada buque de carga.', pron:'de shíping índastri múuvs a lat of guds, inclúuding évri cárgo ship.'},
+    {speaker:'alumno', en:'Did the port authority approve the schedule?', es:'¿La autoridad portuaria aprobó el horario?', pron:'did de port ozóriti apruúv de squédiul?'},
+    {speaker:'maestro', en:'Yes, and the container terminal is ready.', es:'Sí, y la terminal de contenedores está lista.', pron:'iés, and de cantéiner términal is rédi.'},
+    {speaker:'alumno', en:'Does maritime law apply to this route?', es:'¿La ley marítima aplica a esta ruta?', pron:'das máritaim lo aplái tu dis rúut?'},
+    {speaker:'maestro', en:'Yes, and vessel capacity looks good this month.', es:'Sí, y la capacidad del buque se ve bien este mes.', pron:'iés, and vésel capásiti luks gud dis manz.'},
+    {speaker:'alumno', en:'Is the shipping route safe right now?', es:'¿La ruta de envío es segura ahora mismo?', pron:'is de shíping rúut séif ráit náu?'},
+    {speaker:'maestro', en:'Mostly, though a dock worker mentioned a delay.', es:'Mayormente, aunque un trabajador portuario mencionó una demora.', pron:'móustli, dóu a dak uórker ménshond a diléi.'},
+    {speaker:'alumno', en:'Customs inspection and marine insurance are both confirmed.', es:'La inspección de aduana y el seguro marítimo, ambos están confirmados.', pron:'cástoms inspékshion and marín inshúrans ar bóuz canférmd.'}
+  ],
+  155: [
+    {speaker:'maestro', en:'The fashion industry moves incredibly fast.', es:'La industria de la moda se mueve increíblemente rápido.', pron:'de fáshion índastri múuvs incrédibli fast.'},
+    {speaker:'alumno', en:'Is the fashion designer ready for the show?', es:'¿El diseñador de moda está listo para el desfile?', pron:'is de fáshion disáiner rédi for de shóu?'},
+    {speaker:'maestro', en:'Yes, the runway show starts tonight.', es:'Sí, el desfile empieza esta noche.', pron:'iés, de ránuei shóu starts tunáit.'},
+    {speaker:'alumno', en:'What textile are they using this season?', es:'¿Qué textil están usando esta temporada?', pron:'uát téxtail ar déi iúsing dis síizon?'},
+    {speaker:'maestro', en:'A new one, based on this year\'s fashion trend.', es:'Uno nuevo, basado en la tendencia de moda de este año.', pron:'a niú uán, béisd on dis íars fáshion trend.'},
+    {speaker:'alumno', en:'How\'s apparel manufacturing keeping up?', es:'¿Cómo se está manteniendo al día la fabricación de prendas?', pron:'jáus apárel manyufáchuring kíiping ap?'},
+    {speaker:'maestro', en:'Well, though retail fashion demands more speed.', es:'Bien, aunque la moda al por menor exige más velocidad.', pron:'uél, dóu ríiteil fáshion dimánds mor spíid.'},
+    {speaker:'alumno', en:'Everyone\'s excited for fashion week and every new garment.', es:'Todos están emocionados por la semana de la moda y cada prenda nueva.', pron:'évriuáns exsáitid for fáshion uíik and évri niú gárment.'}
+  ],
+  156: [
+    {speaker:'maestro', en:'Welcome to unit thirteen, review time!', es:'¡Bienvenido a la Unidad Trece, hora de repaso!', pron:'uélcam tu iúnit zertíin, riviú táim!'},
+    {speaker:'alumno', en:'Five sixths done — almost there.', es:'Cinco sextos hecho — ya casi llegamos.', pron:'fáiv sixzs dan — ólmoust der.'},
+    {speaker:'maestro', en:'Just one sixth to go now.', es:'Solo un sexto por recorrer ahora.', pron:'yast uán sixz tu góu náu.'},
+    {speaker:'alumno', en:'Keep the momentum going strong.', es:'Mantén el impulso fuerte.', pron:'kíip de moméntam góing strong.'},
+    {speaker:'maestro', en:'This has been an amazing unit.', es:'Esta ha sido una unidad increíble.', pron:'dis jas bin an amézing iúnit.'},
+    {speaker:'alumno', en:'See you in unit fourteen, next unit!', es:'¡Nos vemos en la Unidad Catorce, la próxima unidad!', pron:'síi iú in iúnit fórtíin, next iúnit!'}
+  ],
+  157: [
+    {speaker:'maestro', en:'The pharmaceutical industry moves very carefully.', es:'La industria farmacéutica se mueve con mucho cuidado.', pron:'de fármasiútical índastri múuvs véri kérfuli.'},
+    {speaker:'alumno', en:'Is this drug still in clinical trial?', es:'¿Este medicamento todavía está en ensayo clínico?', pron:'is dis drag stil in clínical tráial?'},
+    {speaker:'maestro', en:'Yes, waiting for final drug approval.', es:'Sí, esperando la aprobación final del medicamento.', pron:'iés, uéiting for fáinal drag apruúval.'},
+    {speaker:'alumno', en:'Will there be a generic drug version later?', es:'¿Va a haber una versión genérica después?', pron:'uil der bi a yenéric drag vérshion léiter?'},
+    {speaker:'maestro', en:'Probably, after patent expiration next year.', es:'Probablemente, después del vencimiento de la patente el próximo año.', pron:'prábabli, áfter pátent expiréishion next íar.'},
+    {speaker:'alumno', en:'Are the dosage instructions clear on the label?', es:'¿Las instrucciones de dosis están claras en la etiqueta?', pron:'ar de dóusich instrákshions clíar on de léibol?'},
+    {speaker:'maestro', en:'Yes, and it lists possible side effects too.', es:'Sí, y también lista posibles efectos secundarios.', pron:'iés, and it lists pásibol sáid ifécts tu.'},
+    {speaker:'alumno', en:'Is this a prescription drug, or over-the-counter for pharmaceutical research?', es:'¿Este es un medicamento con receta, o de venta libre para investigación farmacéutica?', pron:'is dis a priscrípshion drag, or óver-de-cáunter for fármasiútical risérch?'}
+  ],
+  158: [
+    {speaker:'maestro', en:'The gaming industry keeps surprising everyone.', es:'La industria de videojuegos sigue sorprendiendo a todos.', pron:'de guéiming índastri kíips serpráising évriuan.'},
+    {speaker:'alumno', en:'Is the game developer announcing a new title?', es:'¿El desarrollador de videojuegos está anunciando un título nuevo?', pron:'is de guéim divéloper anáunsing a niú táitol?'},
+    {speaker:'maestro', en:'Yes, for the next video game console.', es:'Sí, para la próxima consola de videojuegos.', pron:'iés, for de next vídio guéim cánsoul.'},
+    {speaker:'alumno', en:'Will there be in-game purchases again?', es:'¿Va a haber compras dentro del juego otra vez?', pron:'uil der bi in-guéim pérchasis aguén?'},
+    {speaker:'maestro', en:'Probably, along with fresh game design ideas.', es:'Probablemente, junto con ideas frescas de diseño de juego.', pron:'prábabli, alóng uid fresh guéim disáin aidías.'},
+    {speaker:'alumno', en:'How\'s the esports scene doing this year?', es:'¿Cómo está la escena de deportes electrónicos este año?', pron:'jáus de i-sports síin dúing dis íar?'},
+    {speaker:'maestro', en:'Growing fast, thanks to a powerful game engine.', es:'Creciendo rápido, gracias a un motor de juego potente.', pron:'gróuing fast, zenks tu a páuerful guéim énchin.'},
+    {speaker:'alumno', en:'We\'re still beta testing before releasing downloadable content to the gaming community.', es:'Todavía estamos en pruebas beta antes de lanzar contenido descargable a la comunidad de jugadores.', pron:'uír stil béita tésting bifór rilísing dáunlóudabol cántent tu de guéiming camiúniti.'}
+  ],
+  159: [
+    {speaker:'maestro', en:'I volunteer for a non-profit organization on weekends.', es:'Soy voluntario en una organización sin fines de lucro los fines de semana.', pron:'ái váluntíar for a nan-práfit orgánaiséishion on uíikends.'},
+    {speaker:'alumno', en:'Is it a charity, or something else?', es:'¿Es una obra benéfica, o algo más?', pron:'is it a chériti, or sámzin els?'},
+    {speaker:'maestro', en:'A charity — we just finished a fundraising campaign.', es:'Una obra benéfica — acabamos de terminar una campaña de recaudación de fondos.', pron:'a chériti — uí yast fínisht a fándréising campéin.'},
+    {speaker:'alumno', en:'Are there many donor contributions this year?', es:'¿Hay muchas contribuciones de donantes este año?', pron:'ar der méni dóunor cantribiúshions dis íar?'},
+    {speaker:'maestro', en:'Yes, plus new grant funding came through.', es:'Sí, además llegó nuevo financiamiento por subvención.', pron:'iés, plas niú grant fánding kéim zru.'},
+    {speaker:'alumno', en:'What social impact does your work have?', es:'¿Qué impacto social tiene tu trabajo?', pron:'uát sóushal ímpact das iór uork jav?'},
+    {speaker:'maestro', en:'A big one, especially through community outreach.', es:'Uno grande, especialmente a través del alcance comunitario.', pron:'a big uán, espéshali zru camiúniti áutrich.'},
+    {speaker:'alumno', en:'Do you keep your tax-exempt status every year?', es:'¿Mantienen su estatus exento de impuestos cada año?', pron:'du iú kíip iór tax-ixémpt stétus évri íar?'}
+  ],
+  160: [
+    {speaker:'maestro', en:'The publishing industry is changing fast.', es:'La industria editorial está cambiando rápido.', pron:'de páblishing índastri is chéinying fast.'},
+    {speaker:'alumno', en:'Did you finish your manuscript yet?', es:'¿Ya terminaste tu manuscrito?', pron:'did iú fínish iór mánuscrit iét?'},
+    {speaker:'maestro', en:'Almost, then I\'ll contact a literary agent.', es:'Casi, después voy a contactar a un agente literario.', pron:'ólmoust, den áil cántact a líterari éichent.'},
+    {speaker:'alumno', en:'Are you hoping for a big book deal?', es:'¿Esperas conseguir un gran contrato de libro?', pron:'ar iú jóuping for a big buk díil?'},
+    {speaker:'maestro', en:'Yes, and I\'m already talking with an editor.', es:'Sí, y ya estoy hablando con un editor.', pron:'iés, and áim olrédi tóking uid an éditor.'},
+    {speaker:'alumno', en:'What about the print run size?', es:'¿Y qué tal el tamaño de la tirada impresa?', pron:'uát abáut de print ran sáis?'},
+    {speaker:'maestro', en:'Small at first, plus an ebook format release.', es:'Pequeña al principio, más un lanzamiento en formato de libro electrónico.', pron:'smol at ferst, plas an íibuk fórmat rilís.'},
+    {speaker:'alumno', en:'We\'re planning the book launch, and I\'ll track the royalty statement closely.', es:'Estamos planeando el lanzamiento del libro, y voy a seguir de cerca la declaración de regalías.', pron:'uír pláning de buk lonch, and áil trak de róialti stéitment clóusli.'}
+  ],
+  161: [
+    {speaker:'maestro', en:'The security industry relies on strong systems.', es:'La industria de seguridad depende de sistemas fuertes.', pron:'de sikiúriti índastri riláis on strong sístems.'},
+    {speaker:'alumno', en:'Is the surveillance system fully updated?', es:'¿El sistema de vigilancia está totalmente actualizado?', pron:'is de servéilans sístem fúli apdéitid?'},
+    {speaker:'maestro', en:'Yes, as part of our risk management plan.', es:'Sí, como parte de nuestro plan de gestión de riesgos.', pron:'iés, as part of áur risk mánechment plan.'},
+    {speaker:'alumno', en:'Did everyone pass a background check?', es:'¿Todos pasaron una verificación de antecedentes?', pron:'did évriuan pas a bákgráund chek?'},
+    {speaker:'maestro', en:'Yes, and access control is strict here.', es:'Sí, y el control de acceso es estricto acá.', pron:'iés, and áccess cantról is strict jíar.'},
+    {speaker:'alumno', en:'How\'s physical security at this building?', es:'¿Cómo es la seguridad física en este edificio?', pron:'jáus fízical sikiúriti at dis bílding?'},
+    {speaker:'maestro', en:'Solid, based on a recent threat assessment.', es:'Sólida, basada en una evaluación de amenazas reciente.', pron:'sálid, béisd on a ríisent zret asésment.'},
+    {speaker:'alumno', en:'Do you need special security clearance for this emergency protocol?', es:'¿Necesitas autorización de seguridad especial para este protocolo de emergencia?', pron:'du iú níid spéshal sikiúriti clírans for dis emérgensi próutocal?'}
+  ],
+  162: [
+    {speaker:'maestro', en:'Let\'s try to break the ice before the meeting starts.', es:'Tratemos de romper el hielo antes de que empiece la reunión.', pron:'lets trái tu bréik de áis bifór de míiting starts.'},
+    {speaker:'alumno', en:'We need to cross that bridge when we come to it.', es:'Necesitamos cruzar ese puente cuando lleguemos a él.', pron:'uí níid tu cros dat brich uén uí cam tu it.'},
+    {speaker:'maestro', en:'Try to keep your eye on the ball during this project.', es:'Trata de mantener el ojo en la pelota durante este proyecto.', pron:'trái tu kíip iór ái on de bol dúring dis práchect.'},
+    {speaker:'alumno', en:'Don\'t try to turn the tables on me now.', es:'No trates de voltear la situación contra mí ahora.', pron:'dont trái tu tern de téibols on mi náu.'},
+    {speaker:'maestro', en:'Should we try to pull the plug on this idea?', es:'¿Deberíamos tratar de desconectar esta idea?', pron:'shud uí trái tu pul de plag on dis aidía?'},
+    {speaker:'alumno', en:'We seem to be back to square one again.', es:'Parece que estamos de vuelta al punto de partida otra vez.', pron:'uí síim tu bi bak tu scuér uán aguén.'},
+    {speaker:'maestro', en:'Please try to give someone the benefit of the doubt here.', es:'Por favor trata de darle a alguien el beneficio de la duda acá.', pron:'plíis trái tu guiv sámuan de bénefit of de dáut jíar.'},
+    {speaker:'alumno', en:'This situation really seems to hit close to home for me.', es:'Esta situación realmente parece tocarme muy de cerca.', pron:'dis situéishion ríali síims tu jit clóus tu jóum for mi.'}
+  ],
+  163: [
+    {speaker:'maestro', en:'Urban planning is a big topic in this city.', es:'La planificación urbana es un tema importante en esta ciudad.', pron:'érban pláning is a big tápic in dis síti.'},
+    {speaker:'alumno', en:'Are the current zoning laws outdated?', es:'¿Las leyes de zonificación actuales están desactualizadas?', pron:'ar de cárent sóuning los áutdeitid?'},
+    {speaker:'maestro', en:'Somewhat, especially for infrastructure development.', es:'Un poco, especialmente para el desarrollo de infraestructura.', pron:'sámuát, espéshali for infraestrákchur divélopment.'},
+    {speaker:'alumno', en:'Is public transportation improving downtown?', es:'¿El transporte público está mejorando en el centro?', pron:'is páblic transportéishion imprúuving dáuntaun?'},
+    {speaker:'maestro', en:'Yes, and city council approved more funding.', es:'Sí, y el concejo municipal aprobó más financiamiento.', pron:'iés, and síti cáunsil apruúvd mor fánding.'},
+    {speaker:'alumno', en:'How\'s land use handled for urban development?', es:'¿Cómo se maneja el uso del suelo para el desarrollo urbano?', pron:'jáus land iús jándeld for érban divélopment?'},
+    {speaker:'maestro', en:'Carefully, with better traffic management now.', es:'Con cuidado, con mejor gestión del tráfico ahora.', pron:'kérfuli, uid béter tráfic mánechment náu.'},
+    {speaker:'alumno', en:'This city wants more public space, and to become a sustainable city.', es:'Esta ciudad quiere más espacio público, y convertirse en una ciudad sostenible.', pron:'dis síti uánts mor páblic spéis, and tu bicám a sastéinabol síti.'}
+  ],
+  164: [
+    {speaker:'maestro', en:'Mental health matters more at work now.', es:'La salud mental importa más en el trabajo ahora.', pron:'méntal jelz máters mor at uork náu.'},
+    {speaker:'alumno', en:'Does your company offer a wellness program?', es:'¿Tu empresa ofrece un programa de bienestar?', pron:'das iór cámpani áfer a uélnes prógram?'},
+    {speaker:'maestro', en:'Yes, focused on stress management too.', es:'Sí, también enfocado en el manejo del estrés.', pron:'iés, fóucasd on stres mánechment tu.'},
+    {speaker:'alumno', en:'What about work-life integration?', es:'¿Y qué tal la integración entre trabajo y vida?', pron:'uát abáut uork-láif integréishion?'},
+    {speaker:'maestro', en:'Better lately, thanks to our employee assistance program.', es:'Mejor últimamente, gracias a nuestro programa de asistencia al empleado.', pron:'béter léitli, zenks tu áur emplóii asístans prógram.'},
+    {speaker:'alumno', en:'Do you practice mindfulness at all?', es:'¿Practicas atención plena de alguna forma?', pron:'du iú práctis máindfulnes at ol?'},
+    {speaker:'maestro', en:'Sometimes, mostly for burnout prevention.', es:'A veces, principalmente para prevenir el agotamiento.', pron:'sámtaims, móustli for bérnáut privénshion.'},
+    {speaker:'alumno', en:'There\'s more mental health awareness now, plus counseling services and a self-care routine.', es:'Hay más conciencia sobre la salud mental ahora, más servicios de consejería y una rutina de autocuidado.', pron:'ders mor méntal jelz auérnes náu, plas cáunseling sérvisis and a self-ker rutíin.'}
+  ],
+  165: [
+    {speaker:'maestro', en:'Our remote team meets differently now.', es:'Nuestro equipo remoto se reúne de forma distinta ahora.', pron:'áur rimóut tíim míits díferentli náu.'},
+    {speaker:'alumno', en:'Is virtual collaboration working well?', es:'¿La colaboración virtual está funcionando bien?', pron:'is vérchual calaboréishion uórking uél?'},
+    {speaker:'maestro', en:'Yes, especially with asynchronous work.', es:'Sí, especialmente con el trabajo asincrónico.', pron:'iés, espéshali uid eisínkronas uork.'},
+    {speaker:'alumno', en:'Are you living as a digital nomad?', es:'¿Estás viviendo como nómada digital?', pron:'ar iú líving as a díchital nóumad?'},
+    {speaker:'maestro', en:'Sort of, with a proper home office setup.', es:'Más o menos, con una configuración adecuada de oficina en casa.', pron:'sort of, uid a práper jóum áfis sétap.'},
+    {speaker:'alumno', en:'How\'s remote onboarding for new hires?', es:'¿Cómo es la incorporación remota para nuevas contrataciones?', pron:'jáus rimóut anbórding for niú jáiers?'},
+    {speaker:'maestro', en:'Smooth, despite time zone coordination challenges.', es:'Sin problemas, a pesar de los desafíos de coordinación de zonas horarias.', pron:'smúuz, dispáit táim sóun coórdineishion chálenyis.'},
+    {speaker:'alumno', en:'We even created a virtual water cooler for remote productivity in this hybrid work model.', es:'Hasta creamos un espacio virtual de charla informal para la productividad remota en este modelo de trabajo híbrido.', pron:'uí íven críeitid a vérchual uóter cúler for rimóut pradáctiviti in dis jáibrid uork mádel.'}
+  ],
+  166: [
+    {speaker:'maestro', en:'The food and beverage industry never stops changing.', es:'La industria de alimentos y bebidas nunca deja de cambiar.', pron:'de fud and béverich índastri néver stops chéinying.'},
+    {speaker:'alumno', en:'Is menu development your job now?', es:'¿El desarrollo del menú es tu trabajo ahora?', pron:'is méniu divélopment iór yab náu?'},
+    {speaker:'maestro', en:'Yes, based on the latest food trends.', es:'Sí, basado en las últimas tendencias alimentarias.', pron:'iés, béisd on de léitest fud trends.'},
+    {speaker:'alumno', en:'Does culinary innovation drive your restaurant chain?', es:'¿La innovación culinaria impulsa tu cadena de restaurantes?', pron:'das cúlineri inovéishion dráiv iór réstorant chéin?'},
+    {speaker:'maestro', en:'Definitely, along with better food distribution.', es:'Definitivamente, junto con mejor distribución de alimentos.', pron:'définitli, alóng uid béter fud distribiúshion.'},
+    {speaker:'alumno', en:'Are you working with a new beverage company?', es:'¿Estás trabajando con una nueva empresa de bebidas?', pron:'ar iú uórking uid a niú béverich cámpani?'},
+    {speaker:'maestro', en:'Yes, focused on sustainable sourcing too.', es:'Sí, también enfocada en abastecimiento sostenible.', pron:'iés, fóucasd on sastéinabol sórsing tu.'},
+    {speaker:'alumno', en:'We just finished a full round of taste testing this week.', es:'Acabamos de terminar una ronda completa de degustación esta semana.', pron:'uí yast fínisht a fúl ráund of téist tésting dis uíik.'}
+  ],
+  167: [
+    {speaker:'maestro', en:'Waste management needs constant attention.', es:'La gestión de residuos necesita atención constante.', pron:'uéist mánechment níids cánstant aténshion.'},
+    {speaker:'alumno', en:'Is the recycling program working well?', es:'¿El programa de reciclaje está funcionando bien?', pron:'is de risáikling prógram uórking uél?'},
+    {speaker:'maestro', en:'Yes, thanks to our local utility company.', es:'Sí, gracias a nuestra empresa local de servicios públicos.', pron:'iés, zenks tu áur lóucal iutíliti cámpani.'},
+    {speaker:'alumno', en:'What about water treatment nearby?', es:'¿Y qué tal el tratamiento de agua cerca?', pron:'uát abáut uóter tríitment níarbái?'},
+    {speaker:'maestro', en:'Solid, and the energy grid stays stable.', es:'Sólido, y la red eléctrica se mantiene estable.', pron:'sálid, and de énerchi grid stéis stéibol.'},
+    {speaker:'alumno', en:'Are we improving waste reduction efforts?', es:'¿Estamos mejorando los esfuerzos de reducción de residuos?', pron:'ar uí imprúuving uéist ridákshion éforts?'},
+    {speaker:'maestro', en:'Yes, and public utilities support that too.', es:'Sí, y los servicios públicos también apoyan eso.', pron:'iés, and páblic iutílitis sapórt dat tu.'},
+    {speaker:'alumno', en:'Sanitation services and infrastructure maintenance both follow strict environmental regulation.', es:'Los servicios de saneamiento y el mantenimiento de infraestructura, ambos siguen una regulación ambiental estricta.', pron:'sanitéishion sérvisis and infraestrákchur méintenans bóuz fálou strict environméntal reguleishion.'}
+  ],
+  168: [
+    {speaker:'maestro', en:'Welcome to unit fourteen, almost there!', es:'¡Bienvenido a la Unidad Catorce, ya casi llegamos!', pron:'uélcam tu iúnit fórtíin, ólmoust der!'},
+    {speaker:'alumno', en:'Only twelve days left now.', es:'Solo faltan doce días ahora.', pron:'óunli tuélv déis left náu.'},
+    {speaker:'maestro', en:'The final unit ahead feels exciting.', es:'La unidad final que viene se siente emocionante.', pron:'de fáinal iúnit ajéd fíils exsáiting.'},
+    {speaker:'alumno', en:'We are so close to finishing.', es:'Estamos tan cerca de terminar.', pron:'uí ar sóu clóus tu fínishing.'},
+    {speaker:'maestro', en:'See you in unit fifteen, the last unit!', es:'¡Nos vemos en la Unidad Quince, la última unidad!', pron:'síi iú in iúnit fiftíin, de last iúnit!'},
+    {speaker:'alumno', en:'Thanks, see you in the last unit!', es:'¡Gracias, nos vemos en la última unidad!', pron:'zenks, síi iú in de last iúnit!'}
+  ],
+  169: [
+    {speaker:'maestro', en:'This trade summit brings many countries together.', es:'Esta cumbre comercial reúne a muchos países.', pron:'dis tréid sámit brings méni cántris tugéder.'},
+    {speaker:'alumno', en:'Are diplomatic relations improving this year?', es:'¿Las relaciones diplomáticas están mejorando este año?', pron:'ar diplomátic riléishions imprúuving dis íar?'},
+    {speaker:'maestro', en:'Yes, especially after that bilateral agreement.', es:'Sí, especialmente después de ese acuerdo bilateral.', pron:'iés, espéshali áfter dat bailáteral agríiment.'},
+    {speaker:'alumno', en:'Is our delegation ready for the talks?', es:'¿Nuestra delegación está lista para las conversaciones?', pron:'is áur delegéishion rédi for de toks?'},
+    {speaker:'maestro', en:'Yes, focused on international cooperation.', es:'Sí, enfocada en la cooperación internacional.', pron:'iés, fóucasd on internáshional cooperéishion.'},
+    {speaker:'alumno', en:'What about the economic partnership discussion?', es:'¿Y qué tal la discusión sobre la asociación económica?', pron:'uát abáut de ecanámic pártnership discáshion?'},
+    {speaker:'maestro', en:'It\'s part of the treaty negotiation happening now.', es:'Es parte de la negociación de tratados que está pasando ahora.', pron:'its part of de tríti nigoushiéishion jápening náu.'},
+    {speaker:'alumno', en:'This cultural exchange helps the global economy, and it\'s right on the summit agenda.', es:'Este intercambio cultural ayuda a la economía global, y está justo en la agenda de la cumbre.', pron:'dis cálchural exchéinch jelps de glóubal ecánomi, and its ráit on de sámit ayénda.'}
+  ],
+  170: [
+    {speaker:'maestro', en:'Our team announced a scientific breakthrough today, after years of research and development.', es:'Nuestro equipo anunció un avance científico hoy, después de años de investigación y desarrollo.', pron:'áur tíim anáunsd a sáientific bréikzru tudéi, áfter íars of risérch and divélopment.'},
+    {speaker:'alumno', en:'Did this come from the university laboratory?', es:'¿Esto vino del laboratorio universitario?', pron:'did dis cam fram de iunivérsiti láboratori?'},
+    {speaker:'maestro', en:'Yes, after a thorough peer review process.', es:'Sí, después de un proceso de revisión por pares exhaustivo.', pron:'iés, áfter a zórou píar riviú práses.'},
+    {speaker:'alumno', en:'Was this funded by a research grant?', es:'¿Esto fue financiado por una subvención de investigación?', pron:'uás dis fánded bái a risérch grant?'},
+    {speaker:'maestro', en:'Partly, plus support from our innovation lab.', es:'En parte, más apoyo de nuestro laboratorio de innovación.', pron:'pártli, plas sapórt fram áur inovéishion lab.'},
+    {speaker:'alumno', en:'Are you filing a patent application soon?', es:'¿Van a presentar una solicitud de patente pronto?', pron:'ar iú fáiling a pátent aplikéishion súun?'},
+    {speaker:'maestro', en:'Yes, thanks to strong scientific collaboration.', es:'Sí, gracias a una fuerte colaboración científica.', pron:'iés, zenks tu strong sáientific colaboréishion.'},
+    {speaker:'alumno', en:'These research findings could lead to real technology transfer.', es:'Estos hallazgos de investigación podrían llevar a una verdadera transferencia de tecnología.', pron:'díis risérch fáindings cud líid tu ríal teknáloyi tránsfer.'}
+  ],
+  171: [
+    {speaker:'maestro', en:'Our family believes strongly in philanthropy.', es:'Nuestra familia cree firmemente en la filantropía.', pron:'áur fámili bilíivs strongli in filántropi.'},
+    {speaker:'alumno', en:'Do you want to build a lasting legacy?', es:'¿Quieres construir un legado duradero?', pron:'du iú uánt tu bild a lásting légasi?'},
+    {speaker:'maestro', en:'Yes, through our charitable foundation.', es:'Sí, a través de nuestra fundación benéfica.', pron:'iés, zru áur chéritabol fáundeishion.'},
+    {speaker:'alumno', en:'Did you set up an endowment fund?', es:'¿Establecieron un fondo de dotación?', pron:'did iú set ap an indáument fand?'},
+    {speaker:'maestro', en:'Yes, focused on philanthropic giving long term.', es:'Sí, enfocado en la donación filantrópica a largo plazo.', pron:'iés, fóucasd on filantrópic guíving long term.'},
+    {speaker:'alumno', en:'Is social responsibility part of your values?', es:'¿La responsabilidad social es parte de sus valores?', pron:'is sóushal risponsibíliti part of iór váliuz?'},
+    {speaker:'maestro', en:'Absolutely, especially community investment.', es:'Absolutamente, especialmente la inversión en la comunidad.', pron:'ábsoliutli, espéshali camiúniti invéstment.'},
+    {speaker:'alumno', en:'This is really about legacy planning, and giving back to others.', es:'Esto realmente se trata de la planificación del legado, y retribuir a otros.', pron:'dis is ríali abáut légasi pláning, and guíving bak tu áders.'}
+  ],
+  172: [
+    {speaker:'maestro', en:'I started retirement planning last year.', es:'Empecé la planificación de jubilación el año pasado.', pron:'ái stártid ritáierment pláning last íar.'},
+    {speaker:'alumno', en:'Do you contribute to a pension fund?', es:'¿Contribuyes a un fondo de pensiones?', pron:'du iú cantríbiut tu a pénshion fand?'},
+    {speaker:'maestro', en:'Yes, along with personal retirement savings.', es:'Sí, junto con ahorros personales de jubilación.', pron:'iés, alóng uid pérsonal ritáierment séivings.'},
+    {speaker:'alumno', en:'Is financial independence your main goal?', es:'¿La independencia financiera es tu meta principal?', pron:'is fainánshial independéns iór méin góul?'},
+    {speaker:'maestro', en:'Yes, well before typical retirement age.', es:'Sí, mucho antes de la edad de jubilación típica.', pron:'iés, uél bifór típical ritáierment éich.'},
+    {speaker:'alumno', en:'Are you also doing estate planning?', es:'¿También estás haciendo planificación patrimonial?', pron:'ar iú ólsou dúing estéit pláning?'},
+    {speaker:'maestro', en:'Yes, to protect my future retirement lifestyle.', es:'Sí, para proteger mi futuro estilo de vida de jubilación.', pron:'iés, tu pratéct mái fiúchur ritáierment láifstáil.'},
+    {speaker:'alumno', en:'I\'m building a solid nest egg in my retirement account.', es:'Estoy construyendo un buen ahorro en mi cuenta de retiro.', pron:'áim bílding a sálid nest eg in mái ritáierment acáunt.'}
+  ],
+  173: [
+    {speaker:'maestro', en:'You will try to leave a lasting impression here.', es:'Vas a tratar de dejar una impresión duradera acá.', pron:'iú uil trái tu líiv a lásting impréshion jíar.'},
+    {speaker:'alumno', en:'It feels like we\'re starting to come full circle.', es:'Se siente como que estamos empezando a cerrar el círculo.', pron:'it fíils láik uír stárting tu cam fúl sércol.'},
+    {speaker:'maestro', en:'This idea will try to stand the test of time.', es:'Esta idea va a tratar de resistir el paso del tiempo.', pron:'dis aidía uil trái tu stand de test of táim.'},
+    {speaker:'alumno', en:'You really try to pave the way for others.', es:'Realmente tratas de abrir el camino para otros.', pron:'iú ríali trái tu péiv de uéi for áders.'},
+    {speaker:'maestro', en:'You will get to reap what you sow in the end.', es:'Vas a llegar a cosechar lo que siembras al final.', pron:'iú uil guet tu ríip uát iú sóu in de end.'},
+    {speaker:'alumno', en:'Did you try to rise to the occasion today?', es:'¿Trataste de estar a la altura de las circunstancias hoy?', pron:'did iú trái tu ráis tu de akéishion tudéi?'},
+    {speaker:'maestro', en:'I want to leave your mark on this project.', es:'Quiero que dejes tu huella en este proyecto.', pron:'ái uánt tu líiv iór mark on dis práchect.'},
+    {speaker:'alumno', en:'Let\'s try to go the distance together.', es:'Tratemos de llegar hasta el final juntos.', pron:'lets trái tu góu de dístans tugéder.'}
+  ],
+  174: [
+    {speaker:'maestro', en:'I\'m working on my personal branding this year.', es:'Estoy trabajando en mi marca personal este año.', pron:'áim uórking on mái pérsonal bránding dis íar.'},
+    {speaker:'alumno', en:'Is your professional reputation improving?', es:'¿Tu reputación profesional está mejorando?', pron:'is iór proféshional repiutéishion imprúuving?'},
+    {speaker:'maestro', en:'Yes, especially with a stronger online presence.', es:'Sí, especialmente con una presencia en línea más fuerte.', pron:'iés, espéshali uid a strónguer ónláin prézens.'},
+    {speaker:'alumno', en:'Did you update your personal website?', es:'¿Actualizaste tu sitio web personal?', pron:'did iú apdéit iór pérsonal uébsait?'},
+    {speaker:'maestro', en:'Yes, along with my career narrative.', es:'Sí, junto con mi narrativa de carrera.', pron:'iés, alóng uid mái karíir nárativ.'},
+    {speaker:'alumno', en:'What about your networking profile?', es:'¿Y qué tal tu perfil de networking?', pron:'uát abáut iór nétuorking próufail?'},
+    {speaker:'maestro', en:'Refreshed, with a clear personal values statement.', es:'Renovado, con una declaración clara de valores personales.', pron:'rifréshd, uid a clíar pérsonal váliuz stéitment.'},
+    {speaker:'alumno', en:'Reputation management, career milestones, and professional legacy all matter now.', es:'La gestión de la reputación, los hitos de carrera, y el legado profesional, todo importa ahora.', pron:'repiutéishion mánechment, karíir máilstouns, and proféshional légasi ol máter náu.'}
+  ],
+  175: [
+    {speaker:'maestro', en:'The future of work keeps changing fast.', es:'El futuro del trabajo sigue cambiando rápido.', pron:'de fiúchur of uork kíips chéinying fast.'},
+    {speaker:'alumno', en:'Is workplace automation affecting your job?', es:'¿La automatización laboral está afectando tu trabajo?', pron:'is uórkpleis otoméishion aféckting iór yab?'},
+    {speaker:'maestro', en:'Somewhat, especially given the skills gap.', es:'Un poco, especialmente dada la brecha de habilidades.', pron:'sámuát, espéshali guíven de skils gap.'},
+    {speaker:'alumno', en:'Are you focused on lifelong learning now?', es:'¿Estás enfocado en el aprendizaje continuo ahora?', pron:'ar iú fóucasd on láiflong lérning náu?'},
+    {speaker:'maestro', en:'Yes, to stay part of an adaptive workforce.', es:'Sí, para seguir siendo parte de una fuerza laboral adaptable.', pron:'iés, tu stéi part of an adáptiv uórkfors.'},
+    {speaker:'alumno', en:'What about emerging careers in your field?', es:'¿Y qué tal las carreras emergentes en tu campo?', pron:'uát abáut iméryin karíirs in iór fíild?'},
+    {speaker:'maestro', en:'Growing, despite technological disruption everywhere.', es:'Creciendo, a pesar de la disrupción tecnológica en todos lados.', pron:'gróuing, dispáit teknáloyical disrápshion évriuér.'},
+    {speaker:'alumno', en:'Workforce planning, upskilling, and career resilience matter more than ever.', es:'La planificación de la fuerza laboral, la mejora de habilidades, y la resiliencia profesional importan más que nunca.', pron:'uórkfors pláning, ápskiling, and karíir risíliens máter mor dan éver.'}
+  ],
+  176: [
+    {speaker:'maestro', en:'Real business acumen takes years to develop.', es:'La verdadera perspicacia empresarial toma años en desarrollarse.', pron:'ríal bísnes ákiuman téiks íars tu divélop.'},
+    {speaker:'alumno', en:'Is strategic thinking part of your daily work?', es:'¿El pensamiento estratégico es parte de tu trabajo diario?', pron:'is stratéyic zínking part of iór déili uork?'},
+    {speaker:'maestro', en:'Yes, especially in cross-functional collaboration.', es:'Sí, especialmente en la colaboración interfuncional.', pron:'iés, espéshali in cros-fánkshional calaboréishion.'},
+    {speaker:'alumno', en:'Does executive presence matter in meetings?', es:'¿La presencia ejecutiva importa en las reuniones?', pron:'das ecsékiutiv prézens máter in míitings?'},
+    {speaker:'maestro', en:'Definitely, along with a clear decision framework.', es:'Definitivamente, junto con un marco de decisión claro.', pron:'définitli, alóng uid a clíar disíshion fréimuork.'},
+    {speaker:'alumno', en:'How\'s your stakeholder management improving?', es:'¿Cómo está mejorando tu gestión de las partes interesadas?', pron:'jáus iór stéikjolder mánechment imprúuving?'},
+    {speaker:'maestro', en:'Better, thanks to growing business fluency.', es:'Mejor, gracias a la creciente fluidez de negocios.', pron:'béter, zenks tu gróuing bísnes flúensi.'},
+    {speaker:'alumno', en:'This comprehensive review really shows your professional growth toward mastery.', es:'Este repaso integral realmente muestra tu crecimiento profesional hacia el dominio.', pron:'dis camprijénsiv riviú ríali shóus iór proféshional gróuz tuórd mástri.'}
+  ],
+  177: [
+    {speaker:'maestro', en:'Good intercultural communication takes real effort.', es:'La buena comunicación intercultural toma verdadero esfuerzo.', pron:'gud intercálchural camiunikéishion téiks ríal éfort.'},
+    {speaker:'alumno', en:'Do you have a global mindset now?', es:'¿Tienes una mentalidad global ahora?', pron:'du iú jav a glóubal máindset náu?'},
+    {speaker:'maestro', en:'Yes, built through real cultural competence.', es:'Sí, construida a través de verdadera competencia cultural.', pron:'iés, bilt zru ríal cálchural cámpitens.'},
+    {speaker:'alumno', en:'Are diverse perspectives welcome on your team?', es:'¿Las perspectivas diversas son bienvenidas en tu equipo?', pron:'ar daivérs perspéctivs uélcam on iór tíim?'},
+    {speaker:'maestro', en:'Always, thanks to inclusive leadership.', es:'Siempre, gracias al liderazgo inclusivo.', pron:'ólueis, zenks tu inclúsiv líidership.'},
+    {speaker:'alumno', en:'How\'s your communication style adapting?', es:'¿Cómo se está adaptando tu estilo de comunicación?', pron:'jáus iór camiunikéishion stáil adápting?'},
+    {speaker:'maestro', en:'Well, especially working with a global team.', es:'Bien, especialmente trabajando con un equipo global.', pron:'uél, espéshali uórking uid a glóubal tíim.'},
+    {speaker:'alumno', en:'Cultural adaptability and respectful dialogue create unity in diversity.', es:'La adaptabilidad cultural y el diálogo respetuoso crean unidad en la diversidad.', pron:'cálchural adaptabíliti and rispéctful dáialog críeit iúniti in daivérsiti.'}
+  ],
+  178: [
+    {speaker:'maestro', en:'Tonight is our achievement celebration.', es:'Esta noche es nuestra celebración de logro.', pron:'tunáit is áur achíivment selebréishion.'},
+    {speaker:'alumno', en:'Is there a recognition ceremony too?', es:'¿También hay una ceremonia de reconocimiento?', pron:'is der a recognísion sériimoni tu?'},
+    {speaker:'maestro', en:'Yes, with a special award for everyone.', es:'Sí, con un premio especial para todos.', pron:'iés, uid a spéshal auórd for évriuan.'},
+    {speaker:'alumno', en:'This feels like a real milestone celebration.', es:'Esto se siente como una verdadera celebración de hito.', pron:'dis fíils láik a ríal máilstoun selebréishion.'},
+    {speaker:'maestro', en:'I\'m filled with gratitude for this accomplishment.', es:'Estoy lleno de gratitud por este logro.', pron:'áim fild uid grátitiud for dis acámplishment.'},
+    {speaker:'alumno', en:'This is truly a proud moment for all of us.', es:'Este es verdaderamente un momento de orgullo para todos nosotros.', pron:'dis is trúli a práud móument for ol of as.'},
+    {speaker:'maestro', en:'This hard-earned success marks our journey\'s end.', es:'Este éxito bien merecido marca el final de nuestro viaje.', pron:'dis jard-érnd sacsés marks áur yérnis end.'}
+  ],
+  179: [
+    {speaker:'maestro', en:'Tonight is our final review together.', es:'Esta noche es nuestro repaso final juntos.', pron:'tunáit is áur fáinal riviú tugéder.'},
+    {speaker:'alumno', en:'We\'re almost done with this whole course.', es:'Ya casi terminamos todo este curso.', pron:'uír ólmoust dan uid dis jóul cors.'},
+    {speaker:'maestro', en:'Just one day left now.', es:'Solo queda un día ahora.', pron:'yast uán déi left náu.'},
+    {speaker:'alumno', en:'I am so proud of you.', es:'Estoy muy orgulloso de ti.', pron:'ái am sóu práud of iú.'},
+    {speaker:'maestro', en:'This has been an incredible journey.', es:'Este ha sido un viaje increíble.', pron:'dis jas bin an incrédibol yérni.'},
+    {speaker:'alumno', en:'It was truly an unforgettable experience.', es:'Fue verdaderamente una experiencia inolvidable.', pron:'it uás trúli an anforguétabol expíriens.'},
+    {speaker:'maestro', en:'Are you ready for anything tomorrow?', es:'¿Estás listo para cualquier cosa mañana?', pron:'ar iú rédi for énizin tumórou?'},
+    {speaker:'alumno', en:'Yes, bring on the last lesson!', es:'¡Sí, que llegue la última lección!', pron:'iés, bring on de last léson!'}
+  ],
+  180: [
+    {speaker:'maestro', en:'Congratulations! You did it — course complete!', es:'¡Felicitaciones! Lo lograste — ¡curso completo!', pron:'cangrachuléishions! iú did it — cors camplíit!'},
+    {speaker:'alumno', en:'I feel truly fluent now.', es:'Me siento verdaderamente fluido ahora.', pron:'ái fíil trúli flúent náu.'},
+    {speaker:'maestro', en:'You are a confident speaker of English.', es:'Eres un hablante seguro de inglés.', pron:'iú ar a cánfident spíiker of ínglish.'},
+    {speaker:'alumno', en:'I am a real English user finally.', es:'Finalmente soy un usuario real del inglés.', pron:'ái am a ríal ínglish iúser fáinali.'},
+    {speaker:'maestro', en:'This is a lifelong skill I\'ll always have.', es:'Esta es una habilidad de por vida que siempre voy a tener.', pron:'dis is a láiflong skil áil ólueis jav.'},
+    {speaker:'alumno', en:'Let\'s celebrate this new chapter beginning.', es:'Celebremos este nuevo capítulo que empieza.', pron:'lets sélebreit dis niú cháper biguíning.'},
+    {speaker:'maestro', en:'Welcome, dragon graduate — you earned this!', es:'Bienvenido, graduado dragón — ¡te ganaste esto!', pron:'uélcam, drágon gráchueit — iú érnd dis!'}
   ]
 };
 
