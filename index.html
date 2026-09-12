@@ -397,6 +397,14 @@
       </div>
       <button class="primary" id="fnEntryBtn">Entrar →</button>
     </div>
+    <div class="dn-entry-card" id="kkEntryCard">
+      <div class="dn-entry-icon">🎤</div>
+      <div class="dn-entry-text">
+        <b>Karaoke — Canciones 100% en inglés</b>
+        <p>Una canción real por día desde el Día 15 — escuchá el audio, y escribí la letra en inglés que entendiste.</p>
+      </div>
+      <button class="primary" id="kkEntryBtn">Entrar →</button>
+    </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
   </div>
 
@@ -540,6 +548,34 @@
         <div id="fnPracticaHabladaNextRow" style="display:none; margin-top:12px;">
           <button class="primary" id="fnPracticaHabladaNextBtn">Siguiente →</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== KARAOKE — canciones 100% en inglés, práctica auditiva y de escritura ===== -->
+  <div id="karaokeModulo" style="display:none;">
+    <button class="ghost" id="kkBackBtn">← Volver al curso</button>
+    <div id="kkSongList">
+      <header style="margin:20px 0;">
+        <h2>🎤 Karaoke — Canciones 100% en inglés</h2>
+        <p class="sub">Elegí una canción, escuchá cómo suena, y escribí la letra en inglés que entendiste.</p>
+      </header>
+      <div id="kkSongListBox"></div>
+    </div>
+    <div id="kkSongDetalle" style="display:none;">
+      <button class="ghost" id="kkBackToListBtn">← Volver a las canciones</button>
+      <div class="dn-song-card">
+        <h2 id="kkSongTitulo"></h2>
+        <p class="sub">Escuchá la canción real, y andá siguiendo la pronunciación de cada línea abajo.</p>
+        <div id="kkAudioBox" style="margin:14px 0;"></div>
+        <div id="kkPronBox" class="syllabus-box"></div>
+        <p class="sub" style="margin-top:18px;"><b>Ahora escribí la letra en inglés:</b></p>
+        <textarea id="kkLyricsInput" rows="10" style="width:100%; background:var(--bg-panel-2); border:1px solid var(--border); border-radius:10px; padding:12px; color:var(--ink); font-family:'Inter',sans-serif; font-size:14px; resize:vertical;" placeholder="Escribí acá la letra completa, línea por línea..."></textarea>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <button class="primary" id="kkCheckBtn">Revisar mi letra</button>
+          <button class="ghost" id="kkRevealBtn">Ver la letra correcta</button>
+        </div>
+        <div id="kkResultBox" class="dn-review-feedback" style="display:none; margin-top:14px;"></div>
       </div>
     </div>
   </div>
@@ -740,6 +776,7 @@
 <script src="dragonnativo.js"></script>
 <script src="cognados.js"></script>
 <script src="fonetica.js"></script>
+<script src="karaoke.js"></script>
 <script src="evaluacion.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://checkout.wompi.co/widget.js"></script>
