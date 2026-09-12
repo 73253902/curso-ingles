@@ -86,7 +86,7 @@ const BASICO_CANCION_LYRICS = [
 
 const BASICO_JS = {
   titulo:"Fonética esencial — antes de empezar",
-  intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Podés escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Podés saltear esto y volver después, pero te va a servir desde la primera palabra.",
+  intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Puedes escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Puedes saltear esto y volver después, pero te va a servir desde la primera palabra.",
   grupos: [
     {titulo:"Vocal A", ejemplos:[{en:"late", es:"tarde", pron:"leit", nota:"A suena como EI"}, {en:"want", es:"querer", pron:"uont", nota:"A suena como O"}, {en:"cat", es:"gato", pron:"cat", nota:"A suena como A española"}]},
     {titulo:"Vocal E", ejemplos:[{en:"be", es:"ser/estar", pron:"bi", nota:"E suena como I"}, {en:"bed", es:"cama", pron:"bed", nota:"E suena parecido al español"}, {en:"name", es:"nombre", pron:"neim", nota:"la E final es muda"}]},
@@ -100,12 +100,12 @@ const BASICO_JS = {
     {titulo:"Combinación OU (frecuente, pero con varios sonidos)", ejemplos:[{en:"about", es:"sobre / acerca de", pron:"abáut", nota:"sonido más común: como AU"}, {en:"house", es:"casa", pron:"jáus", nota:"sonido más común: como AU"}]},
     {titulo:"Combinación OW (frecuente, tiene dos sonidos)", ejemplos:[{en:"now", es:"ahora", pron:"náu", nota:"como AU"}, {en:"snow", es:"nieve", pron:"esnóu", nota:"como O larga — el otro sonido posible"}, {en:"know", es:"saber / conocer", pron:"nóu", nota:"como O larga — ojo, la K es muda"}]}
   ],
-  cierre:"¡Muy bien! Ya tenés lo básico para defenderte — avanzá al Día 1 con confianza. Y si en algún momento querés ir mucho más profundo en la pronunciación, el módulo de Fonética te está esperando, con sus 5 capítulos completos y mucha más práctica escrita y hablada, para seguir mejorando cuando quieras."
+  cierre:"¡Muy bien! Ya tienes lo básico para defenderte — avanza al Día 1 con confianza. Y si en algún momento quieres ir mucho más profundo en la pronunciación, el módulo de Fonética te está esperando, con sus 5 capítulos completos y mucha más práctica escrita y hablada, para seguir mejorando cuando quieras."
 };
 
 const CAP2_JS = {
     id:2, nombre:"Capítulo 2", titulo:"Combinaciones de un solo sonido consistente", disponible:true,
-    intro:"Estas combinaciones de letras casi siempre suenan igual, sin importar en qué palabra aparezcan. Son las más fáciles de aprender, porque una vez que sabés el patrón, funciona casi siempre.",
+    intro:"Estas combinaciones de letras casi siempre suenan igual, sin importar en qué palabra aparezcan. Son las más fáciles de aprender, porque una vez que sabes el patrón, funciona casi siempre.",
     hacks: [
       {letra:"EE", titulo:"Hack 1: Doble \"EE\" → suena como \"I\"", ejemplos:[{en:"see", pron:"si", nota:"ver"}, {en:"street", pron:"estrít", nota:"calle"}, {en:"feet", pron:"fit", nota:"pies"}, {en:"tree", pron:"tri", nota:"árbol"}, {en:"green", pron:"grin", nota:"verde"}]},
       {letra:"OA", titulo:"Hack 2: \"OA\" → suena como \"OU\"", ejemplos:[{en:"boat", pron:"bóut", nota:"bote"}, {en:"coat", pron:"cóut", nota:"abrigo"}, {en:"road", pron:"róud", nota:"camino"}, {en:"soap", pron:"sóup", nota:"jabón"}]},
@@ -404,7 +404,7 @@ const fonetica = {
 
   function showPracticaHabladaItem(){
     if(practicaIdx>=practicaItems.length){
-      el('fnPracticaHabladaBox').innerHTML = '<b>¡Terminaste esta práctica!</b><br><span style="color:var(--muted); font-size:13px;">Podés repetirla cuantas veces quieras.</span>';
+      el('fnPracticaHabladaBox').innerHTML = '<b>¡Terminaste esta práctica!</b><br><span style="color:var(--muted); font-size:13px;">Puedes repetirla cuantas veces quieras.</span>';
       el('fnPracticaHabladaNextRow').style.display='flex';
       el('fnPracticaHabladaNextBtn').textContent='🔁 Repetir esta práctica';
       el('fnPracticaHabladaNextBtn').onclick = openPracticaHablada;
@@ -482,9 +482,9 @@ const fonetica = {
 
   window.addEventListener('DOMContentLoaded', ()=>{
     el('fnEntryBtn').onclick = openModule;
-    el('fnVerBasicoBtn').onclick = ()=>mostrarFoneticaBasico(true);
     el('fnBackBtn').onclick = closeModule;
     el('fnBackToCapsBtn').onclick = ()=>{ showView('capitulos'); renderCapList(); };
+    el('fnBackToCapsBtn2').onclick = ()=>{ showView('capitulos'); renderCapList(); };
     el('fnPracticaEscritaBtn').onclick = openPracticaEscrita;
     el('fnPracticaHabladaBtn').onclick = openPracticaHablada;
     el('fnBackFromPracticaEscritaBtn').onclick = ()=>{ showView('detalle'); };
