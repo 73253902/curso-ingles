@@ -112,6 +112,7 @@
   .cg-tabla{width:100%; border-collapse:collapse; margin-top:14px; font-size:14px;}
   .cg-tabla th{text-align:left; color:var(--es); border-bottom:1px solid var(--border); padding:8px 10px; font-size:13px;}
   .cg-tabla td{border-bottom:1px solid var(--border); padding:8px 10px;}
+  .syllabus-box .cg-tabla th{position:sticky; top:0; background:var(--bg-panel); z-index:1;}
   .cg-exc-titulo{color:var(--warn); font-weight:700; font-size:14px; margin-bottom:8px;}
   .cg-exc-item{font-size:13px; color:var(--muted); margin-bottom:6px; line-height:1.5;}
   .cg-es-grande{font-size:22px; font-weight:700;}
@@ -454,9 +455,12 @@
       <div class="dn-song-card">
         <h2 id="cgDetalleTitulo"></h2>
         <p class="sub" id="cgDetalleExplicacion"></p>
-        <button class="primary" id="cgPracticaBtn" style="margin:14px 0;">✍️ Practicar esta regla</button>
-        <div id="cgPalabrasBox"></div>
-        <div id="cgExcepcionesBox" style="margin-top:16px;"></div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;">
+          <button class="primary" id="cgPracticaBtn">✍️ Practicar esta regla</button>
+          <button class="primary" id="cgPracticaHabladaBtn">🎙️ Práctica hablada</button>
+        </div>
+        <div id="cgPalabrasBox" class="syllabus-box"></div>
+        <div id="cgExcepcionesBox" class="syllabus-box" style="margin-top:16px; max-height:260px;"></div>
       </div>
     </div>
     <div id="cgPracticaView" style="display:none;">
@@ -472,6 +476,17 @@
         <div id="cgPracticaFeedback" class="dn-review-feedback" style="display:none;"></div>
         <div id="cgPracticaNextRow" style="display:none;">
           <button class="primary" id="cgPracticaNextBtn">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+    <div id="cgPracticaHabladaView" style="display:none;">
+      <button class="ghost" id="cgBackFromPracticaHabladaBtn">← Volver a la regla</button>
+      <div class="dn-song-card">
+        <h2 id="cgPracticaHabladaTitulo"></h2>
+        <p class="sub" id="cgPracticaHabladaHint"></p>
+        <div id="cgPracticaHabladaBox" class="dn-review-prompt"></div>
+        <div id="cgPracticaHabladaNextRow" style="display:none; margin-top:12px;">
+          <button class="primary" id="cgPracticaHabladaNextBtn">Siguiente →</button>
         </div>
       </div>
     </div>
@@ -495,7 +510,7 @@
           <button class="primary" id="fnPracticaEscritaBtn">✍️ Práctica escrita</button>
           <button class="primary" id="fnPracticaHabladaBtn">🎙️ Práctica hablada</button>
         </div>
-        <div id="fnHacksBox"></div>
+        <div id="fnHacksBox" class="syllabus-box"></div>
         <p class="sub" id="fnConclusionBox" style="margin-top:16px;"></p>
         <button class="ghost" id="fnBackToCapsBtn2" style="width:100%; margin-top:16px;">← Volver a los capítulos</button>
       </div>

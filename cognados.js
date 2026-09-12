@@ -1589,6 +1589,7 @@ const cognados = {
     el('cgReglaList').style.display = view==='reglas' ? 'block' : 'none';
     el('cgReglaDetalle').style.display = view==='detalle' ? 'block' : 'none';
     el('cgPracticaView').style.display = view==='practica' ? 'block' : 'none';
+    el('cgPracticaHabladaView').style.display = view==='practicaHablada' ? 'block' : 'none';
   }
 
   function renderReglaList(){
@@ -1702,12 +1703,106 @@ const cognados = {
     };
   }
 
+  // ================= Práctica hablada (grabador propio, no comparte el del curso principal) =================
+  let recStreamCG=null, recMediaRecorderCG=null, recChunksCG=[], recIsRecordingCG=false;
+
+  function openPracticaHablada(){
+    const regla = cognados.reglas.find(r=>r.id===currentReglaId);
+    practicaItems = shuffle(regla.palabras).slice(0, Math.min(15, regla.palabras.length));
+    practicaIdx=0;
+    el('cgPracticaHabladaTitulo').textContent = 'Práctica hablada — '+regla.nombre;
+    el('cgPracticaHabladaHint').textContent = practicaItems.length+' palabras. Escuchá, grabate diciéndola, y compará.';
+    showView('practicaHablada');
+    showPracticaHabladaItem();
+  }
+
+  function showPracticaHabladaItem(){
+    if(practicaIdx>=practicaItems.length){
+      marcarReglaCompletada(currentReglaId);
+      el('cgPracticaHabladaBox').innerHTML = '<b>¡Terminaste esta práctica!</b><br><span style="color:var(--muted); font-size:13px;">✅ Regla completada — puedes repetirla cuantas veces quieras.</span>';
+      el('cgPracticaHabladaNextRow').style.display='flex';
+      el('cgPracticaHabladaNextBtn').textContent='🔁 Repetir esta práctica';
+      el('cgPracticaHabladaNextBtn').onclick = openPracticaHablada;
+      return;
+    }
+    const item = practicaItems[practicaIdx];
+    const box = el('cgPracticaHabladaBox');
+    box.innerHTML = '';
+
+    const palabraEs = document.createElement('div');
+    palabraEs.style.cssText='color:var(--muted); font-size:14px; margin-bottom:4px;';
+    palabraEs.textContent = item.es;
+    box.appendChild(palabraEs);
+
+    const palabra = document.createElement('div');
+    palabra.className='cg-es-grande';
+    palabra.textContent = item.en;
+    box.appendChild(palabra);
+
+    const listenBtn = document.createElement('button');
+    listenBtn.className='mic';
+    listenBtn.textContent='🔊 Escuchar pronunciación';
+    listenBtn.onclick = async ()=>{
+      listenBtn.disabled=true;
+      await speakHidden(item.en);
+      listenBtn.disabled=false;
+    };
+    box.appendChild(listenBtn);
+
+    const panel = document.createElement('div'); panel.className='record-panel'; panel.style.marginTop='14px';
+    const cgRecordBtn = document.createElement('button'); cgRecordBtn.className='ghost'; cgRecordBtn.textContent='🎙️ Grabame diciendo esta palabra';
+    const cgPlayback = document.createElement('audio'); cgPlayback.controls=true; cgPlayback.style.display='none';
+    const cgReRecordBtn = document.createElement('button'); cgReRecordBtn.className='ghost'; cgReRecordBtn.style.display='none'; cgReRecordBtn.textContent='🔁 Borrar y grabar de nuevo';
+    panel.appendChild(cgRecordBtn); panel.appendChild(cgPlayback); panel.appendChild(cgReRecordBtn);
+    box.appendChild(panel);
+
+    cgRecordBtn.onclick = async ()=>{
+      if(recIsRecordingCG){
+        if(recMediaRecorderCG && recMediaRecorderCG.state!=='inactive') recMediaRecorderCG.stop();
+        return;
+      }
+      try{
+        if(!recStreamCG){ recStreamCG = await navigator.mediaDevices.getUserMedia({audio:true}); }
+      }catch(e){
+        alert('No se pudo acceder al micrófono para grabar tu voz.');
+        return;
+      }
+      recChunksCG=[];
+      recMediaRecorderCG = new MediaRecorder(recStreamCG);
+      recMediaRecorderCG.ondataavailable = (e)=>{ if(e.data && e.data.size>0) recChunksCG.push(e.data); };
+      recMediaRecorderCG.onstop = ()=>{
+        recIsRecordingCG=false;
+        cgRecordBtn.textContent='🎙️ Grabame diciendo esta palabra';
+        const blob = new Blob(recChunksCG, {type: recMediaRecorderCG.mimeType || 'audio/webm'});
+        const url = URL.createObjectURL(blob);
+        cgPlayback.src = url;
+        cgPlayback.style.display='block';
+        cgReRecordBtn.style.display='inline-flex';
+        cgRecordBtn.style.display='none';
+      };
+      recMediaRecorderCG.start();
+      recIsRecordingCG=true;
+      cgRecordBtn.textContent='⏹ Detener mi grabación';
+    };
+    cgReRecordBtn.onclick = ()=>{
+      cgPlayback.style.display='none'; cgPlayback.removeAttribute('src');
+      cgReRecordBtn.style.display='none';
+      cgRecordBtn.style.display='inline-flex'; cgRecordBtn.textContent='🎙️ Grabame diciendo esta palabra';
+    };
+
+    el('cgPracticaHabladaNextRow').style.display='flex';
+    el('cgPracticaHabladaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
+    el('cgPracticaHabladaNextBtn').onclick = ()=>{ practicaIdx++; showPracticaHabladaItem(); };
+  }
+
   window.addEventListener('DOMContentLoaded', ()=>{
     el('cgEntryBtn').onclick = openModule;
     el('cgBackBtn').onclick = closeModule;
     el('cgBackToReglasBtn').onclick = ()=>{ showView('reglas'); renderReglaList(); };
     el('cgPracticaBtn').onclick = openPractica;
     el('cgBackFromPracticaBtn').onclick = ()=>{ showView('detalle'); };
+    el('cgPracticaHabladaBtn').onclick = openPracticaHablada;
+    el('cgBackFromPracticaHabladaBtn').onclick = ()=>{ showView('detalle'); };
     el('cgPracticaSendBtn').onclick = submitPracticaAnswer;
     el('cgPracticaInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submitPracticaAnswer(); });
     el('cgPracticaNextBtn').onclick = ()=>{ practicaIdx++; showPracticaItem(); };
