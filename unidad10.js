@@ -9,7 +9,7 @@ const curriculumUnidad10 = [
         {en:'I am looking to buy a house.', es:'Estoy buscando comprar una casa.', pron:'ái am lúking tu bái a jáus.'},
         {en:'I am looking to lease office space.', es:'Estoy buscando arrendar un espacio de oficina.', pron:'ái am lúking tu líis áfis spéis.'},
         {en:'I am not looking to sell right now.', es:'No estoy buscando vender ahora mismo.', pron:'ái am nat lúking tu sel ráit náu.'}
-      ], function:'decir qué tipo de propiedad buscás', stage:3,
+      ], function:'decir qué tipo de propiedad buscas', stage:3,
         transformations:{
           negative:{en:'I am not looking to rent an apartment.', es:'No estoy buscando alquilar un departamento.'},
           question:{en:'Are you looking to rent an apartment?', es:'¿Estás buscando alquilar un departamento?'},
@@ -81,7 +81,7 @@ const curriculumUnidad10 = [
     jingle:[
       {en:'Insurance policy, premium too!', es:'Póliza de seguro, ¡prima también!', pron:'inshúrans pálisi, príimium tú!'},
       {en:'Coverage limit, all for you!', es:'Límite de cobertura, ¡todo para ti!', pron:'cáverich límit, ol for iú!'},
-      {en:'File a claim, beneficiary clear!', es:'Presentá un reclamo, ¡beneficiario claro!', pron:'fáil a kléim, benefíshari clíar!'},
+      {en:'File a claim, beneficiary clear!', es:'Presenta un reclamo, ¡beneficiario claro!', pron:'fáil a kléim, benefíshari clíar!'},
       {en:'Insurance agent, risk assessment near!', es:'Agente de seguros, ¡evaluación de riesgo cerca!', pron:'inshúrans éiyent, risk asésment níar!'}
     ]
   },
@@ -200,7 +200,7 @@ const curriculumUnidad10 = [
     story:[
       {en:'I went to the government office to get a permit for my flying castle!', es:'¡Fui a la oficina gubernamental a sacar un permiso para mi castillo volador!', pron:'ái uént tu de gávernment áfis tu guét a pérmit for mái fláing cásol!'},
       {en:'My license renewal needs an application form, filled out in dragon ink.', es:'Mi renovación de licencia necesita un formulario de solicitud, completado con tinta de dragón.', pron:'mái láisens riniúal níids an aplikéishon form, fild áut in drágon ink.'},
-      {en:'The processing time is long — bring snacks to your in-person appointment!', es:'¡El tiempo de trámite es largo — llevá bocadillos a tu cita presencial!', pron:'de prásesing táim is long — bring snaks tu iór in pérson apóintment!'},
+      {en:'The processing time is long — bring snacks to your in-person appointment!', es:'¡El tiempo de trámite es largo — lleva bocadillos a tu cita presencial!', pron:'de prásesing táim is long — bring snaks tu iór in pérson apóintment!'},
       {en:'You can also use the online portal, with your identification document.', es:'También puedes usar el portal en línea, con tu documento de identidad.', pron:'iú can ólso iús de anláin pórtal, uid iór aidentifikéishon dókiument.'},
       {en:'After the fee payment, I received my approval letter — finally, official!', es:'Después del pago de la tasa, recibí mi carta de aprobación — ¡por fin, oficial!', pron:'áfter de fíi péiment, ái risívd mái apruvol léter — fáinali, ofíshal!'}
     ],
@@ -362,15 +362,15 @@ const curriculumUnidad10 = [
     story:[
       {en:"Tonight we celebrate at a fine dining castle — it's a formal event!", es:'¡Esta noche celebramos en un castillo de alta gama — es un evento formal!', pron:"tunáit uí sélebreit at a fáin dáining cásol — its a fórmal ivént!"},
       {en:'The catering includes roasted volcano vegetables, and the guest list has a thousand dragons.', es:'El servicio de banquetes incluye vegetales de volcán asado, y la lista de invitados tiene mil dragones.', pron:'de kéitering inclúuds róusted valkéinou véchtabols, and de guest list jas a záusand drágons.'},
-      {en:'Check the seating arrangement — the keynote speaker sits at the front!', es:'¡Revisá la distribución de asientos — el orador principal se sienta adelante!', pron:'chek de síiting aréinchment — de kíinóut spíiker sits at de frant!'},
+      {en:'Check the seating arrangement — the keynote speaker sits at the front!', es:'¡Revisa la distribución de asientos — el orador principal se sienta adelante!', pron:'chek de síiting aréinchment — de kíinóut spíiker sits at de frant!'},
       {en:'This corporate dinner requires an RSVP by tomorrow.', es:'Esta cena corporativa requiere confirmar asistencia para mañana.', pron:'dis córporeit díner rikuáiars an ar es víi píi bái tumórou.'},
-      {en:'The venue is beautiful, but check the dress code before you arrive!', es:'¡El lugar es hermoso, pero revisá el código de vestimenta antes de llegar!', pron:'de véniu is biútiful, bat chek de dres cóud bifór iú aráiv!'}
+      {en:'The venue is beautiful, but check the dress code before you arrive!', es:'¡El lugar es hermoso, pero revisa el código de vestimenta antes de llegar!', pron:'de véniu is biútiful, bat chek de dres cóud bifór iú aráiv!'}
     ],
     jingle:[
       {en:'Fine dining, formal event too!', es:'Restaurante de alta gama, ¡evento formal también!', pron:'fáin dáining, fórmal ivént tú!'},
       {en:'Catering, guest list for you!', es:'Servicio de banquetes, ¡lista de invitados para ti!', pron:'kéitering, guest list for iú!'},
       {en:'Seating, keynote speaker bright!', es:'Asientos, ¡orador principal brillante!', pron:'síiting, kíinóut spíiker bráit!'},
-      {en:'Corporate dinner, RSVP tonight!', es:'Cena corporativa, ¡confirmá esta noche!', pron:'córporeit díner, ar es víi píi tunáit!'}
+      {en:'Corporate dinner, RSVP tonight!', es:'Cena corporativa, ¡confirma esta noche!', pron:'córporeit díner, ar es víi píi tunáit!'}
     ]
   },
 {

@@ -211,7 +211,7 @@ const karaoke = {
     const porcentaje = Math.round((correctas/intentadas)*100);
     box.className = 'dn-review-feedback '+(porcentaje>=70?'ok':porcentaje>=40?'neutral':'retry');
     const avisoEs = faltaEspanol>0 ? ('<br><b style="color:var(--warn);">Te falta escribir la traducción al español en '+faltaEspanol+' línea(s) (marcadas en naranja).</b>') : '';
-    box.innerHTML = '<b>'+correctas+' de '+intentadas+' líneas en inglés correctas ('+porcentaje+'%)</b>'+avisoEs+'<br><span style="font-size:13px;">El inglés se revisa exacto (dictado) — el español es tu propio trabajo, no se califica como bien/mal, pero sí tenés que completarlo. Usá "Ver la letra correcta" para comparar tu traducción con una de referencia.</span>';
+    box.innerHTML = '<b>'+correctas+' de '+intentadas+' líneas en inglés correctas ('+porcentaje+'%)</b>'+avisoEs+'<br><span style="font-size:13px;">El inglés se revisa exacto (dictado) — el español es tu propio trabajo, no se califica como bien/mal, pero sí tienes que completarlo. Usa "Ver la letra correcta" para comparar tu traducción con una de referencia.</span>';
   }
 
   function revelarLetra(){
@@ -228,7 +228,7 @@ const karaoke = {
     const box = el('kkResultBox');
     box.style.display='block';
     box.className = 'dn-review-feedback neutral';
-    box.innerHTML = '<b>Te completamos el inglés, y agregamos una traducción de referencia debajo de cada campo en español.</b><br><span style="font-size:13px;">Tu traducción no se borró — compará tu propia versión con la referencia, no tiene que ser palabra por palabra igual.</span>';
+    box.innerHTML = '<b>Te completamos el inglés, y agregamos una traducción de referencia debajo de cada campo en español.</b><br><span style="font-size:13px;">Tu traducción no se borró — compara tu propia versión con la referencia, no tiene que ser palabra por palabra igual.</span>';
   }
 
   async function speakHidden(text){

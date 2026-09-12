@@ -40,7 +40,7 @@ const curriculumUnidad11 = [
       {en:'Touch base, follow through too!', es:'Ponete en contacto, ¡cumplí también!', pron:'tach béis, fálou zrú tú!'},
       {en:'Think outside the box, for you!', es:'Piensa fuera de lo convencional, ¡para ti!', pron:'zink áutsaid de bax, for iú!'},
       {en:'Same page, no cutting corners, go the extra mile!', es:'En sintonía, sin atajos, ¡esforzate más!', pron:'séim péich, nóu cáting córners, góu de éxtra máil!'},
-      {en:'Keep in the loop, bring it, circle back with style!', es:'Mantené informado, aportá, ¡retomá con estilo!', pron:'kíip in de lúup, bring it, sércol bak uid stáil!'}
+      {en:'Keep in the loop, bring it, circle back with style!', es:'Mantén informado, aporta, ¡retoma con estilo!', pron:'kíip in de lúup, bring it, sércol bak uid stáil!'}
     ]
   },
 {
@@ -74,9 +74,9 @@ const curriculumUnidad11 = [
     story:[
       {en:'Cultural sensitivity and business etiquette matter, even between dragons and wizards!', es:'¡La sensibilidad cultural y la etiqueta de negocios importan, hasta entre dragones y magos!', pron:'cálchural sensitíviti and bísnes étiket máter, íven bituín drágons and uísards!'},
       {en:'Greeting customs differ — some bow, some breathe a small puff of smoke!', es:'¡Las costumbres de saludo son distintas — algunos hacen una reverencia, otros exhalan una pequeña bocanada de humo!', pron:'gríiting cástoms dífer — sam báu, sam bríiz a smol paf of smóuk!'},
-      {en:'Gift giving is important, but check the punctuality expectations first!', es:'Dar regalos es importante, ¡pero primero revisá las expectativas de puntualidad!', pron:'guift guíving is impórtant, bat chek de panctualíti expectéishons ferst!'},
-      {en:'Dining etiquette varies — always ask about appropriate topics before dinner!', es:'¡La etiqueta en la mesa varía — siempre preguntá sobre temas apropiados antes de cenar!', pron:'dáining étiket véris — ólueis ask abáut apróupriet tápics bifór díner!'},
-      {en:'Watch the body language, and bring an interpreter after cross-cultural training!', es:'¡Prestá atención al lenguaje corporal, y llevá un intérprete después de la capacitación intercultural!', pron:'uátch de bádi lángüich, and bring an intérpreter áfter cros cálchural tréining!'}
+      {en:'Gift giving is important, but check the punctuality expectations first!', es:'Dar regalos es importante, ¡pero primero revisa las expectativas de puntualidad!', pron:'guift guíving is impórtant, bat chek de panctualíti expectéishons ferst!'},
+      {en:'Dining etiquette varies — always ask about appropriate topics before dinner!', es:'¡La etiqueta en la mesa varía — siempre pregunta sobre temas apropiados antes de cenar!', pron:'dáining étiket véris — ólueis ask abáut apróupriet tápics bifór díner!'},
+      {en:'Watch the body language, and bring an interpreter after cross-cultural training!', es:'¡Presta atención al lenguaje corporal, y lleva un intérprete después de la capacitación intercultural!', pron:'uátch de bádi lángüich, and bring an intérpreter áfter cros cálchural tréining!'}
     ],
     jingle:[
       {en:'Cultural sensitivity, etiquette too!', es:'Sensibilidad cultural, ¡etiqueta también!', pron:'cálchural sensitíviti, étiket tú!'},
@@ -118,7 +118,7 @@ const curriculumUnidad11 = [
       {en:'First, due diligence — we need an honest valuation of the treasure!', es:'¡Primero, debida diligencia — necesitamos una valuación honesta del tesoro!', pron:'ferst, diú díliyens — uí níid an ánest valiuéishon of de tréshur!'},
       {en:'The shareholders rejected the hostile takeover — no wizard steals our castle!', es:'¡Los accionistas rechazaron la toma de control hostil — ningún mago se roba nuestro castillo!', pron:'de shérjolders riyéctid de jástail téikóuver — nóu uísard stíils áur cásol!'},
       {en:"There is real synergy here — let's start the integration process!", es:'¡Hay sinergia real acá — empecemos el proceso de integración!', pron:"dér is ríil sínerchi jíar — lets start de integréishon práses!"},
-      {en:'Sign the letter of intent, and wait for the antitrust review!', es:'¡Firmá la carta de intención, y esperá la revisión antimonopolio!', pron:'sáin de léter of inténd, and uéit for de antitrást riviú!'}
+      {en:'Sign the letter of intent, and wait for the antitrust review!', es:'¡Firma la carta de intención, y espera la revisión antimonopolio!', pron:'sáin de léter of inténd, and uéit for de antitrást riviú!'}
     ],
     jingle:[
       {en:'Merger, acquisition, due diligence too!', es:'Fusión, adquisición, ¡debida diligencia también!', pron:'mércher, akuisíshon, diú díliyens tú!'},
@@ -199,7 +199,7 @@ const curriculumUnidad11 = [
     story:[
       {en:'Our brand identity includes a fierce logo design — a dragon breathing gold fire!', es:'¡Nuestra identidad de marca incluye un diseño de logo feroz — un dragón respirando fuego dorado!', pron:'áur brand aidéntiti inclúuds a fíars lóugou disáin — a drágon bríizing góuld fáiar!'},
       {en:'Our brand voice is bold, following strict brand guidelines.', es:'Nuestra voz de marca es audaz, siguiendo lineamientos de marca estrictos.', pron:'áur brand vóis is bóuld, fáloing strict brand gáidlains.'},
-      {en:'Our tagline says it all: "Fly Higher, Trade Smarter!"', es:'Nuestro eslogan lo dice todo: "¡Volá más alto, comerciá más inteligente!"', pron:'áur táglain séis it ol: "flái jáier, tréid smárter!"'},
+      {en:'Our tagline says it all: "Fly Higher, Trade Smarter!"', es:'Nuestro eslogan lo dice todo: "¡Vuela más alto, comercia más inteligente!"', pron:'áur táglain séis it ol: "flái jáier, tréid smárter!"'},
       {en:'Our brand equity grew after the rebranding and new visual identity!', es:'¡Nuestro valor de marca creció después del cambio de imagen y la nueva identidad visual!', pron:'áur brand écuiti grúu áfter de ribránding and niú víshual aidéntiti!'},
       {en:'Brand loyalty is strong — dragons never switch to another treasure company!', es:'¡La lealtad a la marca es fuerte — los dragones nunca cambian a otra empresa de tesoros!', pron:'brand lóialti is strong — drágons néver suítch tu anáder tréshur cámpani!'}
     ],
@@ -280,13 +280,13 @@ const curriculumUnidad11 = [
     ],
     story:[
       {en:'You hit the nail on the head, dragon! We finally see eye to eye.', es:'¡Diste en el clavo, dragón! Por fin estamos de acuerdo.', pron:'iú jit de néil on de jed, drágon! uí fáinali síi ái tu ái.'},
-      {en:"Think on your feet — or we'll go back to the drawing board!", es:'¡Pensá rápido — o vamos a volver a empezar de cero!', pron:"zink on iór fíit — or uíl góu bak tu de dróing bord!"},
-      {en:"Read between the lines, keep your options open, and take it with a grain of salt — we're all in the same boat!", es:'Leé entre líneas, mantené tus opciones abiertas, y tomalo con pinzas — ¡estamos todos en el mismo barco!', pron:"ríid bituín de láins, kíip iór ápshons óupen, and téik it uid a gréin of solt — uír ol in de séim bóut!"}
+      {en:"Think on your feet — or we'll go back to the drawing board!", es:'¡Piensa rápido — o vamos a volver a empezar de cero!', pron:"zink on iór fíit — or uíl góu bak tu de dróing bord!"},
+      {en:"Read between the lines, keep your options open, and take it with a grain of salt — we're all in the same boat!", es:'Lee entre líneas, mantén tus opciones abiertas, y tomalo con pinzas — ¡estamos todos en el mismo barco!', pron:"ríid bituín de láins, kíip iór ápshons óupen, and téik it uid a gréin of solt — uír ol in de séim bóut!"}
     ],
     jingle:[
       {en:'Hit the nail on the head, see eye to eye!', es:'Dar en el clavo, ¡estar de acuerdo!', pron:'jit de néil on de jed, síi ái tu ái!'},
-      {en:"Think on your feet, don't ask why!", es:'Pensá rápido, ¡sin preguntar por qué!', pron:"zink on iór fíit, dont ask uái!"},
-      {en:'Drawing board, read between the lines!', es:'Volver a empezar, ¡leé entre líneas!', pron:'dróing bord, ríid bituín de láins!'},
+      {en:"Think on your feet, don't ask why!", es:'Piensa rápido, ¡sin preguntar por qué!', pron:"zink on iór fíit, dont ask uái!"},
+      {en:'Drawing board, read between the lines!', es:'Volver a empezar, ¡lee entre líneas!', pron:'dróing bord, ríid bituín de láins!'},
       {en:"Grain of salt, same boat, we're doing fine!", es:'Con pinzas, mismo barco, ¡estamos bien!', pron:"gréin of solt, séim bóut, uír dúing fáin!"}
     ]
   },
@@ -321,9 +321,9 @@ const curriculumUnidad11 = [
     story:[
       {en:'Our subscription model gives us recurring revenue every single moon cycle!', es:'¡Nuestro modelo de suscripción nos da ingresos recurrentes cada ciclo lunar!', pron:'áur sabscrípshon mádol guivs as rikéring révenu évri síngol múun sáikol!'},
       {en:'The churn rate is low, and customer lifetime value keeps growing!', es:'¡La tasa de cancelación es baja, y el valor de vida del cliente sigue creciendo!', pron:'de chern réit is lóu, and cástomer láiftaim váliu kíips gróuing!'},
-      {en:'Try our free trial, then choose a subscription tier that fits your treasure!', es:'¡Probá nuestra prueba gratuita, y después elegí un nivel de suscripción que se ajuste a tu tesoro!', pron:'trái áur fríi tráial, den chúus a sabscrípshon tíar dat fits iór tréshur!'},
+      {en:'Try our free trial, then choose a subscription tier that fits your treasure!', es:'¡Prueba nuestra prueba gratuita, y después elige un nivel de suscripción que se ajuste a tu tesoro!', pron:'trái áur fríi tráial, den chúus a sabscrípshon tíar dat fits iór tréshur!'},
       {en:'Auto-renewal is easy, and our cancellation policy is fair.', es:'La renovación automática es fácil, y nuestra política de cancelación es justa.', pron:'óto riniúal is íisi, and áur canseléishon pálisi is fér.'},
-      {en:'Here is an upsell opportunity — check our premium pricing plan!', es:'¡Acá hay una oportunidad de venta adicional — mirá nuestro plan de precios premium!', pron:'jíar is an apsel aportiúniti — chek áur prímium práising plan!'}
+      {en:'Here is an upsell opportunity — check our premium pricing plan!', es:'¡Acá hay una oportunidad de venta adicional — mira nuestro plan de precios premium!', pron:'jíar is an apsel aportiúniti — chek áur prímium práising plan!'}
     ],
     jingle:[
       {en:'Subscription model, recurring too!', es:'Modelo de suscripción, ¡recurrente también!', pron:'sabscrípshon mádol, rikéring tú!'},

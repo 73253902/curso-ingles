@@ -1545,6 +1545,17 @@ const cognados = {
 
   function el(id){ return document.getElementById(id); }
 
+  // Mostrar una fila de "Siguiente" y llevarla a la vista — cuando se esconde el
+  // cuadro de escribir/grabar justo antes, la pantalla puede correrse y el primer
+  // toque en el botón puede fallar si el usuario no lo ve bien.
+  function mostrarNextRow(id){
+    const row = el(id);
+    row.style.display='flex';
+    if(typeof row.scrollIntoView === 'function'){
+      setTimeout(()=>{ row.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 30);
+    }
+  }
+
   // ================= Progreso de Cognados (independiente del progreso del curso principal) =================
   const CG_PROGRESO_KEY = 'cognados_progreso_v1';
 
@@ -1601,7 +1612,7 @@ const cognados = {
       const desbloqueada = reglaDesbloqueada(regla);
       let infoTxt;
       if(!regla.disponible){ infoTxt = 'Próximamente'; }
-      else if(!desbloqueada){ infoTxt = 'Completá la Regla '+(regla.id-1)+' para desbloquear'; }
+      else if(!desbloqueada){ infoTxt = 'Completa la Regla '+(regla.id-1)+' para desbloquear'; }
       else { infoTxt = regla.palabras.length+' palabras · '+regla.excepciones.length+' excepciones'; }
       card.innerHTML = '<div class="cg-regla-num">'+regla.id+(desbloqueada && regla.disponible && reglaCompletada(regla.id) ? ' ✅':'')+'</div>'
         +'<div class="cg-regla-info"><b>'+regla.nombre+' — '+regla.patron+'</b><p>'+infoTxt+'</p></div>'
@@ -1669,7 +1680,7 @@ const cognados = {
     // El modo admin no necesita completar cada palabra para poder seguir —
     // el botón "Siguiente" queda disponible de entrada, sin exigir respuesta.
     if(typeof isAdmin === 'function' && isAdmin()){
-      el('cgPracticaNextRow').style.display='flex';
+      mostrarNextRow('cgPracticaNextRow');
       el('cgPracticaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
     }
   }
@@ -1684,7 +1695,7 @@ const cognados = {
     practicaGraded++; if(isRight) practicaOk++;
     box.className='cg-practica-feedback '+(isRight?'ok':'retry');
     box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — la respuesta correcta era: ')+'"'+item.en+'"';
-    el('cgPracticaNextRow').style.display='flex';
+    mostrarNextRow('cgPracticaNextRow');
     el('cgPracticaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
   }
 
@@ -1694,7 +1705,7 @@ const cognados = {
     el('cgPracticaInput').style.display='none';
     el('cgPracticaSendBtn').style.display='none';
     el('cgPracticaFeedback').style.display='none';
-    el('cgPracticaNextRow').style.display='flex';
+    mostrarNextRow('cgPracticaNextRow');
     el('cgPracticaNextBtn').textContent='🔁 Repetir esta práctica';
     el('cgPracticaNextBtn').onclick = ()=>{
       el('cgPracticaInput').style.display='';
@@ -1711,7 +1722,7 @@ const cognados = {
     practicaItems = shuffle(regla.palabras).slice(0, Math.min(15, regla.palabras.length));
     practicaIdx=0;
     el('cgPracticaHabladaTitulo').textContent = 'Práctica hablada — '+regla.nombre;
-    el('cgPracticaHabladaHint').textContent = practicaItems.length+' palabras. Escuchá, grabate diciéndola, y compará.';
+    el('cgPracticaHabladaHint').textContent = practicaItems.length+' palabras. Escucha, grábate diciéndola, y compara.';
     showView('practicaHablada');
     showPracticaHabladaItem();
   }
@@ -1720,7 +1731,7 @@ const cognados = {
     if(practicaIdx>=practicaItems.length){
       marcarReglaCompletada(currentReglaId);
       el('cgPracticaHabladaBox').innerHTML = '<b>¡Terminaste esta práctica!</b><br><span style="color:var(--muted); font-size:13px;">✅ Regla completada — puedes repetirla cuantas veces quieras.</span>';
-      el('cgPracticaHabladaNextRow').style.display='flex';
+      mostrarNextRow('cgPracticaHabladaNextRow');
       el('cgPracticaHabladaNextBtn').textContent='🔁 Repetir esta práctica';
       el('cgPracticaHabladaNextBtn').onclick = openPracticaHablada;
       return;
@@ -1790,7 +1801,7 @@ const cognados = {
       cgRecordBtn.style.display='inline-flex'; cgRecordBtn.textContent='🎙️ Grabame diciendo esta palabra';
     };
 
-    el('cgPracticaHabladaNextRow').style.display='flex';
+    mostrarNextRow('cgPracticaHabladaNextRow');
     el('cgPracticaHabladaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
     el('cgPracticaHabladaNextBtn').onclick = ()=>{ practicaIdx++; showPracticaHabladaItem(); };
   }

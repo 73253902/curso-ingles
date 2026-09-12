@@ -241,9 +241,9 @@ const curriculumUnidad13 = [
     ],
     jingle:[
       {en:'Under wraps, above and beyond!', es:'En secreto, ¡mucho más de lo esperado!', pron:'ánder raps, abáv and biánd!'},
-      {en:'On the fence, down to business, respond!', es:'Indeciso, manos a la obra, ¡respondé!', pron:'on de fens, dáun tu bísnes, respánd!'},
+      {en:'On the fence, down to business, respond!', es:'Indeciso, manos a la obra, ¡responde!', pron:'on de fens, dáun tu bísnes, respánd!'},
       {en:'Lot on your plate, over your head!', es:'Mucho encima, ¡superado!', pron:'lat on iór pléit, óuver iór jed!'},
-      {en:'Play it by ear, take the lead instead!', es:'Improvisá, ¡tomá el mando en su lugar!', pron:'pléi it bái íar, téik de líid instéd!'}
+      {en:'Play it by ear, take the lead instead!', es:'Improvisa, ¡toma el mando en su lugar!', pron:'pléi it bái íar, téik de líid instéd!'}
     ]
   },
 {
@@ -474,20 +474,20 @@ const curriculumUnidad13 = [
       {en:'five sixths done', es:'cinco sextos hecho', pron:'fáiv sixzs dan', emoji:'📊'},
       {en:'almost there', es:'casi llegamos', pron:'ólmoust dér', emoji:'🏃'},
       {en:'one sixth to go', es:'un sexto por recorrer', pron:'uán sixz tu góu', emoji:'⏳'},
-      {en:'keep the momentum', es:'mantené el impulso', pron:'kíip de moméntum', emoji:'🚀'},
+      {en:'keep the momentum', es:'mantén el impulso', pron:'kíip de moméntum', emoji:'🚀'},
       {en:'see you in unit fourteen', es:'nos vemos en la unidad catorce', pron:'síi iú in iúnit fórtiin', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
       {en:"Welcome to unit thirteen's finale — five sixths done, unstoppable hero!", es:'¡Bienvenido al final de la unidad trece — cinco sextos hecho, héroe imparable!', pron:"uélcam tu iúnit zértiins fináli — fáiv sixzs dan, anstápabol jírou!"},
       {en:'Almost there — only one sixth to go!', es:'¡Casi llegamos — solo queda un sexto!', pron:'ólmoust dér — óunli uán sixz tu góu!'},
-      {en:'Keep the momentum, dragon trader!', es:'¡Mantené el impulso, comerciante de dragones!', pron:'kíip de moméntum, drágon tréider!'},
+      {en:'Keep the momentum, dragon trader!', es:'¡Mantén el impulso, comerciante de dragones!', pron:'kíip de moméntum, drágon tréider!'},
       {en:'See you in unit fourteen, legendary hero!', es:'¡Nos vemos en la unidad catorce, héroe legendario!', pron:'síi iú in iúnit fórtiin, léyendari jírou!'}
     ],
     jingle:[
       {en:'Unit thirteen, five sixths done!', es:'Unidad trece, ¡cinco sextos hecho!', pron:'iúnit zértiin, fáiv sixzs dan!'},
       {en:'Almost there, having fun!', es:'Casi llegamos, ¡divirtiéndote!', pron:'ólmoust dér, jávin fan!'},
-      {en:'One sixth to go, keep the flame!', es:'Un sexto por recorrer, ¡mantené la llama!', pron:'uán sixz tu góu, kíip de fléim!'},
+      {en:'One sixth to go, keep the flame!', es:'Un sexto por recorrer, ¡mantén la llama!', pron:'uán sixz tu góu, kíip de fléim!'},
       {en:'See you in unit fourteen, same old game!', es:'Nos vemos en la unidad catorce, ¡el mismo juego de siempre!', pron:'síi iú in iúnit fórtiin, séim óuld guéim!'}
     ]
   }

@@ -39,7 +39,7 @@ const curriculumUnidad2 = [
       {en:'Welcome to my house — it floats above the clouds!', es:'¡Bienvenido a mi casa — flota sobre las nubes!', pron:'uélcam tu mái jáus — it flóuts abáv de cláuds!'},
       {en:'The kitchen is inside a volcano, and the living room has a pool full of stars.', es:'La cocina está dentro de un volcán, y la sala tiene una piscina llena de estrellas.', pron:'de quítchen is insáid a valkéinou, and de lívin rúum jas a púul ful of stars.'},
       {en:'My bedroom has no roof — I sleep looking at the whole galaxy!', es:'Mi dormitorio no tiene techo — ¡duermo mirando toda la galaxia!', pron:'mái bédrum jas nóu rúuf — ái slíip lúking at de jóul gálaxi!'},
-      {en:'Go through the door, past the garden of singing flowers, to my office.', es:'Andá por la puerta, pasando el jardín de flores cantoras, hasta mi oficina.', pron:'góu zrú de dóar, past de gárden of sínging fláuers, tu mái áfis.'},
+      {en:'Go through the door, past the garden of singing flowers, to my office.', es:'Anda por la puerta, pasando el jardín de flores cantoras, hasta mi oficina.', pron:'góu zrú de dóar, past de gárden of sínging fláuers, tu mái áfis.'},
       {en:'My desk floats next to the window, with a computer made of crystal and a printer that prints rainbows!', es:'Mi escritorio flota al lado de la ventana, ¡con una computadora hecha de cristal y una impresora que imprime arcoíris!', pron:'mái desk flóuts next tu de uíndou, uid a campiúter méid of crístal and a prínter dat prints réinbous!'},
       {en:'The shelf holds a thousand magic keys, one for every table and chair in the kingdom.', es:'El estante tiene mil llaves mágicas, una para cada mesa y silla del reino.', pron:'de shelf jóulds a záusand máyic kíis, uán for évri téibol and chér in de kíngdom.'}
     ],
@@ -595,7 +595,7 @@ const curriculumUnidad2 = [
     story:[
       {en:"The giant's table has a mountain of rice, a herd of chicken, and an ocean of meat!", es:'La mesa del gigante tiene una montaña de arroz, una manada de pollo, ¡y un océano de carne!', pron:'de yáiants téibol jas a máuntain of ráis, a jerd of chíquen, and an óushon of míit!'},
       {en:'There are vegetables as tall as trees, fruit as big as planets, and bread that never ends.', es:'Hay verduras tan altas como árboles, fruta tan grande como planetas, y pan que nunca se termina.', pron:'dér ar véchtabols as tol as tríis, frúut as big as plánets, and bred dat néver ends.'},
-      {en:'Bring the soup in a lake, and the salad in a whole forest!', es:'¡Traé la sopa en un lago, y la ensalada en todo un bosque!', pron:'bring de súup in a léik, and de sálad in a jóul fórest!'},
+      {en:'Bring the soup in a lake, and the salad in a whole forest!', es:'¡Trae la sopa en un lago, y la ensalada en todo un bosque!', pron:'bring de súup in a léik, and de sálad in a jóul fórest!'},
       {en:"Let's have lunch! I'm hungry enough to eat a mountain — it's delicious!", es:'¡Almorcemos! Tengo tanta hambre que como una montaña — ¡está delicioso!', pron:'lets jav lanch! áim jángri ináf tu íit a máuntain — its dilíshos!'},
       {en:'Waiter! A table for two giants, please, and the check — write it on a mountain, please!', es:'¡Mesero! Una mesa para dos gigantes, por favor, y la cuenta — ¡escribila en una montaña, por favor!', pron:'uéiter! a téibol for tú yáiants, plíis, and de chek — ráit it on a máuntain, plíis!'},
       {en:'Where is the menu? I hope it has a thousand pages, with a reservation for the whole kingdom.', es:'¿Dónde está el menú? Espero que tenga mil páginas, con una reserva para todo el reino.', pron:'uér is de méniu? ái jóup it jas a záusand péiches, uid a reservéishon for de jóul kíngdom.'}
@@ -651,7 +651,7 @@ const curriculumUnidad2 = [
       {en:'Clean and wash, sweep away!', es:'Limpiar y lavar, ¡barrer!', pron:'clíin and uásh, suíip auéi!'},
       {en:"Order, no trash, dirty's not okay!", es:'Orden, sin basura, ¡sucio no está bien!', pron:'órder, nóu trash, dértis nat oquéi!'},
       {en:'Inventory, storage, label with care!', es:'Inventario, almacenamiento, ¡etiquetar con cuidado!', pron:'ínventori, stóridch, léibol uid quér!'},
-      {en:'Count what\'s missing, damaged, and update there!', es:'Contá lo que falta, dañado, ¡y actualizá ahí!', pron:'cáunt uáts mísing, dámichd, and apdéit dér!'}
+      {en:'Count what\'s missing, damaged, and update there!', es:'Cuenta lo que falta, dañado, ¡y actualiza ahí!', pron:'cáunt uáts mísing, dámichd, and apdéit dér!'}
     ]
   },
 {
@@ -698,7 +698,7 @@ const curriculumUnidad2 = [
       {en:'Weekend, relax, vacation too!', es:'Fin de semana, relajarse, ¡vacaciones también!', pron:'uíikend, riláx, veiquéishon tú!'},
       {en:'Holiday, free time, travel through!', es:'Feriado, tiempo libre, ¡viajar por ahí!', pron:'jálidei, fríi táim, trável zrú!'},
       {en:'Request permission, approve it fast!', es:'Pedí permiso, ¡aprobalo rápido!', pron:'rikuést permíshon, apruv it fast!'},
-      {en:'Cover for me, plan and enjoy, at last!', es:'Cubrime, planeá y disfrutá, ¡por fin!', pron:'cáver for mi, plan and enyói, at last!'}
+      {en:'Cover for me, plan and enjoy, at last!', es:'Cubrime, planea y disfruta, ¡por fin!', pron:'cáver for mi, plan and enyói, at last!'}
     ]
   },
 {
@@ -745,7 +745,7 @@ const curriculumUnidad2 = [
       {en:'More expensive, cheaper too!', es:'Más caro, ¡más barato también!', pron:'mor expénsiv, chíiper tú!'},
       {en:'Better, worse, the best for you!', es:'Mejor, peor, ¡el mejor para ti!', pron:'béter, uérs, de best for iú!'},
       {en:'Compare, choose, decide with care!', es:'Comparar, elegir, ¡decidir con cuidado!', pron:'campér, chúus, disáid uid quér!'},
-      {en:"Negotiate the deal, contract's fair!", es:'Negociá el trato, ¡el contrato es justo!', pron:'nigóushieit de díil, cántracts fér!'}
+      {en:"Negotiate the deal, contract's fair!", es:'Negocia el trato, ¡el contrato es justo!', pron:'nigóushieit de díil, cántracts fér!'}
     ]
   },
 {

@@ -12,7 +12,7 @@ const curriculumUnidad9 = [
       ], function:'abrir un correo formal de negocios', stage:2,
         transformations:{
           negative:{en:"I am not writing to complain.", es:'No le escribo para quejarme.'},
-          question:{en:'Are you writing to confirm the meeting?', es:'¿Escribís para confirmar la reunión?'},
+          question:{en:'Are you writing to confirm the meeting?', es:'¿Escribes para confirmar la reunión?'},
           yesAnswer:{en:'Yes, I am.', es:'Sí.'},
           noAnswer:{en:"No, I'm not.", es:'No.'}
         }}
@@ -31,16 +31,16 @@ const curriculumUnidad9 = [
     ],
     story:[
       {en:'Good email etiquette starts with a clear subject line!', es:'¡La buena etiqueta del correo empieza con una línea de asunto clara!', pron:'gud íimeil étiket starts uid a clíar sábyect láin!'},
-      {en:'Remember to use CC and BCC wisely, and always check the attachment before sending!', es:'¡Acordate de usar con copia y con copia oculta con sabiduría, y siempre revisá el archivo adjunto antes de enviar!', pron:'rimémber tu iús síi síi and bíi síi síi uáisli, and ólueis chek de atáchment bifór sénding!'},
-      {en:'Start with a formal greeting, and finish with a formal closing, dragon.', es:'Empezá con un saludo formal, y terminá con una despedida formal, dragón.', pron:'start uid a fórmal gríiting, and fínish uid a fórmal clóusing, drágon.'},
-      {en:'Draft the email first, then proofread it, and check the tone before sending!', es:'¡Redactá el correo primero, después revisalo, y chequeá el tono antes de enviar!', pron:'draft de íimeil ferst, den prúufriid it, and chek de tóun bifór sénding!'},
+      {en:'Remember to use CC and BCC wisely, and always check the attachment before sending!', es:'¡Acordate de usar con copia y con copia oculta con sabiduría, y siempre revisa el archivo adjunto antes de enviar!', pron:'rimémber tu iús síi síi and bíi síi síi uáisli, and ólueis chek de atáchment bifór sénding!'},
+      {en:'Start with a formal greeting, and finish with a formal closing, dragon.', es:'Empieza con un saludo formal, y termina con una despedida formal, dragón.', pron:'start uid a fórmal gríiting, and fínish uid a fórmal clóusing, drágon.'},
+      {en:'Draft the email first, then proofread it, and check the tone before sending!', es:'¡Redacta el correo primero, después revisalo, y chequea el tono antes de enviar!', pron:'draft de íimeil ferst, den prúufriid it, and chek de tóun bifór sénding!'},
       {en:"Please don't reply all to the whole kingdom by accident!", es:'¡Por favor no le respondas a todos en todo el reino por accidente!', pron:"plíis dont riplái ol tu de jóul kíngdom bái áxident!"}
     ],
     jingle:[
       {en:'Email etiquette, subject line too!', es:'Etiqueta del correo, ¡línea de asunto también!', pron:'íimeil étiket, sábyect láin tú!'},
       {en:'CC, BCC, attachment for you!', es:'Con copia, con copia oculta, ¡adjunto para ti!', pron:'síi síi, bíi síi síi, atáchment for iú!'},
       {en:'Formal greeting, formal closing right!', es:'Saludo formal, ¡despedida formal correcta!', pron:'fórmal gríiting, fórmal clóusing ráit!'},
-      {en:"Draft, proofread, tone, don't reply all tonight!", es:'Redactá, revisá, tono, ¡no le respondas a todos esta noche!', pron:"draft, prúufriid, tóun, dont riplái ol tunáit!"}
+      {en:"Draft, proofread, tone, don't reply all tonight!", es:'Redacta, revisa, tono, ¡no le respondas a todos esta noche!', pron:"draft, prúufriid, tóun, dont riplái ol tunáit!"}
     ]
   },
 {
@@ -158,7 +158,7 @@ const curriculumUnidad9 = [
     story:[
       {en:'Customer satisfaction is our top priority — even for dragon customers!', es:'¡La satisfacción del cliente es nuestra prioridad número uno — hasta para clientes dragón!', pron:'cástomer satisfákshon is áur tap praióriti — íven for drágon cástomers!'},
       {en:'Complaint handling starts with empathy, and ends with service recovery.', es:'El manejo de quejas empieza con empatía, y termina con recuperación del servicio.', pron:'compléint jándling starts uid émpazi, and ends uid sérvis ricáveri.'},
-      {en:'Join our loyalty program, and enjoy the best customer journey in the sky!', es:'¡Uníte a nuestro programa de lealtad, y disfrutá el mejor recorrido de cliente del cielo!', pron:'yóin áur lóialti prógram, and enyói de best cástomer yérni in de skái!'},
+      {en:'Join our loyalty program, and enjoy the best customer journey in the sky!', es:'¡Uníte a nuestro programa de lealtad, y disfruta el mejor recorrido de cliente del cielo!', pron:'yóin áur lóialti prógram, and enyói de best cástomer yérni in de skái!'},
       {en:"If there's a problem, the escalation path leads straight to the wizard king!", es:'¡Si hay un problema, la vía de escalamiento lleva directo al rey mago!', pron:"if ders a práblem, de escaléishon paz líids stréit tu de uísard king!"},
       {en:'Please complete this satisfaction survey — it helps our retention and personalized service!', es:'¡Por favor completa esta encuesta de satisfacción — ayuda a nuestra retención y servicio personalizado!', pron:'plíis camplíit dis satisfákshon sérvei — it jelps áur riténshon and pérsonalaisd sérvis!'}
     ],
@@ -322,7 +322,7 @@ const curriculumUnidad9 = [
     story:[
       {en:'We need an export license, and the import duty must be paid first!', es:'¡Necesitamos una licencia de exportación, y el arancel de importación se debe pagar primero!', pron:'uí níid an éxport láisens, and de ímport diúti mast bi péid ferst!'},
       {en:'Customs clearance requires the bill of lading and the letter of credit.', es:'El despacho aduanero requiere el conocimiento de embarque y la carta de crédito.', pron:'cástoms clírens rikuáiars de bil of léiding and de léter of crédit.'},
-      {en:'Check the incoterms with our freight forwarder before shipping the dragon eggs!', es:'¡Revisá los incoterms con nuestro agente de carga antes de enviar los huevos de dragón!', pron:'chek de íncoterms uid áur fréit fóruarder bifór shíping de drágon egs!'},
+      {en:'Check the incoterms with our freight forwarder before shipping the dragon eggs!', es:'¡Revisa los incoterms con nuestro agente de carga antes de enviar los huevos de dragón!', pron:'chek de íncoterms uid áur fréit fóruarder bifór shíping de drágon egs!'},
       {en:'This trade agreement covers every country of destination in the sky kingdom.', es:'Este acuerdo comercial cubre cada país de destino en el reino del cielo.', pron:'dis tréid agríiment cávers évri cántri of destinéishon in de skái kíngdom.'},
       {en:"Don't forget the cargo insurance — dragons can be clumsy sometimes!", es:'¡No te olvides del seguro de carga — los dragones pueden ser torpes a veces!', pron:"dont forguét de cárgou inshúrans — drágons can bi clámsi samtáims!"}
     ],
@@ -451,7 +451,7 @@ const curriculumUnidad9 = [
     jingle:[
       {en:'Sales pitch, cold call too!', es:'Presentación de ventas, ¡llamada en frío también!', pron:'séils pich, cóuld col tú!'},
       {en:'Lead generation, funnel for you!', es:'Generación de prospectos, ¡embudo para ti!', pron:'líid yeneréishon, fánel for iú!'},
-      {en:'Close a deal, quota, commission bright!', es:'Cerrá un trato, cuota, ¡comisión brillante!', pron:'clóus a díil, cuóuta, comíshon bráit!'},
+      {en:'Close a deal, quota, commission bright!', es:'Cierra un trato, cuota, ¡comisión brillante!', pron:'clóus a díil, cuóuta, comíshon bráit!'},
       {en:'Cross-sell, sales target, feels so right!', es:'Venta cruzada, meta de ventas, ¡se siente tan bien!', pron:'cros sel, séils tárguet, fíils sóu ráit!'}
     ]
   },

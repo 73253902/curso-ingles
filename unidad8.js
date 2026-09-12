@@ -84,7 +84,7 @@ const curriculumUnidad8 = [
       {en:'Previous experience, responsibilities too!', es:'Experiencia previa, ¡responsabilidades también!', pron:'príivios expíriens, rispansibílitis tú!'},
       {en:"Achievements and team player, that's me and you!", es:'Logros y trabajo en equipo, ¡eso somos tú y yo!', pron:"achíivments and tíim pléyer, dats mi and iú!"},
       {en:'Deadline-driven, problem-solving fast!', es:'Orientado a plazos, ¡resolución de problemas rápida!', pron:'dédlain dríven, práblem sálving fast!'},
-      {en:'Leadership skills, negotiate at last!', es:'Habilidades de liderazgo, ¡negociá por fin!', pron:'líidership skils, nigóushieit at last!'}
+      {en:'Leadership skills, negotiate at last!', es:'Habilidades de liderazgo, ¡negocia por fin!', pron:'líidership skils, nigóushieit at last!'}
     ]
   },
 {
@@ -117,7 +117,7 @@ const curriculumUnidad8 = [
     story:[
       {en:"Welcome to the networking event! Let's do a business card exchange.", es:'¡Bienvenido al evento de networking! Hagamos un intercambio de tarjetas.', pron:"uélcam tu de nétuorking ivént! lets du a bísnes card exchéinch."},
       {en:'Let me introduce myself with my elevator pitch: I am a dragon in the treasure industry!', es:'Dejame presentarme con mi presentación breve: ¡soy un dragón de la industria del tesoro!', pron:'let mi introdiús maisélf uid mái élevéitor pich: ái am a drágon in de tréshur índastri!'},
-      {en:'I love making connections — send me a follow-up email, and check my LinkedIn profile!', es:'¡Me encanta hacer contactos — mandame un correo de seguimiento, y revisá mi perfil de LinkedIn!', pron:'ái lav méiking canécshons — send mi a fálou ap íimeil, and chek mái línktin próufail!'},
+      {en:'I love making connections — send me a follow-up email, and check my LinkedIn profile!', es:'¡Me encanta hacer contactos — mandame un correo de seguimiento, y revisa mi perfil de LinkedIn!', pron:'ái lav méiking canécshons — send mi a fálou ap íimeil, and chek mái línktin próufail!'},
       {en:'This could be the start of a wonderful professional relationship!', es:'¡Esto podría ser el comienzo de una relación profesional maravillosa!', pron:'dis cud bi de start of a uánderful proféshonal riléishonship!'},
       {en:'What an opportunity — a thousand dragons at one networking event!', es:'¡Qué oportunidad — mil dragones en un solo evento de networking!', pron:'uát an aportiúniti — a záusand drágons at uán nétuorking ivént!'}
     ],
@@ -136,7 +136,7 @@ const curriculumUnidad8 = [
         {en:'I am nervous about the Q&A.', es:'Estoy nervioso por la sesión de preguntas.', pron:'ái am nérvas abáut de kiú and éi.'},
         {en:'I am not confident about the numbers.', es:'No estoy seguro de los números.', pron:'ái am nat cánfident abáut de námbers.'},
         {en:'I am ready for the audience.', es:'Estoy listo para el público.', pron:'ái am rédi for de ódiens.'}
-      ], function:'expresar cómo te sentís antes de presentar', stage:2,
+      ], function:'expresar cómo te sientes antes de presentar', stage:2,
         transformations:{
           negative:{en:'I am not confident about this presentation.', es:'No estoy seguro de esta presentación.'},
           question:{en:'Are you confident about this presentation?', es:'¿Estás seguro de esta presentación?'},
@@ -158,8 +158,8 @@ const curriculumUnidad8 = [
     ],
     story:[
       {en:'Public speaking in front of a thousand dragons? I am so nervous!', es:'¿Hablar en público frente a mil dragones? ¡Estoy tan nervioso!', pron:'páblic spíiking in frant of a záusand drágons? ái am sóu nérvos!'},
-      {en:'Look at the audience, breathe, and start with a strong opening statement!', es:'Mirá al público, respirá, ¡y empezá con una declaración de apertura fuerte!', pron:'luk at de ódiens, bríiz, and start uid a strong óupening stéitment!'},
-      {en:'Cover the key points, use visual aids, and engage the audience with fire tricks!', es:'Cubrí los puntos clave, usá ayudas visuales, ¡y captá la atención del público con trucos de fuego!', pron:'cáver de kíi póints, iús víshual éids, and ingéich de ódiens uid fáiar triks!'},
+      {en:'Look at the audience, breathe, and start with a strong opening statement!', es:'Mira al público, respira, ¡y empieza con una declaración de apertura fuerte!', pron:'luk at de ódiens, bríiz, and start uid a strong óupening stéitment!'},
+      {en:'Cover the key points, use visual aids, and engage the audience with fire tricks!', es:'Cubre los puntos clave, usa ayudas visuales, ¡y capta la atención del público con trucos de fuego!', pron:'cáver de kíi póints, iús víshual éids, and ingéich de ódiens uid fáiar triks!'},
       {en:"Now it's time for the Q&A session — ask me anything about dragons!", es:'Ahora es momento de la sesión de preguntas — ¡preguntame cualquier cosa sobre dragones!', pron:"náu its táim for de kiú and éi séshon — ask mi énizin abáut drágons!"},
       {en:'My closing remarks: thank you, and now I feel confident!', es:'Mis palabras de cierre: gracias, ¡y ahora me siento seguro de mí mismo!', pron:'mái clóusing rimárks: zenk iú, and náu ái fíil cánfident!'}
     ],
@@ -199,7 +199,7 @@ const curriculumUnidad8 = [
       {en:'binding agreement', es:'acuerdo vinculante', pron:'báinding agríiment', emoji:'🤝'}
     ],
     story:[
-      {en:'Please read the contract carefully before you sign, dragon.', es:'Por favor leé el contrato con cuidado antes de firmar, dragón.', pron:'plíis ríid de cántract quérfuli bifór iú sáin, drágon.'},
+      {en:'Please read the contract carefully before you sign, dragon.', es:'Por favor lee el contrato con cuidado antes de firmar, dragón.', pron:'plíis ríid de cántract quérfuli bifór iú sáin, drágon.'},
       {en:'Your signature goes here, right below the terms and conditions.', es:'Tu firma va acá, justo debajo de los términos y condiciones.', pron:'iór sígnicher góus jíar, ráit bilóu de terms and candíshons.'},
       {en:'This clause is confidential — only the legal advisor can read it!', es:'¡Esta cláusula es confidencial — solo el asesor legal puede leerla!', pron:'dis clos is canfidénshal — óunli de líigal advaisor can ríid it!'},
       {en:'If a dragon breaches a contract, the liability is one mountain of gold!', es:'¡Si un dragón incumple un contrato, la responsabilidad legal es una montaña de oro!', pron:'if a drágon bríiches a cántract, de laiabíliti is uán máuntain of góuld!'},
@@ -245,13 +245,13 @@ const curriculumUnidad8 = [
       {en:'Punctuality matters, but the dress code allows wings and scales.', es:'La puntualidad importa, pero el código de vestimenta permite alas y escamas.', pron:'panctualíti máters, bat de dres cóud alóus uíngs and skéils.'},
       {en:'We love small talk and direct communication, without too much hierarchy.', es:'Nos encanta la charla informal y la comunicación directa, sin demasiada jerarquía.', pron:'uí lav smol tok and diréct camiunikéishon, uidáut tu mach jáiararki.'},
       {en:'Our feedback culture is honest — even if you breathe fire during a meeting!', es:'¡Nuestra cultura de retroalimentación es honesta — hasta si respiras fuego durante una reunión!', pron:'áur fíidbak cálcher is ánest — íven if iú bríiz fáiar dúring a míiting!'},
-      {en:'We offer remote work and flexible hours — fly whenever you want!', es:'¡Ofrecemos trabajo remoto y horario flexible — volá cuando quieras!', pron:'uí áfer rimóut uork and fléxibol áuars — flái uénever iú uánt!'}
+      {en:'We offer remote work and flexible hours — fly whenever you want!', es:'¡Ofrecemos trabajo remoto y horario flexible — vuela cuando quieras!', pron:'uí áfer rimóut uork and fléxibol áuars — flái uénever iú uánt!'}
     ],
     jingle:[
       {en:'Office culture, work-life balance true!', es:'Cultura de oficina, ¡equilibrio verdadero!', pron:'áfis cálcher, uork láif bálans trú!'},
       {en:'Punctuality, dress code for you!', es:'Puntualidad, ¡código de vestimenta para ti!', pron:'panctualíti, dres cóud for iú!'},
       {en:'Small talk, direct, no hierarchy!', es:'Charla informal, directo, ¡sin jerarquía!', pron:'smol tok, diréct, nóu jáiararki!'},
-      {en:'Remote work, flexible, fly free!', es:'Trabajo remoto, flexible, ¡volá libre!', pron:'rimóut uork, fléxibol, flái fríi!'}
+      {en:'Remote work, flexible, fly free!', es:'Trabajo remoto, flexible, ¡vuela libre!', pron:'rimóut uork, fléxibol, flái fríi!'}
     ]
   },
 {
@@ -331,7 +331,7 @@ const curriculumUnidad8 = [
       {en:'Loan, interest rate, credit score too!', es:'Préstamo, tasa de interés, ¡puntaje también!', pron:'lóun, ínterest réit, crédit scóar tú!'},
       {en:'Savings, checking, all for you!', es:'Ahorros, corriente, ¡todo para ti!', pron:'séivings, chéking, ol for iú!'},
       {en:'Transfer funds, advisor near!', es:'Transferí fondos, ¡asesor cerca!', pron:'tránsfer fands, advaisor níar!'},
-      {en:'Invest, stock market, budget clear!', es:'Invertí, mercado de valores, ¡presupuesto claro!', pron:'invést, stak márket, báchet clíar!'}
+      {en:'Invest, stock market, budget clear!', es:'Invierte, mercado de valores, ¡presupuesto claro!', pron:'invést, stak márket, báchet clíar!'}
     ]
   },
 {
@@ -341,7 +341,7 @@ const curriculumUnidad8 = [
         {en:'I need to file taxes before the end of the fiscal year.', es:'Necesito presentar impuestos antes del fin del año fiscal.', pron:'ái níid tu fáil táxis bifór de end of de físcal íar.'},
         {en:'My accountant is reviewing our revenue and expenses.', es:'Mi contador está revisando nuestros ingresos y gastos.', pron:'mái acáuntant is riviúing áur révenu and expénsis.'},
         {en:'Our profit margin looks good this quarter.', es:'Nuestro margen de ganancia se ve bien este trimestre.', pron:'áur práfit márchin luks gud dis cuórter.'},
-        {en:"Keep every receipt — some expenses are deductible, and there might be an audit.", es:'Guardá cada recibo — algunos gastos son deducibles, y podría haber una auditoría.', pron:"kíip évri risíit — sam expénsis ar dedáctibol, and der máit bi an ódit."}
+        {en:"Keep every receipt — some expenses are deductible, and there might be an audit.", es:'Guarda cada recibo — algunos gastos son deducibles, y podría haber una auditoría.', pron:"kíip évri risíit — sam expénsis ar dedáctibol, and der máit bi an ódit."}
       ], function:'hablar de impuestos y contabilidad', stage:2,
         transformations:{
           negative:{en:"I don't need to file taxes yet.", es:'Todavía no necesito presentar impuestos.'},
@@ -366,7 +366,7 @@ const curriculumUnidad8 = [
       {en:'My accountant is a wise old owl who prepares my tax return every fiscal year.', es:'Mi contador es un búho sabio que prepara mi declaración de impuestos cada año fiscal.', pron:'mái acáuntant is a uáis óuld ául jú prepérs mái tax ritérn évri físcal íar.'},
       {en:'Our revenue was a mountain of gold, but our expenses were also huge!', es:'¡Nuestros ingresos fueron una montaña de oro, pero nuestros gastos también fueron enormes!', pron:'áur révenu uas a máuntain of góuld, bat áur expénses uér ólso jiúch!'},
       {en:'The profit margin is small this year — the audit found too many snacks!', es:'El margen de ganancia es pequeño este año — ¡la auditoría encontró demasiados bocadillos!', pron:'de práfit márchin is smol dis íar — de ódit fáund tu méni snaks!'},
-      {en:'Keep every receipt — some expenses are deductible!', es:'¡Guardá cada recibo — algunos gastos son deducibles!', pron:'kíip évri risíit — sam expénses ar didáctibol!'},
+      {en:'Keep every receipt — some expenses are deductible!', es:'¡Guarda cada recibo — algunos gastos son deducibles!', pron:'kíip évri risíit — sam expénses ar didáctibol!'},
       {en:"It's time to file taxes — the whole kingdom is doing paperwork today!", es:'Es hora de declarar impuestos — ¡todo el reino está haciendo papeleo hoy!', pron:"its táim tu fáil táxes — de jóul kíngdom is dúing péiperuork tudéi!"}
     ],
     jingle:[
@@ -453,7 +453,7 @@ const curriculumUnidad8 = [
     jingle:[
       {en:'Conflict, resolve, mediator too!', es:'Conflicto, resolver, ¡mediador también!', pron:'cánflict, risálv, míidieitor tú!'},
       {en:"Common ground, listen actively, it's true!", es:'Punto en común, escuchar activamente, ¡es verdad!', pron:"cámon gráund, lísen áctivli, its trú!"},
-      {en:'Respectful tone, clarify it right!', es:'Tono respetuoso, ¡aclará bien!', pron:'rispéctful tóun, clárifai it ráit!'},
+      {en:'Respectful tone, clarify it right!', es:'Tono respetuoso, ¡aclara bien!', pron:'rispéctful tóun, clárifai it ráit!'},
       {en:'Move forward, friends, hold on tight!', es:'Avancemos, amigos, ¡agarrate fuerte!', pron:'múuv fóruard, frends, jóuld on táit!'}
     ]
   },

@@ -121,8 +121,8 @@ function renderHome(){
 
   document.getElementById('placementCard').style.display = 'flex';
   if(esTester){
-    document.getElementById('placementCardTitulo').textContent = '🧪 Sos parte del equipo de prueba — ¡gracias!';
-    document.getElementById('placementCardTexto').textContent = 'Tenés acceso completo y permanente al curso, sin límite de tiempo. Si encontrás algún problema mientras lo probás, avisale a Robinson.';
+    document.getElementById('placementCardTitulo').textContent = '🧪 Eres parte del equipo de prueba — ¡gracias!';
+    document.getElementById('placementCardTexto').textContent = 'Tienes acceso completo y permanente al curso, sin límite de tiempo. Si encuentras algún problema mientras lo pruebas, avísale a Robinson.';
     document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme';
     document.getElementById('skipPlacementBtn').style.display = 'none';
   } else if(meta.placementDone){
@@ -168,7 +168,7 @@ function renderHome(){
       const fnBtn = document.createElement('button');
       fnBtn.className='ghost'; fnBtn.style.cssText='width:100%; margin:10px 0 4px;';
       fnBtn.textContent='🗣️ Fonética — Mi Inicio';
-      fnBtn.title='Repasá las vocales y las combinaciones básicas antes de arrancar';
+      fnBtn.title='Repasa las vocales y las combinaciones básicas antes de arrancar';
       fnBtn.onclick = ()=>mostrarFoneticaBasico(true);
       block.appendChild(fnBtn);
     }
@@ -176,7 +176,7 @@ function renderHome(){
       const examBtn = document.createElement('button');
       examBtn.className='primary'; examBtn.style.cssText='width:100%; margin:10px 0 4px;';
       examBtn.textContent='🏆 Examen final del curso';
-      examBtn.title='La misma evaluación de 4 fases, con nivel de cierre — certificá tu progreso';
+      examBtn.title='La misma evaluación de 4 fases, con nivel de cierre — certifica tu progreso';
       examBtn.onclick = ()=>iniciarEvaluacion('final');
       block.appendChild(examBtn);
     }
@@ -2296,9 +2296,9 @@ const unitDialogueReinforcement = {
     {speaker:'maestro', en:'I will choose a carrier — which shipping company has the best freight rate and insurance?', es:'Voy a elegir un transportista — ¿qué empresa de envíos tiene la mejor tarifa de carga y seguro?', pron:'ái uil chúus a kárier — uích shíping cámpani jas de best fréit réit and inshúrans?'},
     {speaker:'alumno', en:'I\'m at the airport — my flight leaves soon, here\'s my boarding pass and my luggage. What gate is it?', es:'Estoy en el aeropuerto — mi vuelo sale pronto, acá está mi pase de abordar y mi equipaje. ¿Qué puerta es?', pron:'áim at de érport — mái fláit líivs súun, jírs mái bórding pas and mái láguich. uát guéit is it?'},
     {speaker:'maestro', en:'I need to declare something at customs — I have goods to import and to export, with a tariff, a customs declaration, and a country of origin.', es:'Necesito declarar algo en aduana — tengo mercancía para importar y exportar, con un arancel, una declaración aduanera, y un país de origen.', pron:'ái níid tu diklér sámzin at cástams — ái jav guds tu impórt and tu expórt, uid a tárif, a cástams declaréishion, and a cántri of óriyin.'},
-    {speaker:'alumno', en:'I have the ticket for the platform — check the schedule for any delay, the departure, and the arrival time.', es:'Tengo el boleto para el andén — revisá el horario por si hay algún retraso, la salida, y la hora de llegada.', pron:'ái jav de tíket for de plátform — chek de squédiul for éni diléi, de dipárcher, and de aráival táim.'},
+    {speaker:'alumno', en:'I have the ticket for the platform — check the schedule for any delay, the departure, and the arrival time.', es:'Tengo el boleto para el andén — revisa el horario por si hay algún retraso, la salida, y la hora de llegada.', pron:'ái jav de tíket for de plátform — chek de squédiul for éni diléi, de dipárcher, and de aráival táim.'},
     {speaker:'maestro', en:'I have the document — here\'s the shipping guide, the commercial invoice, the packing list, and our customs broker\'s contact.', es:'Tengo el documento — acá está la guía de envío, la factura comercial, la lista de empaque, y el contacto de nuestro agente aduanero.', pron:'ái jav de dákiument — jírs de shíping gáid, de camérshial ínvois, de páking list, and áur cástams bróuker\'s cántact.'},
-    {speaker:'alumno', en:'Look for the landmark on Main Street, near the avenue, past the roundabout, over the bridge, in that district.', es:'Buscá el punto de referencia en la Calle Principal, cerca de la avenida, pasando la rotonda, cruzando el puente, en ese distrito.', pron:'luk for de lándmark on méin stríit, níar de áveniu, past de ráundabaut, óuver de brich, in dat dístrict.'},
+    {speaker:'alumno', en:'Look for the landmark on Main Street, near the avenue, past the roundabout, over the bridge, in that district.', es:'Busca el punto de referencia en la Calle Principal, cerca de la avenida, pasando la rotonda, cruzando el puente, en ese distrito.', pron:'luk for de lándmark on méin stríit, níar de áveniu, past de ráundabaut, óuver de brich, in dat dístrict.'},
     {speaker:'maestro', en:'What\'s the delivery zone, and the coverage area? What\'s the best route for a remote area — can we offer same-day delivery?', es:'¿Cuál es la zona de entrega, y el área de cobertura? ¿Cuál es la mejor ruta para una zona remota — podemos ofrecer entrega el mismo día?', pron:'uáts de delíveri zóun, and de cáveraich éria? uáts de best rúut for a rimóut éria — can uí áfer séim-déi delíveri?'},
     {speaker:'alumno', en:'It\'s over there, right here actually — you\'re close, but you passed it. It takes about ten minutes, not far from here, just around the corner. Follow the signs!', es:'Está allá, en realidad acá mismo — estás cerca, pero ya pasaste. Toma unos diez minutos, no está lejos de acá, justo a la vuelta de la esquina. ¡Sigue las señales!', pron:'its óuver der, ráit jíar áctiuali — iór clóus, bat iú past it. it téiks abáut ten mínits, nat far fram jíar, yast aráund de córner. fálou de sáins!'},
     {speaker:'maestro', en:'There\'s a traffic jam, and it\'s rush hour — how long does it take? Let\'s find a shortcut, or take a detour.', es:'Hay un embotellamiento, y es la hora pico — ¿cuánto tiempo toma? Busquemos un atajo, o tomemos un desvío.', pron:'ders a tráfic yam, and its rash áur — jáu long das it téik? lets fáind a shórtcat, or téik a dítur.'},
@@ -2511,7 +2511,7 @@ const unitDialogueReinforcement = {
     {speaker:'maestro', en:'See you in the next unit, where even bigger adventures await! See you Monday!', es:'¡Nos vemos en la próxima unidad, donde te esperan aventuras aún más grandes! ¡Nos vemos el lunes!', pron:'síi iú in de next iúnit, uér íven bíguer advénchurs auéit! síi iú mándei!', blanks:['See','you','Monday']},
     {speaker:'maestro', en:'Look! A new outpost! Let\'s introduce ourselves. What\'s your name, dragon?', es:'¡Mira! ¡Un puesto nuevo! Presentémonos. ¿Cuál es tu nombre, dragón?', pron:'luk! a niú áutpost! lets intradiús aursélvs. uáts iór néim, drágon?', blanks:['introduce','ourselves','name']},
     {speaker:'alumno', en:'My name is Blaze, and I am from the Floating City! Nice to meet you!', es:'¡Me llamo Blaze, y soy de la Ciudad Flotante! ¡Mucho gusto!', pron:'mái néim is Bléis, and ái am fram de flóuting síti! náis tu míit iú!', blanks:['name','is','from','Nice','to']},
-    {speaker:'maestro', en:'Welcome! Come in! Have a seat. This is our trading manager. Please contact us anytime.', es:'¡Bienvenido! ¡Pasá! Tomá asiento. Este es nuestro gerente de comercio. Por favor contactanos cuando quieras.', pron:'uélcam! cam in! jav a síit. dis is áur tréiding mánayer. plíis cántact as énitaim.', blanks:['seat','manager','contact']},
+    {speaker:'maestro', en:'Welcome! Come in! Have a seat. This is our trading manager. Please contact us anytime.', es:'¡Bienvenido! ¡Pasa! Toma asiento. Este es nuestro gerente de comercio. Por favor contactanos cuando quieras.', pron:'uélcam! cam in! jav a síit. dis is áur tréiding mánayer. plíis cántact as énitaim.', blanks:['seat','manager','contact']},
     {speaker:'alumno', en:'The pleasure is mine! I work at a shop in the Floating City. Here is my business card, with my phone number and address, and our website.', es:'¡El placer es mío! Trabajo en una tienda en la Ciudad Flotante. Aquí está mi tarjeta de presentación, con mi número de teléfono y dirección, y nuestro sitio web.', pron:'de pléyer is máin! ái uork at a shap in de flóuting síti. jír is mái bísnes card, uid mái fóun námber and adrés, and áur uébsait.', blanks:['pleasure','work','at','business','card','phone','number','address','website']},
     {speaker:'maestro', en:'What is your company name? What country and city are you from, and since when?', es:'¿Cuál es el nombre de tu empresa? ¿De qué país y ciudad eres, y desde cuándo?', pron:'uát is iór cámpani néim? uát cántri and síti ar iú fram, and sins uén?', blanks:['company','name','country','city','since','when']},
     {speaker:'alumno', en:'Our team is from Colombia, from the city of Medellín, since last year! We sell magical toys, and we provide the best quality services and products.', es:'¡Nuestro equipo es de Colombia, de la ciudad de Medellín, desde el año pasado! Vendemos juguetes mágicos, y ofrecemos los mejores servicios y productos de calidad.', pron:'áur tíim is fram Colómbia, fram de síti of Medeyín, sins last íar! uí sel máyical tóis, and uí prováid de best cuáliti sérvises and prádacts.', blanks:['from','since','sell','provide']},
@@ -2527,7 +2527,7 @@ const unitDialogueReinforcement = {
 const unitReviewStories = {
   12: [
     {en:'Good morning! Blaze opens his shop with a warm smile.', es:'¡Buenos días! Blaze abre su tienda con una sonrisa cálida.', pron:'gud mórning! Bléis óupens jis shap uid a uórm smáil.'},
-    {en:'"Welcome! Come in!" he tells the first customer. "I need help finding a gift," she says.', es:'"¡Bienvenido! ¡Pasá!", le dice al primer cliente. "Necesito ayuda para encontrar un regalo", dice ella.', pron:'uélcam! cam in! ji tels de ferst cástomer. ái níid jelp fáinding a gift, shi séis.'},
+    {en:'"Welcome! Come in!" he tells the first customer. "I need help finding a gift," she says.', es:'"¡Bienvenido! ¡Pasa!", le dice al primer cliente. "Necesito ayuda para encontrar un regalo", dice ella.', pron:'uélcam! cam in! ji tels de ferst cástomer. ái níid jelp fáinding a gift, shi séis.'},
     {en:'"I can help you!" Blaze replies happily.', es:'"¡Te puedo ayudar!", responde Blaze con alegría.', pron:'ái can jelp iú! Bléis riplís jápili.'},
     {en:'"My name is Blaze, and I am from the Floating City," he says, shaking her hand.', es:'"Me llamo Blaze, y soy de la Ciudad Flotante", dice, dándole la mano.', pron:'mái néim is Bléis, and ái am fram de flóuting síti, ji séis, shéiking jer jand.'},
     {en:'"I am the owner of this shop, and I am in charge of everything here — from the prices to the deliveries."', es:'"Soy el dueño de esta tienda, y estoy a cargo de todo acá — desde los precios hasta las entregas."', pron:'ái am de óuner of dis shap, and ái am in chárch of évrizin jír — fram de práises tu de delíveris.'},
@@ -2594,7 +2594,7 @@ const unitReviewStories = {
     {en:'"The shipment is delayed," warns his assistant. "There\'s a traffic jam on the main route."', es:'"El envío está retrasado", advierte su asistente. "Hay un embotellamiento en la ruta principal."', pron:'de shípment is diléid, uórns jis asístant. ders a tráfic yam on de méin rúut.'},
     {en:'"I want to hire a bigger fleet," Blaze says. "This package is fragile — handle it with care!"', es:'"Quiero contratar una flota más grande", dice Blaze. "¡Este paquete es frágil — manejalo con cuidado!"', pron:'ái uánt tu jáier a bígger flíit, Bléis séis. dis pákech is fráyail — jándol it uid ker!'},
     {en:"Unit six, done! Keep pushing — you're doing great, more than a third of the way there.", es:'¡Unidad seis, lista! Sigue adelante — lo estás haciendo genial, ya llevas más de un tercio del camino.', pron:"iúnit siks, dan! kíip púshing — iór dúing gréit, mor dan a zerd of de uéi der."},
-    {en:'Stay consistent, brave dragon. See you in unit seven!', es:'Mantené la constancia, valiente dragón. ¡Nos vemos en la unidad siete!', pron:'stéi cansístent, bréiv drágon. síi iú in iúnit séven!'}
+    {en:'Stay consistent, brave dragon. See you in unit seven!', es:'Mantén la constancia, valiente dragón. ¡Nos vemos en la unidad siete!', pron:'stéi cansístent, bréiv drágon. síi iú in iúnit séven!'}
   ],
   84: [
     {en:'Blaze arrives at the hotel for a business trip. "I have a reservation for two nights," he tells the receptionist.', es:'Blaze llega al hotel para un viaje de negocios. "Tengo una reserva para dos noches", le dice a la recepcionista.', pron:'Bléis aráivs at de hóutel for a bísnes trip. ái jav a reservéishion for tú náits, ji tels de risépshionist.'},
@@ -2647,7 +2647,7 @@ const unitReviewStories = {
 const weeklyStories = {
   6: [
     {en:'Good morning! My name is Captain Thunder, and I work at the floating dragon company.', es:'¡Buenos días! Me llamo Capitán Trueno, y trabajo en la empresa flotante de dragones.', pron:'gud mórnin! mái néim is cáptin zánder, and ái uork at de flóuting drágon cámpani.'},
-    {en:'Welcome, tiny human! Come in and have a seat on this giant mushroom.', es:'¡Bienvenido, humanito! Pasá y tomá asiento en este hongo gigante.', pron:'uélcam, táini jiúman! cam in and jav a síit on dis yáiant máshrum.'},
+    {en:'Welcome, tiny human! Come in and have a seat on this giant mushroom.', es:'¡Bienvenido, humanito! Pasa y toma asiento en este hongo gigante.', pron:'uélcam, táini jiúman! cam in and jav a síit on dis yáiant máshrum.'},
     {en:'We are from the Kingdom of Clouds, and we sell magic potions to a thousand customers.', es:'Somos del Reino de las Nubes, y vendemos pociones mágicas a mil clientes.', pron:'uí ar fram de kíngdom of cláuds, and uí sel máyic póushons tu a záusand cástomers.'},
     {en:'My flying wife is the sales manager, and my fire-breathing son works in logistics.', es:'Mi esposa voladora es la gerente de ventas, y mi hijo que respira fuego trabaja en logística.', pron:'mái fláing uáif is de séils mánayer, and mái fáiar brízing san uorks in loyístics.'},
     {en:'How many dragon eggs do you need for this order? Ten boxes, or a whole dozen?', es:'¿Cuántos huevos de dragón necesitas para este pedido? ¿Diez cajas, o toda una docena?', pron:'jáu méni drágon egs du iú níid for dis órder? ten báxes, or a jóul dázen?'},
@@ -2686,10 +2686,10 @@ const weeklyStories = {
   ],
   42: [
     {en:'I would like to order the roasted volcano appetizer — the meeting starts in a floating conference room!', es:'Quisiera pedir la entrada de volcán asado — ¡la reunión empieza en una sala de reuniones flotante!', pron:'ái uud láik tu órder de róusted valkéinou ápetaiser — de míiting starts in a flóuting cánferens rúum!'},
-    {en:'I love dragon eggs, but I am allergic to flying broccoli — please confirm attendance!', es:'Me encantan los huevos de dragón, pero soy alérgico al brócoli volador — ¡confirmá tu asistencia!', pron:'ái lav drágon egs, bat ái am alérchic tu fláing brácoli — plíis confírm aténdans!'},
+    {en:'I love dragon eggs, but I am allergic to flying broccoli — please confirm attendance!', es:'Me encantan los huevos de dragón, pero soy alérgico al brócoli volador — ¡confirma tu asistencia!', pron:'ái lav drágon egs, bat ái am alérchic tu fláing brácoli — plíis confírm aténdans!'},
     {en:"Let's split the bill, take meeting minutes, and follow up before the castle disappears.", es:'Dividamos la cuenta, tomemos la minuta, y hagamos seguimiento antes de que el castillo desaparezca.', pron:"lets split de bil, téik míiting mínits, and fálou ap bifór de cásol disapírs."},
     {en:"The dragon's secret recipe needs boiling lava and a magic oven — prepare the presentation slides too!", es:'La receta secreta del dragón necesita lava hirviendo y un horno mágico — ¡preparemos también las diapositivas de la presentación!', pron:"de drágons sícret résipi níids bóiling láva and a máyic áven — pripér de presentéishon sláids tú!"},
-    {en:"Camera on, mute your roar, and let's screen share the treasure map on our video call!", es:'Cámara encendida, silenciá tu rugido, ¡y compartamos pantalla con el mapa del tesoro en la videollamada!', pron:"cámera on, miút iór rór, and lets scríin shér de tréshur map on áur vídio col!"},
+    {en:"Camera on, mute your roar, and let's screen share the treasure map on our video call!", es:'Cámara encendida, silencia tu rugido, ¡y compartamos pantalla con el mapa del tesoro en la videollamada!', pron:"cámera on, miút iór rór, and lets scríin shér de tréshur map on áur vídio col!"},
     {en:'For breakfast, a thousand eggs — and in our follow-up meeting, the milestone is finally on track!', es:'De desayuno, mil huevos — ¡y en nuestra reunión de seguimiento, el hito por fin va bien encaminado!', pron:'for brékfast, a záusand egs — and in áur fálou ap míiting, de máilstoun is fáinali on trak!'}
   ],
   48: [
@@ -2705,7 +2705,7 @@ const weeklyStories = {
     {en:"Can you lower the price, dragon? Let's bargain and negotiate terms!", es:'¿Puedes bajar el precio, dragón? ¡Regateemos y negociemos los términos!', pron:'can iú lóuar de práis, drágon? lets bárguen and nigóushieit terms!'},
     {en:'I want to return this broken dragon egg — please issue an invoice today.', es:'Quiero devolver este huevo de dragón roto — por favor emitan una factura hoy.', pron:'ái uánt tu ritérn dis bróuken drágon eg — plíis íshu an ínvois tudéi.'},
     {en:'Is this covered by warranty, or is there a late fee?', es:'¿Esto está cubierto por la garantía, o hay un recargo por mora?', pron:'is dis cávard bái uáranti, or is dér a léit fíi?'},
-    {en:'Swipe the card, or pay cash only — the transaction ID is written in the stars.', es:'Deslizá la tarjeta, o pagá solo en efectivo — el número de transacción está escrito en las estrellas.', pron:'suáip de card, or péi cash óunli — de transácshon ái díi is ríten in de stars.'},
+    {en:'Swipe the card, or pay cash only — the transaction ID is written in the stars.', es:'Desliza la tarjeta, o paga solo en efectivo — el número de transacción está escrito en las estrellas.', pron:'suáip de card, or péi cash óunli — de transácshon ái díi is ríten in de stars.'},
     {en:'Add to cart, and enjoy this completely secure payment!', es:'Agrega al carrito, ¡y disfruta este pago completamente seguro!', pron:'ad tu cart, and enyói dis camplítli sekiúr péiment!'}
   ],
   60: [
@@ -2749,6 +2749,16 @@ function sampleMilestoneWords(dayNumber){
   return sample;
 }
 const crossDayIntro = [{t:'Antes de lo nuevo de hoy, repasemos rápido algo que te costó en un día anterior.',lang:'es'}];
+
+// Mostrar el botón "Continuar" y asegurarnos de que quede a la vista — cuando se
+// esconde el cuadro de escribir/grabar justo antes, la pantalla puede correrse y
+// el primer toque en el botón puede fallar si el usuario no lo ve bien.
+function mostrarNextControls(){
+  nextControls.style.display='flex';
+  if(typeof nextControls.scrollIntoView === 'function'){
+    setTimeout(()=>{ nextControls.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 30);
+  }
+}
 
 function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures, dayAuxiliary){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
@@ -2912,7 +2922,7 @@ gateBtn.addEventListener('click', async ()=>{
     setMicStatus('on','Micrófono: activo'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},500);
   }catch(err){
     micGranted=false; gateStatus.textContent='No se concedió el permiso. Puedes escribir tus respuestas.';
-    setMicStatus('off','Micrófono: sin permiso (usá texto)'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1800);
+    setMicStatus('off','Micrófono: sin permiso (usa texto)'); setTimeout(()=>{gate.classList.remove('show'); enterDayContent();},1800);
   }
 });
 function setMicStatus(cls,text){const el=document.getElementById('micStatus'),t=document.getElementById('micStatusText'); el.className='mic-status '+cls; t.textContent=text;}
@@ -3033,7 +3043,7 @@ async function speakSegs(segs, targetContainer, rate){
 // ================= Reconocimiento de voz =================
 let recognition=null, micSupported=false;
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(SR){micSupported=true;recognition=new SR();recognition.lang='es-CO';recognition.interimResults=false;recognition.maxAlternatives=1;}
+if(SR){micSupported=true;recognition=new SR();recognition.lang='en-US';recognition.interimResults=false;recognition.maxAlternatives=1;}
 function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z\s]/g,'').replace(/\s+/g,' ').trim();}
 function saidMatches(target, said){const t=normalize(target), s=normalize(said); if(!t) return true; return t.split(' ').every(w=>s.includes(w));}
 
@@ -3065,7 +3075,7 @@ function loadTurn(){
   if(turn.kind==='fillBlankDialogue'){ runFillBlankDialogue(turn); return; }
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
-      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabes ahora. Primero hablada, después escrita.',lang:'es'}];
+      turn.segs = [{t:'Desafío de hito: arma 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabes ahora. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🏆';
     } else {
       turn.segs = [{t:'Ahora te toca a ti: mira el ejemplo de abajo, y después arma tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
@@ -3137,9 +3147,9 @@ function afterIntro(turn){
   appControls.style.display='none';
   if(turn.kind==='free'){
     userControls.style.display='flex';
-    micBtn.onclick=()=>startListening(res=>{ addTranscript('VOS', res.said, 'user'); nextControls.style.display='flex'; userControls.style.display='none'; });
+    micBtn.onclick=()=>startListening(res=>{ addTranscript('TÚ', res.said, 'user'); mostrarNextControls(); userControls.style.display='none'; });
     skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.focus();};
-    sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; addTranscript('VOS', typeInput.value.trim(), 'user'); typeInput.value=''; typeRow.style.display='none'; nextControls.style.display='flex'; };
+    sendBtn.onclick=()=>{ if(!typeInput.value.trim())return; addTranscript('TÚ', typeInput.value.trim(), 'user'); typeInput.value=''; typeRow.style.display='none'; mostrarNextControls(); };
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
   }
@@ -3157,7 +3167,7 @@ function afterIntro(turn){
     let spokenDone=false;
     userControls.style.display='flex';
     micBtn.onclick=()=>startListening(res=>{
-      addTranscript('VOS (hablado)', res.said, 'user');
+      addTranscript('TÚ (hablado)', res.said, 'user');
       spokenDone=true;
       userControls.style.display='none';
       typeRow.style.display='flex'; typeInput.placeholder='Ahora escribe esa misma frase...'; typeInput.focus();
@@ -3166,10 +3176,10 @@ function afterIntro(turn){
     skipBtn.onclick=()=>{typeRow.style.display='flex'; typeInput.placeholder='Escribe tu frase acá...'; typeInput.focus();};
     sendBtn.onclick=()=>{
       if(!typeInput.value.trim())return;
-      addTranscript('VOS (escrito)', typeInput.value.trim(), 'user');
+      addTranscript('TÚ (escrito)', typeInput.value.trim(), 'user');
       typeInput.value=''; typeRow.style.display='none';
       feedback.classList.add('show','ok'); feedback.textContent='✓ Excelente. Esto es usar el idioma de verdad, no solo repetirlo.';
-      nextControls.style.display='flex';
+      mostrarNextControls();
       const items = buildTransformItems(turn.dayStructures);
       if(items.length){
         nextBtn.textContent='Practiquemos transformaciones →';
@@ -3215,11 +3225,11 @@ function runTransformDrills(items, i, onDone){
   sendBtn.onclick=()=>{
     const typed=typeInput.value.trim(); if(!typed) return;
     const correct = normalize(typed)===normalize(item.target);
-    addTranscript('VOS (escrito)', typed, 'user');
+    addTranscript('TÚ (escrito)', typed, 'user');
     typeRow.style.display='none';
     feedback.classList.add('show', correct?'ok':'retry');
     feedback.textContent = correct ? '✓ ¡Perfecto!' : '✗ Se escribe: "'+item.target+'"';
-    nextControls.style.display='flex';
+    mostrarNextControls();
     nextBtn.textContent = (i+1<items.length) ? 'Siguiente →' : 'Continuar →';
     nextBtn.onclick=()=>{ runTransformDrills(items, i+1, onDone); };
   };
@@ -3315,7 +3325,7 @@ function runFillBlankDialogue(turn){
   function renderNext(){
     if(idxLine >= lines.length){
       current.innerHTML='';
-      nextControls.style.display='flex';
+      mostrarNextControls();
       nextBtn.textContent='Continuar →';
       nextBtn.onclick=()=>{ fbPlayer.style.display='none'; idx++; loadTurn(); };
       return;
@@ -3431,7 +3441,7 @@ function runDialogueReinforcement(turn){
   // ===== Paso 1: elegir con qué personaje practicas =====
   function showRoleSelector(){
     setSegs(lineEl,[{t:'Antes de arrancar esta unidad, repasemos toda la anterior con un diálogo entre el Profesor y el Alumno dragón.',lang:'es'}]);
-    hintEl.textContent='Elegí con cuál de los dos personajes quieres practicar hablando. Vas a escuchar las líneas del otro personaje como contexto, y vas a grabar las tuyas.';
+    hintEl.textContent='Elige con cuál de los dos personajes quieres practicar hablando. Vas a escuchar las líneas del otro personaje como contexto, y vas a grabar las tuyas.';
     turnBox.innerHTML='';
     const wrap = document.createElement('div'); wrap.style.cssText='display:flex; flex-direction:column; gap:10px; align-items:center;';
     const title = document.createElement('div'); title.style.cssText='font-size:14px; color:var(--muted); margin-bottom:4px;';
@@ -3458,7 +3468,7 @@ function runDialogueReinforcement(turn){
     if(idxLine >= lines.length){
       turnBox.innerHTML='';
       resetRecordingPanel();
-      nextControls.style.display='flex';
+      mostrarNextControls();
       nextBtn.textContent='Continuar →';
       nextBtn.onclick=()=>{ playToken++; try{ speechSynthesis.cancel(); }catch(e){} restoreRecordPanelIfStray(); resetRecordingPanel(); dlgPlayer.style.display='none'; idx++; loadTurn(); };
       return;
@@ -3478,7 +3488,7 @@ function runDialogueReinforcement(turn){
     const lineBoxId = 'dlgTurnEn'+idxLine;
     const lineBox = document.createElement('div');
     lineBox.className = 'dlg-line '+line.speaker;
-    lineBox.innerHTML = '<div class="dlg-who">'+meta.label+(esMiTurno?' — repetí esta línea':'')+'</div><div class="dlg-en" id="'+lineBoxId+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div>';
+    lineBox.innerHTML = '<div class="dlg-who">'+meta.label+(esMiTurno?' — repite esta línea':'')+'</div><div class="dlg-en" id="'+lineBoxId+'"></div><div class="dlg-pron">'+line.pron+'</div><div class="dlg-es">'+line.es+'</div>';
     turnBox.appendChild(lineBox);
     renderStoryLine(document.getElementById(lineBoxId), line.en);
 
@@ -3613,13 +3623,13 @@ function runReadAlong(turn){
 
   illusEl.textContent='📖';
   lineEl.innerHTML=''; setSegs(lineEl,[{t:'Cerremos con una lectura completa de repaso — escucha y sigue el texto, sin ejercicios.',lang:'es'}]);
-  hintEl.textContent='Encontrás acá las estructuras, palabras y frases que aprendiste en esta lección, todas juntas en una sola historia.';
+  hintEl.textContent='Encuentras acá las estructuras, palabras y frases que aprendiste en esta lección, todas juntas en una sola historia.';
 
   const readAlongPlayer=document.getElementById('readAlongPlayer'), readAlongBox=document.getElementById('readAlongBox');
   const playBtn2=document.getElementById('readAlongPlayBtn'), stopBtn2=document.getElementById('readAlongStopBtn');
   if(!readAlongPlayer || !readAlongBox || !playBtn2 || !stopBtn2){
     hintEl.textContent='⚠️ Falta actualizar index.html — subí la versión más reciente junto con motor.js.';
-    nextControls.style.display='flex';
+    mostrarNextControls();
     nextBtn.textContent='Continuar →';
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
@@ -3662,7 +3672,7 @@ function runReadAlong(turn){
     readAlongBox.querySelectorAll('.ra-line').forEach(el=>el.classList.remove('current'));
   };
 
-  nextControls.style.display='flex';
+  mostrarNextControls();
   nextBtn.textContent='Continuar →';
   nextBtn.onclick=()=>{
     cancelled=true; try{ speechSynthesis.cancel(); }catch(e){}
@@ -3695,14 +3705,14 @@ function runDictation(turn){
   sendBtn.onclick=()=>{
     const said = typeInput.value.trim();
     if(!said) return;
-    addTranscript('VOS (dictado)', said, 'user');
+    addTranscript('TÚ (dictado)', said, 'user');
     const correct = normalize(said)===normalize(turn.dictEn);
     typeRow.style.display='none'; listenBtn.style.display='none';
     lineEl.innerHTML=''; setSegs(lineEl, [{t:turn.dictEn, lang:'en'}]);
     hintEl.textContent='Significa: "'+turn.dictEs+'"';
     feedback.classList.add('show', correct?'ok':'retry');
-    feedback.textContent = correct ? '✓ ¡Perfecto, coincide exactamente!' : '✗ No coincidió del todo — mirá arriba cómo era realmente, y compará con lo que escribiste.';
-    nextControls.style.display='flex';
+    feedback.textContent = correct ? '✓ ¡Perfecto, coincide exactamente!' : '✗ No coincidió del todo — mira arriba cómo era realmente, y compara con lo que escribiste.';
+    mostrarNextControls();
   };
   nextBtn.onclick=()=>{ idx++; loadTurn(); };
 }
@@ -3785,7 +3795,7 @@ function runPractica(turn){
     lineEl.innerHTML=''; setSegs(lineEl,[{t:'Práctica de Progreso — Día '+turn.day, lang:'es'}]);
     hintEl.textContent='35 ejercicios: 15 palabras, 10 preguntas abiertas, y 10 frases para traducir. La puedes repetir todas las veces que quieras, cuando quieras.';
     appControls.style.display='flex'; userControls.style.display='none'; typeRow.style.display='none';
-    nextControls.style.display='flex'; feedback.classList.remove('show');
+    mostrarNextControls(); feedback.classList.remove('show');
     nextBtn.textContent='Empezar →';
     nextBtn.onclick=()=>{ showItem(); };
   }
@@ -3821,7 +3831,7 @@ function runPractica(turn){
     listenBtn.style.display='inline-flex';
     listenBtn.onclick=async ()=>{ listenBtn.disabled=true; await speakHidden(speakText); listenBtn.disabled=false; };
     micBtn.onclick=()=>startListening(res=>{
-      addTranscript('VOS (hablado)', res.said, 'user');
+      addTranscript('TÚ (hablado)', res.said, 'user');
       userControls.style.display='none';
       typeRow.style.display='flex'; typeInput.value=''; typeInput.placeholder='Ahora escribe tu respuesta...'; typeInput.focus();
     }, {longForm:true});
@@ -3829,7 +3839,7 @@ function runPractica(turn){
     sendBtn.onclick=()=>{
       const said=typeInput.value.trim();
       if(!said) return;
-      addTranscript('VOS (escrito)', said, 'user');
+      addTranscript('TÚ (escrito)', said, 'user');
       typeRow.style.display='none';
       if(item.type==='pregunta'){
         results.push({type:'pregunta', prompt:item.question, answer:said, correct:null});
@@ -3843,7 +3853,7 @@ function runPractica(turn){
         feedback.classList.add('show', isRight?'ok':'retry');
         feedback.textContent = isRight ? '✓ ¡Correcto!' : '✗ La respuesta correcta era: "'+target+'"';
       }
-      nextControls.style.display='flex';
+      mostrarNextControls();
       nextBtn.textContent = (i+1<items.length) ? 'Siguiente →' : 'Ver resultado →';
       nextBtn.onclick=()=>{ i++; showItem(); };
     };
@@ -3860,12 +3870,12 @@ function runPractica(turn){
     lineEl.innerHTML=''; setSegs(lineEl,[{t:'Resultado: '+score+' de '+total, lang:'es'}]);
     let msg;
     if(score>=total*0.85) msg='¡Excelente progreso! Estás muy bien preparado para el examen de hito.';
-    else if(score>=total*0.57) msg='Vas por buen camino. Repasá especialmente lo que falló, y repetí esta práctica cuando quieras.';
-    else msg='Cada intento te acerca más — repasá con calma, y volvé a intentarlo las veces que necesites.';
-    if(turn.day===168) msg += ' Este fue tu último repaso antes del examen de hito — ¡confiá en todo lo que aprendiste!';
+    else if(score>=total*0.57) msg='Vas por buen camino. Repasa especialmente lo que falló, y repite esta práctica cuando quieras.';
+    else msg='Cada intento te acerca más — repasa con calma, y vuelve a intentarlo las veces que necesites.';
+    if(turn.day===168) msg += ' Este fue tu último repaso antes del examen de hito — ¡confía en todo lo que aprendiste!';
     hintEl.textContent=msg+' Puedes repetir esta práctica cuantas veces quieras.';
     feedback.classList.remove('show');
-    nextControls.style.display='flex';
+    mostrarNextControls();
     nextBtn.textContent='📥 Descargar mi práctica';
     nextBtn.onclick=()=>{ downloadPracticaSummary(turn, results, score, total, msg); };
     let repeatBtn=document.getElementById('practicaRepeatBtn');
@@ -3884,7 +3894,7 @@ function runPractica(turn){
 function runWordChallenge(){
   if(wqIndex >= wordQueue.length){
     if(evalMode){ finishEvaluation(); return; }
-    nextControls.style.display='flex';
+    mostrarNextControls();
     nextBtn.onclick=()=>{ idx++; loadTurn(); };
     return;
   }
@@ -3993,7 +4003,7 @@ function handleSpokenResult(w, res){
   spokenAttempts++;
   const ok = saidMatches(w.en, res.said);
   const pronTag = (res.confidence!==null) ? '<span class="pron-tag '+(res.confidence>=0.92?'high':'low')+'">pronunciación '+Math.round(res.confidence*100)+'%</span>' : '';
-  addTranscript('VOS', res.said+pronTag, 'user');
+  addTranscript('TÚ', res.said+pronTag, 'user');
   feedback.classList.add('show');
   userControls.style.display='none'; typeRow.style.display='none';
   const passedClear = ok && (res.confidence===null || res.confidence>=0.92);
@@ -4061,7 +4071,7 @@ function goToWriteStep(w, pronCredit){
     if(finalPerfect){ weakWords = weakWords.filter(x=>normalize(x.en)!==normalize(w.en)); }
     else if(!weakWordsHas(w)){ weakWords.push(w); }
     updateLiveScore();
-    nextControls.style.display='flex';
+    mostrarNextControls();
     nextBtn.textContent = evalMode ? 'Continuar →' : 'Continuar →';
     nextBtn.onclick=()=>{ wqIndex++; runWordChallenge(); };
   }
@@ -4069,7 +4079,7 @@ function goToWriteStep(w, pronCredit){
     const typed=typeInput.value.trim(); if(!typed) return;
     attempts++;
     const correct = normalize(typed)===normalize(w.en);
-    addTranscript('VOS (escrito)', typed, 'user');
+    addTranscript('TÚ (escrito)', typed, 'user');
     feedback.classList.add('show');
     if(correct){
       writeCredit = attempts===1 ? 1 : 0.5;
@@ -4082,7 +4092,7 @@ function goToWriteStep(w, pronCredit){
         ? 'Se escribe "'+w.en+'". Quedó anotada para repasar.'
         : 'No es así todavía. Fíjate bien y prueba de nuevo, o toca "Ver respuesta" si prefieres seguir.';
       typeInput.value=''; typeInput.focus();
-      nextControls.style.display='flex';
+      mostrarNextControls();
       nextBtn.textContent='Ver respuesta y continuar';
       nextBtn.onclick=()=>{ writeCredit=0; finalize(); };
       if(attempts>=2){ writeCredit=0; finalize(); }
@@ -4237,15 +4247,15 @@ function startEvaluation(){
   illusEl.textContent='💬';
   setSegs(lineEl, [{t:'¡Ya casi terminamos! Cerremos con un diálogo: te voy a preguntar por cada cosa que aprendiste hoy — la dices y la escribes, como en una charla real.',lang:'es'}]);
   hintEl.textContent='Para aprobar la lección necesitas al menos 92% correcto.';
-  nextControls.style.display='flex';
+  mostrarNextControls();
   nextBtn.textContent='Empezar el diálogo';
   nextBtn.onclick=()=>{
     nextBtn.textContent='Continuar →';
     wordQueue = learnedWords.slice(); wqIndex=0; evalMode=true;
     if(wordQueue.length===0){
-      setSegs(lineEl, [{t:'Parece que todavía no completaste palabras hoy como para armar el diálogo. Volvé al mapa de días y hacé la lección completa desde el principio.',lang:'es'}]);
+      setSegs(lineEl, [{t:'Parece que todavía no completaste palabras hoy como para armar el diálogo. Vuelve al mapa de días y haz la lección completa desde el principio.',lang:'es'}]);
       hintEl.textContent='';
-      nextControls.style.display='flex';
+      mostrarNextControls();
       nextBtn.textContent='Entendido';
       nextBtn.onclick=()=>{ idx++; loadTurn(); };
       return;
@@ -4307,7 +4317,7 @@ function enterReview(i){
   const turn=script[i];
   if(turn.kind==='task' && !turn.segs){
     if(turn.isMilestoneTask){
-      turn.segs = [{t:'Desafío de hito: armá 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabes ahora. Primero hablada, después escrita.',lang:'es'}];
+      turn.segs = [{t:'Desafío de hito: arma 2 o 3 frases propias combinando varias palabras que aprendiste en este mes completo (no solo de hoy), como si le estuvieras contando a alguien todo lo que sabes ahora. Primero hablada, después escrita.',lang:'es'}];
       turn.emoji = '🏆';
     } else {
       turn.segs = [{t:'Ahora te toca a ti: mira el ejemplo de abajo, y después arma tu propia frase combinando al menos tres palabras diferentes de las que aprendiste hoy — no tienen que ser las mismas del ejemplo. Primero hablada, después escrita.',lang:'es'}];
@@ -4315,7 +4325,7 @@ function enterReview(i){
     }
   }
   if(turn.kind==='end' && !turn.segs){
-    turn.segs = [{t:'Este es el cierre de la lección: acá se hace la evaluación final con todo el vocabulario del día. No hay nada más para repasar en este punto — elegí otro segmento de la barra.',lang:'es'}];
+    turn.segs = [{t:'Este es el cierre de la lección: acá se hace la evaluación final con todo el vocabulario del día. No hay nada más para repasar en este punto — elige otro segmento de la barra.',lang:'es'}];
     turn.emoji = '🏁';
   }
   speakerLabel.textContent='REPASO'; modeChip.style.display='none';

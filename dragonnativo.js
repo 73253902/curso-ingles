@@ -97,7 +97,7 @@ const FASE1_SEMANAS = [
       {en:"Let me know,", es:"Avísame,", pron:"let mi nóu,"},
       {en:"I hope so,", es:"espero que sí,", pron:"ái jóup sóu,"},
       {en:"me too!", es:"¡yo también!", pron:"mi tú!"},
-      {en:"Give me a second, hold that thought!", es:"¡Dame un segundo, esperá esa idea!", pron:"guiv mi a sécond, jóuld dat zot!"}
+      {en:"Give me a second, hold that thought!", es:"¡Dame un segundo, espera esa idea!", pron:"guiv mi a sécond, jóuld dat zot!"}
     ]},
     estrofa2:{label:"Repaso Semana 4", lineas:[
       {en:"What do you mean? Oh, now I see,", es:"¿Qué quieres decir? Ah, ya veo,", pron:"uát du iú míin? óu, náu ái síi,"},
@@ -1775,6 +1775,17 @@ const dragonNativo = {
 
   function el(id){ return document.getElementById(id); }
 
+  // Mostrar una fila de "Siguiente" y llevarla a la vista — cuando se esconde el
+  // cuadro de escribir/grabar justo antes, la pantalla puede correrse y el primer
+  // toque en el botón puede fallar si el usuario no lo ve bien.
+  function mostrarNextRow(id){
+    const row = el(id);
+    row.style.display='flex';
+    if(typeof row.scrollIntoView === 'function'){
+      setTimeout(()=>{ row.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 30);
+    }
+  }
+
   // ================= Progreso de El Dragón Nativo (independiente del progreso del curso principal) =================
   const DN_PROGRESO_KEY = 'dragon_nativo_progreso_v1';
 
@@ -1837,7 +1848,7 @@ const dragonNativo = {
       const desbloqueada = faseDesbloqueada(fase);
       let progresoTxt;
       if(!fase.disponible){ progresoTxt = 'Próximamente'; }
-      else if(!desbloqueada){ progresoTxt = 'Completá la Fase '+(fase.id-1)+' para desbloquear'; }
+      else if(!desbloqueada){ progresoTxt = 'Completa la Fase '+(fase.id-1)+' para desbloquear'; }
       else { progresoTxt = fase.semanas.length+' semanas · '+fase.frases+' frases'; }
       card.innerHTML = '<div class="dn-fase-num">'+fase.id+'</div>'
         +'<div class="dn-fase-info"><b>'+fase.nombre+' — '+fase.subtitulo+'</b><p>'+progresoTxt+'</p></div>'
@@ -1885,7 +1896,7 @@ const dragonNativo = {
     if(semana.audio){
       audioBox.innerHTML = '<audio controls src="'+semana.audio+'"></audio>';
     } else {
-      audioBox.innerHTML = '<div class="dn-audio-pending">🎵 Audio en camino — por ahora, practicá con la letra y la pronunciación del curso.</div>';
+      audioBox.innerHTML = '<div class="dn-audio-pending">🎵 Audio en camino — por ahora, practica con la letra y la pronunciación del curso.</div>';
     }
 
     let html = '';
@@ -1947,7 +1958,7 @@ const dragonNativo = {
       el('dnReviewInput').placeholder='Escribí tu propia oración en inglés...';
     } else {
       el('dnReviewPrompt').innerHTML = '<div class="dn-en" style="font-size:19px;">'+item.es+pronHTML+'</div>';
-      el('dnReviewInput').placeholder='Traducí al inglés...';
+      el('dnReviewInput').placeholder='Traduce al inglés...';
     }
     el('dnReviewListenBtn').onclick = async ()=>{
       el('dnReviewListenBtn').disabled=true;
@@ -1959,7 +1970,7 @@ const dragonNativo = {
     // El modo admin no necesita completar cada frase para poder seguir —
     // el botón "Siguiente" queda disponible de entrada, sin exigir respuesta.
     if(typeof isAdmin === 'function' && isAdmin()){
-      el('dnReviewNextRow').style.display='flex';
+      mostrarNextRow('dnReviewNextRow');
       el('dnReviewNextBtn').textContent = (reviewIdx+1<reviewItems.length) ? 'Siguiente →' : 'Ver resultado →';
     }
   }
@@ -1979,7 +1990,7 @@ const dragonNativo = {
       box.className='dn-review-feedback '+(isRight?'ok':'retry');
       box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — la frase correcta era: ')+'"'+item.en+'"';
     }
-    el('dnReviewNextRow').style.display='flex';
+    mostrarNextRow('dnReviewNextRow');
     el('dnReviewNextBtn').textContent = (reviewIdx+1<reviewItems.length) ? 'Siguiente →' : 'Ver resultado →';
   }
 
@@ -1990,7 +2001,7 @@ const dragonNativo = {
     el('dnReviewInput').style.display='none';
     el('dnReviewSendBtn').style.display='none';
     el('dnReviewFeedback').style.display='none';
-    el('dnReviewNextRow').style.display='flex';
+    mostrarNextRow('dnReviewNextRow');
     el('dnReviewNextBtn').textContent='🔁 Repetir este repaso';
     el('dnReviewNextBtn').onclick = ()=>{
       el('dnReviewListenBtn').style.display='inline-flex';

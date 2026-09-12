@@ -21,7 +21,7 @@ const curriculumUnidad1 = [
     auxiliaryTeaching:[
       {
         title:'El contraste',
-        intro:'Fijate en este contraste: cuando la frase tiene "am" (I am...), para decir "no" solo agregás "not". Pero cuando la frase tiene una acción (necesitar, trabajar, vender...), hace falta un ayudante: "don\'t". Mirá la diferencia:',
+        intro:'Fíjate en este contraste: cuando la frase tiene "am" (I am...), para decir "no" solo agregas "not". Pero cuando la frase tiene una acción (necesitar, trabajar, vender...), hace falta un ayudante: "don\'t". Mira la diferencia:',
         examples:[
           {en:'I am happy.', es:'Estoy feliz.', pron:'ái am jápi.'},
           {en:'I am not happy.', es:'No estoy feliz.', pron:'ái am nat jápi.'},
@@ -252,7 +252,7 @@ const curriculumUnidad1 = [
       {en:"Nice to meet you, Welcome", es:"¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!", pron:"náis tu míit iú, uélcam"}
     ],
     songStoryLyrics:[
-      {en:"Welcome to Earth! Come in, please!", es:"¡Bienvenido a la Tierra! ¡Pasá, por favor!", pron:"uélcam tu erz! cam in, plíis!"},
+      {en:"Welcome to Earth! Come in, please!", es:"¡Bienvenido a la Tierra! ¡Pasa, por favor!", pron:"uélcam tu erz! cam in, plíis!"},
       {en:"What's your name?", es:"¿Cómo te llamas?", pron:"uáts iór néim?"},
       {en:"My name is Zorblax, and I am from the planet Neptune!", es:"¡Me llamo Zorblax, y soy del planeta Neptuno!", pron:"mái néim is Zorblax, and ái am fram de plánet Neptiún!"},
       {en:"Nice to meet you. Have a seat — if you can find a chair big enough!", es:"Mucho gusto. Toma asiento — ¡si encuentras una silla suficientemente grande!", pron:"náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!"},
@@ -271,8 +271,8 @@ const curriculumUnidad1 = [
       {en:'owner', es:'dueño', pron:'óuner', emoji:'🔑'},
       {en:'this is', es:'te presento a', pron:'dis is', emoji:'👉'},
       {en:'welcome', es:'bienvenido', pron:'uélcam', emoji:'🎉'},
-      {en:'come in', es:'pasá', pron:'cam in', emoji:'🚪'},
-      {en:'have a seat', es:'tomá asiento', pron:'jav a síit', emoji:'🪑'},
+      {en:'come in', es:'pasa', pron:'cam in', emoji:'🚪'},
+      {en:'have a seat', es:'toma asiento', pron:'jav a síit', emoji:'🪑'},
       {en:'our team', es:'nuestro equipo', pron:'áur tíim', emoji:'👥'},
       {en:'contact', es:'contacto', pron:'cóntact', emoji:'📇'},
       {en:'phone number', es:'número de teléfono', pron:'fóun námber', emoji:'📱'},
@@ -282,7 +282,7 @@ const curriculumUnidad1 = [
       {en:'the pleasure is mine', es:'el placer es mío', pron:'de pléyer is máin', emoji:'😊'}
     ],
     story:[
-      {en:'Welcome to Earth! Come in, please!', es:'¡Bienvenido a la Tierra! ¡Pasá, por favor!', pron:'uélcam tu erz! cam in, plíis!'},
+      {en:'Welcome to Earth! Come in, please!', es:'¡Bienvenido a la Tierra! ¡Pasa, por favor!', pron:'uélcam tu erz! cam in, plíis!'},
       {en:"What's your name?", es:'¿Cómo te llamas?', pron:'uáts iór néim?'},
       {en:'My name is Zorblax, and I am from the planet Neptune!', es:'¡Me llamo Zorblax, y soy del planeta Neptuno!', pron:'mái néim is Zorblax, and ái am fram de plánet Neptiún!'},
       {en:'Nice to meet you. Have a seat — if you can find a chair big enough!', es:'Mucho gusto. Toma asiento — ¡si encuentras una silla suficientemente grande!', pron:'náis tu míit iú. jav a síit — if iú can fáind a chér big ináf!'},
@@ -669,7 +669,7 @@ const curriculumUnidad1 = [
       {en:'Box, dozen,', es:'es caja, docena en la cuenta,', pron:'baks, dázen,'},
       {en:'Quantity', es:'es cantidad que siempre aumenta.', pron:'cuántiti'},
       {en:'Order, invoice,', es:'es pedido, la factura oficial,', pron:'órder, ínvois,'},
-      {en:'Send the invoice to the moon,', es:'¡Enviá la factura a la luna,', pron:'send de ínvois tu de múun,'},
+      {en:'Send the invoice to the moon,', es:'¡Envía la factura a la luna,', pron:'send de ínvois tu de múun,'},
       {en:'that\'s where this order is going!', es:'ahí es donde va este pedido!', pron:'dats uér dis órder is góing!'},
       {en:'We have ten boxes,', es:'tenemos diez cajas aquí,', pron:'uí jav ten báxes,'},
       {en:'We have two dozens,', es:'¡todo listo para ti!', pron:'uí jav tú dázens,'},
@@ -692,7 +692,7 @@ const curriculumUnidad1 = [
       {en:'Box, dozen,', es:'es caja, docena en la cuenta,', pron:'baks, dázen,'},
       {en:'Quantity', es:'es cantidad que siempre aumenta.', pron:'cuántiti'},
       {en:'Order, invoice,', es:'es pedido, la factura oficial,', pron:'órder, ínvois,'},
-      {en:'Send the invoice to the moon,', es:'¡Enviá la factura a la luna,', pron:'send de ínvois tu de múun,'},
+      {en:'Send the invoice to the moon,', es:'¡Envía la factura a la luna,', pron:'send de ínvois tu de múun,'},
       {en:'that\'s where this order is going!', es:'ahí es donde va este pedido!', pron:'dats uér dis órder is góing!'},
       {en:'We have ten boxes,', es:'tenemos diez cajas aquí,', pron:'uí jav ten báxes,'},
       {en:'We have two dozens,', es:'¡todo listo para ti!', pron:'uí jav tú dázens,'},
@@ -880,7 +880,7 @@ const curriculumUnidad1 = [
         {en:"I'm busy.", es:'Estoy ocupado.', pron:'áim bísi.'},
         {en:"I'm ready.", es:'Estoy listo.', pron:'áim rédi.'},
         {en:"I'm tired.", es:'Estoy cansado.', pron:'áim táierd.'}
-      ], function:'decir cómo te sentís', stage:1,
+      ], function:'decir cómo te sientes', stage:1,
         transformations:{
           negative:{en:"I'm not fine.", es:'No estoy bien.'},
           question:{en:'Are you fine?', es:'¿Estás bien?'},

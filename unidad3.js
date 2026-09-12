@@ -55,7 +55,7 @@ const curriculumUnidad3 = [
       {id:'S107', pattern:"The grand total adds up to + [NUMBER]", examples:[
         {en:'The grand total adds up to ninety dollars.', es:'El total general suma noventa dólares.', pron:'de grand tóutal ads ap tu náinti dálars.'},
         {en:'The grand total adds up to one hundred units.', es:'El total general suma cien unidades.', pron:'de grand tóutal ads ap tu uán jándred iúnits.'},
-        {en:'Check the subtotal, the tax, and the shipping cost before the grand total.', es:'Revisá el subtotal, el impuesto, y el costo de envío antes del total general.', pron:'chek de sábtoutal, de tax, and de shíping cost bifór de grand tóutal.'},
+        {en:'Check the subtotal, the tax, and the shipping cost before the grand total.', es:'Revisa el subtotal, el impuesto, y el costo de envío antes del total general.', pron:'chek de sábtoutal, de tax, and de shíping cost bifór de grand tóutal.'},
         {en:"The grand total doesn't add up to a thousand yet.", es:'El total general todavía no suma mil.', pron:"de grand tóutal dásnt ad ap tu a záusand iét."}
       ], function:'hablar de totales y cotizaciones con números redondos', stage:1,
         transformations:{
@@ -276,7 +276,7 @@ const curriculumUnidad3 = [
     day:31, unit:3, unitTitle:'Unidad 3 · Semanas 5-6', theme:'Repaso liviano de la semana 5',
     structures:[
       {id:'S110', pattern:"Let me see, + [X]", examples:[
-        {en:'Let me see — hold on, give me a second to think.', es:'Déjame ver — esperá, dame un segundo para pensar.', pron:'let mi síi — jóuld on, guiv mi a sécond tu zink.'},
+        {en:'Let me see — hold on, give me a second to think.', es:'Déjame ver — espera, dame un segundo para pensar.', pron:'let mi síi — jóuld on, guiv mi a sécond tu zink.'},
         {en:'That works for me — it makes sense.', es:'Eso me funciona — tiene sentido.', pron:'dat uorks for mi — it méiks sens.'},
         {en:"I agree with most of it, but I disagree with one part.", es:'Estoy de acuerdo con la mayoría, pero no estoy de acuerdo con una parte.', pron:"ái agríi uid móust of it, bat ái disagríi uid uán part."},
         {en:"Maybe, or probably — I'm not completely sure yet.", es:'Tal vez, o probablemente — todavía no estoy completamente seguro.', pron:"méibi, or prábabli — áim nat camplíitli shur iét."}
@@ -290,7 +290,7 @@ const curriculumUnidad3 = [
     ],
     words:[
       {en:'let me see', es:'déjame ver', pron:'let mi síi', emoji:'👀'},
-      {en:'hold on', es:'esperá', pron:'jóuld on', emoji:'✋'},
+      {en:'hold on', es:'espera', pron:'jóuld on', emoji:'✋'},
       {en:'give me a second', es:'dame un segundo', pron:'guiv mi a sécond', emoji:'⏱️'},
       {en:'that works', es:'eso funciona', pron:'dat uorks', emoji:'✅'},
       {en:"that doesn't work", es:'eso no funciona', pron:'dat dásent uork', emoji:'❌'},
@@ -302,12 +302,12 @@ const curriculumUnidad3 = [
       {en:'probably', es:'probablemente', pron:'prábabli', emoji:'🤔'}
     ],
     story:[
-      {en:'Let me see... hold on, give me a second, dragon!', es:'Déjame ver... esperá, dame un segundo, ¡dragón!', pron:'let mi síi... jóuld on, guiv mi a sécond, drágon!'},
+      {en:'Let me see... hold on, give me a second, dragon!', es:'Déjame ver... espera, dame un segundo, ¡dragón!', pron:'let mi síi... jóuld on, guiv mi a sécond, drágon!'},
       {en:'That works! But that does not work — it makes sense to a wizard, though.', es:'¡Eso funciona! Pero eso no funciona — aunque tiene sentido para un mago.', pron:'dat uorks! bat dat das nat uork — it méiks sens tu a uísard, dóu.'},
       {en:'I agree with the giant, but I disagree with the robot. Maybe, definitely, probably — who knows!', es:'Estoy de acuerdo con el gigante, pero no estoy de acuerdo con el robot. Tal vez, definitivamente, probablemente — ¡quién sabe!', pron:'ái agríi uid de yáiant, bat ái disagríi uid de róubot. méibi, défenitli, prábabli — jú nóus!'}
     ],
     jingle:[
-      {en:'Let me see, hold on, give me a sec!', es:'Déjame ver, esperá, ¡dame un segundo!', pron:'let mi síi, jóuld on, guiv mi a sek!'},
+      {en:'Let me see, hold on, give me a sec!', es:'Déjame ver, espera, ¡dame un segundo!', pron:'let mi síi, jóuld on, guiv mi a sek!'},
       {en:"That works, or maybe that's a wreck!", es:'Eso funciona, o tal vez ¡es un desastre!', pron:'dat uorks, or méibi dats a rek!'},
       {en:'I agree, I disagree, makes sense to me!', es:'Estoy de acuerdo, no estoy de acuerdo, ¡tiene sentido para mí!', pron:'ái agríi, ái disagríi, méiks sens tu mi!'},
       {en:"Maybe, definitely, probably we'll see!", es:'Tal vez, definitivamente, probablemente ¡veremos!', pron:'méibi, défenitli, prábabli uíl síi!'}
@@ -348,7 +348,7 @@ const curriculumUnidad3 = [
     story:[
       {en:'The first dragon won the race, the second was a flying whale, and the third, a giant snail!', es:'¡El primer dragón ganó la carrera, el segundo fue una ballena voladora, y el tercero, un caracol gigante!', pron:'de ferst drágon uán de réis, de sécond uas a fláing uéil, and de zerd, a yáiant snéil!'},
       {en:'The fourth and fifth place went to invisible ninjas. Who is next? Who is last?', es:'El cuarto y quinto lugar fueron para ninjas invisibles. ¿Quién sigue? ¿Quién es el último?', pron:'de forz and fifz pléis uént tu invísibol ninchas. jú is next? jú is last?'},
-      {en:'This order is top priority — urgent, urgent, urgent! Check the ranking of our best seller!', es:'¡Este pedido es máxima prioridad — urgente, urgente, urgente! ¡Revisá la clasificación de nuestro más vendido!', pron:'dis órder is tap praióriti — érchent, érchent, érchent! chek de ránking of áur best séler!'},
+      {en:'This order is top priority — urgent, urgent, urgent! Check the ranking of our best seller!', es:'¡Este pedido es máxima prioridad — urgente, urgente, urgente! ¡Revisa la clasificación de nuestro más vendido!', pron:'dis órder is tap praióriti — érchent, érchent, érchent! chek de ránking of áur best séler!'},
       {en:'Our preferred supplier is a thousand-year-old wizard, and the waiting list has thirty thousand dragons!', es:'Nuestro proveedor preferido es un mago de mil años, ¡y la lista de espera tiene treinta mil dragones!', pron:'áur priférd sapláier is a záusand íar óuld uísard, and de uéiting list jas zérti záusand drágons!'}
     ],
     jingle:[
@@ -377,7 +377,7 @@ const curriculumUnidad3 = [
     auxiliaryTeaching:[
       {
         title:'Will para el futuro',
-        intro:'"Will" es fácil: a diferencia de "do/does" o "have/has", no cambia según quién habla — I will, you will, he will, she will, siempre igual. Solo agregás "will" antes del verbo:',
+        intro:'"Will" es fácil: a diferencia de "do/does" o "have/has", no cambia según quién habla — I will, you will, he will, she will, siempre igual. Solo agregas "will" antes del verbo:',
         examples:[
           {en:'I will call you.', es:'Te voy a llamar.', pron:'ái uil col iú.'},
           {en:'She will call you.', es:'Ella te va a llamar.', pron:'shi uil col iú.'},

@@ -73,7 +73,7 @@ const curriculumUnidad12 = [
     ],
     story:[
       {en:'Event planning starts with a good event coordinator — this one is a wizard!', es:'¡La planificación de eventos empieza con un buen coordinador — este es un mago!', pron:'ivént pláning starts uid a gud ivént coórdineitor — dis uán is a uísard!'},
-      {en:'Check the budget breakdown, and manage vendor management carefully.', es:'Revisá el desglose de presupuesto, y manejá la gestión de proveedores con cuidado.', pron:'chek de báchet bréikdaun, and mánech véndor mánechment quérfuli.'},
+      {en:'Check the budget breakdown, and manage vendor management carefully.', es:'Revisa el desglose de presupuesto, y maneja la gestión de proveedores con cuidado.', pron:'chek de báchet bréikdaun, and mánech véndor mánechment quérfuli.'},
       {en:'The event timeline and run of show are ready — dragons enter at sunset!', es:'¡El cronograma y el guion del evento están listos — los dragones entran al atardecer!', pron:'de ivént táimlain and ran of shóu ar rédi — drágons énter at sánset!'},
       {en:'Event logistics include attendee registration for a thousand guests!', es:'¡La logística del evento incluye el registro de asistentes para mil invitados!', pron:'ivént loyístics inclúud aténdíi rechistréishon for a záusand guests!'},
       {en:'Our event theme is "Golden Kingdom" — don\'t forget the post-event survey!', es:'Nuestra temática del evento es "Reino Dorado" — ¡no te olvides de la encuesta posterior al evento!', pron:'áur ivént ziim is "góulden kíngdom" — dont forguét de póust ivént sérvei!'}
@@ -285,7 +285,7 @@ const curriculumUnidad12 = [
     jingle:[
       {en:'Bite the bullet, bandwagon too!', es:'Enfrentar lo difícil, ¡tendencia también!', pron:'báit de búlet, bánduagon tú!'},
       {en:'Game changer, raise the bar for you!', es:'Cambio total, ¡eleva el estándar para ti!', pron:'guéim chéinyer, réis de bar for iú!'},
-      {en:'No stone unturned, hit the ground running!', es:'Nada sin revisar, ¡arrancá con todo!', pron:'nóu stóun antérnd, jit de gráund ráning!'},
+      {en:'No stone unturned, hit the ground running!', es:'Nada sin revisar, ¡arranca con todo!', pron:'nóu stóun antérnd, jit de gráund ráning!'},
       {en:"Driver's seat, calling shots, no stunning!", es:'Al mando, tomando decisiones, ¡sin sorpresas!', pron:"dráivers síit, cóling shats, nóu stáning!"}
     ]
   },

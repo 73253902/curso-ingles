@@ -2,7 +2,7 @@
 // Autónomo: no depende de motor.js salvo por speakHidden() y practicaAnswerMatches() ya definidas ahí.
 // El Capítulo 1 está completo; los Capítulos 2-5 se agregan de la misma forma.
 // Además define mostrarFoneticaBasico(), enganchada desde motor.js en startDay() para mostrar
-// una pantalla básica de fonética antes del Día 1 (una sola vez, se puede saltear).
+// una pantalla básica de fonética antes del Día 1 (una sola vez, se puede saltar).
 
 CAP1_JS = {
     id:1, nombre:"Capítulo 1", titulo:"Las vocales tienen varias formas", disponible:true,
@@ -86,7 +86,7 @@ const BASICO_CANCION_LYRICS = [
 
 const BASICO_JS = {
   titulo:"Fonética esencial — antes de empezar",
-  intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Puedes escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Puedes saltear esto y volver después, pero te va a servir desde la primera palabra.",
+  intro:"Antes de tu primer día, vamos a practicar las 5 vocales del inglés y sus sonidos principales. Puedes escuchar cada palabra, y grabarte diciéndola, para arrancar el Día 1 con el oído ya entrenado. Puedes saltarte esto y volver después, pero te va a servir desde la primera palabra.",
   grupos: [
     {titulo:"Vocal A", ejemplos:[{en:"late", es:"tarde", pron:"leit", nota:"A suena como EI"}, {en:"want", es:"querer", pron:"uont", nota:"A suena como O"}, {en:"cat", es:"gato", pron:"cat", nota:"A suena como A española"}]},
     {titulo:"Vocal E", ejemplos:[{en:"be", es:"ser/estar", pron:"bi", nota:"E suena como I"}, {en:"bed", es:"cama", pron:"bed", nota:"E suena parecido al español"}, {en:"name", es:"nombre", pron:"neim", nota:"la E final es muda"}]},
@@ -268,6 +268,17 @@ const fonetica = {
 
   function el(id){ return document.getElementById(id); }
 
+  // Mostrar una fila de "Siguiente" y llevarla a la vista — cuando se esconde el
+  // cuadro de escribir/grabar justo antes, la pantalla puede correrse y el primer
+  // toque en el botón puede fallar si el usuario no lo ve bien.
+  function mostrarNextRow(id){
+    const row = el(id);
+    row.style.display='flex';
+    if(typeof row.scrollIntoView === 'function'){
+      setTimeout(()=>{ row.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 30);
+    }
+  }
+
   function openModule(){
     el('home').style.display='none';
     el('foneticaModulo').style.display='block';
@@ -374,7 +385,7 @@ const fonetica = {
     practicaGraded++; if(isRight) practicaOk++;
     box.className='cg-practica-feedback '+(isRight?'ok':'retry');
     box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — se pronuncia: ')+'"'+item.pron+'"';
-    el('fnPracticaEscritaNextRow').style.display='flex';
+    mostrarNextRow('fnPracticaEscritaNextRow');
     el('fnPracticaEscritaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
   }
 
@@ -383,7 +394,7 @@ const fonetica = {
     el('fnPracticaEscritaInput').style.display='none';
     el('fnPracticaEscritaSendBtn').style.display='none';
     el('fnPracticaEscritaFeedback').style.display='none';
-    el('fnPracticaEscritaNextRow').style.display='flex';
+    mostrarNextRow('fnPracticaEscritaNextRow');
     el('fnPracticaEscritaNextBtn').textContent='🔁 Repetir esta práctica';
     el('fnPracticaEscritaNextBtn').onclick = ()=>{
       el('fnPracticaEscritaInput').style.display='';
@@ -400,7 +411,7 @@ const fonetica = {
     practicaItems = shuffle(cap.practicaEscrita);
     practicaIdx=0;
     el('fnPracticaHabladaTitulo').textContent = 'Práctica hablada — '+cap.nombre;
-    el('fnPracticaHabladaHint').textContent = practicaItems.length+' palabras. Escuchá, grabate diciéndola, y compará.';
+    el('fnPracticaHabladaHint').textContent = practicaItems.length+' palabras. Escucha, grábate diciéndola, y compara.';
     showView('practicaHablada');
     showPracticaHabladaItem();
   }
@@ -408,7 +419,7 @@ const fonetica = {
   function showPracticaHabladaItem(){
     if(practicaIdx>=practicaItems.length){
       el('fnPracticaHabladaBox').innerHTML = '<b>¡Terminaste esta práctica!</b><br><span style="color:var(--muted); font-size:13px;">Puedes repetirla cuantas veces quieras.</span>';
-      el('fnPracticaHabladaNextRow').style.display='flex';
+      mostrarNextRow('fnPracticaHabladaNextRow');
       el('fnPracticaHabladaNextBtn').textContent='🔁 Repetir esta práctica';
       el('fnPracticaHabladaNextBtn').onclick = openPracticaHablada;
       return;
@@ -478,7 +489,7 @@ const fonetica = {
       fnRecordBtn.style.display='inline-flex'; fnRecordBtn.textContent='🎙️ Grabame diciendo esta palabra';
     };
 
-    el('fnPracticaHabladaNextRow').style.display='flex';
+    mostrarNextRow('fnPracticaHabladaNextRow');
     el('fnPracticaHabladaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
     el('fnPracticaHabladaNextBtn').onclick = ()=>{ practicaIdx++; showPracticaHabladaItem(); };
   }
@@ -540,7 +551,7 @@ function mostrarFoneticaBasico(esRevision){
 
     const recordBtn = document.createElement('button');
     recordBtn.className='mic'; recordBtn.textContent='🎙️';
-    recordBtn.title='Grabate diciendo esta palabra';
+    recordBtn.title='Grábate diciendo esta palabra';
     const playback = document.createElement('audio');
     playback.controls=true; playback.style.display='none'; playback.className='fb-playback';
     let isRecording=false, mediaRecorder=null, chunks=[];
@@ -578,7 +589,7 @@ function mostrarFoneticaBasico(esRevision){
   cancionBox.innerHTML = '';
   const cancionLabel = document.createElement('div');
   cancionLabel.className='fn-hack-titulo';
-  cancionLabel.textContent = '🎶 Escuchá la canción real, cantada — seguí la letra';
+  cancionLabel.textContent = '🎶 Escucha la canción real, cantada — sigue la letra';
   cancionBox.appendChild(cancionLabel);
   const audio = document.createElement('audio');
   audio.controls=true; audio.style.width='100%'; audio.src='cancion-fonetica-basico.mp3';

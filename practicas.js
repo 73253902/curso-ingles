@@ -124,10 +124,10 @@ const practicasProgreso = {
       {es:"Nuestro proveedor preferido es un mago de mil años, y la lista de espera tiene treinta mil dragones.", en:"Our preferred supplier is a thousand-year-old wizard, and the waiting list has thirty thousand dragons."},
       {es:"Esta es mi oferta final, dragón — trato cerrado.", en:"This is my final offer, dragon — deal closed."},
       {es:"Nos vemos en la unidad cuatro, donde te esperan nuevos dragones y tesoros más grandes.", en:"See you in unit four, where new dragons and greater treasures await."},
-      {es:"Por favor reservá el único horario en que las dos lunas se alinean — revisá la agenda.", en:"Please book the only time slot when the two moons align — check the agenda."},
+      {es:"Por favor reserva el único horario en que las dos lunas se alinean — revisa la agenda.", en:"Please book the only time slot when the two moons align — check the agenda."},
       {es:"Resumamos y cerremos antes de que el castillo desaparezca.", en:"Let's summarize and wrap up before the castle disappears."},
       {es:"Ensayalo frente a mil dragones antes del show real.", en:"Rehearse it in front of a thousand dragons before the real show."},
-      {es:"La conexión es débil en la luna — iniciá sesión de nuevo, y no te olvides de cerrar sesión antes del eclipse.", en:"The connection is weak on the moon — sign in again, and do not forget to sign off before the eclipse."},
+      {es:"La conexión es débil en la luna — inicia sesión de nuevo, y no te olvides de cerrar sesión antes del eclipse.", en:"The connection is weak on the moon — sign in again, and do not forget to sign off before the eclipse."},
       {es:"¿Vamos bien encaminados, o atrasados en el hito del tesoro?", en:"Are we on track, or behind schedule on the treasure milestone?"}
     ]
   },
@@ -166,10 +166,10 @@ const practicasProgreso = {
       {es:"Dejame probarme esta armadura mágica, ¿me queda bien, o es muy grande?", en:"Let me try on this magic armor — does it fit, or is it too big?"},
       {es:"Aquí tienes tu cotización formal, adjunta en este pergamino mágico.", en:"Here is your formal quote, attached to this magic scroll."},
       {es:"¿Puedes bajar el precio, dragón? Regateemos.", en:"Can you lower the price, dragon? Let's bargain!"},
-      {es:"Pagá tarde, y hay un recargo por mora del tamaño de un dragón.", en:"Pay late, and there's a dragon-sized late fee!"},
+      {es:"Paga tarde, y hay un recargo por mora del tamaño de un dragón.", en:"Pay late, and there's a dragon-sized late fee!"},
       {es:"Acá está mi comprobante de compra, ¿puedo cambiarlo por uno nuevo?", en:"Here is my proof of purchase — can I exchange it for a new one?"},
       {es:"¿Esta espada mágica está cubierta por la garantía, o no está cubierta?", en:"Is this magic sword covered by warranty, or not covered?"},
-      {es:"Deslizá la tarjeta, o insertá la tarjeta — el dragón acepta las dos.", en:"Swipe the card, or insert the card — the dragon accepts both!"},
+      {es:"Desliza la tarjeta, o inserta la tarjeta — el dragón acepta las dos.", en:"Swipe the card, or insert the card — the dragon accepts both!"},
       {es:"Agrega al carrito el castillo volador, y escribe tu dirección de envío en las nubes.", en:"Add to cart the flying castle, and type your shipping address in the clouds."},
       {es:"Que yo sepa, para ser honesto, los dragones nunca mienten.", en:"As far as I know, to be honest, dragons never lie."}
     ]
@@ -209,7 +209,7 @@ const practicasProgreso = {
       {es:"Progreso constante, valiente héroe — no te rindas, ya casi estás en la unidad seis.", en:"Steady progress, brave hero — don't give up, you are almost at unit six!"},
       {es:"Disculpe, ¿dónde está el correo de dragones? ¿Cómo llego ahí?", en:"Excuse me, where is the dragon post office? How do I get there?"},
       {es:"Dobla a la izquierda en el volcán, después sigue derecho pasando el arcoíris.", en:"Turn left at the volcano, then go straight past the rainbow!"},
-      {es:"Rastreemos un pedido — hacé clic en el enlace de rastreo, dragón.", en:"Let's track an order — click the tracking link, dragon!"},
+      {es:"Rastreemos un pedido — haz clic en el enlace de rastreo, dragón.", en:"Let's track an order — click the tracking link, dragon!"},
       {es:"Está en tránsito, en reparto, y entregado — todo en un segundo.", en:"It's in transit, out for delivery, and delivered — all in one second!"},
       {es:"Elijamos un transportista — esta empresa de transporte vuela con dragones.", en:"Let's choose a carrier — this shipping company flies with dragons!"},
       {es:"La aduana quiere saber: ¿importas o exportas frijoles mágicos?", en:"Customs wants to know: do you import or export magic beans?"},
@@ -296,11 +296,11 @@ const practicasProgreso = {
       {es:"Cuéntame sobre ti, dragón — ¿cuál es tu experiencia previa?", en:"Tell me about yourself, dragon — what is your previous experience?"},
       {es:"Ahora, negociemos el salario — solo acepto pago en oro.", en:"Now, let's negotiate salary — I only accept payment in gold."},
       {es:"Dejame presentarme con mi presentación breve: soy un dragón de la industria del tesoro.", en:"Let me introduce myself with my elevator pitch: I am a dragon in the treasure industry."},
-      {es:"Cubrí los puntos clave, usá ayudas visuales, y captá la atención del público.", en:"Cover the key points, use visual aids, and engage the audience."},
-      {es:"Por favor leé el contrato con cuidado antes de firmar, dragón.", en:"Please read the contract carefully before you sign, dragon."},
+      {es:"Cubre los puntos clave, usa ayudas visuales, y capta la atención del público.", en:"Cover the key points, use visual aids, and engage the audience."},
+      {es:"Por favor lee el contrato con cuidado antes de firmar, dragón.", en:"Please read the contract carefully before you sign, dragon."},
       {es:"Esta cláusula es confidencial — solo el asesor legal puede leerla.", en:"This clause is confidential — only the legal advisor can read it!"},
       {es:"Nuestra cultura de oficina valora el equilibrio entre trabajo y vida.", en:"Our office culture values work-life balance."},
-      {es:"Ofrecemos trabajo remoto y horario flexible — volá cuando quieras.", en:"We offer remote work and flexible hours — fly whenever you want!"}
+      {es:"Ofrecemos trabajo remoto y horario flexible — vuela cuando quieras.", en:"We offer remote work and flexible hours — fly whenever you want!"}
     ]
   },
   112: {

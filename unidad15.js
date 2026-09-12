@@ -34,7 +34,7 @@ const curriculumUnidad15 = [
       {en:'Diplomatic relations improved after we signed a bilateral agreement!', es:'¡Las relaciones diplomáticas mejoraron después de que firmamos un acuerdo bilateral!', pron:'diplomátic riléishons imprúuvd áfter uí sáind a baláteral agríiment!'},
       {en:'International cooperation built a strong economic partnership between all kingdoms!', es:'¡La cooperación internacional construyó una asociación económica fuerte entre todos los reinos!', pron:'internáshonal cóoperéishon bilt a strong ecanámic pártnership bituín ol kíngdoms!'},
       {en:'The treaty negotiation included a cultural exchange — dragons teaching humans to fly!', es:'¡La negociación del tratado incluyó un intercambio cultural — dragones enseñando a volar a los humanos!', pron:'de tríiti nigoushiéishon inclúudid a cálchural exchéinch — drágons tíiching jiúmans tu flái!'},
-      {en:'This affects the entire global economy — check the summit agenda for details!', es:'¡Esto afecta a toda la economía global — revisá la agenda de la cumbre para más detalles!', pron:'dis aféccts de entáier glóubal ecánomi — chek de sámit ayénda for dítéils!'}
+      {en:'This affects the entire global economy — check the summit agenda for details!', es:'¡Esto afecta a toda la economía global — revisa la agenda de la cumbre para más detalles!', pron:'dis aféccts de entáier glóubal ecánomi — chek de sámit ayénda for dítéils!'}
     ],
     jingle:[
       {en:'Trade summit, diplomatic too!', es:'Cumbre comercial, ¡diplomática también!', pron:'tréid sámit, diplomátic tú!'},
@@ -201,8 +201,8 @@ const curriculumUnidad15 = [
     jingle:[
       {en:'Lasting impression, full circle too!', es:'Impresión duradera, ¡círculo completo también!', pron:'lásting imprézhon, ful sércol tú!'},
       {en:'Test of time, pave the way for you!', es:'Paso del tiempo, ¡abre camino para ti!', pron:'test of táim, péiv de uéi for iú!'},
-      {en:'Reap what you sow, rise to the day!', es:'Cosechá lo que sembrás, ¡estate a la altura del día!', pron:'ríip uát iú sóu, ráis tu de déi!'},
-      {en:'Leave your mark, go the distance, hooray!', es:'Dejá tu huella, llegá hasta el final, ¡hurra!', pron:'líiv iór mark, góu de dístans, juréi!'}
+      {en:'Reap what you sow, rise to the day!', es:'Cosecha lo que sembrás, ¡estate a la altura del día!', pron:'ríip uát iú sóu, ráis tu de déi!'},
+      {en:'Leave your mark, go the distance, hooray!', es:'Deja tu huella, llega hasta el final, ¡hurra!', pron:'líiv iór mark, góu de dístans, juréi!'}
     ]
   },
 {
@@ -486,13 +486,13 @@ const curriculumUnidad15 = [
       {en:'Today, your course is complete — you are fluent, and a truly confident speaker!', es:'¡Hoy, tu curso está completo — eres fluido, y un hablante realmente seguro de sí mismo!', pron:'tudéi, iór cors is camplíit — iú ar flúent, and a trúli cánfident spíiker!'},
       {en:'You are not just a student anymore — you are a real English user, forever!', es:'¡Ya no eres solo un estudiante — eres un usuario real del inglés, para siempre!', pron:'iú ar nat yast a stiúdent enímor — iú ar a ríil ínglish iúser, forévar!'},
       {en:'This is a lifelong skill, and no one can ever take it away from you.', es:'Esta es una habilidad para toda la vida, y nadie te la puede quitar jamás.', pron:'dis is a láiflong skil, and nóu uán can éver téik it auéi fram iú.'},
-      {en:'Celebrate today, dragon trader — you have earned a brand new chapter!', es:'¡Celebrá hoy, comerciante de dragones — te ganaste un capítulo completamente nuevo!', pron:'sélebreit tudéi, drágon tréider — iú jav ernd a brand niú cháptar!'},
+      {en:'Celebrate today, dragon trader — you have earned a brand new chapter!', es:'¡Celebra hoy, comerciante de dragones — te ganaste un capítulo completamente nuevo!', pron:'sélebreit tudéi, drágon tréider — iú jav ernd a brand niú cháptar!'},
       {en:"From all of us in the Kingdom of Clouds: congratulations, dragon graduate. This is not goodbye — it's just the beginning of everything you will build with English, for the rest of your life.", es:'De parte de todos nosotros en el Reino de las Nubes: felicitaciones, graduado dragón. Esto no es un adiós — es solo el comienzo de todo lo que vas a construir con el inglés, por el resto de tu vida.', pron:"fram ol of as in de kíngdom of cláuds: congrachuléishons, drágon grádiuet. dis is nat gudbái — its yast de bigíning of évrizin iú uíl bild uid ínglish, for de rest of iór láif."}
     ],
     jingle:[
       {en:'Congratulations, you did it, course complete!', es:'Felicitaciones, lo lograste, ¡curso completo!', pron:'congrachuléishons, iú did it, cors camplíit!'},
       {en:'Fluent, confident speaker, oh so sweet!', es:'Fluido, hablante seguro, ¡ay qué dulce!', pron:'flúent, cánfident spíiker, óu sóu suíit!'},
-      {en:'Real English user, lifelong skill, celebrate!', es:'Usuario real del inglés, habilidad de por vida, ¡celebrá!', pron:'ríil ínglish iúser, láiflong skil, sélebreit!'},
+      {en:'Real English user, lifelong skill, celebrate!', es:'Usuario real del inglés, habilidad de por vida, ¡celebra!', pron:'ríil ínglish iúser, láiflong skil, sélebreit!'},
       {en:"New chapter, dragon graduate — you're truly great!", es:'Nuevo capítulo, graduado dragón — ¡eres realmente grande!', pron:"niú cháptar, drágon grádiuet — iór trúli gréit!"}
     ]
   }

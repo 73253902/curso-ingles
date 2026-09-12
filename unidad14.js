@@ -236,13 +236,13 @@ const curriculumUnidad14 = [
     ],
     story:[
       {en:"Let's break the ice — we'll cross that bridge when we come to it!", es:'Rompamos el hielo — cruzaremos ese puente cuando lleguemos ahí.', pron:"lets bréik de áis — uíl cros dat brich uén uí cam tu it!"},
-      {en:'Keep your eye on the ball — this dragon just turned the tables!', es:'¡Mantené el foco — este dragón acaba de dar vuelta la situación!', pron:'kíip iór ái on de bol — dis drágon yast ternd de téibols!'},
+      {en:'Keep your eye on the ball — this dragon just turned the tables!', es:'¡Mantén el foco — este dragón acaba de dar vuelta la situación!', pron:'kíip iór ái on de bol — dis drágon yast ternd de téibols!'},
       {en:"We had to pull the plug, and go back to square one — but I'll give you the benefit of the doubt, even if this hits close to home.", es:'Tuvimos que cancelar todo, y volver a empezar de cero — pero te voy a dar el beneficio de la duda, aunque esto me toque de cerca.', pron:"uí jad tu pul de plag, and góu bak tu scuér uán — bat áil guiv iú de bénefit of de dáut, íven if dis jits clóus tu jóum."}
     ],
     jingle:[
-      {en:'Break the ice, cross that bridge!', es:'Rompé el hielo, ¡cruzá ese puente!', pron:'bréik de áis, cros dat brich!'},
+      {en:'Break the ice, cross that bridge!', es:'Rompe el hielo, ¡cruza ese puente!', pron:'bréik de áis, cros dat brich!'},
       {en:'Eye on the ball, turn the tables, ridge!', es:'Foco en la pelota, ¡da vuelta la situación!', pron:'ái on de bol, tern de téibols, rich!'},
-      {en:'Pull the plug, back to square one!', es:'Cancelá todo, ¡volvé a empezar!', pron:'pul de plag, bak tu scuér uán!'},
+      {en:'Pull the plug, back to square one!', es:'Cancela todo, ¡vuelve a empezar!', pron:'pul de plag, bak tu scuér uán!'},
       {en:'Benefit of the doubt, close to home, well done!', es:'Beneficio de la duda, cerca de casa, ¡bien hecho!', pron:'bénefit of de dáut, clóus tu jóum, uél dan!'}
     ]
   },
@@ -490,7 +490,7 @@ const curriculumUnidad14 = [
       {en:'Unit fourteen, almost there!', es:'Unidad catorce, ¡casi llegamos!', pron:'iúnit fórtiin, ólmoust dér!'},
       {en:"Twelve days left, we don't despair!", es:'Faltan doce días, ¡no desesperamos!', pron:"tuélv déis left, uí dont dispér!"},
       {en:'Final unit ahead, so close now!', es:'La unidad final se acerca, ¡tan cerca ahora!', pron:'fáinal iúnit ajéd, sóu clóus náu!'},
-      {en:'See you in unit fifteen, take a bow!', es:'Nos vemos en la unidad quince, ¡hacé una reverencia!', pron:'síi iú in iúnit fiftíin, téik a báu!'}
+      {en:'See you in unit fifteen, take a bow!', es:'Nos vemos en la unidad quince, ¡haz una reverencia!', pron:'síi iú in iúnit fiftíin, téik a báu!'}
     ]
   }
 ];

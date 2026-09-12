@@ -51,7 +51,7 @@ const evaluacion = {
   },
 
   escritura: {
-    basico: {consigna:"Escribí 3-4 oraciones presentándote: tu nombre, de dónde sos, y qué trabajo hacés.", palabrasClave:["name", "from", "work"], minPalabrasClave:2, minPalabras:15},
+    basico: {consigna:"Escribí 3-4 oraciones presentándote: tu nombre, de dónde eres, y qué trabajo haces.", palabrasClave:["name", "from", "work"], minPalabrasClave:2, minPalabras:15},
     intermedio: {consigna:"Escribí 3-4 oraciones sobre una compra reciente que hiciste (ropa, algo con garantía, etc).", palabrasClave:["warranty", "size", "covered", "fitting room", "credit card"], minPalabrasClave:2, minPalabras:20},
     avanzado: {consigna:"Escribí un párrafo corto (4-5 oraciones) describiendo tu experiencia laboral y tus planes futuros.", palabrasClave:["experience", "responsible", "rent", "invest", "confident"], minPalabrasClave:2, minPalabras:30}
   }
@@ -97,8 +97,8 @@ const evaluacion = {
     el('evIntroBox').style.display='block';
     el('evIntroTitulo').textContent = iconos[fase]+' Fase '+fase+' de 4 — '+nombres[fase];
     const descripciones = {
-      1: 'Vas a ver 12 palabras en inglés. Elegí su significado correcto en español.',
-      2: 'Vas a ver 12 oraciones incompletas. Elegí la palabra correcta para completarlas.',
+      1: 'Vas a ver 12 palabras en inglés. Elige su significado correcto en español.',
+      2: 'Vas a ver 12 oraciones incompletas. Elige la palabra correcta para completarlas.',
       3: 'Vas a leer un texto corto en inglés, y responder preguntas sobre lo que leíste.',
       4: 'Vas a escribir un texto corto en inglés, siguiendo una consigna — esta fase se revisa distinto a las demás.'
     };
@@ -151,7 +151,7 @@ const evaluacion = {
     }
     const item = gramItems[gramIdx];
     renderProgreso(gramIdx+1, gramItems.length);
-    el('evPregunta').innerHTML = 'Completá: <br><span style="font-size:19px; color:var(--en);">'+item.frase.replace('___','<b style="color:var(--warn);">___</b>')+'</span>';
+    el('evPregunta').innerHTML = 'Completa: <br><span style="font-size:19px; color:var(--en);">'+item.frase.replace('___','<b style="color:var(--warn);">___</b>')+'</span>';
     const opcBox = el('evOpciones');
     opcBox.innerHTML='';
     item.opciones.forEach((op,i)=>{
@@ -206,7 +206,7 @@ const evaluacion = {
   function renderEscritura(){
     const datos = evaluacion.escritura[nivelCalibrado];
     el('evFaseProgreso').textContent = 'Fase 4 de 4 · Escritura guiada ('+nivelCalibrado+')';
-    el('evPregunta').innerHTML = '<b>Consigna:</b> '+datos.consigna+'<br><span style="font-size:13px; color:var(--muted);">Intentá usar al menos '+datos.minPalabrasClave+' de estas palabras: '+datos.palabrasClave.join(', ')+'. Mínimo '+datos.minPalabras+' palabras en total.</span>';
+    el('evPregunta').innerHTML = '<b>Consigna:</b> '+datos.consigna+'<br><span style="font-size:13px; color:var(--muted);">Intenta usar al menos '+datos.minPalabrasClave+' de estas palabras: '+datos.palabrasClave.join(', ')+'. Mínimo '+datos.minPalabras+' palabras en total.</span>';
     const opcBox = el('evOpciones');
     opcBox.innerHTML='';
     const textarea = document.createElement('textarea');
@@ -273,7 +273,7 @@ const evaluacion = {
     } else {
       let recommendedDay = nivelCalibrado==='avanzado' ? Math.round(curriculum.length*0.7) : nivelCalibrado==='intermedio' ? Math.round(curriculum.length*0.35) : 1;
       recommendedDay = Math.max(1, Math.min(curriculum.length, recommendedDay));
-      el('evResultTexto').textContent = 'Con un '+promedioFinal+'% general, tu nivel calibrado es "'+nivelCalibrado+'". Te recomendamos empezar en el Día '+recommendedDay+' — los días anteriores quedan desbloqueados igual, por si querés repasarlos primero.';
+      el('evResultTexto').textContent = 'Con un '+promedioFinal+'% general, tu nivel calibrado es "'+nivelCalibrado+'". Te recomendamos empezar en el Día '+recommendedDay+' — los días anteriores quedan desbloqueados igual, por si quieres repasarlos primero.';
       el('evGoBtn').textContent = 'Empezar en el Día '+recommendedDay;
       el('evGoBtn').onclick = ()=>{
         saveMeta({placementDone:true, unlockedThrough:recommendedDay});

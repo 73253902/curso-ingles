@@ -40,7 +40,7 @@ const curriculumUnidad6 = [
       {en:'Excuse me, where is the store?', es:'Disculpe, ¿dónde está la tienda?', pron:'exquiúsmi, uér is de stóar?'},
       {en:'Turn left, turn right, and more!', es:'Dobla a la izquierda, dobla a la derecha, ¡y más!', pron:'tern left, tern ráit, and mor!'},
       {en:"It's near, it's far, go straight!", es:'Está cerca, está lejos, ¡sigue derecho!', pron:'its níar, its far, góu stréit!'},
-      {en:"Coordinate a shipment, don't be late!", es:'Coordiná un envío, ¡no llegues tarde!', pron:'cordinéit a shípment, dont bi léit!'}
+      {en:"Coordinate a shipment, don't be late!", es:'Coordina un envío, ¡no llegues tarde!', pron:'cordinéit a shípment, dont bi léit!'}
     ]
   },
 {
@@ -74,15 +74,15 @@ const curriculumUnidad6 = [
       {en:'delivered', es:'entregado', pron:'delíverd', emoji:'✅'}
     ],
     story:[
-      {en:'Go straight ahead, across from the talking tree.', es:'Andá derecho adelante, enfrente del árbol parlante.', pron:'góu stréit ajéd, acrós fram de tóking tríi.'},
+      {en:'Go straight ahead, across from the talking tree.', es:'Anda derecho adelante, enfrente del árbol parlante.', pron:'góu stréit ajéd, acrós fram de tóking tríi.'},
       {en:"It's next to the traffic light, between the rainbow and the crosswalk.", es:'Está al lado del semáforo, entre el arcoíris y el cruce peatonal.', pron:'its next tu de tráfic láit, bituín de réinbou and de crósuok.'},
-      {en:"Let's track an order — click the tracking link, dragon!", es:'Rastreemos un pedido — ¡hacé clic en el enlace de rastreo, dragón!', pron:'lets trak an órder — clik de tráking link, drágon!'},
+      {en:"Let's track an order — click the tracking link, dragon!", es:'Rastreemos un pedido — ¡haz clic en el enlace de rastreo, dragón!', pron:'lets trak an órder — clik de tráking link, drágon!'},
       {en:"It's in transit, out for delivery, and delivered — all in one second!", es:'¡Está en tránsito, en reparto, y entregado — todo en un segundo!', pron:'its in tránsit, áut for delíveri, and delíverd — ol in uán sécond!'}
     ],
     jingle:[
       {en:'Straight ahead, across, next to!', es:'Derecho adelante, enfrente, ¡al lado!', pron:'stréit ajéd, acrós, next tu!'},
       {en:"Between, behind, I'm telling you!", es:'Entre, detrás, ¡te lo digo!', pron:'bituín, bijáind, áim téling iú!'},
-      {en:'Track an order, tracking link fast!', es:'Rastreá un pedido, ¡enlace de rastreo rápido!', pron:'trak an órder, tráking link fast!'},
+      {en:'Track an order, tracking link fast!', es:'Rastrea un pedido, ¡enlace de rastreo rápido!', pron:'trak an órder, tráking link fast!'},
       {en:'In transit, delivered, home at last!', es:'En tránsito, entregado, ¡en casa por fin!', pron:'in tránsit, delíverd, jóum at last!'}
     ]
   },
@@ -124,7 +124,7 @@ const curriculumUnidad6 = [
     jingle:[
       {en:'Bus and taxi, train and subway!', es:'Autobús y taxi, ¡tren y metro!', pron:'bas and táxi, tréin and sábuei!'},
       {en:'Motorcycle, truck, on my way!', es:'Moto, camión, ¡en camino!', pron:'mótorsaikol, trak, on mái uéi!'},
-      {en:'Choose a carrier, shipping fast!', es:'Elegí un transportista, ¡envío rápido!', pron:'chúus a cárier, shíping fast!'},
+      {en:'Choose a carrier, shipping fast!', es:'Elige un transportista, ¡envío rápido!', pron:'chúus a cárier, shíping fast!'},
       {en:'Freight and insurance, built to last!', es:'Carga y seguro, ¡hecho para durar!', pron:'fréit and inshúrans, bilt tu last!'}
     ]
   },
@@ -242,7 +242,7 @@ const curriculumUnidad6 = [
     ],
     story:[
       {en:'The landmark is a giant crystal on the main street.', es:'El punto de referencia es un cristal gigante en la calle principal.', pron:'de lándmark is a yáiant crístal on de méin stríit.'},
-      {en:'Cross the roundabout, and the avenue leads to the flying bridge!', es:'Cruzá la rotonda, ¡y la avenida lleva hasta el puente volador!', pron:'cros de ráundabáut, and de ávenu líids tu de fláing brich!'},
+      {en:'Cross the roundabout, and the avenue leads to the flying bridge!', es:'Cruza la rotonda, ¡y la avenida lleva hasta el puente volador!', pron:'cros de ráundabáut, and de ávenu líids tu de fláing brich!'},
       {en:'This whole district is our delivery zone and coverage area!', es:'¡Todo este distrito es nuestra zona de reparto y área de cobertura!', pron:'dis jóul dístrict is áur delíveri sóun and cáverich éria!'},
       {en:'Even the most remote area gets same-day delivery, by dragon!', es:'¡Hasta la zona más alejada tiene entrega el mismo día, en dragón!', pron:'íven de móust rimóut éria guéts séim déi delíveri, bái drágon!'}
     ],
@@ -369,7 +369,7 @@ const curriculumUnidad6 = [
     jingle:[
       {en:"Rent a car, driver's license too!", es:'Alquilar un auto, ¡licencia también!', pron:'rent a car, dráivers láisens tú!'},
       {en:'Deposit, full tank, mileage true!', es:'Depósito, tanque lleno, ¡kilometraje verdadero!', pron:'dipásit, ful tank, máilich trú!'},
-      {en:'Hire a carrier, on time each day!', es:'Contratá un transportista, ¡a tiempo cada día!', pron:'jáiar a cárier, on táim íich déi!'},
+      {en:'Hire a carrier, on time each day!', es:'Contrata un transportista, ¡a tiempo cada día!', pron:'jáiar a cárier, on táim íich déi!'},
       {en:'Capacity, fleet, on our way!', es:'Capacidad, flota, ¡en camino!', pron:'capásiti, flíit, on áur uéi!'}
     ]
   },
@@ -477,19 +477,19 @@ const curriculumUnidad6 = [
       {en:'keep pushing', es:'sigue esforzándote', pron:'kíip púshing', emoji:'💪'},
       {en:"you're doing great", es:'lo estás haciendo genial', pron:'iór dúing gréit', emoji:'🌟'},
       {en:'more than a third', es:'más de un tercio', pron:'mor dan a zerd', emoji:'📊'},
-      {en:'stay consistent', es:'mantené la constancia', pron:'stéi cansístent', emoji:'🔁'},
+      {en:'stay consistent', es:'mantén la constancia', pron:'stéi cansístent', emoji:'🔁'},
       {en:'see you in unit seven', es:'nos vemos en la unidad siete', pron:'síi iú in iúnit séven', emoji:'➡️'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
     story:[
       {en:"Welcome to unit six's grand finale, brave hero — great job so far!", es:'¡Bienvenido al gran final de la unidad seis, valiente héroe — muy buen trabajo hasta ahora!', pron:'uélcam tu iúnit síxis grand fináli, bréiv jírou — gréit yab sóu far!'},
       {en:"Keep pushing, you're doing great — more than a third of the journey is done!", es:'¡Sigue esforzándote, lo estás haciendo genial — más de un tercio del viaje está hecho!', pron:'kíip púshing, iór dúing gréit — mor dan a zerd of de yérni is dan!'},
-      {en:'Stay consistent, dragon trader — see you in the next unit!', es:'Mantené la constancia, comerciante de dragones — ¡nos vemos en la próxima unidad!', pron:'stéi cansístent, drágon tréider — síi iú in de next iúnit!'}
+      {en:'Stay consistent, dragon trader — see you in the next unit!', es:'Mantén la constancia, comerciante de dragones — ¡nos vemos en la próxima unidad!', pron:'stéi cansístent, drágon tréider — síi iú in de next iúnit!'}
     ],
     jingle:[
       {en:'Unit six, great job so far!', es:'Unidad seis, ¡muy buen trabajo hasta ahora!', pron:'iúnit six, gréit yab sóu far!'},
       {en:"Keep pushing, you're a star!", es:'Sigue esforzándote, ¡eres una estrella!', pron:'kíip púshing, iór a star!'},
-      {en:'More than a third, stay consistent, friend!', es:'Más de un tercio, mantené la constancia, ¡amigo!', pron:'mor dan a zerd, stéi cansístent, frend!'},
+      {en:'More than a third, stay consistent, friend!', es:'Más de un tercio, mantén la constancia, ¡amigo!', pron:'mor dan a zerd, stéi cansístent, frend!'},
       {en:'See you in unit seven, till the end!', es:'Nos vemos en la unidad siete, ¡hasta el final!', pron:'síi iú in iúnit séven, til de end!'}
     ]
   }

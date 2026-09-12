@@ -44,7 +44,7 @@ const curriculumUnidad7 = [
       {en:'Hotel, reservation, check-in too!', es:'Hotel, reserva, ¡registro de entrada también!', pron:'jóutel, reservéishon, chek in tú!'},
       {en:'Check-out, front desk, I found you!', es:'Registro de salida, recepción, ¡te encontré!', pron:'chek áut, frant desk, ái fáund iú!'},
       {en:'Single, double, suite so grand!', es:'Individual, doble, ¡suite tan grande!', pron:'síngol, dábol, suíit sóu grand!'},
-      {en:'Book a room, business trip, understand!', es:'Reservá una habitación, viaje de negocios, ¡entendido!', pron:'buk a rúum, bísnes trip, ándersténd!'}
+      {en:'Book a room, business trip, understand!', es:'Reserva una habitación, viaje de negocios, ¡entendido!', pron:'buk a rúum, bísnes trip, ándersténd!'}
     ]
   },
 {
@@ -221,7 +221,7 @@ const curriculumUnidad7 = [
       {en:'Weather, sunny, rainy too!', es:'Clima, soleado, ¡lluvioso también!', pron:'uéder, sáni, réini tú!'},
       {en:'Cloudy, windy, hot or blue!', es:'Nublado, ventoso, ¡caluroso o triste!', pron:'cláudi, uíndi, jat or blú!'},
       {en:'Cold and season, summer bright!', es:'Frío y estación, ¡verano brillante!', pron:'cóuld and síizon, sámer bráit!'},
-      {en:'Winter forecast, reschedule right!', es:'Pronóstico de invierno, ¡reprogramá bien!', pron:'uínter fórcast, risquéyul ráit!'}
+      {en:'Winter forecast, reschedule right!', es:'Pronóstico de invierno, ¡reprograma bien!', pron:'uínter fórcast, risquéyul ráit!'}
     ]
   },
 {
@@ -305,7 +305,7 @@ const curriculumUnidad7 = [
       {en:'Laptop, mouse, keyboard too!', es:'Laptop, mouse, ¡teclado también!', pron:'láptap, máus, kíibord tú!'},
       {en:'Screen and software, just for you!', es:'Pantalla y software, ¡solo para ti!', pron:'scríin and sáftuer, yast for iú!'},
       {en:'Download, install, cloud storage wide!', es:'Descargar, instalar, ¡nube amplia!', pron:'dáunlóud, instól, cláud stóridch uáid!'},
-      {en:'Save the file, document with pride!', es:'Guardá el archivo, ¡documento con orgullo!', pron:'séiv de fáil, dókiument uid práid!'}
+      {en:'Save the file, document with pride!', es:'Guarda el archivo, ¡documento con orgullo!', pron:'séiv de fáil, dókiument uid práid!'}
     ]
   },
 {
@@ -340,10 +340,10 @@ const curriculumUnidad7 = [
     ],
     story:[
       {en:'The dragon internet is faster than light, and the wifi reaches the moon!', es:'¡El internet de dragones es más rápido que la luz, y el wifi llega hasta la luna!', pron:'de drágon ínternet is fáster dan láit, and de uáifai ríiches de múun!'},
-      {en:'Check the connection speed, then log in with your password and username!', es:'¡Revisá la velocidad de conexión, después iniciá sesión con tu contraseña y usuario!', pron:'chek de canécshon spíid, den log in uid iór pásuord and iúsernéim!'},
+      {en:'Check the connection speed, then log in with your password and username!', es:'¡Revisa la velocidad de conexión, después inicia sesión con tu contraseña y usuario!', pron:'chek de canécshon spíid, den log in uid iór pásuord and iúsernéim!'},
       {en:'This video conference has a thousand dragons — please mute yourself!', es:'¡Esta videoconferencia tiene mil dragones — por favor silenciate!', pron:'dis vídio cánferens jas a záusand drágons — plíis miút iorsélf!'},
       {en:"Can you share screen? Let's go to the breakout room to plan the treasure!", es:'¿Puedes compartir pantalla? ¡Vamos a la sala de grupos a planear el tesoro!', pron:"can iú shér scríin? lets góu tu de bréikaut rúum tu plan de tréshur!"},
-      {en:'Start the recording, and check the chat box for questions!', es:'¡Empezá la grabación, y revisá el chat por si hay preguntas!', pron:'start de ricórding, and chek de chat bax for cuéstions!'}
+      {en:'Start the recording, and check the chat box for questions!', es:'¡Empieza la grabación, y revisa el chat por si hay preguntas!', pron:'start de ricórding, and chek de chat bax for cuéstions!'}
     ],
     jingle:[
       {en:'Internet, wifi, connection speed!', es:'Internet, wifi, ¡velocidad de conexión!', pron:'ínternet, uáifai, canécshon spíid!'},
@@ -384,7 +384,7 @@ const curriculumUnidad7 = [
     ],
     story:[
       {en:"The dragon's social media has a million followers, and every post gets a thousand likes!", es:'¡Las redes sociales del dragón tienen un millón de seguidores, y cada publicación recibe mil me gusta!', pron:"de drágons sóushal mídia jas a mílion fálouers, and évri póust guéts a záusand láiks!"},
-      {en:"Share this, comment on that, and don't forget the hashtag: DragonPower!", es:'Compartí esto, comentá aquello, ¡y no te olvides del hashtag: DragonPower!', pron:"shér dis, cáment on dat, and dont forguét de jáshtag: DrágonPáuer!"},
+      {en:"Share this, comment on that, and don't forget the hashtag: DragonPower!", es:'Compartí esto, comenta aquello, ¡y no te olvides del hashtag: DragonPower!', pron:"shér dis, cáment on dat, and dont forguét de jáshtag: DrágonPáuer!"},
       {en:'Our digital marketing campaign reaches every kingdom in the sky!', es:'¡Nuestra campaña de marketing digital llega a cada reino en el cielo!', pron:'áur díchital márketing campéin ríiches évri kíngdom in de skái!'},
       {en:'This advertisement targets the perfect audience: hungry, gold-loving dragons!', es:'¡Este anuncio apunta al público perfecto: dragones hambrientos y amantes del oro!', pron:'dis advertáisment tárguets de pérfect ódiens: jángri, góuld lávin drágons!'},
       {en:'The engagement is incredible — everyone wants to share our magic potions!', es:'¡La interacción es increíble — todos quieren compartir nuestras pociones mágicas!', pron:'de engéichment is incrédibol — évriuán uánts tu shér áur máyic póushons!'}
@@ -401,9 +401,9 @@ const curriculumUnidad7 = [
     structures:[
       {id:'S101', pattern:"I need to update the + [X]", examples:[
         {en:'I need to update the settings on my account.', es:'Necesito actualizar la configuración de mi cuenta.', pron:'ái níid tu apdéit de sétings on mái acáunt.'},
-        {en:'Check the notification about the subscription.', es:'Revisá la notificación sobre la suscripción.', pron:'chek de noutifikéishion abáut de sabscrípshion.'},
+        {en:'Check the notification about the subscription.', es:'Revisa la notificación sobre la suscripción.', pron:'chek de noutifikéishion abáut de sabscrípshion.'},
         {en:'Our management software has an inventory system with a dashboard.', es:'Nuestro software de gestión tiene un sistema de inventario con un panel de control.', pron:'áur mánechment sóftuer jas an ínventori sístem uid a dáshbord.'},
-        {en:'I need to generate a report — check the user permissions first.', es:'Necesito generar un reporte — revisá primero los permisos de usuario.', pron:'ái níid tu yéneréit a ripórt — chek de iúser permíshions ferst.'}
+        {en:'I need to generate a report — check the user permissions first.', es:'Necesito generar un reporte — revisa primero los permisos de usuario.', pron:'ái níid tu yéneréit a ripórt — chek de iúser permíshions ferst.'}
       ], function:'hablar de software de gestión', stage:2,
         transformations:{
           negative:{en:"I don't need to update the settings.", es:'No necesito actualizar la configuración.'},
@@ -426,17 +426,17 @@ const curriculumUnidad7 = [
       {en:'user permissions', es:'permisos de usuario', pron:'iúser permíshons', emoji:'🔐'}
     ],
     story:[
-      {en:'Please update the app, and check your notifications — a thousand dragons liked your post!', es:'Por favor actualizá la aplicación, ¡y revisá tus notificaciones — mil dragones le dieron me gusta a tu publicación!', pron:'plíis apdéit de ap, and chek iór noutifikéishons — a záusand drágons láikt iór póust!'},
-      {en:'Go to settings, check your account, and confirm your subscription!', es:'Andá a configuración, revisá tu cuenta, ¡y confirmá tu suscripción!', pron:'góu tu sétings, chek iór acáunt, and confírm iór sabscrípshon!'},
+      {en:'Please update the app, and check your notifications — a thousand dragons liked your post!', es:'Por favor actualiza la aplicación, ¡y revisa tus notificaciones — mil dragones le dieron me gusta a tu publicación!', pron:'plíis apdéit de ap, and chek iór noutifikéishons — a záusand drágons láikt iór póust!'},
+      {en:'Go to settings, check your account, and confirm your subscription!', es:'Anda a configuración, revisa tu cuenta, ¡y confirma tu suscripción!', pron:'góu tu sétings, chek iór acáunt, and confírm iór sabscrípshon!'},
       {en:'This management software controls the entire inventory system of the kingdom!', es:'¡Este software de gestión controla todo el sistema de inventario del reino!', pron:'dis mánechment sáftuer cantróuls de entáier ínventori sístem of de kíngdom!'},
-      {en:'Look at the dashboard — please generate a report of every dragon egg sold!', es:'Mirá el panel de control — ¡por favor generá un informe de cada huevo de dragón vendido!', pron:'luk at de dáshbord — plíis yénereit a ripórt of évri drágon eg sóuld!'},
+      {en:'Look at the dashboard — please generate a report of every dragon egg sold!', es:'Mira el panel de control — ¡por favor genera un informe de cada huevo de dragón vendido!', pron:'luk at de dáshbord — plíis yénereit a ripórt of évri drágon eg sóuld!'},
       {en:'Only the wizard has user permissions to change the magic settings!', es:'¡Solo el mago tiene permisos de usuario para cambiar la configuración mágica!', pron:'óunli de uísard jas iúser permíshons tu chéinch de máyic sétings!'}
     ],
     jingle:[
       {en:'Update, notification, settings too!', es:'Actualizar, notificación, ¡configuración también!', pron:'apdéit, noutifikéishon, sétings tú!'},
       {en:'Account, subscription, all for you!', es:'Cuenta, suscripción, ¡todo para ti!', pron:'acáunt, sabscrípshon, ol for iú!'},
       {en:'Management software, dashboard bright!', es:'Software de gestión, ¡panel brillante!', pron:'mánechment sáftuer, dáshbord bráit!'},
-      {en:'Generate a report, permissions right!', es:'Generá un informe, ¡permisos correctos!', pron:'yénereit a ripórt, permíshons ráit!'}
+      {en:'Generate a report, permissions right!', es:'Genera un informe, ¡permisos correctos!', pron:'yénereit a ripórt, permíshons ráit!'}
     ]
   },
 {
@@ -470,15 +470,15 @@ const curriculumUnidad7 = [
     story:[
       {en:"There is a technical problem — it's not working, the dragon printer breathes fire instead of paper!", es:'¡Hay un problema técnico — no está funcionando, la impresora dragón respira fuego en vez de papel!', pron:"dér is a técnical práblem — its nat uórking, de drágon prínter bríizs fáiar instéd of péiper!"},
       {en:'Please restart it! There is an error message written in ancient runes.', es:'¡Por favor reiniciala! Hay un mensaje de error escrito en runas antiguas.', pron:'plíis ristárt it! dér is an érror mésich ríten in éinshent rúuns.'},
-      {en:'Call technical support to troubleshoot and fix this bug, quickly!', es:'¡Llamá a soporte técnico para solucionar y arreglar este error, rápido!', pron:'col técnical sapórt tu tráblshut and fix dis bag, cuíkli!'},
-      {en:'I opened a support ticket — what is the response time for a dragon emergency?', es:'Abrí un ticket de soporte — ¿cuál es el tiempo de respuesta para una emergencia de dragón?', pron:'ái óupent a sapórt tíket — uát is de rispáns táim for a drágon imérchensi?'},
+      {en:'Call technical support to troubleshoot and fix this bug, quickly!', es:'¡Llama a soporte técnico para solucionar y arreglar este error, rápido!', pron:'col técnical sapórt tu tráblshut and fix dis bag, cuíkli!'},
+      {en:'I opened a support ticket — what is the response time for a dragon emergency?', es:'Abre un ticket de soporte — ¿cuál es el tiempo de respuesta para una emergencia de dragón?', pron:'ái óupent a sapórt tíket — uát is de rispáns táim for a drágon imérchensi?'},
       {en:"If it's not fixed soon, we need to escalate this to the wizard council!", es:'¡Si no se arregla pronto, tenemos que escalar esto al consejo de magos!', pron:"if its nat fixt súun, uí níid tu éscaleit dis tu de uísard cáunsol!"}
     ],
     jingle:[
       {en:"Technical problem, it's not working!", es:'Problema técnico, ¡no está funcionando!', pron:"técnical práblem, its nat uórking!"},
       {en:'Restart it now, error message lurking!', es:'Reiniciala ahora, ¡mensaje de error acechando!', pron:'ristárt it náu, érror mésich lérking!'},
-      {en:'Technical support, troubleshoot the bug!', es:'Soporte técnico, ¡solucioná el error!', pron:'técnical sapórt, tráblshut de bag!'},
-      {en:'Support ticket, escalate with a hug!', es:'Ticket de soporte, ¡escalá con cariño!', pron:'sapórt tíket, éscaleit uid a jag!'}
+      {en:'Technical support, troubleshoot the bug!', es:'Soporte técnico, ¡soluciona el error!', pron:'técnical sapórt, tráblshut de bag!'},
+      {en:'Support ticket, escalate with a hug!', es:'Ticket de soporte, ¡escala con cariño!', pron:'sapórt tíket, éscaleit uid a jag!'}
     ]
   },
 {
