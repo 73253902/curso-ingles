@@ -296,7 +296,10 @@ const fonetica = {
         +'<div class="cg-regla-info"><b>'+cap.nombre+' — '+cap.titulo+'</b><p>'+infoTxt+'</p></div>'
         +'<div class="cg-regla-arrow">'+(cap.disponible?'▶':'🔒')+'</div>';
       if(cap.disponible){
-        card.onclick=()=>{ currentCapId=cap.id; renderCapDetalle(cap.id); showView('detalle'); };
+        card.onclick=()=>{
+          try{ currentCapId=cap.id; renderCapDetalle(cap.id); showView('detalle'); }
+          catch(e){ alert('Error al abrir el capítulo: '+e.message); console.error(e); }
+        };
       } else {
         card.style.opacity='0.5'; card.style.cursor='default';
       }
@@ -485,8 +488,14 @@ const fonetica = {
     el('fnBackBtn').onclick = closeModule;
     el('fnBackToCapsBtn').onclick = ()=>{ showView('capitulos'); renderCapList(); };
     el('fnBackToCapsBtn2').onclick = ()=>{ showView('capitulos'); renderCapList(); };
-    el('fnPracticaEscritaBtn').onclick = openPracticaEscrita;
-    el('fnPracticaHabladaBtn').onclick = openPracticaHablada;
+    el('fnPracticaEscritaBtn').onclick = ()=>{
+      try{ openPracticaEscrita(); }
+      catch(e){ alert('Error al abrir práctica escrita: '+e.message); console.error(e); }
+    };
+    el('fnPracticaHabladaBtn').onclick = ()=>{
+      try{ openPracticaHablada(); }
+      catch(e){ alert('Error al abrir práctica hablada: '+e.message); console.error(e); }
+    };
     el('fnBackFromPracticaEscritaBtn').onclick = ()=>{ showView('detalle'); };
     el('fnBackFromPracticaHabladaBtn').onclick = ()=>{ showView('detalle'); };
     el('fnPracticaEscritaSendBtn').onclick = submitPracticaEscrita;
