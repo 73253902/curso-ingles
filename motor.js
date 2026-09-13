@@ -132,7 +132,7 @@ function renderHome(){
     document.getElementById('skipPlacementBtn').style.display = 'none';
   } else {
     document.getElementById('placementCardTitulo').textContent = '¿Ya sabes algo de inglés?';
-    document.getElementById('placementCardTexto').textContent = 'Una evaluación real de 4 fases (vocabulario, gramática, lectura y escritura) para empezar en el día que te corresponde, en vez de repetir lo que ya sabes.';
+    document.getElementById('placementCardTexto').textContent = 'Una evaluación real de 5 fases (vocabulario, gramática, lectura, comprensión auditiva y escritura) para empezar en el día que te corresponde, en vez de repetir lo que ya sabes.';
     document.getElementById('startPlacementBtn').textContent = 'Auto-evaluarme';
     document.getElementById('skipPlacementBtn').style.display = 'inline-flex';
   }
@@ -176,7 +176,7 @@ function renderHome(){
       const examBtn = document.createElement('button');
       examBtn.className='primary'; examBtn.style.cssText='width:100%; margin:10px 0 4px;';
       examBtn.textContent='🏆 Examen final del curso';
-      examBtn.title='La misma evaluación de 4 fases, con nivel de cierre — certifica tu progreso';
+      examBtn.title='La misma evaluación de 5 fases, con nivel de cierre — certifica tu progreso';
       examBtn.onclick = ()=>iniciarEvaluacion('final');
       block.appendChild(examBtn);
     }
