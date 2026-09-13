@@ -207,6 +207,313 @@ const evaluacion = {
   }
 };
 
+
+// ================================================================
+// EXAMEN FINAL — banco de preguntas APARTE del de nivelación,
+// construido con vocabulario y estructuras REALES de las 15 unidades
+// del curso (180 días), para medir de verdad lo que el alumno aprendió.
+// NOTA: lectura/escucha/escritura todavía usan contenido temporal
+// (se reemplaza por historias/textos reales del curso próximamente).
+// ================================================================
+const examenFinal = {
+  vocabulario: [
+    {en:"Deadline-driven", opciones:["Desorganizado", "Sin experiencia", "Orientado a plazos", "Poco confiable"], correcta:2},
+    {en:"Elevator pitch", opciones:["Presentación breve y persuasiva", "Entrevista larga", "Carta de renuncia", "Queja formal"], correcta:0},
+    {en:"Binding agreement", opciones:["Propuesta informal", "Acuerdo vinculante", "Borrador sin firmar", "Contrato vencido"], correcta:1},
+    {en:"To breach a contract", opciones:["Traducir un contrato", "Renovar un contrato", "Firmar un contrato", "Incumplir un contrato"], correcta:3},
+    {en:"Liability", opciones:["Vacaciones pagas", "Responsabilidad legal", "Beneficio anual", "Bono de productividad"], correcta:1},
+    {en:"Leverage (negotiation)", opciones:["Documento firmado", "Reunión cancelada", "Influencia o ventaja", "Pérdida total"], correcta:2},
+    {en:"Counterproposal", opciones:["Aprobación final", "Copia del contrato", "Rechazo total", "Contrapropuesta"], correcta:3},
+    {en:"Fiscal year", opciones:["Día de pago", "Año fiscal", "Semana laboral", "Mes de vacaciones"], correcta:1},
+    {en:"Profit margin", opciones:["Deuda total", "Tasa de interés", "Margen de ganancia", "Presupuesto anual"], correcta:2},
+    {en:"To concede (in a negotiation)", opciones:["Ganar todo", "Rechazar de plano", "Cancelar la reunión", "Ceder un punto"], correcta:3},
+    {en:"Common ground", opciones:["Plazo vencido", "Punto en común", "Desacuerdo total", "Oferta final"], correcta:1},
+    {en:"Win-win situation", opciones:["Ventaja injusta", "Situación sin solución", "Pérdida para ambos", "Situación en que todos ganan"], correcta:3},
+    {en:"Mediator", opciones:["Acusado", "Testigo", "Mediador", "Demandante"], correcta:2},
+    {en:"Bottom line", opciones:["Primera línea del contrato", "Firma digital", "Resultado final, lo esencial", "Fecha de vencimiento"], correcta:2},
+    {en:"Stakeholder", opciones:["Empleado nuevo", "Proveedor externo", "Cliente moroso", "Parte interesada"], correcta:3},
+    {en:"Deliverable", opciones:["Entregable", "Presupuesto anual", "Queja formal", "Vacante laboral"], correcta:0},
+    {en:"Resource allocation", opciones:["Asignación de recursos", "Devolución de producto", "Renuncia voluntaria", "Auditoría externa"], correcta:0},
+    {en:"Compliance", opciones:["Pérdida operativa", "Cumplimiento normativo", "Rechazo total", "Ganancia neta"], correcta:1},
+    {en:"Escalation path", opciones:["Programa de descuentos", "Vía de escalamiento", "Plan de jubilación", "Ruta de envío"], correcta:1},
+    {en:"Contingency plan", opciones:["Carta de renuncia", "Contrato vencido", "Informe anual", "Plan de contingencia"], correcta:3},
+    {en:"Damage control", opciones:["Control de daños", "Reducción de personal", "Aumento de ventas", "Auditoría interna"], correcta:0},
+    {en:"Carbon footprint", opciones:["Margen de ganancia", "Huella de carbono", "Cuota mensual", "Tasa de interés"], correcta:1},
+    {en:"Bill of lading", opciones:["Póliza de seguro", "Factura de venta", "Contrato laboral", "Conocimiento de embarque"], correcta:3},
+    {en:"Freight forwarder", opciones:["Auditor externo", "Agente de carga", "Gerente de recursos humanos", "Vendedor minorista"], correcta:1},
+    {en:"Downtime", opciones:["Turno nocturno", "Tiempo de inactividad", "Horario extendido", "Día de pago"], correcta:1},
+    {en:"Onboarding", opciones:["Renovación de contrato", "Proceso de despido", "Evaluación anual", "Proceso de incorporación"], correcta:3},
+    {en:"Sales funnel", opciones:["Embudo de ventas", "Catálogo de productos", "Devolución de producto", "Recibo de compra"], correcta:0},
+    {en:"Coverage limit", opciones:["Límite de cobertura", "Fecha de vencimiento", "Tasa de interés", "Cuota inicial"], correcta:0},
+    {en:"Policyholder", opciones:["Inquilino moroso", "Agente inmobiliario", "Vendedor de seguros", "Titular de la póliza"], correcta:3},
+    {en:"Risk assessment", opciones:["Reembolso total", "Evaluación de riesgo", "Firma de contrato", "Renovación de licencia"], correcta:1},
+    {en:"Primary care physician", opciones:["Farmacéutico", "Especialista quirúrgico", "Enfermero de turno", "Médico de cabecera"], correcta:3},
+    {en:"Continuing education", opciones:["Educación continua", "Educación a distancia únicamente", "Educación básica", "Educación gratuita"], correcta:0},
+    {en:"Succession planning", opciones:["Contratación urgente", "Renuncia inmediata", "Planificación de sucesión", "Evaluación de desempeño"], correcta:2},
+    {en:"Employee engagement", opciones:["Despido del empleado", "Sanción disciplinaria", "Compromiso del empleado", "Ausencia laboral"], correcta:2},
+    {en:"Decision-making", opciones:["Renuncia voluntaria", "Evaluación médica", "Toma de decisiones", "Firma de garantía"], correcta:2},
+    {en:"Trade-in (vehicle)", opciones:["Vehículo de alquiler", "Vehículo importado", "Vehículo de parte de pago", "Vehículo dañado"], correcta:2},
+    {en:"Data analysis", opciones:["Análisis de datos", "Reunión de directorio", "Copia de seguridad", "Auditoría fiscal"], correcta:0},
+    {en:"Cybersecurity", opciones:["Marketing en línea", "Contabilidad digital", "Comercio electrónico", "Ciberseguridad"], correcta:3},
+    {en:"To make matters worse", opciones:["Para colmo", "Para resumir", "Sin lugar a dudas", "Por si acaso"], correcta:0},
+    {en:"As far as that goes", opciones:["En cuanto a eso", "Desde el principio", "Hasta el final", "Nunca más"], correcta:0},
+    {en:"Mentorship", opciones:["Mentoría", "Ascenso automático", "Despido", "Sanción laboral"], correcta:0},
+    {en:"To go the extra mile", opciones:["Rendirse rápido", "Llegar tarde siempre", "Esforzarse más de lo esperado", "Hacer lo mínimo posible"], correcta:2},
+    {en:"To keep someone in the loop", opciones:["Despedir a alguien", "Confundir a alguien", "Mantener a alguien informado", "Excluir a alguien de todo"], correcta:2},
+    {en:"Due diligence", opciones:["Renuncia inmediata", "Contrato vencido", "Debida diligencia (investigación exhaustiva)", "Firma rápida sin revisar"], correcta:2},
+    {en:"Hostile takeover", opciones:["Toma de control hostil", "Contrato renovado", "Sociedad voluntaria", "Fusión amistosa"], correcta:0},
+    {en:"Unique selling proposition", opciones:["Descuento por volumen", "Precio más bajo del mercado", "Garantía extendida", "Propuesta única de venta"], correcta:3},
+    {en:"Go-to-market strategy", opciones:["Estrategia de lanzamiento al mercado", "Estrategia de despido", "Estrategia de jubilación", "Estrategia de auditoría"], correcta:0},
+    {en:"Rebranding", opciones:["Venta de la marca", "Cambio de imagen de marca", "Copia de otra marca", "Cierre definitivo de marca"], correcta:1},
+    {en:"Shopping cart abandonment", opciones:["Abandono del carrito de compras", "Robo en tienda", "Devolución aprobada", "Compra exitosa"], correcta:0},
+    {en:"To hit the nail on the head", opciones:["Dar en el clavo", "Empezar de cero", "Fallar por completo", "Perder el tiempo"], correcta:0},
+    {en:"To go back to the drawing board", opciones:["Ignorar el problema", "Firmar de inmediato", "Terminar con éxito", "Volver a empezar de cero"], correcta:3},
+    {en:"Churn rate", opciones:["Tasa de crecimiento", "Tasa de interés", "Tasa de cambio", "Tasa de cancelación"], correcta:3},
+    {en:"Customer lifetime value", opciones:["Costo de producción", "Valor de vida del cliente", "Margen bruto", "Precio de lista"], correcta:1},
+    {en:"Minimum viable product", opciones:["Producto descontinuado", "Producto importado", "Producto de lujo", "Producto mínimo viable"], correcta:3},
+    {en:"Exit strategy", opciones:["Estrategia de contratación", "Estrategia de expansión", "Estrategia de precios", "Estrategia de salida"], correcta:3},
+    {en:"Whistleblower", opciones:["Auditor externo", "Gerente general", "Accionista mayoritario", "Denunciante"], correcta:3},
+    {en:"Conflict of interest", opciones:["Ganancia compartida", "Acuerdo mutuo", "Renuncia voluntaria", "Conflicto de interés"], correcta:3},
+    {en:"Thought leadership", opciones:["Liderazgo de pensamiento", "Liderazgo temporal", "Falta de liderazgo", "Liderazgo autoritario"], correcta:0},
+    {en:"Loss prevention", opciones:["Prevención de pérdidas", "Aumento de precios", "Expansión de tienda", "Reducción de personal"], correcta:0},
+    {en:"Occupancy rate", opciones:["Tasa de interés", "Tasa de cambio", "Tasa de ocupación", "Tasa de cancelación"], correcta:2},
+    {en:"Grassroots campaign", opciones:["Campaña de base", "Campaña electoral fallida", "Campaña publicitaria costosa", "Campaña internacional"], correcta:0},
+    {en:"To leave no stone unturned", opciones:["Rendirse fácilmente", "No dejar nada sin revisar", "Ignorar los detalles", "Actuar sin pensar"], correcta:1},
+    {en:"To hit the ground running", opciones:["Detenerse a mitad de camino", "Posponer indefinidamente", "Arrancar con todo desde el inicio", "Empezar muy lento"], correcta:2},
+    {en:"Just-in-time delivery", opciones:["Entrega sin seguimiento", "Entrega justo a tiempo", "Entrega retrasada siempre", "Entrega gratuita"], correcta:1},
+    {en:"Supply chain disruption", opciones:["Expansión de la cadena de suministro", "Mejora de la cadena de suministro", "Auditoría de la cadena de suministro", "Interrupción de la cadena de suministro"], correcta:3},
+    {en:"Extraction process", opciones:["Proceso de facturación", "Proceso de extracción", "Proceso de contratación", "Proceso de fabricación textil"], correcta:1},
+    {en:"Shelf space", opciones:["Espacio de oficina", "Espacio en la góndola", "Espacio publicitario en línea", "Espacio de almacenamiento externo"], correcta:1},
+    {en:"Bandwidth (telecom)", opciones:["Ancho de banda", "Ancho de tela", "Ancho de puerta", "Ancho de camino"], correcta:0},
+    {en:"Advocacy group", opciones:["Grupo de accionistas", "Grupo de defensa", "Grupo de proveedores", "Grupo de auditoría"], correcta:1},
+    {en:"Political landscape", opciones:["Paisaje natural", "Panorama político", "Plano arquitectónico", "Mapa comercial"], correcta:1},
+    {en:"Procurement", opciones:["Renuncias", "Auditorías", "Adquisiciones", "Devoluciones"], correcta:2},
+    {en:"Legal proceedings", opciones:["Recibo de pago", "Carta de renuncia", "Proceso legal", "Contrato simple"], correcta:2},
+    {en:"Settlement (legal)", opciones:["Veredicto final", "Acuerdo extrajudicial", "Demanda rechazada", "Testimonio falso"], correcta:1},
+    {en:"Overdraft", opciones:["Retención bancaria", "Saldo mínimo", "Depósito directo", "Sobregiro"], correcta:3},
+    {en:"To be in over your head", opciones:["Sentirse aburrido", "Sentirse tranquilo", "Sentirse superado", "Sentirse orgulloso"], correcta:2},
+    {en:"To get down to business", opciones:["Ponerse manos a la obra", "Posponer todo", "Cancelar la reunión", "Tomarse vacaciones"], correcta:0},
+    {en:"Structural engineer", opciones:["Contador público", "Asesor legal", "Ingeniero estructural", "Agente inmobiliario"], correcta:2},
+    {en:"Manufacturing defect", opciones:["Descuento especial", "Ganancia inesperada", "Ascenso laboral", "Defecto de fabricación"], correcta:3},
+    {en:"Aircraft maintenance", opciones:["Registro de pasajeros", "Mantenimiento de aeronaves", "Servicio a bordo", "Venta de boletos"], correcta:1},
+    {en:"Vessel capacity", opciones:["Capacidad de almacenamiento en oficina", "Capacidad del buque", "Capacidad de producción textil", "Capacidad hotelera"], correcta:1},
+    {en:"Maritime law", opciones:["Derecho marítimo", "Derecho laboral", "Derecho penal", "Derecho tributario"], correcta:0},
+    {en:"To play it by ear", opciones:["Seguir un plan estricto", "Memorizar el guion", "Rechazar toda propuesta", "Improvisar sobre la marcha"], correcta:3},
+    {en:"Crop yield", opciones:["Ganancia bancaria", "Rendimiento del cultivo", "Producción industrial", "Valor de la propiedad"], correcta:1},
+    {en:"Dock worker", opciones:["Trabajador agrícola", "Trabajador de oficina", "Trabajador portuario", "Trabajador de fábrica"], correcta:2},
+    {en:"Patent expiration", opciones:["Registro de marca", "Renovación de licencia", "Vencimiento de patente", "Aprobación de medicamento"], correcta:2},
+    {en:"Clinical trial", opciones:["Consulta de rutina", "Ensayo clínico", "Auditoría médica", "Certificado de salud"], correcta:1},
+    {en:"Grant funding", opciones:["Inversión privada", "Deuda acumulada", "Financiamiento por subvención", "Préstamo bancario"], correcta:2},
+    {en:"Tax-exempt status", opciones:["Estatus laboral temporal", "Estatus migratorio", "Estatus de residencia", "Estatus de exención de impuestos"], correcta:3},
+    {en:"Royalty statement", opciones:["Estado de regalías", "Estado de salud", "Estado civil", "Estado de cuenta bancaria"], correcta:0},
+    {en:"Threat assessment", opciones:["Evaluación de desempeño", "Evaluación crediticia", "Evaluación de amenazas", "Evaluación médica"], correcta:2},
+    {en:"To pull the plug", opciones:["Continuar sin cambios", "Aprobar de inmediato", "Postergar indefinidamente", "Cancelar algo por completo"], correcta:3},
+    {en:"To be back to square one", opciones:["Avanzar más rápido de lo esperado", "Volver a empezar de cero", "Terminar antes de tiempo", "Llegar a la meta final"], correcta:1},
+    {en:"Zoning laws", opciones:["Leyes de tránsito", "Leyes fiscales", "Leyes de zonificación", "Leyes laborales"], correcta:2},
+    {en:"Burnout prevention", opciones:["Prevención de fraude", "Prevención del agotamiento", "Prevención de robos", "Prevención de accidentes"], correcta:1},
+    {en:"Asynchronous work", opciones:["Trabajo asincrónico", "Trabajo bajo supervisión constante", "Trabajo presencial obligatorio", "Trabajo por turnos rotativos"], correcta:0},
+    {en:"Sustainable sourcing", opciones:["Abastecimiento importado", "Abastecimiento local exclusivo", "Abastecimiento sostenible", "Abastecimiento urgente"], correcta:2},
+    {en:"Infrastructure maintenance", opciones:["Mantenimiento de infraestructura", "Mantenimiento de vehículos", "Mantenimiento de software únicamente", "Mantenimiento de personal"], correcta:0},
+    {en:"Bilateral agreement", opciones:["Acuerdo cancelado", "Acuerdo bilateral", "Acuerdo verbal informal", "Acuerdo unilateral"], correcta:1},
+    {en:"Peer review", opciones:["Revisión de contrato", "Revisión financiera", "Revisión anual de desempeño", "Revisión por pares"], correcta:3},
+    {en:"Endowment", opciones:["Préstamo bancario", "Multa fiscal", "Salario base", "Dotación, fondo patrimonial"], correcta:3},
+    {en:"Estate planning", opciones:["Planificación de marketing", "Planificación patrimonial", "Planificación de producción", "Planificación de eventos"], correcta:1},
+    {en:"To reap what you sow", opciones:["Rendirse antes de tiempo", "Evitar toda responsabilidad", "Empezar de cero", "Cosechar lo que se siembra"], correcta:3},
+    {en:"To rise to the occasion", opciones:["Rendirse ante la dificultad", "Posponer la decisión", "Ignorar el problema", "Estar a la altura de las circunstancias"], correcta:3},
+    {en:"Reputation management", opciones:["Gestión de nómina", "Gestión de flotas", "Gestión de la reputación", "Gestión de inventario"], correcta:2},
+    {en:"Skills gap", opciones:["Brecha generacional", "Brecha salarial", "Brecha de género", "Brecha de habilidades"], correcta:3},
+    {en:"Executive presence", opciones:["Presencia en redes sociales", "Presencia física obligatoria", "Presencia en el mercado", "Presencia ejecutiva"], correcta:3},
+    {en:"Cross-functional collaboration", opciones:["Colaboración externa únicamente", "Colaboración multifuncional", "Colaboración temporal", "Colaboración forzada"], correcta:1},
+    {en:"Cultural competence", opciones:["Competencia cultural", "Competencia académica", "Competencia deportiva", "Competencia comercial"], correcta:0},
+    {en:"Business acumen", opciones:["Visión de negocios", "Rutina de negocios", "Fracaso de negocios", "Deuda de negocios"], correcta:0},
+    {en:"Customs inspection", opciones:["Inspección de seguridad laboral", "Inspección aduanera", "Inspección de calidad de producto", "Inspección médica"], correcta:1}
+  ],
+  gramatica: [
+    {frase:"I am responsible ___ the sales team.", opciones:["for", "of", "at", "with"], correcta:0},
+    {frase:"I would like ___ connect with you on LinkedIn.", opciones:["connect", "to connect", "connecting", "connected"], correcta:1},
+    {frase:"I need ___ sign the contract before Friday.", opciones:["sign", "to sign", "signing", "signed"], correcta:1},
+    {frase:"We might need a mediator to find common ___.", opciones:["ground", "floor", "base", "field"], correcta:0},
+    {frase:"I am writing ___ confirm the meeting.", opciones:["for", "to", "and", "at"], correcta:1},
+    {frase:"This task is a top ___.", opciones:["priority", "priorities", "prioritize", "prioritized"], correcta:0},
+    {frase:"This meets ___ standard we agreed on.", opciones:["a", "an", "the", "some"], correcta:2},
+    {frase:"We are committed ___ transparency in every report.", opciones:["for", "to", "at", "on"], correcta:1},
+    {frase:"Let's listen actively, and use a respectful ___.", opciones:["tone", "tones", "toning", "toned"], correcta:0},
+    {frase:"I am looking ___ rent an apartment near downtown.", opciones:["to", "for to", "at", "on"], correcta:0},
+    {frase:"This procedure is ___ under your insurance policy.", opciones:["cover", "covers", "covered", "covering"], correcta:2},
+    {frase:"I have an appointment ___ a specialist tomorrow.", opciones:["with", "to", "for", "at"], correcta:0},
+    {frase:"I am enrolled ___ an online certification program.", opciones:["at", "on", "in", "for"], correcta:2},
+    {frase:"I need to renew my ___ before it expires.", opciones:["license", "licenses", "licensing", "licensed"], correcta:0},
+    {frase:"We need to conduct due diligence ___ this merger.", opciones:["on", "for", "at", "of"], correcta:0},
+    {frase:"Our marketing strategy focuses ___ brand positioning.", opciones:["at", "on", "for", "with"], correcta:1},
+    {frase:"Is this a hostile takeover, or based ___ synergy?", opciones:["at", "in", "on", "for"], correcta:2},
+    {frase:"The integration process starts once we ___ the letter of intent.", opciones:["sign", "signs", "signing", "signed"], correcta:0},
+    {frase:"You need to think ___ your feet, or go back to the drawing board.", opciones:["at", "on", "in", "with"], correcta:1},
+    {frase:"The franchisee pays a royalty fee ___ the franchisor.", opciones:["for", "at", "to", "of"], correcta:2},
+    {frase:"Our retail management focuses ___ inventory turnover.", opciones:["at", "on", "for", "with"], correcta:1},
+    {frase:"The hospitality industry ___ on great guest experience.", opciones:["depend", "depends", "depending", "depended"], correcta:1},
+    {frase:"We need to bite the bullet, not jump ___ the bandwagon.", opciones:["at", "in", "on", "for"], correcta:2},
+    {frase:"You're in the driver's seat now — you get ___ call the shots.", opciones:["call", "to call", "calling", "called"], correcta:1},
+    {frase:"Our global supply chain relies ___ strong supplier relationships.", opciones:["at", "in", "on", "for"], correcta:2},
+    {frase:"The judge will review the testimony before the lawsuit ___.", opciones:["continue", "continues", "continuing", "continued"], correcta:1},
+    {frase:"This farmer relies ___ a good harvest every year.", opciones:["at", "in", "on", "for"], correcta:2},
+    {frase:"I need to visit the bank branch ___ speak with a teller.", opciones:["for", "to", "and", "at"], correcta:1},
+    {frase:"You seem to have a lot ___ your plate this week.", opciones:["at", "in", "on", "for"], correcta:2},
+    {frase:"This drug needs approval before it ___ sold.", opciones:["is", "are", "be", "being"], correcta:0},
+    {frase:"This non-profit organization ___ a fundraising campaign every year.", opciones:["run", "runs", "running", "ran"], correcta:1},
+    {frase:"This manuscript needs a literary agent before ___ the publishing industry.", opciones:["enter", "entering", "entered", "enters"], correcta:1},
+    {frase:"The security industry relies ___ a strong surveillance system.", opciones:["at", "in", "on", "for"], correcta:2},
+    {frase:"This trade summit ___ economic partnerships between countries.", opciones:["strengthen", "strengthens", "strengthening", "strengthened"], correcta:1},
+    {frase:"Retirement planning ___ a solid pension fund.", opciones:["require", "requires", "requiring", "required"], correcta:1},
+    {frase:"This scientific breakthrough came ___ years of research.", opciones:["from", "for", "at", "by"], correcta:0},
+    {frase:"You'll leave a lasting impression — this has come full ___.", opciones:["circle", "circles", "circled", "circling"], correcta:0}
+  ],
+  lectura: { basico: [
+    {texto:"Two years ago, our company began a merger with a competitor after months of due diligence. The board of directors reviewed the valuation carefully before approving the acquisition. Some shareholders worried this could become a hostile takeover, but both companies found strong synergy. After signing the letter of intent, the integration process began, pending antitrust review. Meanwhile, our marketing team focused on brand positioning for the newly combined company. They conducted market segmentation and a competitive analysis to define our unique selling proposition. A rebranding effort followed, including a new logo design and updated brand guidelines. The transition was not always easy. At one point, a whistleblower raised a conflict of interest concern, which the compliance officer investigated immediately. The board emphasized transparency and accountability throughout the process. Eventually, the merger strengthened our market position and created long-term value for everyone involved.", preguntas:[
+        {pregunta:"What did the company begin two years ago?", opciones:["A bankruptcy", "A merger", "A relocation"], correcta:1},
+        {pregunta:"What did the board review before approving the acquisition?", opciones:["The vacation policy", "The office lease", "The valuation"], correcta:2},
+        {pregunta:"What were some shareholders worried about?", opciones:["A tax increase", "A product recall", "A hostile takeover"], correcta:2},
+        {pregunta:"What did both companies find, despite the concerns?", opciones:["A legal loophole", "A hidden debt", "Strong synergy"], correcta:2},
+        {pregunta:"What did the integration process depend on?", opciones:["A public vote", "Antitrust review", "A new office building"], correcta:1},
+        {pregunta:"What did the marketing team focus on?", opciones:["Brand positioning", "Employee vacations", "Office relocation"], correcta:0},
+        {pregunta:"What did they define through market segmentation?", opciones:["Their tax bracket", "Their delivery schedule", "Their unique selling proposition"], correcta:2},
+        {pregunta:"What did the rebranding effort include?", opciones:["A new headquarters", "A new CEO", "A new logo design"], correcta:2},
+        {pregunta:"Who raised a conflict of interest concern?", opciones:["A customer", "A journalist", "A whistleblower"], correcta:2},
+        {pregunta:"What did the merger eventually create?", opciones:["Immediate losses", "Long-term value", "A legal dispute"], correcta:1}
+    ]},
+    {texto:"Maria owns three franchise locations of a popular restaurant chain. As a franchisee, she pays a royalty fee to the franchisor every month, according to their licensing agreement. In exchange, she benefits from brand standards that customers already trust, and clear territory rights that protect her business from nearby competitors. Recently, one of her restaurants faced a public relations challenge when a customer complaint went viral online. Maria's crisis communication training helped her respond quickly. She prepared talking points, contacted a local reporter, and issued a clear, honest statement before the story spread further. The media coverage that followed was surprisingly positive, largely because of her transparency. Maria's franchisor praised her thought leadership during a company-wide conference call. Her restaurant's public image recovered within weeks, and customer loyalty actually increased. Maria now trains other franchisees on crisis communication, believing that transparency always builds a stronger public image in the long run.", preguntas:[
+        {pregunta:"What does Maria own?", opciones:["Three franchise locations", "A single food truck", "A catering company"], correcta:0},
+        {pregunta:"What does Maria pay the franchisor?", opciones:["A hiring bonus", "A rental deposit", "A royalty fee"], correcta:2},
+        {pregunta:"What protects her business from nearby competitors?", opciones:["Territory rights", "A government subsidy", "A supplier contract"], correcta:0},
+        {pregunta:"What kind of challenge did she face?", opciones:["A tax audit", "A labor strike", "A public relations challenge"], correcta:2},
+        {pregunta:"What helped Maria respond quickly?", opciones:["Her crisis communication training", "Her accounting background", "Her legal team"], correcta:0},
+        {pregunta:"What did Maria prepare before speaking to media?", opciones:["Talking points", "A new menu", "A resignation letter"], correcta:0},
+        {pregunta:"How was the media coverage, in the end?", opciones:["Extremely negative", "Completely ignored", "Surprisingly positive"], correcta:2},
+        {pregunta:"What did the franchisor praise?", opciones:["Her long hours", "Her thought leadership", "Her low prices"], correcta:1},
+        {pregunta:"What happened to customer loyalty?", opciones:["It stayed exactly the same", "It disappeared", "It increased"], correcta:2},
+        {pregunta:"What does Maria now do for other franchisees?", opciones:["Manages their taxes", "Lends them money", "Trains them on crisis communication"], correcta:2}
+    ]},
+    {texto:"After twenty years in corporate leadership, James decided to focus on philanthropy and legacy planning. He established a charitable foundation dedicated to education in underserved communities. His financial advisor helped him structure an endowment that would generate reliable philanthropic giving for decades. James believes strongly in social responsibility, and he wanted his community investment to reflect genuine care, not just tax benefits. As part of his legacy planning, he also began mentoring young entrepreneurs, sharing lessons from his business acumen and strategic thinking. He often reminded them that professional growth requires both resilience and an inclusive leadership style. James also emphasized the importance of cross-functional collaboration, explaining that even brilliant ideas fail without teamwork. At a recognition ceremony honoring his contributions, James received an award for lifelong achievement. He gave an emotional speech about giving back, describing it as one of the most meaningful decisions of his life. His foundation continues to grow, guided by the values he built throughout his career.", preguntas:[
+        {pregunta:"What did James decide to focus on after twenty years?", opciones:["Philanthropy and legacy planning", "Starting a new corporation", "Early retirement travel"], correcta:0},
+        {pregunta:"What did he establish?", opciones:["A political campaign", "A new restaurant chain", "A charitable foundation"], correcta:2},
+        {pregunta:"What did his financial advisor help him structure?", opciones:["A loan", "An endowment", "A franchise agreement"], correcta:1},
+        {pregunta:"What did James want his community investment to reflect?", opciones:["Personal fame", "Genuine care, not just tax benefits", "Maximum profit"], correcta:1},
+        {pregunta:"What did James begin doing as part of his legacy planning?", opciones:["Mentoring young entrepreneurs", "Writing a novel", "Running for office"], correcta:0},
+        {pregunta:"What leadership style did James recommend?", opciones:["Inclusive leadership", "Authoritarian leadership", "No leadership at all"], correcta:0},
+        {pregunta:"What did James say even brilliant ideas need?", opciones:["A large budget", "Cross-functional collaboration", "Government approval"], correcta:1},
+        {pregunta:"What did James receive at the ceremony?", opciones:["A cash bonus", "An award for lifelong achievement", "A new job offer"], correcta:1},
+        {pregunta:"How did James describe giving back?", opciones:["A waste of time", "A legal obligation", "One of the most meaningful decisions of his life"], correcta:2},
+        {pregunta:"What continues to guide his foundation?", opciones:["A rigid five-year plan", "The values he built throughout his career", "Government regulation"], correcta:1}
+    ]}
+  ], intermedio: [
+    {texto:"Two years ago, our company began a merger with a competitor after months of due diligence. The board of directors reviewed the valuation carefully before approving the acquisition. Some shareholders worried this could become a hostile takeover, but both companies found strong synergy. After signing the letter of intent, the integration process began, pending antitrust review. Meanwhile, our marketing team focused on brand positioning for the newly combined company. They conducted market segmentation and a competitive analysis to define our unique selling proposition. A rebranding effort followed, including a new logo design and updated brand guidelines. The transition was not always easy. At one point, a whistleblower raised a conflict of interest concern, which the compliance officer investigated immediately. The board emphasized transparency and accountability throughout the process. Eventually, the merger strengthened our market position and created long-term value for everyone involved.", preguntas:[
+        {pregunta:"What did the company begin two years ago?", opciones:["A bankruptcy", "A merger", "A relocation"], correcta:1},
+        {pregunta:"What did the board review before approving the acquisition?", opciones:["The vacation policy", "The office lease", "The valuation"], correcta:2},
+        {pregunta:"What were some shareholders worried about?", opciones:["A tax increase", "A product recall", "A hostile takeover"], correcta:2},
+        {pregunta:"What did both companies find, despite the concerns?", opciones:["A legal loophole", "A hidden debt", "Strong synergy"], correcta:2},
+        {pregunta:"What did the integration process depend on?", opciones:["A public vote", "Antitrust review", "A new office building"], correcta:1},
+        {pregunta:"What did the marketing team focus on?", opciones:["Brand positioning", "Employee vacations", "Office relocation"], correcta:0},
+        {pregunta:"What did they define through market segmentation?", opciones:["Their tax bracket", "Their delivery schedule", "Their unique selling proposition"], correcta:2},
+        {pregunta:"What did the rebranding effort include?", opciones:["A new headquarters", "A new CEO", "A new logo design"], correcta:2},
+        {pregunta:"Who raised a conflict of interest concern?", opciones:["A customer", "A journalist", "A whistleblower"], correcta:2},
+        {pregunta:"What did the merger eventually create?", opciones:["Immediate losses", "Long-term value", "A legal dispute"], correcta:1}
+    ]},
+    {texto:"Maria owns three franchise locations of a popular restaurant chain. As a franchisee, she pays a royalty fee to the franchisor every month, according to their licensing agreement. In exchange, she benefits from brand standards that customers already trust, and clear territory rights that protect her business from nearby competitors. Recently, one of her restaurants faced a public relations challenge when a customer complaint went viral online. Maria's crisis communication training helped her respond quickly. She prepared talking points, contacted a local reporter, and issued a clear, honest statement before the story spread further. The media coverage that followed was surprisingly positive, largely because of her transparency. Maria's franchisor praised her thought leadership during a company-wide conference call. Her restaurant's public image recovered within weeks, and customer loyalty actually increased. Maria now trains other franchisees on crisis communication, believing that transparency always builds a stronger public image in the long run.", preguntas:[
+        {pregunta:"What does Maria own?", opciones:["Three franchise locations", "A single food truck", "A catering company"], correcta:0},
+        {pregunta:"What does Maria pay the franchisor?", opciones:["A hiring bonus", "A rental deposit", "A royalty fee"], correcta:2},
+        {pregunta:"What protects her business from nearby competitors?", opciones:["Territory rights", "A government subsidy", "A supplier contract"], correcta:0},
+        {pregunta:"What kind of challenge did she face?", opciones:["A tax audit", "A labor strike", "A public relations challenge"], correcta:2},
+        {pregunta:"What helped Maria respond quickly?", opciones:["Her crisis communication training", "Her accounting background", "Her legal team"], correcta:0},
+        {pregunta:"What did Maria prepare before speaking to media?", opciones:["Talking points", "A new menu", "A resignation letter"], correcta:0},
+        {pregunta:"How was the media coverage, in the end?", opciones:["Extremely negative", "Completely ignored", "Surprisingly positive"], correcta:2},
+        {pregunta:"What did the franchisor praise?", opciones:["Her long hours", "Her thought leadership", "Her low prices"], correcta:1},
+        {pregunta:"What happened to customer loyalty?", opciones:["It stayed exactly the same", "It disappeared", "It increased"], correcta:2},
+        {pregunta:"What does Maria now do for other franchisees?", opciones:["Manages their taxes", "Lends them money", "Trains them on crisis communication"], correcta:2}
+    ]},
+    {texto:"After twenty years in corporate leadership, James decided to focus on philanthropy and legacy planning. He established a charitable foundation dedicated to education in underserved communities. His financial advisor helped him structure an endowment that would generate reliable philanthropic giving for decades. James believes strongly in social responsibility, and he wanted his community investment to reflect genuine care, not just tax benefits. As part of his legacy planning, he also began mentoring young entrepreneurs, sharing lessons from his business acumen and strategic thinking. He often reminded them that professional growth requires both resilience and an inclusive leadership style. James also emphasized the importance of cross-functional collaboration, explaining that even brilliant ideas fail without teamwork. At a recognition ceremony honoring his contributions, James received an award for lifelong achievement. He gave an emotional speech about giving back, describing it as one of the most meaningful decisions of his life. His foundation continues to grow, guided by the values he built throughout his career.", preguntas:[
+        {pregunta:"What did James decide to focus on after twenty years?", opciones:["Philanthropy and legacy planning", "Starting a new corporation", "Early retirement travel"], correcta:0},
+        {pregunta:"What did he establish?", opciones:["A political campaign", "A new restaurant chain", "A charitable foundation"], correcta:2},
+        {pregunta:"What did his financial advisor help him structure?", opciones:["A loan", "An endowment", "A franchise agreement"], correcta:1},
+        {pregunta:"What did James want his community investment to reflect?", opciones:["Personal fame", "Genuine care, not just tax benefits", "Maximum profit"], correcta:1},
+        {pregunta:"What did James begin doing as part of his legacy planning?", opciones:["Mentoring young entrepreneurs", "Writing a novel", "Running for office"], correcta:0},
+        {pregunta:"What leadership style did James recommend?", opciones:["Inclusive leadership", "Authoritarian leadership", "No leadership at all"], correcta:0},
+        {pregunta:"What did James say even brilliant ideas need?", opciones:["A large budget", "Cross-functional collaboration", "Government approval"], correcta:1},
+        {pregunta:"What did James receive at the ceremony?", opciones:["A cash bonus", "An award for lifelong achievement", "A new job offer"], correcta:1},
+        {pregunta:"How did James describe giving back?", opciones:["A waste of time", "A legal obligation", "One of the most meaningful decisions of his life"], correcta:2},
+        {pregunta:"What continues to guide his foundation?", opciones:["A rigid five-year plan", "The values he built throughout his career", "Government regulation"], correcta:1}
+    ]}
+  ], avanzado: [
+    {texto:"Two years ago, our company began a merger with a competitor after months of due diligence. The board of directors reviewed the valuation carefully before approving the acquisition. Some shareholders worried this could become a hostile takeover, but both companies found strong synergy. After signing the letter of intent, the integration process began, pending antitrust review. Meanwhile, our marketing team focused on brand positioning for the newly combined company. They conducted market segmentation and a competitive analysis to define our unique selling proposition. A rebranding effort followed, including a new logo design and updated brand guidelines. The transition was not always easy. At one point, a whistleblower raised a conflict of interest concern, which the compliance officer investigated immediately. The board emphasized transparency and accountability throughout the process. Eventually, the merger strengthened our market position and created long-term value for everyone involved.", preguntas:[
+        {pregunta:"What did the company begin two years ago?", opciones:["A bankruptcy", "A merger", "A relocation"], correcta:1},
+        {pregunta:"What did the board review before approving the acquisition?", opciones:["The vacation policy", "The office lease", "The valuation"], correcta:2},
+        {pregunta:"What were some shareholders worried about?", opciones:["A tax increase", "A product recall", "A hostile takeover"], correcta:2},
+        {pregunta:"What did both companies find, despite the concerns?", opciones:["A legal loophole", "A hidden debt", "Strong synergy"], correcta:2},
+        {pregunta:"What did the integration process depend on?", opciones:["A public vote", "Antitrust review", "A new office building"], correcta:1},
+        {pregunta:"What did the marketing team focus on?", opciones:["Brand positioning", "Employee vacations", "Office relocation"], correcta:0},
+        {pregunta:"What did they define through market segmentation?", opciones:["Their tax bracket", "Their delivery schedule", "Their unique selling proposition"], correcta:2},
+        {pregunta:"What did the rebranding effort include?", opciones:["A new headquarters", "A new CEO", "A new logo design"], correcta:2},
+        {pregunta:"Who raised a conflict of interest concern?", opciones:["A customer", "A journalist", "A whistleblower"], correcta:2},
+        {pregunta:"What did the merger eventually create?", opciones:["Immediate losses", "Long-term value", "A legal dispute"], correcta:1}
+    ]},
+    {texto:"Maria owns three franchise locations of a popular restaurant chain. As a franchisee, she pays a royalty fee to the franchisor every month, according to their licensing agreement. In exchange, she benefits from brand standards that customers already trust, and clear territory rights that protect her business from nearby competitors. Recently, one of her restaurants faced a public relations challenge when a customer complaint went viral online. Maria's crisis communication training helped her respond quickly. She prepared talking points, contacted a local reporter, and issued a clear, honest statement before the story spread further. The media coverage that followed was surprisingly positive, largely because of her transparency. Maria's franchisor praised her thought leadership during a company-wide conference call. Her restaurant's public image recovered within weeks, and customer loyalty actually increased. Maria now trains other franchisees on crisis communication, believing that transparency always builds a stronger public image in the long run.", preguntas:[
+        {pregunta:"What does Maria own?", opciones:["Three franchise locations", "A single food truck", "A catering company"], correcta:0},
+        {pregunta:"What does Maria pay the franchisor?", opciones:["A hiring bonus", "A rental deposit", "A royalty fee"], correcta:2},
+        {pregunta:"What protects her business from nearby competitors?", opciones:["Territory rights", "A government subsidy", "A supplier contract"], correcta:0},
+        {pregunta:"What kind of challenge did she face?", opciones:["A tax audit", "A labor strike", "A public relations challenge"], correcta:2},
+        {pregunta:"What helped Maria respond quickly?", opciones:["Her crisis communication training", "Her accounting background", "Her legal team"], correcta:0},
+        {pregunta:"What did Maria prepare before speaking to media?", opciones:["Talking points", "A new menu", "A resignation letter"], correcta:0},
+        {pregunta:"How was the media coverage, in the end?", opciones:["Extremely negative", "Completely ignored", "Surprisingly positive"], correcta:2},
+        {pregunta:"What did the franchisor praise?", opciones:["Her long hours", "Her thought leadership", "Her low prices"], correcta:1},
+        {pregunta:"What happened to customer loyalty?", opciones:["It stayed exactly the same", "It disappeared", "It increased"], correcta:2},
+        {pregunta:"What does Maria now do for other franchisees?", opciones:["Manages their taxes", "Lends them money", "Trains them on crisis communication"], correcta:2}
+    ]},
+    {texto:"After twenty years in corporate leadership, James decided to focus on philanthropy and legacy planning. He established a charitable foundation dedicated to education in underserved communities. His financial advisor helped him structure an endowment that would generate reliable philanthropic giving for decades. James believes strongly in social responsibility, and he wanted his community investment to reflect genuine care, not just tax benefits. As part of his legacy planning, he also began mentoring young entrepreneurs, sharing lessons from his business acumen and strategic thinking. He often reminded them that professional growth requires both resilience and an inclusive leadership style. James also emphasized the importance of cross-functional collaboration, explaining that even brilliant ideas fail without teamwork. At a recognition ceremony honoring his contributions, James received an award for lifelong achievement. He gave an emotional speech about giving back, describing it as one of the most meaningful decisions of his life. His foundation continues to grow, guided by the values he built throughout his career.", preguntas:[
+        {pregunta:"What did James decide to focus on after twenty years?", opciones:["Philanthropy and legacy planning", "Starting a new corporation", "Early retirement travel"], correcta:0},
+        {pregunta:"What did he establish?", opciones:["A political campaign", "A new restaurant chain", "A charitable foundation"], correcta:2},
+        {pregunta:"What did his financial advisor help him structure?", opciones:["A loan", "An endowment", "A franchise agreement"], correcta:1},
+        {pregunta:"What did James want his community investment to reflect?", opciones:["Personal fame", "Genuine care, not just tax benefits", "Maximum profit"], correcta:1},
+        {pregunta:"What did James begin doing as part of his legacy planning?", opciones:["Mentoring young entrepreneurs", "Writing a novel", "Running for office"], correcta:0},
+        {pregunta:"What leadership style did James recommend?", opciones:["Inclusive leadership", "Authoritarian leadership", "No leadership at all"], correcta:0},
+        {pregunta:"What did James say even brilliant ideas need?", opciones:["A large budget", "Cross-functional collaboration", "Government approval"], correcta:1},
+        {pregunta:"What did James receive at the ceremony?", opciones:["A cash bonus", "An award for lifelong achievement", "A new job offer"], correcta:1},
+        {pregunta:"How did James describe giving back?", opciones:["A waste of time", "A legal obligation", "One of the most meaningful decisions of his life"], correcta:2},
+        {pregunta:"What continues to guide his foundation?", opciones:["A rigid five-year plan", "The values he built throughout his career", "Government regulation"], correcta:1}
+    ]}
+  ] },
+  escucha: evaluacion.escucha,
+  escritura: { basico: [
+    {consigna:"Describe una situación de crisis o desafío en el trabajo (un problema con un cliente, un error de producción, una mala noticia que tuviste que comunicar) y cómo la resolviste usando buena comunicación. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["crisis", "communication", "transparency", "reputation", "solution", "reassure"], minPalabrasClave:3, minPalabras:250},
+    {consigna:"Describe una decisión de negocios importante (una fusión, una expansión, una nueva estrategia de marca, o abrir una franquicia) y explica los pros, los contras, y el resultado. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["strategy", "agreement", "opportunity", "risk", "decision", "growth"], minPalabrasClave:3, minPalabras:250},
+    {consigna:"Escribe sobre tu marca personal y el legado profesional que quieres dejar: tus valores, tus logros más importantes, y cómo quieres que te recuerden en tu carrera. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["legacy", "reputation", "career", "achievement", "values", "growth"], minPalabrasClave:3, minPalabras:250}
+  ], intermedio: [
+    {consigna:"Describe una situación de crisis o desafío en el trabajo (un problema con un cliente, un error de producción, una mala noticia que tuviste que comunicar) y cómo la resolviste usando buena comunicación. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["crisis", "communication", "transparency", "reputation", "solution", "reassure"], minPalabrasClave:3, minPalabras:250},
+    {consigna:"Describe una decisión de negocios importante (una fusión, una expansión, una nueva estrategia de marca, o abrir una franquicia) y explica los pros, los contras, y el resultado. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["strategy", "agreement", "opportunity", "risk", "decision", "growth"], minPalabrasClave:3, minPalabras:250},
+    {consigna:"Escribe sobre tu marca personal y el legado profesional que quieres dejar: tus valores, tus logros más importantes, y cómo quieres que te recuerden en tu carrera. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["legacy", "reputation", "career", "achievement", "values", "growth"], minPalabrasClave:3, minPalabras:250}
+  ], avanzado: [
+    {consigna:"Describe una situación de crisis o desafío en el trabajo (un problema con un cliente, un error de producción, una mala noticia que tuviste que comunicar) y cómo la resolviste usando buena comunicación. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["crisis", "communication", "transparency", "reputation", "solution", "reassure"], minPalabrasClave:3, minPalabras:250},
+    {consigna:"Describe una decisión de negocios importante (una fusión, una expansión, una nueva estrategia de marca, o abrir una franquicia) y explica los pros, los contras, y el resultado. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["strategy", "agreement", "opportunity", "risk", "decision", "growth"], minPalabrasClave:3, minPalabras:250},
+    {consigna:"Escribe sobre tu marca personal y el legado profesional que quieres dejar: tus valores, tus logros más importantes, y cómo quieres que te recuerden en tu carrera. Escribe un texto de media página como mínimo (250 palabras).", palabrasClave:["legacy", "reputation", "career", "achievement", "values", "growth"], minPalabrasClave:3, minPalabras:250}
+  ] },
+  escuchaDialogo: {
+    segmentos: [
+    { hablante:"David", partes:[{t:"Good morning, Laura. Thank you for "}, {blank:"joining"}, {t:" this meeting on such short notice."}] },
+    { hablante:"Laura", partes:[{t:"Good morning, David. Of course, I know we need to "}, {blank:"discuss"}, {t:" the project deadline."}] },
+    { hablante:"David", partes:[{t:"Yes, exactly. I wanted to touch "}, {blank:"base"}, {t:" with you about our progress with the new client. Can you tell me about the current status of the "}, {blank:"shipment"}, {t:"?"}] },
+    { hablante:"Laura", partes:[{t:"The shipment is scheduled to arrive next week. We "}, {blank:"coordinated"}, {t:" everything with the carrier, and I already drafted the "}, {blank:"warranty"}, {t:" documents for approval."}] },
+    { hablante:"David", partes:[{t:"Excellent work. I also wanted to ask about the marketing "}, {blank:"strategy"}, {t:" for this quarter. Have you scheduled a meeting with that team?"}] },
+    { hablante:"Laura", partes:[{t:"Yes, our strategy focuses on brand "}, {blank:"positioning"}, {t:", and I have a meeting with them tomorrow to discuss the "}, {blank:"budget"}, {t:"."}] },
+    { hablante:"David", partes:[{t:"Good. By the way, did we finish the negotiation with the new supplier? I know their "}, {blank:"proposal"}, {t:" included a discount for bulk orders."}] },
+    { hablante:"Laura", partes:[{t:"Yes, we reached an "}, {blank:"agreement"}, {t:" last week. Their sales representative confirmed the terms, and we signed the "}, {blank:"contract"}, {t:" yesterday afternoon."}] },
+    { hablante:"David", partes:[{t:"Perfect. That should help us improve our "}, {blank:"inventory"}, {t:" turnover this quarter. What about the job interviews for the open position?"}] },
+    { hablante:"Laura", partes:[{t:"We interviewed three candidates. One of them has strong "}, {blank:"experience"}, {t:" in customer service and excellent references."}] },
+    { hablante:"David", partes:[{t:"That sounds promising. Please send me her resume, and let's move forward with a job "}, {blank:"offer"}, {t:" if everyone agrees."}] },
+    { hablante:"Laura", partes:[{t:"I will send it today. One more thing — I need you to "}, {blank:"sign"}, {t:" a few documents before the end of the day."}] },
+    { hablante:"David", partes:[{t:"No problem, just leave them on my desk. I need you to prepare a "}, {blank:"report"}, {t:" about customer service feedback by Friday too."}] },
+    { hablante:"Laura", partes:[{t:"I will have it ready. I am "}, {blank:"confident"}, {t:" it will show good results, and I look forward to our continued "}, {blank:"success"}, {t:" together."}] }
+    ]
+  }
+
+};
+
 // ================= Controlador de la Evaluación de 5 Fases =================
 (function(){
   function el(id){ return document.getElementById(id); }
@@ -217,6 +524,7 @@ const evaluacion = {
   }
 
   let modo = 'inicial'; // 'inicial' o 'final'
+  let banco = evaluacion; // el banco de preguntas a usar — 'evaluacion' (nivelación) o 'examenFinal' (contenido real del curso)
   let fase = 1;
   let vocabItems=[], vocabIdx=0, vocabCorrect=0, vocabNoSe=0;
   let gramItems=[], gramIdx=0, gramCorrect=0, gramNoSe=0;
@@ -227,10 +535,11 @@ const evaluacion = {
 
   function iniciarEvaluacion(modoElegido){
     modo = modoElegido || 'inicial';
+    banco = modo==='final' ? examenFinal : evaluacion;
     fase = 1;
-    vocabItems = shuffle(evaluacion.vocabulario);
+    vocabItems = shuffle(banco.vocabulario);
     vocabIdx=0; vocabCorrect=0; vocabNoSe=0;
-    gramItems = shuffle(evaluacion.gramatica);
+    gramItems = shuffle(banco.gramatica);
     gramIdx=0; gramCorrect=0; gramNoSe=0;
     lecturaCorrect=0; lecturaPreguntaIdx=0; lecturaTextoIdx=0;
     escuchaCorrect=0; escuchaTotal=0; escuchaHistoriaIdx=0;
@@ -249,11 +558,13 @@ const evaluacion = {
     el('evIntroBox').style.display='block';
     el('evIntroTitulo').textContent = iconos[fase]+' Fase '+fase+' de 5 — '+nombres[fase];
     const descripciones = {
-      1: 'Vas a ver 36 palabras en inglés. Elige su significado correcto en español.',
+      1: 'Vas a ver '+banco.vocabulario.length+' palabras en inglés. Elige su significado correcto en español.',
       2: 'Vas a ver 36 oraciones incompletas. Elige la palabra correcta para completarlas.',
       3: 'Vas a leer un texto corto en inglés, y responder preguntas sobre lo que leíste.',
-      4: 'Vas a escuchar una historia corta en inglés (puedes repetirla las veces que quieras), y completar las palabras que faltan.',
-      5: 'Vas a escribir un texto corto en inglés, siguiendo una consigna — esta fase se revisa distinto a las demás.'
+      4: modo==='final'
+        ? 'Vas a escuchar un diálogo largo en inglés, dividido en varias partes — podés reproducir, pausar, y volver a escuchar cada parte las veces que quieras, antes de completar las palabras que faltan.'
+        : 'Vas a escuchar una historia corta en inglés (puedes repetirla las veces que quieras), y completar las palabras que faltan.',
+      5: 'Vas a escribir un texto en inglés, siguiendo una consigna — esta fase se revisa distinto a las demás.'
     };
     el('evIntroDesc').textContent = descripciones[fase];
     el('evIntroBtn').onclick = ()=>{
@@ -262,7 +573,7 @@ const evaluacion = {
       if(fase===1) renderVocabPregunta();
       else if(fase===2) renderGramaticaPregunta();
       else if(fase===3) renderLecturaIntro();
-      else if(fase===4) renderEscucha();
+      else if(fase===4) { if(modo==='final') renderEscuchaDialogoFinal(); else renderEscucha(); }
       else if(fase===5) renderEscritura();
     };
   }
@@ -344,7 +655,7 @@ const evaluacion = {
 
   // ---------- FASE 3: Comprensión de lectura ----------
   function renderLecturaIntro(){
-    const datos = evaluacion.lectura[nivelCalibrado][lecturaTextoIdx];
+    const datos = banco.lectura[nivelCalibrado][lecturaTextoIdx];
     el('evPregunta').innerHTML = '<div class="dn-review-prompt" style="text-align:left; line-height:1.6;">'+datos.texto+'</div>';
     el('evOpciones').innerHTML='';
     const cont = document.createElement('button');
@@ -352,12 +663,12 @@ const evaluacion = {
     cont.textContent='Ya leí el texto, empezar las preguntas →';
     cont.onclick = ()=>{ lecturaPreguntaIdx=0; renderLecturaPregunta(); };
     el('evOpciones').appendChild(cont);
-    el('evFaseProgreso').textContent = 'Fase 3 de 5 · Comprensión de lectura ('+nivelCalibrado+') · texto '+(lecturaTextoIdx+1)+' de '+evaluacion.lectura[nivelCalibrado].length;
+    el('evFaseProgreso').textContent = 'Fase 3 de 5 · Comprensión de lectura ('+nivelCalibrado+') · texto '+(lecturaTextoIdx+1)+' de '+banco.lectura[nivelCalibrado].length;
   }
   function renderLecturaPregunta(){
-    const datos = evaluacion.lectura[nivelCalibrado][lecturaTextoIdx];
+    const datos = banco.lectura[nivelCalibrado][lecturaTextoIdx];
     if(lecturaPreguntaIdx>=datos.preguntas.length){
-      if(lecturaTextoIdx+1 < evaluacion.lectura[nivelCalibrado].length){
+      if(lecturaTextoIdx+1 < banco.lectura[nivelCalibrado].length){
         lecturaTextoIdx++;
         renderLecturaIntro();
       } else {
@@ -366,7 +677,7 @@ const evaluacion = {
       return;
     }
     const p = datos.preguntas[lecturaPreguntaIdx];
-    el('evFaseProgreso').textContent = 'Fase 3 de 5 · texto '+(lecturaTextoIdx+1)+' de '+evaluacion.lectura[nivelCalibrado].length+' · pregunta '+(lecturaPreguntaIdx+1)+' de '+datos.preguntas.length;
+    el('evFaseProgreso').textContent = 'Fase 3 de 5 · texto '+(lecturaTextoIdx+1)+' de '+banco.lectura[nivelCalibrado].length+' · pregunta '+(lecturaPreguntaIdx+1)+' de '+datos.preguntas.length;
     el('evPregunta').innerHTML = p.pregunta;
     const opcBox = el('evOpciones');
     opcBox.innerHTML='';
@@ -387,8 +698,8 @@ const evaluacion = {
   // ---------- FASE 4: Comprensión auditiva ----------
   let escuchaInputs = [];
   function renderEscucha(){
-    const datos = evaluacion.escucha[nivelCalibrado][escuchaHistoriaIdx];
-    const totalHistorias = evaluacion.escucha[nivelCalibrado].length;
+    const datos = banco.escucha[nivelCalibrado][escuchaHistoriaIdx];
+    const totalHistorias = banco.escucha[nivelCalibrado].length;
     el('evFaseProgreso').textContent = 'Fase 4 de 5 · Comprensión auditiva ('+nivelCalibrado+') · historia '+(escuchaHistoriaIdx+1)+' de '+totalHistorias;
     escuchaInputs = [];
 
@@ -459,10 +770,106 @@ const evaluacion = {
     el('evOpciones').innerHTML='';
   }
 
+  // ---------- FASE 4 (examen final): Diálogo largo con reproducción por segmento ----------
+  function renderEscuchaDialogoFinal(){
+    const dialogo = examenFinal.escuchaDialogo;
+    el('evFaseProgreso').textContent = 'Fase 4 de 5 · Comprensión auditiva — diálogo completo';
+    escuchaInputs = [];
+
+    const box = document.createElement('div');
+    box.innerHTML = '<p style="margin-bottom:10px;">Escuchá cada parte del diálogo (podés pausar, volver atrás, y repetir las que quieras), y después completá las palabras que faltan en todo el texto:</p>';
+
+    const detenerBtn = document.createElement('button');
+    detenerBtn.className='ghost'; detenerBtn.style.marginBottom='14px';
+    detenerBtn.textContent='⏹ Detener audio';
+    detenerBtn.onclick = ()=>{ try{ speechSynthesis.cancel(); }catch(e){} };
+    box.appendChild(detenerBtn);
+
+    const segmentosBox = document.createElement('div');
+    segmentosBox.style.cssText='margin-bottom:16px;';
+    dialogo.segmentos.forEach((seg, idx)=>{
+      const textoSeg = seg.partes.map(p => p.t !== undefined ? p.t : p.blank).join('');
+      const fila = document.createElement('div');
+      fila.style.cssText='display:flex; align-items:center; gap:10px; padding:6px 0; border-bottom:1px solid var(--border);';
+      const label = document.createElement('span');
+      label.style.cssText='flex:1; font-size:13px; color:var(--muted);';
+      label.textContent = (idx+1)+'. '+seg.hablante;
+      const playBtn = document.createElement('button');
+      playBtn.className='mic'; playBtn.style.cssText='min-height:36px; padding:6px 14px; font-size:13px;';
+      playBtn.textContent='🔊 Reproducir';
+      playBtn.onclick = async ()=>{
+        try{
+          speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(textoSeg);
+          u.lang='en-US';
+          u.rate=0.85; // más lento que el resto de la app, a pedido
+          playBtn.disabled=true;
+          await new Promise(res=>{ u.onend=res; u.onerror=res; speechSynthesis.speak(u); });
+        } catch(e){}
+        playBtn.disabled=false;
+      };
+      fila.appendChild(label);
+      fila.appendChild(playBtn);
+      segmentosBox.appendChild(fila);
+    });
+    box.appendChild(segmentosBox);
+
+    const textoBox = document.createElement('div');
+    textoBox.className='dn-review-prompt';
+    textoBox.style.cssText='text-align:left; line-height:2.4;';
+    dialogo.segmentos.forEach(seg=>{
+      const linea = document.createElement('div');
+      linea.style.marginBottom='8px';
+      const nombre = document.createElement('b');
+      nombre.style.color='var(--en)';
+      nombre.textContent = seg.hablante+': ';
+      linea.appendChild(nombre);
+      seg.partes.forEach(p=>{
+        if(p.t !== undefined){
+          linea.appendChild(document.createTextNode(p.t));
+        } else {
+          const input = document.createElement('input');
+          input.type='text';
+          input.style.cssText='width:110px; margin:0 3px; background:var(--bg-panel-2); border:1px solid var(--border); border-radius:6px; padding:3px 6px; color:var(--ink); font-family:inherit; font-size:14px; text-align:center;';
+          escuchaInputs.push({input, correcta:p.blank});
+          linea.appendChild(input);
+        }
+      });
+      textoBox.appendChild(linea);
+    });
+    box.appendChild(textoBox);
+
+    const sendBtn = document.createElement('button');
+    sendBtn.className='primary'; sendBtn.style.marginTop='14px';
+    sendBtn.textContent='Revisar mis respuestas';
+    sendBtn.onclick = ()=>{
+      let correctas = 0;
+      escuchaInputs.forEach(item=>{
+        const escrito = item.input.value.trim();
+        const ok = escrito.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'') === item.correcta.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        item.input.style.borderColor = ok ? 'var(--ok)' : 'var(--warn)';
+        if(ok) correctas++;
+      });
+      escuchaCorrect = correctas;
+      escuchaTotal = escuchaInputs.length;
+      sendBtn.style.display='none';
+      const seguirBtn = document.createElement('button');
+      seguirBtn.className='primary'; seguirBtn.style.marginTop='10px';
+      seguirBtn.textContent = correctas+' de '+escuchaInputs.length+' correctas — Continuar →';
+      seguirBtn.onclick = ()=>{ fase=5; mostrarFaseIntro(); };
+      box.appendChild(seguirBtn);
+    };
+    box.appendChild(sendBtn);
+
+    el('evPregunta').innerHTML='';
+    el('evPregunta').appendChild(box);
+    el('evOpciones').innerHTML='';
+  }
+
   // ---------- FASE 5: Escritura guiada ----------
   function renderEscritura(){
-    const datos = evaluacion.escritura[nivelCalibrado][escrituraConsignaIdx];
-    const totalConsignas = evaluacion.escritura[nivelCalibrado].length;
+    const datos = banco.escritura[nivelCalibrado][escrituraConsignaIdx];
+    const totalConsignas = banco.escritura[nivelCalibrado].length;
     el('evFaseProgreso').textContent = 'Fase 5 de 5 · Escritura guiada ('+nivelCalibrado+') · consigna '+(escrituraConsignaIdx+1)+' de '+totalConsignas;
     el('evPregunta').innerHTML = '<b>Consigna:</b> '+datos.consigna+'<br><span style="font-size:13px; color:var(--muted);">Intenta usar al menos '+datos.minPalabrasClave+' de estas palabras: '+datos.palabrasClave.join(', ')+'. Mínimo '+datos.minPalabras+' palabras en total.</span>';
     const opcBox = el('evOpciones');
@@ -515,7 +922,7 @@ const evaluacion = {
 
     const vocabPct = Math.round((vocabCorrect/vocabItems.length)*100);
     const gramPct = Math.round((gramCorrect/gramItems.length)*100);
-    const datosLectura = evaluacion.lectura[nivelCalibrado];
+    const datosLectura = banco.lectura[nivelCalibrado];
     const lecturaTotalPreguntas = datosLectura.reduce((sum,t)=>sum+t.preguntas.length, 0);
     const lecturaPct = Math.round((lecturaCorrect/lecturaTotalPreguntas)*100);
     const escuchaPct = escuchaTotal>0 ? Math.round((escuchaCorrect/escuchaTotal)*100) : 0;
