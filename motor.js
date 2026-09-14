@@ -2733,8 +2733,10 @@ const weeklyStories = {
   ]
 };
 const storyIntro = [{t:'Ahora contemos todo lo de hoy como una pequeña historia, no palabras sueltas. Escucha cada frase, repítela, y escríbela — así ves el idioma funcionando de verdad, en contexto.',lang:'es'}];
+const storyPreviewIntro = [{t:'Antes de empezar, te cuento de qué se trata la clase de hoy con una pequeña historia. Solo escucha y sigue el texto con su traducción — acá no hay ningún ejercicio, es solo para que entiendas el contexto antes de arrancar.',lang:'es'}];
 const weeklyStoryIntro = [{t:'Antes de terminar, una historia más larga con todo lo que repasaste esta semana de estudio.',lang:'es'}];
 const jingleIntro = [{t:'Para cerrar, un jinglecito pegajoso con lo de hoy — como una publicidad que se te queda en la cabeza. Escúchalo, repítelo, y si quieres, grábate "cantándolo" a tu manera.',lang:'es'}];
+const jinglePreviewIntro = [{t:'Y esta es la canción de hoy — solo escúchala y sigue la letra con su traducción, para que se te vaya quedando. Tampoco hay ejercicio acá, ya arrancamos la clase después de esto.',lang:'es'}];
 const milestoneIntro = [{t:'¡Llegaste a un hito! Antes de cerrar este bloque de 24 días, un repaso más exigente — combinando lo que aprendiste en todo este mes de estudio, no solo hoy.',lang:'es'}];
 // Toma una palabra representativa de cada uno de los 24 días del bloque que termina en dayNumber, para el examen de hito.
 function sampleMilestoneWords(dayNumber){
@@ -2762,6 +2764,16 @@ function mostrarNextControls(){
 
 function buildScript(bank, crossDayWords, dayNumber, theme, dayStory, dayJingle, dayStructures, dayAuxiliary){
   const scr = [{ kind:'free', segs:[{t:'¡Hola! Bienvenido a tu sesión de hoy. ',lang:'es'},{t:'Antes de empezar, contame: ¿cómo estás?',lang:'es'}], emoji:'🧑‍🤝‍🧑' }];
+  // Vista previa de la Historia y la Canción del día, al principio — sin ningún ejercicio,
+  // solo para escuchar, seguir la letra y su traducción, y generar expectativa antes de arrancar.
+  // La Historia y la Canción NO se mueven de su lugar original más abajo — esto es un acceso
+  // adicional al inicio, la versión de más abajo sigue igual, con su ejercicio correspondiente.
+  if(dayStory && dayStory.length){
+    scr.push({ kind:'sequence', segs:storyPreviewIntro, emoji:'📖', words:dayStory, isStory:true, isDailyStory:true });
+  }
+  if(dayJingle && dayJingle.length){
+    scr.push({ kind:'sequence', segs:jinglePreviewIntro, emoji:'🎵', words:dayJingle, isStory:true, isJingle:true });
+  }
   if(unitDialogueReinforcement[dayNumber]){
     scr.push({ kind:'dialogueReinforcement', lines: unitDialogueReinforcement[dayNumber] });
     scr.push({ kind:'fillBlankDialogue', lines: unitDialogueReinforcement[dayNumber], mode:'maestro' });
