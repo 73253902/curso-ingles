@@ -197,6 +197,10 @@
   .record-panel audio{height:34px; max-width:280px;}
   .line .seg.selecting{text-decoration:underline dashed; text-underline-offset:4px;}
   .line .seg.selected{background:rgba(79,182,232,.28); border-radius:5px; box-shadow:0 0 0 1px rgba(79,182,232,.5);}
+  /* Palabras tocables de la Historia — verde, para diferenciarlas de la ayuda verbal (azul) */
+  .line .seg.story-tappable{color:var(--ok);}
+  .line .seg.story-tappable.active{color:var(--ok); text-shadow:0 0 22px rgba(111,207,151,.35);}
+  .line .seg.story-tappable.selected{background:rgba(111,207,151,.28); box-shadow:0 0 0 1px rgba(111,207,151,.5);}
   .phrase-selection-panel{
     display:flex; flex-direction:column; align-items:flex-start; gap:10px;
     background:rgba(79,182,232,.1); border:1px solid rgba(79,182,232,.35);
