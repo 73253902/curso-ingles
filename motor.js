@@ -3942,7 +3942,7 @@ function runWordChallenge(){
   releaseMicButton();
   modeChip.style.display='inline-block'; modeChip.className='mode-chip speak'; modeChip.textContent='🎙 HABLAR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : (currentTurnIsStory ? 'FRASE DE LA HISTORIA' : 'PRACTICA ESTA PALABRA');
-  hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="pron-hint">· toca cualquier palabra para reescucharla sola</span>' : '');
+  hintEl.innerHTML='Significa: "'+w.es+'"' + (w.pron ? ' <span class="pron-hint">· se pronuncia: "'+w.pron+'"</span>' : '') + (currentTurnIsStory ? ' <span class="tap-hint">· toca cualquier palabra para reescucharla sola</span>' : '');
   const segs = [{t:w.en,lang:'en'}]; // siempre una sola frase completa, para que la voz salga fluida
   illusEl.textContent='💬';
   appControls.style.display='flex'; playBtn.style.display=''; userControls.style.display='none'; typeRow.style.display='none'; nextControls.style.display='none';
