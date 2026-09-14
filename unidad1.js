@@ -94,6 +94,11 @@ const curriculumUnidad1 = [
       {en:"How much", es:"cuánto cuesta", pron:"jáu mach"},
       {en:"Goodbye", es:"adiós...", pron:"gudbái"},
       {en:"See you", es:"nos vemos en la fiesta!", pron:"síi iú"},
+      {en:"Hello", es:"es hola", pron:"jelóu"},
+      {en:"Good morning", es:"buenos días", pron:"gud mórnin"},
+      {en:"Good afternoon", es:"es buenas tardes en el día", pron:"gud afternún"},
+      {en:"Good night", es:"buenas noches... ¡vamos a cantar!", pron:"gud náit"},
+      {en:"", es:"Aprender inglés es fácil, ¡te va a encantar!", pron:""},
       {en:"Hello, Goodbye", es:"¡el inglés ya está aquí! ¡Apréndelo cantando y sé feliz!", pron:"jelóu, gudbái"}
     ],
     songStoryLyrics:[
