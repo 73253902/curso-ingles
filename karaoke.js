@@ -137,6 +137,47 @@ const karaoke = {
         {en:"This is the Dragon signing off for now, my friend.", es:"Aquí se despide el Dragón por ahora, amigo.", pron:"dis is de drágon sáining of for náu, mái frend."},
         {en:"Keep moving, keep growing right up to the end.", es:"Sigue avanzando, sigue creciendo hasta el final.", pron:"kíip múuving, kíip gróuing ráit ap tu de end."}
       ]
+    },
+    { dia:18, titulo:"Captain Orion's Journey", audio:"audio/dia18_practica_auditiva.mp3",
+      lineas:[
+        {seccion:"Intro"},
+        {en:"Count down the stars. We are ready for lift-off.", es:"Cuenta regresiva de las estrellas. Estamos listos para el despegue.", pron:"cáunt dáun de stars. uí ar rédi for lift-of."},
+        {seccion:"Verse 1"},
+        {en:"Captain Orion steers through the cosmic night,", es:"El Capitán Orión navega por la noche cósmica,", pron:"cáptin oráion stírs zru de cásmic náit,"},
+        {en:"His loyal spaceship gleaming with silver light.", es:"Su nave leal brillando con luz plateada.", pron:"jis lóial spéiship glíiming uid sílver láit."},
+        {en:"He flies past nebulae where the stardust streams,", es:"Vuela más allá de las nebulosas donde fluye el polvo estelar,", pron:"ji fláis past nébiuli uér de stárdast stríims,"},
+        {en:"Living a life of wonder and endless dreams.", es:"Viviendo una vida de asombro y sueños sin fin.", pron:"líving a láif of uánder and éndles dríims."},
+        {seccion:"Verse 2"},
+        {en:"Down on the base station, bustling and bright,", es:"Abajo en la estación base, bulliciosa y brillante,", pron:"dáun on de béis stéishion, básling and bráit,"},
+        {en:"A friendly neighbor welcomes the morning light.", es:"Un vecino amigable recibe la luz de la mañana.", pron:"a fréndli néibor uélcams de mórning láit."},
+        {en:"Our space neighborhood feels like a community grand,", es:"Nuestro vecindario espacial se siente como una gran comunidad,", pron:"áur spéis néiborjud fíils láik a camiúniti grand,"},
+        {en:"Where robots and wizards walk hand in hand.", es:"Donde robots y magos caminan de la mano.", pron:"uér róubats and uízards uók jand in jand."},
+        {seccion:"Chorus"},
+        {en:"I recommend our journey across the sky,", es:"Recomiendo nuestro viaje a través del cielo,", pron:"ái récomend áur yérni acrós de skái,"},
+        {en:"I recommend the stars where the comets fly.", es:"Recomiendo las estrellas donde vuelan los cometas.", pron:"ái récomend de stars uér de cámets flái."},
+        {en:"I recommend a solution to every space fear,", es:"Recomiendo una solución para cada miedo espacial,", pron:"ái récomend a solúshion tu évri spéis fíar,"},
+        {en:"As loyal customers gather from far and near.", es:"Mientras clientes leales se reúnen de cerca y de lejos.", pron:"as lóial cástomers gáder fram far and níar."},
+        {seccion:"Verse 3"},
+        {en:"Princess Lyra meets a regular customer true,", es:"La Princesa Lyra conoce a un cliente habitual de verdad,", pron:"prínses láira míits a réguiular cástomer trú,"},
+        {en:"A thousand-year phoenix of golden hue.", es:"Un fénix de mil años de color dorado.", pron:"a záuzand-íar fíniks of góulden jiú."},
+        {en:"She brings her feedback with a joyful song,", es:"Ella trae sus comentarios con una canción alegre,", pron:"shi brings jer fíidbak uid a yóiful song,"},
+        {en:"Helping our long-term relationship grow strong.", es:"Ayudando a que nuestra relación a largo plazo crezca fuerte.", pron:"jélping áur long-term riléishionship gróu strong."},
+        {seccion:"Bridge"},
+        {en:"If there is ever a complaint in the galaxy deep,", es:"Si alguna vez hay una queja en las profundidades de la galaxia,", pron:"if der is éver a campléint in de gálaxi díip,"},
+        {en:"When asteroid shadows begin to creep,", es:"Cuando las sombras de los asteroides empiezan a acercarse,", pron:"uén ásteroid shádous bigín tu críip,"},
+        {en:"A brave space dragon arrives on the scene,", es:"Un valiente dragón espacial llega a la escena,", pron:"a bréiv spéis drágon aráivs on de síin,"},
+        {en:"Solving all troubles for our cosmic machine!", es:"¡Resolviendo todos los problemas de nuestra máquina cósmica!", pron:"sálving ol tráboles for áur cásmic mashín!"},
+        {seccion:"Chorus (final)"},
+        {en:"I recommend our journey across the sky,", es:"Recomiendo nuestro viaje a través del cielo,", pron:"ái récomend áur yérni acrós de skái,"},
+        {en:"I recommend the stars where the comets fly.", es:"Recomiendo las estrellas donde vuelan los cometas.", pron:"ái récomend de stars uér de cámets flái."},
+        {en:"I recommend a solution to every space fear,", es:"Recomiendo una solución para cada miedo espacial,", pron:"ái récomend a solúshion tu évri spéis fíar,"},
+        {en:"As loyal customers gather from far and near.", es:"Mientras clientes leales se reúnen de cerca y de lejos.", pron:"as lóial cástomers gáder fram far and níar."},
+        {seccion:"Outro"},
+        {en:"Learning English is easy, you're going to love it!", es:"Aprender inglés es fácil, ¡te va a encantar!", pron:"lérning ínglish is íisi, iór góing tu lav it!"},
+        {en:"Keep practicing until the end, my friend.", es:"Sigue practicando hasta el final, amigo.", pron:"kíip práctising antíl de end, mái frend."},
+        {en:"See you next week, dragon friend.", es:"Nos vemos la próxima semana, amigo dragón.", pron:"síi iú next uíik, drágon frend."},
+        {en:"This is the Dragon signing off from the stars. Peace out.", es:"Aquí se despide el Dragón desde las estrellas. Cuídate.", pron:"dis is de drágon sáining of fram de stars. píis áut."}
+      ]
     }
   ]
 };
