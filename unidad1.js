@@ -60,8 +60,8 @@ const curriculumUnidad1 = [
         ]
       }
     ],
-    songJingle:'canción-dia1-vocabulario.mp3',
-    songStory:'canción-dia1-historia.mp3',
+    songJingle:'cancion-dia1-vocabulario.mp3',
+    songStory:'cancion-dia1-historia.mp3',
     songJingleLyrics:[
       {en:"", es:"¡Aprende inglés! ¡Fácil y genial! El vocabulario básico para hablar.", pron:""},
       {en:"Hello", es:"es hola", pron:"jelóu"},
@@ -223,8 +223,8 @@ const curriculumUnidad1 = [
           future:{en:'I will work at Dosting Toys.', es:'Voy a trabajar en Dosting Toys.'}
         }}
     ],
-    songJingle:'canción-dia2-vocabulario.mp3',
-    songStory:'canción-dia2-historia.mp3',
+    songJingle:'cancion-dia2-vocabulario.mp3',
+    songStory:'cancion-dia2-historia.mp3',
     songJingleLyrics:[
       {en:"", es:"¡Aprende inglés! ¡Fácil y genial! Día número dos, vamos a presentar.", pron:""},
       {en:"My name is", es:"me llamo", pron:"mai néim is"},
@@ -347,8 +347,8 @@ const curriculumUnidad1 = [
           future:{en:'We will provide services.', es:'Vamos a ofrecer servicios.'}
         }}
     ],
-    songJingle:'canción-dia3-vocabulario.mp3',
-    songStory:'canción-dia3-historia.mp3',
+    songJingle:'cancion-dia3-vocabulario.mp3',
+    songStory:'cancion-dia3-historia.mp3',
     songJingleLyrics:[
       {en:"Country", es:"es país", pron:"cántri"},
       {en:"city", es:"es ciudad", pron:"síti"},
@@ -487,8 +487,8 @@ const curriculumUnidad1 = [
           future:{en:'I will be in charge of sales.', es:'Voy a estar a cargo de ventas.'}
         }}
     ],
-    songJingle:'canción-dia4-vocabulario.mp3',
-    songStory:'canción-dia4-historia.mp3',
+    songJingle:'cancion-dia4-vocabulario.mp3',
+    songStory:'cancion-dia4-historia.mp3',
     songJingleLyrics:[
       {en:"Wife", es:"es esposa", pron:"uáif"},
       {en:"husband", es:"es esposo", pron:"jásband"},
@@ -629,8 +629,8 @@ const curriculumUnidad1 = [
       {en:'order', es:'pedido', pron:'órder', emoji:'📝'},
       {en:'invoice', es:'factura', pron:'ínvois', emoji:'🧾'}
     ],
-    songJingle:'canción-dia5-vocabulario.mp3',
-    songStory:'canción-dia5-historia.mp3',
+    songJingle:'cancion-dia5-vocabulario.mp3',
+    songStory:'cancion-dia5-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'Llegamos al almacén para empezar a contar...', pron:''},
       {en:'One, two, three to start,', es:'uno, dos, tres para iniciar,', pron:'uán, tú, zríi tu start,'},
@@ -769,8 +769,8 @@ const curriculumUnidad1 = [
       {en:'on time', es:'a tiempo', pron:'on táim', emoji:'⏱️'},
       {en:'deadline', es:'fecha límite', pron:'dédlain', emoji:'⏳'}
     ],
-    songJingle:'canción-dia6-vocabulario.mp3',
-    songStory:'canción-dia6-historia.mp3',
+    songJingle:'cancion-dia6-vocabulario.mp3',
+    songStory:'cancion-dia6-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'Revisamos la agenda para organizar la semana...', pron:''},
       {en:'Monday, Tuesday,', es:'lunes, martes, al iniciar,', pron:'mándei, tiúsdei,'},
@@ -907,8 +907,8 @@ const curriculumUnidad1 = [
       {en:'one moment', es:'un momento', pron:'uán móument', emoji:'✋'},
       {en:'see you Monday', es:'nos vemos el lunes', pron:'síi iú mándei', emoji:'👋'}
     ],
-    songJingle:'canción-dia7-vocabulario.mp3',
-    songStory:'canción-dia7-historia.mp3',
+    songJingle:'cancion-dia7-vocabulario.mp3',
+    songStory:'cancion-dia7-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'Enfrente del portal espacial, el capitán me saluda al entrar...', pron:''},
       {en:'How are you doing?', es:'¿Cómo estás?', pron:'jáu ar iú dúing?'},
@@ -1018,8 +1018,8 @@ const curriculumUnidad1 = [
           noAnswer:{en:"No, it isn't.", es:'No, no va bien.'}
         }}
     ],
-    songJingle:'canción-dia8-vocabulario.mp3',
-    songStory:'canción-dia8-historia.mp3',
+    songJingle:'cancion-dia8-vocabulario.mp3',
+    songStory:'cancion-dia8-historia.mp3',
     words:[
       {en:"I'm great", es:'estoy genial', pron:'áim gréit', emoji:'😄'},
       {en:'so-so', es:'más o menos', pron:'sóu sóu', emoji:'😐'},
@@ -1148,8 +1148,8 @@ const curriculumUnidad1 = [
       {en:'looking forward to it', es:'con muchas ganas de eso', pron:'lúking fóruard tu it', emoji:'🤞'},
       {en:'until next time', es:'hasta la próxima', pron:'antíl next táim', emoji:'🔜'}
     ],
-    songJingle:'canción-dia9-vocabulario.mp3',
-    songStory:'canción-dia9-historia.mp3',
+    songJingle:'cancion-dia9-vocabulario.mp3',
+    songStory:'cancion-dia9-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'Desde la torre de control en el planeta central, respondo la transmisión de la embajadora...', pron:''},
       {en:'Thanks for calling! Thanks for your time!', es:'¡Gracias por llamar! ¡Gracias por tu tiempo!', pron:'zenks for cóling! zenks for iór táim!'},
@@ -1262,8 +1262,8 @@ const curriculumUnidad1 = [
       {en:'I have a question', es:'tengo una pregunta', pron:'ái jav a cuéstion', emoji:'❓'},
       {en:'can you explain', es:'puedes explicar', pron:'can iú expléin', emoji:'🗣️'}
     ],
-    songJingle:'canción-dia10-vocabulario.mp3',
-    songStory:'canción-dia10-historia.mp3',
+    songJingle:'cancion-dia10-vocabulario.mp3',
+    songStory:'cancion-dia10-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'Llego a la tienda espacial del dragón y necesito resolver mis dudas...', pron:''},
       {en:'I have a question!', es:'¡Tengo una pregunta!', pron:'ái jav a cuéstion!'},
@@ -1397,8 +1397,8 @@ const curriculumUnidad1 = [
       {en:'metal', es:'metal', pron:'métal', emoji:'🔩'},
       {en:'durable', es:'duradero', pron:'diúrabol', emoji:'🛡️'}
     ],
-    songJingle:'canción-dia11-vocabulario.mp3',
-    songStory:'canción-dia11-historia.mp3',
+    songJingle:'cancion-dia11-vocabulario.mp3',
+    songStory:'cancion-dia11-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'En el taller intergaláctico, buscamos la mejor armadura para el dragón...', pron:''},
       {en:'Red, blue, green, yellow, black, white!', es:'¡Rojo, azul, verde, amarillo, negro, blanco!', pron:'red, blú, gríin, iélou, blak, uáit!'},
@@ -1518,8 +1518,8 @@ const curriculumUnidad1 = [
       {en:'congratulations', es:'felicitaciones', pron:'congrachuléishons', emoji:'🎊'},
       {en:'next unit', es:'próxima unidad', pron:'next iúnit', emoji:'➡️'}
     ],
-    songJingle:'canción-dia12-vocabulario.mp3',
-    songStory:'canción-dia12-historia.mp3',
+    songJingle:'cancion-dia12-vocabulario.mp3',
+    songStory:'cancion-dia12-historia.mp3',
     songJingleLyrics:[
       {en:'', es:'Los motores de las naves rugen frente a la línea de meta espacial...', pron:''},
       {en:'Let\'s begin! Let\'s go!', es:'¡Empecemos! ¡Vamos!', pron:'lets bigín! lets góu!'},

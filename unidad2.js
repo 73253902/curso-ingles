@@ -84,8 +84,8 @@ const curriculumUnidad2 = [
       {en:'tired', es:'cansado', pron:'táiard', emoji:'😴'},
       {en:'rest', es:'descansar', pron:'rest', emoji:'🛌'}
     ],
-    songJingle:'canción-dia14-vocabulario.mp3',
-    songStory:'canción-dia14-historia.mp3',
+    songJingle:'cancion-dia14-vocabulario.mp3',
+    songStory:'cancion-dia14-historia.mp3',
     songJingleLyrics:[
             {en:'', es:'El sol galáctico se levanta y el dragón inicia su jornada...', pron:''},
             {en:'Wake up, get up, breakfast!', es:'¡Despertar, levantarse, desayuno!', pron:'uéik ap, guét ap, brékfast!'},
@@ -221,8 +221,8 @@ const curriculumUnidad2 = [
           noAnswer:{en:"No, I don't.", es:'No.'}
         }}
     ],
-    songJingle:'canción-dia15-vocabulario.mp3',
-    songStory:'canción-dia15-historia.mp3',
+    songJingle:'cancion-dia15-vocabulario.mp3',
+    songStory:'cancion-dia15-historia.mp3',
     songJingleLyrics:[
       {en:'Deep in the digital core where the shadows retreat', es:'En lo profundo del núcleo digital donde los retiros de las sombras', pron:'díip in de díyital cor uér de shádous ritríit'},
       {en:'The giant robot wakes up and prepares for the street', es:'El robot gigante se despierta y se prepara para la calle', pron:'de yáiant róubat uéiks ap and pripérs for de stríit'},
@@ -323,8 +323,8 @@ const curriculumUnidad2 = [
           noAnswer:{en:"No, sorry, I need it.", es:'No, perdón, lo necesito.'}
         }}
     ],
-    songJingle:'canción-dia16-vocabulario.mp3',
-    songStory:'canción-dia16-historia.mp3',
+    songJingle:'cancion-dia16-vocabulario.mp3',
+    songStory:'cancion-dia16-historia.mp3',
     songJingleLyrics:[
       {en:'I have to use the hammer to fix the wall', es:'Tengo que usar el martillo para arreglar la pared', pron:'ái jav tu iús de jámer tu fix de uol'},
       {en:'I have to find the screwdriver in the hall', es:'Tengo que encontrar el desarmador en el pasillo', pron:'ái jav tu fáind de scrúdráiver in de jol'},
@@ -438,8 +438,8 @@ const curriculumUnidad2 = [
         ]
       }
     ],
-    songJingle:'canción-dia17-vocabulario.mp3',
-    songStory:'canción-dia17-historia.mp3',
+    songJingle:'cancion-dia17-vocabulario.mp3',
+    songStory:'cancion-dia17-historia.mp3',
     songJingleLyrics:[
       {en:'Let us step into a world of magic and imagination.', es:'Entremos en un mundo de magia e imaginación.', pron:'let as step íntu a uorld of máyic and imayinéishion.'},
       {en:'My pet is a baby dragon, so small and bright,', es:'Mi mascota es un dragón bebé, tan pequeño y brillante,', pron:'mái pet is a béibi drágon, sóu smol and bráit,'},
@@ -550,8 +550,8 @@ const curriculumUnidad2 = [
           future:{en:'I will recommend this product.', es:'Voy a recomendar este producto.'}
         }}
     ],
-    songJingle:'canción-dia18-vocabulario.mp3',
-    songStory:'canción-dia18-historia.mp3',
+    songJingle:'cancion-dia18-vocabulario.mp3',
+    songStory:'cancion-dia18-historia.mp3',
     songJingleLyrics:[
       {en:'Ooh, a slow and steady rhythm...', es:'Oh, un ritmo lento y constante...', pron:'úu, a slóu and stédi rízem...'},
       {en:'My neighbor is a friendly giant,', es:'Mi vecino es un gigante,', pron:'mái néibor is a fréndli yáiant,'},
@@ -662,8 +662,8 @@ const curriculumUnidad2 = [
           noAnswer:{en:'No, not yet.', es:'No, todavía no.'}
         }}
     ],
-    songJingle:'canción-dia19-vocabulario.mp3',
-    songStory:'canción-dia19-historia.mp3',
+    songJingle:'cancion-dia19-vocabulario.mp3',
+    songStory:'cancion-dia19-historia.mp3',
     songJingleLyrics:[
       {en:'Take a deep breath. Look at the stars. Let\'s begin.', es:'Respira hondo. Mira las estrellas. Empecemos.', pron:'téik a díip brez. luk at de stars. lets bigín.'},
       {en:'By the way, this castle is higher than it seems,', es:'A propósito, este castillo es más alto de lo que parece,', pron:'bái de uéi, dis cásol is jáier dan it síims,'},
