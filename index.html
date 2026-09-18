@@ -416,6 +416,14 @@
       </div>
       <button class="primary" id="kkEntryBtn">Entrar →</button>
     </div>
+    <div class="dn-entry-card" id="psEntryCard">
+      <div class="dn-entry-icon">🤝</div>
+      <div class="dn-entry-text">
+        <b>Practicar con otro alumno</b>
+        <p>Te conectamos al azar con otro alumno de nivel parecido, para practicar juntos el diálogo del día — de forma segura, sin chat libre.</p>
+      </div>
+      <button class="primary" id="psEntryBtn" onclick="mostrarPracticaSocial()">Entrar →</button>
+    </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
   </div>
 
@@ -766,6 +774,11 @@
   </div>
 </div>
 
+<!-- ===== PRÁCTICA SOCIAL — emparejamiento al azar entre alumnos ===== -->
+<div id="practicaSocialModulo" style="display:none; max-width:520px; margin:0 auto; padding:20px;">
+  <div id="practicaSocialBox"></div>
+</div>
+
 <script src="unidad1.js"></script>
 <script src="unidad2.js"></script>
 <script src="unidad3.js"></script>
@@ -786,6 +799,7 @@
 <script src="cognados.js"></script>
 <script src="fonetica.js"></script>
 <script src="karaoke.js"></script>
+<script src="practicaSocial.js"></script>
 <script src="evaluacion.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://checkout.wompi.co/widget.js"></script>
