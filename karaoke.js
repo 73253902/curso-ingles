@@ -263,17 +263,26 @@ const karaoke = {
   function renderSongList(){
     const box = el('kkSongListBox');
     box.innerHTML='';
-    karaoke.canciones.forEach(cancion=>{
+    const esAdmin = typeof isAdmin === 'function' && isAdmin();
+    const cancionesOrdenadas = karaoke.canciones.slice().sort((a,b)=>a.dia-b.dia);
+    cancionesOrdenadas.forEach((cancion, idx)=>{
+      const unidad = idx + 1; // la 1ra canción por día es la unidad 1, la 2da la unidad 2, etc.
+      const desbloqueada = esAdmin || (typeof unidadesDesbloqueadas !== 'function') || (unidad <= unidadesDesbloqueadas('karaoke'));
       const card = document.createElement('div');
       card.className='cg-regla-card';
       const numLineas = cancion.lineas.filter(l=>l.en).length;
+      const infoTxt = desbloqueada ? ('Día '+cancion.dia+' · '+numLineas+' líneas') : 'Se desbloquea practicando con otros alumnos';
       card.innerHTML = '<div class="cg-regla-num">'+cancion.dia+'</div>'
-        +'<div class="cg-regla-info"><b>'+cancion.titulo+'</b><p>Día '+cancion.dia+' · '+numLineas+' líneas</p></div>'
-        +'<div class="cg-regla-arrow">▶</div>';
-      card.onclick=()=>{
-        try{ currentDia=cancion.dia; renderSongDetalle(cancion.dia); showView('detalle'); }
-        catch(e){ alert('Error al abrir la canción: '+e.message); console.error(e); }
-      };
+        +'<div class="cg-regla-info"><b>'+cancion.titulo+'</b><p>'+infoTxt+'</p></div>'
+        +'<div class="cg-regla-arrow">'+(desbloqueada?'▶':'🔒')+'</div>';
+      if(desbloqueada){
+        card.onclick=()=>{
+          try{ currentDia=cancion.dia; renderSongDetalle(cancion.dia); showView('detalle'); }
+          catch(e){ alert('Error al abrir la canción: '+e.message); console.error(e); }
+        };
+      } else {
+        card.style.opacity='0.5'; card.style.cursor='default';
+      }
       box.appendChild(card);
     });
   }
