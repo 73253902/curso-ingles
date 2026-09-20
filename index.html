@@ -339,6 +339,7 @@
           <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted);">
             <input type="checkbox" id="authModoRegistro"> Es la primera vez — quiero crear una cuenta nueva
           </label>
+          <input type="text" id="authCodigoReferido" placeholder="Código de referido (opcional)" style="padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink);">
           <div id="authError" style="color:var(--warn); font-size:13px; min-height:18px;"></div>
           <button class="primary" id="authSubmitBtn">Entrar</button>
         </div>
@@ -424,7 +425,33 @@
       </div>
       <button class="primary" id="psEntryBtn" onclick="mostrarPracticaSocial()">Entrar →</button>
     </div>
+    <div class="dn-entry-card" id="refEntryCard">
+      <div class="dn-entry-icon">🎁</div>
+      <div class="dn-entry-text">
+        <b>Referí y ganá</b>
+        <p>Compartí tu código con un amigo — cuando se inscriba con él y pague, ganás el 10% de esa venta.</p>
+      </div>
+      <button class="primary" id="refEntryBtn" onclick="mostrarReferidos()">Entrar →</button>
+    </div>
+    <div class="dn-entry-card" id="profEntryCard">
+      <div class="dn-entry-icon">👨‍🏫</div>
+      <div class="dn-entry-text">
+        <b>Clase con un profesor</b>
+        <p>Cada 48 días completados, programás una clase de 1 hora con un profesor real, según su disponibilidad.</p>
+      </div>
+      <button class="primary" id="profEntryBtn" onclick="mostrarClaseProfesor()">Entrar →</button>
+    </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
+  </div>
+
+  <!-- ===== CLASE CON PROFESOR ===== -->
+  <div id="claseProfesorModulo" style="display:none; max-width:520px; margin:0 auto; padding:20px;">
+    <div id="claseProfesorBox"></div>
+  </div>
+
+  <!-- ===== REFERIDOS — código propio y ganancias ===== -->
+  <div id="referidosModulo" style="display:none; max-width:520px; margin:0 auto; padding:20px;">
+    <div id="referidosBox"></div>
   </div>
 
   <!-- ===== EL DRAGÓN NATIVO — módulo aparte ===== -->

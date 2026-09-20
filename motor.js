@@ -270,6 +270,7 @@ function showHome(){
   document.getElementById('session').style.display='none';
   speechSynthesis.cancel();
   renderHome();
+  if(typeof aplicarBloqueosPremios==='function') aplicarBloqueosPremios();
 }
 
 // ================================================================

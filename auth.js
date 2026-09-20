@@ -167,6 +167,13 @@ function mostrarPantallaLogin(){
       el('authError').textContent = '¡Cuenta creada! Revisa tu correo para confirmar tu cuenta, y luego inicia sesión.';
       return;
     }
+    if(modoRegistro){
+      const codigoReferido = el('authCodigoReferido') ? el('authCodigoReferido').value.trim() : '';
+      if(codigoReferido){
+        try{ await supabaseClient.rpc('registrar_referido', { p_codigo: codigoReferido }); }
+        catch(e){ /* código inválido — no bloqueamos el registro por esto */ }
+      }
+    }
     iniciarApp();
   };
 }
@@ -241,3 +248,63 @@ async function iniciarPagoWompi(){
     el('authPagarBtn').textContent = 'Pagar ahora';
   }
 }
+
+// ================= Referidos =================
+async function mostrarReferidos(){
+  const el = id => document.getElementById(id);
+  el('home').style.display='none';
+  el('referidosModulo').style.display='block';
+  const box = el('referidosBox');
+  box.innerHTML = '<h2>🎁 Referí y ganá</h2><p class="sub">Cargando tu código...</p>';
+
+  if(!currentUser || !currentProfile){
+    box.innerHTML = '<h2>🎁 Referí y ganá</h2><p class="sub">Necesitas iniciar sesión para ver tu código.</p>';
+    return;
+  }
+
+  const { data: perfilActualizado } = await supabaseClient
+    .from('profiles').select('referral_code').eq('id', currentUser.id).maybeSingle();
+  const codigo = perfilActualizado ? perfilActualizado.referral_code : '';
+
+  const { data: ganancias } = await supabaseClient
+    .from('referral_earnings').select('*').eq('referrer_id', currentUser.id).order('created_at',{ascending:false});
+
+  const total = (ganancias||[]).reduce((s,g)=>s+Number(g.amount),0);
+  const pendiente = (ganancias||[]).filter(g=>!g.paid).reduce((s,g)=>s+Number(g.amount),0);
+
+  box.innerHTML =
+    '<h2>🎁 Referí y ganá</h2>'+
+    '<p class="sub">Compartí tu código con un amigo. Cuando se inscriba usándolo y pague el curso, ganás el 10% de esa venta.</p>'+
+    '<div style="background:var(--bg-panel-2); border-radius:12px; padding:16px; text-align:center; margin:16px 0;">'+
+      '<p style="font-size:12px; color:var(--muted); margin:0 0 6px;">Tu código</p>'+
+      '<p style="font-size:24px; font-weight:700; letter-spacing:2px; margin:0;">'+(codigo||'—')+'</p>'+
+    '</div>'+
+    '<div style="display:flex; gap:10px; margin-bottom:16px;">'+
+      '<div style="flex:1; background:var(--bg-panel-2); border-radius:10px; padding:12px; text-align:center;">'+
+        '<p style="font-size:12px; color:var(--muted); margin:0;">Ganado en total</p>'+
+        '<p style="font-size:18px; font-weight:700; margin:2px 0 0;">$'+total.toLocaleString('es-CO')+'</p>'+
+      '</div>'+
+      '<div style="flex:1; background:var(--bg-panel-2); border-radius:10px; padding:12px; text-align:center;">'+
+        '<p style="font-size:12px; color:var(--muted); margin:0;">Pendiente de pago</p>'+
+        '<p style="font-size:18px; font-weight:700; margin:2px 0 0; color:var(--ok);">$'+pendiente.toLocaleString('es-CO')+'</p>'+
+      '</div>'+
+    '</div>';
+
+  if(ganancias && ganancias.length){
+    const lista = document.createElement('div');
+    ganancias.forEach(g=>{
+      const fila = document.createElement('div');
+      fila.style.cssText='display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:13px;';
+      fila.innerHTML = '<span>'+new Date(g.created_at).toLocaleDateString('es-CO')+'</span><span>$'+Number(g.amount).toLocaleString('es-CO')+' '+(g.paid?'✅ pagado':'⏳ pendiente')+'</span>';
+      lista.appendChild(fila);
+    });
+    box.appendChild(lista);
+  }
+
+  const volverBtn = document.createElement('button');
+  volverBtn.className='ghost'; volverBtn.style.marginTop='16px';
+  volverBtn.textContent='← Volver al inicio';
+  volverBtn.onclick = ()=>{ el('referidosModulo').style.display='none'; el('home').style.display='block'; };
+  box.appendChild(volverBtn);
+}
+window.mostrarReferidos = mostrarReferidos;
