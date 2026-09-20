@@ -13,6 +13,25 @@
 
   function el(id){ return document.getElementById(id); }
 
+  // Último día que el alumno realmente completó (no el próximo que le falta) —
+  // así se empareja según lo que de verdad ya sabe, y practica contenido
+  // repasado, no algo que todavía no vio.
+  function ultimoDiaCompletado(){
+    const progress = loadProgress();
+    let ultimo = 0;
+    for(let d=1; d<=curriculum.length; d++){
+      if(progress[d] && progress[d].completed) ultimo = d;
+    }
+    return ultimo;
+  }
+
+  // Elige al azar uno de los últimos 7 días que el alumno ya completó
+  // (o menos, si todavía no lleva 7).
+  function diaAlAzarDeLosUltimos7(ultimoCompletado){
+    const piso = Math.max(1, ultimoCompletado - 6);
+    return piso + Math.floor(Math.random() * (ultimoCompletado - piso + 1));
+  }
+
   function mostrarPracticaSocial(){
     el('home').style.display='none';
     el('practicaSocialModulo').style.display='block';
@@ -40,6 +59,14 @@
     if(data){
       await cargarPareja(data);
       renderSesion();
+      return;
+    }
+    // Todavía no hay pareja — ¿ya estaba buscando de antes? Si es así, seguimos
+    // buscando con esos mismos datos, en vez de preguntarle todo de nuevo.
+    const { data: disponibilidad } = await supabaseClient
+      .from('practice_availability').select('*').eq('user_id', currentUser.id).eq('available', true).maybeSingle();
+    if(disponibilidad){
+      buscarCompanero(disponibilidad.day_number, disponibilidad.first_name, disponibilidad.time_slots || []);
     } else {
       renderOptIn();
     }
@@ -47,10 +74,17 @@
 
   // ---------- Pantalla: activar disponibilidad ----------
   async function renderOptIn(){
-    const meta = getMeta();
-    const dayNum = meta.unlockedThrough || 1;
+    const dayNum = ultimoDiaCompletado();
     const box = el('practicaSocialBox');
     box.innerHTML = '';
+
+    if(dayNum < 1){
+      box.innerHTML = '<h2>🤝 Practicar con otro alumno</h2><p class="sub">Todavía no completaste ningún día del curso — completá al menos el Día 1 antes de buscar un compañero de práctica, así tenés contenido real para practicar.</p>';
+      const volverBtn = document.createElement('button');
+      volverBtn.className='ghost'; volverBtn.textContent='← Volver al inicio'; volverBtn.onclick=volverAlInicio;
+      box.appendChild(volverBtn);
+      return;
+    }
 
     const titulo = document.createElement('h2');
     titulo.textContent = '🤝 Practicar con otro alumno';
@@ -165,19 +199,26 @@
       const cancelarBtn = document.createElement('button');
       cancelarBtn.className='ghost'; cancelarBtn.style.marginTop='14px';
       cancelarBtn.textContent='Cancelar búsqueda';
-      cancelarBtn.onclick = ()=>{ if(buscandoInterval) clearInterval(buscandoInterval); renderOptIn(); };
+      cancelarBtn.onclick = async ()=>{
+        if(buscandoInterval) clearInterval(buscandoInterval);
+        if(currentUser){
+          await supabaseClient.from('practice_availability').update({ available:false }).eq('user_id', currentUser.id);
+        }
+        renderOptIn();
+      };
       box.appendChild(cancelarBtn);
       return;
     }
 
     if(buscandoInterval){ clearInterval(buscandoInterval); buscandoInterval=null; }
 
-    // Encontró pareja — si el diálogo todavía no se llenó, lo llenamos con
-    // el mini-diálogo real del día, sacado del currículo.
+    // Encontró pareja — si el diálogo todavía no se llenó, elegimos al azar
+    // uno de los últimos 7 días que ambos ya completaron, y lo guardamos.
     if(!resultado.dialogue || resultado.dialogue.length===0){
-      const lineas = dailyMiniDialogue[resultado.day_number] || dailyMiniDialogue[dayNum] || [];
+      const diaElegido = diaAlAzarDeLosUltimos7(resultado.day_number || dayNum);
+      const lineas = dailyMiniDialogue[diaElegido] || dailyMiniDialogue[dayNum] || [];
       await supabaseClient.from('practice_pairs')
-        .update({ dialogue: lineas })
+        .update({ dialogue: lineas, day_number: diaElegido })
         .eq('id', resultado.pair_id)
         .eq('dialogue', '[]');
     }
@@ -219,6 +260,7 @@
     const { data: calificacionPrevia } = await supabaseClient
       .from('practice_ratings').select('id').eq('pair_id', pareja.id).eq('ronda', pareja.ronda).eq('rater_id', currentUser.id).maybeSingle();
     pairState.yaCalifique = !!calificacionPrevia;
+    pairState.completionRegistrada = false;
   }
 
   function suscribirseARealtime(pairId){
@@ -287,6 +329,11 @@
       fin.style.cssText='text-align:center; color:var(--ok); font-size:14px;';
       fin.textContent = '✓ ¡Terminaron el diálogo de hoy! ¿Practicamos de nuevo, con el diálogo del día siguiente?';
       box.appendChild(fin);
+
+      if(!pairState.completionRegistrada){
+        pairState.completionRegistrada = true;
+        registrarCompletadoYRevisarPremio(box);
+      }
 
       if(!pairState.yaCalifique){
         renderCalificacion(box);
@@ -406,6 +453,55 @@
     renderSesion();
   }
 
+  // ---------- Registrar práctica completada, y ver si desbloqueó un premio ----------
+  const MODULOS_PREMIO = [
+    { slug:'dragon_nativo', nombre:'🐉 El Dragón Nativo' },
+    { slug:'cognados', nombre:'🔑 Diccionario de Cognados' },
+    { slug:'fonetica', nombre:'🗣️ Fonética' },
+    { slug:'karaoke', nombre:'🎤 Karaoke' }
+  ];
+
+  async function registrarCompletadoYRevisarPremio(box){
+    try{
+      await supabaseClient.from('practice_completions').insert({
+        user_id: currentUser.id, pair_id: pairState.id, ronda: pairState.ronda
+      });
+    } catch(e){ /* ya estaba registrada — no pasa nada */ }
+
+    const { count: totalCompletadas } = await supabaseClient
+      .from('practice_completions').select('*', {count:'exact', head:true}).eq('user_id', currentUser.id);
+    const { data: progresoModulos } = await supabaseClient
+      .from('practice_reward_progress').select('module_slug, unidades').eq('user_id', currentUser.id);
+    const unidadesTotalesYaCanjeadas = (progresoModulos||[]).reduce((s,p)=>s+p.unidades, 0);
+
+    const metasAlcanzadas = Math.floor((totalCompletadas||0) / 10);
+    if(unidadesTotalesYaCanjeadas >= metasAlcanzadas) return; // todavía no hay una nueva unidad para canjear
+
+    const premioBox = document.createElement('div');
+    premioBox.style.cssText = 'background:rgba(111,207,151,.12); border:1px solid var(--ok); border-radius:12px; padding:14px; margin:14px 0; text-align:center;';
+    premioBox.innerHTML = '<b style="font-size:14px;">🎁 ¡Desbloqueaste una recompensa!</b><p style="font-size:13px; margin:6px 0 10px;">Ya completaste '+totalCompletadas+' prácticas colaborando con otros alumnos.</p>';
+
+    const reclamarBtn = document.createElement('button');
+    reclamarBtn.className = 'primary'; reclamarBtn.style.width = '100%';
+    reclamarBtn.textContent = '🎁 Reclamar recompensa';
+    reclamarBtn.onclick = ()=>{
+      premioBox.innerHTML = '<p style="font-size:13px; margin-bottom:10px;">Elegí en cuál módulo querés avanzar un paso más:</p>';
+      MODULOS_PREMIO.forEach(m=>{
+        const btn = document.createElement('button');
+        btn.className = 'ghost'; btn.style.cssText = 'width:100%; margin-bottom:6px;';
+        btn.textContent = m.nombre;
+        btn.onclick = async ()=>{
+          const { data: nuevasUnidades } = await supabaseClient.rpc('avanzar_unidad_modulo', { p_module_slug: m.slug });
+          premioBox.innerHTML = '<p style="text-align:center; color:var(--ok);">✓ ¡Avanzaste en '+m.nombre+'! Ahora tenés '+nuevasUnidades+' unidad(es) desbloqueada(s) ahí. Ya lo podés ver desde la pantalla principal.</p>';
+        };
+        premioBox.appendChild(btn);
+      });
+    };
+    premioBox.appendChild(reclamarBtn);
+
+    box.insertBefore(premioBox, box.firstChild.nextSibling);
+  }
+
   // ---------- Pasar a la siguiente ronda: día siguiente, con o sin cambio de roles ----------
   async function siguienteRonda(){
     const box = el('practicaSocialBox');
@@ -420,9 +516,10 @@
     }
     const resultado = data && data[0];
     if(resultado){
-      const lineas = dailyMiniDialogue[resultado.nuevo_dia] || [];
+      const diaElegido = diaAlAzarDeLosUltimos7(resultado.nuevo_dia);
+      const lineas = dailyMiniDialogue[diaElegido] || [];
       await supabaseClient.from('practice_pairs')
-        .update({ dialogue: lineas })
+        .update({ dialogue: lineas, day_number: diaElegido })
         .eq('id', pairState.id)
         .eq('ronda', resultado.nueva_ronda);
     }
@@ -572,5 +669,150 @@
     box.appendChild(volverBtn);
   }
 
+  // ---------- Bloquear/desbloquear los 4 módulos según premios ganados ----------
+  // Karaoke suma un requisito extra (Día 15+) al mismo sistema de unidades.
+  const TARJETAS_PREMIO = {
+    dragon_nativo: { card:'dnEntryCard', btn:'dnEntryBtn' },
+    cognados: { card:'cgEntryCard', btn:'cgEntryBtn' },
+    fonetica: { card:'fnEntryCard', btn:'fnEntryBtn' },
+    karaoke: { card:'kkEntryCard', btn:'kkEntryBtn' }
+  };
+
+  async function aplicarBloqueosPremios(){
+    if(!currentUser) return;
+
+    // Traemos y cacheamos cuántas unidades tiene desbloqueadas en cada
+    // módulo — cognados.js, fonetica.js, dragonnativo.js y karaoke.js leen
+    // este caché (window.premiosModulos) para decidir qué mostrar bloqueado.
+    const { data: progresoModulos } = await supabaseClient
+      .from('practice_reward_progress').select('module_slug, unidades').eq('user_id', currentUser.id);
+    window.premiosModulos = {};
+    (progresoModulos||[]).forEach(p=>{ window.premiosModulos[p.module_slug] = p.unidades; });
+
+    if(typeof isAdmin==='function' && isAdmin()) return; // el admin ve todo sin bloqueo visual
+
+    Object.keys(TARJETAS_PREMIO).forEach(slug=>{
+      const info = TARJETAS_PREMIO[slug];
+      const card = document.getElementById(info.card);
+      const btn = document.getElementById(info.btn);
+      if(!card || !btn) return;
+      const unidades = window.premiosModulos[slug] || 0;
+
+      // Karaoke tiene un requisito extra: además de tener unidades ganadas
+      // por colaboración, el alumno debe haber llegado al Día 15.
+      if(slug === 'karaoke' && ultimoDiaCompletado() < 14){
+        card.style.opacity = '0.6';
+        btn.textContent = '🔒 Se abre desde el Día 15';
+        btn.onclick = (e)=>{
+          e.preventDefault();
+          alert('Karaoke se desbloquea a partir del Día 15 del curso, cuando empiezan las canciones reales.');
+        };
+        return;
+      }
+
+      if(unidades > 0){
+        card.style.opacity = '';
+        btn.disabled = false;
+      } else {
+        card.style.opacity = '0.6';
+        btn.textContent = '🔒 Bloqueado';
+        btn.disabled = false; // lo dejamos clickeable para mostrar el mensaje
+        btn.onclick = (e)=>{
+          e.preventDefault();
+          alert('Este módulo se desbloquea de a un paso por vez, completando prácticas con otros alumnos. Andá a "Practicar con otro alumno" para ir sumando.');
+        };
+      }
+    });
+  }
+
+  // Los demás módulos (cognados.js, fonetica.js, dragonnativo.js) llaman a
+  // esto para saber cuántas unidades tienen desbloqueadas por premios.
+  function unidadesDesbloqueadas(moduleSlug){
+    return (window.premiosModulos && window.premiosModulos[moduleSlug]) || 0;
+  }
+  window.unidadesDesbloqueadas = unidadesDesbloqueadas;
+
   window.mostrarPracticaSocial = mostrarPracticaSocial;
+  // ---------- Clase con profesor — cada 48 días completados ----------
+  async function mostrarClaseProfesor(){
+    document.getElementById('home').style.display='none';
+    document.getElementById('claseProfesorModulo').style.display='block';
+    const box = document.getElementById('claseProfesorBox');
+    box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Cargando...</p>';
+
+    if(!currentUser){
+      box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Necesitas iniciar sesión.</p>';
+      return;
+    }
+
+    const diasCompletados = ultimoDiaCompletado();
+    const metasAlcanzadas = Math.floor(diasCompletados / 48);
+
+    const { data: misClases } = await supabaseClient
+      .from('teacher_bookings').select('*, teacher_availability(fecha_hora, duracion_minutos, profesor_nombre)').eq('user_id', currentUser.id).order('created_at',{ascending:false});
+    const creditosUsados = misClases ? misClases.length : 0;
+    const creditosDisponibles = metasAlcanzadas - creditosUsados;
+
+    box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Cada 48 días completados del curso, tenés derecho a una clase de 1 hora en vivo con un profesor real — no estás solo en esto.</p>';
+
+    const progresoBox = document.createElement('div');
+    progresoBox.style.cssText='background:var(--bg-panel-2); border-radius:10px; padding:12px; margin-bottom:14px; font-size:13px;';
+    progresoBox.textContent = 'Llevás '+diasCompletados+' días completados. '+(metasAlcanzadas>0 ? 'Ya alcanzaste '+metasAlcanzadas+' meta(s) de 48.' : 'Te faltan '+(48-diasCompletados)+' días para tu primera clase.');
+    box.appendChild(progresoBox);
+
+    if(misClases && misClases.length){
+      const tituloProx = document.createElement('h3');
+      tituloProx.style.fontSize='15px';
+      tituloProx.textContent = 'Tus clases programadas:';
+      box.appendChild(tituloProx);
+      misClases.forEach(c=>{
+        const fila = document.createElement('p');
+        fila.style.cssText='font-size:13px; margin:4px 0;';
+        const info = c.teacher_availability;
+        fila.textContent = info ? ('📅 '+new Date(info.fecha_hora).toLocaleString('es-CO')+' — con '+info.profesor_nombre) : 'Clase programada';
+        box.appendChild(fila);
+      });
+    }
+
+    if(creditosDisponibles > 0){
+      const disp = document.createElement('p');
+      disp.style.cssText='color:var(--ok); font-size:14px; margin-top:14px;';
+      disp.textContent = 'Tenés '+creditosDisponibles+' clase(s) disponible(s) para programar. Elegí un horario:';
+      box.appendChild(disp);
+
+      const { data: horarios } = await supabaseClient
+        .from('teacher_availability').select('*').eq('booked', false).gt('fecha_hora', new Date().toISOString()).order('fecha_hora',{ascending:true});
+
+      if(!horarios || horarios.length===0){
+        const sinHorarios = document.createElement('p');
+        sinHorarios.style.cssText='font-size:13px; color:var(--muted);';
+        sinHorarios.textContent = 'No hay horarios abiertos todavía — volvé a revisar más tarde.';
+        box.appendChild(sinHorarios);
+      } else {
+        horarios.forEach(h=>{
+          const btn = document.createElement('button');
+          btn.className = 'ghost'; btn.style.cssText = 'width:100%; margin-bottom:6px; text-align:left;';
+          btn.textContent = '📅 '+new Date(h.fecha_hora).toLocaleString('es-CO')+' ('+h.duracion_minutos+' min, con '+h.profesor_nombre+')';
+          btn.onclick = async ()=>{
+            const { error } = await supabaseClient.rpc('programar_clase_profesor', {
+              p_availability_id: h.id, p_meta_alcanzada: metasAlcanzadas
+            });
+            if(error){ alert('Ese horario ya no está disponible — elegí otro.'); mostrarClaseProfesor(); return; }
+            alert('¡Clase programada! Te esperamos ese día.');
+            mostrarClaseProfesor();
+          };
+          box.appendChild(btn);
+        });
+      }
+    }
+
+    const volverBtn = document.createElement('button');
+    volverBtn.className='ghost'; volverBtn.style.marginTop='16px';
+    volverBtn.textContent='← Volver al inicio';
+    volverBtn.onclick = ()=>{ document.getElementById('claseProfesorModulo').style.display='none'; document.getElementById('home').style.display='block'; };
+    box.appendChild(volverBtn);
+  }
+
+  window.mostrarClaseProfesor = mostrarClaseProfesor;
+  window.aplicarBloqueosPremios = aplicarBloqueosPremios;
 })();
