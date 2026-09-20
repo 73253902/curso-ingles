@@ -742,68 +742,78 @@
 
     if(!currentUser){
       box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Necesitas iniciar sesión.</p>';
+      const volverBtnError = document.createElement('button');
+      volverBtnError.className='ghost'; volverBtnError.style.marginTop='16px';
+      volverBtnError.textContent='← Volver al inicio';
+      volverBtnError.onclick = ()=>{ document.getElementById('claseProfesorModulo').style.display='none'; document.getElementById('home').style.display='block'; };
+      box.appendChild(volverBtnError);
       return;
     }
 
-    const diasCompletados = ultimoDiaCompletado();
-    const metasAlcanzadas = Math.floor(diasCompletados / 48);
+    try{
+      const diasCompletados = ultimoDiaCompletado();
+      const metasAlcanzadas = Math.floor(diasCompletados / 48);
 
-    const { data: misClases } = await supabaseClient
-      .from('teacher_bookings').select('*, teacher_availability(fecha_hora, duracion_minutos, profesor_nombre)').eq('user_id', currentUser.id).order('created_at',{ascending:false});
-    const creditosUsados = misClases ? misClases.length : 0;
-    const creditosDisponibles = metasAlcanzadas - creditosUsados;
+      const { data: misClases } = await supabaseClient
+        .from('teacher_bookings').select('*, teacher_availability(fecha_hora, duracion_minutos, profesor_nombre)').eq('user_id', currentUser.id).order('created_at',{ascending:false});
+      const creditosUsados = misClases ? misClases.length : 0;
+      const creditosDisponibles = metasAlcanzadas - creditosUsados;
 
-    box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Cada 48 días completados del curso, tenés derecho a una clase de 1 hora en vivo con un profesor real — no estás solo en esto.</p>';
+      box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Cada 48 días completados del curso, tenés derecho a una clase de 1 hora en vivo con un profesor real — no estás solo en esto.</p>';
 
-    const progresoBox = document.createElement('div');
-    progresoBox.style.cssText='background:var(--bg-panel-2); border-radius:10px; padding:12px; margin-bottom:14px; font-size:13px;';
-    progresoBox.textContent = 'Llevás '+diasCompletados+' días completados. '+(metasAlcanzadas>0 ? 'Ya alcanzaste '+metasAlcanzadas+' meta(s) de 48.' : 'Te faltan '+(48-diasCompletados)+' días para tu primera clase.');
-    box.appendChild(progresoBox);
+      const progresoBox = document.createElement('div');
+      progresoBox.style.cssText='background:var(--bg-panel-2); border-radius:10px; padding:12px; margin-bottom:14px; font-size:13px;';
+      progresoBox.textContent = 'Llevás '+diasCompletados+' días completados. '+(metasAlcanzadas>0 ? 'Ya alcanzaste '+metasAlcanzadas+' meta(s) de 48.' : 'Te faltan '+(48-diasCompletados)+' días para tu primera clase.');
+      box.appendChild(progresoBox);
 
-    if(misClases && misClases.length){
-      const tituloProx = document.createElement('h3');
-      tituloProx.style.fontSize='15px';
-      tituloProx.textContent = 'Tus clases programadas:';
-      box.appendChild(tituloProx);
-      misClases.forEach(c=>{
-        const fila = document.createElement('p');
-        fila.style.cssText='font-size:13px; margin:4px 0;';
-        const info = c.teacher_availability;
-        fila.textContent = info ? ('📅 '+new Date(info.fecha_hora).toLocaleString('es-CO')+' — con '+info.profesor_nombre) : 'Clase programada';
-        box.appendChild(fila);
-      });
-    }
-
-    if(creditosDisponibles > 0){
-      const disp = document.createElement('p');
-      disp.style.cssText='color:var(--ok); font-size:14px; margin-top:14px;';
-      disp.textContent = 'Tenés '+creditosDisponibles+' clase(s) disponible(s) para programar. Elegí un horario:';
-      box.appendChild(disp);
-
-      const { data: horarios } = await supabaseClient
-        .from('teacher_availability').select('*').eq('booked', false).gt('fecha_hora', new Date().toISOString()).order('fecha_hora',{ascending:true});
-
-      if(!horarios || horarios.length===0){
-        const sinHorarios = document.createElement('p');
-        sinHorarios.style.cssText='font-size:13px; color:var(--muted);';
-        sinHorarios.textContent = 'No hay horarios abiertos todavía — volvé a revisar más tarde.';
-        box.appendChild(sinHorarios);
-      } else {
-        horarios.forEach(h=>{
-          const btn = document.createElement('button');
-          btn.className = 'ghost'; btn.style.cssText = 'width:100%; margin-bottom:6px; text-align:left;';
-          btn.textContent = '📅 '+new Date(h.fecha_hora).toLocaleString('es-CO')+' ('+h.duracion_minutos+' min, con '+h.profesor_nombre+')';
-          btn.onclick = async ()=>{
-            const { error } = await supabaseClient.rpc('programar_clase_profesor', {
-              p_availability_id: h.id, p_meta_alcanzada: metasAlcanzadas
-            });
-            if(error){ alert('Ese horario ya no está disponible — elegí otro.'); mostrarClaseProfesor(); return; }
-            alert('¡Clase programada! Te esperamos ese día.');
-            mostrarClaseProfesor();
-          };
-          box.appendChild(btn);
+      if(misClases && misClases.length){
+        const tituloProx = document.createElement('h3');
+        tituloProx.style.fontSize='15px';
+        tituloProx.textContent = 'Tus clases programadas:';
+        box.appendChild(tituloProx);
+        misClases.forEach(c=>{
+          const fila = document.createElement('p');
+          fila.style.cssText='font-size:13px; margin:4px 0;';
+          const info = c.teacher_availability;
+          fila.textContent = info ? ('📅 '+new Date(info.fecha_hora).toLocaleString('es-CO')+' — con '+info.profesor_nombre) : 'Clase programada';
+          box.appendChild(fila);
         });
       }
+
+      if(creditosDisponibles > 0){
+        const disp = document.createElement('p');
+        disp.style.cssText='color:var(--ok); font-size:14px; margin-top:14px;';
+        disp.textContent = 'Tenés '+creditosDisponibles+' clase(s) disponible(s) para programar. Elegí un horario:';
+        box.appendChild(disp);
+
+        const { data: horarios } = await supabaseClient
+          .from('teacher_availability').select('*').eq('booked', false).gt('fecha_hora', new Date().toISOString()).order('fecha_hora',{ascending:true});
+
+        if(!horarios || horarios.length===0){
+          const sinHorarios = document.createElement('p');
+          sinHorarios.style.cssText='font-size:13px; color:var(--muted);';
+          sinHorarios.textContent = 'No hay horarios abiertos todavía — volvé a revisar más tarde.';
+          box.appendChild(sinHorarios);
+        } else {
+          horarios.forEach(h=>{
+            const btn = document.createElement('button');
+            btn.className = 'ghost'; btn.style.cssText = 'width:100%; margin-bottom:6px; text-align:left;';
+            btn.textContent = '📅 '+new Date(h.fecha_hora).toLocaleString('es-CO')+' ('+h.duracion_minutos+' min, con '+h.profesor_nombre+')';
+            btn.onclick = async ()=>{
+              const { error } = await supabaseClient.rpc('programar_clase_profesor', {
+                p_availability_id: h.id, p_meta_alcanzada: metasAlcanzadas
+              });
+              if(error){ alert('Ese horario ya no está disponible — elegí otro.'); mostrarClaseProfesor(); return; }
+              alert('¡Clase programada! Te esperamos ese día.');
+              mostrarClaseProfesor();
+            };
+            box.appendChild(btn);
+          });
+        }
+      }
+
+    } catch(e){
+      box.innerHTML = '<h2>👨‍🏫 Clase con un profesor</h2><p class="sub">Hubo un problema cargando tus datos. Probá de nuevo en un momento.</p>';
     }
 
     const volverBtn = document.createElement('button');
