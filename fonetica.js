@@ -302,11 +302,16 @@ const fonetica = {
     fonetica.capitulos.forEach(cap=>{
       const card = document.createElement('div');
       card.className='cg-regla-card';
-      const infoTxt = cap.disponible ? (cap.hacks.length+' hacks · '+cap.practicaEscrita.length+' palabras de práctica') : 'Próximamente';
+      const esAdmin = typeof isAdmin === 'function' && isAdmin();
+      const desbloqueado = esAdmin || (typeof unidadesDesbloqueadas !== 'function') || (cap.id <= unidadesDesbloqueadas('fonetica'));
+      let infoTxt;
+      if(!cap.disponible){ infoTxt = 'Próximamente'; }
+      else if(!desbloqueado){ infoTxt = 'Se desbloquea practicando con otros alumnos'; }
+      else { infoTxt = cap.hacks.length+' hacks · '+cap.practicaEscrita.length+' palabras de práctica'; }
       card.innerHTML = '<div class="cg-regla-num">'+cap.id+'</div>'
         +'<div class="cg-regla-info"><b>'+cap.nombre+' — '+cap.titulo+'</b><p>'+infoTxt+'</p></div>'
-        +'<div class="cg-regla-arrow">'+(cap.disponible?'▶':'🔒')+'</div>';
-      if(cap.disponible){
+        +'<div class="cg-regla-arrow">'+(cap.disponible && desbloqueado?'▶':'🔒')+'</div>';
+      if(cap.disponible && desbloqueado){
         card.onclick=()=>{
           try{ currentCapId=cap.id; renderCapDetalle(cap.id); showView('detalle'); }
           catch(e){ alert('Error al abrir el capítulo: '+e.message); console.error(e); }

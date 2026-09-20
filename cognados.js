@@ -1577,11 +1577,14 @@ const cognados = {
     const progreso = cargarProgresoCG();
     return !!progreso[reglaId];
   }
-  // Una regla está desbloqueada para el alumno si tiene contenido, y (es la Regla 1, o la regla anterior está completa).
+  // Una regla está desbloqueada para el alumno si tiene contenido, si no supera
+  // el tope de unidades que ganó con prácticas entre alumnos, y (es la Regla 1,
+  // o la regla anterior está completa).
   // El admin ve todo desbloqueado sin importar el progreso.
   function reglaDesbloqueada(regla){
     if(!regla.disponible) return false;
     if(typeof isAdmin === 'function' && isAdmin()) return true;
+    if(typeof unidadesDesbloqueadas === 'function' && regla.id > unidadesDesbloqueadas('cognados')) return false;
     if(regla.id === 1) return true;
     return reglaCompletada(regla.id - 1);
   }
@@ -1610,8 +1613,10 @@ const cognados = {
       const card = document.createElement('div');
       card.className='cg-regla-card';
       const desbloqueada = reglaDesbloqueada(regla);
+      const bloqueadaPorPremio = regla.disponible && typeof unidadesDesbloqueadas === 'function' && regla.id > unidadesDesbloqueadas('cognados') && !(typeof isAdmin === 'function' && isAdmin());
       let infoTxt;
       if(!regla.disponible){ infoTxt = 'Próximamente'; }
+      else if(bloqueadaPorPremio){ infoTxt = 'Se desbloquea practicando con otros alumnos'; }
       else if(!desbloqueada){ infoTxt = 'Completa la Regla '+(regla.id-1)+' para desbloquear'; }
       else { infoTxt = regla.palabras.length+' palabras · '+regla.excepciones.length+' excepciones'; }
       card.innerHTML = '<div class="cg-regla-num">'+regla.id+(desbloqueada && regla.disponible && reglaCompletada(regla.id) ? ' ✅':'')+'</div>'

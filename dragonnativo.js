@@ -1813,11 +1813,19 @@ const dragonNativo = {
     if(!fase || !fase.semanas) return false;
     return fase.semanas.every(s => semanaCompletada(faseId, s.numero));
   }
-  // Una fase está desbloqueada para el alumno si tiene contenido, y (es la Fase 1, o la fase anterior está completa).
+  // Cada fase tiene 30 semanas — la "unidad global" de esa semana, para
+  // el sistema de premios de práctica, es (fase-1)*30 + número de semana.
+  function unidadGlobalDN(faseId, semanaNum){
+    return (faseId - 1) * 30 + semanaNum;
+  }
+  // Una fase está desbloqueada para el alumno si tiene contenido, si al menos
+  // su primera semana está cubierta por las unidades ganadas con prácticas
+  // entre alumnos, y (es la Fase 1, o la fase anterior está completa).
   // El admin ve todo desbloqueado sin importar el progreso.
   function faseDesbloqueada(fase){
     if(!fase.disponible) return false;
     if(typeof isAdmin === 'function' && isAdmin()) return true;
+    if(typeof unidadesDesbloqueadas === 'function' && unidadGlobalDN(fase.id, 1) > unidadesDesbloqueadas('dragon_nativo')) return false;
     if(fase.id === 1) return true;
     return faseCompletada(fase.id - 1);
   }
@@ -1846,8 +1854,10 @@ const dragonNativo = {
       const card = document.createElement('div');
       card.className='dn-fase-card';
       const desbloqueada = faseDesbloqueada(fase);
+      const bloqueadaPorPremio = fase.disponible && typeof unidadesDesbloqueadas === 'function' && unidadGlobalDN(fase.id,1) > unidadesDesbloqueadas('dragon_nativo') && !(typeof isAdmin === 'function' && isAdmin());
       let progresoTxt;
       if(!fase.disponible){ progresoTxt = 'Próximamente'; }
+      else if(bloqueadaPorPremio){ progresoTxt = 'Se desbloquea practicando con otros alumnos'; }
       else if(!desbloqueada){ progresoTxt = 'Completa la Fase '+(fase.id-1)+' para desbloquear'; }
       else { progresoTxt = fase.semanas.length+' semanas · '+fase.frases+' frases'; }
       card.innerHTML = '<div class="dn-fase-num">'+fase.id+'</div>'
@@ -1866,12 +1876,19 @@ const dragonNativo = {
     const fase = dragonNativo.fases.find(f=>f.id===faseId);
     const grid = el('dnWeekGrid');
     grid.innerHTML='';
+    const esAdmin = typeof isAdmin === 'function' && isAdmin();
     fase.semanas.forEach(semana=>{
       const btn = document.createElement('div');
       const completada = semanaCompletada(faseId, semana.numero);
-      btn.className='dn-week-btn'+(completada?' dn-week-done':'');
-      btn.innerHTML = '<span class="wk-num">'+semana.numero+(completada?' ✅':'')+'</span><span class="wk-audio">'+(semana.audio?'🔊 con audio':'📝 solo letra')+'</span>';
-      btn.onclick=()=>{ renderSong(faseId, semana.numero); showView('cancion'); };
+      const desbloqueadaPorPremio = esAdmin || (typeof unidadesDesbloqueadas !== 'function') || (unidadGlobalDN(faseId, semana.numero) <= unidadesDesbloqueadas('dragon_nativo'));
+      btn.className='dn-week-btn'+(completada?' dn-week-done':'')+(desbloqueadaPorPremio?'':' dn-week-locked');
+      if(!desbloqueadaPorPremio){
+        btn.innerHTML = '<span class="wk-num">'+semana.numero+' 🔒</span><span class="wk-audio">Se desbloquea practicando con otros alumnos</span>';
+        btn.style.opacity = '0.5';
+      } else {
+        btn.innerHTML = '<span class="wk-num">'+semana.numero+(completada?' ✅':'')+'</span><span class="wk-audio">'+(semana.audio?'🔊 con audio':'📝 solo letra')+'</span>';
+        btn.onclick=()=>{ renderSong(faseId, semana.numero); showView('cancion'); };
+      }
       grid.appendChild(btn);
     });
   }
