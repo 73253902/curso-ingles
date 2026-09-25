@@ -4350,6 +4350,11 @@ function descargarGuardianIA(){
 
   const tema = (currentDay.theme||'').split('/')[0].trim();
   const palabras = (currentDay.words||[]).slice(0,10).map(w=>w.en).join(', ');
+  const frasesDia = [];
+  (currentDay.structures||[]).forEach(s=>{
+    (s.examples||[]).slice(0,1).forEach(ex=>{ if(ex.en) frasesDia.push(ex.en); });
+  });
+  const frases = frasesDia.slice(0,4).join(' / ');
 
   function textoEnvuelto(texto, x, yPos, ancho, tamano, color){
     doc.setFontSize(tamano);
@@ -4390,12 +4395,13 @@ function descargarGuardianIA(){
     y, [245,240,230], null
   );
 
-  // Prompt destacado (con el vocabulario real del día)
+  // Prompt destacado (con el vocabulario y las frases reales del día)
   doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(138,90,30);
   doc.text('Prompt de hoy — practicá lo que acabás de aprender', margenX, y);
   y += 6;
   doc.setFont('helvetica','normal');
-  const promptHoy = '"Acabo de estudiar una lección de inglés sobre '+tema+'. Las palabras y frases nuevas que aprendí son: '+palabras+'. Actuá como mi compañero de conversación y hacé que practique usando SOLO estas palabras en una conversación corta y natural sobre ese tema. Hazme una pregunta a la vez. Si en mis respuestas no uso alguna palabra de la lista, animame suavemente a intentar meterla. Al final de 5 preguntas, decime qué tan bien usé el vocabulario nuevo y qué palabra me costó más."';
+  const partefrases = frases ? (' También aprendí estas frases: '+frases+'.') : '';
+  const promptHoy = '"Acabo de estudiar una lección de inglés sobre '+tema+'. Las palabras nuevas que aprendí son: '+palabras+'.'+partefrases+' Actuá como mi compañero de conversación y hacé que practique usando SOLO estas palabras y frases en una conversación corta y natural sobre ese tema. Hazme una pregunta a la vez. Si en mis respuestas no uso alguna palabra o frase de la lista, animame suavemente a intentar meterla. Al final de 5 preguntas, decime qué tan bien usé el vocabulario nuevo y qué palabra o frase me costó más."';
   y = cajaPrompt(promptHoy, y, [253,242,223], [232,163,61]);
 
   // Prompt 2
