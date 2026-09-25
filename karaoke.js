@@ -513,7 +513,7 @@ const karaoke = {
       const a = palabras[i], b = palabras[i+1];
       const parClave = (a+' '+b).toLowerCase();
       if(KK_REDUCCIONES[parClave]){
-        sugerencias.push(a+'_'+b+' → suena como "'+KK_REDUCCIONES[parClave]+'"');
+        sugerencias.push(a+'_'+b+' -> suena como "'+KK_REDUCCIONES[parClave]+'"');
         continue;
       }
       const soloLetrasA = a.replace(/[^a-zA-Z]/g,'');
@@ -523,7 +523,7 @@ const karaoke = {
       const primeraB = soloLetrasB.charAt(0).toLowerCase();
       const esVocal = c => 'aeiou'.includes(c);
       if(!esVocal(ultimaA) && esVocal(primeraB)){
-        sugerencias.push(a+'_'+b+' → suena como "'+kkSonidoAproximado(soloLetrasA,soloLetrasB)+'"');
+        sugerencias.push(a+'_'+b+' -> suena como "'+kkSonidoAproximado(soloLetrasA,soloLetrasB)+'"');
       }
     }
     return sugerencias;
@@ -590,14 +590,17 @@ const karaoke = {
       sec.lineas.forEach(l=>{
         nuevaPaginaSiHaceFalta(14);
         doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(20,20,30);
-        const lineaTexto = doc.splitTextToSize(l.en, anchoUtil);
+        const lineaTexto = doc.splitTextToSize(l.en, anchoUtil-4);
         doc.text(lineaTexto, margenX, y); y += lineaTexto.length*4.3;
 
         const linking = kkDetectarLinking(l.en);
         if(linking.length){
-          doc.setFont('courier','normal'); doc.setFontSize(8.5); doc.setTextColor(90,98,112);
-          const linkTexto = doc.splitTextToSize('🔗 '+linking.join('  ·  '), anchoUtil-6);
-          doc.text(linkTexto, margenX+4, y); y += linkTexto.length*3.6;
+          doc.setFont('courier','normal'); doc.setFontSize(8); doc.setTextColor(90,98,112);
+          linking.forEach(sug=>{
+            nuevaPaginaSiHaceFalta(6);
+            const linkTexto = doc.splitTextToSize('- '+sug, anchoUtil-10);
+            doc.text(linkTexto, margenX+4, y); y += linkTexto.length*3.4;
+          });
         }
         y += 2.5;
       });
