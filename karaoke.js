@@ -500,6 +500,12 @@ const karaoke = {
     'out of':'outta', 'a lot of':'a lotta', 'trying to':'tryna'
   };
 
+  function kkSonidoAproximado(la, lb){
+    const base = la.slice(0,-1).toLowerCase();
+    const consonante = la.slice(-1).toLowerCase();
+    return base+'-'+consonante+lb.toLowerCase();
+  }
+
   function kkDetectarLinking(textoEn){
     const palabras = textoEn.replace(/[.,!?…]/g,'').split(/\s+/).filter(Boolean);
     const sugerencias = [];
@@ -517,7 +523,7 @@ const karaoke = {
       const primeraB = soloLetrasB.charAt(0).toLowerCase();
       const esVocal = c => 'aeiou'.includes(c);
       if(!esVocal(ultimaA) && esVocal(primeraB)){
-        sugerencias.push(a+'_'+b);
+        sugerencias.push(a+'_'+b+' → suena como "'+kkSonidoAproximado(soloLetrasA,soloLetrasB)+'"');
       }
     }
     return sugerencias;
