@@ -4404,35 +4404,39 @@ function descargarGuardianIA(){
   const promptHoy = '"Acabo de estudiar una lección de inglés sobre '+tema+'. Las palabras nuevas que aprendí son: '+palabras+'.'+partefrases+' Actuá como mi compañero de conversación y hacé que practique usando SOLO estas palabras y frases en una conversación corta y natural sobre ese tema. Hazme una pregunta a la vez. Si en mis respuestas no uso alguna palabra o frase de la lista, animame suavemente a intentar meterla. Al final de 5 preguntas, decime qué tan bien usé el vocabulario nuevo y qué palabra o frase me costó más."';
   y = cajaPrompt(promptHoy, y, [253,242,223], [232,163,61]);
 
-  // Prompt 2
+  // Prompt 2 — Calentamiento sin estrés, sobre el tema y palabras del día
   doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
   doc.text('Prompt 2 — Calentamiento sin estrés', margenX, y);
   y += 5.5;
   doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(45,51,64);
-  doc.text('Para soltar la lengua en cualquier momento, sin corrección inmediata.', margenX, y);
+  doc.text('Para soltar la lengua sobre el tema de hoy, sin corrección inmediata.', margenX, y);
   y += 4;
   doc.setFont('helvetica','normal');
-  y = cajaPrompt('"Actúa como un cliente amable en un restaurante. Hazme una pregunta a la vez en inglés sobre qué quiero comer. No corrijas mi gramática de inmediato; dejá que la conversación fluya y, al final de 3 intercambios, dame un resumen de cómo sonar más natural."', y, [238,242,246], null);
+  const promptCalentamiento = '"Vamos a conversar en inglés sobre '+tema+'. Usá estas palabras cuando puedas: '+palabras+'. Hazme una pregunta a la vez sobre ese tema. No corrijas mi gramática de inmediato; dejá que la conversación fluya y, al final de 3 intercambios, dame un resumen de cómo sonar más natural."';
+  y = cajaPrompt(promptCalentamiento, y, [238,242,246], null);
 
-  // Prompt 3
+  // Prompt 3 — Pulidor de conexiones, con las frases reales del día
   doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
   doc.text('Prompt 3 — El pulidor de conexiones', margenX, y);
   y += 5.5;
   doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(45,51,64);
-  doc.text('Para sonar menos robótico, uniendo las palabras como un nativo.', margenX, y);
+  doc.text('Para sonar menos robótico, uniendo las frases de hoy como un nativo.', margenX, y);
   y += 4;
   doc.setFont('helvetica','normal');
-  y = cajaPrompt('"Te voy a escribir 3 frases en inglés. Quiero que me reescribas cada frase indicando dónde debo hacer conexiones de sonido (linking words) usando guiones bajos, y cómo se pronunciaría fonéticamente en un inglés hablado real (no académico)."', y, [238,242,246], null);
+  const frasesParaLinking = frases || palabras;
+  const promptLinking = '"Estas son frases de mi lección de hoy sobre '+tema+': '+frasesParaLinking+'. Quiero que me reescribas cada una indicando dónde debo hacer conexiones de sonido (linking words) usando guiones bajos, y cómo se pronunciaría fonéticamente en un inglés hablado real (no académico)."';
+  y = cajaPrompt(promptLinking, y, [238,242,246], null);
 
-  // Prompt 4
+  // Prompt 4 — Rol épico, ambientado en el tema del día
   doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
   doc.text('Prompt 4 — Simulación de rol épico', margenX, y);
   y += 5.5;
   doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(45,51,64);
-  doc.text('Para vivir la escena del día, no solo repasar palabras sueltas.', margenX, y);
+  doc.text('Para vivir la escena de hoy, no solo repasar palabras sueltas.', margenX, y);
   y += 4;
   doc.setFont('helvetica','normal');
-  y = cajaPrompt('"Eres el mesero de un restaurante fantástico para gigantes y dragones. Vamos a tener un diálogo corto. Cada vez que yo pida algo del menú, respondé con entusiasmo y hazme una sugerencia usando palabras de comida y bebida en inglés."', y, [238,242,246], null);
+  const promptRol = '"Eres un personaje del mundo de El Dragón del Lenguaje, en una escena sobre '+tema+'. Vamos a tener un diálogo corto usando estas palabras: '+palabras+'. Cada vez que yo diga algo, respondé con entusiasmo dentro del personaje, y guiá la conversación para que yo practique el vocabulario de hoy."';
+  y = cajaPrompt(promptRol, y, [238,242,246], null);
 
   // Footer
   doc.setDrawColor(136,145,163); doc.setLineWidth(0.3);
