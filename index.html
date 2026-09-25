@@ -441,12 +441,25 @@
       </div>
       <button class="primary" id="profEntryBtn" onclick="mostrarClaseProfesor()">Entrar →</button>
     </div>
+    <div class="dn-entry-card" id="atrilEntryCard">
+      <div class="dn-entry-icon">🎼</div>
+      <div class="dn-entry-text">
+        <b>Atril — practica con las canciones del curso</b>
+        <p>Todas tus canciones, historias y prácticas ya cargadas, organizadas por semana. Ajustá la velocidad y repetí cualquier línea en bucle.</p>
+      </div>
+      <button class="primary" id="atrilEntryBtn" onclick="mostrarAtril()">Entrar →</button>
+    </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
   </div>
 
   <!-- ===== CLASE CON PROFESOR ===== -->
   <div id="claseProfesorModulo" style="display:none; max-width:520px; margin:0 auto; padding:20px;">
     <div id="claseProfesorBox"></div>
+  </div>
+
+  <!-- ===== ATRIL — reproductor para ensayar ===== -->
+  <div id="atrilModulo" style="display:none; max-width:600px; margin:0 auto; padding:20px;">
+    <div id="atrilBox"></div>
   </div>
 
   <!-- ===== REFERIDOS — código propio y ganancias ===== -->
@@ -828,6 +841,7 @@
 <script src="fonetica.js"></script>
 <script src="karaoke.js"></script>
 <script src="practicaSocial.js"></script>
+<script src="atril.js"></script>
 <script src="evaluacion.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://checkout.wompi.co/widget.js"></script>

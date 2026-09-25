@@ -825,4 +825,5 @@
 
   window.mostrarClaseProfesor = mostrarClaseProfesor;
   window.aplicarBloqueosPremios = aplicarBloqueosPremios;
+  window.ultimoDiaCompletado = ultimoDiaCompletado;
 })();
