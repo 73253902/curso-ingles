@@ -253,6 +253,7 @@ document.getElementById('resetLink').addEventListener('click', ()=>{
 });
 document.getElementById('homeBtn').addEventListener('click', ()=>{ showHome(); });
 document.getElementById('backHomeBtn').addEventListener('click', ()=>{ showHome(); });
+document.getElementById('guardianIABtn').addEventListener('click', ()=>{ descargarGuardianIA(); });
 document.getElementById('saveProgressBtn').addEventListener('click', ()=>{
   const ok = saveMidProgress();
   const btn = document.getElementById('saveProgressBtn');
@@ -4335,7 +4336,108 @@ function completeDay(scorePct){
   }
 }
 
-// ================= Modo repaso (dentro de la misma sesión) =================
+// ================= Guardián IA — PDF descargable con el vocabulario del día =================
+function descargarGuardianIA(){
+  if(!currentDay || !window.jspdf){
+    alert('No se pudo generar el PDF. Intenta de nuevo desde la pantalla de fin de lección.');
+    return;
+  }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit:'mm', format:'letter' });
+  const margenX = 18;
+  const anchoUtil = 216 - margenX*2; // carta = 216mm de ancho
+  let y = 20;
+
+  const tema = (currentDay.theme||'').split('/')[0].trim();
+  const palabras = (currentDay.words||[]).slice(0,10).map(w=>w.en).join(', ');
+
+  function textoEnvuelto(texto, x, yPos, ancho, tamano, color){
+    doc.setFontSize(tamano);
+    if(color) doc.setTextColor(color[0],color[1],color[2]); else doc.setTextColor(20,20,30);
+    const lineas = doc.splitTextToSize(texto, ancho);
+    doc.text(lineas, x, yPos);
+    return yPos + lineas.length * (tamano*0.42);
+  }
+
+  function cajaPrompt(texto, yPos, colorFondo, colorBorde){
+    doc.setFontSize(10);
+    const lineas = doc.splitTextToSize(texto, anchoUtil-10);
+    const alto = lineas.length*4.6 + 8;
+    doc.setFillColor(colorFondo[0],colorFondo[1],colorFondo[2]);
+    if(colorBorde){ doc.setDrawColor(colorBorde[0],colorBorde[1],colorBorde[2]); doc.setLineWidth(0.6); }
+    else { doc.setDrawColor(colorFondo[0],colorFondo[1],colorFondo[2]); }
+    doc.roundedRect(margenX, yPos, anchoUtil, alto, 1.5, 1.5, colorBorde ? 'FD' : 'F');
+    doc.setTextColor(20,20,30);
+    doc.text(lineas, margenX+5, yPos+6);
+    return yPos + alto + 6;
+  }
+
+  // Título
+  doc.setFont('helvetica','bold'); doc.setFontSize(22); doc.setTextColor(27,31,42);
+  doc.text('El Guardián IA', 108, y, {align:'center'});
+  y += 7;
+  doc.setFont('helvetica','italic'); doc.setFontSize(11); doc.setTextColor(107,86,44);
+  doc.text('Día '+currentDay.day+' — '+tema, 108, y, {align:'center'});
+  y += 6;
+  doc.setDrawColor(232,163,61); doc.setLineWidth(0.8);
+  doc.line(margenX, y, 216-margenX, y);
+  y += 8;
+
+  // Aviso
+  doc.setFont('helvetica','italic');
+  y = cajaPrompt(
+    'Aviso importante: la IA no va a corregir tu tono de voz, tu ritmo, ni tu confianza al hablar — eso lo trabajamos en tus lecciones. Pero es tu gimnasio de calentamiento para soltar la lengua 10 minutos al día, con el vocabulario que aprendiste hoy.',
+    y, [245,240,230], null
+  );
+
+  // Prompt destacado (con el vocabulario real del día)
+  doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(138,90,30);
+  doc.text('Prompt de hoy — practicá lo que acabás de aprender', margenX, y);
+  y += 6;
+  doc.setFont('helvetica','normal');
+  const promptHoy = '"Acabo de estudiar una lección de inglés sobre '+tema+'. Las palabras y frases nuevas que aprendí son: '+palabras+'. Actuá como mi compañero de conversación y hacé que practique usando SOLO estas palabras en una conversación corta y natural sobre ese tema. Hazme una pregunta a la vez. Si en mis respuestas no uso alguna palabra de la lista, animame suavemente a intentar meterla. Al final de 5 preguntas, decime qué tan bien usé el vocabulario nuevo y qué palabra me costó más."';
+  y = cajaPrompt(promptHoy, y, [253,242,223], [232,163,61]);
+
+  // Prompt 2
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
+  doc.text('Prompt 2 — Calentamiento sin estrés', margenX, y);
+  y += 5.5;
+  doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(45,51,64);
+  doc.text('Para soltar la lengua en cualquier momento, sin corrección inmediata.', margenX, y);
+  y += 4;
+  doc.setFont('helvetica','normal');
+  y = cajaPrompt('"Actúa como un cliente amable en un restaurante. Hazme una pregunta a la vez en inglés sobre qué quiero comer. No corrijas mi gramática de inmediato; dejá que la conversación fluya y, al final de 3 intercambios, dame un resumen de cómo sonar más natural."', y, [238,242,246], null);
+
+  // Prompt 3
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
+  doc.text('Prompt 3 — El pulidor de conexiones', margenX, y);
+  y += 5.5;
+  doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(45,51,64);
+  doc.text('Para sonar menos robótico, uniendo las palabras como un nativo.', margenX, y);
+  y += 4;
+  doc.setFont('helvetica','normal');
+  y = cajaPrompt('"Te voy a escribir 3 frases en inglés. Quiero que me reescribas cada frase indicando dónde debo hacer conexiones de sonido (linking words) usando guiones bajos, y cómo se pronunciaría fonéticamente en un inglés hablado real (no académico)."', y, [238,242,246], null);
+
+  // Prompt 4
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
+  doc.text('Prompt 4 — Simulación de rol épico', margenX, y);
+  y += 5.5;
+  doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(45,51,64);
+  doc.text('Para vivir la escena del día, no solo repasar palabras sueltas.', margenX, y);
+  y += 4;
+  doc.setFont('helvetica','normal');
+  y = cajaPrompt('"Eres el mesero de un restaurante fantástico para gigantes y dragones. Vamos a tener un diálogo corto. Cada vez que yo pida algo del menú, respondé con entusiasmo y hazme una sugerencia usando palabras de comida y bebida en inglés."', y, [238,242,246], null);
+
+  // Footer
+  doc.setDrawColor(136,145,163); doc.setLineWidth(0.3);
+  doc.line(margenX, y, 216-margenX, y);
+  y += 5;
+  doc.setFont('helvetica','italic'); doc.setFontSize(9); doc.setTextColor(107,86,44);
+  doc.text('Recordá: la IA es tu gimnasio de calentamiento. El trabajo de verdad se construye en El Dragón del Lenguaje.', 108, y, {align:'center', maxWidth: anchoUtil});
+
+  doc.save('guardian-ia-dia'+currentDay.day+'.pdf');
+}
+
 function enterReview(i){
   if(reviewing) return;
   reviewing=true;
