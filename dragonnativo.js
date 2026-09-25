@@ -1903,6 +1903,108 @@ const dragonNativo = {
     return h;
   }
 
+  // ================= Guía vocal automática — linking, pausas y tipo de voz =================
+  const DN_REDUCCIONES = {
+    'going to':'gonna', 'want to':'wanna', 'got to':'gotta', 'have to':'hafta',
+    'kind of':'kinda', 'sort of':'sorta', 'let me':'lemme', 'give me':'gimme',
+    'out of':'outta', 'a lot of':'a lotta', 'trying to':'tryna'
+  };
+
+  function dnDetectarLinking(textoEn){
+    const palabras = textoEn.replace(/[.,!?…]/g,'').split(/\s+/).filter(Boolean);
+    const sugerencias = [];
+    for(let i=0;i<palabras.length-1;i++){
+      const a = palabras[i], b = palabras[i+1];
+      const parClave = (a+' '+b).toLowerCase();
+      if(DN_REDUCCIONES[parClave]){
+        sugerencias.push(a+'_'+b+' → suena como "'+DN_REDUCCIONES[parClave]+'"');
+        continue;
+      }
+      const soloLetrasA = a.replace(/[^a-zA-Z]/g,'');
+      const soloLetrasB = b.replace(/[^a-zA-Z]/g,'');
+      if(!soloLetrasA || !soloLetrasB) continue;
+      const ultimaA = soloLetrasA.slice(-1).toLowerCase();
+      const primeraB = soloLetrasB.charAt(0).toLowerCase();
+      const esVocal = c => 'aeiou'.includes(c);
+      if(!esVocal(ultimaA) && esVocal(primeraB)){
+        sugerencias.push(a+'_'+b);
+      }
+    }
+    return sugerencias;
+  }
+
+  function dnTipoDeVoz(nombreSeccion){
+    const n = nombreSeccion.toLowerCase();
+    if(n.includes('estrofa 1')) return 'Voz de pecho relajada, con pausas breves — presentá el vocabulario nuevo con calma.';
+    if(n.includes('pre-coro')) return 'Empezá a subir la energía — es la rampa hacia el coro.';
+    if(n.includes('coro')) return 'Voz mixta, con apoyo abdominal — abrí bien las vocales y sostenelas.';
+    if(n.includes('estrofa 2')) return 'Energía media, la escena avanza — mantené el ritmo constante.';
+    if(n.includes('puente')) return 'Un quiebre — bajá el volumen un momento, después volvé con fuerza.';
+    if(n.includes('outro')) return 'Cerrá con calidez, bajando la intensidad de a poco.';
+    if(n.includes('pedal')) return 'Frase ancla — decila con confianza, como una afirmación.';
+    return 'Cantalo con naturalidad, conectando las palabras.';
+  }
+
+  function descargarGuiaVocal(fase, semana){
+    if(!window.jspdf){
+      alert('No se pudo generar la guía. Intenta de nuevo en un momento.');
+      return;
+    }
+    const secciones = [
+      { nombre:'Estrofa 1 — '+semana.estrofa1.label, lineas:semana.estrofa1.lineas },
+      { nombre:'Pedal', lineas:fase.fijas.pedal },
+      { nombre:'Pre-Coro', lineas:fase.fijas.precoro },
+      { nombre:'Coro', lineas:fase.fijas.coro },
+      { nombre:'Estrofa 2 — '+semana.estrofa2.label, lineas:semana.estrofa2.lineas }
+    ];
+    if(semana.puente) secciones.push({ nombre:'Puente — '+semana.puente.label, lineas:semana.puente.lineas });
+    secciones.push({ nombre:'Outro', lineas: semana.outroOverride || fase.fijas.outro });
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit:'mm', format:'letter' });
+    const margenX = 18;
+    const anchoUtil = 216 - margenX*2;
+    let y = 20;
+
+    function nuevaPaginaSiHaceFalta(alturaNecesaria){
+      if(y + alturaNecesaria > 265){ doc.addPage(); y = 20; }
+    }
+
+    doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(27,31,42);
+    doc.text('Guía Vocal', 108, y, {align:'center'}); y += 7;
+    doc.setFont('helvetica','italic'); doc.setFontSize(11); doc.setTextColor(107,86,44);
+    doc.text(fase.nombre+' — Semana '+semana.numero, 108, y, {align:'center'}); y += 6;
+    doc.setDrawColor(232,163,61); doc.setLineWidth(0.8);
+    doc.line(margenX, y, 216-margenX, y); y += 8;
+
+    secciones.forEach(sec=>{
+      nuevaPaginaSiHaceFalta(20);
+      doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
+      doc.text(sec.nombre, margenX, y); y += 5;
+      doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(138,90,30);
+      const tipoLineas = doc.splitTextToSize(dnTipoDeVoz(sec.nombre), anchoUtil);
+      doc.text(tipoLineas, margenX, y); y += tipoLineas.length*4 + 3;
+
+      sec.lineas.forEach(l=>{
+        nuevaPaginaSiHaceFalta(14);
+        doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(20,20,30);
+        const lineaTexto = doc.splitTextToSize(l.en, anchoUtil);
+        doc.text(lineaTexto, margenX, y); y += lineaTexto.length*4.3;
+
+        const linking = dnDetectarLinking(l.en);
+        if(linking.length){
+          doc.setFont('courier','normal'); doc.setFontSize(8.5); doc.setTextColor(90,98,112);
+          const linkTexto = doc.splitTextToSize('🔗 '+linking.join('  ·  '), anchoUtil-6);
+          doc.text(linkTexto, margenX+4, y); y += linkTexto.length*3.6;
+        }
+        y += 2.5;
+      });
+      y += 3;
+    });
+
+    doc.save('guia-vocal-'+fase.id+'-semana'+semana.numero+'.pdf');
+  }
+
   function renderSong(faseId, weekNum){
     currentFaseId = faseId; currentWeekNum = weekNum;
     const fase = dragonNativo.fases.find(f=>f.id===faseId);
@@ -1927,6 +2029,8 @@ const dragonNativo = {
     html += seccionHTML('Coro', fase.fijas.coro);
     html += seccionHTML('Outro', semana.outroOverride || fase.fijas.outro);
     el('dnLyricsBox').innerHTML = html;
+    el('dnLyricsBox').innerHTML += '<button class="ghost" id="dnGuiaVocalBtn" style="width:100%; margin-top:14px;">🎤 Descargar guía vocal de esta canción</button>';
+    document.getElementById('dnGuiaVocalBtn').onclick = ()=>descargarGuiaVocal(fase, semana);
   }
 
   // ================= Repaso escrito (ventana móvil de las últimas 4 canciones) =================

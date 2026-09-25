@@ -235,6 +235,144 @@ const karaoke = {
         {en:"Keep practicing until the end, my friend.", es:"Sigue practicando hasta el final, amigo.", pron:"kíip práctising antíl de end, mái frend."},
         {en:"See you next week, dragon friend.", es:"Nos vemos la próxima semana, amigo dragón.", pron:"síi iú next uíik, drágon frend."}
       ]
+    },
+    { dia:20, titulo:"The Giant's Floating Feast", audio:"audio/dia20_practica_auditiva.mp3",
+      lineas:[
+        {seccion:"Intro"},
+        {en:"Welcome to my house — it floats above the clouds!", es:"Bienvenido a mi casa — ¡flota sobre las nubes!", pron:"uélcam tu mái jáus — it flóuts abáv de cláuds!"},
+        {en:"Two giant dragons in love beneath the starry sky...", es:"Dos dragones gigantes enamorados bajo el cielo estrellado...", pron:"tú yáiant drágons in lav bineíz de stári skái..."},
+        {seccion:"Verse 1"},
+        {en:"The fierce dragon king flew through the cosmic night,", es:"El feroz rey dragón voló por la noche cósmica,", pron:"de fírs drágon king flú zru de cásmic náit,"},
+        {en:"The kitchen is inside a volcano, burning with passionate light.", es:"La cocina está dentro de un volcán, ardiendo con luz apasionada.", pron:"de kíchen is insáid a volkéinou, bérning uid páshionit láit."},
+        {en:"And the living room has a pool full of stars for his queen,", es:"Y la sala tiene una piscina llena de estrellas para su reina,", pron:"and de líving rum jas a pul ful of stars for jis kuíin,"},
+        {en:"My bedroom has no roof — I sleep looking at the whole galaxy, so serene.", es:"Mi habitación no tiene techo — duermo mirando toda la galaxia, tan serena.", pron:"mái bédrum jas nóu ruf — ái slíip lúking at de jóul gálaxi, sóu seríin."},
+        {seccion:"Pedal"},
+        {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is íisi,"},
+        {en:"you're going to love it!", es:"¡te va a encantar!", pron:"iór góing tu lav it!"},
+        {seccion:"Chorus"},
+        {en:"There is a desk in my office where I write my love story so true,", es:"Hay un escritorio en mi oficina donde escribo mi historia de amor tan verdadera,", pron:"der is a desk in mái áfis uér ái ráit mái lav stóri sóu trú,"},
+        {en:"There is a computer on the table glowing with crystal blue.", es:"Hay una computadora en la mesa brillando en azul cristal.", pron:"der is a campiúter on de téibol glóuing uid crístal blú."},
+        {en:"There is a window in the kitchen where we watch the worlds ignite,", es:"Hay una ventana en la cocina donde vemos los mundos encenderse,", pron:"der is a uíndou in de kíchen uér uí uách de uórlds ignáit,"},
+        {en:"There is a key in the drawer to unlock our destiny tonight!", es:"¡Hay una llave en el cajón para desbloquear nuestro destino esta noche!", pron:"der is a kíi in de dróuer tu anlák áur déstini tunáit!"},
+        {seccion:"Verse 2"},
+        {en:"Go through the door, past the garden of singing flowers, to my office floating high,", es:"Pasa por la puerta, más allá del jardín de flores cantoras, hasta mi oficina flotando en lo alto,", pron:"góu zru de dor, past de gárden of sínging fláuers, tu mái áfis flóuting jái,"},
+        {en:"My desk floats next to the window with a printer that prints rainbows in the sky.", es:"Mi escritorio flota junto a la ventana con una impresora que imprime arcoíris en el cielo.", pron:"mái desk flóuts next tu de uíndou uid a printer dat prints réinbous in de skái."},
+        {en:"The shelf holds a thousand magic keys for every table and chair,", es:"El estante tiene mil llaves mágicas para cada mesa y silla,", pron:"de shelf jóulds a záuzand máyic kíis for évri téibol and cher,"},
+        {en:"For the grand banquet of love that two dragons will share.", es:"Para el gran banquete de amor que dos dragones compartirán.", pron:"for de grand bánkuet of lav dat tú drágons uil sher."},
+        {seccion:"Verse 3"},
+        {en:"The giant's table has a mountain of rice for the lovers to eat,", es:"La mesa del gigante tiene una montaña de arroz para que los enamorados coman,", pron:"de yáiants téibol jas a máuntan of ráis for de lávers tu íit,"},
+        {en:"A herd of chicken and an ocean of meat for this magical treat!", es:"¡Una manada de pollo y un océano de carne para este manjar mágico!", pron:"a jerd of chíken and an óushan of míit for dis máyical tríit!"},
+        {en:"There are vegetables as tall as trees and fruit as big as planets above,", es:"Hay verduras tan altas como árboles y fruta tan grande como planetas allá arriba,", pron:"der ar véchtabols as tol as tríis and frut as big as plánets abáv,"},
+        {en:"And bread that never ends to celebrate their endless cosmic love.", es:"Y pan que nunca se termina para celebrar su amor cósmico sin fin.", pron:"and bred dat néver ends tu sélebreit der éndles cásmic lav."},
+        {seccion:"Pedal"},
+        {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is íisi,"},
+        {en:"you're going to love it!", es:"¡te va a encantar!", pron:"iór góing tu lav it!"},
+        {seccion:"Chorus 2"},
+        {en:"Bring the soup in a lake and the salad in a whole forest green!", es:"¡Trae la sopa en un lago y la ensalada en todo un bosque verde!", pron:"bring de sup in a léik and de sálad in a jóul fórest gríin!"},
+        {en:"Let's have lunch! I'm hungry enough to eat a mountain — it's delicious, my queen!", es:"¡Almorcemos! Tengo tanta hambre que me como una montaña — ¡está delicioso, mi reina!", pron:"lets jav lanch! áim jángri ináf tu íit a máuntan — its dilíshas, mái kuíin!"},
+        {en:"Waiter! A table for two giants, please, where the moon shines bright,", es:"¡Mesero! Una mesa para dos gigantes, por favor, donde brille la luna,", pron:"uéiter! a téibol for tú yáiants, plíis, uér de mun sháins bráit,"},
+        {en:"And the check — write it on a mountain under the desert light!", es:"¡Y la cuenta — escríbela en una montaña bajo la luz del desierto!", pron:"and de chek — ráit it on a máuntan ánder de désert láit!"},
+        {seccion:"Outro"},
+        {en:"Where is the menu? I hope it has a thousand pages made of gold,", es:"¿Dónde está el menú? Espero que tenga mil páginas hechas de oro,", pron:"uér is de méniu? ái jóup it jas a záuzand péiches méid of góuld,"},
+        {en:"With a reservation for the whole kingdom for this love story to be told.", es:"Con una reserva para todo el reino para que se cuente esta historia de amor.", pron:"uid a rézervéishion for de jóul kíngdam for dis lav stóri tu bi tóuld."},
+        {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is íisi,"},
+        {en:"you're going to love it!", es:"¡te va a encantar!", pron:"iór góing tu lav it!"},
+        {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
+        {en:"until the stars unfold.", es:"hasta que las estrellas se despliegan.", pron:"antíl de stars anfóuld."}
+      ]
+    },
+    { dia:13, titulo:"The Floating Dragon Kingdom", audio:"audio/dia13_practica_auditiva.mp3",
+      lineas:[
+        {seccion:"Intro"},
+        {en:"Listen to the cosmos whispering your name...", es:"Escucha al cosmos susurrando tu nombre...", pron:"lísen tu de cásmos uíspering iór néim..."},
+        {en:"Welcome, traveler, to the edge of the galaxy...", es:"Bienvenido, viajero, al borde de la galaxia...", pron:"uélcam, trávelar, tu de eds of de gálaxi..."},
+        {en:"Prepare to witness the floating fortress of the dragon kings.", es:"Prepárate para presenciar la fortaleza flotante de los reyes dragón.", pron:"pripér tu uítnes de flóuting fórtres of de drágon kings."},
+        {en:"Let the rhythm guide your heart through the stars.", es:"Deja que el ritmo guíe tu corazón por las estrellas.", pron:"let de rízem gáid iór jart zru de stars."},
+        {seccion:"Verse 1"},
+        {en:"Behold this majestic house that floats above the clouds of dust and stone,", es:"Contempla esta majestuosa casa que flota sobre nubes de polvo y piedra,", pron:"bijóuld dis mayéstic jáus dat flóuts abáv de cláuds of dast and stóun,"},
+        {en:"Where the fierce Captain Draco built a sanctuary to never feel alone.", es:"Donde el feroz Capitán Draco construyó un santuario para nunca sentirse solo.", pron:"uér de fírs cáptin dráko bilt a sánchueri tu néver fíil alóun."},
+        {en:"By the way, did you know the kitchen is forged inside an ancient volcano's fire?", es:"A propósito, ¿sabías que la cocina está forjada dentro del fuego de un volcán antiguo?", pron:"bái de uéi, did iú nóu de kíchen is fórched insáid an éinshent volkéinous fáiar?"},
+        {en:"Actually, its blazing hearth cooks meals that fulfill every galactic desire.", es:"En realidad, su hogar ardiente cocina platos que cumplen cada deseo galáctico.", pron:"ákchuali, its bléizing jarz cuks míils dat fulfíl évri galáctic disáir."},
+        {en:"For example, when the twin moons align and cast their radiant silver beam,", es:"Por ejemplo, cuando las lunas gemelas se alinean y proyectan su rayo plateado,", pron:"for exámpol, uén de tuín muns aláin and cast der réidiant sílver bíim,"},
+        {en:"The living room has a pool of liquid light, flowing like a celestial stream.", es:"La sala tiene una piscina de luz líquida, fluyendo como un arroyo celestial.", pron:"de líving rum jas a pul of lícuid láit, flóuing láik a seléstial stríim."},
+        {en:"Don't worry about the cold of space, it's fine, the cosmic winds are sweet,", es:"No te preocupes por el frío del espacio, está bien, los vientos cósmicos son dulces,", pron:"dont uóri abáut de cóuld of spéis, its fáin, de cásmic uínds ar suíit,"},
+        {en:"My bedroom has no roof, letting the universe and my dreams quietly meet.", es:"Mi habitación no tiene techo, dejando que el universo y mis sueños se encuentren en silencio.", pron:"mái bédrum jas nóu ruf, léting de iúnivers and mái dríims cuáiatli míit."},
+        {seccion:"Chorus"},
+        {en:"There is a desk in my galactic office where my greatest dreams start to grow!", es:"¡Hay un escritorio en mi oficina galáctica donde mis mayores sueños empiezan a crecer!", pron:"der is a desk in mái galáctic áfis uér mái gréitest dríims start tu gróu!"},
+        {en:"There is a computer on the table glowing with a flawless crystal glow!", es:"¡Hay una computadora en la mesa brillando con un resplandor de cristal perfecto!", pron:"der is a campiúter on de téibol glóuing uid a flóules crístal glóu!"},
+        {en:"There is a window in the kitchen where we can watch the entire world spin!", es:"¡Hay una ventana en la cocina desde donde vemos girar el mundo entero!", pron:"der is a uíndou in de kíchen uér uí can uách de entáiar uórld spin!"},
+        {en:"There is a key hidden in the drawer, let this epic magic now begin!", es:"¡Hay una llave escondida en el cajón, que comience ahora esta épica magia!", pron:"der is a kíi jídn in de dróuer, let dis épic máyic náu bigín!"},
+        {seccion:"Verse 2"},
+        {en:"As usual, the fearless dragons don't rush through the infinite cosmic night,", es:"Como siempre, los dragones intrépidos no se apresuran por la noche cósmica infinita,", pron:"as iúshual, de fírles drágons dont rash zru de ínfinit cásmic náit,"},
+        {en:"Go through the door and walk past the secret garden where flowers sing in the starlight.", es:"Cruza la puerta y pasa por el jardín secreto donde las flores cantan bajo la luz de las estrellas.", pron:"góu zru de dor and uók past de síicret gárden uér fláuers sing in de stárláit."},
+        {en:"Princess Lyra's desk floats silently next to the massive observation window,", es:"El escritorio de la Princesa Lyra flota en silencio junto a la enorme ventana de observación,", pron:"prínses láiras desk flóuts sáilentli next tu de másiv abservéishion uíndou,"},
+        {en:"Where a futuristic computer is made of pure crystal, catching the stellar glow.", es:"Donde una computadora futurista está hecha de cristal puro, capturando el brillo estelar.", pron:"uér a fiúcheristic campiúter is méid of piúr crístal, cáching de stélar glóu."},
+        {en:"A marvelous printer creates glowing rainbows that paint new galaxies in the deep dark,", es:"Una impresora maravillosa crea arcoíris brillantes que pintan nuevas galaxias en la oscuridad profunda,", pron:"a márveles prínter críeits glóuing réinbous dat péint niú gálaxis in de díip dark,"},
+        {en:"And a golden shelf holds a thousand magic keys, each carrying a celestial spark.", es:"Y un estante dorado sostiene mil llaves mágicas, cada una con una chispa celestial.", pron:"and a góulden shelf jóulds a záuzand máyic kíis, íich cárring a seléstial spark."},
+        {en:"Take your time on this epic journey, there is no need to ever hurry or stress,", es:"Tómate tu tiempo en este viaje épico, no hay necesidad de apurarse ni estresarse,", pron:"téik iór táim on dis épic yérni, der is nóu níid tu éver jári or stres,"},
+        {en:"We are almost there to see the absolute majesty that this universe can possess.", es:"Ya casi llegamos para ver la majestuosidad absoluta que este universo puede poseer.", pron:"uí ar ólmoust der tu síi de ábsoluut máyesti dat dis iúnivers can pazés."},
+        {seccion:"Bridge"},
+        {en:"Every table and every chair in this magnificent floating kingdom waits just for you,", es:"Cada mesa y cada silla en este magnífico reino flotante te esperan solo a ti,", pron:"évri téibol and évri cher in dis magnífisent flóuting kíngdam uéits yast for iú,"},
+        {en:"In general, the universe aligns perfectly to make all your biggest dreams finally come true.", es:"En general, el universo se alinea perfectamente para hacer realidad tus sueños más grandes.", pron:"in yéneral, de iúnivers aláins pérfectli tu méik ol iór bíguest dríims fáinali cam trú."},
+        {en:"Look closely at the glowing shelf, because there is a magic key meant for you too,", es:"Mira de cerca el estante brillante, porque hay una llave mágica también para ti,", pron:"luk clóusli at de glóuing shelf, bicós der is a máyic kíi ment for iú tú,"},
+        {en:"Unlock your destiny among the dragons and let the pure light of the galaxy guide you through.", es:"Desbloquea tu destino entre los dragones y deja que la luz pura de la galaxia te guíe.", pron:"anlák iór déstini amáng de drágons and let de piúr láit of de gálaxi gáid iú zru."},
+        {seccion:"Chorus (final)"},
+        {en:"There is a desk in my galactic office where my greatest dreams start to grow!", es:"¡Hay un escritorio en mi oficina galáctica donde mis mayores sueños empiezan a crecer!", pron:"der is a desk in mái galáctic áfis uér mái gréitest dríims start tu gróu!"},
+        {en:"There is a computer on the table glowing with a flawless crystal glow!", es:"¡Hay una computadora en la mesa brillando con un resplandor de cristal perfecto!", pron:"der is a campiúter on de téibol glóuing uid a flóules crístal glóu!"},
+        {en:"There is a window in the kitchen where we can watch the entire world spin!", es:"¡Hay una ventana en la cocina desde donde vemos girar el mundo entero!", pron:"der is a uíndou in de kíchen uér uí can uách de entáiar uórld spin!"},
+        {en:"There is a key hidden in the drawer, let this epic magic now begin!", es:"¡Hay una llave escondida en el cajón, que comience ahora esta épica magia!", pron:"der is a kíi jídn in de dróuer, let dis épic máyic náu bigín!"},
+        {seccion:"Outro"},
+        {en:"Learning English is easy, you're going to love it!", es:"Aprender inglés es fácil, ¡te va a encantar!", pron:"lérning ínglish is íisi, iór góing tu lav it!"},
+        {en:"Keep practicing until the absolute end, my friend, the galaxy is proud of what you do.", es:"Sigue practicando hasta el final absoluto, amigo, la galaxia está orgullosa de lo que haces.", pron:"kíip práctising antíl de ábsoluut end, mái frend, de gálaxi is práud of uát iú du."},
+        {en:"See you next week, dragon friend, among the brilliant stars where your dreams take flight.", es:"Nos vemos la próxima semana, amigo dragón, entre las estrellas brillantes donde tus sueños alzan vuelo.", pron:"síi iú next uíik, drágon frend, amáng de bríliant stars uér iór dríims téik fláit."},
+        {en:"Take your time... our magical cosmic connection will always keep burning bright.", es:"Tómate tu tiempo... nuestra conexión cósmica mágica siempre seguirá brillando.", pron:"téik iór táim... áur máyical cásmic canékshion uil ólueis kíip bérning bráit."}
+      ]
+    },
+    { dia:21, titulo:"The Warehouse Cleaning Robot", audio:"audio/dia21_practica_auditiva.mp3",
+      lineas:[
+        {seccion:"Intro"},
+        {en:"Welcome to the dragon's warehouse tonight,", es:"Bienvenidos a la bodega del dragón esta noche,", pron:"uélcam tu de drágons uérjaus tunáit,"},
+        {en:"The cleaning robot shines under golden light.", es:"El robot de limpieza brilla bajo la luz dorada.", pron:"de clíining róubat sháins ánder góulden láit."},
+        {en:"It can clean the stars, it can wash the moon,", es:"Puede limpiar las estrellas, puede lavar la luna,", pron:"it can clíin de stars, it can uásh de mun,"},
+        {en:"It sweeps the desert, singing a soulful tune.", es:"Barre el desierto, cantando una melodía con alma.", pron:"it suíips de désert, sínging a sóulful tiún."},
+        {seccion:"Verse 1"},
+        {en:"Order and trash, dirty or clean,", es:"Orden y basura, sucio o limpio,", pron:"órder and trash, dérti or clíin,"},
+        {en:"The robot works steady, keeping everything seen.", es:"El robot trabaja constante, manteniendo todo a la vista.", pron:"de róubat uórks stédi, kíiping évrizing síin."},
+        {en:"Inventory of galaxies, storage of dreams,", es:"Inventario de galaxias, almacén de sueños,", pron:"ínventori of gálaxis, stórich of dríims,"},
+        {en:"Labels on stars, glowing cosmic beams.", es:"Etiquetas en las estrellas, rayos cósmicos brillantes.", pron:"léibols on stars, glóuing cásmic bíims."},
+        {en:"It counts them all, one by one,", es:"Las cuenta todas, una por una,", pron:"it cáunts dem ol, uán bái uán,"},
+        {en:"Before the sunrise, the work is done.", es:"Antes del amanecer, el trabajo está terminado.", pron:"bifór de sánráis, de uórk is dan."},
+        {seccion:"Pre-Chorus"},
+        {en:"Step by step, you will speak,", es:"Paso a paso hablarás,", pron:"step bái step, iú uil spíik,"},
+        {en:"Speak it out loud, strong but meek.", es:"Dilo en voz alta, fuerte pero humilde.", pron:"spíik it áut láud, strong bat míik."},
+        {seccion:"Chorus"},
+        {en:"I need to update the inventory,", es:"Necesito actualizar el inventario,", pron:"ái níid tu apdéit de ínventori,"},
+        {en:"I need to update the label on this box.", es:"Necesito actualizar la etiqueta en esta caja.", pron:"ái níid tu apdéit de léibol on dis box."},
+        {en:"I need to update the storage count,", es:"Necesito actualizar el conteo del almacén,", pron:"ái níid tu apdéit de stórich cáunt,"},
+        {en:"If nothing is missing or damaged, I don't need to update!", es:"¡Si nada falta o está dañado, no necesito actualizar!", pron:"if názing is mísing or dámichd, ái dont níid tu apdéit!"},
+        {seccion:"Verse 2"},
+        {en:"Missing stars return to the sky,", es:"Las estrellas perdidas vuelven al cielo,", pron:"mísing stars ritérn tu de skái,"},
+        {en:"Damaged worlds repaired, don't deny.", es:"Mundos dañados reparados, no lo niegues.", pron:"dámichd uórlds ripérd, dont dinái."},
+        {en:"The dragon smiles, the robot sings,", es:"El dragón sonríe, el robot canta,", pron:"de drágon smáils, de róubat sings,"},
+        {en:"Order restored to all cosmic things.", es:"El orden restaurado en todas las cosas cósmicas.", pron:"órder ristórd tu ol cásmic zings."},
+        {en:"Trash becomes clean, dirty turns bright,", es:"La basura se vuelve limpia, lo sucio se ilumina,", pron:"trash bicáms clíin, dérti terns bráit,"},
+        {en:"The warehouse glows with eternal light.", es:"La bodega brilla con luz eterna.", pron:"de uérjaus glóus uid itérnal láit."},
+        {seccion:"Chorus 2"},
+        {en:"To clean, to wash, to sweep away,", es:"Limpiar, lavar, barrer sin parar,", pron:"tu clíin, tu uásh, tu suíip auéi,"},
+        {en:"The robot sings soul every day.", es:"El robot canta con alma cada día.", pron:"de róubat sings sóul évri déi."},
+        {en:"Order and storage, label and count,", es:"Orden y almacén, etiqueta y conteo,", pron:"órder and stórich, léibol and cáunt,"},
+        {en:"Update the list, let the rhythm mount.", es:"Actualiza la lista, deja que el ritmo crezca.", pron:"apdéit de list, let de rízem máunt."},
+        {en:"Missing or damaged, return it fast,", es:"Faltante o dañado, devuélvelo rápido,", pron:"mísing or dámichd, ritérn it fast,"},
+        {en:"Update the story, make the order last.", es:"Actualiza la historia, que el orden perdure.", pron:"apdéit de stóri, méik de órder last."},
+        {seccion:"Pedal"},
+        {en:"Learning English is easy,", es:"Aprender inglés es fácil,", pron:"lérning ínglish is íisi,"},
+        {en:"You're going to love it!", es:"¡Te va a encantar!", pron:"iór góing tu lav it!"},
+        {seccion:"Outro"},
+        {en:"See you next week, dragon friend,", es:"Nos vemos la próxima semana, amigo dragón,", pron:"síi iú next uíik, drágon frend,"},
+        {en:"Keep practicing until the end.", es:"Sigue practicando hasta el final.", pron:"kíip práctising antíl de end."},
+        {en:"The stars unfold, the rhythm flows,", es:"Las estrellas se despliegan, el ritmo fluye,", pron:"de stars anfóuld, de rízem flóus,"},
+        {en:"In the dragon's warehouse, the music grows.", es:"En la bodega del dragón, la música crece.", pron:"in de drágons uérjaus, de miúsic gróus."}
+      ]
     }
   ]
 };
@@ -350,6 +488,117 @@ const karaoke = {
 
       currentLineInputs.push({ inputEn, inputEs, correctaEn: linea.en, correctaEs: linea.es||'' });
     });
+
+    pronBox.innerHTML += '<button class="ghost" id="kkGuiaVocalBtn" style="width:100%; margin-top:14px;">🎤 Descargar guía vocal de esta canción</button>';
+    document.getElementById('kkGuiaVocalBtn').onclick = ()=>descargarGuiaVocalKaraoke(cancion);
+  }
+
+  // ================= Guía vocal automática — linking, pausas y tipo de voz =================
+  const KK_REDUCCIONES = {
+    'going to':'gonna', 'want to':'wanna', 'got to':'gotta', 'have to':'hafta',
+    'kind of':'kinda', 'sort of':'sorta', 'let me':'lemme', 'give me':'gimme',
+    'out of':'outta', 'a lot of':'a lotta', 'trying to':'tryna'
+  };
+
+  function kkDetectarLinking(textoEn){
+    const palabras = textoEn.replace(/[.,!?…]/g,'').split(/\s+/).filter(Boolean);
+    const sugerencias = [];
+    for(let i=0;i<palabras.length-1;i++){
+      const a = palabras[i], b = palabras[i+1];
+      const parClave = (a+' '+b).toLowerCase();
+      if(KK_REDUCCIONES[parClave]){
+        sugerencias.push(a+'_'+b+' → suena como "'+KK_REDUCCIONES[parClave]+'"');
+        continue;
+      }
+      const soloLetrasA = a.replace(/[^a-zA-Z]/g,'');
+      const soloLetrasB = b.replace(/[^a-zA-Z]/g,'');
+      if(!soloLetrasA || !soloLetrasB) continue;
+      const ultimaA = soloLetrasA.slice(-1).toLowerCase();
+      const primeraB = soloLetrasB.charAt(0).toLowerCase();
+      const esVocal = c => 'aeiou'.includes(c);
+      if(!esVocal(ultimaA) && esVocal(primeraB)){
+        sugerencias.push(a+'_'+b);
+      }
+    }
+    return sugerencias;
+  }
+
+  function kkTipoDeVoz(nombreSeccion){
+    const n = nombreSeccion.toLowerCase();
+    if(n.includes('intro')) return 'Empezá suave, marcando el ambiente de la canción.';
+    if(n.includes('pre-chorus') || n.includes('pre-coro')) return 'Subí la energía — es la rampa hacia el coro.';
+    if(n.includes('chorus') || n.includes('coro')) return 'Voz mixta, con apoyo abdominal — abrí bien las vocales y sostenelas.';
+    if(n.includes('verse') || n.includes('estrofa') || n.includes('verso')) return 'Voz de pecho relajada, conversada — contá la historia con calma.';
+    if(n.includes('bridge') || n.includes('puente')) return 'Un quiebre — bajá el volumen un momento, después volvé con fuerza.';
+    if(n.includes('outro')) return 'Cerrá con calidez, bajando la intensidad de a poco.';
+    if(n.includes('pedal')) return 'Frase ancla — decila con confianza, como una afirmación.';
+    return 'Cantalo con naturalidad, conectando las palabras.';
+  }
+
+  function descargarGuiaVocalKaraoke(cancion){
+    if(!window.jspdf){
+      alert('No se pudo generar la guía. Intenta de nuevo en un momento.');
+      return;
+    }
+    // Agrupamos las líneas en secciones, usando los marcadores {seccion:...} ya presentes
+    const secciones = [];
+    let actual = null;
+    cancion.lineas.forEach(linea=>{
+      if(linea.seccion){
+        actual = { nombre: linea.seccion, lineas: [] };
+        secciones.push(actual);
+      } else if(actual){
+        actual.lineas.push(linea);
+      } else {
+        actual = { nombre:'', lineas:[linea] };
+        secciones.push(actual);
+      }
+    });
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit:'mm', format:'letter' });
+    const margenX = 18;
+    const anchoUtil = 216 - margenX*2;
+    let y = 20;
+
+    function nuevaPaginaSiHaceFalta(alturaNecesaria){
+      if(y + alturaNecesaria > 265){ doc.addPage(); y = 20; }
+    }
+
+    doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(27,31,42);
+    doc.text('Guía Vocal', 108, y, {align:'center'}); y += 7;
+    doc.setFont('helvetica','italic'); doc.setFontSize(11); doc.setTextColor(107,86,44);
+    doc.text(cancion.titulo+' — Día '+cancion.dia, 108, y, {align:'center'}); y += 6;
+    doc.setDrawColor(232,163,61); doc.setLineWidth(0.8);
+    doc.line(margenX, y, 216-margenX, y); y += 8;
+
+    secciones.forEach(sec=>{
+      if(!sec.lineas.length) return;
+      nuevaPaginaSiHaceFalta(20);
+      doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(41,80,107);
+      doc.text(sec.nombre || 'Letra', margenX, y); y += 5;
+      doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(138,90,30);
+      const tipoLineas = doc.splitTextToSize(kkTipoDeVoz(sec.nombre||''), anchoUtil);
+      doc.text(tipoLineas, margenX, y); y += tipoLineas.length*4 + 3;
+
+      sec.lineas.forEach(l=>{
+        nuevaPaginaSiHaceFalta(14);
+        doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(20,20,30);
+        const lineaTexto = doc.splitTextToSize(l.en, anchoUtil);
+        doc.text(lineaTexto, margenX, y); y += lineaTexto.length*4.3;
+
+        const linking = kkDetectarLinking(l.en);
+        if(linking.length){
+          doc.setFont('courier','normal'); doc.setFontSize(8.5); doc.setTextColor(90,98,112);
+          const linkTexto = doc.splitTextToSize('🔗 '+linking.join('  ·  '), anchoUtil-6);
+          doc.text(linkTexto, margenX+4, y); y += linkTexto.length*3.6;
+        }
+        y += 2.5;
+      });
+      y += 3;
+    });
+
+    doc.save('guia-vocal-dia'+cancion.dia+'.pdf');
   }
 
   function normalizarLinea(txt){

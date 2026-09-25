@@ -3138,6 +3138,17 @@ function loadTurn(){
       const activeIdx = Math.min(lyricCount-1, Math.floor((songAudio.currentTime/songAudio.duration)*lyricCount));
       songLyrics.querySelectorAll('.lyric-line').forEach((el,i)=>{ el.classList.toggle('current', i===activeIdx); });
     };
+    let guiaBtn = document.getElementById('guiaVocalDiaBtn');
+    if(guiaBtn) guiaBtn.remove();
+    if(realLyrics && realLyrics.length){
+      guiaBtn = document.createElement('button');
+      guiaBtn.id = 'guiaVocalDiaBtn';
+      guiaBtn.className = 'ghost';
+      guiaBtn.style.cssText = 'width:100%; margin-top:10px;';
+      guiaBtn.textContent = '🎤 Descargar guía vocal de esta canción';
+      guiaBtn.onclick = ()=>descargarGuiaVocalDia(realLyrics, turn.isJingle, currentDay.day);
+      songPlayer.appendChild(guiaBtn);
+    }
   } else {
     songPlayer.style.display='none';
     songAudio.pause(); songAudio.removeAttribute('src'); songAudio.load();
@@ -4446,6 +4457,81 @@ function descargarGuardianIA(){
   doc.text('Recordá: la IA es tu gimnasio de calentamiento. El trabajo de verdad se construye en El Dragón del Lenguaje.', 108, y, {align:'center', maxWidth: anchoUtil});
 
   doc.save('guardian-ia-dia'+currentDay.day+'.pdf');
+}
+
+// ================= Guía vocal automática para las canciones del día =================
+const DIA_REDUCCIONES = {
+  'going to':'gonna', 'want to':'wanna', 'got to':'gotta', 'have to':'hafta',
+  'kind of':'kinda', 'sort of':'sorta', 'let me':'lemme', 'give me':'gimme',
+  'out of':'outta', 'a lot of':'a lotta', 'trying to':'tryna'
+};
+
+function diaDetectarLinking(textoEn){
+  const palabras = textoEn.replace(/[.,!?…]/g,'').split(/\s+/).filter(Boolean);
+  const sugerencias = [];
+  for(let i=0;i<palabras.length-1;i++){
+    const a = palabras[i], b = palabras[i+1];
+    const parClave = (a+' '+b).toLowerCase();
+    if(DIA_REDUCCIONES[parClave]){
+      sugerencias.push(a+'_'+b+' → suena como "'+DIA_REDUCCIONES[parClave]+'"');
+      continue;
+    }
+    const soloLetrasA = a.replace(/[^a-zA-Z]/g,'');
+    const soloLetrasB = b.replace(/[^a-zA-Z]/g,'');
+    if(!soloLetrasA || !soloLetrasB) continue;
+    const ultimaA = soloLetrasA.slice(-1).toLowerCase();
+    const primeraB = soloLetrasB.charAt(0).toLowerCase();
+    const esVocal = c => 'aeiou'.includes(c);
+    if(!esVocal(ultimaA) && esVocal(primeraB)){
+      sugerencias.push(a+'_'+b);
+    }
+  }
+  return sugerencias;
+}
+
+function descargarGuiaVocalDia(lineas, esJingle, diaNum){
+  if(!window.jspdf){
+    alert('No se pudo generar la guía. Intenta de nuevo en un momento.');
+    return;
+  }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit:'mm', format:'letter' });
+  const margenX = 18;
+  const anchoUtil = 216 - margenX*2;
+  let y = 20;
+
+  function nuevaPaginaSiHaceFalta(alturaNecesaria){
+    if(y + alturaNecesaria > 265){ doc.addPage(); y = 20; }
+  }
+
+  doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(27,31,42);
+  doc.text('Guía Vocal', 108, y, {align:'center'}); y += 7;
+  doc.setFont('helvetica','italic'); doc.setFontSize(11); doc.setTextColor(107,86,44);
+  doc.text('Día '+diaNum+' — '+(esJingle?'Canción':'Historia'), 108, y, {align:'center'}); y += 6;
+  doc.setDrawColor(232,163,61); doc.setLineWidth(0.8);
+  doc.line(margenX, y, 216-margenX, y); y += 8;
+
+  doc.setFont('helvetica','italic'); doc.setFontSize(9.5); doc.setTextColor(138,90,30);
+  const notaGeneral = doc.splitTextToSize('Cantala con voz relajada en las partes conversadas, y más abierta y sostenida en las partes de mayor energía. Prestá atención a las conexiones marcadas con 🔗 — son donde el inglés hablado une las palabras.', anchoUtil);
+  doc.text(notaGeneral, margenX, y); y += notaGeneral.length*4 + 6;
+
+  (lineas||[]).forEach(l=>{
+    if(typeof l === 'string' || !l.en) return;
+    nuevaPaginaSiHaceFalta(14);
+    doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(20,20,30);
+    const lineaTexto = doc.splitTextToSize(l.en, anchoUtil);
+    doc.text(lineaTexto, margenX, y); y += lineaTexto.length*4.3;
+
+    const linking = diaDetectarLinking(l.en);
+    if(linking.length){
+      doc.setFont('courier','normal'); doc.setFontSize(8.5); doc.setTextColor(90,98,112);
+      const linkTexto = doc.splitTextToSize('🔗 '+linking.join('  ·  '), anchoUtil-6);
+      doc.text(linkTexto, margenX+4, y); y += linkTexto.length*3.6;
+    }
+    y += 2.5;
+  });
+
+  doc.save('guia-vocal-dia'+diaNum+'-'+(esJingle?'cancion':'historia')+'.pdf');
 }
 
 function enterReview(i){
