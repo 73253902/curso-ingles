@@ -20,7 +20,12 @@
 
   // ---------- Construir la biblioteca "Días de estudio" ----------
   function construirBiblioteca(){
-    const topeDay = (typeof window.ultimoDiaCompletado === 'function') ? Math.max(window.ultimoDiaCompletado()+1, 1) : 999;
+    // Se abre la SEMANA COMPLETA en la que va el alumno (no solo hasta su día),
+    // para que escuche todo el repertorio de la semana antes de llegar a la práctica.
+    // El administrador ve todas las semanas.
+    const esAdmin = typeof isAdmin === 'function' && isAdmin();
+    const diaActual = (typeof window.ultimoDiaCompletado === 'function') ? Math.max(window.ultimoDiaCompletado()+1, 1) : 999;
+    const topeDay = esAdmin ? 999 : Math.ceil(diaActual/6)*6;
     const porDia = {};
     (typeof curriculum !== 'undefined' ? curriculum : []).forEach(d=>{
       if(d.day > topeDay) return;
