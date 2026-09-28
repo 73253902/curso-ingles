@@ -9,7 +9,7 @@
 // ================================================================
 (function(){
   let biblioteca = []; // Días de estudio: [{ semana, dias:[{day, theme, items:[{tipo,titulo,audio,lineas}]}] }]
-  let biblioNativo = []; // Dragón Nativo: [{ fase, nombre, semanas:[{numero, audio, lineas}] }]
+  const DIA_INICIO_NATIVO = 13; // desde este día entran la Canción nativa y el Karaoke
   let listaPlana = []; // reproducción continua: [{grupo, day, tipo, titulo, audio, lineas}]
   let idxActual = -1;
   let sel = { a:null, b:null }; // selección de líneas para loop
@@ -17,6 +17,42 @@
 
   function el(id){ return document.getElementById(id); }
   function audioEl(){ return el('atrilAudio'); }
+
+  // ---------- Canción nativa del día ----------
+  // Una canción del Dragón Nativo por día desde el Día 13: el Día 13 suena la canción 1,
+  // el Día 14 la 2… hasta el Día 180 (42 canciones por fase, 4 fases = 168 canciones).
+  function seccionesDeSemana(fase, semana){
+    const pre = semana.precoro ? semana.precoro.lineas : fase.fijas.precoro;
+    const coro = semana.coro ? semana.coro.lineas : fase.fijas.coro;
+    const secciones = [
+      { nombre:'Estrofa 1', lineas:semana.estrofa1.lineas },
+      { nombre:'Pedal', lineas:fase.fijas.pedal },
+      { nombre:'Pre-Coro', lineas:pre },
+      { nombre:'Coro', lineas:coro },
+      { nombre:'Estrofa 2', lineas:semana.estrofa2.lineas }
+    ];
+    if(semana.puente) secciones.push({ nombre:'Puente', lineas:semana.puente.lineas });
+    // El Pre-Coro y el Coro se cantan dos veces: se muestran en el orden real de la canción
+    secciones.push({ nombre:'Pre-Coro', lineas:pre }, { nombre:'Coro', lineas:coro });
+    secciones.push({ nombre:'Outro', lineas: semana.outroOverride || fase.fijas.outro });
+    return secciones;
+  }
+
+  function cancionNativaDelDia(day){
+    if(typeof dragonNativo === 'undefined' || day < DIA_INICIO_NATIVO) return null;
+    let resto = day - DIA_INICIO_NATIVO + 1; // número de canción global (1, 2, 3…)
+    for(const fase of dragonNativo.fases){
+      if(resto <= fase.semanas.length){
+        const sem = fase.semanas.find(s=>s.numero===resto);
+        if(!sem || !sem.audio) return null; // sin audio real todavía, no se ofrece en el Atril
+        return { tipo:'nativa', titulo:'🐉 Canción nativa', audio:sem.audio,
+                 detalle: fase.nombre+' · Canción '+sem.numero,
+                 lineas: seccionesDeSemana(fase, sem).flatMap(s=>s.lineas) };
+      }
+      resto -= fase.semanas.length;
+    }
+    return null;
+  }
 
   // ---------- Construir la biblioteca "Días de estudio" ----------
   function construirBiblioteca(){
@@ -27,29 +63,29 @@
     const diaActual = (typeof window.ultimoDiaCompletado === 'function') ? Math.max(window.ultimoDiaCompletado()+1, 1) : 999;
     const topeDay = esAdmin ? 999 : Math.ceil(diaActual/6)*6;
     const porDia = {};
+    const diaDe = (day, theme)=> porDia[day] || (porDia[day] = { day, theme, items:[] });
     (typeof curriculum !== 'undefined' ? curriculum : []).forEach(d=>{
       if(d.day > topeDay) return;
-      const items = [];
+      const tema = (d.theme||'').split('/')[0].trim();
       if(d.songJingle && d.songJingleLyrics && d.songJingleLyrics.length){
-        items.push({ tipo:'cancion', titulo:'Canción', audio:d.songJingle, lineas:d.songJingleLyrics });
+        diaDe(d.day, tema).items.push({ tipo:'vocabulario', titulo:'🎵 Vocabulario', audio:d.songJingle, lineas:d.songJingleLyrics });
       }
       if(d.songStory && d.songStoryLyrics && d.songStoryLyrics.length){
-        items.push({ tipo:'historia', titulo:'Historia', audio:d.songStory, lineas:d.songStoryLyrics });
+        diaDe(d.day, tema).items.push({ tipo:'historia', titulo:'📖 Historia', audio:d.songStory, lineas:d.songStoryLyrics });
       }
-      if(items.length) porDia[d.day] = { day:d.day, theme:(d.theme||'').split('/')[0].trim(), items };
+      const nativa = cancionNativaDelDia(d.day);
+      if(nativa) diaDe(d.day, tema).items.push(nativa);
     });
     if(typeof karaoke !== 'undefined' && karaoke.canciones){
       karaoke.canciones.forEach(c=>{
-        if(c.dia > topeDay) return;
-        const lineasSolo = c.lineas.filter(l=>l.en);
-        if(!porDia[c.dia]) porDia[c.dia] = { day:c.dia, theme:c.titulo, items:[] };
-        porDia[c.dia].items.push({ tipo:'practica', titulo:'Práctica auditiva', audio:c.audio, lineas:lineasSolo });
+        if(c.dia > topeDay || c.dia < DIA_INICIO_NATIVO) return;
+        diaDe(c.dia, c.titulo).items.push({ tipo:'karaoke', titulo:'🎤 Karaoke', audio:c.audio, lineas:c.lineas.filter(l=>l.en) });
       });
     }
-    const ordenTipo = { cancion:0, historia:1, practica:2 };
+    const ordenTipo = { vocabulario:0, historia:1, nativa:2, karaoke:3 };
     Object.values(porDia).forEach(d=> d.items.sort((a,b)=>ordenTipo[a.tipo]-ordenTipo[b.tipo]));
 
-    const dias = Object.values(porDia).sort((a,b)=>a.day-b.day);
+    const dias = Object.values(porDia).filter(d=>d.items.length).sort((a,b)=>a.day-b.day);
     const semanas = {};
     dias.forEach(d=>{
       const numSemana = Math.ceil(d.day/6);
@@ -59,50 +95,11 @@
     biblioteca = Object.values(semanas).sort((a,b)=>a.semana-b.semana);
   }
 
-  // ---------- Construir la biblioteca "Dragón Nativo" ----------
-  function seccionesDeSemana(fase, semana){
-    const secciones = [
-      { nombre:'Estrofa 1', lineas:semana.estrofa1.lineas },
-      { nombre:'Pedal', lineas:fase.fijas.pedal },
-      { nombre:'Pre-Coro', lineas:fase.fijas.precoro },
-      { nombre:'Coro', lineas:fase.fijas.coro },
-      { nombre:'Estrofa 2', lineas:semana.estrofa2.lineas }
-    ];
-    if(semana.puente) secciones.push({ nombre:'Puente', lineas:semana.puente.lineas });
-    secciones.push({ nombre:'Outro', lineas: semana.outroOverride || fase.fijas.outro });
-    return secciones;
-  }
-
-  function construirBiblioNativo(){
-    biblioNativo = [];
-    if(typeof dragonNativo === 'undefined') return;
-    const esAdmin = typeof isAdmin === 'function' && isAdmin();
-    dragonNativo.fases.forEach(fase=>{
-      if(!fase.disponible) return;
-      const semanasDisponibles = fase.semanas.filter(sem=>{
-        if(!sem.audio) return false; // sin audio real todavía, no se ofrece en Atril
-        if(esAdmin) return true;
-        if(typeof window.unidadesDesbloqueadas !== 'function') return false;
-        const unidadGlobal = (fase.id-1)*30 + sem.numero;
-        return unidadGlobal <= window.unidadesDesbloqueadas('dragon_nativo');
-      });
-      if(!semanasDisponibles.length) return;
-      biblioNativo.push({
-        fase: fase.id, nombre: fase.nombre,
-        semanas: semanasDisponibles.map(sem=>({
-          numero: sem.numero, audio: sem.audio,
-          lineas: seccionesDeSemana(fase, sem).flatMap(s=>s.lineas)
-        }))
-      });
-    });
-  }
-
   // ---------- Navegación de pantallas ----------
   function mostrarAtril(){
     el('home').style.display = 'none';
     el('atrilModulo').style.display = 'block';
     construirBiblioteca();
-    construirBiblioNativo();
     renderInicio();
   }
 
@@ -128,7 +125,7 @@
     if(!biblioteca.length){
       const vacio = document.createElement('p');
       vacio.className = 'sub';
-      vacio.textContent = 'Todavía no hay canciones con audio real en los días que llevás recorridos.';
+      vacio.textContent = 'Todavía no hay canciones con audio real en los días que llevas recorridos.';
       box.appendChild(vacio);
     }
     biblioteca.forEach(sem=>{
@@ -137,36 +134,17 @@
       card.style.cssText = 'display:block; cursor:pointer; padding:14px; margin-bottom:10px; border:1px solid var(--border); border-radius:12px;';
       const totalItems = sem.dias.reduce((s,d)=>s+d.items.length,0);
       card.innerHTML = '<b>Semana '+sem.semana+'</b> — Días '+sem.dias[0].day+' al '+sem.dias[sem.dias.length-1].day+
-        '<p style="font-size:13px; color:var(--muted); margin:4px 0 0;">'+totalItems+' de 18 audios disponibles</p>';
+        '<p style="font-size:13px; color:var(--muted); margin:4px 0 0;">'+totalItems+' '+(totalItems===1?'audio':'audios')+' para escuchar</p>';
       card.onclick = ()=>renderSemana(sem);
       box.appendChild(card);
     });
 
-    const subtituloNativo = document.createElement('p');
-    subtituloNativo.style.cssText = 'font-weight:600; margin-top:20px;';
-    subtituloNativo.textContent = '🐉 Dragón Nativo';
-    box.appendChild(subtituloNativo);
-
-    if(!biblioNativo.length){
-      const vacio = document.createElement('p');
-      vacio.className = 'sub';
-      vacio.textContent = 'Todavía no desbloqueaste ninguna semana de Dragón Nativo con tus premios de colaboración.';
-      box.appendChild(vacio);
-    }
-    biblioNativo.forEach(fase=>{
-      const card = document.createElement('div');
-      card.className = 'cg-regla-card';
-      card.style.cssText = 'display:block; cursor:pointer; padding:14px; margin-bottom:10px; border:1px solid var(--border); border-radius:12px;';
-      card.innerHTML = '<b>'+fase.nombre+'</b><p style="font-size:13px; color:var(--muted); margin:4px 0 0;">'+fase.semanas.length+' semana(s) desbloqueada(s)</p>';
-      card.onclick = ()=>renderFaseNativo(fase);
-      box.appendChild(card);
-    });
   }
 
   function renderSemana(sem){
     listaPlana = [];
     sem.dias.forEach(d=>{
-      d.items.forEach(it=>{ listaPlana.push({ grupo:'dia', day:d.day, theme:d.theme, tipo:it.tipo, titulo:it.titulo, audio:it.audio, lineas:it.lineas }); });
+      d.items.forEach(it=>{ listaPlana.push({ grupo:'dia', day:d.day, theme:it.detalle || d.theme, tipo:it.tipo, titulo:it.titulo, audio:it.audio, lineas:it.lineas }); });
     });
     contextoActual = { tipo:'semana', obj:sem };
 
@@ -190,35 +168,6 @@
         fila.onclick = ()=>reproducirDesde(idx);
         box.appendChild(fila);
       });
-    });
-
-    const volverBtn = document.createElement('button');
-    volverBtn.className = 'ghost'; volverBtn.style.marginTop = '14px';
-    volverBtn.textContent = '← Volver al inicio de Atril';
-    volverBtn.onclick = renderInicio;
-    box.appendChild(volverBtn);
-  }
-
-  function renderFaseNativo(fase){
-    listaPlana = [];
-    fase.semanas.forEach(sem=>{
-      listaPlana.push({ grupo:'nativo', day:null, theme:fase.nombre+' — Semana '+sem.numero, tipo:'nativo', titulo:'Semana '+sem.numero, audio:sem.audio, lineas:sem.lineas });
-    });
-    contextoActual = { tipo:'nativo', obj:fase };
-
-    const box = el('atrilBox');
-    box.innerHTML = '';
-    const titulo = document.createElement('h2');
-    titulo.textContent = fase.nombre;
-    box.appendChild(titulo);
-
-    fase.semanas.forEach((sem,i)=>{
-      const fila = document.createElement('button');
-      fila.className = 'ghost';
-      fila.style.cssText = 'width:100%; margin-bottom:6px; text-align:left;';
-      fila.textContent = 'Semana '+sem.numero;
-      fila.onclick = ()=>reproducirDesde(i);
-      box.appendChild(fila);
     });
 
     const volverBtn = document.createElement('button');
@@ -298,7 +247,7 @@
     } else {
       const hint = document.createElement('p');
       hint.style.cssText = 'font-size:12px; color:var(--muted); margin-bottom:10px;';
-      hint.textContent = 'Tocá una línea para repetirla en bucle. Tocá una segunda línea para repetir todo ese tramo. La barra del reproductor también se puede arrastrar para escuchar todo o saltar a cualquier punto.';
+      hint.textContent = 'Toca una línea para repetirla en bucle. Toca una segunda línea para repetir todo ese tramo. La barra del reproductor también se puede arrastrar para escuchar todo o saltar a cualquier punto.';
       infoBox.appendChild(hint);
     }
 
@@ -326,7 +275,6 @@
       audioEl().pause();
       el('atrilPlayerBox').style.display = 'none';
       if(contextoActual && contextoActual.tipo==='semana') renderSemana(contextoActual.obj);
-      else if(contextoActual && contextoActual.tipo==='nativo') renderFaseNativo(contextoActual.obj);
       else renderInicio();
     };
     infoBox.appendChild(volverBtn);
@@ -341,7 +289,9 @@
       const p = document.createElement('p');
       p.style.cssText = 'padding:8px 10px; border-radius:8px; cursor:pointer; margin:2px 0;';
       p.dataset.idx = i;
-      p.innerHTML = '<b>'+l.en+'</b><br><span style="color:var(--muted); font-size:13px;">'+(l.es||'')+'</span>';
+      // Inglés, cómo suena y español (las líneas solo en español se muestran tal cual)
+      const pron = l.pron ? '<span style="display:block; color:var(--en); opacity:.75; font-size:13px; font-style:italic;">'+l.pron+'</span>' : '';
+      p.innerHTML = (l.en ? '<b>'+l.en+'</b>' : '') + pron + '<span style="display:block; color:var(--muted); font-size:13px;">'+(l.es||'')+'</span>';
       p.onclick = ()=>tocarLinea(i);
       cont.appendChild(p);
     });
