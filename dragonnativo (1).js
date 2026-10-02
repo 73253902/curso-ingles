@@ -4731,14 +4731,15 @@ const dragonNativo = {
       const isRight = practicaAnswerMatches(said, item.respuesta, true);
       reviewGraded++; if(isRight) reviewOk++;
       box.className='dn-review-feedback '+(isRight?'ok':'retry');
-      box.textContent = isRight
-        ? '✓ ¡Correcto! "'+item.en+'"'
-        : '✗ Casi — '+(item.tipo==='completar' ? 'la palabra era "'+item.respuesta+'": ' : 'la frase correcta es: ')+'"'+item.en+'"';
+      if(isRight){ box.textContent = '✓ ¡Correcto! "'+item.en+'"'; }
+      else { box.innerHTML = '<b>✗ Casi — compara tu respuesta con la correcta:</b>'+(typeof compararRespuestaHTML==='function' ? compararRespuestaHTML(said, item.respuesta) : '')
+        +(item.tipo==='completar' ? '<div style="margin-top:6px;">Frase completa: "'+item.en+'"</div>' : ''); }
     } else {
       const isRight = practicaAnswerMatches(said, item.en, true);
       reviewGraded++; if(isRight) reviewOk++;
       box.className='dn-review-feedback '+(isRight?'ok':'retry');
-      box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — la frase correcta era: ')+'"'+item.en+'"';
+      if(isRight){ box.textContent = '✓ ¡Correcto! "'+item.en+'"'; }
+      else { box.innerHTML = '<b>✗ Casi — compara tu respuesta con la correcta:</b>'+(typeof compararRespuestaHTML==='function' ? compararRespuestaHTML(said, item.en) : ''); }
     }
     mostrarNextRow('dnReviewNextRow');
     el('dnReviewNextBtn').textContent = (reviewIdx+1<reviewItems.length) ? 'Siguiente →' : 'Ver resultado →';
