@@ -3890,7 +3890,8 @@ function runPractica(turn){
         results.push({type:item.type, prompt:item.es, answer:said, correct:isRight, correctAnswer:target});
         lineEl.innerHTML=''; setSegs(lineEl,[{t:target, lang:'en'}]);
         feedback.classList.add('show', isRight?'ok':'retry');
-        feedback.textContent = isRight ? '✓ ¡Correcto!' : '✗ La respuesta correcta era: "'+target+'"';
+        if(isRight){ feedback.textContent = '✓ ¡Correcto!'; }
+        else { feedback.innerHTML = '<b>✗ Compara tu respuesta con la correcta:</b>'+compararRespuestaHTML(said, target); }
       }
       mostrarNextControls();
       nextBtn.textContent = (i+1<items.length) ? 'Siguiente →' : 'Ver resultado →';
@@ -4070,6 +4071,34 @@ function handleSpokenResult(w, res){
   }
   userControls.style.display='flex';
 }
+// ================= Comparar la respuesta del alumno con la correcta =================
+// Marca letra por letra: en "Tu respuesta" se ven en rojo las letras que sobran o están
+// mal, y en "Correcta" se ven en verde las letras que faltaron o había que cambiar.
+function escHtmlCmp(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function compararRespuestaHTML(dada, correcta){
+  const a = String(dada), b = String(correcta);
+  const A = a.toLowerCase(), B = b.toLowerCase();
+  const n = A.length, m = B.length;
+  const L = Array.from({length:n+1}, ()=>new Array(m+1).fill(0));
+  for(let i=n-1;i>=0;i--) for(let j=m-1;j>=0;j--)
+    L[i][j] = A[i]===B[j] ? L[i+1][j+1]+1 : Math.max(L[i+1][j], L[i][j+1]);
+  const okA = new Array(n).fill(false), okB = new Array(m).fill(false);
+  let i=0, j=0;
+  while(i<n && j<m){
+    if(A[i]===B[j]){ okA[i]=true; okB[j]=true; i++; j++; }
+    else if(L[i+1][j] >= L[i][j+1]) i++; else j++;
+  }
+  const pintar = (txt, ok, color) => txt.split('').map((ch,k)=> ok[k] ? escHtmlCmp(ch)
+    : '<span style="color:'+color+'; font-weight:700; text-decoration:underline;">'+(ch===' '?'&nbsp;':escHtmlCmp(ch))+'</span>').join('');
+  const fila = (etq, html, borde) => '<div style="display:flex; gap:10px; align-items:baseline; margin-top:6px;">'
+    +'<span style="min-width:112px; font-size:12px; color:var(--muted);">'+etq+'</span>'
+    +'<span style="font-size:18px; letter-spacing:.5px; color:var(--ink); background:var(--bg-panel); padding:2px 8px; border-radius:6px; border:1px solid '+borde+';">'+html+'</span></div>';
+  return '<div style="margin-top:8px;">'
+    + fila('❌ Tu respuesta', pintar(a, okA, 'var(--warn)'), 'rgba(232,106,92,.4)')
+    + fila('✅ Correcta', pintar(b, okB, 'var(--ok)'), 'rgba(111,207,151,.4)')
+    + '</div>';
+}
+
 function goToWriteStep(w, pronCredit){
   modeChip.className='mode-chip write'; modeChip.textContent='✏️ ESCRIBIR';
   speakerLabel.textContent = evalMode ? 'DIÁLOGO' : 'AHORA ESCRÍBELA';
@@ -4126,15 +4155,22 @@ function goToWriteStep(w, pronCredit){
       feedback.textContent = attempts===1 ? '✓ ¡Perfecto! Bien escrito.' : '✓ ¡Bien! La escribiste bien en el segundo intento.';
       finalize();
     } else {
+      const mostrarComparacion = (titulo)=>{
+        feedback.className='feedback show retry';
+        feedback.innerHTML = '<b>'+titulo+'</b>'+compararRespuestaHTML(typed, w.en)
+          +'<div style="font-size:12px; color:var(--muted); margin-top:8px;">Las letras subrayadas son las que cambian. Quedó anotada para repasar.</div>';
+      };
+      if(attempts>=2){
+        mostrarComparacion('Compara tu respuesta con la correcta:');
+        writeCredit=0; finalize();
+        return;
+      }
       feedback.className='feedback show retry';
-      feedback.textContent = attempts>=2
-        ? 'Se escribe "'+w.en+'". Quedó anotada para repasar.'
-        : 'No es así todavía. Fíjate bien y prueba de nuevo, o toca "Ver respuesta" si prefieres seguir.';
+      feedback.textContent = 'No es así todavía. Fíjate bien y prueba de nuevo, o toca "Ver respuesta" si prefieres seguir.';
       typeInput.value=''; typeInput.focus();
       mostrarNextControls();
       nextBtn.textContent='Ver respuesta y continuar';
-      nextBtn.onclick=()=>{ writeCredit=0; finalize(); };
-      if(attempts>=2){ writeCredit=0; finalize(); }
+      nextBtn.onclick=()=>{ writeCredit=0; mostrarComparacion('Así se escribe:'); finalize(); };
     }
   };
 }

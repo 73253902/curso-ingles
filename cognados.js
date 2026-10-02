@@ -1699,7 +1699,8 @@ const cognados = {
     const isRight = practicaAnswerMatches(said, item.en, true);
     practicaGraded++; if(isRight) practicaOk++;
     box.className='cg-practica-feedback '+(isRight?'ok':'retry');
-    box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — la respuesta correcta era: ')+'"'+item.en+'"';
+    if(isRight){ box.textContent = '✓ ¡Correcto! "'+item.en+'"'; }
+    else { box.innerHTML = '<b>✗ Casi — compara tu respuesta con la correcta:</b>'+(typeof compararRespuestaHTML==='function' ? compararRespuestaHTML(said, item.en) : ''); }
     mostrarNextRow('cgPracticaNextRow');
     el('cgPracticaNextBtn').textContent = (practicaIdx+1<practicaItems.length) ? 'Siguiente →' : 'Ver resultado →';
   }
