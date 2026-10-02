@@ -64,14 +64,29 @@ function saveMeta(meta){ const all=loadProgress(); all._meta=meta; saveProgress(
 
 // ================================================================
 // MODO ADMINISTRADOR — acceso directo a cualquier día durante la construcción
-// Para activarlo: abrir la URL agregando ?admin=robinson2026 al final, una sola vez.
+// Para activarlo: abrir la URL agregando ?admin=TU_CLAVE al final, una sola vez.
 // El navegador lo recuerda después; para desactivarlo, tocar "Salir del modo admin".
+// 🔒 La clave NO está escrita aquí: solo su huella SHA-256, que no se puede revertir.
+//    Para cambiarla, calcula el SHA-256 de la clave nueva y pégalo en ADMIN_PASSCODE_SHA256.
 // ================================================================
-const ADMIN_PASSCODE = 'robinson2026';
-const ADMIN_KEY = 'curso_ingles_admin_v1';
-(function checkAdminUrl(){
+const ADMIN_PASSCODE_SHA256 = '60905852ccc88b06e40fea515838ad552be14ee8525985c8341bfbb5fa645aa2';
+const ADMIN_KEY = 'curso_ingles_admin_v2'; // v2: invalida el modo admin activado con la clave vieja
+try{ localStorage.removeItem('curso_ingles_admin_v1'); }catch(e){}
+(async function checkAdminUrl(){
   const params = new URLSearchParams(window.location.search);
-  if(params.get('admin') === ADMIN_PASSCODE){ localStorage.setItem(ADMIN_KEY, '1'); }
+  const intento = params.get('admin');
+  if(!intento || !(window.crypto && crypto.subtle)) return;
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(intento));
+  const huella = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  // La clave se quita de la barra de direcciones para que no quede en el historial ni en capturas
+  params.delete('admin');
+  const limpia = window.location.pathname + (params.toString() ? '?'+params.toString() : '') + window.location.hash;
+  if(huella === ADMIN_PASSCODE_SHA256){
+    localStorage.setItem(ADMIN_KEY, '1');
+    window.location.replace(limpia); // recarga ya en modo admin
+  } else {
+    window.history.replaceState(null, '', limpia);
+  }
 })();
 function isAdmin(){ return localStorage.getItem(ADMIN_KEY) === '1'; }
 document.getElementById('exitAdminLink').addEventListener('click', ()=>{
