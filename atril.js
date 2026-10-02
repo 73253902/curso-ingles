@@ -209,18 +209,87 @@
     tocar();
   }
 
+  // ---------- Ayudas para celular ----------
+  // En el celular hay tres frenos que el computador no tiene:
+  // 1) si la pantalla se apaga, la página se congela y no arranca la siguiente canción
+  //    → pedimos que la pantalla se mantenga encendida mientras suena el Atril;
+  // 2) el celular puede bloquear el play automático → si pasa, mostramos un botón
+  //    grande para seguir con un toque, y reintentamos solo cuando el audio esté listo;
+  // 3) los controles de la pantalla bloqueada / notificación también avanzan la lista.
+  let wakeLock = null;
+  async function mantenerPantallaEncendida(){
+    try{
+      if('wakeLock' in navigator && !wakeLock && document.visibilityState === 'visible'){
+        wakeLock = await navigator.wakeLock.request('screen');
+        wakeLock.addEventListener('release', ()=>{ wakeLock = null; });
+      }
+    }catch(e){ wakeLock = null; }
+  }
+  function soltarPantalla(){
+    try{ if(wakeLock){ wakeLock.release(); } }catch(e){}
+    wakeLock = null;
+  }
+  document.addEventListener('visibilitychange', ()=>{
+    const a = audioEl();
+    if(document.visibilityState === 'visible' && a && !a.paused) mantenerPantallaEncendida();
+  });
+
+  function actualizarControlesDelSistema(){
+    if(!('mediaSession' in navigator)) return;
+    const item = listaPlana[idxActual];
+    try{
+      if(item && typeof MediaMetadata !== 'undefined'){
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: (item.day ? 'Día '+item.day+' — ' : '') + item.titulo.replace(/^[^A-Za-zÁÉÍÓÚáéíóúÑñ]+/, ''),
+          artist: 'El Dragón del Lenguaje',
+          album: 'Atril — audio '+(idxActual+1)+' de '+listaPlana.length
+        });
+      }
+      navigator.mediaSession.setActionHandler('play', ()=>tocar());
+      navigator.mediaSession.setActionHandler('pause', ()=>audioEl().pause());
+      navigator.mediaSession.setActionHandler('nexttrack', idxActual < listaPlana.length-1 ? ()=>reproducirDesde(idxActual+1) : null);
+      navigator.mediaSession.setActionHandler('previoustrack', idxActual > 0 ? ()=>reproducirDesde(idxActual-1) : null);
+    }catch(e){}
+  }
+
+  function mostrarBotonSeguir(mostrar){
+    const b = el('atrilSeguirBtn');
+    if(b) b.style.display = mostrar ? 'block' : 'none';
+  }
+
+  let reintentoPendiente = false;
   function tocar(){
-    const p = audioEl().play();
-    if(p && p.catch) p.catch(()=>{}); // si el navegador lo bloquea, el alumno da play y la cadena sigue igual
+    const a = audioEl();
+    mostrarBotonSeguir(false);
+    actualizarControlesDelSistema();
+    const p = a.play();
+    if(p && p.then){
+      p.then(()=>{ mostrarBotonSeguir(false); mantenerPantallaEncendida(); })
+       .catch(err=>{
+         if(err && err.name === 'NotAllowedError'){
+           // El celular no deja arrancar solo: un toque del alumno y sigue la cadena
+           mostrarBotonSeguir(true);
+         } else if(!reintentoPendiente){
+           // El audio todavía no estaba listo (red lenta): reintentar cuando cargue
+           reintentoPendiente = true;
+           a.addEventListener('canplay', function una(){
+             a.removeEventListener('canplay', una);
+             reintentoPendiente = false;
+             a.play().then(()=>mantenerPantallaEncendida()).catch(()=>mostrarBotonSeguir(true));
+           });
+         }
+       });
+    }
   }
 
   function cargarActual(){
     const item = listaPlana[idxActual];
     if(!item) return;
     const a = audioEl();
-    a.src = item.audio;
+    // Sin a.load(): cambiar el src ya carga el audio, y en iPhone un load() explícito
+    // justo antes del play() puede cancelarlo.
     a.defaultPlaybackRate = velocidad;
-    a.load();
+    a.src = item.audio;
     a.playbackRate = velocidad;
   }
 
@@ -233,6 +302,8 @@
       tocar();
     } else {
       finDeSemana = true;
+      soltarPantalla();
+      mostrarBotonSeguir(false);
       renderReproductor();
     }
     marcarFilas();
@@ -412,6 +483,20 @@
     a._atrilInit = true;
     a.preservesPitch = true; a.mozPreservesPitch = true; a.webkitPreservesPitch = true;
     a.addEventListener('ended', alTerminar);
+    a.addEventListener('playing', ()=>{ mostrarBotonSeguir(false); mantenerPantallaEncendida(); });
+    a.addEventListener('pause', ()=>{ if(!a.ended) soltarPantalla(); });
+    // Algunos celulares vuelven a 1× al cambiar de canción: se reaplica la velocidad elegida
+    a.addEventListener('loadedmetadata', ()=>{ a.playbackRate = velocidad; });
+    // Botón grande para seguir cuando el celular bloquea el arranque automático
+    if(!el('atrilSeguirBtn')){
+      const seguir = document.createElement('button');
+      seguir.id = 'atrilSeguirBtn';
+      seguir.className = 'primary';
+      seguir.style.cssText = 'display:none; width:100%; margin:10px 0; font-size:17px; padding:14px;';
+      seguir.textContent = '▶ Toca para seguir con la siguiente canción';
+      seguir.onclick = ()=>tocar();
+      a.insertAdjacentElement('afterend', seguir);
+    }
     a.addEventListener('error', alFallarAudio);
     a.addEventListener('timeupdate', alAvanzarTiempo);
   }
