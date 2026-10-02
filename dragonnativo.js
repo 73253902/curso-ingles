@@ -4255,7 +4255,68 @@ const FASE4_SEMANAS = [
   }
 ];
 
+// ================= Canciones especiales — estructuras gramaticales =================
+// Canciones extra que NO cuentan dentro de las 42 por fase (no corren la canción
+// nativa de cada día del Atril). Cada una trae sus propios ejercicios complementarios
+// en "ejercicios" — tipos: completar, corregir, traduccion (se califican) y oracion (libre).
+const CANCIONES_ESPECIALES = [
+  { numero:1, titulo:"Both and, Neither nor", audio:null, bilingue:true,
+    estrofa1:{label:"Nuevas — both … and", lineas:[
+      {en:"Both es tanto, and es como, dos cosas a la vez,", es:"Both significa tanto, and significa como: dos cosas a la vez,", pron:"bóuz es tanto, and es como, dos cosas a la vez,"},
+      {en:"I'm both the singer and the composer, soy tanto cantante como compositor,", es:"Soy tanto el cantante como el compositor,", pron:"áim bóuz de sínguer and de campóuser, soy tanto cantante como compositor,"},
+      {en:"I'm both the owner and the manager, dueño y gerente también,", es:"Soy tanto el dueño como el gerente,", pron:"áim bóuz di óuner and de mánayer, dueño y gerente también,"},
+      {en:"My wife is both the pianist and the choir director, excellent! Mi esposa es tanto la pianista como la directora del coro; ¡es excelente!", es:"Mi esposa es tanto la pianista como la directora del coro; ¡es excelente!", pron:"mái uáif is bóuz de píanist and de kuáier diréctor, éxelent! Mi esposa es tanto la pianista como la directora del coro; ¡es excelente!"}
+    ]},
+    precoro:{label:"Repaso", lineas:[
+      {en:"I'm the owner, soy el dueño, and I'm in charge of sales, a cargo de ventas,", es:"Soy el dueño, y estoy a cargo de ventas,", pron:"áim di óuner, soy el dueño, and áim in charch av séils, a cargo de ventas,"},
+      {en:"Does that make sense? ¿Tiene sentido? Yes, that makes sense, sí, ¡eso tiene sentido!", es:"¿Tiene sentido? Sí, ¡eso tiene sentido!", pron:"das dat méik sens? ¿tiene sentido? iés, dat méiks sens, sí, ¡eso tiene sentido!"}
+    ]},
+    coro:{label:"Las dos estructuras", lineas:[
+      {en:"Both and, tanto como,", es:"Both … and: tanto … como,", pron:"bóuz and, tanto como,"},
+      {en:"neither nor, ni … ni,", es:"Neither … nor: ni … ni,", pron:"níder nor, ni … ni,"},
+      {en:"Both the singer and the composer, ¡los dos soy yo!", es:"Tanto el cantante como el compositor, ¡los dos soy yo!", pron:"bóuz de sínguer and de campóuser, ¡los dos soy yo!"},
+      {en:"Neither the owner nor the manager, ¡ninguno soy yo!", es:"Ni el dueño ni el gerente, ¡ninguno soy yo!", pron:"níder di óuner nor de mánayer, ¡ninguno soy yo!"}
+    ]},
+    estrofa2:{label:"Escena — neither … nor más but", lineas:[
+      {en:"Neither es ni, nor es ni, para decir que no,", es:"Neither significa ni, nor significa ni, para decir que no,", pron:"níder es ni, nor es ni, para decir que no,"},
+      {en:"I'm neither the owner nor the manager, ni dueño ni gerente soy yo,", es:"No soy ni el dueño ni el gerente,", pron:"áim níder di óuner nor de mánayer, ni dueño ni gerente soy yo,"},
+      {en:"but I'm both the singer and the composer, but es pero, pero soy el cantante y el compositor.", es:"pero soy tanto el cantante como el compositor.", pron:"bat áim bóuz de sínguer and de campóuser, bat es pero, pero soy el cantante y el compositor."},
+      {en:"My son is both the drummer and the sound engineer, how exciting! ¡Mi hijo es a la vez baterista e ingeniero de sonido, qué emoción!", es:"¡Mi hijo es a la vez baterista e ingeniero de sonido, qué emoción!", pron:"mái san is bóuz de drámer and de sáund enyiníer, jáu exáiting! ¡Mi hijo es a la vez baterista e ingeniero de sonido, qué emoción!"}
+    ]},
+    puente:{label:"Ojo con los errores", lineas:[
+      {en:"Sing es cantar, song es canción, singer es quien canta con el corazón,", es:"Sing significa cantar, song significa canción, singer es quien canta con el corazón,", pron:"sing es cantar, song es canción, sínguer es quien canta con el corazón,"},
+      {en:"Choir director, director del coro, ¡sin 'of' en el medio, por favor!", es:"Choir director es director del coro, ¡sin 'of' en el medio, por favor!", pron:"kuáier diréctor, director del coro, ¡sin 'av' en el medio, por favor!"},
+      {en:"Neither goes with nor, neither va con nor,", es:"Neither va con nor,", pron:"níder góus uid nor, níder va con nor,"},
+      {en:"and both goes with and, ¡both va con and!", es:"¡y both va con and!", pron:"and bóuz góus uid and, ¡bóuz va con and!"}
+    ]},
+    ejercicios:[
+      {tipo:'completar', frase:"I'm ___ the singer and the composer.", es:"Soy tanto el cantante como el compositor.", respuesta:"both"},
+      {tipo:'completar', frase:"I'm both the owner ___ the manager.", es:"Soy tanto el dueño como el gerente.", respuesta:"and"},
+      {tipo:'completar', frase:"I'm ___ the owner nor the manager.", es:"No soy ni el dueño ni el gerente.", respuesta:"neither"},
+      {tipo:'completar', frase:"I'm neither the singer ___ the arranger.", es:"No soy ni el cantante ni el arreglista.", respuesta:"nor"},
+      {tipo:'completar', frase:"I sing a ___ every day.", es:"Canto una canción todos los días.", respuesta:"song"},
+      {tipo:'completar', frase:"I'm the ___ of the choir.", es:"Soy el cantante del coro.", respuesta:"singer"},
+      {tipo:'corregir', frase:"My wife is both the pianist and of the choir director.", es:"Mi esposa es tanto la pianista como la directora del coro.", respuesta:"My wife is both the pianist and the choir director.", pista:"Sobra una palabra: 'choir director' ya significa 'directora del coro'."},
+      {tipo:'corregir', frase:"I'm neither the owner and the manager.", es:"No soy ni el dueño ni el gerente.", respuesta:"I'm neither the owner nor the manager.", pista:"Neither nunca va con and."},
+      {tipo:'corregir', frase:"I'm both the musician and compeser here.", es:"Aquí soy tanto el músico como el compositor.", respuesta:"I'm both the musician and the composer here.", pista:"Son dos errores: falta un artículo y una palabra está mal escrita."},
+      {tipo:'corregir', frase:"I'm neither the singer nor the arranger of the sing.", es:"No soy ni el cantante ni el arreglista de la canción.", respuesta:"I'm neither the singer nor the arranger of the song.", pista:"Sing es cantar; la canción es otra palabra."},
+      {tipo:'corregir', frase:"My soon is both the drummer and the sound engineer.", es:"Mi hijo es tanto el baterista como el ingeniero de sonido.", respuesta:"My son is both the drummer and the sound engineer.", pista:"Soon significa 'pronto'."},
+      {tipo:'traduccion', es:"Soy tanto el dueño como el gerente.", en:"I'm both the owner and the manager."},
+      {tipo:'traduccion', es:"Mi hijo es tanto el baterista como el ingeniero de sonido.", en:"My son is both the drummer and the sound engineer."},
+      {tipo:'traduccion', es:"No soy ni el cantante ni el compositor.", en:"I'm neither the singer nor the composer."},
+      {tipo:'traduccion', es:"No soy ni el dueño ni el gerente, pero soy tanto el cantante como el compositor.", en:"I'm neither the owner nor the manager, but I'm both the singer and the composer."},
+      {tipo:'oracion', es:"Escribe una oración sobre ti usando both … and.", en:"I'm both the father and the teacher."},
+      {tipo:'oracion', es:"Escribe una oración sobre alguien de tu familia usando neither … nor.", en:"My brother is neither the singer nor the drummer."},
+      {tipo:'oracion', es:"Escribe una oración con neither … nor, but y both … and juntas.", en:"I'm neither the owner nor the manager, but I'm both the singer and the composer."}
+    ]
+  }
+];
+
+const FASE_ESPECIAL = { id:'esp', nombre:"⭐ Canciones especiales", subtitulo:"Estructuras con ejercicios extra", especial:true,
+  frases: CANCIONES_ESPECIALES.length, disponible:true, fijas:FIJAS_FASE1, semanas:CANCIONES_ESPECIALES };
+
 const dragonNativo = {
+  especiales: FASE_ESPECIAL,
   fases: [
     { id:1, nombre:"Fase 1", subtitulo:"Supervivencia diaria", frases:170, disponible:true, fijas:FIJAS_FASE1, semanas:FASE1_SEMANAS },
     { id:2, nombre:"Fase 2", subtitulo:"Fluidez conversacional", frases:173, disponible:true, fijas:FIJAS_FASE2, semanas:FASE2_SEMANAS },
@@ -4270,6 +4331,8 @@ const dragonNativo = {
   let currentWeekNum = null;
 
   function el(id){ return document.getElementById(id); }
+  // Las canciones especiales viven fuera de las 4 fases (id 'esp').
+  function getFase(id){ return id==='esp' ? dragonNativo.especiales : dragonNativo.fases.find(f=>f.id===id); }
 
   // Cada canción trae su propio Pre-Coro y Coro de repaso; si no, se usan los fijos de la fase.
   function preCoroDe(fase, semana){ return semana.precoro ? semana.precoro.lineas : fase.fijas.precoro; }
@@ -4310,7 +4373,7 @@ const dragonNativo = {
     return !!(progreso[faseId] && progreso[faseId][weekNum]);
   }
   function faseCompletada(faseId){
-    const fase = dragonNativo.fases.find(f=>f.id===faseId);
+    const fase = getFase(faseId);
     if(!fase || !fase.semanas) return false;
     return fase.semanas.every(s => semanaCompletada(faseId, s.numero));
   }
@@ -4371,23 +4434,41 @@ const dragonNativo = {
       }
       box.appendChild(card);
     });
+
+    // Canciones especiales: se abren junto con la Fase 1 y no gastan desbloqueos de premio.
+    const esp = dragonNativo.especiales;
+    if(esp && esp.semanas.length){
+      const abierta = faseDesbloqueada(dragonNativo.fases[0]);
+      const card = document.createElement('div');
+      card.className='dn-fase-card';
+      card.innerHTML = '<div class="dn-fase-num">⭐</div>'
+        +'<div class="dn-fase-info"><b>Canciones especiales — '+esp.subtitulo+'</b><p>'
+        +(abierta ? esp.semanas.length+' '+(esp.semanas.length===1?'canción':'canciones')+' · con ejercicios complementarios' : 'Se abre junto con la Fase 1')+'</p></div>'
+        +'<div class="dn-fase-progress">'+(abierta?'▶':'🔒')+'</div>';
+      if(abierta){
+        card.onclick=()=>{ currentFaseId='esp'; renderWeekGrid('esp'); showView('semanas'); };
+      } else {
+        card.style.opacity='0.5'; card.style.cursor='default';
+      }
+      box.appendChild(card);
+    }
   }
 
   function renderWeekGrid(faseId){
-    const fase = dragonNativo.fases.find(f=>f.id===faseId);
+    const fase = getFase(faseId);
     const grid = el('dnWeekGrid');
     grid.innerHTML='';
     const esAdmin = typeof isAdmin === 'function' && isAdmin();
     fase.semanas.forEach(semana=>{
       const btn = document.createElement('div');
       const completada = semanaCompletada(faseId, semana.numero);
-      const desbloqueadaPorPremio = esAdmin || (typeof unidadesDesbloqueadas !== 'function') || (unidadGlobalDN(faseId, semana.numero) <= unidadesDesbloqueadas('dragon_nativo'));
+      const desbloqueadaPorPremio = esAdmin || fase.especial || (typeof unidadesDesbloqueadas !== 'function') || (unidadGlobalDN(faseId, semana.numero) <= unidadesDesbloqueadas('dragon_nativo'));
       btn.className='dn-week-btn'+(completada?' dn-week-done':'')+(desbloqueadaPorPremio?'':' dn-week-locked');
       if(!desbloqueadaPorPremio){
         btn.innerHTML = '<span class="wk-num">'+semana.numero+' 🔒</span><span class="wk-audio">Se desbloquea practicando con otros alumnos</span>';
         btn.style.opacity = '0.5';
       } else {
-        btn.innerHTML = '<span class="wk-num">'+semana.numero+(completada?' ✅':'')+'</span><span class="wk-audio">'+(semana.audio?'🔊 con audio':'📝 solo letra')+'</span>';
+        btn.innerHTML = '<span class="wk-num">'+semana.numero+(completada?' ✅':'')+'</span><span class="wk-audio">'+(semana.titulo?semana.titulo+' · ':'')+(semana.audio?'🔊 con audio':'📝 solo letra')+'</span>';
         btn.onclick=()=>{ renderSong(faseId, semana.numero); showView('cancion'); };
       }
       grid.appendChild(btn);
@@ -4480,7 +4561,7 @@ const dragonNativo = {
     doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(27,31,42);
     doc.text('Guía Vocal', 108, y, {align:'center'}); y += 7;
     doc.setFont('helvetica','italic'); doc.setFontSize(11); doc.setTextColor(107,86,44);
-    doc.text(fase.nombre+' — Semana '+semana.numero, 108, y, {align:'center'}); y += 6;
+    doc.text(fase.especial ? 'Canción especial — '+semana.titulo : fase.nombre+' — Semana '+semana.numero, 108, y, {align:'center'}); y += 6;
     doc.setDrawColor(232,163,61); doc.setLineWidth(0.8);
     doc.line(margenX, y, 216-margenX, y); y += 8;
 
@@ -4517,9 +4598,11 @@ const dragonNativo = {
 
   function renderSong(faseId, weekNum){
     currentFaseId = faseId; currentWeekNum = weekNum;
-    const fase = dragonNativo.fases.find(f=>f.id===faseId);
+    const fase = getFase(faseId);
     const semana = fase.semanas.find(s=>s.numero===weekNum);
-    el('dnSongTitle').textContent = fase.nombre+' — Semana '+semana.numero;
+    el('dnSongTitle').textContent = fase.especial ? '⭐ '+semana.titulo : fase.nombre+' — Semana '+semana.numero;
+    el('dnReviewBtn').textContent = (semana.ejercicios && semana.ejercicios.length)
+      ? '✍️ Hacer los ejercicios ('+semana.ejercicios.length+')' : '✍️ Repasar esta semana (escrito)';
 
     const audioBox = el('dnAudioBox');
     if(semana.audio){
@@ -4545,7 +4628,7 @@ const dragonNativo = {
 
   // ================= Repaso escrito (ventana móvil de las últimas 4 canciones) =================
   function buildReviewPool(faseId, weekNum){
-    const fase = dragonNativo.fases.find(f=>f.id===faseId);
+    const fase = getFase(faseId);
     const startWeek = Math.max(1, weekNum-3);
     const seen = new Set();
     const pool = [];
@@ -4567,6 +4650,23 @@ const dragonNativo = {
   let reviewItems=[], reviewIdx=0, reviewOk=0, reviewGraded=0;
 
   function openReview(){
+    const fase = getFase(currentFaseId);
+    const semana = fase.semanas.find(s=>s.numero===currentWeekNum);
+    if(semana && semana.ejercicios && semana.ejercicios.length){
+      // Ejercicios complementarios propios de la canción
+      reviewItems = semana.ejercicios.map(e=>({
+        propio:true, tipo:e.tipo, es:e.es, pista:e.pista||'', frase:e.frase||'',
+        en: e.tipo==='traduccion' || e.tipo==='oracion' ? e.en : (e.tipo==='completar' ? e.frase.replace('___', e.respuesta) : e.respuesta),
+        respuesta: e.tipo==='traduccion' ? e.en : e.respuesta
+      }));
+      reviewIdx=0; reviewOk=0; reviewGraded=0;
+      el('dnReviewTitle').textContent = 'Ejercicios — '+(semana.titulo || 'Semana '+currentWeekNum);
+      el('dnReviewHint').textContent = reviewItems.length+' ejercicios: completar, corregir el error, traducir y escribir tus propias frases. Repítelos cuantas veces quieras.';
+      el('dnReviewNextBtn').onclick = ()=>{ reviewIdx++; showReviewItem(); };
+      showView('repaso');
+      showReviewItem();
+      return;
+    }
     const pool = buildReviewPool(currentFaseId, currentWeekNum);
     reviewItems = pool.map((l,n)=>({ en:l.en, es:l.es, pron:l.pron, tipo: (n>0 && n%5===0) ? 'oracion' : 'traduccion' }));
     reviewIdx=0; reviewOk=0; reviewGraded=0;
@@ -4584,7 +4684,18 @@ const dragonNativo = {
     el('dnReviewFeedback').style.display='none';
     el('dnReviewNextRow').style.display='none';
     const pronHTML = item.pron ? ' <span class="pron-hint">· se pronuncia: "'+item.pron+'"</span>' : '';
-    if(item.tipo==='oracion'){
+    const num = '<div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Ejercicio '+(reviewIdx+1)+' de '+reviewItems.length+'</div>';
+    if(item.tipo==='completar'){
+      el('dnReviewPrompt').innerHTML = num+'✏️ <b>Completa la palabra que falta:</b><div class="dn-en" style="font-size:19px;margin-top:6px;">'+item.frase+'</div><span style="color:var(--muted);font-size:13px;">('+item.es+')</span>';
+      el('dnReviewInput').placeholder='Escribe solo la palabra que falta...';
+    } else if(item.tipo==='corregir'){
+      el('dnReviewPrompt').innerHTML = num+'🔍 <b>Esta frase tiene un error. Escríbela corregida:</b><div class="dn-en" style="font-size:19px;margin-top:6px;">❌ '+item.frase+'</div><span style="color:var(--muted);font-size:13px;">('+item.es+')</span>'
+        +(item.pista?'<div style="font-size:13px;margin-top:6px;">💡 Pista: '+item.pista+'</div>':'');
+      el('dnReviewInput').placeholder='Escribe la frase corregida...';
+    } else if(item.tipo==='oracion' && item.propio){
+      el('dnReviewPrompt').innerHTML = num+'🎤 <b>'+item.es+'</b><br><span style="color:var(--muted);font-size:13px;">Ejemplo: "'+item.en+'"</span>';
+      el('dnReviewInput').placeholder='Escribe tu propia oración en inglés...';
+    } else if(item.tipo==='oracion'){
       el('dnReviewPrompt').innerHTML = 'Escribí una oración real usando esta frase: <br><b>"'+item.en+'"</b>'+pronHTML+' <span style="color:var(--muted);font-size:13px;">('+item.es+')</span>';
       el('dnReviewInput').placeholder='Escribí tu propia oración en inglés...';
     } else {
@@ -4615,11 +4726,20 @@ const dragonNativo = {
     if(item.tipo==='oracion'){
       box.className='dn-review-feedback neutral';
       box.textContent='✓ Registrado — esta parte no se califica, es para practicar el uso real. Frase de referencia: "'+item.en+'"';
+    } else if(item.propio){
+      // completar, corregir y traducción de los ejercicios complementarios
+      const isRight = practicaAnswerMatches(said, item.respuesta, true);
+      reviewGraded++; if(isRight) reviewOk++;
+      box.className='dn-review-feedback '+(isRight?'ok':'retry');
+      if(isRight){ box.textContent = '✓ ¡Correcto! "'+item.en+'"'; }
+      else { box.innerHTML = '<b>✗ Casi — compara tu respuesta con la correcta:</b>'+(typeof compararRespuestaHTML==='function' ? compararRespuestaHTML(said, item.respuesta) : '')
+        +(item.tipo==='completar' ? '<div style="margin-top:6px;">Frase completa: "'+item.en+'"</div>' : ''); }
     } else {
       const isRight = practicaAnswerMatches(said, item.en, true);
       reviewGraded++; if(isRight) reviewOk++;
       box.className='dn-review-feedback '+(isRight?'ok':'retry');
-      box.textContent = (isRight?'✓ ¡Correcto! ':'✗ Casi — la frase correcta era: ')+'"'+item.en+'"';
+      if(isRight){ box.textContent = '✓ ¡Correcto! "'+item.en+'"'; }
+      else { box.innerHTML = '<b>✗ Casi — compara tu respuesta con la correcta:</b>'+(typeof compararRespuestaHTML==='function' ? compararRespuestaHTML(said, item.en) : ''); }
     }
     mostrarNextRow('dnReviewNextRow');
     el('dnReviewNextBtn').textContent = (reviewIdx+1<reviewItems.length) ? 'Siguiente →' : 'Ver resultado →';
