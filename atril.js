@@ -162,13 +162,16 @@
       d.items.forEach(it=>{
         const idx = listaPlana.findIndex(x=>x.day===d.day && x.tipo===it.tipo);
         const fila = document.createElement('button');
-        fila.className = 'ghost';
+        fila.className = 'ghost atril-fila';
+        fila.dataset.idx = idx;
+        fila.dataset.titulo = it.titulo;
         fila.style.cssText = 'width:100%; margin-bottom:6px; text-align:left;';
         fila.textContent = it.titulo;
         fila.onclick = ()=>reproducirDesde(idx);
         box.appendChild(fila);
       });
     });
+    marcarFilas();
 
     const volverBtn = document.createElement('button');
     volverBtn.className = 'ghost'; volverBtn.style.marginTop = '14px';
@@ -178,13 +181,37 @@
   }
 
   // ---------- Reproducción continua ----------
+  // El alumno toca cualquier canción de la semana y, desde ahí, suenan todas
+  // las siguientes una tras otra hasta terminar la semana. Si un audio no
+  // carga (archivo que todavía no existe), se salta solo y sigue con el próximo.
+  let velocidad = 1; // se mantiene al pasar de una canción a otra
+  let finDeSemana = false;
+  let saltados = 0; // evita un bucle infinito si ningún audio carga
+
+  function marcarFilas(){
+    document.querySelectorAll('.atril-fila').forEach(f=>{
+      const actual = parseInt(f.dataset.idx) === idxActual && !finDeSemana;
+      f.textContent = (actual ? '▶ ' : '') + f.dataset.titulo;
+      f.style.fontWeight = actual ? '700' : '';
+      f.style.borderColor = actual ? 'var(--en)' : '';
+    });
+  }
+
   function reproducirDesde(idx){
+    if(idx < 0 || idx >= listaPlana.length) return;
     idxActual = idx;
+    finDeSemana = false;
+    saltados = 0;
     sel = { a:null, b:null };
     cargarActual();
     el('atrilPlayerBox').style.display = 'block';
     renderReproductor();
-    audioEl().play();
+    tocar();
+  }
+
+  function tocar(){
+    const p = audioEl().play();
+    if(p && p.catch) p.catch(()=>{}); // si el navegador lo bloquea, el alumno da play y la cadena sigue igual
   }
 
   function cargarActual(){
@@ -192,17 +219,35 @@
     if(!item) return;
     const a = audioEl();
     a.src = item.audio;
+    a.defaultPlaybackRate = velocidad;
     a.load();
+    a.playbackRate = velocidad;
+  }
+
+  function avanzar(){
+    if(idxActual < listaPlana.length-1){
+      idxActual++;
+      sel = { a:null, b:null };
+      cargarActual();
+      renderReproductor();
+      tocar();
+    } else {
+      finDeSemana = true;
+      renderReproductor();
+    }
+    marcarFilas();
   }
 
   function alTerminar(){
-    if(idxActual < listaPlana.length-1){
-      idxActual++;
-      cargarActual();
-      sel = { a:null, b:null };
-      renderReproductor();
-      audioEl().play();
-    }
+    saltados = 0;
+    avanzar();
+  }
+
+  function alFallarAudio(){
+    if(!audioEl().getAttribute('src')) return;
+    saltados++;
+    if(saltados > listaPlana.length) return;
+    avanzar();
   }
 
   function lineaTiempos(lineas, duracion){
@@ -215,6 +260,25 @@
     if(!item) return;
     const infoBox = el('atrilPlayerInfo');
     infoBox.innerHTML = '';
+    marcarFilas();
+
+    if(finDeSemana){
+      const fin = document.createElement('div');
+      fin.style.cssText = 'background:var(--bg-panel-2); border-radius:10px; padding:12px; margin-bottom:12px; text-align:center;';
+      fin.innerHTML = '<b>🎉 Terminaste las canciones de la semana</b>';
+      const otraVez = document.createElement('button');
+      otraVez.className = 'ghost'; otraVez.style.marginTop = '8px';
+      otraVez.textContent = '🔁 Escuchar la semana otra vez';
+      otraVez.onclick = ()=>reproducirDesde(0);
+      fin.appendChild(document.createElement('br'));
+      fin.appendChild(otraVez);
+      infoBox.appendChild(fin);
+    }
+
+    const progreso = document.createElement('p');
+    progreso.style.cssText = 'font-size:12px; color:var(--muted); margin:0 0 4px;';
+    progreso.textContent = '▶ Reproducción continua · audio '+(idxActual+1)+' de '+listaPlana.length+' de la semana';
+    infoBox.appendChild(progreso);
 
     const titulo = document.createElement('h3');
     titulo.textContent = (item.day?'Día '+item.day+' — ':'')+item.titulo;
@@ -224,14 +288,19 @@
     sub.textContent = item.theme;
     infoBox.appendChild(sub);
 
-    // Velocidad (sin tono)
+    // Velocidad (sin tono) — se conserva para las canciones siguientes
     const velBox = document.createElement('div');
     velBox.style.cssText = 'margin:10px 0;';
-    velBox.innerHTML = '<b>Velocidad</b> <span id="atrilVelVal" style="color:var(--muted);">'+(audioEl().playbackRate||1).toFixed(2)+'×</span>';
+    velBox.innerHTML = '<b>Velocidad</b> <span id="atrilVelVal" style="color:var(--muted);">'+velocidad.toFixed(2)+'×</span>';
     const velInput = document.createElement('input');
-    velInput.type = 'range'; velInput.id = 'atrilVel'; velInput.min = '0.5'; velInput.max = '1.5'; velInput.step = '0.05'; velInput.value = audioEl().playbackRate || 1;
+    velInput.type = 'range'; velInput.id = 'atrilVel'; velInput.min = '0.5'; velInput.max = '1.5'; velInput.step = '0.05'; velInput.value = velocidad;
     velInput.style.width = '100%';
-    velInput.oninput = ()=>{ audioEl().playbackRate = parseFloat(velInput.value); el('atrilVelVal').textContent = audioEl().playbackRate.toFixed(2)+'×'; };
+    velInput.oninput = ()=>{
+      velocidad = parseFloat(velInput.value);
+      audioEl().defaultPlaybackRate = velocidad;
+      audioEl().playbackRate = velocidad;
+      el('atrilVelVal').textContent = velocidad.toFixed(2)+'×';
+    };
     velBox.appendChild(velInput);
     infoBox.appendChild(velBox);
 
@@ -343,6 +412,7 @@
     a._atrilInit = true;
     a.preservesPitch = true; a.mozPreservesPitch = true; a.webkitPreservesPitch = true;
     a.addEventListener('ended', alTerminar);
+    a.addEventListener('error', alFallarAudio);
     a.addEventListener('timeupdate', alAvanzarTiempo);
   }
 
