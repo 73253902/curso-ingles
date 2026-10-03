@@ -175,6 +175,13 @@ async function iniciarApp(){
   // El modo admin es independiente del sistema de cuentas — si ya estás en modo
   // admin (por la URL ?admin=..., recordada en localStorage), entrás directo,
   // sin necesidad de registrarte ni iniciar sesión.
+  // Un enlace de recuperación vencido se avisa siempre, aunque esté activo el modo admin
+  if(ENLACE_VENCIDO){
+    try{ history.replaceState(null, '', window.location.pathname + window.location.search.replace(/[?&](error|error_code|error_description)=[^&]*/g,'')); }catch(e){}
+    mostrarPantallaLogin();
+    return;
+  }
+
   if(typeof isAdmin === 'function' && isAdmin()){
     el('authGate').style.display='none';
     showHome();
