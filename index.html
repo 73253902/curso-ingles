@@ -342,6 +342,17 @@
           <input type="text" id="authCodigoReferido" placeholder="Código de referido (opcional)" style="padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink);">
           <div id="authError" style="color:var(--warn); font-size:13px; min-height:18px;"></div>
           <button class="primary" id="authSubmitBtn">Entrar</button>
+          <span class="reset-link" id="authOlvideBtn" style="margin:4px 0 0; text-align:center;">¿Olvidaste tu contraseña?</span>
+        </div>
+      </div>
+      <div id="authNuevaClaveBox" style="display:none;">
+        <h2 style="margin-top:0;">🔑 Crea tu nueva contraseña</h2>
+        <p class="sub">Escribe una contraseña nueva de al menos 6 caracteres. Úsala desde ahora para entrar al curso.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+          <input type="password" id="authNuevaClave1" placeholder="Nueva contraseña" autocomplete="new-password" style="padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink);">
+          <input type="password" id="authNuevaClave2" placeholder="Repite la nueva contraseña" autocomplete="new-password" style="padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-panel-2); color:var(--ink);">
+          <div id="authNuevaClaveError" style="color:var(--warn); font-size:13px; min-height:18px;"></div>
+          <button class="primary" id="authNuevaClaveBtn">Guardar mi nueva contraseña</button>
         </div>
       </div>
       <div id="authPagoBox" style="display:none;">
@@ -349,7 +360,7 @@
         <p class="sub" id="authPagoTexto"></p>
         <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
           <button class="primary" id="authPagarBtn">Pagar ahora</button>
-          <button class="ghost" id="authCerrarSesionBtn">Cerrar sesión</button>
+          <button class="ghost" id="authCerrarSesionBtn">← Volver al curso</button>
         </div>
         <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--border); text-align:center;">
           <p style="font-size:13px; color:var(--muted); margin-bottom:10px;">¿Tuviste un problema con el pago o tenés una duda?</p>
@@ -450,6 +461,7 @@
       <button class="primary" id="atrilEntryBtn" onclick="mostrarAtril()">Entrar →</button>
     </div>
     <span class="reset-link" id="resetLink">Borrar todo mi progreso guardado</span>
+    <span class="reset-link" id="cerrarSesionLink" style="display:none; margin-left:18px;">Cerrar sesión</span>
   </div>
 
   <!-- ===== CLASE CON PROFESOR ===== -->

@@ -7,6 +7,10 @@
 
 const SUPABASE_URL = 'https://waclgxxqjtrgxqsqklky.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RZfjr7f9iqYFPoHkGQjo_Q_mL67PtJ5';
+// Se lee ANTES de crear el cliente: al abrir el enlace del correo de recuperación,
+// la dirección trae "type=recovery" (o un error si el enlace venció) y Supabase la limpia después.
+const VIENE_DE_RECUPERACION = /type=recovery/.test(window.location.hash);
+let ENLACE_VENCIDO = /error_code=otp_expired|error=access_denied/.test(window.location.hash + window.location.search);
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const LECCIONES_GRATIS = 7;
@@ -32,6 +36,67 @@ async function signOut(){
   currentUser = null;
   currentProfile = null;
 }
+
+// ================================================================
+// Mensajes de error de Supabase, en español y con qué hacer
+// ================================================================
+function traducirErrorAuth(error){
+  const m = (error && (error.message || String(error))) || '';
+  if(/Invalid login credentials/i.test(m)) return 'Correo o contraseña incorrectos. Si no recuerdas tu contraseña, toca "¿Olvidaste tu contraseña?".';
+  if(/already registered|already been registered/i.test(m)) return 'Ya existe una cuenta con este correo. Quita el chulito de "Es la primera vez" e inicia sesión.';
+  if(/Email not confirmed/i.test(m)) return 'Todavía no confirmas tu correo. Busca el mensaje de confirmación en tu bandeja (y en Spam) y toca el enlace.';
+  if(/at least 6 characters|Password should be/i.test(m)) return 'La contraseña debe tener al menos 6 caracteres.';
+  if(/should be different from the old/i.test(m)) return 'La nueva contraseña debe ser diferente a la anterior.';
+  if(/invalid format|Unable to validate email/i.test(m)) return 'Ese correo no parece válido. Revísalo.';
+  if(/rate limit|For security purposes|too many/i.test(m)) return 'Hiciste varios intentos seguidos. Espera unos minutos y vuelve a intentarlo.';
+  if(/session missing|expired|invalid.*(token|link)/i.test(m)) return 'El enlace ya no es válido. Pide uno nuevo con "¿Olvidaste tu contraseña?".';
+  if(/network|Failed to fetch/i.test(m)) return 'No hay conexión. Revisa tu internet e inténtalo de nuevo.';
+  return m;
+}
+
+// ================================================================
+// ¿Olvidaste tu contraseña? — envía un correo con un enlace para crear una nueva
+// ================================================================
+async function enviarCorreoRecuperacion(email){
+  const volverA = window.location.origin + window.location.pathname;
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, { redirectTo: volverA });
+  return { error };
+}
+
+// Pantalla para escribir la contraseña nueva (al llegar desde el enlace del correo)
+function mostrarPantallaNuevaClave(){
+  const el = id => document.getElementById(id);
+  el('home').style.display='none';
+  el('authGate').style.display='block';
+  el('authLoginBox').style.display='none';
+  el('authPagoBox').style.display='none';
+  el('authNuevaClaveBox').style.display='block';
+  el('authNuevaClaveError').textContent='';
+  el('authNuevaClaveBtn').onclick = async ()=>{
+    const c1 = el('authNuevaClave1').value, c2 = el('authNuevaClave2').value;
+    const err = el('authNuevaClaveError');
+    err.style.color = 'var(--warn)';
+    if(c1.length < 6){ err.textContent = 'La contraseña debe tener al menos 6 caracteres.'; return; }
+    if(c1 !== c2){ err.textContent = 'Las dos contraseñas no coinciden. Escríbelas otra vez.'; return; }
+    el('authNuevaClaveBtn').disabled = true;
+    const { error } = await supabaseClient.auth.updateUser({ password: c1 });
+    el('authNuevaClaveBtn').disabled = false;
+    if(error){ err.textContent = traducirErrorAuth(error); return; }
+    err.style.color = 'var(--ok)';
+    err.textContent = '✓ ¡Listo! Tu contraseña quedó cambiada. Entrando al curso...';
+    try{ history.replaceState(null, '', window.location.pathname + window.location.search); }catch(e){}
+    setTimeout(()=>{ el('authNuevaClaveBox').style.display='none'; iniciarApp(); }, 1500);
+  };
+}
+let recuperacionPendiente = VIENE_DE_RECUPERACION;
+let recuperacionAtendida = false; // la pantalla de contraseña nueva se muestra una sola vez
+supabaseClient.auth.onAuthStateChange((evento)=>{
+  if(evento === 'PASSWORD_RECOVERY' && !recuperacionAtendida){
+    recuperacionAtendida = true;
+    recuperacionPendiente = false;
+    if(document.getElementById('authNuevaClaveBox')) mostrarPantallaNuevaClave();
+  }
+});
 
 // ================================================================
 // Chequeo de sesión al cargar la app
@@ -99,6 +164,14 @@ async function pushProgressToSupabase(progressData){
 async function iniciarApp(){
   const el = id => document.getElementById(id);
 
+  // Llegó desde el enlace del correo "¿Olvidaste tu contraseña?": primero la contraseña nueva
+  if(recuperacionPendiente && !recuperacionAtendida){
+    recuperacionPendiente = false;
+    recuperacionAtendida = true;
+    mostrarPantallaNuevaClave();
+    return;
+  }
+
   // El modo admin es independiente del sistema de cuentas — si ya estás en modo
   // admin (por la URL ?admin=..., recordada en localStorage), entrás directo,
   // sin necesidad de registrarte ni iniciar sesión.
@@ -130,6 +203,14 @@ async function iniciarApp(){
   }
 
   el('authGate').style.display='none';
+  if(el('cerrarSesionLink')){
+    el('cerrarSesionLink').style.display='inline-block';
+    el('cerrarSesionLink').onclick = async ()=>{
+      if(!confirm('¿Cerrar sesión en este dispositivo?')) return;
+      await signOut();
+      window.location.reload();
+    };
+  }
   showHome();
 }
 
@@ -143,7 +224,29 @@ function mostrarPantallaLogin(){
   el('authLoginBox').style.display='block';
   el('authPagoBox').style.display='none';
 
-  el('authError').textContent='';
+  if(el('authNuevaClaveBox')) el('authNuevaClaveBox').style.display='none';
+  el('authError').style.color='var(--warn)';
+  el('authError').textContent = ENLACE_VENCIDO
+    ? 'Ese enlace de recuperación ya venció o ya se usó. Escribe tu correo y toca "¿Olvidaste tu contraseña?" para recibir uno nuevo.'
+    : '';
+  ENLACE_VENCIDO = false;
+
+  el('authOlvideBtn').onclick = async ()=>{
+    const email = el('authEmail').value.trim();
+    const aviso = el('authError');
+    if(!email){ aviso.style.color='var(--warn)'; aviso.textContent='Escribe arriba el correo de tu cuenta y vuelve a tocar "¿Olvidaste tu contraseña?".'; el('authEmail').focus(); return; }
+    el('authOlvideBtn').style.pointerEvents='none';
+    aviso.style.color='var(--muted)'; aviso.textContent='Enviando el correo...';
+    const { error } = await enviarCorreoRecuperacion(email);
+    el('authOlvideBtn').style.pointerEvents='';
+    if(error && /rate limit|For security purposes|too many|invalid format|Unable to validate/i.test(error.message||'')){
+      aviso.style.color='var(--warn)'; aviso.textContent = traducirErrorAuth(error); return;
+    }
+    // Mismo mensaje exista o no la cuenta, para no revelar qué correos están registrados
+    aviso.style.color='var(--ok)';
+    aviso.textContent='📧 Si hay una cuenta con '+email+', te enviamos un enlace para crear una contraseña nueva. Revisa tu bandeja y la carpeta de Spam.';
+  };
+
   el('authSubmitBtn').onclick = async ()=>{
     const email = el('authEmail').value.trim();
     const password = el('authPassword').value;
@@ -160,7 +263,8 @@ function mostrarPantallaLogin(){
     el('authSubmitBtn').disabled = false;
 
     if(resultado.error){
-      el('authError').textContent = resultado.error.message;
+      el('authError').style.color='var(--warn)';
+      el('authError').textContent = traducirErrorAuth(resultado.error);
       return;
     }
     if(modoRegistro && resultado.data && !resultado.data.session){
